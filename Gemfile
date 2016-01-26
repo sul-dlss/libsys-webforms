@@ -25,6 +25,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+group :test do
+  gem 'coveralls', require: false
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
