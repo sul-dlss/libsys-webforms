@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -23,9 +22,15 @@ gem 'sul_styles'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a debug console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+
+  # Rubocop is a static code analyzer to enforce style.
+  gem 'rubocop', require: false
+
+  # scss-lint will test the scss files to enforce styles
+  gem 'scss_lint', require: false
 end
 
 group :test do
