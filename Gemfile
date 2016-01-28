@@ -12,6 +12,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # A gem for adding Stanford University Libraries styles to Rails applications
 gem 'sul_styles'
 
+# Use sass-powered bootstrap
+gem 'bootstrap-sass', "~> 3.3.4"
+# Use bootstrap_form for easy form building
+gem 'bootstrap_form'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
