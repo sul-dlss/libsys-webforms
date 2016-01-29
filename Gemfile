@@ -41,9 +41,7 @@ group :development, :test do
 
   # scss-lint will test the scss files to enforce styles
   gem 'scss_lint', require: false
-end
 
-group :test do
   gem 'coveralls', require: false
 end
 
