@@ -1,8 +1,11 @@
-// Imports SUL SCSS Variables
+@import 'bootstrap-sprockets';
 @import 'sul-styles';
-
+@import 'sul-variables';
 // Imports sul-icons
 @import 'sul-icons-rails';
 @import 'sul-icons-aliases';
 // Helper classes used in icons
 @import 'sul-icons/helpers';
+@import 'bootstrap';
+@import 'enter';
+@import 'layout';

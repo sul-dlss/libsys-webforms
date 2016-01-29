@@ -1,0 +1,7 @@
+<h1>Symphony Updates</h1>
+
+<% if current_user.nil? %>
+  <p>Please WebAuth</p>
+<% else %>
+  <p>What would you like to do <%= "#{current_user}" %>?</p>
+<% end %>

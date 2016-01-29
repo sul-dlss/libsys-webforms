@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSPec.describe HomeController, type: :controller do
-  describe '#home' do
-    it 'not yet implemented' do
-      pending('')
-      fail
+describe HomeController, type: :controller do
+  describe '#index' do
+    it 'should be successful' do
+      get :index
+      expect(response).to be_successful
     end
   end
 end
