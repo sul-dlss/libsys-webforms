@@ -1,6 +1,12 @@
 ruby:
   config_file: .rubocop.yml
 
+scss:
+  config_file: .scss-lint.yml
+  
+javascript:
+  ignore_file: .javascript_ignore
+
 Style/StringLiterals:
   Description: Checks if uses of quotes match the configured preference.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
