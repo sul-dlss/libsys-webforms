@@ -28,8 +28,13 @@ gem 'turbolinks'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :deployment do
+  gem 'capistrano', '~> 3.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'dlss-capistrano'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debug console
