@@ -7,11 +7,10 @@
     <% end %>
 
     <div class="header-links">
-      <% if :user_id.present? %>
-        Logout here (coming soon)
-        <%#= link_to "#{current_user.webauth}: Logout", logout_path(referrer: root_path) %>
+      <% if current_user %>
+        <%= link_to "#{current_user}: Logout", referrer: root_path %>
       <% else %>
-        Login here (coming soon)
+        <%= link_to "Login here", get: 'home/index' %>
       <% end %>
     </div>
 
