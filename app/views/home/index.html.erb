@@ -1,7 +1,7 @@
 <h1>Symphony Updates</h1>
 
-<% if :user_id.present? %>
-  <p>What would you like to do?</p>
+<% if current_user %>
+  <p>What would you like to do? </p>
 <% else %>
-  <p>Please Login(replace with login_path)</p>
+  <p><%= link_to "Please login", get: 'home/index' %></p>
 <% end %>
