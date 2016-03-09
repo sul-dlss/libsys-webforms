@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   get 'home/index'
+  get 'batch_record_updates' => 'batch_record_updates#index'
+  get 'sal3_batch_requests' => 'sal3_batch_requests#index'
+  get 'management_reports' => 'management_reports#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,7 +1,14 @@
-<h1>Symphony Updates</h1>
+<div class="home-page-section">
+  <h2>SUL Staff Web Forms</h2>
 
-<% if current_user %>
-  <p>What would you like to do? </p>
-<% else %>
+  <% if current_user %>
+  <h3>What would you like to do?</h3>
+  <ul class="sub-title">
+    <li><%= link_to "Batch record updates", 'batch_record_updates' %></li>
+    <li><%= link_to "Sal3 Batch Requests", 'sal3_batch_requests' %></li>
+    <li><%= link_to "Management reports", 'management_reports' %></li>
+  </ul>
+  <% else %>
   <p><%= link_to "Please login", get: 'home/index' %></p>
-<% end %>
+  <% end %>
+</div>
