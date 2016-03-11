@@ -1,2 +1,11 @@
-<h1>Management Reports</h1>
-<%= render partial: 'shared/main_menu_button' %>
+<div class="panel-body">
+  <ul>
+    <li><%= link_to "Circulation Statistics Report", 'circulation_statistics_report' %></li>
+    <li><%= link_to "Shelf Selection Report", 'shelf_selection_report' %></li>
+    <li><%= link_to "Expenditures Report", 'expenditures_report' %></li>
+    <li><%= link_to "Expenditures with Circ Stats Report", 'expenditures_with_circ_stats_report' %></li>
+    <li><%= link_to "Encumbrances Report", 'encumbrances_report'%></li>
+    <li><%= link_to "Endowed Funds Report", 'endowed_funds_report' %></li>
+    <li><%= link_to "Google Selection Report", 'google_selection_report' %> (coming soon)</li>
+  </ul>
+</div>

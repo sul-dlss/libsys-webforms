@@ -41,8 +41,10 @@
     </div>
   </div>
 </div>
-<%= render partial: 'shared/main_menu_button' %>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>
 <% else %>
-<p><%= link_to "Please login", 'home/index' %></p>
+<p><%= link_to "Please login", root_path %></p>
 <% end %>
 </div>
