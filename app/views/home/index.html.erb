@@ -1,14 +1,43 @@
 <div class="home-page-section">
-  <h2>SUL Staff Web Forms</h2>
-
+  <h1>SUL Staff Web Forms</h1>
   <% if current_user %>
   <h3>What would you like to do?</h3>
-  <ul class="sub-title">
-    <li><%= link_to "Batch record updates", 'batch_record_updates' %></li>
-    <li><%= link_to "Sal3 Batch Requests", 'sal3_batch_requests' %></li>
-    <li><%= link_to "Management reports", 'management_reports' %></li>
-  </ul>
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <%= link_to "Batch record updates", 'batch_record_updates' %>
+    </div>
+  </div>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Sal3 Batch Requests
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">SAL3 Content</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            Management Reports
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <%= render template: "management_reports/index" %>
+      </div>
+    </div>
+  </div>
   <% else %>
-  <p><%= link_to "Please login", get: 'home/index' %></p>
+  <div class="btn-group">
+    <%= main_menu_button %>
+  </div>
   <% end %>
 </div>

@@ -16,6 +16,14 @@ module ApplicationHelper
     'col-sm-9'
   end
 
+  def batch_menu_button
+    link_to button_tag(
+      'batch upload menu'.html_safe,
+      id: 'batch-menu-button',
+      class: 'btn btn-md btn-default  btn-full'
+    ), 'batch_record_updates'
+  end
+
   def main_menu_button
     link_to button_tag(
       'Main menu'.html_safe,
