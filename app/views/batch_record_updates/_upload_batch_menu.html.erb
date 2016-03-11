@@ -1,0 +1,11 @@
+<div id="upload-batch-menu" class="panel-body">
+  <h5>Choose the type of batch record update you wish to do:</h5>
+  <li><%= link_to "Transfer some items between libraries", 'transfer_request_form' %></li>
+  <li><%= link_to "Withdraw some items", 'withdraw_some_items' %></li>
+  <li><%= link_to "Change home location", 'change_home_location' %>
+    <span class="small-font"> (and item type if desired) for some items</span></li>
+  <li><%= link_to "Change current location", 'change_current_location' %>
+    <span class="small-font"> for some items</span></li>
+  <li><%= link_to "Change item type", 'change_item_type' %>
+    <span class="small-font"> for some items</span></li>
+</div>

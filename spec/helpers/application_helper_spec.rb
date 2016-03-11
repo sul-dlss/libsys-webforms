@@ -24,4 +24,12 @@ describe ApplicationHelper do
       expect(content_column_class).to eq 'col-sm-9'
     end
   end
+
+  describe 'main_menu_button' do
+    let(:button) { Capybara.string(main_menu_button) }
+    it 'should render the button with a link to the root path' do
+      expect(button).to have_css('button[id="main-menu-button"]')
+      expect(button).to have_css('a[href="/"]')
+    end
+  end
 end
