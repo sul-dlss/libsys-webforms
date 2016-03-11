@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
 
   get 'home/index'
+
   get 'batch_record_updates' => 'batch_record_updates#index'
+
+  get 'transfer_request_form' => 'batch_record_updates#transfer_request_form'
+  get 'withdraw_some_items' => 'batch_record_updates#withdraw_some_items'
+  get 'change_home_location' => 'batch_record_updates#change_home_location'
+  get 'change_current_location' => 'batch_record_updates#change_current_location'
+  get 'change_item_type' => 'batch_record_updates#change_item_type'
+
+  get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
+  get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
+
   get 'sal3_batch_requests' => 'sal3_batch_requests#index'
+
   get 'management_reports' => 'management_reports#index'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
