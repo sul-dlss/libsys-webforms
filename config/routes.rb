@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'sal3_batch_requests' => 'sal3_batch_requests#index'
 
   get 'management_reports' => 'management_reports#index'
-  
+
     get 'circulation_statistics_report' => 'management_reports#circulation_statistics_report'
     get 'shelf_selection_report' => 'management_reports#shelf_selection_report'
     get 'expenditures_report' => 'management_reports#expenditures_report'
