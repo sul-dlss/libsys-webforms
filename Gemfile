@@ -51,9 +51,8 @@ group :development, :test do
 
   # Capybara for feature/integration tests
   gem 'capybara'
-end
 
-group :test do
+  #Coveralls for code coverage
   gem 'coveralls', require: false
 end
 
