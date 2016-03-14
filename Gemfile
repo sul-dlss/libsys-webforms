@@ -48,6 +48,9 @@ group :development, :test do
 
   # scss-lint will test the scss files to enforce styles
   gem 'scss_lint', require: false
+
+  # Capybara for feature/integration tests
+  gem 'capybara'
 end
 
 group :test do

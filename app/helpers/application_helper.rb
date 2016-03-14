@@ -15,4 +15,12 @@ module ApplicationHelper
   def content_column_class
     'col-sm-9'
   end
+
+  def main_menu_button
+    link_to button_tag(
+      'Main menu'.html_safe,
+      id: 'main-menu-button',
+      class: 'btn btn-md btn-primary btn-full'
+    ), root_path
+  end
 end
