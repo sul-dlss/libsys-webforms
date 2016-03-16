@@ -10,7 +10,7 @@
       <% if current_user %>
         <%= link_to "#{current_user}: Logout", referrer: root_path %>
       <% else %>
-        <%= link_to "Login here", get: 'home/index' %>
+        <%= link_to "Login here", root_path %>
       <% end %>
     </div>
 

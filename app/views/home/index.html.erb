@@ -35,9 +35,10 @@
       </div>
     </div>
   </div>
-  <% else %>
   <div class="btn-group">
     <%= main_menu_button %>
   </div>
+  <% else %>
+    <%= link_to "Login here", root_path %>
   <% end %>
 </div>
