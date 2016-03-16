@@ -28,6 +28,11 @@ gem 'turbolinks'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+group :production do
+  gem 'activerecord-oracle_enhanced-adapter'
+  gem 'ruby-oci8'
+end
+
 gem 'therubyracer'
 
 group :deployment do
