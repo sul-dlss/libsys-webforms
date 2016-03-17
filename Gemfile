@@ -28,6 +28,10 @@ gem 'turbolinks'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+group :production do
+  gem 'ruby-oci8'
+end
+
 gem 'therubyracer'
 
 group :deployment do
