@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   get 'sal3_batch_requests' => 'sal3_batch_requests#index'
 
+    get 'place_batch_request' => 'sal3_batch_requests#place_batch_request'
+    get 'review_batches' => 'sal3_batch_requests#review_batches'
+
   get 'management_reports' => 'management_reports#index'
 
     get 'circulation_statistics_report' => 'management_reports#circulation_statistics_report'
