@@ -22,7 +22,7 @@ bundle install
 
 Start the development server
 ```
-REMOTE_ENV=some-user rails s
+REMOTE_USER=some-user rails s
 ```
 
 ## Testing
