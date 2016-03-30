@@ -59,6 +59,8 @@ group :development, :test do
 
   #Coveralls for code coverage
   gem 'coveralls', require: false
+
+  gem 'factory_girl_rails'
 end
 
 group :development do
