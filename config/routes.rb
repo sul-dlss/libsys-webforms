@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  get 'webauth/login' => 'authentication#login', as: :login
+  get 'webauth/logout' => 'authentication#logout', as: :logout
+
   get 'batch_record_updates' => 'batch_record_updates#index'
 
     get 'transfer_request_form' => 'batch_record_updates#transfer_request_form'
