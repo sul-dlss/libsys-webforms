@@ -13,9 +13,15 @@ describe ApplicationController do
   end
   describe '#current_user' do
     it 'should set the current_user as a webauth_user' do
-      user = controller.send(:user_id)
-      current_user = FactoryGirl.create(:authorized_user)
-      expect(current_user.user_id).to eq(user)
+      user_id = controller.send(:user_id)
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      current_user = controller.send(:current_user)
+      expect(current_user.user_id).to eq(user_id)
+    end
+
+    it 'expects AuthorizedUser to receive find_by w/user_id when invoked' do
+      pending('learning enough about receiving messages')
+      fail
     end
   end
 end
