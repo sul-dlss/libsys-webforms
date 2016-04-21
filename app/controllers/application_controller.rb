@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= begin
-      return unless user_id.present?
-      user_id
+      AuthorizedUser.find_by(user_id: user_id)
     end
   end
   helper_method :current_user
