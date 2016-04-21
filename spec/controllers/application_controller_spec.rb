@@ -21,7 +21,7 @@ describe ApplicationController do
 
     it 'expects AuthorizedUser to receive find_by w/user_id when invoked' do
       pending('learning enough about receiving messages')
-      fail
+      raise 'pending spec...'
     end
   end
 end
