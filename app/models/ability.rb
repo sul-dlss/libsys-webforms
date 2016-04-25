@@ -2,6 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(current_user)
+    current_user ||= AuthorizedUser.new
+    
     if current_user.mgt_rpts == 'Y'
       can :manage, ManagementReport
     end
@@ -9,6 +11,7 @@ class Ability
       can :manage, Sal3BatchRequest
     end
     if current_user.unicorn_updates == 'Y'
-      can :manage, UnicornUpdate
+      can :manage, BatchRecordUpdate
     end
+  end
 end
