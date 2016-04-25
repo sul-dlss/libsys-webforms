@@ -3,13 +3,16 @@
   <% if current_user %>
   <h3>What would you like to do?</h3>
 
+  <% if can? :manage, BatchRecordUpdate %>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4><%= link_to "Batch record updates", 'batch_record_updates' %></h4>
     </div>
   </div>
+  <% end %>
 
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% if can? :manage, Sal3BatchRequest %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
         <h4 class="panel-title">
@@ -22,6 +25,8 @@
         <%= render template: "sal3_batch_requests/index" %>
       </div>
     </div>
+    <% end %>
+    <% if can? :manage, ManagementReport %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingTwo">
         <h4 class="panel-title">
@@ -34,11 +39,12 @@
         <%= render template: "management_reports/index" %>
       </div>
     </div>
+    <% end %>
   </div>
   <div class="btn-group">
     <%= main_menu_button %>
   </div>
   <% else %>
-    <%= link_to "Login here", login_path(referrer: request.original_url) %>
+  <%= link_to "Login here", login_path(referrer: request.original_url) %>
   <% end %>
 </div>
