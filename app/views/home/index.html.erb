@@ -41,9 +41,6 @@
     </div>
     <% end %>
   </div>
-  <div class="btn-group">
-    <%= main_menu_button %>
-  </div>
   <% else %>
   <%= link_to "Login here", login_path(referrer: request.original_url) %>
   <% end %>
