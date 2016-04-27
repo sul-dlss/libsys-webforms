@@ -5,6 +5,14 @@ describe ApplicationController do
     request.env['REMOTE_USER'] = 'testuser'
     allow(controller.request).to receive(:env).and_return('REMOTE_USER' => 'testuser')
   end
+  describe 'Rescue from CanCan' do
+    it 'should flash an error message if access to the resource is denied' do
+      user = controller.send(:user_id)
+      expect(user).to eq('testuser')
+      visit management_reports_path
+      expect(response).to be_successful
+    end
+  end
   describe '#user_id' do
     it 'should return a user_id when there is a user in the environment' do
       user = controller.send(:user_id)

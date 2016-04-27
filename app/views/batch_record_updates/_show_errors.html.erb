@@ -1,3 +1,7 @@
 <div id="show-errors" class="panel-body">
-  Choose batch to view:
+  <%= form_tag("batch_record_updates/errors_for_batch", method: "get") do %>
+    <%= label_tag(:batch_number, "Choose batch to view:") %>
+    <%= text_field_tag(:batch_number) %>
+    <%= submit_tag("Go") %>
+  <% end %>
 </div>
