@@ -4,4 +4,8 @@ class BatchRecordUpdatesController < ApplicationController
 
   def index
   end
+
+  def errors_for_batch
+    @batch = UniUpdatesErrors.where("BATCH = #{params[:batch_number]}")
+  end
 end
