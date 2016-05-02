@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421213610) do
+ActiveRecord::Schema.define(version: 20160502230655) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -31,6 +31,28 @@ ActiveRecord::Schema.define(version: 20160421213610) do
     t.string   "file_upload"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "uni_updates_batches", force: :cascade do |t|
+    t.integer  "batch_id"
+    t.datetime "batch_date"
+    t.string   "user_name"
+    t.string   "user_email"
+    t.string   "action"
+    t.integer  "priority"
+    t.string   "export_yn"
+    t.string   "check_bc_first"
+    t.string   "orig_lib"
+    t.string   "new_lib"
+    t.string   "new_homeloc"
+    t.string   "new_curloc"
+    t.string   "new_itype"
+    t.integer  "total_bcs"
+    t.string   "pending"
+    t.string   "comments"
+    t.integer  "num_errors"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "uni_updates_errors", force: :cascade do |t|
