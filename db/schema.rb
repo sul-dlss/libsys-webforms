@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160502230655) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "uni_updates_batches", force: :cascade do |t|
+  create_table "uni_updates_batch", force: :cascade do |t|
     t.integer  "batch_id"
     t.datetime "batch_date"
     t.string   "user_name"
