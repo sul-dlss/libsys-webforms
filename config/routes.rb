@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
     get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
-    
+
     get 'transfer_request_form' => 'batch_record_updates#transfer_request_form'
     get 'withdraw_some_items' => 'batch_record_updates#withdraw_some_items'
     get 'change_home_location' => 'batch_record_updates#change_home_location'
