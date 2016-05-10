@@ -1,4 +1,30 @@
 <h2>Batches in queue completed</h2>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th class='col-xs-1'>Batch</th>
+      <th class='col-xs-2'>Load date</th>
+      <th class='col-xs-3'>Loaded by</th>
+      <th class='col-xs-4'>Report to</th>
+      <th class='col-xs-5'>Original library</th>
+      <th class='col-xs-6'>Action</th>
+      <th class='col-xs-7'>Number of items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @batches_complete.each do |b| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td class='col-xs-1'><%= b.batch_id %></td>
+        <td class='col-xs-2'><%= b.batch_date %></td>
+        <td class='col-xs-3'><%= b.user_name %></td>
+        <td class='col-xs-4'><%= b.user_email %></td>
+        <td class='col-xs-5'><%= b.orig_lib %></td>
+        <td class='col-xs-6'><%= b.action %></td>
+        <td class='col-xs-7'><%= b.total_bcs %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <div class="btn-group">
   <%= main_menu_button %>
   <%= batch_menu_button %>
