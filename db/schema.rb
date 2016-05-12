@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504234929) do
+ActiveRecord::Schema.define(version: 20160509190330) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 20160504234929) do
     t.string "call_num"
     t.string "shelving_key"
     t.string "msg"
+  end
+
+  create_table "unicorn_policies", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "policy_num"
+    t.string   "name"
+    t.string   "description"
+    t.string   "shadowed"
+    t.string   "destination"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
