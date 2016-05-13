@@ -21,4 +21,21 @@ class BatchRecordUpdatesController < ApplicationController
   def show_batches_complete
     @batches_complete = UniUpdatesBatch.joins(:uni_updates).where('uni_updates_batch.pending is null').uniq
   end
+
+  def new
+    @batch_record_update = BatchRecordUpdate.new
+  end
+
+  def create
+    @batch_record_update = BatchRecordUpdate.new(params[:batch_record_update])
+    if @batch_record_update.valid?
+      array_of_batch_ids = @batch_record_update.parse_uploaded_file
+      UniUpdates.where(batch_id: array_of_batch_ids).update_all(curr_lib: @batch_record_update.current_library,
+                                                                new_itype: @batch_record_update.new_item_type)
+      flash[:notice] = 'Batch updated!'
+      redirect_to root_url
+    else
+      render action: 'new'
+    end
+  end
 end

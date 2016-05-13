@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'webauth/login' => 'authentication#login', as: :login
   get 'webauth/logout' => 'authentication#logout', as: :logout
 
-  get 'batch_record_updates' => 'batch_record_updates#index'
+  resources :batch_record_updates, only: [:new, :create, :index]
 
     get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
     get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'withdraw_some_items' => 'batch_record_updates#withdraw_some_items'
     get 'change_home_location' => 'batch_record_updates#change_home_location'
     get 'change_current_location' => 'batch_record_updates#change_current_location'
-    get 'change_item_type' => 'batch_record_updates#change_item_type'
+    get 'change_item_type' => 'batch_record_updates#new'
 
   get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
