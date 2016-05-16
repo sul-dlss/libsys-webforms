@@ -1,9 +1,9 @@
 <h2>Change Item Type Request Form</h2>
-<%= form_for @batch_record_update, multipart: true, class: 'form-group' do |f| %>
-  <% if @batch_record_update.errors.any? %>
+<%= form_for @change_item_type, multipart: true, class: 'form-group' do |f| %>
+  <% if @change_item_type.errors.any? %>
     <div id="error_explanation">
       <ul>
-      <% @batch_record_update.errors.full_messages.each do |msg| %>
+      <% @change_item_type.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -39,5 +39,6 @@
       <%= f.text_area 'comments', class: 'form-control' %>
     </div>
   </div>
-  <div><%= f.submit 'Update batch', class: 'btn btn-primary' %></div>
+  <div><%= f.submit 'Update batch', class: 'btn btn-primary' %></div><br/>
+  <div class="btn-group"><%= main_menu_button %></div>
 <% end %>
