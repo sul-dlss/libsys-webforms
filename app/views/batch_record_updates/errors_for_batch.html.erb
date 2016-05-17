@@ -2,6 +2,33 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th class='col-xs-1'>Batch</th>
+      <th class='col-xs-2'>Action</th>
+      <th class='col-xs-3'>Orig Lib</th>
+      <th class='col-xs-4'>New Lib</th>
+      <th class='col-xs-5'>New Homeloc</th>
+      <th class='col-xs-6'>New Curloc</th>
+      <th class='col-xs-7'>New Itype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class='<%= cycle('odd', 'even') %>'>
+      <% @uni_updates_batch.each do |b| %>
+      <td class='col-xs-1'><%= b.batch_id %></td>
+      <td class='col-xs-2'><%= b.action %></td>
+      <td class='col-xs-3'><%= b.orig_lib %></td>
+      <td class='col-xs-4'><%= b.new_lib %></td>
+      <td class='col-xs-5'><%= b.new_homeloc %></td>
+      <td class='col-xs-6'><%= b.new_curloc %></td>
+      <td class='col-xs-7'><%= b.new_itype %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<h4>Errors:</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
       <th class='col-xs-1'>Run</th>
       <th class='col-xs-2'>Item ID</th>
       <th class='col-xs-3'>Call number</th>
@@ -11,7 +38,7 @@
   </thead>
   <tbody>
     <tr class='<%= cycle('odd', 'even') %>'>
-      <% @batch.each do |b| %>
+      <% @uni_updates_errors.each do |b| %>
       <td class='col-xs-1'><%= b.run %></td>
       <td class='col-xs-2'><%= b.item_id %></td>
       <td class='col-xs-3'><%= b.call_num %></td>
