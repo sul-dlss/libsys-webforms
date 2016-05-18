@@ -6,7 +6,8 @@ class BatchRecordUpdatesController < ApplicationController
   end
 
   def errors_for_batch
-    @batch = UniUpdatesErrors.where("BATCH = #{params[:batch_number]}")
+    @uni_updates_batch = UniUpdatesBatch.where(batch_id: params[:batch_number])
+    @uni_updates_errors = UniUpdatesErrors.where(batch: params[:batch_number])
   end
 
   def show_batches_not_complete
