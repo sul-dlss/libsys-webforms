@@ -6,7 +6,10 @@ class Ability
     current_user ||= AuthorizedUser.new
     can :manage, ManagementReport if current_user.mgt_rpts == 'Y'
     can :manage, Sal3BatchRequest if current_user.sal3_batch_req == 'Y'
-    can :manage, BatchRecordUpdate if current_user.unicorn_updates == 'Y'
-    can :manage, ChangeItemType if current_user.unicorn_updates == 'Y'
+    if current_user.unicorn_updates == 'Y'
+      can :manage, BatchRecordUpdate
+      can :manage, ChangeItemType
+      can :manage, ChangeCurrentLocation
+    end
   end
 end
