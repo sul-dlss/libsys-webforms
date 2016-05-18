@@ -10,6 +10,7 @@ class Ability
       can :manage, BatchRecordUpdate
       can :manage, ChangeItemType
       can :manage, ChangeCurrentLocation
+      can :manage, ChangeHomeLocation
     end
   end
 end
