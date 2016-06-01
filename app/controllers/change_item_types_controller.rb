@@ -6,11 +6,11 @@ class ChangeItemTypesController < ApplicationController
   end
 
   def create
-    @change_item_type = ChangeItemType.new(params[:change_item_type])
-    if @change_item_type.valid?
-      array_of_item_ids = @change_item_type.parse_uploaded_file
-      UniUpdates.where(item_id: array_of_item_ids).update_all(curr_lib: @change_item_type.current_library,
-                                                              new_itype: @change_item_type.new_item_type)
+    change_item_type = ChangeItemType.new(params[:change_item_type])
+    if change_item_type.valid?
+      array_of_item_ids = change_item_type.parse_uploaded_file
+      uni_updates_batch = UniUpdatesBatch.create_item_type_batch(params)
+      UniUpdates.create_item_type_updates(array_of_item_ids, uni_updates_batch)
       flash[:notice] = 'Batch updated!'
       redirect_to root_url
     else

@@ -54,8 +54,7 @@ ActiveRecord::Schema.define(version: 20160509190330) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "uni_updates_batch", force: :cascade do |t|
-    t.integer  "batch_id"
+  create_table "uni_updates_batch", primary_key: "batch_id", force: :cascade do |t|
     t.datetime "batch_date"
     t.string   "user_name"
     t.string   "user_email"
