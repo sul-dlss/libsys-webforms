@@ -39,6 +39,15 @@
       <%= f.text_area 'comments', class: 'form-control' %>
     </div>
   </div>
-  <div><%= f.submit 'Update batch', class: 'btn btn-primary' %></div><br/>
+  <%= f.hidden_field :batch_date, value: Time.now %>
+  <%= f.hidden_field :user_name, value: current_user.user_id %>
+  <%= f.hidden_field :action, value: 'UPDITEMTYPE' %>
+  <%= f.hidden_field :priority, value: 3 %>
+  <%= f.hidden_field :export_yn, value: 'SocI' %>
+  <!-- new_lib -->
+  <!-- new_homeloc -->
+  <!-- new_curloc -->
+  <%= f.hidden_field :check_bc_first, value: 'N' %>
+  <div><%= f.submit 'Upload batch', class: 'btn btn-primary' %></div><br/>
   <div class="btn-group"><%= main_menu_button %></div>
 <% end %>

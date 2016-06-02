@@ -1,7 +1,6 @@
 class CreateUniUpdatesBatch < ActiveRecord::Migration
   def change
-    create_table :uni_updates_batch do |t|
-      t.integer :batch_id
+    create_table :uni_updates_batch, :primary_key => :batch_id do |t|
       t.datetime :batch_date
       t.string :user_name
       t.string :user_email
