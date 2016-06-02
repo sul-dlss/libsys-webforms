@@ -2,6 +2,7 @@
 #  Class primarily for validation on the change_item_type form
 ###
 class ChangeItemType
+  include FileParser
   include ActiveModel::Model
   attr_accessor :current_library
   attr_accessor :new_item_type
@@ -19,8 +20,4 @@ class ChangeItemType
   attr_accessor :check_bc_first
 
   validates :current_library, :new_item_type, :item_ids, presence: true
-
-  def parse_uploaded_file
-    item_ids.read.split("\n")
-  end
 end
