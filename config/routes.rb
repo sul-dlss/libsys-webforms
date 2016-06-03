@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :change_current_locations, only: [:new, :create]
   resources :change_home_locations, only: [:new, :create]
 
+  get 'confirm_batch_upload' => 'confirmation_pages#confirm_batch_upload', as: :confirm_batch_upload
+  get 'confirm_batch_deletion' => 'confirmation_pages#confirm_batch_deletion', as: :confirm_batch_deletion
+
     get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
     get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
 

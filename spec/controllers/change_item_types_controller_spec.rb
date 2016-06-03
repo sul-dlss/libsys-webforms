@@ -13,10 +13,10 @@ RSpec.describe ChangeItemTypesController, type: :controller do
       extend ActionDispatch::TestProcess
       fixture_file_upload('files/test_file.txt', 'text/plain')
     end
-    it 'redirects to root_path with a valid object' do
+    it 'redirects to confirm_batch_upload with a valid object' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, change_item_type: { current_library: 'GREEN', new_item_type: 'UNKNOWN', item_ids: barcode_file }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to confirm_batch_upload_path
     end
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryGirl.create(:authorized_user))
