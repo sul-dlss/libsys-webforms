@@ -25,6 +25,8 @@
     <% end %>
   </tbody>
 </table>
+<% if @uni_updates_errors.exists? %>
+  <% flash[:warning] = 'There are errors for this batch!' %>
 <h4>Errors:</h4>
 <table class="table table-striped">
   <thead>
@@ -46,6 +48,9 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <% flash[:notice] = 'There are no errors for this batch.' %>
+<% end %>
 <div class="btn-group">
   <%= main_menu_button %>
   <%= batch_menu_button %>
