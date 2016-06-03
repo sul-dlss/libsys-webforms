@@ -37,7 +37,7 @@ describe ApplicationHelper do
     let(:button) { Capybara.string(batch_menu_button) }
     it 'should render the button with a link to the batch_record_updates view' do
       expect(button).to have_css('button[id="batch-menu-button"]')
-      expect(button).to have_css('a[href="batch_record_updates"]')
+      expect(button).to have_css('a[href="/batch_record_updates"]')
     end
   end
 end

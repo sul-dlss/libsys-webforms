@@ -21,7 +21,7 @@ module ApplicationHelper
       'Batch upload menu'.html_safe,
       id: 'batch-menu-button',
       class: 'btn btn-md btn-default  btn-full'
-    ), 'batch_record_updates'
+    ), '/batch_record_updates'
   end
 
   def main_menu_button
