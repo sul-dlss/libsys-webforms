@@ -40,4 +40,12 @@ describe ApplicationHelper do
       expect(button).to have_css('a[href="/batch_record_updates"]')
     end
   end
+
+  describe 'delete_batch_button' do
+    let(:button) { Capybara.string(delete_batch_button) }
+    it 'should render the button with a link to the confirm_batch_deletion_path' do
+      expect(button).to have_css('button[id="delete-batch-button"]')
+      expect(button).to have_css('a[href="/confirm_batch_deletion"]')
+    end
+  end
 end

@@ -31,4 +31,12 @@ module ApplicationHelper
       class: 'btn btn-md btn-primary btn-full'
     ), root_path
   end
+
+  def delete_batch_button
+    link_to button_tag(
+      'Erase'.html_safe,
+      id: 'delete-batch-button',
+      class: 'btn btn-md btn-primary btn-full'
+    ), confirm_batch_deletion_path
+  end
 end
