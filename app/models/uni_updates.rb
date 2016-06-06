@@ -3,6 +3,7 @@
 ###
 class UniUpdates < ActiveRecord::Base
   self.table_name = 'uni_updates'
+  self.primary_key = 'batch_id'
   belongs_to :uni_updates_batch, foreign_key: 'batch_id', class_name: UniUpdatesBatch
 
   # rubocop:disable Metrics/MethodLength

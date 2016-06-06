@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :change_item_types, only: [:new, :create]
   resources :change_current_locations, only: [:new, :create]
   resources :change_home_locations, only: [:new, :create]
+  resources :uni_updates_batches, only: [:show, :destroy]
 
     get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
     get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
