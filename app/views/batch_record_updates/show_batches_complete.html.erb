@@ -14,13 +14,13 @@
   <tbody>
     <% @batches_complete.each do |b| %>
       <tr class='<%= cycle("odd", "even") %>'>
-        <td class='col-xs-1'><%= b.batch_id %></td>
+        <td class='col-xs-1'><%= b.batch_id.to_i %></td>
         <td class='col-xs-2'><%= b.batch_date %></td>
         <td class='col-xs-3'><%= b.user_name %></td>
         <td class='col-xs-4'><%= b.user_email %></td>
         <td class='col-xs-5'><%= b.orig_lib %></td>
         <td class='col-xs-6'><%= b.action %></td>
-        <td class='col-xs-7'><%= b.total_bcs %></td>
+        <td class='col-xs-7'><%= b.total_bcs.to_i %></td>
       </tr>
     <% end %>
   </tbody>
