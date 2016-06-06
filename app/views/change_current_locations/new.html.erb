@@ -1,4 +1,4 @@
-<h2>Change Item Type Request Form</h2>
+<h2>Change Current Location Request Form</h2>
 <%= form_for @change_current_location, multipart: true, class: 'form-group' do |f| %>
   <% if @change_current_location.errors.any? %>
     <div id="error_explanation">
@@ -39,6 +39,9 @@
       <%= f.text_area 'comments', class: 'form-control' %>
     </div>
   </div>
-  <div><%= f.submit 'Update batch', class: 'btn btn-primary' %></div><br/>
-  <div class="btn-group"><%= main_menu_button %></div>
+  <div><%= f.submit 'Update batch', class: 'btn' %></div><br/>
+  <div class="btn-group">
+    <%= main_menu_button %>
+    <%= batch_menu_button %>
+  </div>
 <% end %>
