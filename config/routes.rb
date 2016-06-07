@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   resources :change_current_locations, only: [:new, :create]
   resources :change_home_locations, only: [:new, :create]
   resources :uni_updates_batches, only: [:show, :destroy]
+  resources :withdraw_items, only: [:new, :create]
 
     get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
     get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
 
     get 'transfer_request_form' => 'batch_record_updates#transfer_request_form'
-    get 'withdraw_some_items' => 'batch_record_updates#withdraw_some_items'
 
   get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
