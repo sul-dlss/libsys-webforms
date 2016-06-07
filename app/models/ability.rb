@@ -11,6 +11,7 @@ class Ability
       can :manage, ChangeItemType
       can :manage, ChangeCurrentLocation
       can :manage, ChangeHomeLocation
+      can :manage, WithdrawItem
     end
   end
 end

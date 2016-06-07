@@ -40,6 +40,6 @@
 <div>If you made a mistake, you may delete this batch from the table by clicking on "Erase". Otherwise, you are finished!</div><lb/>
 <p/>
 <div class="btn-group">
-  <%= button_to 'Delete', {action: :destroy, id: @uni_updates_batch.batch_id}, method: :delete, id: 'delete-batch-button', class: 'btn btn-md btn-primary btn-full' %>
+  <%= button_to 'Erase', {action: :destroy, id: @uni_updates_batch.batch_id}, method: :delete, id: 'delete-batch-button', class: 'btn btn-md btn-primary btn-full' %>
   <%= batch_menu_button %>
 </div>
