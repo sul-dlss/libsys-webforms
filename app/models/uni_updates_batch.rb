@@ -32,5 +32,18 @@ class UniUpdatesBatch < ActiveRecord::Base
            check_bc_first: params[:withdraw_item][:check_bc_first],
            comments: params[:withdraw_item][:comments])
   end
+
+  def self.create_transfer_item_batch(params)
+    create(batch_date: params[:transfer_item][:batch_date],
+           user_name: params[:transfer_item][:user_name],
+           user_email: params[:transfer_item][:email],
+           orig_lib: params[:transfer_item][:current_library],
+           action: params[:transfer_item][:action],
+           priority: params[:transfer_item][:priority],
+           export_yn: params[:transfer_item][:export_yn],
+           new_itype: params[:transfer_item][:new_item_type],
+           check_bc_first: params[:transfer_item][:check_bc_first],
+           comments: params[:transfer_item][:comments])
+  end
   # rubocop:enable Metrics/AbcSize
 end
