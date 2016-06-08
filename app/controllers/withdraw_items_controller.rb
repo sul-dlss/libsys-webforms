@@ -11,7 +11,7 @@ class WithdrawItemsController < ApplicationController
       array_of_item_ids = withdraw_item.parse_uploaded_file
       @uni_updates_batch = UniUpdatesBatch.create_withdraw_item_batch(params)
       UniUpdates.create_item_type_updates(array_of_item_ids, @uni_updates_batch)
-      flash[:notice] = 'Batch withdrawn!'
+      flash[:notice] = 'Batch uploaded!'
       redirect_to @uni_updates_batch
     else
       render action: 'new'
