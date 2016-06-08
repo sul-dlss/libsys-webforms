@@ -1,0 +1,65 @@
+<h2>Transfer Items Request Form</h2>
+<%= form_for @transfer_item, multipart: true, class: 'form-group' do |f| %>
+  <% if @transfer_item.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @transfer_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='form-group row'>
+    <%= f.label :current_library, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :current_library, options_from_collection_for_select(UnicornPolicy.libraries, 'name', 'name'), include_blank: true, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :new_library, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :new_library, options_from_collection_for_select(UnicornPolicy.libraries, 'name', 'name'), include_blank: true, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :new_homeloc, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :new_homeloc, options_from_collection_for_select(UnicornPolicy.locations, 'name', 'name'), include_blank: true, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :new_item_type, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :new_item_type, options_from_collection_for_select(UnicornPolicy.item_types, 'name', 'name'), include_blank: true, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :item_ids, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.file_field 'item_ids', class: 'form-control-file' %>
+    </div>
+  </div>
+  <div class='form-group row', class: 'col-sm-2 form-control-label'>
+    <%= f.label :email, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field 'email', class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :comments, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_area 'comments', class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.hidden_field :batch_date, value: Time.now.strftime("%d-%b-%y").upcase %>
+  <%= f.hidden_field :user_name, value: current_user.user_id %>
+  <%= f.hidden_field :action, value: 'TRANSFER' %>
+  <%= f.hidden_field :priority, value: 3 %>
+  <%= f.hidden_field :export_yn, value: 'SocI' %>
+  <%= f.hidden_field :check_bc_first, value: 'N' %>
+  <div><%= f.submit 'Upload batch', class: 'btn' %></div><br/>
+  <div class="btn-group">
+    <%= main_menu_button %>
+    <%= batch_menu_button %>
+  </div>
+<% end %>

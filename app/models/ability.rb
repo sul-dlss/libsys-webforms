@@ -6,12 +6,15 @@ class Ability
     current_user ||= AuthorizedUser.new
     can :manage, ManagementReport if current_user.mgt_rpts == 'Y'
     can :manage, Sal3BatchRequest if current_user.sal3_batch_req == 'Y'
-    if current_user.unicorn_updates == 'Y'
-      can :manage, BatchRecordUpdate
-      can :manage, ChangeItemType
-      can :manage, ChangeCurrentLocation
-      can :manage, ChangeHomeLocation
-      can :manage, WithdrawItem
-    end
+    assign_batch_permission if current_user.unicorn_updates == 'Y'
+  end
+
+  def assign_batch_permission
+    can :manage, BatchRecordUpdate
+    can :manage, ChangeItemType
+    can :manage, ChangeCurrentLocation
+    can :manage, ChangeHomeLocation
+    can :manage, WithdrawItem
+    can :manage, TransferItem
   end
 end
