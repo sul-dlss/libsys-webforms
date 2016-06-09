@@ -19,7 +19,7 @@ class TransferItemsController < ApplicationController
   end
 
   def redirect_valid
-    flash[:notice] = 'Batch Transfered!'
+    flash[:notice] = 'Batch uploaded!'
     redirect_to @uni_updates_batch
   end
 end

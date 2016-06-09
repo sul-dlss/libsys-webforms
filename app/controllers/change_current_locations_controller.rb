@@ -11,7 +11,7 @@ class ChangeCurrentLocationsController < ApplicationController
       array_of_item_ids = @change_current_location.parse_uploaded_file
       UniUpdates.where(item_id: array_of_item_ids).update_all(curr_lib: @change_current_location.current_library,
                                                               new_curloc: @change_current_location.new_current_location)
-      flash[:notice] = 'Batch updated!'
+      flash[:notice] = 'Batch uploaded!'
       redirect_to root_url
     else
       render action: 'new'
