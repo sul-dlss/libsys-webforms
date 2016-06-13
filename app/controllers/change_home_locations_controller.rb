@@ -11,7 +11,7 @@ class ChangeHomeLocationsController < ApplicationController
     if @change_home_location.valid?
       array_of_item_ids = @change_home_location.parse_uploaded_file
       UniUpdates.where(item_id: array_of_item_ids)
-                .update_all({ curr_lib: @change_home_location.current_library,
+                .update_all({ cur_lib: @change_home_location.current_library,
                               new_homeloc: @change_home_location.new_home_location,
                               new_itype: @change_home_location.new_item_type,
                               new_curloc: @change_home_location.new_current_location }

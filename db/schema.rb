@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160509190330) do
     t.datetime "run_date"
     t.string   "to_delete_date"
     t.datetime "completed_date"
-    t.string   "curr_lib"
+    t.string   "cur_lib"
     t.string   "new_lib"
     t.string   "new_itype"
     t.string   "new_homeloc"
