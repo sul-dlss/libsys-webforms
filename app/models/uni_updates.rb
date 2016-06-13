@@ -15,7 +15,7 @@ class UniUpdates < ActiveRecord::Base
                                priority: uni_updates_batch.priority,
                                action: uni_updates_batch.action,
                                item_id: item_id,
-                               curr_lib: uni_updates_batch.orig_lib,
+                               cur_lib: uni_updates_batch.orig_lib,
                                new_itype: uni_updates_batch.new_itype,
                                check_bc_first: uni_updates_batch.check_bc_first
                             }

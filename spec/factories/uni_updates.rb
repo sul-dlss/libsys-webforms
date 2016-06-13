@@ -10,7 +10,7 @@ FactoryGirl.define do
     run_date '2013-09-26 11:45:24'
     to_delete_date ''
     completed_date '2013-09-26 11:45:24'
-    curr_lib 'MATH-CS'
+    cur_lib 'MATH-CS'
     new_lib 'SAL3'
     new_itype 'STKS-MONO'
     new_homeloc 'STACKS'
