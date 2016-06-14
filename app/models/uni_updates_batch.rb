@@ -60,5 +60,18 @@ class UniUpdatesBatch < ActiveRecord::Base
            check_bc_first: params[:change_home_location][:check_bc_first],
            comments: params[:change_home_location][:comments])
   end
+
+  def self.create_current_location_batch(params)
+    create(batch_date: params[:change_current_location][:batch_date],
+           user_name: params[:change_current_location][:user_name],
+           user_email: params[:change_current_location][:email],
+           orig_lib: params[:change_current_location][:current_library],
+           action: params[:change_current_location][:action],
+           priority: params[:change_current_location][:priority],
+           export_yn: params[:change_current_location][:export_yn],
+           new_curloc: params[:change_current_location][:new_current_location],
+           check_bc_first: params[:change_current_location][:check_bc_first],
+           comments: params[:change_current_location][:comments])
+  end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 end
