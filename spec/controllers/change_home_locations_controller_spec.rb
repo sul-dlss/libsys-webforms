@@ -13,12 +13,12 @@ RSpec.describe ChangeHomeLocationsController, type: :controller do
       extend ActionDispatch::TestProcess
       fixture_file_upload('files/test_file.txt', 'text/plain')
     end
-    it 'redirects to root_path with a valid object' do
+    it 'returns 302 when changing_home_location' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, change_home_location: { current_library: 'GREEN',
                                             new_home_location: 'STACKS',
                                             item_ids: barcode_file }
-      expect(response).to redirect_to root_path
+      expect(response).to have_http_status(302)
     end
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryGirl.create(:authorized_user))
