@@ -51,6 +51,12 @@
       <%= f.text_area 'comments', class: 'form-control' %>
     </div>
   </div>
+  <%= f.hidden_field :batch_date, value: Time.now.strftime("%d-%b-%y").upcase %>
+  <%= f.hidden_field :user_name, value: current_user.user_id %>
+  <%= f.hidden_field :action, value: 'UPDHOMELOC' %>
+  <%= f.hidden_field :priority, value: 3 %>
+  <%= f.hidden_field :export_yn, value: 'SocI' %>
+  <%= f.hidden_field :check_bc_first, value: 'N' %>
   <div><%= f.submit 'Upload batch', class: 'btn' %></div><br/>
   <div class="btn-group">
     <%= main_menu_button %>
