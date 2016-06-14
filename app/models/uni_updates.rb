@@ -7,7 +7,7 @@ class UniUpdates < ActiveRecord::Base
   belongs_to :uni_updates_batch, foreign_key: 'batch_id', class_name: UniUpdatesBatch
 
   # rubocop:disable Metrics/MethodLength
-  def self.create_item_type_updates(array_of_item_ids, uni_updates_batch)
+  def self.create_for_batch(array_of_item_ids, uni_updates_batch)
     hashes_for_updates = []
     array_of_item_ids.each do |item_id|
       hashes_for_updates << {  batch_id: uni_updates_batch.batch_id,
@@ -16,7 +16,10 @@ class UniUpdates < ActiveRecord::Base
                                action: uni_updates_batch.action,
                                item_id: item_id,
                                cur_lib: uni_updates_batch.orig_lib,
+                               new_lib: uni_updates_batch.new_lib,
                                new_itype: uni_updates_batch.new_itype,
+                               new_homeloc: uni_updates_batch.new_homeloc,
+                               new_curloc: uni_updates_batch.new_curloc,
                                check_bc_first: uni_updates_batch.check_bc_first
                             }
     end

@@ -10,7 +10,7 @@ class TransferItemsController < ApplicationController
     if transfer_item.valid?
       array_of_item_ids = transfer_item.parse_uploaded_file
       @uni_updates_batch = UniUpdatesBatch.create_transfer_item_batch(params)
-      UniUpdates.create_item_type_updates(array_of_item_ids, @uni_updates_batch)
+      UniUpdates.create_for_batch(array_of_item_ids, @uni_updates_batch)
       redirect_valid
     else
       render action: 'new'

@@ -10,7 +10,7 @@ class ChangeItemTypesController < ApplicationController
     if change_item_type.valid?
       array_of_item_ids = change_item_type.parse_uploaded_file
       @uni_updates_batch = UniUpdatesBatch.create_item_type_batch(params)
-      UniUpdates.create_item_type_updates(array_of_item_ids, @uni_updates_batch)
+      UniUpdates.create_for_batch(array_of_item_ids, @uni_updates_batch)
       flash[:notice] = 'Batch uploaded!'
       redirect_to @uni_updates_batch
     else
