@@ -6,9 +6,9 @@ class WithdrawItemsController < ApplicationController
   end
 
   def create
-    withdraw_item = WithdrawItem.new(params[:withdraw_item])
-    if withdraw_item.valid?
-      array_of_item_ids = withdraw_item.parse_uploaded_file
+    @withdraw_item = WithdrawItem.new(params[:withdraw_item])
+    if @withdraw_item.valid?
+      array_of_item_ids = @withdraw_item.parse_uploaded_file
       @uni_updates_batch = UniUpdatesBatch.create_withdraw_item_batch(params)
       UniUpdates.create_for_batch(array_of_item_ids, @uni_updates_batch)
       flash[:notice] = 'Batch uploaded!'
