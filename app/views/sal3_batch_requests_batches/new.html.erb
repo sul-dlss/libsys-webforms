@@ -1,0 +1,157 @@
+<h2>SAL3 Batch Request Form</h2>
+<%= form_for @sal3_batch_requests_batch, multipart: true, class: 'form-group' do |f| %>
+<% if @sal3_batch_requests_batch.errors.any? %>
+<div id="error_explanation">
+  <ul>
+    <% @sal3_batch_requests_batch.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div>
+  <h3>User Info</h3>
+  <p>This will be used by SAL3 staff to contact you if they have questions about your batch request:</p>
+  <div class='form-group row'>
+    <%= f.label :user_name, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field 'user_name', class: 'form-control', value: "#{@current_user_name}" %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :user_email, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field 'user_email', class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :user_phone, class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field 'user_phone', class: 'form-control' %>
+    </div>
+  </div>
+</div>
+<div>
+  <h3>Batch Info</h3>
+  <div class='form-group row'>
+    <%= f.label :batch_name, "Name or short description", class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field 'batch_name', class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :pseudo_id, "User ID to charge items", class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field 'pseudo_id', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="panel-group" id="media_group">
+    <div class='form-group row'>
+      <%= f.label :stopcode, "Select delivery location", class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-10'>
+        <%= f.select :stopcode, Sal3BatchRequestsBatch.locations, {}, {size: 6, selected: 'none', class: 'form-control'} %>
+      </div>
+    </div>
+    <div class='form-group row'>
+      <%= f.label :batch_media, "Media type", class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-10'>
+        <%= f.select :batch_media, options_for_select(Sal3BatchRequestsBatch.batch_media.map{ |v, k| [ k, {'data-toggle' => 'collapse', 'data-parent' => '#media_group', 'data-target' => "\.#{v}"} ] }), {}, {size: 11, class: 'form-control', onChange: '$(".collapse").removeClass("in")'} %>
+      </div>
+    </div>
+    <div class='form-group row panel-collapse collapse archival film magnetic optical unknown'>
+      <div class="panel-body">
+        <div class='form-group row'>
+          <%= f.label :batch_container, "Container", class: 'col-sm-1 form-control-label' %>
+          <div class='col-sm-10'>
+            <%= f.select :batch_container, options_for_select(Sal3BatchRequestsBatch.batch_container.map{ |b| [ b ] }), {}, {size: 4, class: 'form-control'} %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='form-group row panel-collapse collapse book archival flat film magnetic newspaper optical rolled shellac vinyl unknown'>
+      <div class="panel-body">
+        <div class='form-group row'>
+          <%= f.label :batch_numpullperday, "Items to pull per day:", class: 'col-sm-2 form-control-label' %>
+          <div class='col-sm-10'>
+            <%= f.text_field 'batch_numpullperday', value: '10', class: 'form-control' %>
+          </div>
+        </div>
+        <div class='form-group row'>
+          <%= f.label :batch_startdate, "Delivery start date:", class: 'col-sm-2 form-control-label' %>
+          <div class='col-sm-10'>
+            <%= f.date_field 'batch_startdate', id: 'dp1', class: 'form-control', value: "#{Time.now.strftime("%d-%b-%y")}" %>
+          </div>
+        </div>
+        <div class='form-group row'>
+          <%= f.label :batch_needbydate, "All items delivered by:", class: 'col-sm-2 form-control-label' %>
+          <div class='col-sm-10'>
+            <%#= f.date_select 'batch_needbydate', use_two_digit_numbers: true, date_separator: '/', class: 'form-control' %>
+            <%= f.date_field 'batch_startdate', id: 'dp2', class: 'form-control', value: "#{Time.now.strftime("%d-%b-%y")}" %>
+          </div>
+        </div>
+        <div class='indent'>
+          <div class='form-group row'>
+            <div class='col-sm-2'>Deliver on these days:</div>
+          </div>
+          <div class='form-group row'>
+            <%= f.label :batch_pullmon, "Monday", class: 'col-sm-1 form-control-label' %>
+            <div class='col-sm-1'>
+              <%= f.check_box 'batch_pullmon', class: 'form-control' %>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <%= f.label :batch_pulltues, "Tuesday", class: 'col-sm-1 form-control-label' %>
+            <div class='col-sm-1'>
+              <%= f.check_box 'batch_pulltues', class: 'form-control' %>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <%= f.label :batch_pulltwed, "Wednesday", class: 'col-sm-1 form-control-label' %>
+            <div class='col-sm-1'>
+              <%= f.check_box 'batch_pullwed', class: 'form-control' %>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <%= f.label :batch_pullthurs, "Thursday", class: 'col-sm-1 form-control-label' %>
+            <div class='col-sm-1'>
+              <%= f.check_box 'batch_pullthurs', class: 'form-control' %>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <%= f.label :batch_pullfri, "Friday", class: 'col-sm-1 form-control-label' %>
+            <div class='col-sm-1'>
+              <%= f.check_box 'batch_pullfri', class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :bc_file, 'Upload barcode file (one barcode per line)', class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.file_field 'bc_file', class: 'form-control-file' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :comments, 'Comments or instructions for SAL3 staff', class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_area 'comments', class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_sunetid, value: current_user.user_id %>
+  <%= f.hidden_field :ckey, value: '' %>
+  <%= f.hidden_field :priority, value: 3 %>
+  <%= f.hidden_field :status, value: '' %>
+  <%= f.hidden_field :num_bcs, value: '' %>
+  <%= f.hidden_field :num_nonsymph_bcs, value: '' %>
+  <%= f.hidden_field :num_retrieval_err, value: '' %>
+  <%= f.hidden_field :pending, value: 'true' %>
+  <%= f.hidden_field :load_date, value: Time.now.strftime("%d-%b-%y").upcase %>
+  <%= f.hidden_field :last_action_date, value: Time.now.strftime("%d-%b-%y").upcase %>
+  <div><%= f.submit 'Submit request', class: 'btn' %></div><br/>
+</div>
+<% end %>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>
