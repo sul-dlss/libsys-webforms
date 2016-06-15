@@ -4,7 +4,7 @@
 class Sal3BatchRequestBcs < ActiveRecord::Base
   self.table_name = 'sal3_batch_requests_bcs'
   self.primary_key = 'batch_id'
-  belongs_to :sal3_batch_request, foreign_key: 'batch_id', class_name: Sal3BatchRequestsBatch
+  belongs_to :sal3_batch_requests_batch, foreign_key: 'batch_id', class_name: Sal3BatchRequestsBatch
 
   # rubocop:disable Metrics/MethodLength
   def self.create_sal3_batch(array_of_item_ids, bc_hash)

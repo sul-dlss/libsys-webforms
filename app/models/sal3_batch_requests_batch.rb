@@ -6,10 +6,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   attr_accessor :bc_file
 
   validates :bc_file, presence: true
-  has_many :sal3_batch_request_request_bcs,
-           foreign_key: 'batch_id',
-           class_name: Sal3BatchRequestBcs,
-           dependent: :destroy
+  has_many :sal3_batch_request_bcs, foreign_key: 'batch_id', class_name: Sal3BatchRequestBcs, dependent: :destroy
 
   self.table_name = 'sal3_batch_requests_batch'
   self.primary_key = 'batch_id'
