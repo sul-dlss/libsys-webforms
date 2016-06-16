@@ -9,8 +9,8 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.new(batch_params)
     if @sal3_batch_requests_batch.save
       array_of_item_ids = @sal3_batch_requests_batch.parse_bc_file
-      Sal3BatchRequestBcs.create_sal3_batch(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
-      flash[:notice] = 'Batch requested!'
+      Sal3BatchRequestBcs.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
+      flash[:success] = 'Batch requested!'
       redirect_to root_path
     else
       render action: 'new'
@@ -22,14 +22,14 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     params.require(:sal3_batch_requests_batch).permit!
   end
 
-  def bcs_params(batch_params)
+  def bcs_params(sal3_batch)
     {
-      batch_id: batch_params.batch_id,
-      pending: batch_params.pending,
-      load_date: batch_params.load_date,
-      priority: batch_params.priority,
-      run_date: batch_params.load_date,
-      completed_date: batch_params.last_action_date
+      batch_id: sal3_batch.batch_id,
+      pending: sal3_batch.pending,
+      load_date: sal3_batch.load_date,
+      priority: sal3_batch.priority,
+      run_date: sal3_batch.load_date,
+      completed_date: sal3_batch.last_action_date
     }
   end
 end
