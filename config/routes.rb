@@ -12,20 +12,15 @@ Rails.application.routes.draw do
   resources :uni_updates_batches, only: [:show, :destroy]
   resources :withdraw_items, only: [:new, :create]
   resources :transfer_items, only: [:new, :create]
+  resources :sal3_batch_requests_batches, only: [:new, :create]
 
   get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
   get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
-
   get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
-
-  get 'sal3_batch_requests' => 'sal3_batch_requests#index'
-
-    get 'place_batch_request' => 'sal3_batch_requests#place_batch_request'
-    get 'review_batches' => 'sal3_batch_requests#review_batches'
+  get 'review_batches' => 'sal3_batch_requests#review_batches'
 
   get 'management_reports' => 'management_reports#index'
-
     get 'circulation_statistics_report' => 'management_reports#circulation_statistics_report'
     get 'shelf_selection_report' => 'management_reports#shelf_selection_report'
     get 'expenditures_report' => 'management_reports#expenditures_report'

@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require tablesort
+//= require forms
 //= require_tree .

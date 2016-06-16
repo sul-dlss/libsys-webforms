@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def user_id
     request.env['REMOTE_USER'] || ENV['REMOTE_USER']
   end
+
+  def current_user_name
+    current_user.user_name
+  end
 end

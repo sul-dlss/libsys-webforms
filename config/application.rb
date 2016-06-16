@@ -32,5 +32,6 @@ module LibsysWebforms
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/lib)
+    config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
   end
 end
