@@ -5,7 +5,9 @@ class UniUpdatesBatchesController < ApplicationController
   end
 
   def destroy
-    UniUpdatesBatch.find_by(batch_id: params[:id]).destroy
+    @uni_updates_batch = UniUpdatesBatch.find_by(batch_id: params[:id])
+    WebformsMailer.batch_delete_email(@uni_updates_batch).deliver_now
+    @uni_updates_batch.destroy
     flash[:notice] = 'Batch erased!'
     redirect_to root_path
   end
