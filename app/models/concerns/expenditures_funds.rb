@@ -1,8 +1,7 @@
+require 'builder'
 ###
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
-require 'builder'
-
 class ExpendituresFunds < ActiveRecord::Base
   self.table_name = 'expenditures_funds'
 
