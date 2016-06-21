@@ -1,7 +1,6 @@
 class Sal3BatchRequestsBatch < ActiveRecord::Migration
   def change
-    create_table :sal3_batch_requests_batch do |t|
-      t.integer   :batch_id
+    create_table :sal3_batch_requests_batch, primary_key: "batch_id" do |t|
       t.string    :batch_name
       t.string    :user_name
       t.string    :user_email
