@@ -19,44 +19,50 @@
   <div class='form-group row'>
     <%= f.label :fund_select, 'Select funds for report by:', class: 'col-sm-5 form-control-label'%>
     <div class='col-sm-10'>
-      <p><%= f.radio_button :fund_select, 'fund_name_id', {} %> Fund ID or name</p>
-      <p><%= f.radio_button :fund_select, 'fund_begins_with', {} %> Fund ID begins with</p>
+      <p><%= f.radio_button :fund_select, 'fund_name_id', {'data-toggle' => 'collapse', 'data-target' => '.fund_name_id', onChange: '$(".collapse").removeClass("in")'} %> Fund ID or name</p>
+      <p><%= f.radio_button :fund_select, 'fund_begins_with', {'data-toggle' => 'collapse', 'data-target' => '.fund_begins_with', onChange: '$(".collapse").removeClass("in")'} %> Fund ID begins with</p>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :fund_acct, 'Select one or more funds (click on header to sort):', class: 'col-sm-5 form-control-label'%>
-    <div class='table-container col-sm-10 pad'>
-      <table class='table table-striped'>
-        <thead>
-          <tr>
-            <th class='col-xs-1'>Select fund for report</th>
-            <th class='col-xs-1'>Fund ID</th>
-            <th class='col-xs-1'>Name</th>
-            <th class='col-xs-1'>Old fund ID</th>
-            <th class='col-xs-1'>Minimum pay date</th>
-            <th class='col-xs-1'>Maximum pay date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% ExpendituresFunds.fund_id.each do |d| %>
-          <% if d.fund_name_key.present? %>
-          <tr>
-            <td><%= f.check_box :fund_acct, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
-            <td><%= d.fund_id %></td>
-            <td><%= d.fund_name_key %></td>
-            <td><%= d.old_fund_id %></td>
-            <td><%= d.min_pay_date.try(:strftime, '%Y-%m-%d') %></td>
-            <td><%= d.max_pay_date.try(:strftime, '%Y-%m-%d') %></td>
-          </tr>
-          <% end %>
-          <% end %>
-        </tbody>
-      </table>
+    <div class='panel-body fund_name_id collapse'>
+      <%= f.label :fund_acct, 'Select one or more funds (click on header to sort):', class: 'col-sm-5 form-control-label'%>
+      <div class='table-container col-sm-10 pad'>
+        <table class='table table-striped nested'>
+          <thead>
+            <tr>
+              <th class='col-xs-1'>Select fund for report</th>
+              <th class='col-xs-1'>Fund ID</th>
+              <th class='col-xs-1'>Name</th>
+              <th class='col-xs-1'>Old fund ID</th>
+              <th class='col-xs-1'>Minimum pay date</th>
+              <th class='col-xs-1'>Maximum pay date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% ExpendituresFunds.fund_id.each do |d| %>
+            <% if d.fund_name_key.present? %>
+            <tr>
+              <td><%= f.check_box :fund_acct, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
+              <td><%= d.fund_id %></td>
+              <td><%= d.fund_name_key %></td>
+              <td><%= d.old_fund_id %></td>
+              <td><%= d.min_pay_date.try(:strftime, '%Y-%m-%d') %></td>
+              <td><%= d.max_pay_date.try(:strftime, '%Y-%m-%d') %></td>
+            </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class='col-sm-10'>
-      <%= f.select :fund_acct, options_for_select(ExpendituresFunds.fund_begins_with.map{|e| [e.fund_id]}), {}, {class: 'form-control'} %>
+    <div class='panel-body fund_begins_with collapse'>
+      <%= f.label :fund_acct, 'Select funds beginning with fund id:', class: 'col-sm-5 form-control-label'%>
+      <div class='col-sm-10'>
+        <%= f.select :fund_acct, options_for_select(ExpendituresFunds.fund_begins_with.map{|e| [e.fund_id]}), {}, {class: 'form-control'} %>
+      </div>
     </div>
   </div>
+  <p></p>
   <div class='form-group row'>
     <%= f.label :funding_paid, 'Show funds with payments:', class: 'col-sm-3 form-control-label' %>
     <div class='col-sm-10'>
