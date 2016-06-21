@@ -38,3 +38,11 @@ The specs can be run without RuboCop enforcement
 The RuboCop style enforcement can be run without running the tests
 
     $ rake rubocop
+
+## Command-line tasks
+
+There are some command-line tools the application provides.
+For example, to upload and delete batches:
+
+    $ bundle exec rake webforms:change_current_location[:path_to_file,:current_lib,:new_curloc,:email, :comments]
+    $ bundle exec rake webforms:delete_batch[batch_id]
