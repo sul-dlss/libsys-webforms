@@ -1,4 +1,4 @@
-<h2>SAL3 Batch Request Form</h2>
+<h2>SAL3 Batch Request</h2>
 <%= form_for @sal3_batch_requests_batch, multipart: true, class: 'form-group' do |f| %>
 <% if @sal3_batch_requests_batch.errors.any? %>
 <div id="error_explanation">
@@ -85,8 +85,7 @@
         <div class='form-group row'>
           <%= f.label :batch_needbydate, "All items delivered by:", class: 'col-sm-2 form-control-label' %>
           <div class='col-sm-10'>
-            <%#= f.date_select 'batch_needbydate', use_two_digit_numbers: true, date_separator: '/', class: 'form-control' %>
-            <%= f.date_field 'batch_startdate', id: 'dp2', class: 'form-control', value: "#{Time.now.strftime("%d-%b-%y")}" %>
+            <%= f.date_field 'batch_needbydate', id: 'dp2', class: 'form-control', value: "#{Time.now.strftime("%d-%b-%y")}" %>
           </div>
         </div>
         <div class='indent'>
