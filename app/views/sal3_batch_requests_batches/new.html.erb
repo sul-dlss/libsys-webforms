@@ -145,7 +145,7 @@
   <%= f.hidden_field :num_bcs, value: '' %>
   <%= f.hidden_field :num_nonsymph_bcs, value: '' %>
   <%= f.hidden_field :num_retrieval_err, value: '' %>
-  <%= f.hidden_field :pending, value: 'true' %>
+  <%= f.hidden_field :pending, value: 'Y' %>
   <%= f.hidden_field :load_date, value: Time.now.strftime("%d-%b-%y").upcase %>
   <%= f.hidden_field :last_action_date, value: Time.now.strftime("%d-%b-%y").upcase %>
   <div><%= f.submit 'Submit request', class: 'btn' %></div><br/>
