@@ -1,0 +1,312 @@
+<h2>Shelf Selection Report Request</h2>
+<%= form_for @shelf_selection_report, class: 'form-group' do |f| %>
+  <% if @shelf_selection_report.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @shelf_selection_report.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div>
+  <div class='form-group row'>
+    <%= f.label :email, 'Email for notification when the report is ready:', class: 'col-sm-5 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :lib, 'Select Library:', class: 'col-sm-5 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :lib, UniLibsLocs.libraries, { include_blank: true }, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :loc_array, 'Select Home Location(s) from the list below after selecting library above:', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :loc_array, [], { prompt: 'Please choose from above' }, { multiple: true, class: 'form-control' } %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :cloc_diff, 'Exclude items with Current Location different from Home Location', class: 'col-sm-10 form-control-label' do %>
+      <%= f.check_box :cloc_diff %>
+      Exclude items with Current Location different from Home Location
+    <% end %>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :fmt_array, 'Select the formats to include:', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :fmt_array, CirculationStatisticsReportFormat.formats, {}, { multiple: true, class: 'form-control' } %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :itype_array, 'Select the item types to include:', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :itype_array, ShelfSelectionItemType.item_types, {}, { multiple: true, class: 'form-control' } %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :icat1_array, 'Select the item category1s to include:', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :icat1_array, ShelfSelItemCat1.item_category1s, {}, { multiple: true, class: 'form-control' } %>
+    </div>
+  </div>
+  <div class='form-group row'>Leave any text input fields below blank to not filter by those conditions</div>
+  <div class='form-group row'>
+    <%= f.label :lang, 'Include only titles with language code(s) (For multiple codes, separate with commas.):', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field :lang, class: 'input-mini' %>
+      <%= link_to 'Language codes list', 'http://www.loc.gov/marc/languages/language_code.html' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :min_yr, 'Exclude items created before:', class: 'col-sm-3 form-control-label' %>
+    <div class='col-sm-13'>
+      <%= f.text_field :min_yr, class: 'input-mini inline' %>
+      Enter 4-digit years in these fields.
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :max_yr, 'Exclude items created after:', class: 'col-sm-3 form-control-label' %>
+    <div class='col-sm-13'>
+      <%= f.text_field :max_yr, class: 'input-mini' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :min_circ, 'Exclude items with Circulation Count below:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-13'>
+      <%= f.text_field :min_circ, class: 'input-mini' %>
+      Circulation count includes charges and in-house use.
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :max_circ, 'Exclude items with Circulation Count above:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-13'>
+      <%= f.text_field :max_circ, class: 'input-mini' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :shadowed, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :shadowed, 'if the item is Shadowed.', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :digisent, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :digisent, 'if item has Category2 DIGI-SENT.', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :url, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :url, 'if title has Full Text URL.', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :mhlds, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :mhlds, 'if title has MHLD(s).', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :has_dups, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :has_dups, 'if title has Items Elsewhere (copies/volumes at other libraries or not-selected locations in same library)', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :multvol, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :multvol, 'if title has Multiple Volumes at the selected library/locations(s).', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
+      <%= f.select :multcop, ShelfSelectionReport.generic_options, {}, class: 'form-control' %>
+    </div>
+    <%= f.label :multcop, 'if title has Multiple Copies (of the same volume) at the selected library/locations(s).', class: 'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :no_boundw, 'Exclude Bound-With Child items', class: 'col-sm-10 form-control-label' do %>
+      <%= f.check_box :no_boundw %>
+      Exclude Bound-With Child items
+    <% end %>
+  </div>
+  <div class='form-group row'><strong>Type of Call Number selection to use in the report:</strong> <em>(See bottom of page for examples of call number options)</em></div>
+  <div class='form-group row'>
+    <%= f.label :range_type, 'LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters', class:'col-sm-10 form-control-label' do %>
+        <%= f.radio_button :range_type, 'lc', checked: 'checked' %>
+        LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters
+    <% end %>
+    <%= f.label :range_type, 'Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers', class:'col-sm-10 form-control-label' do %>
+      <%= f.radio_button :range_type, 'classic' %>
+      Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers
+    <% end %>
+    <%= f.label :range_type, 'Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number', class:'col-sm-10 form-control-label' do %>
+      <%= f.radio_button :range_type, 'other' %>
+      Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number
+    <% end %>
+  </div>
+  <!-- bunch of javascript to show some fields depending on the range_type -->
+  <div id='lc-show-hide'>
+    <div class='form-group row'>
+      <p>Enter a letter or range of letters to select all LC call numbers beginning with the letter(s).</p>
+      <strong><%= f.label :lc_call_lo, 'Lowest letter(s) of LC call number range:', class:'col-sm-10 form-control-label' %></strong>
+      <div class='col-sm-10'>
+        <%= f.text_field :lc_call_lo, class: 'input-mini' %>
+        One or two letters required or one letter followed by # symbol
+      </div>
+      <strong><%= f.label :lc_call_hi, 'Highest letter(s) of LC call number range:', class: 'col-sm-10 form-control-label' %></strong>
+      <div class='col-sm-10'>
+        <%= f.text_field :lc_call_hi, class: 'input-mini' %>
+        Same number of letters as in first field, or leave blank for only letter(s) in first field
+      </div>
+    </div>
+  </div>
+  <div id='classic-show-hide' style='display:none;'>
+    <div class='form-group row'>
+      <p>Enter the LC or Dewey call number range to select.</p>
+      <strong><%= f.label :call_alpha, '1 to 3 letters at start of LC call number. Leave blank for Dewey:', class: 'col-sm-10 form-control-label' %></strong>
+      <div class='col-sm-10'>
+        <%= f.text_field :call_alpha, class: 'input-mini' %>
+        Letters only
+      </div>
+    </div>
+    <div class='form-group row'>
+      <strong><%= f.label :classic_call_lo, 'Lowest number of call number range. Maximum 4 digits for LC, 3 digits for Dewey:', class: 'col-sm-10 form-control-label' %></strong>
+      <div class='col-sm-10'>
+        <%= f.text_field :classic_call_lo, class: 'input-mini' %>
+        Digits only, no decimal
+      </div>
+    </div>
+    <div class='form-group row'>
+      <strong><%= f.label :classic_call_hi, 'Highest number of call number range. All decimal extensions of entered number will be included in report:', class: 'col-sm-10 form-control-label' %></strong>
+      <div class='col-sm-10'>
+        <%= f.text_field :classic_call_hi, class: 'input-mini' %>
+        Digits only, no decimal
+      </div>
+    </div>
+  </div>
+  <div id='other-show-hide' style='display:none;'>
+    <div class='form-group row'>
+      <%= f.label :other_call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with that (not case sensitive). Leave blank to select all.', class: 'col-sm-15 form-control-label' %>
+      <div class='col-sm-10'>
+        <%= f.text_field :other_call_hi, class: 'input-large' %>
+      </div>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :subj_name, 'Name of selection. Leave blank to not use.', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field :subj_name, class: 'form-control' %>
+      <em>The control allows entering up to 80 characters.</em>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :save_opt, 'Use as email subject and name of saved criteria.', class:'col-sm-5 form-control-label' do %>
+      <%= f.radio_button :save_opt, 'save' %>
+      Use as email subject and name of saved criteria.
+    <% end %>
+    <%= f.label :save_opt, "Use as email subject only, don't save.", class:'form-control-label' do %>
+      <%= f.radio_button :save_opt, 'nosave' %>
+      Use as email subject only, don't save.
+    <% end %>
+  </div>
+  <div><%= f.submit 'Submit', class: 'btn' %></div>
+</div>
+<% end %>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>
+<h4>Call number range examples for LC Letters Range:</h4>
+<div>
+  <table class='table table-bordered'>
+    <tbody>
+      <tr>
+        <td>H</td>
+        <td></td>
+        <td>selects all LC call numbers starting with H (including HA, HB, etc.)</td>
+      </tr>
+      <tr>
+        <td>H#</td>
+        <td></td>
+        <td>selects all LC call numbers starting with H followed by digit or cutter, <strong>not</strong> HA, HB, etc. (<em>Same as Classic Selection H 0 9999 below</em>)</td>
+      </tr>
+      <tr>
+        <td>H</td>
+        <td>K</td>
+        <td>selects all LC call numbers starting with H, I, J or K</td>
+      </tr>
+      <tr>
+        <td>HB</td>
+        <td></td>
+        <td>selects all LC call numbers starting with HB (<em>Same as Classic Selection HB 0 9999 below</em>)</td>
+      </tr>
+      <tr>
+        <td>HB</td>
+        <td>HD</td>
+        <td>selects all LC call numbers starting with HB, HC or HD</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>Z</td>
+        <td>selects all LC call numbers</td>
+      </tr>
+      <tr>
+        <td class='text-danger'>H#</td>
+        <td class='text-danger'>HC</td>
+        <td class='text-danger'>NOT ALLOWED. With # used in first input field, second field must be empty.</td>
+      </tr>
+      <tr>
+        <td class='text-danger'>HB</td>
+        <td class='text-danger'>JA</td>
+        <td class='text-danger'>NOT ALLOWED. With 2 letters in each input field, both fields must have the same first letter.</td>
+      </tr>
+      <tr>
+        <td class='text-danger'>H</td>
+        <td class='text-danger'>HD</td>
+        <td class='text-danger'>NOT ALLOWED. Can't have one letter in one field and two letters in the other field.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Call number range examples for Classic Selection: </h4>
+  <div>
+    <table class='table table-bordered'>
+      <tbody>
+        <tr>
+          <td>H</td>
+          <td>0</td>
+          <td>9999</td>
+          <td>selects all LC call numbers starting with H followed by digit or cutter (<em>Does NOT include call starting HA, HB, etc</em>)</td>
+        </tr>
+        <tr>
+          <td>HB</td>
+          <td>120</td>
+          <td>2000</td>
+          <td>selects all LC call numbers from HB120 to HB2000.9999</td>
+        </tr>
+        <tr>
+          <td>HB</td>
+          <td>0</td>
+          <td>9999</td>
+          <td>selects all LC call numbers starting with HB (<em>Same as LC Letters Range HB above</em>)</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>382</td>
+          <td>499</td>
+          <td>selects all Dewey call numbers from 382 to 499.9999</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>0</td>
+          <td>999</td>
+          <td>selects all Dewey call numbers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div>HB to HC is not possible with Classic Selection. Use LC Letters Range for selections like that.</div>

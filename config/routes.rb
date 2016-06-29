@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :encumbrance_reports, only: [:new, :create]
   resources :expenditure_reports, only: [:new, :create]
   resources :circulation_statistics_reports, only: [:new, :create]
+  resources :shelf_selection_reports, only: [:new, :create]
+  get 'shelf_selection_reports/home_locations' => 'shelf_selection_reports#home_locations', as: :home_locations_for_library
 
   get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
   get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
 
   get 'management_reports' => 'management_reports#index'
     get 'shelf_selection_report' => 'management_reports#shelf_selection_report'
+    get 'expenditures_report' => 'management_reports#expenditures_report'
     get 'expenditures_with_circ_stats_report' => 'management_reports#expenditures_with_circ_stats_report'
     get 'endowed_funds_report' => 'management_reports#endowed_funds_report'
     get 'google_selection_report' => 'management_reports#google_selection_report'
