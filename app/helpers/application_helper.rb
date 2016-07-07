@@ -18,7 +18,7 @@ module ApplicationHelper
 
   def batch_menu_button
     link_to button_tag(
-      'Batch upload menu'.html_safe,
+      'Batch upload menu',
       id: 'batch-menu-button',
       class: 'btn btn-md btn-default  btn-full'
     ), '/batch_record_updates'
@@ -26,7 +26,7 @@ module ApplicationHelper
 
   def main_menu_button
     link_to button_tag(
-      'Main menu'.html_safe,
+      'Main menu',
       id: 'main-menu-button',
       class: 'btn btn-md btn-primary btn-full'
     ), root_path

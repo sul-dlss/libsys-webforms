@@ -8,12 +8,12 @@ class ExpenditureReport < ActiveRecord::Base
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
 
-  before_save :check_funds, :check_fy, :check_cal, :check_pd, :write_dates
+  before_save :set_fund, :check_fy, :check_cal, :check_pd, :write_dates
   self.table_name = 'expenditures_log'
 
   private
 
-  def check_funds
+  def set_fund
     if fund
       self[:ta_fund_code] = fund
     elsif fund_begin

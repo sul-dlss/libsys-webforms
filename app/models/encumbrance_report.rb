@@ -7,7 +7,7 @@ class EncumbranceReport < ActiveRecord::Base
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
 
-  before_save :check_done, :write_dates
+  before_save :set_fund, :write_dates
 
   self.table_name = 'encumbrance_rpts'
 
@@ -18,10 +18,10 @@ class EncumbranceReport < ActiveRecord::Base
 
   private
 
-  def check_done
-    if fund
+  def set_fund
+    if fund.present?
       self[:fund_acct] = fund
-    elsif fund_begin
+    elsif fund_begin.present?
       self[:fund_acct] = fund_begin
     end
   end
