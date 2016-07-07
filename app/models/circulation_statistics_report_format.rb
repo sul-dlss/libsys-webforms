@@ -3,6 +3,6 @@ class CirculationStatisticsReportFormat < ActiveRecord::Base
   self.table_name = 'circ_stats_rpt_fmts'
 
   def self.formats
-    select(:format).distinct.order(:format).pluck(:format)
+    (select(:format).distinct.order(:format).pluck(:format) + ['ALL']).sort
   end
 end

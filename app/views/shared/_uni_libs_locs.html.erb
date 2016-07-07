@@ -1,6 +1,6 @@
 <div class='form-group row pad'>
   <%= f.label :lib, 'Select Library:', class: 'col-sm-5 form-control-label' %>
   <div class='col-sm-10'>
-    <%= f.select :lib, UniLibsLocs.libraries, { include_blank: true }, { class: 'form-control' } %>
+    <%= f.select :lib, UniLibsLocs.libraries, { include_blank: true, selected: 'GREEN' }, { class: 'form-control' } %>
   </div>
 </div>
