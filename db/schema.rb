@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701214235) do
-
+ActiveRecord::Schema.define(version: 20160701214235) do  
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
     t.string   "user_name"
@@ -59,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160701214235) do
     t.datetime "updated_at",    null: false
   end
 
+<<<<<<< HEAD
   create_table "expenditures_log", force: :cascade do |t|
     t.datetime "date_request"
     t.datetime "date_ran"
@@ -83,6 +83,9 @@ ActiveRecord::Schema.define(version: 20160701214235) do
 
   create_table "sal3_batch_requests_batch", force: :cascade do |t|
     t.integer  "batch_id"
+=======
+  create_table "sal3_batch_requests_batch", primary_key: "batch_id", force: :cascade do |t|
+>>>>>>> af813d98d1ea2444fb93c2317be50c9c14d7e4a9
     t.string   "batch_name"
     t.string   "user_name"
     t.string   "user_email"
@@ -125,6 +128,11 @@ ActiveRecord::Schema.define(version: 20160701214235) do
     t.datetime "completed_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "uni_libs_locs", force: :cascade do |t|
+    t.string "library"
+    t.string "home_loc"
   end
 
   create_table "uni_updates", force: :cascade do |t|
