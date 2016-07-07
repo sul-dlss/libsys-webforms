@@ -23,7 +23,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   end
 
   def self.batch_media
-    { book: 'Book', archival: 'Archival', flat: 'Flat files (maps, drawings)',
+    {
+      book: 'Book', archival: 'Archival', flat: 'Flat files (maps, drawings)',
       film: 'Film (photographic, microfilm/fiche)', magnetic: 'Magnetic (tape, data)',
       newspaper: 'Newspaper', optical: 'Optical (CD, DVD)',
       rolled: 'Rolled stock (blueprints, drawings)', shellac: 'Shellac (78s, transcription disks)',

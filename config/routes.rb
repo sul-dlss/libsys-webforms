@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :transfer_items, only: [:new, :create]
   resources :sal3_batch_requests_batches, only: [:new, :create]
   resources :encumbrance_reports, only: [:new, :create]
+  resources :expenditure_reports, only: [:new, :create]
   resources :circulation_statistics_reports, only: [:new, :create]
 
   get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
@@ -24,9 +25,7 @@ Rails.application.routes.draw do
 
   get 'management_reports' => 'management_reports#index'
     get 'shelf_selection_report' => 'management_reports#shelf_selection_report'
-    get 'expenditures_report' => 'management_reports#expenditures_report'
     get 'expenditures_with_circ_stats_report' => 'management_reports#expenditures_with_circ_stats_report'
-    # get 'encumbrances_report' => 'management_reports#encumbrances_report'
     get 'endowed_funds_report' => 'management_reports#endowed_funds_report'
     get 'google_selection_report' => 'management_reports#google_selection_report'
 

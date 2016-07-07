@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   def user_id
     request.env['REMOTE_USER'] || ENV['REMOTE_USER']
   end
+  helper_method :user_id
 
   def current_user_name
     current_user.user_name

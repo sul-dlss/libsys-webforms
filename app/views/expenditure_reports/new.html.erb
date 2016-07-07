@@ -1,0 +1,34 @@
+<h2>Expenditure Report Request</h2>
+<%= form_for @expenditure_report, multipart: true, class: 'form-group' do |f| %>
+<% if @expenditure_report.errors.any? %>
+<div id='error_explanation'>
+  <ul>
+    <% @expenditure_report.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div>
+  <%= render 'shared/funds_selection', f: f %>
+  <%= render 'shared/date_range_selection', f: f %>
+
+  <div class='pad'>
+    <%= f.check_box :ckey_link, checked: true %>
+    Make catalog key cells in report clickable links to titles in Searchworks
+  </div>
+
+  <%= f.hidden_field :status, value: 'REQUEST' %>
+  <%= f.hidden_field :output_file, value: "exp_rpt#{Time.new.to_f}" %>
+  <%= f.hidden_field :message, value: nil %>
+  <%= f.hidden_field :path_invlin_fund_keys, value: nil %>
+  <%= f.hidden_field :date_request, value: Time.now %>
+  <%= f.hidden_field :date_ran, value: Time.now %>
+
+  <div class='pad'><%= f.submit 'Submit request', class: 'btn' %></div><br/>
+
+  <% end %>
+  <div class='btn-group'>
+    <%= main_menu_button %>
+  </div>
+</div>

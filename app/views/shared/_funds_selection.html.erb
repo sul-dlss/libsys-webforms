@@ -1,4 +1,10 @@
 <div class='form-group row'>
+  <%= f.label :email, 'Email for notification when the report is ready:', class: 'col-sm-5 form-control-label' %>
+  <div class='col-sm-10'>
+    <%= f.text_field 'email', class: 'form-control', value: "#{user_id}@stanford.edu" %>
+  </div>
+</div>
+<div class='form-group row'>
   <%= f.label :fund_select, 'Select funds for report by:', class: 'col-sm-5 form-control-label'%>
   <div class='col-sm-10'>
     <p><%= f.radio_button :fund_select, 'fund_name_id', {'data-toggle' => 'collapse', 'data-target' => '.fund_name_id', onChange: '$(".collapse").removeClass("in")'} %> Fund ID or name</p>
@@ -7,7 +13,7 @@
 </div>
 <div class='form-group row'>
   <div class='panel-body fund_name_id collapse'>
-    <%= f.label :fund_acct, 'Select one or more funds (click on header to sort):', class: 'col-sm-5 form-control-label'%>
+    <%= f.label :fund, 'Select one or more funds (click on header to sort):', class: 'col-sm-5 form-control-label'%>
     <div class='table-container col-sm-10 pad'>
       <table class='table table-striped nested'>
         <thead>
@@ -24,7 +30,7 @@
           <% ExpendituresFunds.fund_id.each do |d| %>
           <% if d.fund_name_key.present? %>
           <tr>
-            <td><%= f.check_box :fund_acct, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
+            <td><%= f.check_box :fund, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
             <td><%= d.fund_id %></td>
             <td><%= d.fund_name_key %></td>
             <td><%= d.old_fund_id %></td>
@@ -38,9 +44,9 @@
     </div>
   </div>
   <div class='panel-body fund_begins_with collapse'>
-    <%= f.label :fund_acct, 'Select funds beginning with fund id:', class: 'col-sm-5 form-control-label'%>
+    <%= f.label :fund_begin, 'Select funds beginning with:', class: 'col-sm-5 form-control-label'%>
     <div class='col-sm-10'>
-      <%= f.select :fund_acct, options_for_select(ExpendituresFunds.fund_begins_with.map{|e| [e.fund_id]}), {}, {class: 'form-control'} %>
+      <%= f.select :fund_begin, options_for_select(ExpendituresFunds.fund_begins_with.map{|d| [d.fund_id]}), {prompt: 'Fund ID'}, {class: 'form-control'} %>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class ExpendituresFunds < ActiveRecord::Migration
   def change
     create_table  :expenditures_funds do |t|
-      t.string    :fund_id
+      t.string    :fund_id, array: true
       t.string    :fund_name_key
       t.string    :old_fund_id
       t.datetime  :min_pay_date

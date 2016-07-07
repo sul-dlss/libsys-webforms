@@ -1,4 +1,3 @@
-require 'builder'
 ###
 # Class to model EXPENDITURES_FUNDS oracle table
 ###

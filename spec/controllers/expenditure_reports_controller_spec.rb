@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EncumbranceReportsController, type: :controller do
+RSpec.describe ExpenditureReportsController, type: :controller do
   describe 'get#new' do
     it 'be succesful returning the index page' do
       stub_current_user(FactoryGirl.create(:authorized_user))
@@ -10,15 +10,13 @@ RSpec.describe EncumbranceReportsController, type: :controller do
     describe 'post#create' do
       it 'returns 302 when saving sal3_batch_requests_batch' do
         stub_current_user(FactoryGirl.create(:authorized_user))
-        post :create, encumbrance_report: { email: 'someone@some.one',
-                                            fund: '1008930-1-HAGOY',
-                                            fundcyc_cycle: '2016' }
-
+        post :create, expenditure_report: { email: 'someone@some.one',
+                                            fund: '1008930-1-HAGOY' }
         expect(response).to have_http_status(302)
       end
       it 'renders new template with an invalid object' do
         stub_current_user(FactoryGirl.create(:authorized_user))
-        post :create, encumbrance_report: { fund: '' }
+        post :create, expenditure_report: { email: '' }
         expect(response).to redirect_to root_path
       end
     end
