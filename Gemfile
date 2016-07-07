@@ -30,6 +30,9 @@ gem 'cancan'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#use ruby-plsql to kick off reports
+gem 'ruby-plsql'
+
 group :production do
   gem 'activerecord-oracle_enhanced-adapter'
   gem 'ruby-oci8'
