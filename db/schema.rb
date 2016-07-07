@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20160701214235) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "circ_stats_rpt_fmts", force: :cascade do |t|
+    t.string "format"
+  end
+
   create_table "encumbrance_rpts", force: :cascade do |t|
     t.datetime "date_request"
     t.datetime "date_ran"
@@ -81,8 +85,7 @@ ActiveRecord::Schema.define(version: 20160701214235) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sal3_batch_requests_batch", force: :cascade do |t|
-    t.integer  "batch_id"
+  create_table "sal3_batch_requests_batch", primary_key: "batch_id", force: :cascade do |t|
     t.string   "batch_name"
     t.string   "user_name"
     t.string   "user_email"
@@ -125,6 +128,39 @@ ActiveRecord::Schema.define(version: 20160701214235) do
     t.datetime "completed_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "shelf_sel_item_cat1s", force: :cascade do |t|
+    t.string "item_category1"
+  end
+
+  create_table "shelf_sel_item_types", force: :cascade do |t|
+    t.string "item_type"
+  end
+
+  create_table "shelf_sel_searches", force: :cascade do |t|
+    t.string  "user_name"
+    t.string  "search_name"
+    t.string  "call_range"
+    t.string  "lib"
+    t.string  "locs"
+    t.string  "fmts"
+    t.string  "itypes"
+    t.string  "min_yr"
+    t.string  "max_yr"
+    t.string  "min_circ"
+    t.string  "max_circ"
+    t.integer "na_i_e_shadow"
+    t.integer "na_i_e_url"
+    t.integer "na_i_e_dups"
+    t.integer "na_i_e_boundw"
+    t.integer "na_i_e_cloc_diff"
+    t.integer "na_i_e_digisent"
+    t.integer "na_i_e_mhlds"
+    t.integer "na_i_e_multvol"
+    t.integer "na_i_e_multcop"
+    t.string  "lang"
+    t.string  "icat1s"
   end
 
   create_table "uni_libs_locs", force: :cascade do |t|
