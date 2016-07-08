@@ -10,13 +10,10 @@
 </div>
 <% end %>
 <div>
+  <%= render 'shared/enter_email', f: f %>
   <%= render 'shared/funds_selection', f: f %>
   <%= render 'shared/date_range_selection', f: f %>
-
-  <div class='pad'>
-    <%= f.check_box :ckey_link, checked: true %>
-    Make catalog key cells in report clickable links to titles in Searchworks
-  </div>
+  <%= render 'shared/ckey_link', f: f %>
 
   <%= f.hidden_field :status, value: 'REQUEST' %>
   <%= f.hidden_field :output_file, value: "exp_rpt#{Time.new.to_f}" %>

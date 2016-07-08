@@ -24,3 +24,10 @@ a {
   height: 600px;
   overflow: auto;
 }
+
+hr {
+  border: 0;
+  border-top: 1px solid $grayish-yellow;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
