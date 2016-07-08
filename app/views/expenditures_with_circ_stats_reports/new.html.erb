@@ -1,0 +1,39 @@
+<h2>Expenditures with Circ Stats Report Request</h2>
+<%= form_for @expenditures_with_circ_stats_report, class: 'form-group' do |f| %>
+<% if @expenditures_with_circ_stats_report.errors.any? %>
+<div id="error_explanation">
+  <ul>
+    <% @expenditures_with_circ_stats_report.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div>
+  <%= render 'shared/enter_email', f: f %>
+  <%= render 'shared/funds_selection', f: f %>
+  <%= render 'shared/date_range_selection', f: f %>
+  <%= render 'shared/uni_libs_locs', f: f %>
+  <%= render 'shared/circulation_statistics_report_formats', f: f %>
+
+  <div class='form-group row'>
+    <%= f.label :one_row_total, 'Show Circulation counts for each title (ckey) as:', class: 'col-sm-5 form-control-label'%>
+    <div class='col-sm-10'>
+      <p><%= f.radio_button :one_row_total, 0, { checked: true } %> Separate row of circulation counts for each selected library having copies/volumes of the title </p>
+      <p><%= f.radio_button :one_row_total, 1 %> Single row with total circulation of the title at all selected libraries</p>
+    </div>
+  </div>
+
+  <%= render 'shared/ckey_link', f: f %>
+</div>
+
+<%= f.hidden_field :status, value: 'REQUEST' %>
+<%= f.hidden_field :message, value: nil %>
+<%= f.hidden_field :output_file, value: "exp_rpt#{Time.new.to_f}" %>
+
+<div class='pad'><%= f.submit 'Submit request', class: 'btn' %></div><br/>
+
+<% end %>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>

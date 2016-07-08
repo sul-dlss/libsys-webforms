@@ -1,27 +1,18 @@
 <h2>Shelf Selection Report Request</h2>
 <%= form_for @shelf_selection_report, class: 'form-group' do |f| %>
-  <% if @shelf_selection_report.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% @shelf_selection_report.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @shelf_selection_report.errors.any? %>
+<div id="error_explanation">
+  <ul>
+    <% @shelf_selection_report.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <div>
-  <div class='form-group row'>
-    <%= f.label :email, 'Email for notification when the report is ready:', class: 'col-sm-5 form-control-label' %>
-    <div class='col-sm-10'>
-      <%= f.text_field :email, class: 'form-control' %>
-    </div>
-  </div>
-  <div class='form-group row'>
-    <%= f.label :lib, 'Select Library:', class: 'col-sm-5 form-control-label' %>
-    <div class='col-sm-10'>
-      <%= f.select :lib, UniLibsLocs.libraries, { include_blank: true }, { class: 'form-control' } %>
-    </div>
-  </div>
+  <%= render 'shared/enter_email', f: f %>
+  <%= render 'shared/uni_libs_locs', f: f %>
+
   <div class='form-group row'>
     <%= f.label :loc_array, 'Select Home Location(s) from the list below after selecting library above:', class: 'col-sm-10 form-control-label' %>
     <div class='col-sm-10'>
@@ -30,16 +21,13 @@
   </div>
   <div class='form-group row'>
     <%= f.label :cloc_diff, 'Exclude items with Current Location different from Home Location', class: 'col-sm-10 form-control-label' do %>
-      <%= f.check_box :cloc_diff %>
-      Exclude items with Current Location different from Home Location
+    <%= f.check_box :cloc_diff %>
+    Exclude items with Current Location different from Home Location
     <% end %>
   </div>
-  <div class='form-group row'>
-    <%= f.label :fmt_array, 'Select the formats to include:', class: 'col-sm-10 form-control-label' %>
-    <div class='col-sm-10'>
-      <%= f.select :fmt_array, CirculationStatisticsReportFormat.formats, {}, { multiple: true, class: 'form-control' } %>
-    </div>
-  </div>
+
+  <%= render 'shared/circulation_statistics_report_formats', f: f %>
+
   <div class='form-group row'>
     <%= f.label :itype_array, 'Select the item types to include:', class: 'col-sm-10 form-control-label' %>
     <div class='col-sm-10'>
@@ -130,23 +118,23 @@
   </div>
   <div class='form-group row'>
     <%= f.label :no_boundw, 'Exclude Bound-With Child items', class: 'col-sm-10 form-control-label' do %>
-      <%= f.check_box :no_boundw %>
-      Exclude Bound-With Child items
+    <%= f.check_box :no_boundw %>
+    Exclude Bound-With Child items
     <% end %>
   </div>
   <div class='form-group row'><strong>Type of Call Number selection to use in the report:</strong> <em>(See bottom of page for examples of call number options)</em></div>
   <div class='form-group row'>
     <%= f.label :range_type, 'LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters', class:'col-sm-10 form-control-label' do %>
-        <%= f.radio_button :range_type, 'lc', checked: 'checked' %>
-        LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters
+    <%= f.radio_button :range_type, 'lc', checked: 'checked' %>
+    LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters
     <% end %>
     <%= f.label :range_type, 'Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers', class:'col-sm-10 form-control-label' do %>
-      <%= f.radio_button :range_type, 'classic' %>
-      Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers
+    <%= f.radio_button :range_type, 'classic' %>
+    Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers
     <% end %>
     <%= f.label :range_type, 'Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number', class:'col-sm-10 form-control-label' do %>
-      <%= f.radio_button :range_type, 'other' %>
-      Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number
+    <%= f.radio_button :range_type, 'other' %>
+    Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number
     <% end %>
   </div>
   <!-- bunch of javascript to show some fields depending on the range_type -->
@@ -206,20 +194,21 @@
   </div>
   <div class='form-group row'>
     <%= f.label :save_opt, 'Use as email subject and name of saved criteria.', class:'col-sm-5 form-control-label' do %>
-      <%= f.radio_button :save_opt, 'save' %>
-      Use as email subject and name of saved criteria.
+    <%= f.radio_button :save_opt, 'save' %>
+    Use as email subject and name of saved criteria.
     <% end %>
     <%= f.label :save_opt, "Use as email subject only, don't save.", class:'form-control-label' do %>
-      <%= f.radio_button :save_opt, 'nosave' %>
-      Use as email subject only, don't save.
+    <%= f.radio_button :save_opt, 'nosave' %>
+    Use as email subject only, don't save.
     <% end %>
   </div>
   <div><%= f.submit 'Submit', class: 'btn' %></div>
 </div>
 <% end %>
-<div class="btn-group">
+<div class="btn-group pad">
   <%= main_menu_button %>
 </div>
+<hr />
 <h4>Call number range examples for LC Letters Range:</h4>
 <div>
   <table class='table table-bordered'>
