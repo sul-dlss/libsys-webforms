@@ -6,14 +6,14 @@ class UnicornPolicy < ActiveRecord::Base
   self.inheritance_column = nil
 
   def self.libraries
-    where(type: 'LIBR')
+    where(type: 'LIBR').order(:name)
   end
 
   def self.item_types
-    where(type: 'ITYP')
+    where(type: 'ITYP').order(:name)
   end
 
   def self.locations
-    where(type: 'LOCN')
+    where(type: 'LOCN').order(:name)
   end
 end
