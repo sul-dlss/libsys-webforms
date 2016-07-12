@@ -1,0 +1,48 @@
+<search>
+  <username><%= @shelf_sel_search.user_name %></username>
+  <searchname><%= @shelf_sel_search.search_name %></searchname>
+  <callrange><%= @shelf_sel_search.call_range %></callrange>
+  <lib><%= @shelf_sel_search.lib %></lib>
+  <locsstring><%= @shelf_sel_search.locs %></locsstring>
+  <locs>
+    <%= @shelf_sel_search.locs.split(',').each do |loc| %>
+      <option value='<%= loc %>'><%= loc %></option>
+    <% end %>
+  </locs>
+  <fmtsstring><%= @shelf_sel_search.fmts %></fmtsstring>
+  <fmts>
+    <% @shelf_sel_search.fmts.split(',').each do |fmt| %>
+      <option value='<%= fmt %>'><%= fmt %></option>
+    <% end %>
+  </fmts>
+  <itypesstring><%= @shelf_sel_search.itypes %></itypesstring>
+  <itypes>
+    <% @shelf_sel_search.itypes.split(',').each do |itype| %>
+      <option value='<%= itype %>'><%= itype %></option>
+    <% end %>
+  </itypes>
+  <% unless @shelf_sel_search.icat1s.blank? %>
+    <itcat1sstring><%= @shelf_sel_search.icat1s %></icat1sstring>
+    <icat1s>
+      <% @shelf_sel_search.icat1s.split(',').each do |icat1| %>
+        <option value='<%= icat1 %>'><%= icat1 %></option>
+        <% end %>
+    </icat1s>
+  <% end %>
+  <lang><%= @shelf_sel_search.lang %></lang>
+  <minyr><%= @shelf_sel_search.min_yr %></minyr>
+  <maxyr><%= @shelf_sel_search.max_yr %></maxyr>
+  <mincirc><%= @shelf_sel_search.min_circ %></mincirc>
+  <maxcirc><%= @shelf_sel_search.max_circ %></maxcirc>
+  <shadowed><%= @shelf_sel_search.na_i_e_shadow.to_i.to_s %></shadowed>
+  <digisent><%= @shelf_sel_search.na_i_e_digisent.to_i.to_s %></digisent>
+  <url><%= @shelf_sel_search.na_i_e_url.to_i.to_s %></url>
+  <mhlds><%= @shelf_sel_search.na_i_e_mhlds.to_i.to_s %></mhlds>
+  <hasdups><%= @shelf_sel_search.na_i_e_dups.to_i.to_s %></hasdups>
+  <multvol><%= @shelf_sel_search.na_i_e_multvol.to_i.to_s %></multvol>
+  <multcop><%= @shelf_sel_search.na_i_e_multcop.to_i.to_s %></multcop>
+  <noboundw><%= @shelf_sel_search.na_i_e_boundw %></noboundw>
+  <calllo><%= @shelf_sel_search.call_lo %></calllo>
+  <callhi><%= @shelf_sel_search.call_hi %></callhi>
+  <subjname><%= @shelf_sel_search.search_name %></subjname>
+</search>

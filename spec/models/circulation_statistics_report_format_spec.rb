@@ -8,7 +8,7 @@ RSpec.describe CirculationStatisticsReportFormat, type: :model do
 
     it 'returns a list of formats' do
       FactoryGirl.create(:circulation_statistics_report_format)
-      expect(CirculationStatisticsReportFormat.formats).to eq(['EQUIP'])
+      expect(CirculationStatisticsReportFormat.formats).to eq(%w(ALL EQUIP))
     end
   end
 end

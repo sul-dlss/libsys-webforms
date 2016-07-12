@@ -3,6 +3,6 @@ class ShelfSelectionItemType < ActiveRecord::Base
   self.table_name = 'shelf_sel_item_types'
 
   def self.item_types
-    select(:item_type).distinct.order(:item_type).pluck(:item_type)
+    (select(:item_type).distinct.order(:item_type).pluck(:item_type) + ['ALL']).sort
   end
 end
