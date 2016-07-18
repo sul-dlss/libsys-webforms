@@ -25,7 +25,7 @@
   <div class='form-group row'>
     <%= f.label :source, 'Select from:', class: 'col-sm-3 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.radio_button :source, 'All of Symphony' %> All of Symphony<br />
+      <%= f.radio_button :source, 'All of Symphony', checked: true %> All of Symphony<br />
       <%= f.radio_button :source, 'Google candidates (standard barcode)' %> Google candidates (standard barcode)<br />
       <%= f.radio_button :source, 'Google candidates (auto-barcode)' %> Google candidates (auto-barcode)<br />
     </div>
@@ -33,10 +33,10 @@
   <div class='form-group row'>
     <%= f.label :range_type, 'Type of selection of records to include in the report: (See examples of call number options below)', class: 'col-sm-7 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.radio_button :range_type, 'LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters' %> LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters<br />
-      <%= f.radio_button :range_type, 'Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers' %> Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers<br />
-      <%= f.radio_button :range_type, 'Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number' %> Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number<br />
-      <%= f.radio_button :range_type, 'Upload a barcode list (Any call numbers. "Library" and "Select from" options on this page ignored)' %> Upload a barcode list (Any call numbers. "Library" and "Select from" options on this page ignored)<br />
+      <%= f.radio_button :range_type, 'lc', checked: true %> LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters<br />
+      <%= f.radio_button :range_type, 'classic' %> Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers<br />
+      <%= f.radio_button :range_type, 'other' %> Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number<br />
+      <%= f.radio_button :range_type, 'barcodes' %> Upload a barcode list (Any call numbers. "Library" and "Select from" options on this page ignored)<br />
     </div>
   </div>
   <p>Enter a letter or range of letters for circulation statistics on all LC call numbers beginning with the letter(s).</p>
