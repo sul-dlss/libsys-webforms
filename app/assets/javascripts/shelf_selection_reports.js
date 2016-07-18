@@ -11,10 +11,35 @@ $(document).ready(function() {
       }
     })
   })
-  $('input[type="radio"]').click(function (){
-    $('#lc-show-hide').css('display', ($(this).val() == 'lc') ? 'block' : 'none');
-    $('#classic-show-hide').css('display', ($(this).val() == 'classic') ? 'block' : 'none');
-    $('#other-show-hide').css('display', ($(this).val() == 'other') ? 'block' : 'none');
+  $('#shelf_selection_report_range_type_lc').click(function(){
+    $('#classic-call-alpha-label').hide();
+    $('#classic-call-alpha-form-element').hide();
+    $('#lc-call-lo-label').show();
+    $('#classic-call-lo-label').hide();
+    $('#lc-classic-call-lo-form-element').show();
+    $('#lc-call-hi-label').show();
+    $('#classic-call-hi-label').hide();
+    $('#other-call-hi-label').hide();
+  })
+  $('#shelf_selection_report_range_type_classic').click(function(){
+    $('#classic-call-alpha-label').show();
+    $('#classic-call-alpha-form-element').show();
+    $('#lc-call-lo-label').hide();
+    $('#classic-call-lo-label').show();
+    $('#lc-classic-call-lo-form-element').show();
+    $('#lc-call-hi-label').hide();
+    $('#classic-call-hi-label').show();
+    $('#other-call-hi-label').hide();
+  })
+  $('#shelf_selection_report_range_type_other').click(function(){
+    $('#classic-call-alpha-label').hide();
+    $('#classic-call-alpha-form-element').hide();
+    $('#lc-call-lo-label').hide();
+    $('#classic-call-lo-label').hide();
+    $('#lc-classic-call-lo-form-element').hide();
+    $('#lc-call-hi-label').hide();
+    $('#classic-call-hi-label').hide();
+    $('#other-call-hi-label').show();
   })
   $('#shelf_selection_report_search_name').change(function(){
     search_name = $('#shelf_selection_report_search_name').find(':selected').text();
@@ -64,8 +89,8 @@ $(document).ready(function() {
         $('#shelf_selection_report_multvol').val($(html_opts).find('multvol').text());
         $('#shelf_selection_report_multcop').val($(html_opts).find('multcop').text());
         $('#noboundw').val($(html_opts).find('noboundw').text());
-        $('#shelf_selection_report_lc_call_lo').val($(html_opts).find('calllo').text());
-        $('#shelf_selection_report_lc_call_hi').val($(html_opts).find('callhi').text());
+        $('#shelf_selection_report_call_lo').val($(html_opts).find('calllo').text());
+        $('#shelf_selection_report_call_hi').val($(html_opts).find('callhi').text());
         $('#shelf_selection_report_subj_name').val($(html_opts).find('subjname').text());
       }
     })

@@ -141,51 +141,36 @@
     <% end %>
   </div>
   <!-- bunch of javascript to show some fields depending on the range_type -->
-  <div id='lc-show-hide'>
-    <div class='form-group row'>
-      <p>Enter a letter or range of letters to select all LC call numbers beginning with the letter(s).</p>
-      <strong><%= f.label :lc_call_lo, 'Lowest letter(s) of LC call number range:', class:'col-sm-10 form-control-label' %></strong>
-      <div class='col-sm-10'>
-        <%= f.text_field :lc_call_lo, class: 'input-mini' %>
-        One or two letters required or one letter followed by # symbol
-      </div>
-      <strong><%= f.label :lc_call_hi, 'Highest letter(s) of LC call number range:', class: 'col-sm-10 form-control-label' %></strong>
-      <div class='col-sm-10'>
-        <%= f.text_field :lc_call_hi, class: 'input-mini' %>
-        Same number of letters as in first field, or leave blank for only letter(s) in first field
-      </div>
-    </div>
-  </div>
-  <div id='classic-show-hide' style='display:none;'>
-    <div class='form-group row'>
+  <div>
+    <div id='classic-call-alpha-label' style='display:none;'>
       <p>Enter the LC or Dewey call number range to select.</p>
-      <strong><%= f.label :call_alpha, '1 to 3 letters at start of LC call number. Leave blank for Dewey:', class: 'col-sm-10 form-control-label' %></strong>
-      <div class='col-sm-10'>
-        <%= f.text_field :call_alpha, class: 'input-mini' %>
-        Letters only
-      </div>
+      <%= f.label :call_alpha, '1 to 3 letters at start of LC call number. Leave blank for Dewey. (Letters only):', class: 'form-control-label form-inline' %>
     </div>
-    <div class='form-group row'>
-      <strong><%= f.label :classic_call_lo, 'Lowest number of call number range. Maximum 4 digits for LC, 3 digits for Dewey:', class: 'col-sm-10 form-control-label' %></strong>
-      <div class='col-sm-10'>
-        <%= f.text_field :classic_call_lo, class: 'input-mini' %>
-        Digits only, no decimal
-      </div>
+    <div id='classic-call-alpha-form-element' style='display:none;'>
+      <%= f.text_field :call_alpha, class: 'input-mini' %>
     </div>
-    <div class='form-group row'>
-      <strong><%= f.label :classic_call_hi, 'Highest number of call number range. All decimal extensions of entered number will be included in report:', class: 'col-sm-10 form-control-label' %></strong>
-      <div class='col-sm-10'>
-        <%= f.text_field :classic_call_hi, class: 'input-mini' %>
-        Digits only, no decimal
-      </div>
+
+    <div id='lc-call-lo-label'>
+      <%= f.label :call_lo, 'Enter a letter or range of letters to select all LC call numbers beginning with the letter(s). Lowest letter(s) of LC call number range. One or two letters required
+or one letter followed by # symbol.', class: 'form-control-label' %>
     </div>
-  </div>
-  <div id='other-show-hide' style='display:none;'>
-    <div class='form-group row'>
-      <%= f.label :other_call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with that (not case sensitive). Leave blank to select all.', class: 'col-sm-15 form-control-label' %>
-      <div class='col-sm-10'>
-        <%= f.text_field :other_call_hi, class: 'input-large' %>
-      </div>
+    <div id='classic-call-lo-label' style='display:none;'>
+      <%= f.label :call_lo, 'Enter the LC or Dewey call number range to select. 1 to 3 letters at start of LC call number Leave blank for Dewey. Letters only.', class: 'form-control-label' %>
+    </div>
+    <div id='lc-classic-call-lo-form-element'>
+      <%= f.text_field :call_lo, class: 'input-mini' %>
+    </div>
+    <div id='lc-call-hi-label'>
+      <%= f.label :call_hi, 'Highest letter(s) of LC call number range. Same number of letters as in first field, or leave blank for only letter(s) in first field.', class: 'form-control-label' %>
+    </div>
+    <div id='classic-call-hi-label' style='display:none;'>
+      <%= f.label :call_hi, 'Highest number of call number range. All decimal extensions of entered number will be included in report. Digits only, no decimal.', class: 'form-control-label' %>
+    </div>
+    <div id='other-call-hi-label' style='display:none;'>
+      <%= f.label :call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with that (not case sensitive). Leave blank to select all.', class: 'form-control-label' %>
+    </div>
+    <div>
+      <%= f.text_field :call_hi, class: 'input-mini' %>
     </div>
   </div>
   <div class='form-group row'>
