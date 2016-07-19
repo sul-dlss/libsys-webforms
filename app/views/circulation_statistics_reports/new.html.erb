@@ -17,9 +17,9 @@
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :libraries, 'Select libraries to collect stats for:', class: 'col-sm-5 form-control-label' %>
+    <%= f.label :lib_array, 'Select libraries to collect stats for:', class: 'col-sm-5 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.select :libraries, UniLibsLocs.libraries, {}, {multiple: true, size: 6, selected: 'none', class: 'form-control'} %>
+      <%= f.select :lib_array, UniLibsLocs.libraries, {}, {multiple: true, size: 6, selected: 'none', class: 'form-control'} %>
     </div>
   </div>
   <div class='form-group row'>
@@ -39,17 +39,33 @@
       <%= f.radio_button :range_type, 'barcodes' %> Upload a barcode list (Any call numbers. "Library" and "Select from" options on this page ignored)<br />
     </div>
   </div>
-  <p>Enter a letter or range of letters for circulation statistics on all LC call numbers beginning with the letter(s).</p>
+  <p class='classic-call-alpha-label' style='display:none;'>Enter the LC or Dewey call number range you want circulation statistics for.</p>
   <div class='form-group row'>
-    <%= f.label :low_callnum_range, 'Lowest letter(s) of LC call number range. One or two letters required or one letter followed by # symbol.' %>
+    <%= f.label :call_alpha, '1 to 3 letters at start of LC call number. Leave blank for Dewey. Letters only.', { class: 'classic-call-alpha-label', style: 'display:none;' } %>
     <div class='col-md-1'>
-      <%= f.text_field :low_callnum_range, maxlength: 2, class: 'form-control' %><br/>
+      <%= f.text_field :call_alpha, { maxlength: 2, class: 'form-control', id: 'classic-call-alpha-form-element', style: 'display:none;' } %><br/>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :hi_callnum_range, 'Highest letter(s) of LC call number range. Same number of letters as in first field, or leave blank for only letter(s) in first field.' %>
+    <p class='lc-call-lo-label'>Enter a letter or range of letters for circulation statistics on all LC call numbers beginning with the letter(s).</p>
+    <%= f.label :call_lo, 'Lowest letter(s) of LC call number range. One or two letters required or one letter followed by # symbol.', { class: 'lc-call-lo-label' } %>
+    <%= f.label :call_lo, 'Lowest number of call number range. Maximum 4 digits for LC, 3 digits for Dewey. Digits only, no decimal.', { id: 'classic-call-lo-label', style: 'display:none;' } %>
     <div class='col-md-1'>
-      <%= f.text_field :hi_callnum_range, maxlength: 2, class: 'form-control' %><br/>
+      <%= f.text_field :call_lo, maxlength: 2, class: 'form-control', id: 'lc-classic-call-lo-form-element' %><br/>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :call_hi, 'Highest letter(s) of LC call number range. Same number of letters as in first field, or leave blank for only letter(s) in first field.', id: 'lc-call-hi-label' %>
+    <%= f.label :call_hi, 'Highest number of call number range. All decimal extensions of entered number will be included in report. Digits only, no decimal.', { id: 'classic-call-hi-label', style: 'display:none;' } %>
+    <%= f.label :call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with that (not case sensitive). Leave blank to select all.', { id: 'other-call-hi-label', style: 'display:none;' } %>
+    <div class='col-md-1'>
+      <%= f.text_field :call_hi, { maxlength: 2, class: 'form-control', id: 'lc-classic-other-call-hi-form-element' } %><br/>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :barcodes, 'Barcodes to upload:', { class: 'col-sm-2 form-control-label', id: 'barcodes-label', style: 'display:none;' } %>
+    <div class='col-md-1'>
+      <%= f.file_field :barcodes, { class: 'form-control-file', id: 'bardoces-form-element', style: 'display:none;' } %><br/>
     </div>
   </div>
   <div><%= f.submit 'Submit request', class: 'btn' %></div><br/>
