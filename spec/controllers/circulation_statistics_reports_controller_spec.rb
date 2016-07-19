@@ -8,4 +8,12 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
       expect(response).to render_template('new')
     end
   end
+
+  describe 'post#create' do
+    it 'redirects to root_url' do
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      post :create, circulation_statistics_report: { email: '' }
+      expect(response).to redirect_to root_url
+    end
+  end
 end
