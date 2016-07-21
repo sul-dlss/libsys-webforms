@@ -11,4 +11,9 @@ class CirculationStatisticsReportsController < ApplicationController
     flash[:notice] = 'Circulation Statistics Report params submitted!'
     redirect_to root_url
   end
+
+  def home_locations
+    @home_locations = UniLibsLocs.home_locations_from(params[:lib])
+    render layout: false
+  end
 end

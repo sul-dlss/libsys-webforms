@@ -16,4 +16,12 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
       expect(response).to redirect_to root_url
     end
   end
+
+  describe 'get#home_locations' do
+    it 'returns a 200 response code' do
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      xhr :get, :home_locations
+      expect(response.status).to eq(200)
+    end
+  end
 end

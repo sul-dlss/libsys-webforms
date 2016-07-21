@@ -6,7 +6,7 @@ class UniLibsLocs < ActiveRecord::Base
     select(:library).distinct.where.not(library: nil).order(:library).pluck(:library)
   end
 
-  def self.home_locations_from(library)
-    select(:home_loc).distinct.where(library: library).order(:home_loc).pluck(:home_loc)
+  def self.home_locations_from(libraries)
+    select(:home_loc).distinct.where(library: libraries).order(:home_loc).pluck(:home_loc)
   end
 end
