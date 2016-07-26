@@ -7,5 +7,12 @@ class CirculationStatisticsReport
                 :tag_field, :tag_field2, :tags_url, :link_type, :col_header1,
                 :col_header2, :col_header3, :col_header4, :col_header5,
                 :blank_col_array, :lib_loc_array
-  validates :email, :lib_array, :call_lo, presence: true
+  validates :email, :lib_array, presence: true
+  validate :call_lo_or_call_hi
+
+  private
+
+  def call_lo_or_call_hi
+    errors.add(:base, 'Specify a low or high call number range.') if call_lo.blank? && call_hi.blank?
+  end
 end

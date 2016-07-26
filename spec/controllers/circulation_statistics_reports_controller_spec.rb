@@ -10,10 +10,16 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
   end
 
   describe 'post#create' do
-    it 'redirects to root_url' do
+    it 'redirects to root_url on success' do
       stub_current_user(FactoryGirl.create(:authorized_user))
-      post :create, circulation_statistics_report: { email: '' }
+      post :create, circulation_statistics_report: { email: 'test@test.org', lib_array: 'GREEN', call_lo: 'L' }
       expect(response).to redirect_to root_url
+    end
+
+    it 'renders new template on failure' do
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      post :create, circulation_statistics_report: { email: 'test@test.org', lib_array: 'GREEN' }
+      expect(response).to render_template('new')
     end
   end
 
