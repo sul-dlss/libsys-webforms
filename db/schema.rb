@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708184849) do
+ActiveRecord::Schema.define(version: 20160725235009) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -35,6 +35,34 @@ ActiveRecord::Schema.define(version: 20160708184849) do
 
   create_table "circ_stats_rpt_fmts", force: :cascade do |t|
     t.string "format"
+  end
+
+  create_table "circ_stats_rpt_log", force: :cascade do |t|
+    t.datetime "date_request"
+    t.datetime "date_ran"
+    t.string   "status"
+    t.string   "email"
+    t.string   "call_range"
+    t.string   "libs_locs"
+    t.string   "format"
+    t.integer  "include_inhouse"
+    t.integer  "exclude_inactive"
+    t.string   "blank_columns"
+    t.string   "input_path"
+    t.string   "output_name"
+    t.string   "message"
+    t.string   "extra_field"
+    t.string   "extra_field2"
+    t.string   "ckey_url"
+    t.string   "extras_url"
+    t.string   "link_type"
+    t.integer  "selcall_src"
+    t.string   "summary_only"
+    t.integer  "min_pub_year"
+    t.integer  "max_pub_year"
+    t.string   "exclude_bad_year"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "encumbrance_rpts", force: :cascade do |t|
@@ -103,8 +131,7 @@ ActiveRecord::Schema.define(version: 20160708184849) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sal3_batch_requests_batch", force: :cascade do |t|
-    t.integer  "batch_id"
+  create_table "sal3_batch_requests_batch", primary_key: "batch_id", force: :cascade do |t|
     t.string   "batch_name"
     t.string   "user_name"
     t.string   "user_email"
