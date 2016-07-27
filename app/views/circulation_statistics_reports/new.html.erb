@@ -51,7 +51,7 @@
       <%= f.label :call_lo, 'Lowest letter(s) of LC call number range. One or two letters required or one letter followed by # symbol.', { class: 'lc-call-lo-label' } %>
       <%= f.label :call_lo, 'Lowest number of call number range. Maximum 4 digits for LC, 3 digits for Dewey. Digits only, no decimal.', { id: 'classic-call-lo-label', style: 'display:none;' } %>
       <div class='col-md-1'>
-        <%= f.text_field :call_lo, maxlength: 2, class: 'form-control', id: 'lc-classic-call-lo-form-element' %><br/>
+        <%= f.text_field :call_lo, maxlength: 4, class: 'form-control', id: 'lc-classic-call-lo-form-element' %><br/>
       </div>
     </div>
     <div class='form-group row'>
@@ -59,7 +59,7 @@
       <%= f.label :call_hi, 'Highest number of call number range. All decimal extensions of entered number will be included in report. Digits only, no decimal.', { id: 'classic-call-hi-label', style: 'display:none;' } %>
       <%= f.label :call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with that (not case sensitive). Leave blank to select all.', { id: 'other-call-hi-label', style: 'display:none;' } %>
       <div class='col-md-1'>
-        <%= f.text_field :call_hi, { maxlength: 2, class: 'form-control', id: 'lc-classic-other-call-hi-form-element' } %><br/>
+        <%= f.text_field :call_hi, { maxlength: 20, class: 'form-control', id: 'lc-classic-other-call-hi-form-element' } %><br/>
       </div>
     </div>
     <div class='form-group row'>
