@@ -81,11 +81,22 @@ $(document).ready(function(){
       return $(el).text();
     })
     var lib_loc_array = '';
-    $.each(selected_libs, function(index, value){
-      lib_loc_array += ',' + value + '|'
-      $('#' + value).find(':selected').each(function(){
-        lib_loc_array += $(this).html() + '|'
+    $.each(selected_libs, function(index, selected_lib){
+      var last_in_array = selected_libs.slice(-1)[0];
+      lib_loc_array += selected_lib
+      $('#' + selected_lib).find(':selected').each(function(){
+        if($(this).html() == 'ALL') {
+          /* no home locations */
+        } else {
+          lib_loc_array += '/';
+          lib_loc_array += $(this).html();
+        }
       })
+      if (selected_lib == last_in_array) {
+        /* no trailing comma */
+      } else {
+        lib_loc_array += ',';
+      }
     })
     $('#circulation_statistics_report_lib_loc_array').val(lib_loc_array);
   })

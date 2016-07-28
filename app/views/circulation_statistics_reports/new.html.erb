@@ -82,7 +82,7 @@
       <div class='form-group row'>
         <%= f.label :format_array, 'Select the Format(s) you want included in the counts.', class: 'col-sm-7 form-control-label' %>
         <div class='col-sm-10'>
-          <%= f.select :format_array, CirculationStatisticsReportFormat.formats, {}, { multiple: true, class: 'form-control' } %>
+          <%= f.select :format_array, CirculationStatisticsReportFormat.formats, { selected: 'ALL' }, { multiple: true, class: 'form-control' } %>
         </div>
       </div>
       <div class='form-group row'>
