@@ -107,30 +107,30 @@
       </div>
       <div class='form-group row'>
         <%= f.label :exclude_bad_yr, 'Exclude titles with invalid publication years (e.g. 3 digits, 22nd century)', class: 'col-sm-10 form-control-label' do %>
-          <%= f.check_box :exclude_bad_yr %>
+          <%= f.check_box :exclude_bad_yr, {}, 'Y', nil %>
           Exclude titles with invalid publication years (e.g. 3 digits, 22nd century).
         <% end %>
       </div>
       <h4>Optional Output</h4>
       <div class='form-group row'>
         <%= f.label :include_inhouse, 'Include separate counts of Charges and In-House use', class: 'col-sm-12 form-control-label' do %>
-          <%= f.radio_button :include_inhouse, 'Y', checked: true %>
+          <%= f.radio_button :include_inhouse, 1, checked: true %>
           Include separate counts of Charges and In-House use
         <% end %>
         <%= f.label :include_inhouse, 'Only include counts of Charges', class: 'col-sm-12 form-control-label' do %>
-          <%= f.radio_button :include_inhouse, 'N' %>
+          <%= f.radio_button :include_inhouse, 0 %>
           Only include counts of Charges
         <% end %>
       </div>
       <div class='form-group row'>
         <%= f.label :no_qtrly, 'Show Summary circ totals only, omit individual quarters.', class: 'col-sm-10 form-control-label' do %>
-          <%= f.check_box :no_qtrly %>
+          <%= f.check_box :no_qtrly, {}, 'Y', nil %>
           Show Summary circ totals only, omit individual quarters.
         <% end %>
       </div>
       <div class='form-group row'>
         <%= f.label :ckey_url, 'Show CKEY cells as links to Searchworks pages for those ckeys.', class: 'col-sm-10 form-control-label' do %>
-          <%= f.check_box :ckey_url %>
+          <%= f.check_box :ckey_url, {}, 'Y', nil %>
           Show CKEY cells as links to Searchworks pages for those ckeys.
         <% end %>
       </div>
@@ -152,7 +152,7 @@
       </div>
       <div class='form-group row'>
         <%= f.label :tags_url, 'In extra columns chosen above (if any) show any cell with URL text as a clickable link.', class: 'col-sm-10 form-control-label' do %>
-          <%= f.check_box :tags_url, checked: true %>
+          <%= f.check_box :tags_url, { checked: true }, 'Y', nil %>
           In extra columns chosen above (if any) show any cell with URL text as a clickable link.
         <% end %>
       </div>

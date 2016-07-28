@@ -10,6 +10,12 @@ class CirculationStatisticsReport
   validates :email, :lib_array, presence: true
   validates :barcodes, presence: true, if: :barcode_range_type?
   validates :lib_array, length: { minimum: 2, message: "can't be empty" }, if: :not_barcode_range_type?
+  validates :min_yr, length: { is: 4 }, numericality: { only_integer: true }, allow_blank: true
+  validates :max_yr, length: { is: 4 }, numericality: { only_integer: true }, allow_blank: true
+  validates :tag_field, length: { is: 3 }, numericality: { only_integer: true },
+                        exclusion: { in: %w(008) }, allow_blank: true
+  validates :tag_field2, length: { is: 3 }, numericality: { only_integer: true },
+                         exclusion: { in: %w(008) }, allow_blank: true
   validate :lc_call_lo, if: :lc_range_type?
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
