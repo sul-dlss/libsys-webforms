@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :encumbrance_reports, only: [:new, :create]
   resources :expenditure_reports, only: [:new, :create]
   resources :circulation_statistics_reports, only: [:new, :create]
+  resources :circulation_statistics_report_logs, only: [:new, :create]
   resources :shelf_selection_reports, only: [:new, :create]
   resources :expenditures_with_circ_stats_reports, only: [:new, :create]
 
