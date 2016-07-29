@@ -1,6 +1,9 @@
 # app/models/circulation_statistics_report.rb
 class CirculationStatisticsReport
   include ActiveModel::Model
+  extend ActiveModel::Callbacks
+  include ActiveModel::Validations
+  include ActiveModel::Validations::Callbacks
   attr_accessor :email, :lib_array, :source, :range_type, :call_lo, :call_hi,
                 :call_alpha, :barcodes, :format_array, :exclude_inactive, :min_yr,
                 :max_yr, :exclude_bad_yr, :include_inhouse, :no_qtrly, :ckey_url,
@@ -20,6 +23,10 @@ class CirculationStatisticsReport
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
   validate :classic_call_alpha, if: :classic_range_type?
+
+  before_validation do
+    email.tr!(' ', ',')
+  end
 
   private
 

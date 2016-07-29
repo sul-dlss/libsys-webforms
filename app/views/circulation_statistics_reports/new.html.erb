@@ -25,9 +25,9 @@
     <div class='form-group row'>
       <%= f.label :source, 'Select from:', class: 'col-sm-3 form-control-label' %>
       <div class='col-sm-10'>
-        <%= f.radio_button :source, 'All of Symphony', checked: true %> All of Symphony<br />
-        <%= f.radio_button :source, 'Google candidates (standard barcode)' %> Google candidates (standard barcode)<br />
-        <%= f.radio_button :source, 'Google candidates (auto-barcode)' %> Google candidates (auto-barcode)<br />
+        <%= f.radio_button :source, 0, checked: true %> All of Symphony<br />
+        <%= f.radio_button :source, 1 %> Google candidates (standard barcode)<br />
+        <%= f.radio_button :source, 2 %> Google candidates (auto-barcode)<br />
       </div>
     </div>
     <div class='form-group row'>
