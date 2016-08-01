@@ -17,7 +17,8 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
       include_inhouse: circ_stats.include_inhouse, min_pub_year: circ_stats.min_yr,
       max_pub_year: circ_stats.max_yr, extra_field: circ_stats.tag_field,
       extra_field2: circ_stats.tag_field2, link_type: circ_stats.link_type,
-      blank_columns: String(circ_stats.blank_col_array).split(',').join(',') }
+      blank_columns: String(circ_stats.blank_col_array).split(',').join(','),
+      status: 'SAVED' }
   end
   # rubocop:enable Metrics/AbcSize
 
