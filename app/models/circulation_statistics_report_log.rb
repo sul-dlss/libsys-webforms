@@ -4,6 +4,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
 
   def self.save_stats(circ_stats)
     complete_params = other_params(circ_stats).merge process_range_type_params(circ_stats)
+    complete_params.merge! CirculationStatisticsReportLog.build_output_type(circ_stats)
     CirculationStatisticsReportLog.create(complete_params)
   end
 
@@ -55,4 +56,13 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     range_type_params
   end
   # rubocop:enable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
+
+  def self.build_output_type(circ_stats)
+    if circ_stats.range_type == 'barcodes'
+      file_basename = File.basename(circ_stats.barcodes.original_filename, '.*')
+      { output_name: "#{file_basename}#{Time.zone.now.strftime('%y%m%d%H%M%S')}" }
+    else
+      { output_name: "circ_rpt#{Time.zone.now.strftime('%y%m%d%H%M%S')}" }
+    end
+  end
 end

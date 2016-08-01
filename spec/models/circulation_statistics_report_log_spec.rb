@@ -1,16 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe CirculationStatisticsReportLog, type: :model do
+  let(:barcode_file) do
+    extend ActionDispatch::TestProcess
+    fixture_file_upload('files/test_file.txt', 'text/plain')
+  end
   it 'has a valid factory' do
     expect(FactoryGirl.create(:circulation_statistics_report_log)).to be_valid
   end
 
   describe '#process_range_type_params' do
-    let(:barcode_file) do
-      extend ActionDispatch::TestProcess
-      fixture_file_upload('files/test_file.txt', 'text/plain')
-    end
-
     it 'constructs barcode type params' do
       report = FactoryGirl.build(:circulation_statistics_report, range_type: 'barcodes', barcodes: barcode_file)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
@@ -67,6 +66,20 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq('call_range' => 'NOT LC/DEWEY:123',
                                'libs_locs' => 'ARS/RECORDINGS,ART/ARTLCKM/ARTLCKS,GREEN/BENDER,SAL3')
+    end
+  end
+
+  describe '#build_output_type' do
+    it 'returns a value based on the barcode file basename' do
+      report = FactoryGirl.build(:circulation_statistics_report, range_type: 'barcodes', barcodes: barcode_file)
+      output_hash = CirculationStatisticsReportLog.build_output_type(report)
+      expect(output_hash[:output_name]).to include('test_file')
+    end
+
+    it "returns a value based on 'circ_rpt'" do
+      report = FactoryGirl.build(:circulation_statistics_report, range_type: 'lc')
+      output_hash = CirculationStatisticsReportLog.build_output_type(report)
+      expect(output_hash[:output_name]).to include('circ_rpt')
     end
   end
 end
