@@ -38,6 +38,8 @@ class UniUpdatesBatch < ActiveRecord::Base
            user_name: params[:transfer_item][:user_name],
            user_email: params[:transfer_item][:email],
            orig_lib: params[:transfer_item][:current_library],
+           new_lib: params[:transfer_item][:new_library],
+           new_homeloc: params[:transfer_item][:new_homeloc],
            action: params[:transfer_item][:action],
            priority: params[:transfer_item][:priority],
            export_yn: params[:transfer_item][:export_yn],
