@@ -10,7 +10,7 @@ class TransferItemsController < ApplicationController
     @transfer_item = TransferItem.new(params[:transfer_item])
     if @transfer_item.valid?
       array_of_item_ids = @transfer_item.parse_uploaded_file
-      @uni_updates_batch = UniUpdatesBatch.create_transfer_item_batch(params)
+      @uni_updates_batch = UniUpdatesBatch.create_transfer_item_batch(params, array_of_item_ids.count)
       UniUpdates.create_for_batch(array_of_item_ids, @uni_updates_batch)
       WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
       redirect_valid
