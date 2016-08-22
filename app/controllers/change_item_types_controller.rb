@@ -10,7 +10,7 @@ class ChangeItemTypesController < ApplicationController
     @change_item_type = ChangeItemType.new(params[:change_item_type])
     if @change_item_type.valid?
       array_of_item_ids = @change_item_type.parse_uploaded_file
-      @uni_updates_batch = UniUpdatesBatch.create_item_type_batch(params)
+      @uni_updates_batch = UniUpdatesBatch.create_item_type_batch(params, array_of_item_ids.count)
       UniUpdates.create_for_batch(array_of_item_ids, @uni_updates_batch)
       WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
       flash[:notice] = 'Batch uploaded!'
