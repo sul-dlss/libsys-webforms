@@ -6,6 +6,7 @@ class ChangeCurrentLocation
   include ActiveModel::Model
   attr_accessor :current_library
   attr_accessor :new_current_location
+  attr_accessor :new_item_type
   attr_accessor :item_ids
   attr_accessor :email
   attr_accessor :comments
