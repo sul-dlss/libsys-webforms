@@ -11,6 +11,7 @@ AllCops:
     - 'test/spec_helper.rb'
 #    - 'spec/teaspoon_env.rb'
     - 'vendor/**/*'
+    - 'lib/tasks/display-coverage.rake'
 
 Metrics/LineLength:
   Max: 120

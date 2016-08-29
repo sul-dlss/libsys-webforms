@@ -37,6 +37,9 @@
     Email for status reports:
   </li>
 </ul>
+<% if params[:duplicates].present? %>
+  <div>Duplicates found: <%= params[:duplicates] %></div>
+<% end %>
 <div>If you made a mistake, you may delete this batch from the table by clicking on "Erase". Otherwise, you are finished!</div><lb/>
 <p/>
 <div class="btn-group">
