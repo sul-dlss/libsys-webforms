@@ -1,7 +1,8 @@
 # app/mailers/webforms_mailer.rb
 class WebformsMailer < ApplicationMailer
-  def batch_upload_email(uni_updates_batch)
+  def batch_upload_email(uni_updates_batch, duplicates)
     @uni_updates_batch = uni_updates_batch
+    @duplicates = duplicates
     destination = 'sul-unicorn-devs@lists.stanford.edu'
     mail(to: destination, subject: 'batch record update')
   end

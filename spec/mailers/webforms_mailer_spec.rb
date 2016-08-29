@@ -3,7 +3,7 @@ require 'rails_helper'
 describe WebformsMailer do
   describe 'batch update and delete mail' do
     let(:uni_updates_batch) { FactoryGirl.create(:uni_updates_batch) }
-    let(:upload_mail) { WebformsMailer.batch_upload_email(uni_updates_batch) }
+    let(:upload_mail) { WebformsMailer.batch_upload_email(uni_updates_batch, ['123']) }
     let(:delete_mail) { WebformsMailer.batch_delete_email(uni_updates_batch) }
 
     describe 'to' do

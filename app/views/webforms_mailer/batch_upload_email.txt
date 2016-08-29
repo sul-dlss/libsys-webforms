@@ -9,3 +9,6 @@ New library: <%= @uni_updates_batch.new_lib %>
 New home location: <%= @uni_updates_batch.new_homeloc %>
 New current location: <%= @uni_updates_batch.new_curloc %>
 New item type: <%= @uni_updates_batch.new_itype %>
+<% if @duplicates.present? %>
+  Duplicates found: <%= @duplicates %>
+<% end %>

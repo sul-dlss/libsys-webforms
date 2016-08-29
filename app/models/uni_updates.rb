@@ -28,4 +28,17 @@ class UniUpdates < ActiveRecord::Base
     UniUpdates.create(hashes_for_updates)
   end
   # rubocop:enable Metrics/MethodLength
+
+  def self.filter_duplicates(item_ids)
+    uniques = []
+    duplicates = []
+    item_ids.each do |item_id|
+      if UniUpdates.where(item_id: item_id).empty?
+        uniques << item_id
+      else
+        duplicates << item_id
+      end
+    end
+    [uniques, duplicates]
+  end
 end
