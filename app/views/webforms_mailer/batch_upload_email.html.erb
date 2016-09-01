@@ -13,5 +13,8 @@
     <p>New home location: <%= @uni_updates_batch.new_homeloc %></p>
     <p>New current location: <%= @uni_updates_batch.new_curloc %></p>
     <p>New item type: <%= @uni_updates_batch.new_itype %></p>
+    <% if @duplicates.present? %>
+      <p>Duplicates found: <%= @duplicates %></p>
+    <% end %>
   </body>
 </html>
