@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1><%= @uni_updates_batch.uni_updates.count %> barcodes entered into the batch update table with values:</h1>
-    <p>Batch id: <%= @uni_updates_batch.batch_id %></p>
+    <p>Batch id: <%= @uni_updates_batch.batch_id.to_i %></p>
     <p>Requested action: <%= @uni_updates_batch.action %></p>
     <p>Batch comments: <%= @uni_updates_batch.comments %></p>
     <p>Current library: <%= @uni_updates_batch.orig_lib %></p>
