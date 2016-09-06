@@ -2,11 +2,18 @@
 class CirculationStatisticsReportLog < ActiveRecord::Base
   self.table_name = 'circ_stats_rpt_log'
 
+  # rubocop:disable Metrics/AbcSize
   def self.save_stats(circ_stats)
     complete_params = other_params(circ_stats).merge process_range_type_params(circ_stats)
     complete_params.merge! CirculationStatisticsReportLog.build_output_type(circ_stats)
+    if circ_stats.barcodes
+      FileUtils.chmod 0o664, circ_stats.barcodes.tempfile.path
+      symphony_location = '/symphony/Dataload/Uploads/CircStats/'
+      FileUtils.mv circ_stats.barcodes.tempfile.path, "#{symphony_location}#{circ_stats.barcodes.original_filename}"
+    end
     CirculationStatisticsReportLog.create(complete_params)
   end
+  # rubocop:enable Metrics/AbcSize
 
   # rubocop:disable Metrics/AbcSize
   def self.other_params(circ_stats)
