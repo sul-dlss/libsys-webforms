@@ -5,6 +5,10 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
   def self.save_stats(circ_stats)
     complete_params = other_params(circ_stats).merge process_range_type_params(circ_stats)
     complete_params.merge! CirculationStatisticsReportLog.build_output_type(circ_stats)
+    if circ_stats.barcodes
+      symphony_location = '/symphony/Dataload/Uploads/CircStats/'
+      FileUtils.mv circ_stats.barcodes.tempfile.path, "#{symphony_location}#{circ_stats.barcodes.original_filename}"
+    end
     CirculationStatisticsReportLog.create(complete_params)
   end
 
