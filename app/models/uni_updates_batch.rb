@@ -44,6 +44,7 @@ class UniUpdatesBatch < ActiveRecord::Base
            orig_lib: params[:transfer_item][:current_library],
            new_lib: params[:transfer_item][:new_library],
            new_homeloc: params[:transfer_item][:new_homeloc],
+           new_curloc: params[:transfer_item][:new_curloc],
            action: params[:transfer_item][:action],
            priority: params[:transfer_item][:priority],
            export_yn: params[:transfer_item][:export_yn],
