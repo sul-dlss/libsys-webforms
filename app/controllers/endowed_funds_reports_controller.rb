@@ -12,11 +12,11 @@ class EndowedFundsReportsController < ApplicationController
     @endowed_funds_report = EndowedFundsReport.new(batch_params)
     if @endowed_funds_report.valid?
       flash[:success] = 'Report requested!'
-      # foooo = EndowedFundsReport.foo
+      redirect_to root_path
     else
       flash[:warning] = 'Check that all form fields are entered!'
+      render action: 'new'
     end
-    redirect_to root_path
   end
 
   def batch_params
