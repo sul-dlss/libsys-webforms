@@ -21,10 +21,24 @@ class UniUpdates < ActiveRecord::Base
         new_itype: uni_updates_batch.new_itype,
         new_homeloc: uni_updates_batch.new_homeloc,
         new_curloc: uni_updates_batch.new_curloc,
-        check_bc_first: uni_updates_batch.check_bc_first
+        check_bc_first: uni_updates_batch.check_bc_first,
+        pending: 'Y'
       }
     end
     UniUpdates.create(hashes_for_updates)
   end
   # rubocop:enable Metrics/MethodLength
+
+  def self.filter_duplicates(item_ids)
+    uniques = []
+    duplicates = []
+    item_ids.each do |item_id|
+      if UniUpdates.where(item_id: item_id).empty?
+        uniques << item_id
+      else
+        duplicates << item_id
+      end
+    end
+    [uniques, duplicates]
+  end
 end

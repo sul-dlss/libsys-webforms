@@ -5,6 +5,6 @@
   </head>
   <body>
     <h1><%= @uni_updates_batch.uni_updates.count %> barcodes deleted from the batch update table with:</h1>
-    <p>Batch id: <%= @uni_updates_batch.batch_id %></p>
+    <p>Batch id: <%= @uni_updates_batch.batch_id.to_i %></p>
   </body>
 </html>
