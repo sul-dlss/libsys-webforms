@@ -7,6 +7,7 @@ class ShelfSelectionReport
                 :mhlds, :has_dups, :multvol, :multcop, :no_boundw,
                 :range_type, :call_alpha, :subj_name,
                 :save_opt, :search_name, :call_lo, :call_hi
+  validates :email, presence: true
 
   def self.generic_options
     [["Doesn't matter", 0], ['INCLUDE only', 1], ['EXCLUDE', 2]]
