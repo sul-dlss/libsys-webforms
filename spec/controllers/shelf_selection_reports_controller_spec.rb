@@ -29,7 +29,9 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
   describe 'post#create' do
     it 'redirects to root_url when params are valid' do
       stub_current_user(FactoryGirl.create(:authorized_user))
-      post :create, shelf_selection_report: { email: 'testuser@test.org' }
+      post :create, shelf_selection_report: { email: 'testuser@test.org', range_type: 'lc',
+                                              loc_array: 'ALL', call_lo: 'A',
+                                              fmt_array: ['', 'EQUIP'], itype_array: ['', 'ATLAS'] }
       expect(response).to redirect_to root_url
     end
     it 'renders the new action when params are invalid' do
