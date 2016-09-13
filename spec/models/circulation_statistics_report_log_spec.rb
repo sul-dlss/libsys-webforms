@@ -14,7 +14,7 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
       report = FactoryGirl.build(:circulation_statistics_report, range_type: 'barcodes', barcodes: barcode_file)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq('call_range' => 'Any call (Selection is barcode list test_file.txt)',
-                               'input_path' => '/s/SUL/Dataload/Uploads/CircStats/test_file.txt',
+                               'input_path' => '/s/SUL/Dataload/Uploads/CircStats/test_test_file.txt',
                                'libs_locs' => 'Any lib-loc')
     end
 
@@ -28,7 +28,7 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
     it 'constructs lc range type params where call_lo includes #' do
       report = FactoryGirl.build(:circulation_statistics_report, call_lo: 'L#')
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
-      expect(log_params).to eq('call_range' => 'L#0-9999',
+      expect(log_params).to eq('call_range' => 'L0-9999',
                                'libs_locs' => 'ARS/RECORDINGS,ART/ARTLCKM/ARTLCKS,GREEN/BENDER,SAL3')
     end
 
@@ -64,7 +64,7 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
     it 'constructs other range type params when call_hi is not blank' do
       report = FactoryGirl.build(:circulation_statistics_report, range_type: 'other', call_lo: '', call_hi: '123')
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
-      expect(log_params).to eq('call_range' => 'NOT LC/DEWEY:123',
+      expect(log_params).to eq('call_range' => 'NOT LC/DEWEY: 123',
                                'libs_locs' => 'ARS/RECORDINGS,ART/ARTLCKM/ARTLCKS,GREEN/BENDER,SAL3')
     end
   end
