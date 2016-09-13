@@ -155,7 +155,7 @@
 or one letter followed by # symbol.', class: 'form-control-label' %>
     </div>
     <div id='classic-call-lo-label' style='display:none;'>
-      <%= f.label :call_lo, 'Enter the LC or Dewey call number range to select. 1 to 3 letters at start of LC call number Leave blank for Dewey. Letters only.', class: 'form-control-label' %>
+      <%= f.label :call_lo, 'Lowest number of call number range. Maximum 4 digits for LC, 3 digits for Dewey.', class: 'form-control-label' %>
     </div>
     <div id='lc-classic-call-lo-form-element'>
       <%= f.text_field :call_lo, class: 'input-mini' %>
