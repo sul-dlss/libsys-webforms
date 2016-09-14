@@ -72,9 +72,9 @@ $(document).ready(function() {
           $("#shelf_selection_report_itype_array option[value='" + e + "']").prop('selected', true);
         });
         $('#shelf_selection_report_icat1_array option').remove();
-        $('#shelf_selection_report_itcat1_array').append($(html_opts).find('icats option'));
+        $('#shelf_selection_report_icat1_array').append($(html_opts).find('icat1s option'));
         $.each($(html_opts).find('icat1sstring').text().split(','), function(i,e){
-          $("#shelf_selection_report_itcat1_array option[value='" + e + "']").prop('selected', true);
+          $("#shelf_selection_report_icat1_array option[value='" + e + "']").prop('selected', true);
         });
         $('#shelf_selection_report_lang').val($(html_opts).find('lang').text());
         $('#shelf_selection_report_min_yr').val($(html_opts).find('minyr').text());

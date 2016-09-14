@@ -21,14 +21,12 @@
       <option value='<%= itype %>'><%= itype %></option>
     <% end %>
   </itypes>
-  <% unless @shelf_sel_search.icat1s.blank? %>
-    <itcat1sstring><%= @shelf_sel_search.icat1s %></icat1sstring>
-    <icat1s>
-      <% @shelf_sel_search.icat1s.split(',').each do |icat1| %>
-        <option value='<%= icat1 %>'><%= icat1 %></option>
-        <% end %>
-    </icat1s>
-  <% end %>
+  <icat1sstring><%= @shelf_sel_search.icat1s %></icat1sstring>
+  <icat1s>
+    <% @shelf_sel_search.icat1s.split(',').each do |icat1| %>
+      <option value='<%= icat1 %>'><%= icat1 %></option>
+    <% end %>
+  </icat1s>
   <lang><%= @shelf_sel_search.lang %></lang>
   <minyr><%= @shelf_sel_search.min_yr %></minyr>
   <maxyr><%= @shelf_sel_search.max_yr %></maxyr>
