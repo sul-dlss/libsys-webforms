@@ -26,5 +26,13 @@ RSpec.describe ShelfSelSearch, type: :model do
         expect(shelf_sel_search.call_hi).to eq('F')
       end
     end
+
+    describe 'save_search class method' do
+      it 'creates a ShelfSelSearch from ShelfSelRpt params' do
+        shelf_selection_report = FactoryGirl.build(:shelf_selection_report)
+        shelf_sel_search = ShelfSelSearch.save_search(shelf_selection_report)
+        expect(shelf_sel_search).to be_instance_of(ShelfSelSearch)
+      end
+    end
   end
 end
