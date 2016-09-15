@@ -1,4 +1,4 @@
-class EndowedFundsReport < ActiveRecord::Migration
+class Expenditures < ActiveRecord::Migration
   def change
     create_table :expenditures do |t|
       t.datetime  :row_date

@@ -6,11 +6,18 @@ class EndowedFundsReportsController < ApplicationController
     @endowed_funds_report = EndowedFundsReport.new
   end
 
-  # 1_ count the number of funds and flash error if more than 50
-  # 2_
   def create
     @endowed_funds_report = EndowedFundsReport.new(batch_params)
     if @endowed_funds_report.valid?
+      if @endowed_funds_report.fund
+        catalog_keys = EndowedFundsReport.ol_cat_key(@endowed_funds_report.fund)
+      elsif @endowed_funds_report.fund_begin
+        catalog_keys = EndowedFundsReport.ol_cat_key(@endowed_funds_report.fund_begin)
+      end
+      # write keys to file to Symphony mount [/s/SUL/] on libsys-webforms-dev
+      @endowed_funds_report.write_keys(catalog_keys)
+      # TODO: kick off perl script to run pl/sql report
+
       flash[:success] = 'Report requested!'
       redirect_to root_path
     else

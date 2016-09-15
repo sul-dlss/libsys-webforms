@@ -2,7 +2,6 @@
 class CirculationStatisticsReportLog < ActiveRecord::Base
   self.table_name = 'circ_stats_rpt_log'
 
-  # rubocop:disable Metrics/AbcSize
   def self.save_stats(circ_stats)
     complete_params = other_params(circ_stats).merge process_range_type_params(circ_stats)
     complete_params.merge! CirculationStatisticsReportLog.build_output_type(circ_stats)
@@ -13,9 +12,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     end
     CirculationStatisticsReportLog.create(complete_params)
   end
-  # rubocop:enable Metrics/AbcSize
 
-  # rubocop:disable Metrics/AbcSize
   def self.other_params(circ_stats)
     { email: circ_stats.email, selcall_src: circ_stats.source,
       exclude_inactive: circ_stats.exclude_inactive,
@@ -27,9 +24,8 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
       blank_columns: String(circ_stats.blank_col_array).split(',').join(','),
       status: 'SAVED' }
   end
-  # rubocop:enable Metrics/AbcSize
 
-  # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/MethodLength
   def self.process_range_type_params(circ_stats)
     range_type_params = {}
     case circ_stats.range_type
@@ -63,7 +59,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     end
     range_type_params
   end
-  # rubocop:enable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/MethodLength
 
   def self.build_output_type(circ_stats)
     if circ_stats.range_type == 'barcodes'
