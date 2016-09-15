@@ -33,8 +33,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     case circ_stats.range_type
     when 'barcodes'
       range_type_params['call_range'] = "Any call (Selection is barcode list #{circ_stats.barcodes.original_filename})"
-      file_name = "#{circ_stats.email.split('@')[0]}_#{circ_stats.barcodes.original_filename}"
-      range_type_params['input_path'] = "/s/SUL/Dataload/Uploads/CircStats/#{file_name}"
+      range_type_params['input_path'] = "/symphony/Dataload/Uploads/CircStats/#{circ_stats.barcodes.original_filename}"
       range_type_params['libs_locs'] = 'Any lib-loc'
     when 'lc'
       if circ_stats.call_lo.include?('#')

@@ -13,7 +13,7 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
       report = FactoryGirl.build(:circulation_statistics_report, range_type: 'barcodes', barcodes: barcode_file)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq('call_range' => 'Any call (Selection is barcode list test_file.txt)',
-                               'input_path' => '/s/SUL/Dataload/Uploads/CircStats/test_test_file.txt',
+                               'input_path' => '/symphony/Dataload/Uploads/CircStats/test_file.txt',
                                'libs_locs' => 'Any lib-loc')
     end
 
