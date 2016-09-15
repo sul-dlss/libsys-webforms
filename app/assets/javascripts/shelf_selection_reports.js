@@ -61,18 +61,13 @@ $(document).ready(function() {
             })
           }
         })
-        $('#shelf_selection_report_fmt_array option').remove();
-        $('#shelf_selection_report_fmt_array').append($(html_opts).find('fmts option'));
         $.each($(html_opts).find('fmtsstring').text().split(','), function(i,e){
           $("#shelf_selection_report_fmt_array option[value='" + e + "']").prop('selected', true);
         });
-        $('#shelf_selection_report_itype_array option').remove();
-        $('#shelf_selection_report_itype_array').append($(html_opts).find('itypes option'));
         $.each($(html_opts).find('itypesstring').text().split(','), function(i,e){
           $("#shelf_selection_report_itype_array option[value='" + e + "']").prop('selected', true);
         });
-        $('#shelf_selection_report_icat1_array option').remove();
-        $('#shelf_selection_report_icat1_array').append($(html_opts).find('icat1s option'));
+        $('#shelf_selection_report_icat1_array option[value="ALL"]').prop('selected', false);
         $.each($(html_opts).find('icat1sstring').text().split(','), function(i,e){
           $("#shelf_selection_report_icat1_array option[value='" + e + "']").prop('selected', true);
         });
