@@ -8,8 +8,13 @@ class ShelfSelectionReportsController < ApplicationController
 
   def create
     @shelf_selection_report = ShelfSelectionReport.new(params[:shelf_selection_report])
-    flash[:notice] = 'Shelf Selection Report params submitted!'
-    redirect_to root_url
+    if @shelf_selection_report.valid?
+      flash[:notice] = 'Shelf Selection Report request submitted!'
+      ShelfSelSearch.save_search(@shelf_selection_report) if @shelf_selection_report.save_search?
+      redirect_to root_url
+    else
+      render action: 'new'
+    end
   end
 
   def home_locations

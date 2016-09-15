@@ -8,7 +8,9 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     if circ_stats.barcodes
       FileUtils.chmod 0o664, circ_stats.barcodes.tempfile.path
       symphony_location = '/symphony/Dataload/Uploads/CircStats/'
-      FileUtils.mv circ_stats.barcodes.tempfile.path, "#{symphony_location}#{circ_stats.barcodes.original_filename}"
+      user = circ_stats.email.split('@')[0]
+      file_path = "#{symphony_location}#{user}_#{circ_stats.barcodes.original_filename}"
+      FileUtils.mv circ_stats.barcodes.tempfile.path, file_path
     end
     CirculationStatisticsReportLog.create(complete_params)
   end
@@ -31,11 +33,12 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     case circ_stats.range_type
     when 'barcodes'
       range_type_params['call_range'] = "Any call (Selection is barcode list #{circ_stats.barcodes.original_filename})"
-      range_type_params['input_path'] = "/symphony/Dataload/Uploads/CircStats/#{circ_stats.barcodes.original_filename}"
+      file_name = "#{circ_stats.email.split('@')[0]}_#{circ_stats.barcodes.original_filename}"
+      range_type_params['input_path'] = "/s/SUL/Dataload/Uploads/CircStats/#{file_name}"
       range_type_params['libs_locs'] = 'Any lib-loc'
     when 'lc'
       if circ_stats.call_lo.include?('#')
-        range_type_params['call_range'] = "#{circ_stats.call_lo}0-9999"
+        range_type_params['call_range'] = "#{circ_stats.call_lo[0]}0-9999"
       elsif circ_stats.call_hi.blank?
         range_type_params['call_range'] = circ_stats.call_lo
       else
@@ -53,7 +56,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
       range_type_params['call_range'] = if circ_stats.call_hi.blank?
                                           'NOT LC/DEWEY'
                                         else
-                                          "NOT LC/DEWEY:#{circ_stats.call_hi}"
+                                          "NOT LC/DEWEY: #{circ_stats.call_hi}"
                                         end
       range_type_params['libs_locs'] = circ_stats.lib_loc_array
     end
