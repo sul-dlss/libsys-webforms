@@ -6,7 +6,7 @@ class UniUpdatesBatch < ActiveRecord::Base
   self.primary_key = 'batch_id'
   has_many :uni_updates, foreign_key: 'batch_id', class_name: UniUpdates, dependent: :destroy
 
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def self.create_item_type_batch(params, total_bcs)
     create(batch_date: params[:change_item_type][:batch_date],
            user_name: params[:change_item_type][:user_name],
@@ -86,5 +86,5 @@ class UniUpdatesBatch < ActiveRecord::Base
            pending: 'Y',
            total_bcs: total_bcs)
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 end

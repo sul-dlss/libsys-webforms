@@ -5,7 +5,6 @@ class ChangeCurrentLocationsController < ApplicationController
     @change_current_location = ChangeCurrentLocation.new
   end
 
-  # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def create
     @change_current_location = ChangeCurrentLocation.new(params[:change_current_location])
     if @change_current_location.valid?
@@ -22,5 +21,4 @@ class ChangeCurrentLocationsController < ApplicationController
       render action: 'new'
     end
   end
-  # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
 end

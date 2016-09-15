@@ -5,7 +5,6 @@ class ChangeItemTypesController < ApplicationController
     @change_item_type = ChangeItemType.new
   end
 
-  # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def create
     @change_item_type = ChangeItemType.new(params[:change_item_type])
     if @change_item_type.valid?
@@ -22,5 +21,4 @@ class ChangeItemTypesController < ApplicationController
       render action: 'new'
     end
   end
-  # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
 end
