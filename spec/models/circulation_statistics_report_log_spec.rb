@@ -8,13 +8,12 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
   it 'has a valid factory' do
     expect(FactoryGirl.create(:circulation_statistics_report_log)).to be_valid
   end
-
   describe '#process_range_type_params' do
     it 'constructs barcode type params' do
       report = FactoryGirl.build(:circulation_statistics_report, range_type: 'barcodes', barcodes: barcode_file)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq('call_range' => 'Any call (Selection is barcode list test_file.txt)',
-                               'input_path' => '/s/SUL/Dataload/Uploads/CircStats/test_test_file.txt',
+                               'input_path' => '/symphony/Dataload/Uploads/CircStats/test_file.txt',
                                'libs_locs' => 'Any lib-loc')
     end
 
@@ -40,15 +39,19 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
     end
 
     it 'constructs classic range type params where call_alpha is blank' do
-      report = FactoryGirl.build(:circulation_statistics_report, range_type: 'classic', call_lo: 1, call_hi: 2)
+      report = FactoryGirl.build(:circulation_statistics_report, range_type: 'classic',
+                                                                 call_lo: 1,
+                                                                 call_hi: 2)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq('call_range' => '1-2',
                                'libs_locs' => 'ARS/RECORDINGS,ART/ARTLCKM/ARTLCKS,GREEN/BENDER,SAL3')
     end
 
     it 'constructs classic range type params where call_alpha is not blank' do
-      report = FactoryGirl.build(:circulation_statistics_report,
-                                 range_type: 'classic', call_alpha: 'L', call_lo: 1, call_hi: 2)
+      report = FactoryGirl.build(:circulation_statistics_report, range_type: 'classic',
+                                                                 call_alpha: 'L',
+                                                                 call_lo: 1,
+                                                                 call_hi: 2)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq('call_range' => 'L1-2',
                                'libs_locs' => 'ARS/RECORDINGS,ART/ARTLCKM/ARTLCKS,GREEN/BENDER,SAL3')
@@ -80,6 +83,16 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
       report = FactoryGirl.build(:circulation_statistics_report, range_type: 'lc')
       output_hash = CirculationStatisticsReportLog.build_output_type(report)
       expect(output_hash[:output_name]).to include('circ_rpt')
+    end
+  end
+  describe '#save_stats' do
+    it 'gets circ stats params' do
+      report = FactoryGirl.build(:circulation_statistics_report, range_type: 'barcodes', barcodes: barcode_file)
+      output_hash = CirculationStatisticsReportLog.build_output_type(report)
+      path = report.barcodes.tempfile.path
+      expect(output_hash[:output_name]).to include('test_file')
+      expect(report.barcodes).to be_a(Rack::Test::UploadedFile)
+      expect(path).to include('test_file')
     end
   end
 end
