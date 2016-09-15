@@ -23,6 +23,10 @@ class ShelfSelectionReport
     [["Doesn't matter", 0], ['INCLUDE only', 1], ['EXCLUDE', 2]]
   end
 
+  def save_search?
+    subj_name.present? && save_opt == 'save'
+  end
+
   private
 
   def lc_range_type?
