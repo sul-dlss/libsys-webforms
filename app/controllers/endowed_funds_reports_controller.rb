@@ -14,7 +14,7 @@ class EndowedFundsReportsController < ApplicationController
       elsif @endowed_funds_report.fund_begin
         catalog_keys = EndowedFundsReport.ol_cat_key(@endowed_funds_report.fund_begin)
       end
-      # write keys to file to Symphony mount [/s/SUL/] on libsys-webforms-dev
+      # write keys to file to Symphony mount [/symphony] on libsys-webforms-dev
       @endowed_funds_report.write_keys(catalog_keys)
       # TODO: kick off perl script to run pl/sql report
 
