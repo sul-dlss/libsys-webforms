@@ -32,7 +32,7 @@ class EndowedFundsReport
     symphony_location = "/symphony/Dataload/EndowRpt/#{symphony_file}"
     # FileUtils.chdir('/symphony/Dataload/EndowRpt/')
     # FileUtils.touch(symphony_file)
-    out_file = File.open(symphony_location, 'w+')
+    out_file = File.new(symphony_location, 'w+')
     out_file.puts(catalog_keys.join("\n"))
     out_file.close
   end
