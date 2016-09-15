@@ -29,7 +29,7 @@ class EndowedFundsReport
 
   def write_keys(catalog_keys)
     symphony_location = "/symphony/Dataload/EndowRpt/endow#{Time.zone.now.strftime('%y%m%d%H%M%S%L%1N')}"
-    out_file = File.new(symphony_location, 'w')
+    out_file = File.open(symphony_location, 'w')
     out_file.puts(catalog_keys.join("\n"))
     out_file.close
   end
