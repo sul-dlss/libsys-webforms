@@ -14,7 +14,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
   end
 
   describe 'post#create' do
-    it 'redirects to root_url if create is successful' do
+    xit 'redirects to root_url if create is successful' do
       post :create, endowed_funds_report: { fund: ['1000501-1-AACIZ'], fund_begin: nil }
       expect(response).to redirect_to root_path
     end
@@ -22,7 +22,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
       post :create, endowed_funds_report: { fund: nil, fund_begin: nil }
       expect(response).to render_template('new')
     end
-    it 'gets a set of catalog keys' do
+    xit 'gets a set of catalog keys' do
       post :create, endowed_funds_report: { fund: nil, fund_begin: ['1000501-1-AACIZ'] }
       expect(response).to redirect_to root_path
     end
