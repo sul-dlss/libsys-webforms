@@ -5,7 +5,6 @@ class WithdrawItemsController < ApplicationController
     @withdraw_item = WithdrawItem.new
   end
 
-  # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def create
     @withdraw_item = WithdrawItem.new(params[:withdraw_item])
     if @withdraw_item.valid?
@@ -22,5 +21,4 @@ class WithdrawItemsController < ApplicationController
       render action: 'new'
     end
   end
-  # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
 end

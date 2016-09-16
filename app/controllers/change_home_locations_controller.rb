@@ -5,7 +5,6 @@ class ChangeHomeLocationsController < ApplicationController
     @change_home_location = ChangeHomeLocation.new
   end
 
-  # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def create
     @change_home_location = ChangeHomeLocation.new(params[:change_home_location])
     if @change_home_location.valid?
@@ -22,5 +21,4 @@ class ChangeHomeLocationsController < ApplicationController
       render action: 'new'
     end
   end
-  # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
 end
