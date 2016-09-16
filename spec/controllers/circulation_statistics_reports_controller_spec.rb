@@ -19,10 +19,8 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
     end
 
     it 'renders new template on failure' do
-      pending('I think javascript is why this behaves differently from, say, transer_item')
-      raise 'pending spec...'
-      # post :create, circulation_statistics_report: { email: 'test@test.org', lib_array: 'GREEN' }
-      # expect(response).to render_template('new')
+      post :create, circulation_statistics_report: { email: '', lib_array: '', call_lo: '' }
+      expect(response).to render_template('new')
     end
   end
 

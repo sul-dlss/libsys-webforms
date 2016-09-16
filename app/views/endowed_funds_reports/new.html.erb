@@ -1,0 +1,52 @@
+<h2>Endowed Funds Report Request</h2>
+<%= form_for @endowed_funds_report, multipart: true, class: 'form-group' do |f| %>
+<% if @endowed_funds_report.errors.any? %>
+<div id='error_explanation'>
+  <ul>
+    <% @endowed_funds_report.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div>
+  <%= render 'shared/enter_email', f: f %>
+  <%= render 'shared/funds_selection', f: f %>
+  <%= render 'shared/date_range_selection', f: f %>
+
+  <div class='form-group row pad'>
+    <%= f.label :report_format, class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <p>
+        <%= f.radio_button :report_format, 'n', checked: true %>
+        Text with no bibliographic field labels
+      </p>
+      <p>
+        <%= f.radio_button :report_format, 'i' %>
+        Text with MARC numeric tags
+      </p>
+      <p>
+        <%= f.radio_button :report_format, 'd' %>
+        Text with descriptive field labels
+      </p>
+      <p>
+        <%= f.radio_button :report_format, 'r' %>
+        RefWorks citations
+      </p>
+      <p>
+        <%= f.radio_button :report_format, 'm' %>
+        MARC (Can be imported to Zotero citations)
+      </p>
+    </div>
+  </div>
+
+  <%= f.hidden_field :date_request, value: Time.now %>
+  <%= f.hidden_field :date_ran, value: Time.now %>
+
+  <div class='pad'><%= f.submit 'Submit request', class: 'btn' %></div><br/>
+
+  <% end %>
+  <div class='btn-group'>
+    <%= main_menu_button %>
+  </div>
+</div>
