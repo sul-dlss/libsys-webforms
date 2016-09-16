@@ -5,7 +5,6 @@ class TransferItemsController < ApplicationController
     @transfer_item = TransferItem.new
   end
 
-  # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def create
     @transfer_item = TransferItem.new(params[:transfer_item])
     if @transfer_item.valid?
@@ -22,11 +21,5 @@ class TransferItemsController < ApplicationController
       render action: 'new'
       flash[:error] = 'Check that all fields are entered correctly'
     end
-  end
-  # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
-
-  def redirect_valid
-    flash[:notice] = 'Batch uploaded!'
-    redirect_to @uni_updates_batch
   end
 end
