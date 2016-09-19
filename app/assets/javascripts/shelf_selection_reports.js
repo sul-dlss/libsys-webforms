@@ -42,7 +42,25 @@ $(document).ready(function() {
     $('#other-call-hi-label').show();
   })
   $('#shelf_selection_report_search_name').change(function(){
+    /* don't show delete link for another user's search if search_name is the same */
     search_name = $('#shelf_selection_report_search_name').find(':selected').text();
+    user = search_name.substr(search_name.indexOf(',')).substr(2);
+    search_name_param = search_name.substr(0, search_name.indexOf(','));
+    search_id = search_name.substr(0, search_name.indexOf(',')).replace(/\s/g, '_') + user;
+    $('#' + search_id).show();
+    $('#' + search_id).click(function(){
+      $.ajax({
+        url: '/shelf_sel_searches/delete_saved_search',
+        type: 'GET',
+        data: { user: user, search_name: search_name_param },
+        cache: false,
+        success: function(result) {
+          $('#' + search_id).remove();
+          $('#shelf_selection_report_search_name option[value="' + search_name + '"]').remove();
+          location.reload();
+        }
+      })
+    });
     $.ajax({
       url: '/shelf_selection_reports/load_saved_options',
       cache: false,

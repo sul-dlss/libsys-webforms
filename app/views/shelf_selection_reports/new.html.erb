@@ -14,6 +14,9 @@
       <p>Optionally intialize the fields on this page with previously saved selection criteria. Or, <%= link_to 'refresh the page to reset fields.', new_shelf_selection_report_path %></p>
       <%= f.select :search_name, ShelfSelSearch.saved_cursors(current_user.user_id), { prompt: '[Load saved criteria]' }, class: 'form-control' %>
     </div>
+    <% ShelfSelSearch.where(user_name: current_user.user_id).each do |search| %>
+      <%= link_to "Delete selected search", '#', id: "#{search.search_name.gsub(' ', '_')}#{current_user.user_id}", style: 'display:none;' %>
+    <% end %>
   </div>
 <div>
   <%= render 'shared/enter_email', f: f %>
