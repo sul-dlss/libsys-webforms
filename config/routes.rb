@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   get 'shelf_selection_reports/home_locations' => 'shelf_selection_reports#home_locations', as: :home_locations_for_library
   get 'shelf_selection_reports/load_saved_options' => 'shelf_selection_reports#load_saved_options', as: :load_saved_options
   get 'circulation_statistics_reports/home_locations' => 'circulation_statistics_reports#home_locations', as: :home_locations_for_libraries
-  
+  get 'shelf_sel_searches/delete_saved_search' => 'shelf_sel_searches#delete_saved_search', as: :delete_saved_search
+
   get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
   get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
   get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'

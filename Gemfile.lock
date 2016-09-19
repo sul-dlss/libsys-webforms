@@ -85,6 +85,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    composite_primary_keys (8.1.4)
+      activerecord (~> 4.2.0)
     concurrent-ruby (1.0.2)
     coveralls (0.8.15)
       json (>= 1.8, < 3)
@@ -264,6 +266,7 @@ DEPENDENCIES
   capistrano-passenger
   capistrano-rails
   capybara
+  composite_primary_keys (= 8.1.4)
   coveralls
   dlss-capistrano
   factory_girl_rails

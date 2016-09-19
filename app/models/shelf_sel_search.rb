@@ -1,6 +1,7 @@
 # app/model/shelf_sel_search.rb
 class ShelfSelSearch < ActiveRecord::Base
   self.table_name = 'shelf_sel_searches'
+  self.primary_keys = :user_name, :search_name
 
   def self.save_search(shelf_sel_rpt)
     params = build_search_params(shelf_sel_rpt)
