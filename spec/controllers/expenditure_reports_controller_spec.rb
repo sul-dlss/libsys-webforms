@@ -11,7 +11,7 @@ RSpec.describe ExpenditureReportsController, type: :controller do
       it 'returns 302 when saving sal3_batch_requests_batch' do
         stub_current_user(FactoryGirl.create(:authorized_user))
         post :create, expenditure_report: { email: 'someone@some.one',
-                                            fund: '1008930-1-HAGOY' }
+                                            fund: ['1008930-1-HAGOY'] }
         expect(response).to have_http_status(302)
       end
       it 'renders new template with an invalid object' do

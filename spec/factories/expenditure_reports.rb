@@ -4,7 +4,7 @@ FactoryGirl.define do
     date_ran '16-JUN-16'
     status 'REQUEST'
     email 'someone@some.one'
-    fund '1065032-103-XYZ'
+    fund ['1065032-103-XYZ']
     fund_begin '1065032-103-'
     date_range_start '01-SEP-08'
     date_range_end '31-AUG-08'

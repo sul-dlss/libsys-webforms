@@ -13,7 +13,7 @@ RSpec.describe ExpenditureReport, type: :model do
       expect(@report).to have_attributes(status: 'REQUEST')
     end
     it 'checks and writes the funds' do
-      expect(@report.send(:set_fund)).to eq(@report.fund)
+      expect(@report.send(:set_fund)).to eq(@report.fund.join(','))
       @report.save
       expect(@report.date_range_start).not_to be_nil
     end
