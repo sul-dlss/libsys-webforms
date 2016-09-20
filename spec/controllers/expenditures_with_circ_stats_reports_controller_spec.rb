@@ -12,7 +12,7 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
         stub_current_user(FactoryGirl.create(:authorized_user))
         post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
                                                              fund: '1008930-1-HAGOY',
-                                                             lib: 'GREEN',
+                                                             lib_array: %w(GREEN),
                                                              fmt_array: %w(MANUSCRPT MAP MARC) }
         expect(response).to have_http_status(302)
       end

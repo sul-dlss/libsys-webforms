@@ -4,11 +4,11 @@
 class ExpendituresWithCircStatsReport < ActiveRecord::Base
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
-                :lib, :libraries, :fmt_array, :formats
+                :lib_array, :libraries, :fmt_array, :formats
 
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
-  validates :lib, presence: true
+  validates :lib_array, presence: true
   validates :fmt_array, presence: true
 
   before_save :set_fund, :check_fy, :check_cal, :check_pd, :write_dates,
@@ -27,7 +27,7 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   end
 
   def write_lib
-    self[:libraries] = lib
+    self[:libraries] = lib_array
   end
 
   def write_fmt
