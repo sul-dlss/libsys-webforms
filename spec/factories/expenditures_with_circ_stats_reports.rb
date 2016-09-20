@@ -11,7 +11,7 @@ FactoryGirl.define do
     output_file 'exp_rpt0811141740.1130414'
     message ''
     ckey_link 1
-    lib 'GREEN'
+    lib_array ['ALL']
     fmt_array 'MARC'
     one_row_total 0
     fy_start 'FY 2009'
