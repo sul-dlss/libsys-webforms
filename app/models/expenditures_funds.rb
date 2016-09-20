@@ -9,6 +9,6 @@ class ExpendituresFunds < ActiveRecord::Base
   end
 
   def self.fund_begins_with
-    select(:fund_id).where(fund_name_key: '')
+    select(:fund_id).where(fund_name_key: [nil, ''])
   end
 end
