@@ -62,12 +62,12 @@ class ExpenditureReport < ActiveRecord::Base
   end
 
   def write_pd_start(date)
-    pd_start = Time.zone.parse(date).strftime('%Y-%m-%d')
+    pd_start = Time.zone.parse(date).strftime('%Y-%^b-%d')
     write_range_start(pd_start)
   end
 
   def write_pd_end(date)
-    pd_end = Time.zone.parse(date).strftime('%Y-%m-%d')
+    pd_end = Time.zone.parse(date).strftime('%Y-%^b-%d')
     write_range_end(pd_end)
   end
 

@@ -42,10 +42,10 @@
     <div class='panel-body paydate collapse'>
       <div class='form-group'>
         <div class='col-sm-3'>
-          <%= f.select :pd_start, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%m-%y') ] }), {prompt: 'Date Paid Start'}, {class: 'form-control'} %>
+          <%= f.select :pd_start, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {prompt: 'Date Paid Start'}, {class: 'form-control'} %>
         </div>
         <div class='col-sm-3'>
-          <%= f.select :pd_end, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%m-%y') ] }), {prompt: 'Date Paid End'}, {class: 'form-control'} %>
+          <%= f.select :pd_end, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {prompt: 'Date Paid End'}, {class: 'form-control'} %>
         </div>
       </div>
     </div>
