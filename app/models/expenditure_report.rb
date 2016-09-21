@@ -15,7 +15,9 @@ class ExpenditureReport < ActiveRecord::Base
 
   def set_fund
     if fund
-      self[:ta_fund_code] = fund
+      # the multi select collects an array
+      # but ta_fund_code is a string
+      self[:ta_fund_code] = fund.join(',')
     elsif fund_begin
       self[:ta_fund_code] = fund_begin
     end
