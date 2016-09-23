@@ -42,12 +42,12 @@ class ExpenditureReport < ActiveRecord::Base
   end
 
   def write_fy_start(year)
-    fy_start = Time.zone.parse("#{year}-07-01").strftime('%Y-%m-%d')
+    fy_start = ExpendituresFyDate.find(year).min_paydate.strftime('%d-%^b-%y')
     write_range_start(fy_start)
   end
 
   def write_fy_end(year)
-    fy_end = Time.zone.parse("#{year}-06-30").strftime('%Y-%m-%d')
+    fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%d-%^b-%y')
     write_range_end(fy_end)
   end
 
