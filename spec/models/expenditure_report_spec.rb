@@ -25,9 +25,9 @@ RSpec.describe ExpenditureReport, type: :model do
       expect(@report.date_range_start).not_to be_nil
     end
     it 'checks and writes the dates' do
-      expect(@report.send(:write_fy_start, '2009')).to eq('05-SEP-08')
-      expect(@report.send(:write_fy_end, '2011')).to eq('25-AUG-11')
-      expect(@report.send(:check_fy)).to eq('25-AUG-11')
+      expect(@report.send(:write_fy_start, '2009')).to eq('0008-SEP-05')
+      expect(@report.send(:write_fy_end, '2011')).to eq('0011-AUG-25')
+      expect(@report.send(:check_fy)).to eq('0011-AUG-25')
 
       expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
       expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
