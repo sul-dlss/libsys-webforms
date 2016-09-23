@@ -7,6 +7,7 @@ class ExpenditureReport < ActiveRecord::Base
 
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
+  validates :date_type, inclusion: %w(fiscal calendar paydate)
 
   before_save :set_fund, :check_fy, :check_cal, :check_pd, :write_dates
   self.table_name = 'expenditures_log'
