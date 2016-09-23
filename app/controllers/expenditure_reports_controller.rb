@@ -10,10 +10,11 @@ class ExpenditureReportsController < ApplicationController
     @expenditure_report = ExpenditureReport.new(batch_params)
     if @expenditure_report.save
       flash[:success] = 'Report requested!'
+      redirect_to root_path
     else
       flash[:warning] = 'Check that all form fields are entered!'
+      render action: 'new'
     end
-    redirect_to root_path
   end
 
   def batch_params
