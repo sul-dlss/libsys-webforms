@@ -7,7 +7,7 @@ FactoryGirl.define do
     fund ['1065032-103-XYZ']
     fund_begin '1065032-103-'
     date_range_start '01-SEP-08'
-    date_range_end '31-AUG-08'
+    date_range_end '25-AUG-11'
     output_file 'exp_rpt0811141740.1130414'
     message ''
     ckey_link '1'
