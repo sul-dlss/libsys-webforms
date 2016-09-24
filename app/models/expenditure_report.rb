@@ -25,21 +25,39 @@ class ExpenditureReport < ActiveRecord::Base
   end
 
   def check_fy
-    return unless fy_start.present? && fy_end.present?
-    write_fy_start(fy_start.sub('FY', ''))
-    write_fy_end(fy_end.sub('FY', ''))
+    if date_type == 'fiscal'
+      if fy_start.present? && fy_end.present?
+        write_fy_start(fy_start.sub('FY', ''))
+        write_fy_end(fy_end.sub('FY', ''))
+      else # fy_end is the same as fy_start
+        write_fy_start(fy_start.sub('FY', ''))
+        write_fy_end(fy_start.sub('FY', ''))
+      end
+    end
   end
 
   def check_cal
-    return unless cal_start.present? && cal_end.present?
-    write_cal_start(cal_start)
-    write_cal_end(cal_end)
+    if date_type == 'calendar'
+      if cal_start.present? && cal_end.present?
+        write_cal_start(cal_start)
+        write_cal_end(cal_end)
+      else # cal_end is the same as cal_start
+        write_cal_start(cal_start)
+        write_cal_end(cal_start)
+      end
+    end
   end
 
   def check_pd
-    return unless pd_start.present? && pd_end.present?
-    write_pd_start(pd_start)
-    write_pd_end(pd_end)
+    if date_type == 'paydate'
+      if pd_start.present? && pd_end.present?
+        write_pd_start(pd_start)
+        write_pd_end(pd_end)
+      else # pd_end is the same as pd_start
+        write_pd_start(pd_start)
+        write_pd_end(pd_start)
+      end
+    end
   end
 
   def write_fy_start(year)
