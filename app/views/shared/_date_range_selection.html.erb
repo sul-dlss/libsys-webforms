@@ -21,31 +21,31 @@
   <div class='form-group row'>
     <div class='panel-body fiscal collapse'>
       <div class='form-group'>
-        <div class='col-sm-3'>
-          <%= f.select :fy_start, options_for_select(ExpendituresPaydates.fiscal_years.map{ |d| [ "FY #{d}" ] }), {prompt: 'FY Start'}, {class: 'form-control'} %>
+        <div class='col-sm-3'>Start date:
+          <%= f.select :fy_start, options_for_select(ExpendituresPaydates.fiscal_years.map{ |d| [ "FY #{d}" ] }), {}, {class: 'form-control'} %>
         </div>
-        <div class='col-sm-3'>
-          <%= f.select :fy_end, options_for_select(ExpendituresPaydates.fiscal_years.map{ |d| [ "FY #{d}" ] }), {prompt: 'FY End'}, {class: 'form-control'} %>
+        <div class='col-sm-3'>End date:
+          <%= f.select :fy_end, options_for_select(ExpendituresPaydates.fiscal_years.map{ |d| [ "FY #{d}" ] }), {prompt: 'Same FY as Start'}, {class: 'form-control'} %>
         </div>
       </div>
     </div>
     <div class='panel-body calendar collapse'>
       <div class='form-group'>
-        <div class='col-sm-3'>
-          <%= f.select :cal_start, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {prompt: 'Start Year'}, {class: 'form-control'} %>
+        <div class='col-sm-3'>Start date:
+          <%= f.select :cal_start, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {}, {class: 'form-control'} %>
         </div>
-        <div class='col-sm-3'>
-          <%= f.select :cal_end, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {prompt: 'End Year'}, {class: 'form-control'} %>
+        <div class='col-sm-3'>End date:
+          <%= f.select :cal_end, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {prompt: 'Same Year as Start'}, {class: 'form-control'} %>
         </div>
       </div>
     </div>
     <div class='panel-body paydate collapse'>
       <div class='form-group'>
-        <div class='col-sm-3'>
-          <%= f.select :pd_start, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {prompt: 'Date Paid Start'}, {class: 'form-control'} %>
+        <div class='col-sm-3'>Start date:
+          <%= f.select :pd_start, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {}, {class: 'form-control'} %>
         </div>
-        <div class='col-sm-3'>
-          <%= f.select :pd_end, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {prompt: 'Date Paid End'}, {class: 'form-control'} %>
+        <div class='col-sm-3'>End date:
+          <%= f.select :pd_end, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {prompt: 'Same Date Paid as Start'}, {class: 'form-control'} %>
         </div>
       </div>
     </div>
