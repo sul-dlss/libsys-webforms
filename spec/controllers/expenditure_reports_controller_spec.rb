@@ -45,6 +45,7 @@ RSpec.describe ExpenditureReportsController, type: :controller do
       expect(response).to have_http_status(302)
     end
     it 'returns 302 when saving expenditure_report for pay date years with pd_start and pd_end' do
+      # notice pd_start is after pd_end, do we want to validate this?
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, expenditure_report: { email: 'someone@some.one',
                                           fund: ['1008930-1-HAGOY'],

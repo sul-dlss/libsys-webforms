@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe ExpendituresWithCircStatsReport, type: :model do
+  before(:all) do
+    FactoryGirl.create(:expenditures_fy_date)
+    FactoryGirl.create(:expenditures_fy_date,
+                       fy: 2011,
+                       min_paydate: '0010-09-03 00:00:00',
+                       max_paydate: '0011-08-25 00:00:00')
+  end
   it 'has a valid factory' do
     expect(FactoryGirl.create(:expenditures_with_circ_stats_report)).to be_valid
   end
@@ -18,9 +25,9 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
       expect(@report.date_range_start).not_to be_nil
     end
     it 'checks and writes the dates' do
-      expect(@report.send(:write_fy_start, '2011')).to eq('2011-07-01')
-      expect(@report.send(:write_fy_end, '2011')).to eq('2011-06-30')
-      expect(@report.send(:check_fy)).to eq('2011-06-30')
+      expect(@report.send(:write_fy_start, '2011')).to eq('0010-SEP-03')
+      expect(@report.send(:write_fy_end, '2011')).to eq('0011-AUG-25')
+      expect(@report.send(:check_fy)).to eq('0011-AUG-25')
 
       expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
       expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
