@@ -15,7 +15,7 @@
   <div class='form-group row'>
     <%= f.label :funding_paid, 'Show funds with payments:', class: 'col-sm-3 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.radio_button :funding_paid, 'All records' %> All records<br />
+      <%= f.radio_button :funding_paid, 'All records', checked: true %> All records<br />
       <%= f.radio_button :funding_paid, '$0 paid' %> $0 paid<br />
       <%= f.radio_button :funding_paid, 'More than $0 paid' %> More than $0 paid<br />
     </div>
