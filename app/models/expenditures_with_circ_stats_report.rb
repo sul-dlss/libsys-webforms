@@ -10,9 +10,12 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   validates :fund_begin, presence: true, if: 'fund.nil?'
   validates :lib_array, presence: true
   validates :fmt_array, presence: true
+  validates :date_type, inclusion: %w(fiscal calendar paydate)
 
-  before_save :set_fund, :check_fy, :check_cal, :check_pd, :write_dates,
-              :write_lib, :write_fmt
+  before_save :set_fund, :write_dates, :write_lib, :write_fmt
+  before_save :check_fy, if: 'date_type == "fiscal"'
+  before_save :check_cal, if: 'date_type == "calendar"'
+  before_save :check_pd, if: 'date_type == "paydate"'
 
   self.table_name = 'expenditures_circ_log'
 
@@ -35,30 +38,42 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   end
 
   def check_fy
-    return unless fy_start.present? && fy_end.present?
-    write_fy_start(fy_start.sub('FY', ''))
-    write_fy_end(fy_end.sub('FY', ''))
+    if fy_start.present? && fy_end.present?
+      write_fy_start(fy_start.sub('FY', ''))
+      write_fy_end(fy_end.sub('FY', ''))
+    else # fy_end is the same as fy_start
+      write_fy_start(fy_start.sub('FY', ''))
+      write_fy_end(fy_start.sub('FY', ''))
+    end
   end
 
   def check_cal
-    return unless cal_start.present? && cal_end.present?
-    write_cal_start(cal_start)
-    write_cal_end(cal_end)
+    if cal_start.present? && cal_end.present?
+      write_cal_start(cal_start)
+      write_cal_end(cal_end)
+    else # cal_end is the same as cal_start
+      write_cal_start(cal_start)
+      write_cal_end(cal_start)
+    end
   end
 
   def check_pd
-    return unless pd_start.present? && pd_end.present?
-    write_pd_start(pd_start)
-    write_pd_end(pd_end)
+    if pd_start.present? && pd_end.present?
+      write_pd_start(pd_start)
+      write_pd_end(pd_end)
+    else # pd_end is the same as pd_start
+      write_pd_start(pd_start)
+      write_pd_end(pd_start)
+    end
   end
 
   def write_fy_start(year)
-    fy_start = Time.zone.parse("#{year}-07-01").strftime('%Y-%m-%d')
+    fy_start = ExpendituresFyDate.find(year).min_paydate.strftime('%Y-%^b-%d')
     write_range_start(fy_start)
   end
 
   def write_fy_end(year)
-    fy_end = Time.zone.parse("#{year}-06-30").strftime('%Y-%m-%d')
+    fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%Y-%^b-%d')
     write_range_end(fy_end)
   end
 
