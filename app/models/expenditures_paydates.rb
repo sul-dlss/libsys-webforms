@@ -6,11 +6,11 @@ class ExpendituresPaydates < ActiveRecord::Base
   self.table_name = 'expenditures_paydates'
 
   def self.calendar_years
-    ('1996'..Time.zone.now.strftime('%Y')).to_a
+    ('1996'..Time.zone.now.strftime('%Y')).to_a.reverse
   end
 
   def self.fiscal_years
-    cyc = ('2000'..Time.zone.now.strftime('%Y')).to_a
+    cyc = ('2000'..Time.zone.now.strftime('%Y')).to_a.reverse
     cyc.push('9899', '9798', '9697')
   end
 
