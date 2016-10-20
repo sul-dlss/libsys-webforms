@@ -2,6 +2,11 @@
 # Controller to handle the Encumberances Report
 ###
 class EndowedFundsReportsController < ApplicationController
+  include SymphonyCgi
+  after_action only: :create do
+    submit_endow_funds(batch_params)
+  end
+
   def new
     @endowed_funds_report = EndowedFundsReport.new
   end
@@ -16,8 +21,6 @@ class EndowedFundsReportsController < ApplicationController
       end
       # write keys to file to Symphony mount [/symphony] on libsys-webforms-dev
       @endowed_funds_report.write_keys(catalog_keys)
-      # TODO: kick off perl script to run pl/sql report
-
       flash[:success] = 'Report requested!'
       redirect_to root_path
     else
