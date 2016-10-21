@@ -39,6 +39,12 @@ The RuboCop style enforcement can be run without running the tests
 
     $ rake rubocop
 
+## Deployment
+
+To deploy to development:
+
+    $ cap development deploy
+
 ## Command-line tasks
 
 There are some command-line tools the application provides.
