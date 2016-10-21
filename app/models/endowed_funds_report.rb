@@ -9,8 +9,11 @@ class EndowedFundsReport
                 :date_ran, :date_type, :fy_start, :fy_end, :cal_start, :cal_end,
                 :pd_start, :pd_end, :email
 
-  validates :fund, presence: true, if: 'fund_begin.nil?'
-  validates :fund_begin, presence: true, if: 'fund.nil?'
+  validates :fund, presence: true, if: 'fund_begin.blank?'
+  validates :fund_begin, presence: true, if: 'fund.blank?'
+  validates :fy_start, presence: true, if: 'cal_start.blank? && pd_start.blank?'
+  validates :cal_start, presence: true, if: 'fy_start.blank? && pd_start.blank?'
+  validates :pd_start, presence: true, if: 'cal_start.blank? && fy_start.blank?'
 
   # get cat keys
   def self.ol_cat_key(fund)
@@ -27,9 +30,12 @@ class EndowedFundsReport
     end
   end
 
+  def ckeys_file
+    "endow#{Time.zone.now.strftime('%y%m%d%H%M%S%L%1N')}"
+  end
+
   def write_keys(catalog_keys)
-    symphony_file = "endow#{Time.zone.now.strftime('%y%m%d%H%M%S%L%1N')}"
-    symphony_location = "/symphony/Dataload/EndowRpt/#{symphony_file}"
+    symphony_location = "/symphony/Dataload/EndowRpt/#{ckeys_file}"
     out_file = File.new(symphony_location, 'w')
     out_file.puts(catalog_keys.join("\n"))
     out_file.close

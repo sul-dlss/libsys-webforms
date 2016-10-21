@@ -28,6 +28,10 @@ gem 'cancan'
 gem 'composite_primary_keys', '=8.1.4'
 # Use Unicorn as the app server
 # gem 'unicorn'
+# Use Faraday for making http requests
+gem 'faraday'
+# A gem for simple rails environment specific config
+gem 'config'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter'
