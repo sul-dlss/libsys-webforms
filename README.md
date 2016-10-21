@@ -27,6 +27,20 @@ REMOTE_USER=some-user rails s
 
 ## Testing
 
+#### Running the migrations for test
+
+Before running the tests with rake you should run the migrations in the `test` environment by running:
+```
+rake db:migrate RAILS_ENV=test
+```
+#### Setting up the fixtures
+
+Before running the test suite you should load the fixture data into the tables with:
+```
+rails runner ./spec/init_libsys-webforms.rb
+```
+
+### Rake, etc.
 The test suite (with RuboCop style enforcement) will be run with the default rake task (also run on travis)
 
     $ rake
