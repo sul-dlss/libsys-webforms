@@ -8,7 +8,7 @@ module SymphonyCgi
   include ShelfSelectionParams
 
   def request_conn(script, cgi_params)
-    conn = Faraday.new(url: Settings.symphony_cgi_url + script) do |symphony|
+    conn = Faraday.new(url: "#{Settings.symphony_cgi_url}#{script}") do |symphony|
       symphony.request  :url_encoded             # form-encode POST params
       symphony.response :logger                  # log requests to STDOUT
       symphony.adapter  Faraday.default_adapter  # make requests with Net::HTTP
