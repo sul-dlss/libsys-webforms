@@ -2,6 +2,11 @@
 # Controller to handle the shelf selection report
 ###
 class ShelfSelectionReportsController < ApplicationController
+  include SymphonyCgi
+  after_action only: :create do
+    submit_shelf_selection(batch_params)
+  end
+
   def new
     @shelf_selection_report = ShelfSelectionReport.new
   end
@@ -25,5 +30,9 @@ class ShelfSelectionReportsController < ApplicationController
   def load_saved_options
     @shelf_sel_search = ShelfSelSearch.from_search_name(params[:search_name])
     render layout: false
+  end
+
+  def batch_params
+    params.require(:shelf_selection_report).permit!
   end
 end
