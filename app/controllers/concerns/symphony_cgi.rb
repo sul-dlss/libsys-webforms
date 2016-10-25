@@ -24,7 +24,7 @@ module SymphonyCgi
   end
 
   def query(cgi_params)
-    URI.encode_www_form(cgi_params).split("&").select {|param| param =~ /=./}.join("&")
+    URI.encode_www_form(cgi_params).split('&').select { |param| param =~ /=./ }.join('&')
   end
 
   def empty_response(error = nil)
