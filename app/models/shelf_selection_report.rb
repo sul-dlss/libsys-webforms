@@ -4,12 +4,14 @@ class ShelfSelectionReport
   extend ActiveModel::Callbacks
   include ActiveModel::Validations
   include ActiveModel::Validations::Callbacks
-  attr_accessor :email, :lib, :loc_array, :cloc_diff, :fmt_array,
-                :itype_array, :icat1_array, :lang, :min_yr, :max_yr,
-                :min_circ, :max_circ, :shadowed, :digisent, :url,
-                :mhlds, :has_dups, :multvol, :multcop, :no_boundw,
-                :range_type, :call_alpha, :subj_name,
-                :save_opt, :search_name, :call_lo, :call_hi
+  attr_accessor :email, :lib, :loc_array, :cloc_diff, :fmt_array, :itype_array,
+                :icat1_array, :lang, :min_yr, :max_yr, :min_circ, :max_circ,
+                :shadowed, :digisent, :url, :mhlds, :has_dups, :multvol, :multcop,
+                :no_boundw, :range_type, :call_alpha, :subj_name, :save_opt,
+                :search_name, :call_lo, :call_hi, :user_id
+
+  attr_reader :user_id
+
   validates :email, :loc_array, presence: true
   validates :loc_array, length: { minimum: 2, message: "can't be empty" }
   validates :call_lo, presence: true, if: :lc_range_type?

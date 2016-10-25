@@ -20,7 +20,11 @@ module SymphonyCgi
   end
 
   def request_url(script, cgi_params)
-    [Settings.symphony_cgi_url, script].join('/') + '?' + URI.encode_www_form(cgi_params)
+    [Settings.symphony_cgi_url, script].join('/') + '?' + query(cgi_params)
+  end
+
+  def query(cgi_params)
+    URI.encode_www_form(cgi_params).split("&").select {|param| param =~ /=./}.join("&")
   end
 
   def empty_response(error = nil)
