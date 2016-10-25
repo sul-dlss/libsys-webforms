@@ -25,12 +25,15 @@
 # subj_name :subj_name
 # url_mgt_rpts => URL for page of Mgt Rpt links (for whichever server requested this report)
 ##
+# TODO:NEED TO SEND SUNET ID AS WELL
+#
 module ShelfSelectionParams
   extend ActiveSupport::Concern
 
   def submit_shelf_selection(batch_params)
     report_params = batch_params
     report_params.delete_if { |key| key.to_s.match(/call_\w+/) }
+    report_params.delete_if { |key| key.to_s.match(/subj_name/) }
     call_range(batch_params, report_params)
     url_mgt_rpts(report_params)
     request_conn('shelf_sel_rpt.cgi', report_params)
