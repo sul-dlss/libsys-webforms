@@ -30,9 +30,7 @@ class EndowedFundsReport
     end
   end
 
-  def ckeys_file
-    @ckeys_file
-  end
+  attr_reader :ckeys_file
 
   def write_keys(catalog_keys)
     symphony_location = "/symphony/Dataload/EndowRpt/#{ckeys_file}"
