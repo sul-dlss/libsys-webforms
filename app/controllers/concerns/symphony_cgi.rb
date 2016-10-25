@@ -20,7 +20,6 @@ module SymphonyCgi
   end
 
   def request_url(script, cgi_params)
-    # [Settings.symphony_cgi_url, script].join('/') + '?' + cgi_params.to_query
     [Settings.symphony_cgi_url, script].join('/') + '?' + URI.encode_www_form(cgi_params)
   end
 
