@@ -7,7 +7,7 @@ class EndowedFundsReport
 
   attr_accessor :fund, :fund_begin, :fund_select, :report_format, :date_request,
                 :date_ran, :date_type, :fy_start, :fy_end, :cal_start, :cal_end,
-                :pd_start, :pd_end, :email
+                :pd_start, :pd_end, :email, :ckeys_file
 
   validates :fund, presence: true, if: 'fund_begin.blank?'
   validates :fund_begin, presence: true, if: 'fund.blank?'
@@ -31,7 +31,7 @@ class EndowedFundsReport
   end
 
   def ckeys_file
-    "endow#{Time.zone.now.strftime('%y%m%d%H%M%S%L%1N')}"
+    @ckeys_file
   end
 
   def write_keys(catalog_keys)

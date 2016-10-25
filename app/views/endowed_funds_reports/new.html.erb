@@ -40,6 +40,7 @@
     </div>
   </div>
 
+  <%= f.hidden_field :ckeys_file, value: "endow#{Time.zone.now.strftime('%y%m%d%H%M%S%L%1N')}" %>
   <%= f.hidden_field :date_request, value: Time.now %>
   <%= f.hidden_field :date_ran, value: Time.now %>
 
