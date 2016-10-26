@@ -3,7 +3,6 @@
 #  and connect to the Symphony cgi script to run the report
 ##
 module SymphonyCgi
-  extend ActiveSupport::Concern
   include EndowFundsParams
   include ShelfSelectionParams
 

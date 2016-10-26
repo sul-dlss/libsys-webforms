@@ -1,7 +1,7 @@
 <h2>SAL3 Batch Request</h2>
 <%= form_for @sal3_batch_requests_batch, multipart: true, class: 'form-group' do |f| %>
 <% if @sal3_batch_requests_batch.errors.any? %>
-<div id="error_explanation">
+<div id="error-explanation">
   <ul>
     <% @sal3_batch_requests_batch.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>

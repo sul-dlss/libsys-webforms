@@ -1,7 +1,7 @@
 <h2>Change Item Type Request Form</h2>
 <%= form_for @change_item_type, multipart: true, class: 'form-group' do |f| %>
   <% if @change_item_type.errors.any? %>
-    <div id="error_explanation">
+    <div id="error-explanation">
       <ul>
       <% @change_item_type.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

@@ -1,7 +1,7 @@
 <h2>Expenditures with Circ Stats Report Request</h2>
 <%= form_for @expenditures_with_circ_stats_report, class: 'form-group' do |f| %>
 <% if @expenditures_with_circ_stats_report.errors.any? %>
-<div id="error_explanation">
+<div id="error-explanation">
   <ul>
     <% @expenditures_with_circ_stats_report.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>

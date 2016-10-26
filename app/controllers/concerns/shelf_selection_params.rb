@@ -26,10 +26,8 @@
 # url_mgt_rpts => URL for page of Mgt Rpt links (for whichever server requested this report)
 ##
 module ShelfSelectionParams
-  extend ActiveSupport::Concern
-
   def submit_shelf_selection(batch_params)
-    report_params = batch_params
+    report_params = batch_params.clone
     report_params.delete_if { |key| key.to_s.match(/call_\w+/) }
     report_params.delete_if { |key| key.to_s == 'search_name' }
     call_range(batch_params, report_params)
@@ -38,9 +36,13 @@ module ShelfSelectionParams
   end
 
   def call_range(batch_params, report_params)
-    report_params[:call_range] = "#{batch_params[:call_alpha]}-" if batch_params[:call_alpha].present?
-    if batch_params[:call_lo].present?
+    if batch_params[:call_alpha].present?
+      report_params[:call_range] = "#{batch_params[:call_alpha]}#{batch_params[:call_lo]}-#{batch_params[:call_hi]}"
+    elsif batch_params[:call_lo].present?
       report_params[:call_range] = "#{batch_params[:call_lo]}-#{batch_params[:call_hi]}"
+      report_params[:call_range] = "#{batch_params[:call_lo]}0-9999".delete('#') if batch_params[:call_lo] =~ /\w+\#/
+    elsif batch_params[:call_hi].present?
+      report_params[:call_range] = "OTHER-#{batch_params[:call_hi]}"
     end
   end
 

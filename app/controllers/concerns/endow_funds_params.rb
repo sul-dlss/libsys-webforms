@@ -1,11 +1,9 @@
 ##
 # Module to construct the Endow Funds Report params for endow_rpt.cgi
+# All the args in URL:
+# ('ckeys_filename')('date_range')('email')('funds')('output_format')
 ##
 module EndowFundsParams
-  extend ActiveSupport::Concern
-
-  # All the args in URL:
-  # ('ckeys_filename')('date_range')('email')('funds')('output_format')
   def submit_endow_funds(batch_params)
     report_params = {}
     ckeys_filename(report_params)

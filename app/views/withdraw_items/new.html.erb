@@ -1,7 +1,7 @@
 <h2>Withdraw Items Request Form</h2>
 <%= form_for @withdraw_item, multipart: true, class: 'form-group' do |f| %>
   <% if @withdraw_item.errors.any? %>
-    <div id="error_explanation">
+    <div id="error-explanation">
       <ul>
       <% @withdraw_item.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
