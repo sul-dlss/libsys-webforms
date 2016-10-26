@@ -8,7 +8,7 @@ RSpec.describe ShelfSelectionItemType, type: :model do
 
     it 'returns a list of item types' do
       FactoryGirl.create(:shelf_selection_item_type)
-      expect(ShelfSelectionItemType.item_types).to eq(%w(ALL ATLAS))
+      expect(ShelfSelectionItemType.item_types).to eq(['ATLAS', 'All Item Types'])
     end
   end
 end

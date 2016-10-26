@@ -8,20 +8,27 @@ module SymphonyCgi
   include ShelfSelectionParams
 
   def request_conn(script, cgi_params)
-    conn = Faraday.new(url: "#{Settings.symphony_cgi_url}#{script}") do |symphony|
-      symphony.request  :url_encoded             # form-encode POST params
-      symphony.response :logger                  # log requests to STDOUT
-      symphony.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    @request_conn ||= begin
+      request_url = request_url(script, cgi_params)
+      Rails.logger.warn("request_url: #{request_url}")
+      request_conn = Faraday.get(request_url)
+      return empty_response(request_conn.body) unless request_conn.success?
+      request_conn
+    rescue Faraday::Error => e
+      empty_response(e)
     end
-
-    conn.get(hash_to_query(cgi_params))
-
-  rescue Faraday::SSLError, Faraday::Error::ConnectionFailed
-    NullResponse.new
   end
 
-  def hash_to_query(cgi_params)
-    u = URI.encode_www_form(cgi_params)
-    u.split('&').select { |param| param =~ /=./ }.join('&')
+  def request_url(script, cgi_params)
+    [Settings.symphony_cgi_url, script].join('/') + '?' + query(cgi_params)
+  end
+
+  def query(cgi_params)
+    URI.encode_www_form(cgi_params).split('&').select { |param| param =~ /=./ }.join('&')
+  end
+
+  def empty_response(error = nil)
+    Rails.logger.warn("HTTP GET for SymphonyCgi failed with: #{error}")
+    NullResponse.new
   end
 end
