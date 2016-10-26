@@ -202,6 +202,7 @@
 <div class="btn-group">
   <%= link_to 'Reset form', new_circulation_statistics_report_path, class: 'btn btn-md btn-primary btn-full' %>
   <%= link_to 'Proceed to next step', home_locations_for_libraries_path, class: 'btn btn-md btn-primary btn-full', id: 'populate-home-locations', remote: true %>
-  <%= main_menu_button %>
 </div>
+<div class="pad"><%= link_to 'Main menu', root_path, class: 'btn btn-md btn-primary btn-full' %></div>
+<HR>
 <%= render 'shared/call_number_range_examples' %>
