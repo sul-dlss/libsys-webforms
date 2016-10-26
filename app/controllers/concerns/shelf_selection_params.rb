@@ -40,7 +40,7 @@ module ShelfSelectionParams
       report_params[:call_range] = "#{batch_params[:call_alpha]}#{batch_params[:call_lo]}-#{batch_params[:call_hi]}"
     elsif batch_params[:call_lo].present?
       report_params[:call_range] = "#{batch_params[:call_lo]}-#{batch_params[:call_hi]}"
-      report_params[:call_range] = "#{batch_params[:call_lo]}0-9999".gsub('#','') if batch_params[:call_lo].match(/\w+\#/)
+      report_params[:call_range] = "#{batch_params[:call_lo]}0-9999".delete('#') if batch_params[:call_lo] =~ /\w+\#/
     elsif batch_params[:call_hi].present?
       report_params[:call_range] = "OTHER-#{batch_params[:call_hi]}"
     end

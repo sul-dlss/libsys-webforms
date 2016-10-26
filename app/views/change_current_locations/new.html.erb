@@ -1,7 +1,7 @@
 <h2>Change Current Location Request Form</h2>
 <%= form_for @change_current_location, multipart: true, class: 'form-group' do |f| %>
   <% if @change_current_location.errors.any? %>
-    <div id="error_explanation">
+    <div id="error-explanation">
       <ul>
       <% @change_current_location.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

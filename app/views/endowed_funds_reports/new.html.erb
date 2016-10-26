@@ -1,7 +1,7 @@
 <h2>Endowed Funds Report Request</h2>
 <%= form_for @endowed_funds_report, multipart: true, class: 'form-group' do |f| %>
 <% if @endowed_funds_report.errors.any? %>
-<div id='error_explanation'>
+<div id='error-explanation'>
   <ul>
     <% @endowed_funds_report.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>

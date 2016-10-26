@@ -32,6 +32,6 @@ hr {
   margin-top: 20px;
 }
 
-div#error_explanation {
-  color: red;
+#error-explanation {
+  color: $warning;
 }

@@ -20,7 +20,7 @@ class ShelfSelectionReport
   validates :itype_array, length: { minimum: 2, message: "can't be empty" }, if: :classic_range_type?
   validates :fmt_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
   validates :fmt_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
-  validates :subj_name, length: { maximum: 80, message: "no more than 80 characters" }
+  validates :subj_name, length: { maximum: 80, message: 'no more than 80 characters' }
 
   def self.generic_options
     [["Doesn't matter", 0], ['INCLUDE only', 1], ['EXCLUDE', 2]]
