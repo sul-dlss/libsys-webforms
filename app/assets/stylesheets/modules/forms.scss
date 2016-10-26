@@ -21,7 +21,7 @@ a {
 
 .table-container {
   border: 1px solid;
-  height: 600px;
+  height: 400px;
   overflow: auto;
 }
 
@@ -30,4 +30,8 @@ hr {
   border-top: 1px solid $grayish-yellow;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+div#error_explanation {
+  color: red;
 }
