@@ -3,10 +3,9 @@
 #  and connect to the Symphony cgi script to run the report
 ##
 module SymphonyCgi
-  extend ActiveSupport::Concern
   include EndowFundsParams
   include ShelfSelectionParams
-
+  
   def request_conn(script, cgi_params)
     @request_conn ||= begin
       request_url = request_url(script, cgi_params)
