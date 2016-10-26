@@ -37,13 +37,13 @@
   <div class='form-group row'>
     <%= f.label :itype_array, 'Select the item types to include:', class: 'col-sm-10 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.select :itype_array, ShelfSelectionItemType.item_types, {}, { multiple: true, class: 'form-control' } %>
+      <%= f.select :itype_array, ShelfSelectionItemType.item_types, { selected: 'All Item Types' }, { multiple: true, class: 'form-control' } %>
     </div>
   </div>
   <div class='form-group row'>
     <%= f.label :icat1_array, 'Select the item category1s to include:', class: 'col-sm-10 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.select :icat1_array, ShelfSelItemCat1.item_category1s, { selected: 'All Item Category1s' }, { multiple: true, class: 'form-control' } %>
+      <%= f.select :icat1_array, ShelfSelItemCat1.item_category1s, { selected: 'All Category1s' }, { multiple: true, class: 'form-control' } %>
     </div>
   </div>
   <div class='form-group row'>Leave any text input fields below blank to not filter by those conditions</div>
@@ -131,15 +131,15 @@
   <div class='form-group row'><strong>Type of Call Number selection to use in the report:</strong> <em>(See bottom of page for examples of call number options)</em></div>
   <div class='form-group row'>
     <%= f.label :range_type, 'LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters', class:'col-sm-10 form-control-label' do %>
-        <%= f.radio_button :range_type, 'lc', checked: 'checked' %>
-        LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters
+        <%= f.radio_button :range_type, 'lc', { checked: 'checked', onChange: '$("input[id*=\'_call_\']").val("")' } %>
+        LC Letter Range: All LC call numbers beginning with specified letter(s) or range of letters
     <% end %>
     <%= f.label :range_type, 'Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers', class:'col-sm-10 form-control-label' do %>
-      <%= f.radio_button :range_type, 'classic' %>
+      <%= f.radio_button :range_type, 'classic', { onChange: '$("input[id*=\'_call_\']").val("")' } %>
       Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers
     <% end %>
     <%= f.label :range_type, 'Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number', class:'col-sm-10 form-control-label' do %>
-      <%= f.radio_button :range_type, 'other' %>
+      <%= f.radio_button :range_type, 'other', { onChange: '$("input[id*=\'_call_\']").val("")' } %>
       Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number
     <% end %>
   </div>
@@ -154,8 +154,9 @@
     </div>
 
     <div id='lc-call-lo-label'>
-      <%= f.label :call_lo, 'Enter a letter or range of letters to select all LC call numbers beginning with the letter(s). Lowest letter(s) of LC call number range. One or two letters required
-or one letter followed by # symbol.', class: 'form-control-label' %>
+      <%= f.label :call_lo, '<em>Enter a letter or letter range to select all LC call numbers within that range</em>.
+      <br />Lowest letter or letters of LC call number range. One or two letters required. <br /><sub>Use \'#\' symbol
+      to restrict range to only call numbers beginning with this letter or letters</sub>'.html_safe, class: 'form-control-label' %>
     </div>
     <div id='classic-call-lo-label' style='display:none;'>
       <%= f.label :call_lo, 'Lowest number of call number range. Maximum 4 digits for LC, 3 digits for Dewey.', class: 'form-control-label' %>
@@ -164,20 +165,22 @@ or one letter followed by # symbol.', class: 'form-control-label' %>
       <%= f.text_field :call_lo, class: 'input-mini' %>
     </div>
     <div id='lc-call-hi-label'>
-      <%= f.label :call_hi, 'Highest letter(s) of LC call number range. Same number of letters as in first field, or leave blank for only letter(s) in first field.', class: 'form-control-label' %>
+      <%= f.label :call_hi, 'Highest letter or letters of LC call number range, or leave blank for entire range of letters entered as Lowest.', class: 'form-control-label' %>
     </div>
     <div id='classic-call-hi-label' style='display:none;'>
       <%= f.label :call_hi, 'Highest number of call number range. All decimal extensions of entered number will be included in report. Digits only, no decimal.', class: 'form-control-label' %>
     </div>
     <div id='other-call-hi-label' style='display:none;'>
-      <%= f.label :call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with that (not case sensitive). Leave blank to select all.', class: 'form-control-label' %>
+      <%= f.label :call_hi, 'Enter start of call number for all non-LC/Dewey call numbers starting with this value (not case sensitive).
+      <br /><sub>Leave blank to select all non-LC/Dewey call numbers.</sub>'.html_safe, class: 'form-control-label' %>
     </div>
     <div>
       <%= f.text_field :call_hi, class: 'input-mini' %>
     </div>
   </div>
+  <P>
   <div class='form-group row'>
-    <%= f.label :subj_name, 'Name of selection. Leave blank to not use.', class: 'col-sm-10 form-control-label' %>
+    <%= f.label :subj_name, 'Name of this report\'s selection criteria. Leave blank to not use.', class: 'col-sm-10 form-control-label' %>
     <div class='col-sm-10'>
       <%= f.text_field :subj_name, class: 'form-control' %>
       <em>The control allows entering up to 80 characters.</em>
@@ -200,4 +203,5 @@ or one letter followed by # symbol.', class: 'form-control-label' %>
 <div class="btn-group pad">
   <%= main_menu_button %>
 </div>
+<HR>
 <%= render 'shared/call_number_range_examples' %>
