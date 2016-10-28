@@ -3,13 +3,21 @@ require 'rails_helper'
 describe WebformsMailer do
   describe 'batch update and delete mail' do
     let(:uni_updates_batch) { FactoryGirl.create(:uni_updates_batch) }
+    let(:uni_updates_batch_w_no_user) { FactoryGirl.create(:uni_updates_batch, user_email: '') }
     let(:upload_mail) { WebformsMailer.batch_upload_email(uni_updates_batch, ['123']) }
+    let(:upload_mail_no_user) { WebformsMailer.batch_upload_email(uni_updates_batch_w_no_user, ['123']) }
     let(:delete_mail) { WebformsMailer.batch_delete_email(uni_updates_batch) }
+    let(:delete_mail_no_user) { WebformsMailer.batch_delete_email(uni_updates_batch_w_no_user) }
 
     describe 'to' do
-      it 'is the list email address' do
-        expect(upload_mail.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
-        expect(delete_mail.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
+      it 'is the list email address and email_user' do
+        expect(upload_mail.to).to eq ['sul-unicorn-devs@lists.stanford.edu', 'libraryuser@stanford.edu']
+        expect(delete_mail.to).to eq ['sul-unicorn-devs@lists.stanford.edu', 'libraryuser@stanford.edu']
+      end
+
+      it 'is just the email address when no email_user is specified' do
+        expect(upload_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
+        expect(delete_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
       end
     end
 
