@@ -3,13 +3,21 @@ class WebformsMailer < ApplicationMailer
   def batch_upload_email(uni_updates_batch, duplicates)
     @uni_updates_batch = uni_updates_batch
     @duplicates = duplicates
-    destination = 'sul-unicorn-devs@lists.stanford.edu'
-    mail(to: destination, subject: 'batch record update')
+    all_recipients = ['sul-unicorn-devs@lists.stanford.edu']
+    if @uni_updates_batch.user_email
+      form_recipients = @uni_updates_batch.user_email.split(',')
+      all_recipients << form_recipients
+    end
+    mail(to: all_recipients, subject: 'batch record update')
   end
 
   def batch_delete_email(uni_updates_batch)
     @uni_updates_batch = uni_updates_batch
-    destination = 'sul-unicorn-devs@lists.stanford.edu'
-    mail(to: destination, subject: 'batch record deletion')
+    all_recipients = ['sul-unicorn-devs@lists.stanford.edu']
+    if @uni_updates_batch.user_email
+      form_recipients = @uni_updates_batch.user_email.split(',')
+      all_recipients << form_recipients
+    end
+    mail(to: all_recipients, subject: 'batch record deletion')
   end
 end
