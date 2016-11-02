@@ -32,6 +32,8 @@ gem 'composite_primary_keys', '=8.1.4'
 gem 'faraday'
 # A gem for simple rails environment specific config
 gem 'config'
+# Use okcomputer to set up checks to monitor
+gem 'okcomputer'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter'
