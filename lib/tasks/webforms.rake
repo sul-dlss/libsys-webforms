@@ -18,9 +18,12 @@ namespace :webforms do
                                                 new_itype: args[:new_itype],
                                                 check_bc_first: 'N',
                                                 comments: args[:comments])
-    UniUpdates.create_for_batch(barcodes, @uni_updates_batch)
+    filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
+    uniques = filtered_item_ids[0]
+    duplicates = filtered_item_ids[1].join(' ')
+    UniUpdates.create_for_batch(uniques, @uni_updates_batch)
     puts "Batch id #{@uni_updates_batch.batch_id} created"
-    WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
+    WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
 
   desc 'Withdraw a batch'
@@ -35,9 +38,12 @@ namespace :webforms do
                                                 orig_lib: args[:current_lib],
                                                 check_bc_first: 'N',
                                                 comments: args[:comments])
-    UniUpdates.create_for_batch(barcodes, @uni_updates_batch)
+    filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
+    uniques = filtered_item_ids[0]
+    duplicates = filtered_item_ids[1].join(' ')
+    UniUpdates.create_for_batch(uniques, @uni_updates_batch)
     puts "Batch id #{@uni_updates_batch.batch_id} created"
-    WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
+    WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
 
   desc 'Change home location of a batch'
@@ -56,9 +62,12 @@ namespace :webforms do
                                                 export_yn: 'SocI',
                                                 check_bc_first: 'N',
                                                 comments: args[:comments])
-    UniUpdates.create_for_batch(barcodes, @uni_updates_batch)
+    filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
+    uniques = filtered_item_ids[0]
+    duplicates = filtered_item_ids[1].join(' ')
+    UniUpdates.create_for_batch(uniques, @uni_updates_batch)
     puts "Batch id #{@uni_updates_batch.batch_id} created"
-    WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
+    WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
 
   desc 'Change current location of a batch'
@@ -75,9 +84,12 @@ namespace :webforms do
                                                 export_yn: 'SocI',
                                                 check_bc_first: 'N',
                                                 comments: args[:comments])
-    UniUpdates.create_for_batch(barcodes, @uni_updates_batch)
+    filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
+    uniques = filtered_item_ids[0]
+    duplicates = filtered_item_ids[1].join(' ')
+    UniUpdates.create_for_batch(uniques, @uni_updates_batch)
     puts "Batch id #{@uni_updates_batch.batch_id} created"
-    WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
+    WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
 
   desc 'Change item type of a batch'
@@ -94,9 +106,12 @@ namespace :webforms do
                                                 export_yn: 'N',
                                                 check_bc_first: 'N',
                                                 comments: args[:comments])
-    UniUpdates.create_for_batch(barcodes, @uni_updates_batch)
+    filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
+    uniques = filtered_item_ids[0]
+    duplicates = filtered_item_ids[1].join(' ')
+    UniUpdates.create_for_batch(uniques, @uni_updates_batch)
     puts "Batch id #{@uni_updates_batch.batch_id} created"
-    WebformsMailer.batch_upload_email(@uni_updates_batch).deliver_now
+    WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
 
   desc 'Delete a batch'
