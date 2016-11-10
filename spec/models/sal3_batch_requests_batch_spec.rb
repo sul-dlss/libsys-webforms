@@ -8,7 +8,7 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     expect(Sal3BatchRequestsBatch.locations).to include('Green' => 'GB')
   end
   it 'Defines a batch_media hash' do
-    expect(Sal3BatchRequestsBatch.batch_media).to include(book: 'Book', unknown: 'Unknown')
+    expect(Sal3BatchRequestsBatch.batch_media).to include(book: %w(BOOK Book), unknown: %w(UNKNOWN Unknown))
   end
   it 'Defines a batch_container hash' do
     expect(Sal3BatchRequestsBatch.batch_container).to include('Manuscript Box',

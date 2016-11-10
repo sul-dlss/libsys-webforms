@@ -24,11 +24,17 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
 
   def self.batch_media
     {
-      book: 'Book', archival: 'Archival', flat: 'Flat files (maps, drawings)',
-      film: 'Film (photographic, microfilm/fiche)', magnetic: 'Magnetic (tape, data)',
-      newspaper: 'Newspaper', optical: 'Optical (CD, DVD)',
-      rolled: 'Rolled stock (blueprints, drawings)', shellac: 'Shellac (78s, transcription disks)',
-      vinyl: 'Vinyl (LPs, 45s)', unknown: 'Unknown'
+      book: %w(BOOK Book),
+      archival: %(ARCHIVAL Archival),
+      flat: ['FLAT_FILES', 'Flat files (maps, drawings)'],
+      film: ['FILM', 'Film (photographic, microfilm/fiche)'],
+      magnetic: ['MAGNETIC', 'Magnetic (tape, data)'],
+      newspaper: %w(NEWSPAPER Newspaper),
+      optical: ['OPTICAL', 'Optical (CD, DVD)'],
+      rolled: ['ROLLED_STOCK', 'Rolled stock (blueprints, drawings)'],
+      shellac: ['SHELLAC', 'Shellac (78s, transcription disks)'],
+      vinyl: ['VINYL', 'Vinyl (LPs, 45s)'],
+      unknown: %w(UNKNOWN Unknown)
     }
   end
 
