@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <% if can? :manage, Sal3BatchRequestsBatch %>
+    <% if can? :create, Sal3BatchRequestsBatch %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
         <h4 class="panel-title">
@@ -24,7 +24,9 @@
       <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
         <ul>
           <li><%= link_to "Place batch request", new_sal3_batch_requests_batch_path %></li>
-          <li><%= link_to "Review batches", root_path %></li>
+          <% if can? :read, Sal3BatchRequestsBatch and can? :update, Sal3BatchRequestsBatch %>
+            <li><%= link_to "Review batches", root_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>

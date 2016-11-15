@@ -14,6 +14,7 @@ FactoryGirl.define do
     f.mgt_rpts 'Y'
     f.ora_admin 'Y'
     f.sal3_batch_req 'Y'
+    f.sal3_breq_edit 'Y'
     f.file_upload 'Y'
   end
 end
