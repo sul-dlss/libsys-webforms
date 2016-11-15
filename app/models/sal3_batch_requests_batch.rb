@@ -25,7 +25,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   def self.batch_media
     {
       book: %w(BOOK Book),
-      archival: %(ARCHIVAL Archival),
+      archival: %w(ARCHIVAL Archival),
       flat: ['FLAT_FILES', 'Flat files (maps, drawings)'],
       film: ['FILM', 'Film (photographic, microfilm/fiche)'],
       magnetic: ['MAGNETIC', 'Magnetic (tape, data)'],
