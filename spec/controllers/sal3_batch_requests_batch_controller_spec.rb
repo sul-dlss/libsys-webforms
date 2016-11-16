@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
+  describe 'get#index' do
+    it 'is successful returning the index page' do
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      get 'index'
+      expect(response).to render_template('index')
+    end
+  end
   describe 'get#new' do
-    it 'be succesful returning the index page' do
+    it 'be succesful returning the new page' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       get 'new'
       expect(response).to render_template('new')

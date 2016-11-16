@@ -1,0 +1,24 @@
+<h2>SAL3 Batch Requests</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class='col-xs-1'>Batch</th>
+      <th class='col-xs-2'>Batch name</th>
+      <th class='col-xs-3'>User name</th>
+      <th class='col-xs-4'>User email</th>
+      <th class='col-xs-5'>Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sal3_batch_requests_batches.each do |batch| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td class='col-xs-1'><%= batch.batch_id %></td>
+        <td class='col-xs-2'><%= batch.batch_name %></td>
+        <td class='col-xs-3'><%= batch.user_name %></td>
+        <td class='col-xs-4'><%= batch.user_email %></td>
+        <td class='col-xs-5'><%= batch.comments %></td>
+        <td class='col-xs-6'><%= link_to 'Edit', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
