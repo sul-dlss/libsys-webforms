@@ -23,6 +23,20 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     end
   end
 
+  def edit
+    @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
+  end
+
+  def update
+    @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
+    if @sal3_batch_requests_batch.update_attributes(sal3_batch_requests_batch_params)
+      flash[:success] = 'Batch updated!'
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   def sal3_batch_requests_batch_params
     params.require(:sal3_batch_requests_batch).permit!
   end
