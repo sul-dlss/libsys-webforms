@@ -5,7 +5,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   include FileParser
   attr_accessor :bc_file
 
-  validates :bc_file, presence: true
+  validates :bc_file, presence: true, on: :create
+  validates :batch_numpullperday, numericality: true, on: :update
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id', class_name: Sal3BatchRequestBcs, dependent: :destroy
 
   self.table_name = 'sal3_batch_requests_batch'
@@ -40,5 +41,13 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
 
   def self.batch_container
     ['Manuscript Box', 'Record Storage Boxes', 'Other Box Type', 'Unknown']
+  end
+
+  def self.status
+    %w(NEW APPROVED SUSPENDED REJECTED)
+  end
+
+  def self.priority
+    %w(1 2 3)
   end
 end

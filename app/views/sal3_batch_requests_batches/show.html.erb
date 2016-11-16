@@ -1,0 +1,21 @@
+<h2>SAL3 Batch Request</h2>
+<dl class='dl-horizontal'>
+  <dt><strong>Status</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.status %></dd>
+  <dt><strong>Priority</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.priority %></dd>
+  <dt><strong>Items to pull per day</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.batch_numpullperday %></dd>
+  <dt><strong>Delivery location</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.stopcode %></dd>
+  <dt><strong>Comments</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.comments %></dd>
+  <dt><strong>Container</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.batch_container %></dd>
+  <dt><strong>Media type</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.batch_media %></dd>
+  <dt><strong>Delivery start date</strong></dt>
+  <dd><%= @sal3_batch_requests_batch.batch_startdate %></dd>
+</dl>
+<%= link_to 'Edit', edit_sal3_batch_requests_batch_path(@sal3_batch_requests_batch), class: 'btn btn-primary' %>
+<%= link_to 'Batches', sal3_batch_requests_batches_path, class: 'btn btn-default' %>

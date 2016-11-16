@@ -16,4 +16,10 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
                                                               'Other Box Type',
                                                               'Unknown')
   end
+  it 'Defines a status array' do
+    expect(Sal3BatchRequestsBatch.status).to eq %w(NEW APPROVED SUSPENDED REJECTED)
+  end
+  it 'Defines a priority array' do
+    expect(Sal3BatchRequestsBatch.priority). to eq %w(1 2 3)
+  end
 end
