@@ -37,7 +37,7 @@ rake db:migrate RAILS_ENV=test
 
 Before running the test suite you should load the fixture data into the tables with:
 ```
-rails runner ./spec/init_libsys-webforms.rb
+rails runner spec/init_libsys-webforms.rb
 ```
 
 ### Rake, etc.
@@ -66,3 +66,9 @@ For example, to upload and delete batches:
 
     $ bundle exec rake webforms:change_current_location[:path_to_file,:current_lib,:new_curloc,:email, :comments]
     $ bundle exec rake webforms:delete_batch[batch_id]
+
+## Background Jobs (Redis, Sidekiq)
+
+Some reports are kicked off on the Symphony server and can take a while to respond back to this application. In order to make this app more responsive we use a redis server with sidekiq to enqueue and run the jobs in the background. To get this working in development, install redis (on a Mac using `brew install redis`) along with the redis and sidekiq gems. Along with running `rails server` in separate terminal windows run `redis-server` and `bundle exec sidekiq`
+
+Sidekiq is started on the server automatically as part of the Capistrano deployment script. To run redis on the server, if it is not alread running, you can set daemonize yes in /etc/redis.conf file, then trigger redis-server with the conf file as an argument: `./redis-server /etc/redis.conf`
