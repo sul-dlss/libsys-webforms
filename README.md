@@ -71,12 +71,4 @@ For example, to upload and delete batches:
 
 Some reports are kicked off on the Symphony server and can take a while to respond back to this application. In order to make this app more responsive we use a redis server with sidekiq to enqueue and run the jobs in the background. To get this working in development, install redis (on a Mac using `brew install redis`) along with the redis and sidekiq gems. Along with running `rails server` in separate terminal windows run `redis-server` and `bundle exec sidekiq`
 
-In the production environment sidekiq should be daemonized: `bundle exec sidekiq -d -L log/sidekiq.log -C config/sidekiq.yml -e production`
-```
--d, Daemonize process
--L, path to writable logfile
--C, path to YAML config file
--e, Application environment
-```
-
-Similarly for Redis, set daemonize yes in /etc/redis.conf file, then trigger redis-server with the conf file as an argument: `./redis-server /etc/redis.conf`
+Sidekiq is started on the server automatically as part of the Capistrano deployment script. To run redis on the server, if it is not alread running, you can set daemonize yes in /etc/redis.conf file, then trigger redis-server with the conf file as an argument: `./redis-server /etc/redis.conf`
