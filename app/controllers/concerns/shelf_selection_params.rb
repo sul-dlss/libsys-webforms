@@ -32,7 +32,7 @@ module ShelfSelectionParams
     report_params.delete_if { |key| key.to_s == 'search_name' }
     call_range(batch_params, report_params)
     url_mgt_rpts(report_params)
-    request_conn('shelf_sel_rpt.cgi', report_params)
+    ShelfSelectionJob.perform_later('shelf_sel.cgi', report_params)
   end
 
   def call_range(batch_params, report_params)

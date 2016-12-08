@@ -1,5 +1,5 @@
-# asychronous processing for endowed funds symphony call
-class EndowFundsJob < ActiveJob::Base
+# asychronous processing for shelf selection symphony call
+class ShelfSelectionJob < ActiveJob::Base
   include SymphonyCgi
   queue_as :default
 
