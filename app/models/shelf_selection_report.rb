@@ -30,6 +30,10 @@ class ShelfSelectionReport
     subj_name.present? && save_opt == 'save'
   end
 
+  def update_search?
+    subj_name.present? && save_opt == 'update'
+  end
+
   private
 
   def lc_range_type?

@@ -34,5 +34,13 @@ RSpec.describe ShelfSelSearch, type: :model do
         expect(shelf_sel_search).to be_instance_of(ShelfSelSearch)
       end
     end
+
+    describe 'update_search class method' do
+      it 'updates a ShelfSelSearch from ShelfSelRpt params' do
+        shelf_selection_report = FactoryGirl.build(:shelf_selection_report)
+        ShelfSelSearch.save_search(shelf_selection_report)
+        ShelfSelSearch.update_search(shelf_selection_report)
+      end
+    end
   end
 end

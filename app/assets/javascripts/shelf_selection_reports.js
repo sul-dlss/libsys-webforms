@@ -47,6 +47,7 @@ $(document).ready(function() {
     user = search_name.substr(search_name.indexOf(',')).substr(2);
     search_name_param = search_name.substr(0, search_name.indexOf(','));
     search_id = search_name.substr(0, search_name.indexOf(',')).replace(/\s/g, '_') + user;
+    currentUser = $('#shelf_selection_report_email').val().split('@')[0];
     $('#' + search_id).show();
     $('#' + search_id).click(function(){
       $.ajax({
@@ -85,7 +86,8 @@ $(document).ready(function() {
         $.each($(html_opts).find('itypesstring').text().split(','), function(i,e){
           $("#shelf_selection_report_itype_array option[value='" + e + "']").prop('selected', true);
         });
-        $('#shelf_selection_report_icat1_array option[value="ALL"]').prop('selected', false);
+        $('#shelf_selection_report_icat1_array' +
+          'option[value="All Item Category 1s"]').prop('selected', false);
         $.each($(html_opts).find('icat1sstring').text().split(','), function(i,e){
           $("#shelf_selection_report_icat1_array option[value='" + e + "']").prop('selected', true);
         });
@@ -105,6 +107,9 @@ $(document).ready(function() {
         $('#shelf_selection_report_call_lo').val($(html_opts).find('calllo').text());
         $('#shelf_selection_report_call_hi').val($(html_opts).find('callhi').text());
         $('#shelf_selection_report_subj_name').val($(html_opts).find('subjname').text());
+        if (user == currentUser) {
+          $('#shelf_selection_report_save_opt_save').val('update');
+        }
       }
     })
   })
