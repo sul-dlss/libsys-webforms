@@ -8,6 +8,12 @@ class ShelfSelSearch < ActiveRecord::Base
     ShelfSelSearch.create(params)
   end
 
+  def self.update_search(shelf_sel_rpt)
+    params = build_search_params(shelf_sel_rpt)
+    find_array = [params[:user_name], params[:search_name]]
+    ShelfSelSearch.find(find_array).update(params)
+  end
+
   # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def self.build_search_params(shelf_sel_rpt)
     { user_name: shelf_sel_rpt.email.split('@')[0],

@@ -16,6 +16,7 @@ class ShelfSelectionReportsController < ApplicationController
     if @shelf_selection_report.valid?
       flash[:notice] = 'Shelf Selection Report request submitted!'
       ShelfSelSearch.save_search(@shelf_selection_report) if @shelf_selection_report.save_search?
+      ShelfSelSearch.update_search(@shelf_selection_report) if @shelf_selection_report.update_search?
       redirect_to root_url
     else
       render action: 'new'
