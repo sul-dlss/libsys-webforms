@@ -47,6 +47,8 @@ $(document).ready(function() {
     user = search_name.substr(search_name.indexOf(',')).substr(2);
     search_name_param = search_name.substr(0, search_name.indexOf(','));
     search_id = search_name.substr(0, search_name.indexOf(',')).replace(/\s/g, '_') + user;
+    current_user = $('#shelf_selection_report_email').val().split('@')[0];
+    alert(user + "/" + current_user);
     $('#' + search_id).show();
     $('#' + search_id).click(function(){
       $.ajax({
@@ -105,7 +107,9 @@ $(document).ready(function() {
         $('#shelf_selection_report_call_lo').val($(html_opts).find('calllo').text());
         $('#shelf_selection_report_call_hi').val($(html_opts).find('callhi').text());
         $('#shelf_selection_report_subj_name').val($(html_opts).find('subjname').text());
-        $('#shelf_selection_report_save_opt_save').val('update');
+        if (user == current_user) {
+          $('#shelf_selection_report_save_opt_save').val('update');
+        }
       }
     })
   })
