@@ -41,23 +41,23 @@ $(document).ready(function() {
     $('#classic-call-hi-label').hide();
     $('#other-call-hi-label').show();
   })
-  $('#shelf_selection_report_search_name').change(function(){
-    /* don't show delete link for another user's search if search_name is the same */
-    search_name = $('#shelf_selection_report_search_name').find(':selected').text();
-    user = search_name.substr(search_name.indexOf(',')).substr(2);
-    search_name_param = search_name.substr(0, search_name.indexOf(','));
-    search_id = search_name.substr(0, search_name.indexOf(',')).replace(/\s/g, '_') + user;
-    current_user = $('#shelf_selection_report_email').val().split('@')[0];
-    $('#' + search_id).show();
-    $('#' + search_id).click(function(){
+  $('#shelf_selection_report_searchName').change(function(){
+    /* don't show delete link for another user's search if searchName is the same */
+    searchName = $('#shelf_selection_report_searchName').find(':selected').text();
+    user = searchName.substr(searchName.indexOf(',')).substr(2);
+    searchNameParam = searchName.substr(0, searchName.indexOf(','));
+    searchId = searchName.substr(0, searchName.indexOf(',')).replace(/\s/g, '_') + user;
+    currentUser = $('#shelf_selection_report_email').val().split('@')[0];
+    $('#' + searchId).show();
+    $('#' + searchId).click(function(){
       $.ajax({
         url: '/shelf_sel_searches/delete_saved_search',
         type: 'GET',
-        data: { user: user, search_name: search_name_param },
+        data: { user: user, searchName: searchNameParam },
         cache: false,
         success: function(result) {
-          $('#' + search_id).remove();
-          $('#shelf_selection_report_search_name option[value="' + search_name + '"]').remove();
+          $('#' + searchId).remove();
+          $('#shelf_selection_report_searchName option[value="' + searchName + '"]').remove();
           location.reload();
         }
       })
@@ -65,49 +65,49 @@ $(document).ready(function() {
     $.ajax({
       url: '/shelf_selection_reports/load_saved_options',
       cache: false,
-      data: { search_name: search_name },
-      success: function(html_opts) {
-        $('#shelf_selection_report_lib').val($(html_opts).find('lib').text());
+      data: { searchName: searchName },
+      success: function(htmlOpts) {
+        $('#shelf_selection_report_lib').val($(htmlOpts).find('lib').text());
         $("#shelf_selection_report_loc_array option").remove();
         $.ajax({
           url: '/shelf_selection_reports/home_locations',
           cache: false,
-          data: { lib: $(html_opts).find('lib').text() },
+          data: { lib: $(htmlOpts).find('lib').text() },
           success: function(html){
             $('#shelf_selection_report_loc_array').append(html);
-            $.each($(html_opts).find('locsstring').text().split(','), function(i,e){
+            $.each($(htmlOpts).find('locsstring').text().split(','), function(i,e){
               $("#shelf_selection_report_loc_array option[value='" + e + "']").prop('selected', true);
             })
           }
         })
-        $.each($(html_opts).find('fmtsstring').text().split(','), function(i,e){
+        $.each($(htmlOpts).find('fmtsstring').text().split(','), function(i,e){
           $("#shelf_selection_report_fmt_array option[value='" + e + "']").prop('selected', true);
         });
-        $.each($(html_opts).find('itypesstring').text().split(','), function(i,e){
+        $.each($(htmlOpts).find('itypesstring').text().split(','), function(i,e){
           $("#shelf_selection_report_itype_array option[value='" + e + "']").prop('selected', true);
         });
         $('#shelf_selection_report_icat1_array' +
           'option[value="All Item Category 1s"]').prop('selected', false);
-        $.each($(html_opts).find('icat1sstring').text().split(','), function(i,e){
+        $.each($(htmlOpts).find('icat1sstring').text().split(','), function(i,e){
           $("#shelf_selection_report_icat1_array option[value='" + e + "']").prop('selected', true);
         });
-        $('#shelf_selection_report_lang').val($(html_opts).find('lang').text());
-        $('#shelf_selection_report_min_yr').val($(html_opts).find('minyr').text());
-        $('#shelf_selection_report_max_yr').val($(html_opts).find('maxyr').text());
-        $('#shelf_selection_report_min_circ').val($(html_opts).find('mincirc').text());
-        $('#shelf_selection_report_max_circ').val($(html_opts).find('maxcirc').text());
-        $('#shelf_selection_report_shadowed').val($(html_opts).find('shadowed').text());
-        $('#shelf_selection_report_digisent').val($(html_opts).find('digisent').text());
-        $('#shelf_selection_report_url').val($(html_opts).find('url').text());
-        $('#shelf_selection_report_mhlds').val($(html_opts).find('mhlds').text());
-        $('#shelf_selection_report_has_dups').val($(html_opts).find('hasdups').text());
-        $('#shelf_selection_report_multvol').val($(html_opts).find('multvol').text());
-        $('#shelf_selection_report_multcop').val($(html_opts).find('multcop').text());
-        $('#noboundw').val($(html_opts).find('noboundw').text());
-        $('#shelf_selection_report_call_lo').val($(html_opts).find('calllo').text());
-        $('#shelf_selection_report_call_hi').val($(html_opts).find('callhi').text());
-        $('#shelf_selection_report_subj_name').val($(html_opts).find('subjname').text());
-        if (user == current_user) {
+        $('#shelf_selection_report_lang').val($(htmlOpts).find('lang').text());
+        $('#shelf_selection_report_min_yr').val($(htmlOpts).find('minyr').text());
+        $('#shelf_selection_report_max_yr').val($(htmlOpts).find('maxyr').text());
+        $('#shelf_selection_report_min_circ').val($(htmlOpts).find('mincirc').text());
+        $('#shelf_selection_report_max_circ').val($(htmlOpts).find('maxcirc').text());
+        $('#shelf_selection_report_shadowed').val($(htmlOpts).find('shadowed').text());
+        $('#shelf_selection_report_digisent').val($(htmlOpts).find('digisent').text());
+        $('#shelf_selection_report_url').val($(htmlOpts).find('url').text());
+        $('#shelf_selection_report_mhlds').val($(htmlOpts).find('mhlds').text());
+        $('#shelf_selection_report_has_dups').val($(htmlOpts).find('hasdups').text());
+        $('#shelf_selection_report_multvol').val($(htmlOpts).find('multvol').text());
+        $('#shelf_selection_report_multcop').val($(htmlOpts).find('multcop').text());
+        $('#noboundw').val($(htmlOpts).find('noboundw').text());
+        $('#shelf_selection_report_call_lo').val($(htmlOpts).find('calllo').text());
+        $('#shelf_selection_report_call_hi').val($(htmlOpts).find('callhi').text());
+        $('#shelf_selection_report_subj_name').val($(htmlOpts).find('subjname').text());
+        if (user == currentUser) {
           $('#shelf_selection_report_save_opt_save').val('update');
         }
       }
