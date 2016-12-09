@@ -48,7 +48,6 @@ $(document).ready(function() {
     search_name_param = search_name.substr(0, search_name.indexOf(','));
     search_id = search_name.substr(0, search_name.indexOf(',')).replace(/\s/g, '_') + user;
     current_user = $('#shelf_selection_report_email').val().split('@')[0];
-    alert(user + "/" + current_user);
     $('#' + search_id).show();
     $('#' + search_id).click(function(){
       $.ajax({
