@@ -31,6 +31,10 @@ module ShelfSelectionParams
     report_params.delete_if { |key| key.to_s.match(/call_\w+/) }
     report_params.delete_if { |key| key.to_s == 'search_name' }
     call_range(batch_params, report_params)
+    format_str(batch_params, report_params)
+    itype_str(batch_params, report_params)
+    icat1_str(batch_params, report_params)
+    loc_str(batch_params, report_params)
     url_mgt_rpts(report_params)
     ShelfSelectionJob.perform_later('shelf_sel.cgi', report_params)
   end
@@ -43,6 +47,30 @@ module ShelfSelectionParams
       report_params[:call_range] = "#{batch_params[:call_lo]}0-9999".delete('#') if batch_params[:call_lo] =~ /\w+\#/
     elsif batch_params[:call_hi].present?
       report_params[:call_range] = "OTHER-#{batch_params[:call_hi]}"
+    end
+  end
+
+  def format_str(batch_params, report_params)
+    unless batch_params[:fmt_array].nil? || batch_params[:fmt_array] == 'All Formats'
+      report_params[:fmt_array] = batch_params[:fmt_array].reject! { |a| a == '' }.join(',')
+    end
+  end
+
+  def itype_str(batch_params, report_params)
+    unless batch_params[:itype_array].nil? || batch_params[:itype_array] == 'All Item Types'
+      report_params[:itype_array] = batch_params[:itype_array].reject! { |a| a == '' }.join(',')
+    end
+  end
+
+  def icat1_str(batch_params, report_params)
+    unless batch_params[:icat1_array].nil? || batch_params[:icat1_array] == 'All Item Category1s'
+      report_params[:icat1_array] = batch_params[:icat1_array].reject! { |a| a == '' }.join(',')
+    end
+  end
+
+  def loc_str(batch_params, report_params)
+    unless batch_params[:loc_array].nil? || batch_params[:loc_array] == 'ALL'
+      report_params[:loc_array] = batch_params[:loc_array].reject! { |a| a == '' }.join(',')
     end
   end
 

@@ -17,7 +17,6 @@ module EndowFundsParams
   private
 
   def ckeys_filename(report_params)
-    # report_params[:ckeys_filename] = @endowed_funds_report.ckeys_file
     report_params[:ckeys_filename] = batch_params[:ckeys_file]
   end
 
