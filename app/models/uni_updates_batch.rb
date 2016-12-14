@@ -8,7 +8,7 @@ class UniUpdatesBatch < ActiveRecord::Base
 
   # rubocop:disable Metrics/AbcSize
   def self.create_item_type_batch(params, total_bcs)
-    create(batch_date: params[:change_item_type][:batch_date],
+    create(batch_date: params[:change_item_type][:load_date],
            user_name: params[:change_item_type][:user_name],
            user_email: params[:change_item_type][:email],
            orig_lib: params[:change_item_type][:current_library],
@@ -23,7 +23,7 @@ class UniUpdatesBatch < ActiveRecord::Base
   end
 
   def self.create_withdraw_item_batch(params, total_bcs)
-    create(batch_date: params[:withdraw_item][:batch_date],
+    create(batch_date: params[:withdraw_item][:load_date],
            user_name: params[:withdraw_item][:user_name],
            user_email: params[:withdraw_item][:email],
            orig_lib: params[:withdraw_item][:current_library],
@@ -38,7 +38,7 @@ class UniUpdatesBatch < ActiveRecord::Base
   end
 
   def self.create_transfer_item_batch(params, total_bcs)
-    create(batch_date: params[:transfer_item][:batch_date],
+    create(batch_date: params[:transfer_item][:load_date],
            user_name: params[:transfer_item][:user_name],
            user_email: params[:transfer_item][:email],
            orig_lib: params[:transfer_item][:current_library],
@@ -56,7 +56,7 @@ class UniUpdatesBatch < ActiveRecord::Base
   end
 
   def self.create_current_location_batch(params, total_bcs)
-    create(batch_date: params[:change_current_location][:batch_date],
+    create(batch_date: params[:change_current_location][:load_date],
            user_name: params[:change_current_location][:user_name],
            user_email: params[:change_current_location][:email],
            orig_lib: params[:change_current_location][:current_library],
@@ -71,7 +71,7 @@ class UniUpdatesBatch < ActiveRecord::Base
   end
 
   def self.create_home_location_batch(params, total_bcs)
-    create(batch_date: params[:change_home_location][:batch_date],
+    create(batch_date: params[:change_home_location][:load_date],
            user_name: params[:change_home_location][:user_name],
            user_email: params[:change_home_location][:user_name],
            orig_lib: params[:change_home_location][:current_library],

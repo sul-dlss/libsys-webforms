@@ -273,7 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-oracle_enhanced-adapter
+  activerecord-oracle_enhanced-adapter (~> 1.6.0)
   bootstrap-sass (~> 3.3.4)
   bootstrap_form
   byebug

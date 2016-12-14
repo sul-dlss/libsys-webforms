@@ -12,6 +12,7 @@ class UniUpdates < ActiveRecord::Base
     array_of_item_ids.each do |item_id|
       hashes_for_updates << {
         batch_id: uni_updates_batch.batch_id,
+        load_date: uni_updates_batch.batch_date,
         export_yn: uni_updates_batch.export_yn,
         priority: uni_updates_batch.priority,
         action: uni_updates_batch.action,
@@ -33,7 +34,7 @@ class UniUpdates < ActiveRecord::Base
     uniques = []
     duplicates = []
     item_ids.each do |item_id|
-      if UniUpdates.where(item_id: item_id).empty?
+      if UniUpdates.where(item_id: item_id, load_date: Time.zone.today).empty?
         uniques << item_id
       else
         duplicates << item_id

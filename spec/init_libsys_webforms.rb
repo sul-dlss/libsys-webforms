@@ -1,5 +1,13 @@
 require 'csv'
 
+UnicornPolicy.destroy_all
+keys = %w(type policy_num name description shadowed destination)
+csv_text = File.read('/Users/jgreben/Projects/libsys-webforms/spec/fixtures/files/unicorn_policies.csv')
+csv = CSV.parse(csv_text, headers: false)
+csv.map { |a| Hash[keys.zip(a)] }
+hash = csv.map { |a| Hash[keys.zip(a)] }
+UnicornPolicy.create(hash)
+
 ExpendituresFunds.destroy_all
 keys = %w(fund_id fund_name_key old_fund_id min_pay_date max_pay_date is_endow inv_lib)
 csv_text = File.read('/Users/jgreben/Projects/libsys-webforms/spec/fixtures/files/expenditures_funds.csv')
