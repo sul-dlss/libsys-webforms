@@ -5,7 +5,13 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     expect(FactoryGirl.create(:sal3_batch_requests_batch)).to be_valid
   end
   it 'Defines delivery locations' do
-    expect(Sal3BatchRequestsBatch.locations).to include('Green' => 'GB')
+    expect(Sal3BatchRequestsBatch.locations).to include('Data Control' => 'DC',
+                                                        'Special Collections - Redwood City' => 'RW',
+                                                        'Archive of Recorded Sound' => 'DA',
+                                                        'Archive of Recorded Sound - Redwood City' => 'RA',
+                                                        'Earth Sciences' => 'DE',
+                                                        'Preservation - Book Repair' => 'BR',
+                                                        'Green' => 'DS')
   end
   it 'Defines a batch_media hash' do
     expect(Sal3BatchRequestsBatch.batch_media).to include(book: %w(BOOK Book), unknown: %w(UNKNOWN Unknown))
