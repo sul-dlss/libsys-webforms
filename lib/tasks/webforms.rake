@@ -3,7 +3,7 @@ namespace :webforms do
   # actions are UPDITEMTYPE, UPDCURLOC, UPDHOMELOC, WITHDRAW, TRANSFER
   # if not from web then user_name 'batch', priority 2
   # TODO DRY rake tasks up!
-  task :transfer_items, [:path_to_file, :current_lib, :new_lib, :new_curloc, :new_homeloc,
+  task :transfer_items, [:path_to_file, :current_lib, :new_lib, :new_homeloc, :new_curloc,
                          :new_itype, :email, :comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.current,
