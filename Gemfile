@@ -38,7 +38,7 @@ gem 'okcomputer'
 gem 'sidekiq'
 
 group :production do
-  gem 'activerecord-oracle_enhanced-adapter'
+  gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
 end
 

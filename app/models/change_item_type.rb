@@ -9,7 +9,7 @@ class ChangeItemType
   attr_accessor :item_ids
   attr_accessor :email
   attr_accessor :comments
-  attr_accessor :batch_date
+  attr_accessor :load_date
   attr_accessor :user_name
   attr_accessor :action
   attr_accessor :priority

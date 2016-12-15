@@ -25,6 +25,9 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = false
 
+  # Set up a development logger
+  # config.logger = Logger.new(STDOUT)
+  # config.log_level = :info
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114234536) do
+ActiveRecord::Schema.define(version: 20161215190807) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -303,7 +303,7 @@ ActiveRecord::Schema.define(version: 20161114234536) do
     t.integer  "batch_id"
     t.string   "pending"
     t.string   "export_yn"
-    t.datetime "load_date"
+    t.date     "load_date"
     t.integer  "priority"
     t.string   "action"
     t.string   "item_id"
