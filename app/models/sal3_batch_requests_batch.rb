@@ -16,10 +16,11 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
     {
       'Data Control' => 'DC',
       'Special Collections - Redwood City' => 'RW',
-      'Archive of Recorded Sound' => 'AB',
-      'Earth Sciences' => 'EB',
-      'Preservation - Book Repair' => 'BP',
-      'Green' => 'GB'
+      'Archive of Recorded Sound' => 'DA',
+      'Archive of Recorded Sound - Redwood City' => 'RA',
+      'Earth Sciences' => 'DE',
+      'Preservation - Book Repair' => 'BR',
+      'Green' => 'DS'
     }
   end
 
