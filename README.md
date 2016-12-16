@@ -53,6 +53,16 @@ The RuboCop style enforcement can be run without running the tests
 
     $ rake rubocop
 
+If you get a `ConnectionAdapters::OracleEnhancedAdapter` error when running a rake task, you may need to temporarily add `:development` to the group that contains the activerecord-oracle_enhanced-adapter gem, for example:
+
+```
+group :production, :development do
+  gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
+  gem 'ruby-oci8'
+end
+```
+<strong>...but please do not commit this change, and revert it before deployment.</strong>
+
 ## Deployment
 
 To deploy to development:
