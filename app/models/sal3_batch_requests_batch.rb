@@ -41,7 +41,12 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   end
 
   def self.batch_container
-    ['Manuscript Box', 'Record Storage Boxes', 'Other Box Type', 'Unknown']
+    {
+      'Manuscript Box' => 'MANUSCRIPT_BOX',
+      'Record Storage Boxes' => 'RECORD_BOX',
+      'Other Box Type' => 'OTHER_BOX',
+      'Unknown' => 'UNKNOWN'
+    }
   end
 
   def self.status
