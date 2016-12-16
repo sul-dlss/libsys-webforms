@@ -8,7 +8,7 @@ class WebformsMailer < ApplicationMailer
       form_recipients = @uni_updates_batch.user_email.split(',')
       all_recipients << form_recipients
     end
-    mail(to: all_recipients, subject: 'batch record update')
+    mail(to: all_recipients, subject: 'Batch update request')
   end
 
   def batch_delete_email(uni_updates_batch)
@@ -18,6 +18,6 @@ class WebformsMailer < ApplicationMailer
       form_recipients = @uni_updates_batch.user_email.split(',')
       all_recipients << form_recipients
     end
-    mail(to: all_recipients, subject: 'batch record deletion')
+    mail(to: all_recipients, subject: 'Batch update deletion')
   end
 end
