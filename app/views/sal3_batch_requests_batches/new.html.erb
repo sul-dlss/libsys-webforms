@@ -63,7 +63,7 @@
         <div class='form-group row'>
           <%= f.label :batch_container, "Container", class: 'col-sm-1 form-control-label' %>
           <div class='col-sm-10'>
-            <%= f.select :batch_container, options_for_select(Sal3BatchRequestsBatch.batch_container.map{ |b| [ b ] }), {}, {size: 4, class: 'form-control'} %>
+            <%= f.select :batch_container, Sal3BatchRequestsBatch.batch_container, {}, {size: 4, class: 'form-control'} %>
           </div>
         </div>
       </div>

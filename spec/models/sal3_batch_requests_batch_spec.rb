@@ -17,10 +17,10 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     expect(Sal3BatchRequestsBatch.batch_media).to include(book: %w(BOOK Book), unknown: %w(UNKNOWN Unknown))
   end
   it 'Defines a batch_container hash' do
-    expect(Sal3BatchRequestsBatch.batch_container).to include('Manuscript Box',
-                                                              'Record Storage Boxes',
-                                                              'Other Box Type',
-                                                              'Unknown')
+    expect(Sal3BatchRequestsBatch.batch_container).to include('Manuscript Box' => 'MANUSCRIPT_BOX',
+                                                              'Record Storage Boxes' => 'RECORD_BOX',
+                                                              'Other Box Type' => 'OTHER_BOX',
+                                                              'Unknown' => 'UNKNOWN')
   end
   it 'Defines a status array' do
     expect(Sal3BatchRequestsBatch.status).to eq %w(NEW APPROVED SUSPENDED REJECTED)
