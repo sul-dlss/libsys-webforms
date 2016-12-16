@@ -18,6 +18,7 @@ namespace :webforms do
                                                 new_curloc: args[:new_curloc],
                                                 new_itype: args[:new_itype],
                                                 check_bc_first: 'N',
+                                                total_bcs: barcodes.length,
                                                 pending: 'Y',
                                                 comments: args[:comments])
     filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
@@ -39,6 +40,7 @@ namespace :webforms do
                                                 export_yn: 'SocI',
                                                 orig_lib: args[:current_lib],
                                                 check_bc_first: 'N',
+                                                total_bcs: barcodes.length,
                                                 pending: 'Y',
                                                 comments: args[:comments])
     filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
@@ -64,6 +66,7 @@ namespace :webforms do
                                                 priority: 2,
                                                 export_yn: 'SocI',
                                                 check_bc_first: 'N',
+                                                total_bcs: barcodes.length,
                                                 pending: 'Y',
                                                 comments: args[:comments])
     filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
@@ -87,6 +90,7 @@ namespace :webforms do
                                                 priority: 2,
                                                 export_yn: 'SocI',
                                                 check_bc_first: 'N',
+                                                total_bcs: barcodes.length,
                                                 pending: 'Y',
                                                 comments: args[:comments])
     filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
@@ -110,6 +114,7 @@ namespace :webforms do
                                                 priority: 2,
                                                 export_yn: 'N',
                                                 check_bc_first: 'N',
+                                                total_bcs: barcodes.length,
                                                 pending: 'Y',
                                                 comments: args[:comments])
     filtered_item_ids = UniUpdates.filter_duplicates(barcodes)
