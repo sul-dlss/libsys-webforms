@@ -30,8 +30,8 @@ describe WebformsMailer do
 
     describe 'subject' do
       it 'is about a batch upload or deletion' do
-        expect(upload_mail.subject).to eq 'batch record update'
-        expect(delete_mail.subject).to eq 'batch record deletion'
+        expect(upload_mail.subject).to eq 'Batch update request'
+        expect(delete_mail.subject).to eq 'Batch update deletion'
       end
     end
 
