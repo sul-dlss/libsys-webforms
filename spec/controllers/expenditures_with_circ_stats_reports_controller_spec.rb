@@ -16,7 +16,7 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
                                                            fund: '1008930-1-HAGOY',
                                                            lib_array: %w(GREEN),
-                                                           fmt_array: %w(MANUSCRPT MAP MARC),
+                                                           format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'fiscal',
                                                            fy_start: 'FY 2009' }
       expect(response).to have_http_status(302)
@@ -26,7 +26,7 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
                                                            fund: '1008930-1-HAGOY',
                                                            lib_array: %w(GREEN),
-                                                           fmt_array: %w(MANUSCRPT MAP MARC),
+                                                           format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'calendar',
                                                            cal_start: '1996' }
       expect(response).to have_http_status(302)
@@ -36,7 +36,7 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
                                                            fund: '1008930-1-HAGOY',
                                                            lib_array: %w(GREEN),
-                                                           fmt_array: %w(MANUSCRPT MAP MARC),
+                                                           format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'calendar',
                                                            cal_start: '1996',
                                                            cal_end: '1997' }
@@ -47,7 +47,7 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
                                                            fund: '1008930-1-HAGOY',
                                                            lib_array: %w(GREEN),
-                                                           fmt_array: %w(MANUSCRPT MAP MARC),
+                                                           format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'paydate',
                                                            pd_start: '22-DEC-99' }
       expect(response).to have_http_status(302)
@@ -57,7 +57,7 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
                                                            fund: '1008930-1-HAGOY',
                                                            lib_array: %w(GREEN),
-                                                           fmt_array: %w(MANUSCRPT MAP MARC),
+                                                           format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'paydate',
                                                            pd_start: '17-DEC-99',
                                                            pd_end: '22-DEC-99' }

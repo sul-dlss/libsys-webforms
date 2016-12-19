@@ -21,7 +21,7 @@ class ShelfSelSearch < ActiveRecord::Base
       call_range: "#{shelf_sel_rpt.call_alpha}#{shelf_sel_rpt.call_lo}-#{shelf_sel_rpt.call_hi}",
       lib: shelf_sel_rpt.lib,
       locs: shelf_sel_rpt.loc_array.join(',')[1..-1],
-      fmts: shelf_sel_rpt.fmt_array.join(',')[1..-1],
+      fmts: shelf_sel_rpt.format_array.join(',')[1..-1],
       itypes: shelf_sel_rpt.itype_array.join(',')[1..-1],
       min_yr: shelf_sel_rpt.min_yr,
       max_yr: shelf_sel_rpt.max_yr,

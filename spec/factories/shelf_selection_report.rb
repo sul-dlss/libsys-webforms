@@ -5,7 +5,7 @@ FactoryGirl.define do
     lib 'GREEN'
     loc_array ['', 'BENDER']
     cloc_diff '0'
-    fmt_array ['', 'MANUSCRIPT']
+    format_array ['', 'MANUSCRIPT']
     itype_array ['', 'ATLAS-EXP']
     icat1_array ['', 'ALL']
     lang ''

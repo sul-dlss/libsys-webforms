@@ -4,12 +4,12 @@
 class ExpendituresWithCircStatsReport < ActiveRecord::Base
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
-                :lib_array, :libraries, :fmt_array, :formats
+                :lib_array, :libraries, :format_array, :formats
 
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
   validates :lib_array, presence: true
-  validates :fmt_array, presence: true
+  validates :format_array, presence: true
   validates :date_type, inclusion: %w(fiscal calendar paydate)
 
   before_save :set_fund, :write_dates, :write_lib, :write_fmt
@@ -34,7 +34,7 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   end
 
   def write_fmt
-    self[:formats] = fmt_array
+    self[:formats] = format_array
   end
 
   def check_fy

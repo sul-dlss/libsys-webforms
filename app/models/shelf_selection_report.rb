@@ -4,7 +4,7 @@ class ShelfSelectionReport
   extend ActiveModel::Callbacks
   include ActiveModel::Validations
   include ActiveModel::Validations::Callbacks
-  attr_accessor :email, :lib, :loc_array, :cloc_diff, :fmt_array, :itype_array,
+  attr_accessor :email, :lib, :loc_array, :cloc_diff, :format_array, :itype_array,
                 :icat1_array, :lang, :min_yr, :max_yr, :min_circ, :max_circ,
                 :shadowed, :digisent, :url, :mhlds, :has_dups, :multvol, :multcop,
                 :no_boundw, :range_type, :call_alpha, :subj_name, :save_opt,
@@ -15,11 +15,11 @@ class ShelfSelectionReport
   validates :email, :loc_array, presence: true
   validates :loc_array, length: { minimum: 2, message: "can't be empty" }
   validates :call_lo, presence: true, if: :lc_range_type?
-  validates :fmt_array, :itype_array, length: { minimum: 2, message: "can't be empty" }, if: :lc_range_type?
+  validates :format_array, :itype_array, length: { minimum: 2, message: "can't be empty" }, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
   validates :itype_array, length: { minimum: 2, message: "can't be empty" }, if: :classic_range_type?
-  validates :fmt_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
-  validates :fmt_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
+  validates :format_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
+  validates :format_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
   validates :subj_name, length: { maximum: 80, message: 'no more than 80 characters' }
 
   def self.generic_options
