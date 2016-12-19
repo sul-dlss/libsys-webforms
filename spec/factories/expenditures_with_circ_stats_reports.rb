@@ -13,7 +13,7 @@ FactoryGirl.define do
     message ''
     ckey_link 1
     lib_array ['ALL']
-    fmt_array 'MARC'
+    format_array 'MARC'
     one_row_total 0
     fy_start 'FY 2009'
     fy_end 'FY 2011'

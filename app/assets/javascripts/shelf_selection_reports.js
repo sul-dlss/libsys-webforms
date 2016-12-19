@@ -81,7 +81,7 @@ $(document).ready(function() {
           }
         })
         $.each($(html_opts).find('fmtsstring').text().split(','), function(i,e){
-          $("#shelf_selection_report_fmt_array option[value='" + e + "']").prop('selected', true);
+          $("#shelf_selection_report_format_array option[value='" + e + "']").prop('selected', true);
         });
         $.each($(html_opts).find('itypesstring').text().split(','), function(i,e){
           $("#shelf_selection_report_itype_array option[value='" + e + "']").prop('selected', true);

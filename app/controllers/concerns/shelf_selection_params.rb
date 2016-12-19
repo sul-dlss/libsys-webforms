@@ -6,7 +6,7 @@
 # lib :lib
 # locs :loc_array
 # cloc_diff :cloc_diff
-# fmts :fmt_array
+# fmts :format_array
 # itypes :itype_array
 # icat1s :icat1_array
 # lang :lang
@@ -51,8 +51,8 @@ module ShelfSelectionParams
   end
 
   def format_str(batch_params, report_params)
-    unless batch_params[:fmt_array].nil? || batch_params[:fmt_array] == 'All Formats'
-      report_params[:fmt_array] = batch_params[:fmt_array].reject! { |a| a == '' }.join(',')
+    unless batch_params[:format_array].nil? || batch_params[:format_array] == 'All Formats'
+      report_params[:format_array] = batch_params[:format_array].reject! { |a| a == '' }.join(',')
     end
   end
 
