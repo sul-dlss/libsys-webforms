@@ -7,7 +7,7 @@ FactoryGirl.define do
     priority '1'
     action 'TRANSFER'
     item_id '36105045675092'
-    run_date '2013-09-26 11:45:24'
+    run_date nil
     to_delete_date ''
     completed_date '2013-09-26 11:45:24'
     cur_lib 'MATH-CS'

@@ -146,8 +146,6 @@
   <%= f.hidden_field :num_nonsymph_bcs, value: '' %>
   <%= f.hidden_field :num_retrieval_err, value: '' %>
   <%= f.hidden_field :pending, value: 'Y' %>
-  <%= f.hidden_field :load_date, value: DateTime.now.midnight %>
-  <%= f.hidden_field :last_action_date, value: DateTime.now.midnight %>
   <div><%= f.submit 'Submit request', class: 'btn btn-md btn-default  btn-full' %></div><br/>
 </div>
 <% end %>

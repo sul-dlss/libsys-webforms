@@ -25,6 +25,6 @@ FactoryGirl.define do
     num_nonsymph_bcs ''
     pending ''
     load_date '14-06-16'
-    last_action_date '24-06-16'
+    last_action_date nil
   end
 end

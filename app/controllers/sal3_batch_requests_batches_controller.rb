@@ -50,9 +50,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
       batch_id: sal3_batch.batch_id,
       pending: sal3_batch.pending,
       load_date: sal3_batch.load_date,
-      priority: sal3_batch.priority,
-      run_date: sal3_batch.load_date,
-      completed_date: sal3_batch.last_action_date
+      priority: sal3_batch.priority
     }
   end
 end
