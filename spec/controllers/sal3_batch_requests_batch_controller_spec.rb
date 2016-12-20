@@ -32,7 +32,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, sal3_batch_requests_batch: { user_sunetid: 'some-id',
                                                  load_date: '16-06-14',
-                                                 last_action_date: '16-06-24',
+                                                 last_action_date: nil,
                                                  bc_file: barcode_file }
 
       expect(response).to have_http_status(302)

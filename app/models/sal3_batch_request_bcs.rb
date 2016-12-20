@@ -21,7 +21,6 @@ class Sal3BatchRequestBcs < ActiveRecord::Base
       load_date: sal3_batch_request[:load_date],
       priority: sal3_batch_request[:priority],
       item_id: item_id,
-      run_date: sal3_batch_request[:run_date],
       completed_date: sal3_batch_request[:completed_date]
     }
   end

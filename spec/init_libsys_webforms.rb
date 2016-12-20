@@ -163,5 +163,5 @@ s.num_bcs = ''
 s.num_nonsymph_bcs = ''
 s.pending = ''
 s.load_date = '14-06-16'
-s.last_action_date = '24-06-16'
+s.last_action_date = nil
 s.save
