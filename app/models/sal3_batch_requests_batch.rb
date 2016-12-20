@@ -8,7 +8,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   validates :bc_file, presence: true, on: :create
   validates :batch_numpullperday, numericality: true, on: :update
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id', class_name: Sal3BatchRequestBcs, dependent: :destroy
-
+  after_create :set_num_bcs
   self.table_name = 'sal3_batch_requests_batch'
   self.primary_key = 'batch_id'
 
@@ -55,5 +55,10 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
 
   def self.priority
     %w(1 2 3)
+  end
+
+  def set_num_bcs
+    barcodes = IO.read(bc_file.path).split("\n").uniq.length
+    update_column(:num_bcs, barcodes)
   end
 end

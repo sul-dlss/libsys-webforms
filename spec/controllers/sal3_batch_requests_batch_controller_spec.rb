@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
+  let(:barcode_file) do
+    extend ActionDispatch::TestProcess
+    fixture_file_upload('files/test_file.txt', 'text/plain')
+  end
   describe 'get#index' do
     it 'is successful returning the index page' do
       stub_current_user(FactoryGirl.create(:authorized_user))
@@ -11,7 +15,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   describe 'get#show' do
     it 'is successful returning a show page' do
       stub_current_user(FactoryGirl.create(:authorized_user))
-      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: '123456')
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file)
       get 'show', id: @sal3_batch_requests_batch
       expect(response).to render_template('show')
     end
@@ -24,10 +28,6 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     end
   end
   describe 'post#create' do
-    let(:barcode_file) do
-      extend ActionDispatch::TestProcess
-      fixture_file_upload('files/test_file.txt', 'text/plain')
-    end
     it 'returns 302 when saving sal3_batch_requests_batch' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, sal3_batch_requests_batch: { user_sunetid: 'some-id',
@@ -45,7 +45,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   end
   describe 'get#edit' do
     it 'is successful returning the edit view' do
-      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: '123456')
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file)
       stub_current_user(FactoryGirl.create(:authorized_user))
       get 'edit', id: @sal3_batch_requests_batch
       expect(response).to be_success
@@ -53,7 +53,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   end
   describe 'put#update' do
     it 'updates the requested batch' do
-      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: '123456',
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10)
       stub_current_user(FactoryGirl.create(:authorized_user))
@@ -65,7 +65,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       # this spec passes, but doesn't seem to get coverage
       # sal3_batch_requests_batches_controller.rb: 1 untested lines: [40]
       # which is: render 'edit'
-      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: '123456',
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10)
       stub_current_user(FactoryGirl.create(:authorized_user))

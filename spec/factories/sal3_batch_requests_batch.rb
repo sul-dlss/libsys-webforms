@@ -1,3 +1,4 @@
+include ActionDispatch::TestProcess
 FactoryGirl.define do
   factory :sal3_batch_requests_batch do
     batch_id 1
@@ -20,7 +21,7 @@ FactoryGirl.define do
     pseudo_id 'MAPSCANLAB'
     comments 'Test comment'
     ckey '1234567'
-    bc_file '1234567890'
+    bc_file { fixture_file_upload(Rails.root.to_s + '/spec/fixtures/files/test_file.txt', 'text/plain') }
     num_bcs ''
     num_nonsymph_bcs ''
     pending ''
