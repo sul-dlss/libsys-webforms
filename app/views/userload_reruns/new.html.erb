@@ -1,0 +1,27 @@
+<h1>Userload Rerun</h1>
+
+<%= form_for(@userload_rerun) do |f| %>
+  <% if @userload_rerun.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @userload_rerun.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rerun_date %><br>
+    <%= f.date_field(:rerun_date, value: params[:rerun_date] || Time.zone.today, 'data-behavior': 'rerun-date-picker', min: 1.week.ago, max: Time.zone.today) %>
+  </div>
+
+  <div class="btn-group">
+    <%= f.submit 'Rerun userload for this date', class: 'btn btn-md btn-default btn-full' %>
+  </div>
+
+<% end %>
+
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>

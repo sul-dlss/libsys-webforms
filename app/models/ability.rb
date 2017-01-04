@@ -6,6 +6,7 @@ class Ability
     current_user ||= AuthorizedUser.new
     can :manage, ManagementReport if current_user.mgt_rpts == 'Y'
     can :create, Sal3BatchRequestsBatch if current_user.sal3_batch_req == 'Y'
+    can :create, UserloadRerun if current_user.userload_rerun == 'Y'
     can [:read, :update], Sal3BatchRequestsBatch if current_user.sal3_breq_edit == 'Y'
     assign_batch_permission if current_user.unicorn_updates == 'Y'
   end

@@ -19,7 +19,8 @@ gem 'bootstrap_form'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+# (pinning to < 4.1 until issue w/ webshims is resolved https://github.com/aFarkas/webshim/issues/560)
+gem 'jquery-rails', '< 4.1'
 # Use cancan for authorization
 gem 'cancan'
 # Use ActiveModel has_secure_password
