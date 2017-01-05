@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215190807) do
+ActiveRecord::Schema.define(version: 20170104223522) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20161215190807) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "sal3_breq_edit"
+    t.string   "userload_rerun"
   end
 
   create_table "circ_stats_rpt_fmts", force: :cascade do |t|

@@ -46,6 +46,14 @@
     </div>
     <% end %>
   </div>
+
+  <% if can? :create, UserloadRerun %>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4><%= link_to "Userload Rerun", new_userload_rerun_path %></h4>
+    </div>
+  </div>
+  <% end %>
   <% else %>
   <%= link_to "Login here", login_path(referrer: request.original_url) %>
   <% end %>

@@ -16,5 +16,6 @@ FactoryGirl.define do
     f.sal3_batch_req 'Y'
     f.sal3_breq_edit 'Y'
     f.file_upload 'Y'
+    f.userload_rerun 'Y'
   end
 end
