@@ -31,3 +31,6 @@ Style/StringLiterals:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false  
