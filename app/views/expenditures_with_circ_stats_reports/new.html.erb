@@ -16,7 +16,7 @@
   <div class='form-group row'>
     <%= f.label :lib_array, 'Select libraries to collect stats for:', class: 'col-sm-5 form-control-label' %>
     <div class='col-sm-10'>
-      <%= f.select :lib_array, UniLibsLocs.libraries, { selected: 'ALL' }, {multiple: true, size: 6, class: 'form-control'} %>
+      <%= f.select :lib_array, (['All Libraries'] + UniLibsLocs.libraries), { selected: 'All Libraries' }, {multiple: true, size: 6, class: 'form-control'} %>
     </div>
   </div>
   <%= render 'shared/circulation_statistics_report_formats', f: f %>

@@ -20,7 +20,12 @@
   </div>
 <div>
   <%= render 'shared/enter_email', f: f %>
-  <%= render 'shared/uni_libs_locs', f: f %>
+  <div class='form-group row pad'>
+    <%= f.label :lib, 'Select Library:', class: 'col-sm-5 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.select :lib, UniLibsLocs.libraries, { selected: 'GREEN' }, { class: 'form-control' } %>
+    </div>
+  </div>
   <div class='form-group row'>
     <%= f.label :loc_array, 'Select Home Location(s) from the list below after selecting library above:', class: 'col-sm-10 form-control-label' %>
     <div class='col-sm-10'>
