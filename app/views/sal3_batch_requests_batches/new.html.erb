@@ -85,7 +85,7 @@
         <div class='form-group row'>
           <%= f.label :batch_needbydate, "All items delivered by:", class: 'col-sm-2 form-control-label' %>
           <div class='col-sm-10'>
-            <%= f.date_field 'batch_needbydate', id: 'dp2', class: 'form-control', value: "#{DateTime.now.strftime('%d-%^b-%y')}" %>
+            <%= f.date_field 'batch_needbydate', id: 'dp2', class: 'form-control', value: "#{6.months.from_now.strftime('%d-%^b-%y')}" %>
           </div>
         </div>
         <div class='indent'>
