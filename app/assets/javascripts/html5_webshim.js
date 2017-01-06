@@ -6,10 +6,10 @@ $(document).on('ready page:load', function() {
       waitReady: true,
       type: 'date',
       date: {
+        openOnFocus: true,
         startView: 2,
         'yearSelect': false,
-		    'monthSelect': false,
-        openOnFocus: true
+		    'monthSelect': false
       }
     };
 
@@ -24,8 +24,6 @@ $(document).on('ready page:load', function() {
     }
 
     window.webshim.setOptions('forms-ext', webShimOptions);
-
-    window.webshim.activeLang('en-US');
     window.webshim.polyfill('forms-ext');
   }
 });
