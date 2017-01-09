@@ -7,7 +7,7 @@
     <% end %>
 
     <div class="header-links">
-      <% if current_user %>
+      <% if webauth_user? %>
         <%= link_to "#{user_id}: Logout", logout_path(referrer: root_path) %>
       <% else %>
         <%= link_to "Login here", login_path(referrer: request.original_url) %>

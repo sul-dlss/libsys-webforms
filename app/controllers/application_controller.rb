@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_id
 
+  def webauth_user?
+    current_user.present? && user_id.present?
+  end
+  helper_method :webauth_user?
+
   def current_user_name
     current_user.user_name
   end
