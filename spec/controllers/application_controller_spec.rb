@@ -32,4 +32,15 @@ describe ApplicationController do
       raise 'pending spec...'
     end
   end
+  describe '#webauth_user' do
+    before do
+      request.env['REMOTE_USER'] = ''
+      allow(controller.request).to receive(:env).and_return('REMOTE_USER' => '')
+    end
+    it 'should check whether the user is both an current_user and has a user_id from webauth ' do
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      webauth_user = controller.send(:webauth_user?)
+      expect(webauth_user).to be_falsey
+    end
+  end
 end
