@@ -55,6 +55,10 @@
   </div>
   <% end %>
   <% else %>
+  <div class="access-error">
+    You do not have permissions to use any web forms.
+  </div>
+  <hr>
   <%= link_to "Login here", login_path(referrer: request.original_url) %>
   <% end %>
 </div>

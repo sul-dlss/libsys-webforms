@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   end
 
   def index
+    @current_user_name = current_user_name
   end
 end
