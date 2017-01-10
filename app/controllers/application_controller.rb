@@ -34,6 +34,10 @@ class ApplicationController < ActionController::Base
   helper_method :webauth_user?
 
   def current_user_name
-    current_user.user_name
+    if current_user.nil?
+      'Guest'
+    else
+      current_user.user_name
+    end
   end
 end
