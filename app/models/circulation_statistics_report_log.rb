@@ -25,7 +25,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
       max_pub_year: circ_stats.max_yr, extra_field: circ_stats.tag_field,
       extra_field2: circ_stats.tag_field2, link_type: circ_stats.link_type,
       blank_columns: String(circ_stats.blank_col_array).split(',').join(','),
-      status: 'SAVED' }
+      status: 'REQUEST' }
   end
 
   # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity,Metrics/MethodLength
