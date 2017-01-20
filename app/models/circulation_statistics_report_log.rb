@@ -17,7 +17,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
 
   def self.other_params(circ_stats)
     { email: circ_stats.email, selcall_src: circ_stats.source,
-      format: circ_stats.format_array.reject! { |a| a == '' }.join(','),
+      format: circ_stats.format_array.reject! { |a| a == '' || a == 'All Formats' }.join(','),
       exclude_inactive: circ_stats.exclude_inactive,
       exclude_bad_year: circ_stats.exclude_bad_yr, summary_only: circ_stats.no_qtrly,
       ckey_url: circ_stats.ckey_url, extras_url: circ_stats.tags_url,

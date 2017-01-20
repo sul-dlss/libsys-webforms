@@ -23,7 +23,7 @@ Metrics/MethodLength:
   Max: 15
 
 Metrics/AbcSize:
-  Max: 22
+  Max: 23
 
 Style/StringLiterals:
   Enabled: true
@@ -33,4 +33,4 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Rails/HttpPositionalArguments:
-  Enabled: false  
+  Enabled: false
