@@ -35,6 +35,7 @@ module ShelfSelectionParams
     itype_str(batch_params, report_params)
     icat1_str(batch_params, report_params)
     loc_str(batch_params, report_params)
+    no_boundw(report_params)
     url_mgt_rpts(report_params)
     ShelfSelectionJob.perform_later('shelf_sel.cgi', report_params)
   end
@@ -72,6 +73,10 @@ module ShelfSelectionParams
     unless batch_params[:loc_array].nil? || batch_params[:loc_array] == 'ALL'
       report_params[:loc_array] = batch_params[:loc_array].reject! { |a| a == '' }.join(',')
     end
+  end
+
+  def no_boundw(report_params)
+    report_params[:no_boundw] = report_params[:no_boundw].to_i.round
   end
 
   def url_mgt_rpts(report_params)
