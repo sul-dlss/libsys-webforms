@@ -2,12 +2,13 @@
 # Class to model the Encumberances Report table
 ###
 class EncumbranceReport < ActiveRecord::Base
-  attr_accessor :fund_select, :show_dates, :fund, :fund_begin
+  attr_accessor :fund_select, :show_dates, :fund, :fund_begin, :email
 
+  validates :email, presence: true
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
 
-  before_save :set_fund, :write_dates
+  before_save :set_fund, :write_dates, :set_email
 
   self.table_name = 'encumbrance_rpts'
 
@@ -29,5 +30,9 @@ class EncumbranceReport < ActiveRecord::Base
   def write_dates
     self[:date_request] = Time.zone.now
     self[:date_ran] = Time.zone.now
+  end
+
+  def set_email
+    self[:email] = email
   end
 end
