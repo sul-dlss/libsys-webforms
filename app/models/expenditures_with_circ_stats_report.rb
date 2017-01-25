@@ -24,11 +24,6 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   def set_fund
     if fund
       self[:ta_fund_code] = fund.join(',')
-      # if fund.length > 1
-      #   self[:ta_fund_code] = fund.join(',')
-      # else
-      #   self[:ta_fund_code] = fund
-      # end
     elsif fund_begin
       self[:ta_fund_code] = fund_begin
     end
