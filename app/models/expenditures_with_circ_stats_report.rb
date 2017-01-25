@@ -23,18 +23,23 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
 
   def set_fund
     if fund
-      self[:ta_fund_code] = fund
+      self[:ta_fund_code] = fund.join(',')
+      # if fund.length > 1
+      #   self[:ta_fund_code] = fund.join(',')
+      # else
+      #   self[:ta_fund_code] = fund
+      # end
     elsif fund_begin
       self[:ta_fund_code] = fund_begin
     end
   end
 
   def write_lib
-    self[:libraries] = lib_array
+    self[:libraries] = lib_array.delete_if { |a| a == '' || (lib_array.length > 1 && a == 'All Libraries') }.join(',')
   end
 
   def write_fmt
-    self[:formats] = format_array
+    self[:formats] = format_array.delete_if { |a| a == '' || (format_array.length > 1 && a == 'All Formats') }.join(',')
   end
 
   def check_fy
@@ -69,16 +74,19 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
 
   def write_fy_start(year)
     fy_start = ExpendituresFyDate.find(year).min_paydate.strftime('%Y-%^b-%d')
+  rescue ActiveRecord::RecordNotFound
     write_range_start(fy_start)
   end
 
   def write_fy_end(year)
     fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%Y-%^b-%d')
+  rescue ActiveRecord::RecordNotFound
     write_range_end(fy_end)
   end
 
   def write_cal_start(year)
     cal_start = Time.zone.parse("#{year}-01-01").strftime('%Y-%m-%d')
+  rescue ActiveRecord::RecordNotFound
     write_range_start(cal_start)
   end
 

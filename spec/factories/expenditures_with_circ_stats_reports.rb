@@ -5,15 +5,15 @@ FactoryGirl.define do
     date_ran '16-JUN-16'
     status 'REQUEST'
     email 'someone@some.one'
-    fund '1065032-103-XYZ'
+    fund %w(1065032-103-XYZ)
     fund_begin '1065032-103-'
     date_range_start '01-SEP-08'
     date_range_end '31-AUG-08'
     output_file 'exp_rpt0811141740.1130414'
     message ''
     ckey_link 1
-    lib_array ['ALL']
-    format_array 'MARC'
+    lib_array %w(GREEN SAL3)
+    format_array %w(MARC MANUSCRIPT)
     one_row_total 0
     fy_start 'FY 2009'
     fy_end 'FY 2011'

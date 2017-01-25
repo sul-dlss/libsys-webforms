@@ -14,8 +14,8 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
       # a factory for travis:
       FactoryGirl.create(:expenditures_fy_date)
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
-                                                           fund: '1008930-1-HAGOY',
-                                                           lib_array: %w(GREEN),
+                                                           fund: %w(1008930-1-HAGOY),
+                                                           lib_array: %w(GREEN SAL3),
                                                            format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'fiscal',
                                                            fy_start: 'FY 2009' }
@@ -24,8 +24,8 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
     it 'returns 302 when saving a report for calendar years with only cal_start set' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
-                                                           fund: '1008930-1-HAGOY',
-                                                           lib_array: %w(GREEN),
+                                                           fund: %w(1008930-1-HAGOY),
+                                                           lib_array: %w(GREEN SAL3),
                                                            format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'calendar',
                                                            cal_start: '1996' }
@@ -34,8 +34,8 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
     it 'returns 302 when saving a report for calendar years with cal_start and cal_end set' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
-                                                           fund: '1008930-1-HAGOY',
-                                                           lib_array: %w(GREEN),
+                                                           fund: %w(1008930-1-HAGOY),
+                                                           lib_array: %w(GREEN SAL3),
                                                            format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'calendar',
                                                            cal_start: '1996',
@@ -45,8 +45,8 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
     it 'returns 302 when saving a report for paydate years with only pd_start set' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
-                                                           fund: '1008930-1-HAGOY',
-                                                           lib_array: %w(GREEN),
+                                                           fund: %w(1008930-1-HAGOY),
+                                                           lib_array: %w(GREEN SAL3),
                                                            format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'paydate',
                                                            pd_start: '22-DEC-99' }
@@ -55,8 +55,8 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
     it 'returns 302 when saving a report for paydate years with pd_start and pd_end set' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       post :create, expenditures_with_circ_stats_report: { email: 'someone@some.one',
-                                                           fund: '1008930-1-HAGOY',
-                                                           lib_array: %w(GREEN),
+                                                           fund: %w(1008930-1-HAGOY),
+                                                           lib_array: %w(GREEN SAL3),
                                                            format_array: %w(MANUSCRPT MAP MARC),
                                                            date_type: 'paydate',
                                                            pd_start: '17-DEC-99',
