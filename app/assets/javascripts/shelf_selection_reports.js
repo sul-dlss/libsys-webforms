@@ -47,7 +47,7 @@ $(document).ready(function() {
     user = search_name.substr(search_name.indexOf(',')).substr(2);
     search_name_param = search_name.substr(0, search_name.indexOf(','));
     search_id = search_name.substr(0, search_name.indexOf(',')).replace(/\s/g, '_') + user;
-    currentUser = $('#shelf_selection_report_email').val().split('@')[0];
+    currentUser = $('#login_id').attr('data');
     $('#' + search_id).show();
     $('#' + search_id).click(function(){
       $.ajax({
@@ -67,6 +67,7 @@ $(document).ready(function() {
       cache: false,
       data: { search_name: search_name },
       success: function(html_opts) {
+        $('#shelf_selection_report_email').val($(html_opts).find('email').text());
         $('#shelf_selection_report_lib').val($(html_opts).find('lib').text());
         $("#shelf_selection_report_loc_array option").remove();
         $.ajax({

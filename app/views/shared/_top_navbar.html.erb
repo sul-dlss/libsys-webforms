@@ -6,7 +6,7 @@
     <%= image_tag "sul-logo-small.png", class: "visible-xs", alt: "", height: 25 %>
     <% end %>
 
-    <div class="header-links">
+    <div class="header-links" id="login_id" data="<%= user_id %>">
       <% if webauth_user? %>
       <%= "Logged in as #{@current_user_name} (#{user_id})" %>
       <% else %>
