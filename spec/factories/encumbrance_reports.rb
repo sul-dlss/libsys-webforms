@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :encumbrance_report do
     email 'someone@some.one'
-    fund '1065032-103-XYZ'
+    fund %w(1065032-103-XYZ)
     fund_begin '1065032-103-'
     funding_paid 'All records'
     fundcyc_cycle '2015'

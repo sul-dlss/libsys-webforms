@@ -21,7 +21,7 @@ class EncumbranceReport < ActiveRecord::Base
 
   def set_fund
     if fund.present?
-      self[:fund_acct] = fund
+      self[:fund_acct] = fund.join(',')
     elsif fund_begin.present?
       self[:fund_acct] = fund_begin
     end
