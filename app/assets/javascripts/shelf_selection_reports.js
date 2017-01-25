@@ -118,6 +118,7 @@ $(document).ready(function() {
         if (user == currentUser) {
           $('#shelf_selection_report_save_opt_save').val('update');
         }
+        $('#shelf_selection_report_save_opt_nosave').attr('checked', 'checked');
       }
     })
   })
