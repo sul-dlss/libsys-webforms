@@ -17,17 +17,19 @@ class EndowedFundsReport
   validates :email, presence: true
 
   # get cat keys
-  def self.ol_cat_key(fund)
+  def self.ol_cat_key(fund, date_start, date_end)
     if fund.is_a?(Array)
       fund_codes = []
       fund.each do |fc|
-        Expenditures.where('ta_fund_code = ?', fc).pluck(:ol_cat_key).each do |ckey|
+        Expenditures.where('ta_fund_code = ? AND ta_date_2encina between ? AND ?',
+                           fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
           fund_codes << ckey
         end
       end
       fund_codes.uniq
     elsif fund.is_a?(String)
-      Expenditures.where('ta_fund_code LIKE ?', "%#{fund}%").pluck(:ol_cat_key)
+      Expenditures.where('ta_fund_code LIKE ? AND ta_date_2encina between ? AND ?',
+                         "%#{fund}%", date_start, date_end).pluck(:ol_cat_key)
     end
   end
 
@@ -38,5 +40,17 @@ class EndowedFundsReport
     out_file = File.new(symphony_location, 'w')
     out_file.puts(catalog_keys.join("\n"))
     out_file.close
+  end
+
+  def fiscal_years
+    [fy_start.tr('FY ', ''), fy_end.tr('FY ', '')].delete_if { |a| a == '' }
+  end
+
+  def calendar_years
+    [cal_start, cal_end].delete_if { |a| a == '' }
+  end
+
+  def paid_years
+    [pd_start, pd_end].delete_if { |a| a == '' }
   end
 end

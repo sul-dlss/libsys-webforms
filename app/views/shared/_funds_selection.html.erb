@@ -16,23 +16,25 @@
             <th class='col-xs-1'>Fund ID</th>
             <th class='col-xs-1'>Name</th>
             <th class='col-xs-1'>Old fund ID</th>
-            <th class='col-xs-1'>Minimum pay date</th>
-            <th class='col-xs-1'>Maximum pay date</th>
+            <th class='col-xs-1'>First payment date</th>
+            <th class='col-xs-1'>Last payment date</th>
           </tr>
         </thead>
         <tbody>
+          <div id="expend_funds">
           <% ExpendituresFunds.fund_id.each do |d| %>
-          <% if d.fund_name_key.present? %>
-          <tr>
-            <td><%= f.check_box :fund, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
-            <td><%= d.fund_id %></td>
-            <td><%= d.fund_name_key %></td>
-            <td><%= d.old_fund_id %></td>
-            <td><%= d.min_pay_date.try(:strftime, '%Y-%m-%d') %></td>
-            <td><%= d.max_pay_date.try(:strftime, '%Y-%m-%d') %></td>
-          </tr>
+            <% if d.fund_name_key.present? %>
+            <tr>
+              <td><%= f.check_box :fund, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
+              <td><%= d.fund_id %></td>
+              <td><%= d.fund_name_key %></td>
+              <td><%= d.old_fund_id %></td>
+              <td class="min_pay_date"><%= d.min_pay_date.try(:strftime, '%F') %></td>
+              <td class="max_pay_date"><%= d.max_pay_date.try(:strftime, '%F') %></td>
+            </tr>
+            <% end %>
           <% end %>
-          <% end %>
+        </div>
         </tbody>
       </table>
     </div>
