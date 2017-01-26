@@ -2,6 +2,7 @@
 # Controller to handle the Encumberances Report
 ###
 class EncumbranceReportsController < ApplicationController
+  before_action :set_no_cache
   def new
     @encumbrance_report = EncumbranceReport.new
   end

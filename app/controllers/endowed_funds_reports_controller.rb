@@ -3,6 +3,7 @@
 ###
 class EndowedFundsReportsController < ApplicationController
   include SymphonyCgi
+  before_action :set_no_cache
   after_action only: :create do
     submit_endow_funds(batch_params)
   end
