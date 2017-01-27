@@ -39,7 +39,7 @@
       <%= f.text_area 'comments', class: 'form-control' %>
     </div>
   </div>
-  <%= f.hidden_field :load_date, value: DateTime.now.midnight %>
+  <%= f.hidden_field :load_date, value: DateTime.zone.now.midnight %>
   <%= f.hidden_field :user_name, value: current_user.user_id %>
   <%= f.hidden_field :action, value: 'UPDITEMTYPE' %>
   <%= f.hidden_field :priority, value: 3 %>
