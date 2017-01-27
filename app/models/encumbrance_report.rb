@@ -34,7 +34,6 @@ class EncumbranceReport < ActiveRecord::Base
 
   def write_dates
     self[:date_request] = Time.zone.now
-    self[:date_ran] = Time.zone.now
   end
 
   def set_email
