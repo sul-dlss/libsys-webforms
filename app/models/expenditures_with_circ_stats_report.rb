@@ -2,7 +2,7 @@
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
 class ExpendituresWithCircStatsReport < ActiveRecord::Base
-  attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
+  attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
                 :lib_array, :libraries, :format_array, :formats
 
@@ -110,6 +110,5 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
 
   def write_dates
     self[:date_request] = Time.zone.now
-    self[:date_ran] = Time.zone.now
   end
 end
