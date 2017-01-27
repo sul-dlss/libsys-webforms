@@ -50,5 +50,15 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
       expect(:fund_begin).to be_present
       expect(:pd_end).to be_present
     end
+    xit 'sets the date_start for filtering report sql qury by date' do
+      post :create, endowed_funds_report: { fund: ['1000501-1-AACIZ', '1000502-1-AACIX'],
+                                            fund_begin: nil, report_format: 'n',
+                                            email: 'some@one.com', fy_start: 'FY 2015',
+                                            fy_end: 'FY 2016' }
+      expect(:date_start).to be_present
+      expect(:date_start).to equal('2015-07-01')
+      expect(:date_end).to be_present
+      expect(:date_end).to equal('2016-06-30')
+    end
   end
 end

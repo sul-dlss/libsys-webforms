@@ -30,8 +30,8 @@
 
   <%= f.hidden_field :status, value: 'REQUEST' %>
   <%= f.hidden_field :output_file, value: "enc_rpt#{Time.new.to_f}" %>
-  <%= f.hidden_field :date_request, value: Time.now %>
-  <%= f.hidden_field :date_ran, value: Time.now %>
+  <%= f.hidden_field :date_request, value: nil %>
+  <%= f.hidden_field :date_ran, value: nil %>
   <%= f.hidden_field :message, value: nil %>
 
   <div><%= f.submit 'Submit request', class: 'btn btn-md btn-default  btn-full' %></div><br/>

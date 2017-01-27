@@ -16,8 +16,7 @@ RSpec.describe ExpenditureReportsController, type: :controller do
       post :create, expenditure_report: { email: 'someone@some.one',
                                           fund: ['1008930-1-HAGOY'],
                                           date_type: 'fiscal',
-                                          fy_start: 'FY 2009',
-                                          fy_end: 'FY 2010' }
+                                          fy_start: 'FY 2009' }
       expect(response).to have_http_status(302)
     end
     it 'returns 302 when saving expenditure_report for calendar years with only cal_start' do
