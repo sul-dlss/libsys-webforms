@@ -2,7 +2,7 @@
 # Class to model the Encumberances Report table
 ###
 class EncumbranceReport < ActiveRecord::Base
-  attr_accessor :fund_select, :show_dates, :fund, :fund_begin, :email
+  attr_accessor :fund_select, :show_dates, :fund, :fund_begin, :email, :output_file
 
   validates :email, presence: true
   validates :fund, presence: true, if: 'fund_begin.nil?'
@@ -15,6 +15,11 @@ class EncumbranceReport < ActiveRecord::Base
   def self.fundcyc_cycle
     cyc = ('2000'..Time.zone.now.strftime('%Y')).to_a.reverse
     cyc.push('9899', '9798', '9697')
+  end
+
+  def kickoff
+    ActiveRecord::Base.connection.execute("begin encumb_rpt.run_rpt(#{output_file}); end;")
+  rescue ActiveRecord::StatementInvalid
   end
 
   private
