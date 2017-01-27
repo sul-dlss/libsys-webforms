@@ -3,7 +3,7 @@
 ###
 class ExpenditureReport < ActiveRecord::Base
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
-                :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end
+                :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end, :output_file
 
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
@@ -14,6 +14,11 @@ class ExpenditureReport < ActiveRecord::Base
   before_save :check_cal, if: 'date_type == "calendar"'
   before_save :check_pd, if: 'date_type == "paydate"'
   self.table_name = 'expenditures_log'
+
+  def kickoff
+    ActiveRecord::Base.connection.execute("begin expend_rpt.run_rpt(#{output_file}); end;")
+  rescue ActiveRecord::StatementInvalid
+  end
 
   private
 

@@ -11,6 +11,7 @@ class ExpenditureReportsController < ApplicationController
     @expenditure_report = ExpenditureReport.new(batch_params)
     if @expenditure_report.save
       flash[:success] = 'Report requested!'
+      @expenditure_report.kickoff
       redirect_to root_path
     else
       flash[:warning] = 'Check that all form fields are entered!'

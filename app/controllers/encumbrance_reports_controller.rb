@@ -11,6 +11,7 @@ class EncumbranceReportsController < ApplicationController
     @encumbrance_report = EncumbranceReport.new(batch_params)
     if @encumbrance_report.save
       flash[:success] = 'Report requested!'
+      @encumbrance_report.kickoff
       redirect_to root_path
     else
       flash[:warning] = 'Check that all form fields are entered!'
