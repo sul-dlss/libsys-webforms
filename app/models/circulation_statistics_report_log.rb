@@ -7,9 +7,9 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     complete_params.merge! CirculationStatisticsReportLog.build_output_type(circ_stats)
     if circ_stats.barcodes
       FileUtils.chmod 0o664, circ_stats.barcodes.tempfile.path
-      symphony_location = '/symphony/Dataload/Uploads/CircStats/'
-      user = circ_stats.email.split('@')[0]
-      file_path = "#{symphony_location}#{user}_#{circ_stats.barcodes.original_filename}"
+      symphony_location = '/symphony/Dataload/Uploads/CircStats'
+      # user = circ_stats.email.split('@')[0]
+      file_path = "#{symphony_location}/#{circ_stats.user_id}_#{circ_stats.barcodes.original_filename}"
       FileUtils.mv circ_stats.barcodes.tempfile.path, file_path
     end
     CirculationStatisticsReportLog.create(complete_params)
@@ -34,7 +34,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     case circ_stats.range_type
     when 'barcodes'
       range_type_params['call_range'] = "Any call (Selection is barcode list #{circ_stats.barcodes.original_filename})"
-      range_type_params['input_path'] = "/symphony/Dataload/Uploads/CircStats/#{circ_stats.barcodes.original_filename}"
+      range_type_params['input_path'] = "#{circ_stats.user_id}_#{circ_stats.barcodes.original_filename}"
       range_type_params['libs_locs'] = 'Any lib-loc'
     when 'lc'
       if circ_stats.call_lo.include?('#')
