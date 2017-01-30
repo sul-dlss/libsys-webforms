@@ -11,7 +11,7 @@ module EndowFundsParams
     email(batch_params, report_params)
     fund_str(batch_params, report_params)
     date_range(batch_params, report_params)
-    EndowFundsJob.perform_later('endow_rpt.cgi', report_params)
+    request_conn('endow_rpt.cgi', report_params)
   end
 
   private
