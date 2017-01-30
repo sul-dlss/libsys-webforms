@@ -35,8 +35,6 @@ gem 'faraday'
 gem 'config'
 # Use okcomputer to set up checks to monitor
 gem 'okcomputer'
-# Use sidekiq for background jobs
-gem 'sidekiq'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
@@ -50,7 +48,6 @@ group :deployment do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
-  gem 'capistrano-sidekiq'
   gem 'dlss-capistrano'
 end
 

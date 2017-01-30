@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
-
   get 'home/index'
 
   get 'webauth/login' => 'authentication#login', as: :login

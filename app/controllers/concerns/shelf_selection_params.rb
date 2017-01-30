@@ -37,7 +37,7 @@ module ShelfSelectionParams
     loc_str(batch_params, report_params)
     no_boundw(report_params)
     url_mgt_rpts(report_params)
-    ShelfSelectionJob.perform_later('shelf_sel.cgi', report_params)
+    request_conn('shelf_sel.cgi', report_params)
   end
 
   def call_range(batch_params, report_params)
