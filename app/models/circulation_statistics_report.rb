@@ -9,7 +9,7 @@ class CirculationStatisticsReport
                 :max_yr, :exclude_bad_yr, :include_inhouse, :no_qtrly, :ckey_url,
                 :tag_field, :tag_field2, :tags_url, :link_type, :col_header1,
                 :col_header2, :col_header3, :col_header4, :col_header5,
-                :blank_col_array, :lib_loc_array
+                :blank_col_array, :lib_loc_array, :user_id
   validates :email, :lib_array, presence: true
   validates :barcodes, presence: true, if: :barcode_range_type?
   validates :lib_array, length: { minimum: 2, message: "can't be empty" }, if: :not_barcode_range_type?
