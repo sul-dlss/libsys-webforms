@@ -17,7 +17,7 @@ class ShelfSelSearch < ActiveRecord::Base
   # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def self.build_search_params(shelf_sel_rpt)
     { user_name: shelf_sel_rpt.email.split('@')[0],
-      search_name: shelf_sel_rpt.subj_name,
+      search_name: shelf_sel_rpt.subj_name.tr(',', ''),
       call_range: "#{shelf_sel_rpt.call_alpha}#{shelf_sel_rpt.call_lo}-#{shelf_sel_rpt.call_hi}",
       lib: shelf_sel_rpt.lib,
       locs: shelf_sel_rpt.loc_array.join(',')[1..-1],
