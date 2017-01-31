@@ -136,32 +136,10 @@ csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
 Expenditures.create(hash)
 
-Sal3BatchRequestsBatch.destroy_all
-s = Sal3BatchRequestsBatch.new
-s.batch_id = 1
-s.batch_name = 'Batch name'
-s.user_name = 'Test User'
-s.user_sunetid = 'someone'
-s.status = ''
-s.priority = '3'
-s.batch_container = 'Unknown'
-s.batch_media = 'Unknown'
-s.batch_startdate = '14-06-16'
-s.batch_needbydate = '24-06-16'
-s.batch_numpullperday = 10
-s.batch_pullmon = '1'
-s.batch_pulltues = '1'
-s.batch_pullwed = '1'
-s.batch_pullthurs = '1'
-s.batch_pullfri = ''
-s.stopcode = 'GB'
-s.pseudo_id = 'MAPSCANLAB'
-s.comments = 'Test comment'
-s.ckey = '1234567'
-s.bc_file = '1234567890'
-s.num_bcs = ''
-s.num_nonsymph_bcs = ''
-s.pending = ''
-s.load_date = '14-06-16'
-s.last_action_date = nil
-s.save
+ExpendituresFyDate.destroy_all
+keys = %w(fy min_paydate max_paydate)
+csv_text = File.read('/Users/jgreben/Projects/libsys-webforms/spec/fixtures/files/expenditures_fy_dates.csv')
+csv = CSV.parse(csv_text, headers: false)
+csv.map { |a| Hash[keys.zip(a)] }
+hash = csv.map { |a| Hash[keys.zip(a)] }
+ExpendituresFyDate.create(hash)
