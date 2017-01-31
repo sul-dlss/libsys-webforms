@@ -43,14 +43,20 @@ class EndowedFundsReport
   end
 
   def fiscal_years
-    [fy_start.tr('FY ', ''), fy_end.tr('FY ', '')].delete_if { |a| a == '' }
+    years = [fy_start.tr('FY ', ''), fy_end.tr('FY ', '')].delete_if { |a| a == '' }
+    years.push(fy_start) if years.length == 1
+    years
   end
 
   def calendar_years
-    [cal_start, cal_end].delete_if { |a| a == '' }
+    years = [cal_start, cal_end].delete_if { |a| a == '' }
+    years.push(cal_start) if years.length == 1
+    years
   end
 
   def paid_years
-    [pd_start, pd_end].delete_if { |a| a == '' }
+    years = [pd_start, pd_end].delete_if { |a| a == '' }
+    years.push(pd_start) if years.length == 1
+    years
   end
 end
