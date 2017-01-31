@@ -30,11 +30,11 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   end
 
   def write_lib
-    self[:libraries] = lib_array.delete_if { |a| a == '' || (lib_array.length > 1 && a == 'All Libraries') }.join(',')
+    self[:libraries] = lib_array.delete_if { |a| a == '' || a == 'All Libraries' }.join(',')
   end
 
   def write_fmt
-    self[:formats] = format_array.delete_if { |a| a == '' || (format_array.length > 1 && a == 'All Formats') }.join(',')
+    self[:formats] = format_array.delete_if { |a| a == '' || a == 'All Formats' }.join(',')
   end
 
   def check_fy
