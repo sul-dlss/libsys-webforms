@@ -34,7 +34,7 @@
 
 <%= f.hidden_field :status, value: 'REQUEST' %>
 <%= f.hidden_field :message, value: nil %>
-<%= f.hidden_field :output_file, value: "exp_rpt#{Time.new.to_f}" %>
+<%= f.hidden_field :output_file, value: "exp_rpt#{Time.new.to_i}" %>
 
 <div class='pad'><%= f.submit 'Submit request', class: 'btn btn-md btn-default  btn-full' %></div><br/>
 

@@ -9,7 +9,7 @@ FactoryGirl.define do
     fund_begin '1065032-103-'
     date_range_start '01-SEP-08'
     date_range_end '31-AUG-08'
-    output_file 'exp_rpt0811141740.1130414'
+    output_file 'exp_rpt08111417402'
     message ''
     ckey_link 1
     lib_array %w(GREEN SAL3)
