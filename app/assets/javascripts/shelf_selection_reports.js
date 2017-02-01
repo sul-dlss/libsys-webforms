@@ -81,7 +81,7 @@ $(document).ready(function() {
             })
           }
         })
-        $("#shelf_selection_report_format_array option:selected").removeAttr("selected");
+        $('#shelf_selection_report_format_array option:selected').removeAttr('selected');
         $.each($(html_opts).find('fmtsstring').text().split(','), function(i,e){
           $("#shelf_selection_report_format_array option[value='" + e +
             "']").prop('selected', true);
@@ -90,7 +90,7 @@ $(document).ready(function() {
             "'All Formats']").prop('selected', false);
           }
         });
-        $("#shelf_selection_report_itype_array option:selected").removeAttr("selected");
+        $('#shelf_selection_report_itype_array option:selected').removeAttr('selected');
         $.each($(html_opts).find('itypesstring').text().split(','), function(i,e){
           $("#shelf_selection_report_itype_array option[value='" + e +
             "']").prop('selected', true);
@@ -99,7 +99,7 @@ $(document).ready(function() {
             "'All Item Types']").prop('selected', false);
           }
         });
-        $("#shelf_selection_report_icat1_array option:selected").removeAttr("selected");
+        $('#shelf_selection_report_icat1_array option:selected').removeAttr('selected');
         $.each($(html_opts).find('icat1sstring').text().split(','), function(i,e){
           $("#shelf_selection_report_icat1_array option[value='" + e + "']").prop('selected', true);
           if (e != "All Item Category1s") {
