@@ -126,10 +126,16 @@ $(document).ready(function() {
         }
         $('#shelf_selection_report_call_lo').val($(html_opts).find('calllo').text());
         $('#shelf_selection_report_call_hi').val($(html_opts).find('callhi').text());
-        $('#shelf_selection_report_subj_name').val($(html_opts).find('subjname').text());
-        if (user == currentUser) {
-          $('#shelf_selection_report_save_opt_save').val('update');
-        }
+        var subjName = $(html_opts).find('subjname').text();
+        $('#shelf_selection_report_subj_name').val(subjName);
+        $('#shelf_selection_report_subj_name').blur(function() {
+          var currentValue = $(this).val();
+          if(currentValue == subjName) {
+            if (user == currentUser) {
+              $('#shelf_selection_report_save_opt_save').val('update');
+            }
+          }
+        });
         $('#shelf_selection_report_save_opt_nosave').attr('checked', 'checked');
       }
     })
