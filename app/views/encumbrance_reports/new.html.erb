@@ -29,7 +29,7 @@
   </div>
 
   <%= f.hidden_field :status, value: 'REQUEST' %>
-  <%= f.hidden_field :output_file, value: "enc_rpt#{Time.new.to_f}" %>
+  <%= f.hidden_field :output_file, value: "enc_rpt#{Time.new.to_i}" %>
   <%= f.hidden_field :date_request, value: nil %>
   <%= f.hidden_field :date_ran, value: nil %>
   <%= f.hidden_field :message, value: nil %>
