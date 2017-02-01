@@ -22,8 +22,9 @@
         </thead>
         <tbody>
           <div id="expend_funds">
+          <% if params[:controller] == 'endowed_funds_reports' %>
           <% ExpendituresFunds.fund_id.each do |d| %>
-            <% if d.fund_name_key.present? %>
+            <% if d.fund_name_key.present? && d.is_endow == 1 %>
             <tr>
               <td><%= f.check_box :fund, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
               <td><%= d.fund_id %></td>
@@ -34,6 +35,20 @@
             </tr>
             <% end %>
           <% end %>
+          <% else %>
+          <% ExpendituresFunds.fund_id.each do |d| %>
+            <% if d.fund_name_key.present? %>
+              <tr>
+                <td><%= f.check_box :fund, {multiple: true, class: 'form-control'}, d.fund_id, false %></td>
+                <td><%= d.fund_id %></td>
+                <td><%= d.fund_name_key %></td>
+                <td><%= d.old_fund_id %></td>
+                <td class="min_pay_date"><%= d.min_pay_date.try(:strftime, '%F') %></td>
+                <td class="max_pay_date"><%= d.max_pay_date.try(:strftime, '%F') %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
         </div>
         </tbody>
       </table>
@@ -42,7 +57,11 @@
   <div class='panel-body fund_begins_with collapse'>
     <%= f.label :fund_begin, 'Select funds beginning with:', class: 'col-sm-5 form-control-label'%>
     <div class='col-sm-10'>
-      <%= f.select :fund_begin, options_for_select(ExpendituresFunds.fund_begins_with.map{|d| [d.fund_id]}), {prompt: 'Fund ID/PTA'}, {class: 'form-control'} %>
+      <% if params[:controller] = 'endowed_funds_reports' %>
+        <%= f.select :fund_begin, options_for_select(ExpendituresFunds.endow_fund_begins_with.map{|d| [d.fund_id]}), {prompt: 'Fund ID/PTA'}, {class: 'form-control'} %>
+      <% else %>
+        <%= f.select :fund_begin, options_for_select(ExpendituresFunds.fund_begins_with.map{|d| [d.fund_id]}), {prompt: 'Fund ID/PTA'}, {class: 'form-control'} %>
+      <% end %>
     </div>
   </div>
 </div>
