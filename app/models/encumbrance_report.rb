@@ -19,7 +19,7 @@ class EncumbranceReport < ActiveRecord::Base
   end
 
   def kickoff
-    ActiveRecord::Base.connection.execute("begin encumb_rpt.run_rpt(#{output_file}); end;")
+    ActiveRecord::Base.connection.execute("begin encumb_rpt.run_rpt('#{output_file}'); end;")
   rescue ActiveRecord::StatementInvalid
   end
 

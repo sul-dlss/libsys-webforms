@@ -16,7 +16,7 @@ class ExpenditureReport < ActiveRecord::Base
   self.table_name = 'expenditures_log'
 
   def kickoff
-    ActiveRecord::Base.connection.execute("begin expend_rpt.run_rpt(#{output_file}); end;")
+    ActiveRecord::Base.connection.execute("begin expend_rpt.run_rpt('#{output_file}'); end;")
   rescue ActiveRecord::StatementInvalid
   end
 
