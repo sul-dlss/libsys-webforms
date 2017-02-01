@@ -76,7 +76,7 @@ module ShelfSelectionParams
   end
 
   def no_boundw(report_params)
-    report_params[:no_boundw] = report_params[:no_boundw].to_i.round
+    report_params[:no_boundw] = 2 if report_params[:no_boundw].to_i.round == 1
   end
 
   def url_mgt_rpts(report_params)
