@@ -5,6 +5,7 @@ class ExpenditureReport < ActiveRecord::Base
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end, :output_file
 
+  validates :email, presence: true
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
   validates :date_type, inclusion: %w(fiscal calendar paydate)
