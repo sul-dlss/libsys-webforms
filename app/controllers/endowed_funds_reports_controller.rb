@@ -38,18 +38,18 @@ class EndowedFundsReportsController < ApplicationController
     elsif @endowed_funds_report.paid_years.any?
       start_date = Time.zone.parse(@endowed_funds_report.paid_years[0].to_s)
     end
-    start_date
+    start_date.strftime('%F')
   end
 
   def date_end
     if @endowed_funds_report.fiscal_years.any?
-      end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30")
+      end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30") + 1.year
     elsif @endowed_funds_report.calendar_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[1]}-12-31")
     elsif @endowed_funds_report.paid_years.any?
       end_date = Time.zone.parse(@endowed_funds_report.paid_years[1].to_s)
     end
-    end_date
+    end_date.strftime('%F')
   end
 
   def batch_params
