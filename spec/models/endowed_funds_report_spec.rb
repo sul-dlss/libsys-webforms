@@ -5,7 +5,7 @@ RSpec.describe EndowedFundsReport, type: :model do
     @endow_funds = FactoryGirl.create(:expenditures)
   end
   describe 'querying from expenditures' do
-    subject { EndowedFundsReport.ol_cat_key(@endow_funds.ta_fund_code, '2015-07-01', '2016-06-30') }
+    subject { EndowedFundsReport.ol_cat_key_fund(@endow_funds.ta_fund_code, '2015-07-01', '2016-06-30') }
     it 'should retrieve a set of catalog keys' do
       begin
         expect(@endow_funds.ol_cat_key).to eq('1234567')
@@ -14,7 +14,7 @@ RSpec.describe EndowedFundsReport, type: :model do
       end
     end
 
-    subject { EndowedFundsReport.ol_cat_key(['1000501-1-AACIZ', '1008930-1-HAGOY'], '2015-07-01', '2016-06-30') }
+    subject { EndowedFundsReport.ol_cat_key_fund(['1000501-1-AACIZ', '1008930-1-HAGOY'], '2015-07-01', '2016-06-30') }
     it 'should initialize a container of fund codes' do
       begin
         expect(subject).to be_kind_of(Array)
