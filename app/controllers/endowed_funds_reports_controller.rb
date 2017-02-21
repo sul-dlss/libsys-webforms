@@ -21,9 +21,14 @@ class EndowedFundsReportsController < ApplicationController
         catalog_keys = EndowedFundsReport.ol_cat_key(@endowed_funds_report.fund_begin, date_start, date_end)
       end
       # write keys to file to Symphony mount [/symphony] on libsys-webforms-dev
-      @endowed_funds_report.write_keys(catalog_keys)
-      flash[:success] = 'Report requested!'
-      redirect_to root_path
+      if catalog_keys.any?
+        @endowed_funds_report.write_keys(catalog_keys)
+        flash[:success] = 'Report requested!'
+        redirect_to root_path
+      else
+        flash[:error] = 'Could not find catalog keys for the date range selected'
+        render action: 'new'
+      end
     else
       flash[:warning] = 'Check that all form fields are entered!'
       render action: 'new'
@@ -38,18 +43,19 @@ class EndowedFundsReportsController < ApplicationController
     elsif @endowed_funds_report.paid_years.any?
       start_date = Time.zone.parse(@endowed_funds_report.paid_years[0].to_s)
     end
-    start_date.strftime('%F')
+    start_date.strftime('%Y-%m-%d')
   end
 
   def date_end
     if @endowed_funds_report.fiscal_years.any?
-      end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30") + 1.year
+      end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30")
+      end_date = end_date + 1.year if @endowed_funds_report.fiscal_years[1] == @endowed_funds_report.fiscal_years[0]
     elsif @endowed_funds_report.calendar_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[1]}-12-31")
     elsif @endowed_funds_report.paid_years.any?
       end_date = Time.zone.parse(@endowed_funds_report.paid_years[1].to_s)
     end
-    end_date.strftime('%F')
+    end_date.strftime('%Y-%m-%d')
   end
 
   def batch_params
