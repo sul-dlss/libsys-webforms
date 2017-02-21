@@ -21,17 +21,19 @@ class EndowedFundsReport
     if fund.is_a?(Array)
       fund_codes = []
       fund.each do |fc|
-        Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
-                            TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                           fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
+          Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
+                              TO_DATE(?, 'yyyy-mm-dd') AND
+                              TO_DATE(?, 'yyyy-mm-dd')",
+                      fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
           fund_codes << ckey
         end
       end
       fund_codes.uniq
     elsif fund.is_a?(String)
       Expenditures.where("ta_fund_code LIKE ? AND ta_date_2encina between
-                          TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                         "%#{fund}%", date_start, date_end).pluck(:ol_cat_key)
+                          TO_DATE(?, 'yyyy-mm-dd') AND
+                          TO_DATE(?, 'yyyy-mm-dd')",
+                  "%#{fund}%", date_start, date_end).pluck(:ol_cat_key)
     end
   end
 
@@ -46,7 +48,7 @@ class EndowedFundsReport
 
   def fiscal_years
     years = [fy_start.tr('FY ', ''), fy_end.tr('FY ', '')].delete_if { |a| a == '' }
-    years.push(fy_start) if years.length == 1
+    years.push(fy_start.tr('FY ', '')) if years.length == 1
     years
   end
 
