@@ -51,7 +51,6 @@ class EndowedFundsReportsController < ApplicationController
     start_date.strftime('%Y-%m-%d')
   end
 
-  # rubocop:disable Metrics/AbcSize
   def date_end
     if @endowed_funds_report.fiscal_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30")
@@ -63,7 +62,6 @@ class EndowedFundsReportsController < ApplicationController
     end
     end_date.strftime('%Y-%m-%d')
   end
-  # rubocop:enable Metrics/AbcSize
 
   def batch_params
     params.require(:endowed_funds_report).permit!
