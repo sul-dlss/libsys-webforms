@@ -15,14 +15,10 @@ class EndowedFundsReportsController < ApplicationController
   def create
     @endowed_funds_report = EndowedFundsReport.new(batch_params)
     if @endowed_funds_report.valid?
-      if @endowed_funds_report.fund
-        catalog_keys = EndowedFundsReport.ol_cat_key(@endowed_funds_report.fund, date_start, date_end)
-      elsif @endowed_funds_report.fund_begin
-        catalog_keys = EndowedFundsReport.ol_cat_key(@endowed_funds_report.fund_begin, date_start, date_end)
-      end
+      keys = catalog_keys
       # write keys to file to Symphony mount [/symphony] on libsys-webforms-dev
-      if catalog_keys.any?
-        @endowed_funds_report.write_keys(catalog_keys)
+      if keys.any?
+        @endowed_funds_report.write_keys(keys)
         flash[:success] = 'Report requested!'
         redirect_to root_path
       else
@@ -33,6 +29,15 @@ class EndowedFundsReportsController < ApplicationController
       flash[:warning] = 'Check that all form fields are entered!'
       render action: 'new'
     end
+  end
+
+  def catalog_keys
+    if @endowed_funds_report.fund
+      catalog_keys = EndowedFundsReport.ol_cat_key_fund(@endowed_funds_report.fund, date_start, date_end)
+    elsif @endowed_funds_report.fund_begin
+      catalog_keys = EndowedFundsReport.ol_cat_key_fund_begin(@endowed_funds_report.fund_begin, date_start, date_end)
+    end
+    catalog_keys
   end
 
   def date_start
@@ -46,10 +51,11 @@ class EndowedFundsReportsController < ApplicationController
     start_date.strftime('%Y-%m-%d')
   end
 
+  # rubocop:disable Metrics/AbcSize
   def date_end
     if @endowed_funds_report.fiscal_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30")
-      end_date = end_date + 1.year if @endowed_funds_report.fiscal_years[1] == @endowed_funds_report.fiscal_years[0]
+      end_date += 1.year if @endowed_funds_report.fiscal_years[1] == @endowed_funds_report.fiscal_years[0]
     elsif @endowed_funds_report.calendar_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[1]}-12-31")
     elsif @endowed_funds_report.paid_years.any?
@@ -57,6 +63,7 @@ class EndowedFundsReportsController < ApplicationController
     end
     end_date.strftime('%Y-%m-%d')
   end
+  # rubocop:enable Metrics/AbcSize
 
   def batch_params
     params.require(:endowed_funds_report).permit!
