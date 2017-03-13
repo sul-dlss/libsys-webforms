@@ -17,6 +17,8 @@
 /tmp
 
 /coverage
+/loc_marc2bibframe2
+/lib/xform-marc21-to-xml-jar-with-dependencies.jar
 
 config/settings.local.yml
 config/settings/*.local.yml

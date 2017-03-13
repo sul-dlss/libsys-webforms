@@ -6,3 +6,4 @@ require File.expand_path('../config/application', __FILE__)
 Rails.application.load_tasks
 
 task default: [:rubocop, :scss_lint, :spec, :display_coveralls_coverage]
+task no_cop: [:scss_lint, :spec, :display_coveralls_coverage]

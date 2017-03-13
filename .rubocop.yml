@@ -12,6 +12,7 @@ AllCops:
 #    - 'spec/teaspoon_env.rb'
     - 'vendor/**/*'
     - 'lib/tasks/display-coverage.rake'
+    - 'loc_marc2bibframe2/**/*'
 
 Metrics/LineLength:
   Max: 120
@@ -33,4 +34,7 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Lint/HandleExceptions:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
   Enabled: false
