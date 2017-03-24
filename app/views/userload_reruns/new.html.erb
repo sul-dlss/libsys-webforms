@@ -15,13 +15,13 @@
     <%= f.label :rerun_date %><br>
     <%= f.date_field(:rerun_date, value: params[:rerun_date] || Time.zone.today, 'data-behavior': 'rerun-date-picker', min: 1.week.ago, max: Time.zone.today) %>
   </div>
-
+  <p>
   <div class="btn-group">
     <%= f.submit 'Rerun userload for this date', class: 'btn btn-md btn-default btn-full' %>
   </div>
 
 <% end %>
-
+<p>
 <div class="btn-group">
   <%= main_menu_button %>
 </div>

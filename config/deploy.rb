@@ -25,12 +25,36 @@ set :log_level, :info
 # Default value for :linked_files is []
 set :linked_files, %w(config/secrets.yml config/database.yml)
 # Default value for linked_dirs is []
-set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings loc_marc2bibframe2)
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+namespace :loc do
+
+  desc 'git clone LOC marc2bibframe2 (if it does not exist already)'
+  task :clone_marc2bibframe2 do
+    on roles(:web) do
+      cmd  = "cd #{shared_path} && "
+      cmd += "if [ ! -d loc_marc2bibframe2 ]; then "
+      cmd += "  git clone https://github.com/lcnetdev/marc2bibframe2.git loc_marc2bibframe2; "
+      cmd += "fi"
+      execute cmd
+    end
+  end
+
+  desc 'git pull master for LOC marc2bibframe2'
+  task update_marc2bibframe2: :clone_marc2bibframe2 do
+    on roles(:web) do
+      execute "cd #{shared_path}/loc_marc2bibframe2 && git pull origin master"
+    end
+  end
+
+end
+
+before 'deploy:updated', 'loc:update_marc2bibframe2'
 
 namespace :deploy do
 

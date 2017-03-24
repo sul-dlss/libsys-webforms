@@ -5,11 +5,16 @@ class Ability
   def initialize(current_user)
     current_user ||= AuthorizedUser.new
     assign_staff_permission(current_user)
-    assign_basic_permission if current_user
+    assign_basic_permission
+    assign_user_permission if current_user
     assign_batch_permission if current_user.unicorn_updates == 'Y'
   end
 
   def assign_basic_permission
+    can :manage, Ckey2bibframe
+  end
+
+  def assign_user_permission
     can :manage, BatchRecordUpdate
   end
 

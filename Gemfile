@@ -35,6 +35,10 @@ gem 'faraday'
 gem 'config'
 # Use okcomputer to set up checks to monitor
 gem 'okcomputer'
+# Use nokogiri for xml printing
+gem 'nokogiri'
+# Use systemu to handle OS calls
+gem 'systemu'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'

@@ -15,4 +15,11 @@ module ApplicationHelper
       class: 'btn btn-md btn-primary btn-full'
     ), root_path
   end
+
+  def conversion_button
+    link_to button_tag(
+      'Do another conversion',
+      class: 'btn btn-md btn-default btn-full'
+    ), new_ckey2bibframe_path
+  end
 end

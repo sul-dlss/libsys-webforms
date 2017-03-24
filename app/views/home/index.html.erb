@@ -1,64 +1,68 @@
 <div class="home-page-section">
   <h1>SUL Staff Web Forms</h1>
-  <% if current_user %>
-  <h3>What would you like to do?</h3>
-
-  <% if can? :manage, BatchRecordUpdate %>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4><%= link_to "Batch record updates", 'batch_record_updates' %></h4>
-    </div>
+  <% if !current_user %>
+  <div class="access-error">
+    You do not have permissions to use other staff web forms.
   </div>
-  <% end %>
-
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <% if can? :create, Sal3BatchRequestsBatch %>
+  <%= link_to "Login here", login_path(referrer: request.original_url) %>
+  <% else %>
+    <h3>What would you like to do?</h3>
+    <% if can? :manage, BatchRecordUpdate %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
-        <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-            SAL3 Batch Requests
-          </a>
-        </h4>
-      </div>
-      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <ul>
-          <li><%= link_to "Place batch request", new_sal3_batch_requests_batch_path %></li>
-          <% if can? :read, Sal3BatchRequestsBatch and can? :update, Sal3BatchRequestsBatch %>
-            <li><%= link_to "Review batches", sal3_batch_requests_batches_path %></li>
-          <% end %>
-        </ul>
+        <h4><%= link_to "Batch record updates", 'batch_record_updates' %></h4>
       </div>
     </div>
     <% end %>
-    <% if can? :manage, ManagementReport %>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <% if can? :create, Sal3BatchRequestsBatch %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              SAL3 Batch Requests
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <ul>
+            <li><%= link_to "Place batch request", new_sal3_batch_requests_batch_path %></li>
+            <% if can? :read, Sal3BatchRequestsBatch and can? :update, Sal3BatchRequestsBatch %>
+              <li><%= link_to "Review batches", sal3_batch_requests_batches_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+      <% if can? :manage, ManagementReport %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              Management Reports
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+          <%= render template: "management_reports/index" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% if can? :create, UserloadRerun %>
     <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingTwo">
-        <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            Management Reports
-          </a>
-        </h4>
-      </div>
-      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-        <%= render template: "management_reports/index" %>
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4><%= link_to "Userload Rerun", new_userload_rerun_path %></h4>
       </div>
     </div>
     <% end %>
-  </div>
-
-  <% if can? :create, UserloadRerun %>
+  <% end %>
+  <% if can? :manage, Ckey2bibframe %>
+  <p></p>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
-      <h4><%= link_to "Userload Rerun", new_userload_rerun_path %></h4>
+      <h4><%= link_to "Ckey to Bibframe Conversion", new_ckey2bibframe_path %></h4>
     </div>
   </div>
-  <% end %>
-  <% else %>
-  <div class="access-error">
-    You do not have permissions to use any web forms.
-  </div>
-  <hr>
-  <%= link_to "Login here", login_path(referrer: request.original_url) %>
   <% end %>
 </div>
