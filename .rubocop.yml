@@ -24,7 +24,7 @@ Metrics/MethodLength:
   Max: 15
 
 Metrics/AbcSize:
-  Max: 23
+  Max: 27
 
 Style/StringLiterals:
   Enabled: true
@@ -36,5 +36,5 @@ Style/FrozenStringLiteralComment:
 Lint/HandleExceptions:
   Enabled: false
 
-Rails/HttpPositionalArguments:
-  Enabled: false
+# Rails/HttpPositionalArguments:
+#   Enabled: false
