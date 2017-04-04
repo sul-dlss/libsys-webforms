@@ -1,6 +1,3 @@
-# config valid only for current version of Capistrano
-lock '3.6.0'
-
 set :application, 'libsys-webforms'
 set :repo_url, 'https://github.com/sul-dlss/libsys-webforms.git'
 
@@ -23,7 +20,7 @@ set :log_level, :info
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w(config/secrets.yml config/database.yml)
+set :linked_files, %w(config/secrets.yml config/database.yml config/honeybadger.yml)
 # Default value for linked_dirs is []
 set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings loc_marc2bibframe2)
 # Default value for default_env is {}

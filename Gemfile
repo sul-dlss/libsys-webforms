@@ -39,6 +39,8 @@ gem 'okcomputer'
 gem 'nokogiri'
 # Use systemu to handle OS calls
 gem 'systemu'
+# For exception reporting
+gem 'honeybadger'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'

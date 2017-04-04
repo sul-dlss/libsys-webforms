@@ -7,6 +7,7 @@ This is a Rails application to be a front-end for various Symphony reporting & u
 1. Ruby (2.1.1 or greater)
 2. Rails (4.2.0 or greater)
 3. An Instance of Symphony to connect to
+4. Oracle client
 
 ## Installation
 
@@ -31,13 +32,16 @@ REMOTE_USER=some-user rails s
 
 Before running the tests with rake you should run the migrations in the `test` environment by running:
 ```
-rake db:migrate RAILS_ENV=test
+RAILS_ENV=test rake db:test:prepare
 ```
+
+NOTE: Travis uses `db:test:prepare` rather than `db:migrate`
+
 #### Setting up the fixtures
 
 Before running the test suite you should load the fixture data into the tables with:
 ```
-rails runner spec/init_libsys-webforms.rb
+RAILS_ENV=test rails runner spec/init_libsys_webforms.rb
 ```
 
 ### Rake, etc.
@@ -67,7 +71,7 @@ end
 
 To deploy to development:
 
-    $ cap development deploy
+    $ cap dev deploy
 
 ## Command-line tasks
 
