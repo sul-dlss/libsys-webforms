@@ -54,7 +54,6 @@ class EndowedFundsReportsController < ApplicationController
   def date_end
     if @endowed_funds_report.fiscal_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-08-31")
-      end_date += 1.year if @endowed_funds_report.fiscal_years[1] == @endowed_funds_report.fiscal_years[0]
     elsif @endowed_funds_report.calendar_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[1]}-12-31")
     elsif @endowed_funds_report.paid_years.any?
