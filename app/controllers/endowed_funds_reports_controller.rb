@@ -42,7 +42,7 @@ class EndowedFundsReportsController < ApplicationController
 
   def date_start
     if @endowed_funds_report.fiscal_years.any?
-      start_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[0]}-07-01")
+      start_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[0]}-09-01") - 1.year
     elsif @endowed_funds_report.calendar_years.any?
       start_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[0]}-01-01")
     elsif @endowed_funds_report.paid_years.any?
@@ -53,7 +53,7 @@ class EndowedFundsReportsController < ApplicationController
 
   def date_end
     if @endowed_funds_report.fiscal_years.any?
-      end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-06-30")
+      end_date = Time.zone.parse("#{@endowed_funds_report.fiscal_years[1]}-08-31")
       end_date += 1.year if @endowed_funds_report.fiscal_years[1] == @endowed_funds_report.fiscal_years[0]
     elsif @endowed_funds_report.calendar_years.any?
       end_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[1]}-12-31")
