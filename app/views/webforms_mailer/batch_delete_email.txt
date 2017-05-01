@@ -1,4 +1,4 @@
-<%= @uni_updates_batch.uni_updates.count %> barcodes deleted from the batch update table with:
+<%= @uni_updates_batch.uni_updates.count %> unique barcodes deleted from the batch update table with:
 ======================================================================================================
 
 Batch id: <%= @uni_updates_batch.batch_id.to_i %>

@@ -1,4 +1,4 @@
-<%= @uni_updates_batch.uni_updates.count %> barcodes entered into the batch update table with values:
+<%= @uni_updates_batch.uni_updates.count %> unique barcodes entered into the batch update table with values:
 ======================================================================================================
 
 Batch id: <%= @uni_updates_batch.batch_id.to_i %>

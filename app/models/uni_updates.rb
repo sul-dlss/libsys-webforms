@@ -31,9 +31,10 @@ class UniUpdates < ActiveRecord::Base
   # rubocop:enable Metrics/MethodLength
 
   def self.filter_duplicates(item_ids)
+    uniq_item_ids = item_ids.uniq
     uniques = []
     duplicates = []
-    item_ids.each do |item_id|
+    uniq_item_ids.each do |item_id|
       if UniUpdates.where(item_id: item_id, load_date: Time.zone.today).empty?
         uniques << item_id
       else
