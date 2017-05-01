@@ -10,11 +10,14 @@ class Ckey2bibframe
     symphony_ssh = "ssh #{Settings.symphony_user}@#{Settings.symphony_host}"
     symphony_env = "source #{Settings.symphony_env}"
     catalogdump = "echo #{ckey} | #{Settings.symphony_catalogdump}"
-
-    jar = 'lib/xform-marc21-to-xml-jar-with-dependencies.jar'
-    java_command = "java -Djava.security.egd=file:/dev/../dev/urandom -cp #{jar} edu.stanford.MarcToXMLStream"
-
     "#{symphony_ssh} '#{symphony_env} && #{catalogdump}' | #{java_command}"
+  end
+
+  def java_command
+    jar = 'lib/xform-marc21-to-xml-jar-with-dependencies.jar'
+    opts = '-Djava.security.egd=file:/dev/../dev/urandom'
+    convert = 'edu.stanford.MarcToXMLStream -p config/settings/server.conf'
+    "java #{opts} -cp #{jar} #{convert}"
   end
 
   def marc21_to_xml
