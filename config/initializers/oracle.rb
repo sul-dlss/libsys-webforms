@@ -1,7 +1,7 @@
 # Set time zone in TZ environment variable so that the same timezone will be used by Ruby and by Oracle session
 ENV['TZ'] = 'PST'
 
-if Rails.env.development? || Rails.env.production? 
+if Rails.env.development? || Rails.env.production?
   ActiveSupport.on_load(:active_record) do
     ActiveRecord::ConnectionAdapters::OracleEnhancedAdapter.class_eval do
       # id columns and columns which end with _id will always be converted to integers
@@ -18,6 +18,9 @@ if Rails.env.development? || Rails.env.production?
 
       # Use old visitor for Oracle 12c database
       # self.use_old_oracle_visitor = true
+
+      # Initialize ruby-plsql gem here
+      plsql.activerecord_class = ActiveRecord::Base
     end
   end
 end

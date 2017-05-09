@@ -7,3 +7,23 @@ symphony_catalogdump: '/s/sirsi/Unicorn/Bin/catalogdump -om -kc -h -z -j -n dump
 #       It contains the tag listing '001' which instructs the catalogdump to remove all '001' fields of
 #       the MARC record. The -kc flag then adds back in an '001' field with the ckey as the value
 base_uri: 'http://ld4p-dev.stanford.edu/'
+# PL/SQL jobs
+pl_sql_jobs:
+  circ_stats_job:
+    text: 'Run circ stats reports now'
+    confirm: 'Circ stats reports started'
+    command: 'circ_stats_rpt.daily_processing'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'mahmed'
+  delphi_pay_test_job:
+    text: 'Delphi payment test run'
+    confirm: 'Delphi payment test run started'
+    command: 'delphi_pay.test_run'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'mahmed'

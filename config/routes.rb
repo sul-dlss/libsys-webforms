@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   resources :userload_reruns, only: [:new, :create]
   resources :ckey2bibframes, only: [:new, :create, :show], param: :ckey
 
-
   get 'shelf_selection_reports/home_locations' => 'shelf_selection_reports#home_locations', as: :home_locations_for_library
   get 'shelf_selection_reports/load_saved_options' => 'shelf_selection_reports#load_saved_options', as: :load_saved_options
   get 'circulation_statistics_reports/home_locations' => 'circulation_statistics_reports#home_locations', as: :home_locations_for_libraries
@@ -36,6 +35,7 @@ Rails.application.routes.draw do
   get 'review_batches' => 'sal3_batch_requests#review_batches'
   get 'management_reports' => 'management_reports#index'
 
+  get 'pl_sql_job/create' => 'pl_sql_job#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
