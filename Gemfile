@@ -45,6 +45,7 @@ gem 'honeybadger'
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
+  gem 'ruby-plsql'
 end
 
 gem 'therubyracer'
@@ -80,4 +81,5 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'ruby-plsql'
 end

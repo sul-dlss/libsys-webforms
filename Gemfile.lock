@@ -201,6 +201,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-oci8 (2.2.2)
+    ruby-plsql (0.6.0)
     ruby-progressbar (1.8.1)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -283,6 +284,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   rubocop
   ruby-oci8
+  ruby-plsql
   sass-rails (~> 5.0)
   scss_lint
   sdoc (~> 0.4.0)

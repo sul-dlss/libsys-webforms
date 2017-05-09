@@ -1,0 +1,10 @@
+require 'rails_helper'
+
+RSpec.describe PlSqlJobController, type: :controller do
+  describe 'GET#create' do
+    it 'gets the corrrect pl_sql_job params' do
+      get :create, params: ActionController::Parameters.new(command: 'test_command', confirm: 'Test')
+      expect(response).to have_http_status(302)
+    end
+  end
+end

@@ -84,3 +84,17 @@ For example, to upload and delete batches:
 ## Ckey2Bibframe Webform
 
 The "Ckey2Bibframe" webform allows you to enter a Symphony ckey and view <strong>marc21-to-xml</strong> and <strong>marcxml-to-bibframe2</strong> results in the browser. In order for this functionality to work you must install the <a href="https://github.com/lcnetdev/marc2bibframe2">LOC Marc2Bibframe2 Converter</a> and place it under this application's root. Running the LOC marc2bibframe2 converter via libsys-webforms requires the `xsltproc` command-line tool be installed on your system (see http://www.xmlsoft.org). After cloning this project, simply `cd libsys-webforms` and then `git clone https://github.com/lcnetdev/marc2bibframe2.git`. If it is not already there, you must also create a `lib/xform-marc21-to-xml-jar-with-dependencies.jar` file that is compiled from https://github.com/sul-dlss/ld4p-marc21-to-xml (see https://github.com/sul-dlss/ld4p-marc21-to-xml#compiling-and-executing, it should be placed in this app's lib folder as well).
+
+## PL/SQL Jobs
+
+Based on the configuration of a `pl_sql_job` in the settings/{environment}.yml file, e.g.:
+```
+pl_sql_jobs:
+  circ_stats_job:
+    text: 'Circ stats report daily processing'
+    command: 'circ_stats_rpt.daily_processing'
+    sunet_ids:
+      - 'usera'
+      - 'userb'
+```
+links with collapsed "Run" buttons will automatically be created on the home page and will only appear for people who are logged in and listed in the sunet_ids section of the config. Clicking the "Run" link will execute the configured PL/SQL command via the already configured OCI8 connection gem (using the environment's database.yml connection details). If more jobs need to be added in the future, just fill out a new section under the pl_sql_jobs section in the https://github.com/sul-dlss/shared_configs repository and follow the instructions there for deploying to the application server.
