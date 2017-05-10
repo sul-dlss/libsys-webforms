@@ -1,1 +1,24 @@
 symphony_cgi_url: 'https://morison.stanford.edu/cgi-bin/webforms/'
+# PL/SQL jobs
+pl_sql_jobs:
+  circ_stats_job:
+    text: 'Run circ stats reports now'
+    confirm: 'Circ stats reports started'
+    command: 'circ_stats_rpt.daily_processing'
+    sunet_ids:
+      - 'nismoser'
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'mahmed'
+  delphi_pay_test_job:
+    text: 'Delphi payment test run'
+    confirm: 'Delphi payment test run started'
+    command: 'delphi_pay.test_run'
+    sunet_ids:
+      - 'kjochim'
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'mahmed'
+    

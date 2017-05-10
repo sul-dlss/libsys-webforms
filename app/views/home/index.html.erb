@@ -58,7 +58,7 @@
     <% end %>
   <% end %>
   <% Settings.pl_sql_jobs.each_with_index do |(k,v),i| %>
-    <% if v.sunet_ids.include?(current_user.user_id) %>
+    <% if v.sunet_ids.include?(user_id) %>
     <p></p>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab">
