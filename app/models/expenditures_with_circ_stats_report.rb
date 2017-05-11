@@ -68,12 +68,20 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   end
 
   def write_fy_start(year)
-    fy_start = ExpendituresFyDate.find(year).min_paydate.strftime('%Y-%^b-%d')
+    begin
+      fy_start = ExpendituresFyDate.find(year).min_paydate.strftime('%Y-%^b-%d')
+    rescue ActiveRecord::RecordNotFound => error
+      raise error
+    end
     write_range_start(fy_start)
   end
 
   def write_fy_end(year)
-    fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%Y-%^b-%d')
+    begin
+      fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%Y-%^b-%d')
+    rescue ActiveRecord::RecordNotFound => error
+      raise error
+    end
     write_range_end(fy_end)
   end
 

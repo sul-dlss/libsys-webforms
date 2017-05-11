@@ -13,7 +13,13 @@ RSpec.describe EndowedFundsReport, type: :model do
       rescue ActiveRecord::StatementInvalid
       end
     end
-
+    subject { EndowedFundsReport.ol_cat_key_fund_begin('All SUL Funds', '2015-07-01', '2016-06-30') }
+    it 'should handle the All SUL Funds selection' do
+      begin
+        expect(subject).to be_kind_of(Array)
+      rescue ActiveRecord::StatementInvalid
+      end
+    end
     subject { EndowedFundsReport.ol_cat_key_fund(['1000501-1-AACIZ', '1008930-1-HAGOY'], '2015-07-01', '2016-06-30') }
     it 'should initialize a container of fund codes' do
       begin

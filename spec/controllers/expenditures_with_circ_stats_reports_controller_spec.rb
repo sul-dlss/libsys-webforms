@@ -9,6 +9,20 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
     end
   end
   describe 'post#create' do
+    it 'raises an error when fiscal year is not in the table' do
+      stub_current_user(FactoryGirl.create(:authorized_user))
+      FactoryGirl.create(:expenditures_fy_date)
+      allow(controller).to receive(:create).and_raise(ActiveRecord::RecordNotFound)
+      post :create, params: { email: 'someone@some.one',
+                              fund_begin: 'All SUL Funds',
+                              lib_array: %w(ART),
+                              format_array: %w(MARC),
+                              date_type: 'fiscal',
+                              fy_start: 'FY 2015' }
+
+      expect(response).to have_http_status(302)
+      expect(flash[:error]).to eq('ActiveRecord::RecordNotFound')
+    end
     it 'returns 302 when saving a report for fiscal years' do
       stub_current_user(FactoryGirl.create(:authorized_user))
       # a factory for travis:
