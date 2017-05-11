@@ -2,6 +2,11 @@
 # Controller to handle the Encumberances Report
 ###
 class ExpendituresWithCircStatsReportsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:error] = exception.message
+    redirect_to root_path
+  end
+
   def new
     @expenditures_with_circ_stats_report = ExpendituresWithCircStatsReport.new
   end

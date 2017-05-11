@@ -1,8 +1,8 @@
 <div class='form-group row'>
   <%= f.label :fund_select, 'Select funds for report by:', class: 'col-sm-5 form-control-label'%>
   <div class='col-sm-10'>
-    <p><%= f.radio_button :fund_select, 'fund_name_id', {'data-toggle' => 'collapse', 'data-target' => '.fund_name_id', onChange: '$(".collapse").removeClass("in")'} %> Fund ID/PTA or name</p>
-    <p><%= f.radio_button :fund_select, 'fund_begins_with', {'data-toggle' => 'collapse', 'data-target' => '.fund_begins_with', onChange: '$(".collapse").removeClass("in")'} %> Fund ID/PTA begins with</p>
+    <p><%= f.radio_button :fund_select, 'fund_name_id', {'class'=>'fund_selects', 'data-toggle' => 'collapse', 'data-target' => '.fund_name_id', onChange: '$(".collapse").removeClass("in");$(".all_sul").prop("checked", false);'} %> Fund ID/PTA or name</p>
+    <p><%= f.radio_button :fund_select, 'fund_begins_with', {'class'=>'fund_selects', 'data-toggle' => 'collapse', 'data-target' => '.fund_begins_with', onChange: '$(".collapse").removeClass("in");$(".all_sul").prop("checked", false);'} %> Fund ID/PTA begins with</p>
   </div>
 </div>
 <div class='form-group row'>
@@ -63,5 +63,8 @@
         <%= f.select :fund_begin, options_for_select(ExpendituresFunds.fund_begins_with.map{|d| [d.fund_id]}), {prompt: 'Fund ID/PTA'}, {class: 'form-control'} %>
       <% end %>
     </div>
+  </div>
+  <div class='col-sm-10'>
+    <p> <%= f.radio_button :fund_begin, 'All SUL Funds', class: 'all_sul', onClick: "$('input:radio[class=fund_selects]').each(function () { $(this).prop('checked', false); });$('.collapse').removeClass('in')" %> Select all SUL funds </p>
   </div>
 </div>

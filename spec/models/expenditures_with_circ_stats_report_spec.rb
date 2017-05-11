@@ -1,19 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe ExpendituresWithCircStatsReport, type: :model do
-  before(:all) do
+  before do
     FactoryGirl.create(:expenditures_fy_date)
-    FactoryGirl.create(:expenditures_fy_date,
-                       fy: 2011,
-                       min_paydate: '0010-09-03 00:00:00',
-                       max_paydate: '0011-08-25 00:00:00')
   end
+
   it 'has a valid factory' do
     expect(FactoryGirl.create(:expenditures_with_circ_stats_report)).to be_valid
   end
 
   describe 'callbacks' do
-    before do
+    before(:all) do
       @report = FactoryGirl.create(:expenditures_with_circ_stats_report)
     end
     it 'has attributes' do
@@ -37,6 +34,14 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     it 'sets the attribute for fund_acct with a fund_begin value' do
       @report.update_attribute(:fund, nil)
       expect(@report.send(:set_fund)).to eq('1065032-103-')
+    end
+    it 'rescues from an error if the fy date is not in the table' do
+      expect do
+        FactoryGirl.create(:expenditures_with_circ_stats_report, fy_start: 'FY 2015')
+      end.to raise_error(ActiveRecord::RecordNotFound)
+      expect do
+        FactoryGirl.create(:expenditures_with_circ_stats_report, fy_end: 'FY 2015')
+      end.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end

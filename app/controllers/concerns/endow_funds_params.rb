@@ -1,5 +1,6 @@
 ##
 # Module to construct the Endow Funds Report params for endow_rpt.cgi
+#  script exists @bodoni.stanford.edu:/var/www/cgi-bin/webforms/endow_rpt.cgi
 # All the args in URL:
 # ('ckeys_filename')('date_range')('email')('funds')('output_format')
 ##

@@ -29,10 +29,13 @@ class EndowedFundsReport
     fund_codes.uniq
   end
 
-  def self.ol_cat_key_fund_begin(fund, date_start, date_end)
-    Expenditures.where("ta_fund_code LIKE ? AND ta_date_2encina between
+  def self.ol_cat_key_fund_begin(fund_begin, date_start, date_end)
+    nothing = ''
+    fund_begin = nothing ? fund_begin == 'All SUL Funds' : fund_begin
+
+    Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND ta_date_2encina between
                         TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                       "%#{fund}%", date_start, date_end).pluck(:ol_cat_key)
+                       "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
   end
 
   attr_reader :ckeys_file
