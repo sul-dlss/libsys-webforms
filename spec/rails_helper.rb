@@ -60,3 +60,30 @@ end
 def stub_current_user(user)
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 end
+
+def stub_current_user_for_view(&block)
+  controller.singleton_class.class_exec(block) do
+    helper_method :current_user
+    define_method :current_user do
+      yield
+    end
+  end
+end
+
+def stub_user_id_for_view(&block)
+  controller.singleton_class.class_exec(block) do
+    helper_method :user_id
+    define_method :user_id do
+      yield
+    end
+  end
+end
+
+def stub_webauth_user_for_view(&block)
+  controller.singleton_class.class_exec(block) do
+    helper_method :webauth_user?
+    define_method :webauth_user? do
+      yield
+    end
+  end
+end
