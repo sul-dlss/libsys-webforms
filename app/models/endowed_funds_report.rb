@@ -15,6 +15,7 @@ class EndowedFundsReport
   validates :cal_start, presence: true, if: 'fy_start.blank? && pd_start.blank?'
   validates :pd_start, presence: true, if: 'cal_start.blank? && fy_start.blank?'
   validates :email, presence: true
+  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   # get cat keys
   def self.ol_cat_key_fund(fund, date_start, date_end)
