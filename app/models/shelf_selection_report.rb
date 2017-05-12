@@ -21,6 +21,7 @@ class ShelfSelectionReport
   validates :format_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
   validates :format_array, length: { minimum: 2, message: "can't be empty" }, if: :other_range_type?
   validates :subj_name, length: { maximum: 80, message: 'no more than 80 characters' }
+  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   def self.generic_options
     [["Doesn't matter", 0], ['INCLUDE only', 1], ['EXCLUDE', 2]]

@@ -9,4 +9,5 @@ class TransferItem
                 :priority, :export_yn, :check_bc_first
   validates :current_library, :new_library, :new_homeloc, :item_ids,
             presence: true
+  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 end

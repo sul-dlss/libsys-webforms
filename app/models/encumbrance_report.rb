@@ -8,6 +8,7 @@ class EncumbranceReport < ActiveRecord::Base
   validates :email, presence: true
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
+  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   before_save :set_fund, :write_dates, :set_email, :set_output_file
 

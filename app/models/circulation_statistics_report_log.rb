@@ -8,7 +8,6 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     if circ_stats.barcodes
       FileUtils.chmod 0o664, circ_stats.barcodes.tempfile.path
       symphony_location = '/symphony/Dataload/Uploads/CircStats'
-      # user = circ_stats.email.split('@')[0]
       file_path = "#{symphony_location}/#{circ_stats.user_id}_#{circ_stats.barcodes.original_filename}"
       FileUtils.mv circ_stats.barcodes.tempfile.path, file_path
     end

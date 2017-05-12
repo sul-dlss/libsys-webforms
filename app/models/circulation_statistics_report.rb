@@ -23,10 +23,7 @@ class CirculationStatisticsReport
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
   validate :classic_call_alpha, if: :classic_range_type?
-
-  before_validation do
-    email.tr!(' ', ',')
-  end
+  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   private
 

@@ -9,6 +9,7 @@ class ExpenditureReport < ActiveRecord::Base
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
   validates :date_type, inclusion: %w(fiscal calendar paydate)
+  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   before_save :set_fund, :write_dates, :set_output_file
   before_save :check_fy, if: 'date_type == "fiscal"'
