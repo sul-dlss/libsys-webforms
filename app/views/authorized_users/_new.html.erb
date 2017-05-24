@@ -1,0 +1,35 @@
+<div class="modal-header">
+   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+   <h3 id="addAuthorizedUser">Add a user</h3>
+</div>
+<div class="modal-body">
+  <div class="div-table">
+    <%= form_for @authorized_user, class: 'form-group', :url => {
+                                      :action => :create,
+                                      :controller => :authorized_users
+                                      } do |f| %>
+    <%= render partial: 'authorized_user_header' %>
+    <div class="div-table-body">
+      <div class="div-table-row">
+        <div class="div-table-cell">
+          <%= f.text_field :user_id %>
+        </div>
+        <div class="div-table-cell">
+          <%= f.text_field :user_name %>
+        </div>
+        <% @authorized_user.attributes.each do |k,v| %>
+          <% if authorized_apps(current_user).include?(k) %>
+            <div class="div-table-cell">
+              <%= f.check_box(k, {}, "Y", "") %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="btn-group">
+      <%= f.submit 'Submit', class: 'btn btn-md btn-default btn-full' %>
+      <button class='btn btn-md btn-default btn-full' data-dismiss="modal" aria-hidden="true">Cancel</button>
+    </div>
+    <% end %>
+  </div>
+</div>
