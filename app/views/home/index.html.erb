@@ -62,8 +62,8 @@
     <p></p>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab">
-        <h4 class="link" role="button" data-toggle="collapse" href="#buttonCollapse<%= i %>" aria-expanded="false" aria-controls="buttonCollapse<%= i %>"><%= v.text %></h4>
-        <button id="buttonCollapse<%= i %>" class="collapse btn btn-md btn-default" aria-labelledby="buttonCollapse<%= i %>"><%= link_to "Run", pl_sql_job_create_path(command: v.command, confirm: v.confirm) %></button>
+        <h4 class="link" role="button" data-toggle="collapse" href="#buttonCollapse<%=i%>" aria-expanded="false" aria-controls="buttonCollapse<%=i%>"><%= v.text %></h4>
+        <%= link_to "Run", pl_sql_job_create_path(command: v.command, confirm: v.confirm), id: "buttonCollapse#{i}", class: "collapse btn btn-md btn-default", style: "width:60px", "aria-labelledby": "buttonCollapse#{i}" %>
       </div>
     </div>
     <% end %>
