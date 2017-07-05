@@ -1,5 +1,12 @@
 <h1>Userload Rerun</h1>
-
+<h3>Instructions</h3>
+<ul>
+  <li>Pick a date to rerun the userload errors.</li>
+  <li>The rerun date cannot be today's date and it cannot be more than a week old.</li>
+  <li>Wait for the receipt of the "ZZ Userload Rerun Report" email before submitting another userload rerun for a
+  different date.</li>
+  <li>The userload rerun runs every 10 minutes past the hour.</li>
+</ul>
 <%= form_for(@userload_rerun) do |f| %>
   <% if @userload_rerun.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +20,10 @@
 
   <div class="field">
     <%= f.label :rerun_date %><br>
-    <%= f.date_field(:rerun_date, value: params[:rerun_date] || Time.zone.today, 'data-behavior': 'rerun-date-picker', min: 1.week.ago, max: Time.zone.today) %>
+    <%= f.date_field(:rerun_date, value: params[:rerun_date] || Time.zone.yesterday,
+                     'data-behavior': 'rerun-date-picker',
+                                      min: 1.week.ago,
+                                      max: Time.zone.yesterday) %>
   </div>
   <p>
   <div class="btn-group">
