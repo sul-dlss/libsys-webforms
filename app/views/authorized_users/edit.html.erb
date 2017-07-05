@@ -11,7 +11,7 @@
     <div class="div-table-row">
       <% if current_user.user_id == @authorized_user.user_id %>
         <div class="div-table-cell">
-          <%= f.text_field :user_id, :readonly => true %>
+          <%= user_id %>
         </div>
       <% else %>
         <div class="div-table-cell">
