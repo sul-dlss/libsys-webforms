@@ -36,6 +36,14 @@ Rails.application.routes.draw do
   get 'management_reports' => 'management_reports#index'
 
   get 'pl_sql_job/create' => 'pl_sql_job#create'
+  get 'authorized_users/index' => 'authorized_users#index'
+  get 'authorized_users/edit' => 'authorized_users#edit'
+  get 'authorized_users/edit/:user_id' => 'authorized_users#edit'
+  patch 'authorized_users/update' => 'authorized_users#update'
+  get 'authorized_users/new' => 'authorized_users#new'
+  post 'authorized_users/create' => 'authorized_users#create'
+  delete 'authorized_users/delete' => 'authorized_users#delete'
+  delete 'authorized_users/delete/:user_id' => 'authorized_users#delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

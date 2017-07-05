@@ -1,0 +1,9 @@
+<div class="div-table-heading">
+  <div class="div-table-row">
+    <div class="div-table-head">SUNet ID</div>
+    <div class="div-table-head">Name</div>
+    <% authorized_apps(current_user).each do |app| %>
+      <div class="div-table-head"><%= apps_translation(app) %></div>
+    <% end %>
+  </div>
+</div>

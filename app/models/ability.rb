@@ -5,9 +5,10 @@ class Ability
   def initialize(current_user)
     current_user ||= AuthorizedUser.new
     assign_staff_permission(current_user)
+    assign_admin_permission(current_user)
     assign_basic_permission
     assign_user_permission if current_user
-    assign_batch_permission if current_user.unicorn_updates == 'Y'
+    assign_batch_permission if /A|Y/ =~ current_user.unicorn_updates
   end
 
   def assign_basic_permission
@@ -19,10 +20,15 @@ class Ability
   end
 
   def assign_staff_permission(current_user)
-    can :manage, ManagementReport if current_user.mgt_rpts == 'Y'
-    can :create, Sal3BatchRequestsBatch if current_user.sal3_batch_req == 'Y'
-    can :create, UserloadRerun if current_user.userload_rerun == 'Y'
-    can [:read, :update], Sal3BatchRequestsBatch if current_user.sal3_breq_edit == 'Y'
+    can :manage, ManagementReport if /A|Y/ =~ current_user.mgt_rpts
+    can :create, Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
+    can :create, UserloadRerun if /A|Y/ =~ current_user.userload_rerun
+    can %i(read update), Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
+  end
+
+  def assign_admin_permission(current_user)
+    app = AuthorizedUsersController.helpers.authorized_apps(current_user)
+    can :manage, AuthorizedUser if app.any?
   end
 
   def assign_batch_permission
