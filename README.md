@@ -21,6 +21,40 @@ Change directories into the app and install dependencies
 bundle install
 ```
 
+## Development
+
+If you get a `ConnectionAdapters::OracleEnhancedAdapter` error when running a rails or rake task, you may need to temporarily add `:development` to the group that contains the activerecord-oracle_enhanced-adapter gem, for example:
+
+```
+group :production, :development do
+  gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
+  gem 'ruby-oci8'
+end
+```
+<strong>...but do not commit this change, and revert it before deployment!</strong>
+
+
+#### Setting up fixtures for development
+
+In order to have the tables populated for testing the app in development you should load the fixture data into the tables with:
+```
+RAILS_ENV=test rails runner spec/init_libsys_webforms.rb
+```
+You should also set up a user for you to use when testing the app in development. Do this in the Rails Console:
+
+```
+> rails c
+
+2.3.4 :001 > au=AuthorizedUser.new
+2.3.4 :002 > au.user_id = 'some-user'
+2.3.4 :003 > au.user_name = 'Some User'
+2.3.4 :004 > au.mgt_rpts = 'Y'
+2.3.4 :005 > au.unicorn_updates = 'Y'
+2.3.4 :006 > au.sal3_batch_req = 'Y'
+2.3.4 :007 > au.sal3_breq_edit = 'Y'
+2.3.4 :008 > au.save
+```
+
 Start the development server
 ```
 REMOTE_USER=some-user rails s
@@ -37,13 +71,6 @@ RAILS_ENV=test rake db:test:prepare
 
 NOTE: Travis uses `db:test:prepare` rather than `db:migrate`
 
-#### Setting up the fixtures
-
-Before running the test suite you should load the fixture data into the tables with:
-```
-RAILS_ENV=test rails runner spec/init_libsys_webforms.rb
-```
-
 ### Rake, etc.
 The test suite (with RuboCop style enforcement) will be run with the default rake task (also run on travis)
 
@@ -56,16 +83,6 @@ The specs can be run without RuboCop enforcement
 The RuboCop style enforcement can be run without running the tests
 
     $ rake rubocop
-
-If you get a `ConnectionAdapters::OracleEnhancedAdapter` error when running a rake task, you may need to temporarily add `:development` to the group that contains the activerecord-oracle_enhanced-adapter gem, for example:
-
-```
-group :production, :development do
-  gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
-  gem 'ruby-oci8'
-end
-```
-<strong>...but please do not commit this change, and revert it before deployment.</strong>
 
 ## Deployment
 
