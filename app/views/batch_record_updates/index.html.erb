@@ -3,6 +3,7 @@
   <% if current_user %>
   <h3>What would you like to do?</h3>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% unless /[AY]/ === current_user.unicorn_updates %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
         <h4 class="panel-title">
@@ -15,6 +16,7 @@
         <%= render partial: 'upload_batch_menu' %>
       </div>
     </div>
+    <% end %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingTwo">
         <h4 class="panel-title">
