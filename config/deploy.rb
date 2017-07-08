@@ -60,7 +60,7 @@ namespace :deploy do
       # Here we can do anything such as:
       within release_path do
         execute "cd #{release_path.join('lib')} && \
-          curl -sOL https://github.com/sul-dlss/ld4p-marc21-to-xml/releases/download/v1.0.2/xform-marc21-to-xml-jar-with-dependencies.jar"
+          curl -sOL https://github.com/sul-dlss/ld4p-marc21-to-xml/releases/download/v1.1.0/xform-marc21-to-xml-jar-with-dependencies.jar"
       end
     end
   end
