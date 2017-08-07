@@ -72,7 +72,7 @@ class UniUpdatesBatch < ActiveRecord::Base
   def self.create_home_location_batch(params, total_bcs)
     create(batch_date: params[:change_home_location][:load_date],
            user_name: params[:change_home_location][:user_name],
-           user_email: params[:change_home_location][:user_name],
+           user_email: params[:change_home_location][:email],
            orig_lib: params[:change_home_location][:current_library],
            new_homeloc: params[:change_home_location][:new_home_location],
            new_itype: params[:change_home_location][:new_item_type],
