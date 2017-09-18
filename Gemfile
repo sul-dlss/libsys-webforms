@@ -46,7 +46,7 @@ gem 'uglifier'
 # For fiscal year functions
 gem 'fiscali'
 
-group :production, :development do
+group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
