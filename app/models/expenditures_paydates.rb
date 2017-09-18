@@ -10,7 +10,10 @@ class ExpendituresPaydates < ActiveRecord::Base
   end
 
   def self.fiscal_years
-    cyc = ('2000'..Time.zone.now.strftime('%Y')).to_a.reverse
+    Date.fy_start_month = 9
+    Date.use_forward_year!
+    financial_year = Time.zone.today.financial_year.to_s
+    cyc = ('2000'..financial_year).to_a.reverse
     cyc.push('9899', '9798', '9697')
   end
 
