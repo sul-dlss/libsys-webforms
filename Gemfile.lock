@@ -111,6 +111,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.12.0.1)
       multipart-post (>= 1.2, < 3)
+    fiscali (2.4.3)
+      activesupport
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     honeybadger (3.1.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   dlss-capistrano
   factory_girl_rails
   faraday
+  fiscali
   honeybadger
   jbuilder (~> 2.0)
   jquery-rails (< 4.1)
@@ -297,4 +300,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

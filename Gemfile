@@ -43,8 +43,10 @@ gem 'systemu'
 gem 'honeybadger'
 
 gem 'uglifier'
+# For fiscal year functions
+gem 'fiscali'
 
-group :production do
+group :production, :development do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
