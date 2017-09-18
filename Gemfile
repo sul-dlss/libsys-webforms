@@ -42,6 +42,8 @@ gem 'systemu'
 # For exception reporting
 gem 'honeybadger'
 
+gem 'uglifier'
+
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
