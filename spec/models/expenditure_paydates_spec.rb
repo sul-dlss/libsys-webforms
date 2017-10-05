@@ -15,7 +15,7 @@ RSpec.describe ExpendituresPaydates, type: :model do
     end
 
     it 'Defines a list of fiscal years' do
-      expect(ExpendituresPaydates.fiscal_years).to include('9899', '9798', '9697', '2015', @financial_year)
+      expect(fiscal_years).to include('9899', '9798', '9697', '2015', @financial_year)
     end
   end
 
