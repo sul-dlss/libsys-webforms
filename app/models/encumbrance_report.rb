@@ -14,11 +14,6 @@ class EncumbranceReport < ActiveRecord::Base
 
   self.table_name = 'encumbrance_rpts'
 
-  def self.fundcyc_cycle
-    cyc = ('2000'..Time.zone.now.strftime('%Y')).to_a.reverse
-    cyc.push('9899', '9798', '9697')
-  end
-
   def kickoff
     ActiveRecord::Base.connection.execute("begin encumb_rpt.run_rpt('#{output_file}'); end;")
   rescue ActiveRecord::StatementInvalid

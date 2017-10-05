@@ -22,10 +22,10 @@
     <div class='panel-body fiscal collapse'>
       <div class='form-group'>
         <div class='col-sm-3'>First payment date:
-          <%= f.select :fy_start, options_for_select(ExpendituresPaydates.fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Choose FY Start'}, {class: 'form-control'} %>
+          <%= f.select :fy_start, options_for_select(fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Choose FY Start'}, {class: 'form-control'} %>
         </div>
         <div class='col-sm-3'>Last payment date:
-          <%= f.select :fy_end, options_for_select(ExpendituresPaydates.fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Same FY as Start'}, {class: 'form-control'} %>
+          <%= f.select :fy_end, options_for_select(fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Same FY as Start'}, {class: 'form-control'} %>
         </div>
       </div>
     </div>
