@@ -5,7 +5,7 @@ RSpec.describe EncumbranceReport, type: :model do
     expect(FactoryGirl.create(:encumbrance_report)).to be_valid
   end
   it 'Defines a list of fund cycles' do
-    expect(EncumbranceReport.fundcyc_cycle).to include('2015', '9899', '9798', '9697')
+    expect(fiscal_years).to include('2015', '9899', '9798', '9697')
   end
 
   describe 'callbacks' do

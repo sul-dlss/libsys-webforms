@@ -22,4 +22,12 @@ module ApplicationHelper
       class: 'btn btn-md btn-default btn-full'
     ), new_ckey2bibframe_path
   end
+
+  def fiscal_years
+    Date.fy_start_month = 9
+    Date.use_forward_year!
+    financial_year = Time.zone.today.financial_year.to_s
+    cyc = ('2000'..financial_year).to_a.reverse
+    cyc.push('9899', '9798', '9697')
+  end
 end
