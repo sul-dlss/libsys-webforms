@@ -8,6 +8,11 @@ class EndowedFundsReportsController < ApplicationController
     submit_endow_funds(batch_params)
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:error] = 'There are no records for the specified date range'
+    render action: 'new'
+  end
+
   def new
     @endowed_funds_report = EndowedFundsReport.new
   end

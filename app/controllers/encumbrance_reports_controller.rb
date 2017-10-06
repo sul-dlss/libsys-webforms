@@ -3,6 +3,12 @@
 ###
 class EncumbranceReportsController < ApplicationController
   before_action :set_no_cache
+
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:error] = 'There are no records for the specified date range'
+    render action: 'new'
+  end
+
   def new
     @encumbrance_report = EncumbranceReport.new
   end

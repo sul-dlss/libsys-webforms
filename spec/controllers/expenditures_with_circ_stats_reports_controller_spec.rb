@@ -20,8 +20,8 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
                               date_type: 'fiscal',
                               fy_start: 'FY 2015' }
 
-      expect(response).to have_http_status(302)
-      expect(flash[:error]).to eq('ActiveRecord::RecordNotFound')
+      expect(response).to have_http_status(200)
+      expect(flash[:error]).to eq('There are no records for the specified date range')
     end
     it 'returns 302 when saving a report for fiscal years' do
       stub_current_user(FactoryGirl.create(:authorized_user))

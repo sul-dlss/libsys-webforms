@@ -3,8 +3,8 @@
 ###
 class ExpendituresWithCircStatsReportsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    flash[:error] = exception.message
-    redirect_to root_path
+    flash[:error] = 'There are no records for the specified date range'
+    render action: 'new'
   end
 
   def new
