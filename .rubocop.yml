@@ -39,5 +39,8 @@ Style/FrozenStringLiteralComment:
 Lint/HandleExceptions:
   Enabled: false
 
+Lint/UnusedBlockArgument:
+  Enabled: false
+  
 # Rails/HttpPositionalArguments:
 #   Enabled: false
