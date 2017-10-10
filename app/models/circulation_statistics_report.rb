@@ -25,7 +25,17 @@ class CirculationStatisticsReport
   validate :classic_call_alpha, if: :classic_range_type?
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
+  before_validation :upcase_call_alpha
+
   private
+
+  def upcase_call_alpha
+    call_alpha && call_alpha.upcase!
+  end
+
+  def upcase_call_lo
+    call_lo && call_lo.upcase!
+  end
 
   def barcode_range_type?
     range_type == 'barcodes'
