@@ -30,11 +30,11 @@ class CirculationStatisticsReport
   private
 
   def upcase_call_alpha
-    call_alpha.upcase! unless call_alpha.nil?
+    call_alpha && call_alpha.upcase!
   end
 
   def upcase_call_lo
-    call_lo.upcase! unless call_lo.nil?
+    call_lo && call_lo.upcase!
   end
 
   def barcode_range_type?
