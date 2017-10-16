@@ -37,20 +37,20 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
                                         "#{circ_stats.user_id}_#{circ_stats.barcodes.original_filename}"
       range_type_params['libs_locs'] = 'Any lib-loc'
     when 'lc'
-      if circ_stats.call_lo.include?('#')
-        range_type_params['call_range'] = "#{circ_stats.call_lo[0]}0-9999"
-      elsif circ_stats.call_hi.blank?
-        range_type_params['call_range'] = circ_stats.call_lo
-      else
-        range_type_params['call_range'] = "#{circ_stats.call_lo}-#{circ_stats.call_hi}"
-      end
+      range_type_params['call_range'] = if circ_stats.call_lo.include?('#')
+                                          "#{circ_stats.call_lo[0]}0-9999"
+                                        elsif circ_stats.call_hi.blank?
+                                          circ_stats.call_lo
+                                        else
+                                          "#{circ_stats.call_lo}-#{circ_stats.call_hi}"
+                                        end
       range_type_params['libs_locs'] = circ_stats.lib_loc_array
     when 'classic'
-      if circ_stats.call_alpha.blank?
-        range_type_params['call_range'] = "#{circ_stats.call_lo}-#{circ_stats.call_hi}"
-      else
-        range_type_params['call_range'] = "#{circ_stats.call_alpha}#{circ_stats.call_lo}-#{circ_stats.call_hi}"
-      end
+      range_type_params['call_range'] = if circ_stats.call_alpha.blank?
+                                          "#{circ_stats.call_lo}-#{circ_stats.call_hi}"
+                                        else
+                                          "#{circ_stats.call_alpha}#{circ_stats.call_lo}-#{circ_stats.call_hi}"
+                                        end
       range_type_params['libs_locs'] = circ_stats.lib_loc_array
     when 'other'
       range_type_params['call_range'] = if circ_stats.call_hi.blank?

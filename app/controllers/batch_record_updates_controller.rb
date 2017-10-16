@@ -2,8 +2,7 @@
 class BatchRecordUpdatesController < ApplicationController
   load_and_authorize_resource
 
-  def index
-  end
+  def index; end
 
   def errors_for_batch
     @uni_updates_batch = UniUpdatesBatch.where(batch_id: params[:batch_number])

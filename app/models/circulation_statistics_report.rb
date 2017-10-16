@@ -16,9 +16,9 @@ class CirculationStatisticsReport
   validates :min_yr, length: { is: 4 }, numericality: { only_integer: true }, allow_blank: true
   validates :max_yr, length: { is: 4 }, numericality: { only_integer: true }, allow_blank: true
   validates :tag_field, length: { is: 3 }, numericality: { only_integer: true },
-                        exclusion: { in: %w(008) }, allow_blank: true
+                        exclusion: { in: %w[008] }, allow_blank: true
   validates :tag_field2, length: { is: 3 }, numericality: { only_integer: true },
-                         exclusion: { in: %w(008) }, allow_blank: true
+                         exclusion: { in: %w[008] }, allow_blank: true
   validate :lc_call_lo, if: :lc_range_type?
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
@@ -30,11 +30,11 @@ class CirculationStatisticsReport
   private
 
   def upcase_call_alpha
-    call_alpha && call_alpha.upcase!
+    call_alpha&.upcase!
   end
 
   def upcase_call_lo
-    call_lo && call_lo.upcase!
+    call_lo&.upcase!
   end
 
   def barcode_range_type?
@@ -53,10 +53,13 @@ class CirculationStatisticsReport
     range_type != 'barcodes'
   end
 
+  def call_regex
+    /^[A-Z]{1,2}$|^[A-Z]\#$/
+  end
+
   def lc_call_lo
-    if call_lo !~ /^[A-Z]{1,2}$|^[A-Z]\#$/
-      errors.add(:base, 'Low callnum range must be at most two uppercase letters or one plus #')
-    end
+    message = 'Low callnum range must be at most two uppercase letters or one plus #'
+    errors.add(:base, message) unless call_lo =~ call_regex
   end
 
   # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
@@ -70,7 +73,7 @@ class CirculationStatisticsReport
       message = 'Hi callnum range must be empty or two letters with the same first letter as low range'
       errors.add(:base, message) unless call_hi.blank? || call_hi =~ /^[#{Regexp.quote(first_letter)}][A-Z]$/
     elsif call_lo =~ /^[A-Z]\#$/
-      errors.add(:base, 'Hi callnum range must be empty.') unless call_hi.blank?
+      call_hi.present? && errors.add(:base, 'Hi callnum range must be empty.')
     end
   end
   # rubocop:enable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity

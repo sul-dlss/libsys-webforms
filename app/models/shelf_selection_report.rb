@@ -10,8 +10,6 @@ class ShelfSelectionReport
                 :no_boundw, :range_type, :call_alpha, :subj_name, :save_opt,
                 :search_name, :call_lo, :call_hi, :user_id
 
-  attr_reader :user_id
-
   validates :email, :loc_array, presence: true
   validates :loc_array, length: { minimum: 2, message: "can't be empty" }
   validates :call_lo, presence: true, if: :lc_range_type?

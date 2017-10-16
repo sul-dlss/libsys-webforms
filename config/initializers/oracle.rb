@@ -1,6 +1,8 @@
 # Set time zone in TZ environment variable so that the same timezone will be used by Ruby and by Oracle session
 ENV['TZ'] = 'PST'
 
+# This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
+# When upgrading to rails 5 we can remove the deprecated self.emulate_* lines from config/initializers/oracle.rb
 if Rails.env.development? || Rails.env.production?
   ActiveSupport.on_load(:active_record) do
     ActiveRecord::ConnectionAdapters::OracleEnhancedAdapter.class_eval do
@@ -8,7 +10,7 @@ if Rails.env.development? || Rails.env.production?
       self.emulate_integers_by_column_name = true
 
       # DATE columns which include "date" in name will be converted to Date, otherwise to Time
-      self.emulate_dates_by_column_name = true
+      self.emulate_dates_by_column_name = false
 
       # true and false will be stored as 'Y' and 'N'
       # self.emulate_booleans_from_strings = true

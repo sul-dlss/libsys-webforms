@@ -13,7 +13,7 @@ RSpec.describe EncumbranceReport, type: :model do
       @report = FactoryGirl.create(:encumbrance_report)
     end
     it 'sets the attribute for fund_acct with a fund_begin value' do
-      @report.update_attribute(:fund, nil)
+      @report.update_attributes(fund: nil)
       expect(@report.send(:set_fund)).to eq('1065032-103-')
     end
   end

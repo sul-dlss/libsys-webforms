@@ -3,8 +3,8 @@ namespace :webforms do
   # actions are UPDITEMTYPE, UPDCURLOC, UPDHOMELOC, WITHDRAW, TRANSFER
   # if not from web then user_name 'batch', priority 2
   # TODO DRY rake tasks up!
-  task :transfer_items, [:path_to_file, :current_lib, :new_lib, :new_homeloc, :new_curloc,
-                         :new_itype, :email, :comments] => :environment do |_t, args|
+  task :transfer_items, %i[path_to_file current_lib new_lib new_homeloc new_curloc
+                           new_itype email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.current,
                                                 user_name: 'batch',
@@ -28,9 +28,10 @@ namespace :webforms do
     puts "Batch id #{@uni_updates_batch.batch_id} created"
     WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
-
+end
+namespace :webforms do
   desc 'Withdraw a batch'
-  task :withdraw_items, [:path_to_file, :current_lib, :email, :comments] => :environment do |_t, args|
+  task :withdraw_items, %i[path_to_file current_lib email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.current,
                                                 user_name: 'batch',
@@ -50,10 +51,11 @@ namespace :webforms do
     puts "Batch id #{@uni_updates_batch.batch_id} created"
     WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
-
+end
+namespace :webforms do
   desc 'Change home location of a batch'
-  task :change_home_location, [:path_to_file, :current_lib, :new_homeloc,
-                               :new_curloc, :new_itype, :email, :comments] => :environment do |_t, args|
+  task :change_home_location, %i[path_to_file current_lib new_homeloc
+                                 new_curloc new_itype email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.current,
                                                 user_name: 'batch',
@@ -76,10 +78,11 @@ namespace :webforms do
     puts "Batch id #{@uni_updates_batch.batch_id} created"
     WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
-
+end
+namespace :webforms do
   desc 'Change current location of a batch'
-  task :change_current_location, [:path_to_file, :current_lib,
-                                  :new_curloc, :email, :comments] => :environment do |_t, args|
+  task :change_current_location, %i[path_to_file current_lib
+                                    new_curloc email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.current,
                                                 user_name: 'batch',
@@ -100,10 +103,11 @@ namespace :webforms do
     puts "Batch id #{@uni_updates_batch.batch_id} created"
     WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
-
+end
+namespace :webforms do
   desc 'Change item type of a batch'
-  task :change_item_type, [:path_to_file, :current_lib, :new_itype,
-                           :email, :comments] => :environment do |_t, args|
+  task :change_item_type, %i[path_to_file current_lib new_itype
+                             email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.current,
                                                 user_name: 'batch',
@@ -124,7 +128,8 @@ namespace :webforms do
     puts "Batch id #{@uni_updates_batch.batch_id} created"
     WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
   end
-
+end
+namespace :webforms do
   desc 'Delete a batch'
   task :delete_batch, [:batch_id] => :environment do |_t, args|
     uni_updates_batch = UniUpdatesBatch.find(args[:batch_id])

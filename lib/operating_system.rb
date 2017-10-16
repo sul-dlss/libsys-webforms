@@ -11,10 +11,10 @@ module OperatingSystem
     status, stdout, stderr = systemu(command)
     raise stderr if status.exitstatus.nonzero?
     return stdout
-  rescue
+  rescue StandardError
     msg = "Command failed to execute: [#{command}] caused by
           <STDERR = #{stderr}>"
-    msg << " STDOUT = #{stdout}" if stdout && !stdout.empty?
+    msg << " STDOUT = #{stdout}" if stdout.present?
     raise msg
   end
 end

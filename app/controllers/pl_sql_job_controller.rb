@@ -3,7 +3,7 @@ class PlSqlJobController < ApplicationController
   def create
     begin
       plsql.instance_eval(create_params[:command])
-    rescue => error
+    rescue StandardError => error
       flash[:error] = "Error - cannot run #{create_params[:command]}: #{error}"
     else
       flash[:success] = create_params[:confirm].to_s
