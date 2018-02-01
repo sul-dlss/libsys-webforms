@@ -62,7 +62,7 @@ class CirculationStatisticsReport
     errors.add(:base, message) unless call_lo =~ call_regex
   end
 
-  # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/AbcSize,Metrics/PerceivedComplexity
   def lc_call_hi
     if call_lo.length == 1
       callnum_range = call_lo..'Z'
@@ -76,7 +76,7 @@ class CirculationStatisticsReport
       call_hi.present? && errors.add(:base, 'Hi callnum range must be empty.')
     end
   end
-  # rubocop:enable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/AbcSize,Metrics/PerceivedComplexity
 
   def classic_call_lo_and_hi
     lo_integer = call_lo.to_i
@@ -85,7 +85,7 @@ class CirculationStatisticsReport
     errors.add(:base, message) unless call_lo =~ /^[0-9]+$/ && call_hi =~ /^[0-9]+$/ && lo_integer < hi_integer
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def classic_call_alpha
     message = 'Alpha callnum range must be empty or one to two letters.'
     errors.add(:base, message) unless call_alpha.blank? || call_alpha =~ /^[A-Z]{1,2}$/
@@ -97,5 +97,5 @@ class CirculationStatisticsReport
       errors.add(:base, message) unless call_lo =~ /^[0-9]{1,4}$/ && call_hi =~ /^[0-9]{1,4}$/
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
 end
