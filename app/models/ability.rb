@@ -20,6 +20,8 @@ class Ability
   end
 
   def assign_staff_permission(current_user)
+    can :manage, AccessionNumberUpdate if /A|Y/ =~ current_user.accession_number
+    can %i(read generate_number), AccessionNumber if /A|Y/ =~ current_user.accession_number
     can :manage, ManagementReport if /A|Y/ =~ current_user.mgt_rpts
     can %i[create read], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
     can %i[read update], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
@@ -27,6 +29,7 @@ class Ability
   end
 
   def assign_admin_permission(current_user)
+    can :manage, AccessionNumber if /A/ =~ current_user.accession_number
     app = AuthorizedUsersController.helpers.authorized_apps(current_user)
     can :manage, AuthorizedUser if app.any?
   end

@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get 'webauth/login' => 'authentication#login', as: :login
   get 'webauth/logout' => 'authentication#logout', as: :logout
 
+  resources :accession_numbers, except: :destroy do
+    member do
+      get 'generate_number'
+    end
+  end
+  resources :accession_number_updates, only: [:index]
   resources :batch_record_updates, only: [:index]
   resources :change_item_types, only: [:new, :create]
   resources :change_current_locations, only: [:new, :create]
@@ -34,6 +40,9 @@ Rails.application.routes.draw do
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
   get 'review_batches' => 'sal3_batch_requests#review_batches'
   get 'management_reports' => 'management_reports#index'
+
+  get 'by_location' => 'accession_number_updates#by_location'
+  get 'by_resource_type' => 'accession_number_updates#by_resource_type'
 
   get 'pl_sql_job/create' => 'pl_sql_job#create'
   get 'authorized_users/index' => 'authorized_users#index'

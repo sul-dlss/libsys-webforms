@@ -1,0 +1,35 @@
+<%= form_for(@accession_number) do |f| %>
+  <% if @accession_number.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accession_number.errors.count, "error") %> prohibited this accession_number from being saved:</h2>
+
+      <ul>
+      <% @accession_number.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :resource_type %><br>
+    <%= f.select :resource_type,
+      options_for_select(AccessionNumber.select(:resource_type).where.not(resource_type: [nil]).distinct.map{|c| [c.resource_type]}),
+      {:class => 'form-control'} %>
+  </div>
+  <div class="field">
+    <%= f.label :item_type %><br>
+    <%= f.text_field :item_type %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :prefix %><br>
+    <%= f.text_field :prefix %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

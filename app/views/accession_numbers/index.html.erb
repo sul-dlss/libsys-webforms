@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accession Numbers</h1>
+<% if /A/ === current_user.accession_number %>
+<%= link_to 'New accession number type and location', new_accession_number_path, class: 'btn btn-primary' %>
+<% end %>
+<div class="btn-group">
+  <%= main_menu_button %>
+  <%= accession_menu_button %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Resource type</th>
+      <th>Type of material</th>
+      <th>Location</th>
+      <th>Prefix</th>
+      <th>Seq num</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accession_numbers.each do |accession_number| %>
+      <tr>
+        <td><%= accession_number.resource_type %></td>
+        <td><%= accession_number.item_type %></td>
+        <td><%= accession_number.location %></td>
+        <td><%= accession_number.prefix %></td>
+        <td><%= accession_number.seq_num.to_i %></td>
+        <% if /A/ === current_user.accession_number %>
+        <td><%= link_to 'Edit', edit_accession_number_path(accession_number.id), class: 'btn btn-md btn-primary btn-full' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="btn-group">
+  <%= main_menu_button %>
+  <%= accession_menu_button %>
+</div>
+
+<br>

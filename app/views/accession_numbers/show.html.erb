@@ -1,0 +1,39 @@
+<% if alert %>
+  <p class="alert">
+  <strong><%= alert %></strong>
+</p>
+<% end %>
+
+<p>
+  <strong>Resource type:</strong>
+  <%= @accession_number.resource_type %>
+</p>
+
+<p>
+  <strong>Type of material:</strong>
+  <%= @accession_number.item_type %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @accession_number.location %>
+</p>
+
+<p>
+  <strong>Accession number:</strong>
+  <%= @accession_number.prefix %>
+  <% if @accession_number.seq_num > 0 %>
+    <%= @accession_number.seq_num.to_i %>
+  <% end %>
+
+</p>
+
+<% if /A/ === current_user.accession_number %>
+<%= link_to 'Edit', edit_accession_number_path(@accession_number), class: 'btn btn-md btn-default btn-full' %>
+<% end %>
+<%= link_to 'Back', :back, class: 'btn btn-md btn-default btn-full' %>
+
+<div class="btn-group">
+  <%= main_menu_button %>
+  <%= accession_menu_button %>
+</div>
