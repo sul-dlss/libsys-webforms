@@ -8,7 +8,7 @@ if Rails.env.development? || Rails.env.production?
       self.emulate_integers_by_column_name = true
 
       # DATE columns which include "date" in name will be converted to Date, otherwise to Time
-      self.emulate_dates_by_column_name = true
+      self.emulate_dates_by_column_name = false
 
       # true and false will be stored as 'Y' and 'N'
       # self.emulate_booleans_from_strings = true
