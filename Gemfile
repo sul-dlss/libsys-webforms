@@ -47,6 +47,9 @@ gem 'uglifier'
 gem 'fiscali'
 
 group :production do
+  # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
+  # When upgrading to rails 5 we can remove the deprecated self.emulate_* lines from config/initializers/oracle.rb
+  # See https://github.com/rsim/oracle-enhanced#rails-52 and https://github.com/rsim/oracle-enhanced/issues/1449
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
