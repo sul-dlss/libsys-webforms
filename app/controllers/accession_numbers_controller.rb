@@ -1,7 +1,7 @@
 # Controller to show, create, and edit accession numbers
 class AccessionNumbersController < ApplicationController
   load_and_authorize_resource
-  before_action :set_accession_number, only: %i[show edit update]
+  before_action :set_accession_number, only: %i[show edit update generate_number]
 
   def index
     @accession_numbers = AccessionNumber.all.order(:resource_type, :location, :prefix)
@@ -45,19 +45,22 @@ class AccessionNumbersController < ApplicationController
     end
   end
 
+  # GET /accession_numbers/1/generate_number_form
+  def generate_number_form() end
+
+  # PATCH /accession_numbers/1/generate_number
   def generate_number
-    @generate_number = AccessionNumber.find_by(id: params[:id])
-    if check_for_already_assigned_nums(@generate_number.id, @generate_number.seq_num)
+    if check_for_already_assigned_nums(@accession_number.id, @accession_number.seq_num.to_i)
       flash[:error] = 'Cannot generate accession number! The next number is already assigned.'
       redirect_to accession_number_updates_path
     else
-      @generate_number.increment(:seq_num)
-      @generate_number.save
-      redirect_to @generate_number
-      flash[:notice] = "Your SUL accession number: #{@generate_number.prefix} #{@generate_number.seq_num}"
-      if @generate_number.prefix == 'ZDVD'
-        flash[:alert] = 'For Blu-ray, follow the accession number with BLU-RAY'
-      end
+      seq_num_incrementer = accession_number_params[:seq_num_incrementer].to_i
+      seq_num_batch = set_seq_num_batch(@accession_number.seq_num.to_i, seq_num_incrementer)
+      @accession_number.increment(:seq_num, accession_number_params[:seq_num_incrementer].to_i)
+      @accession_number.save
+      redirect_to @accession_number
+      flash[:multi_line_notice] = list_accession_numbers(seq_num_batch, @accession_number.prefix)
+      flash[:warning] = 'For Blu-ray, follow the accession number with BLU-RAY' if @accession_number.prefix == 'ZDVD'
     end
   end
 
@@ -70,11 +73,24 @@ class AccessionNumbersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def accession_number_params
-    params.require(:accession_number).permit(:item_type, :location, :prefix, :resource_type)
+    params.require(:accession_number).permit(:item_type, :location, :prefix, :resource_type, :seq_num_incrementer)
   end
 
   def check_for_already_assigned_nums(id, seq_num)
     # For catnums.id = "9" seq_num cannot exceed 10100 (ZVC 10101- is already assigned under catnums.id = "6")
-    return true if id == 9 && seq_num == 10_100
+    return true if id == 9 && seq_num >= 10_091
+  end
+
+  def set_seq_num_batch(seq_num, seq_num_incrementer)
+    last_num = seq_num + seq_num_incrementer
+    (seq_num + 1..last_num)
+  end
+
+  def list_accession_numbers(seq_num_batch, prefix)
+    generated_numbers = []
+    seq_num_batch.each do |num|
+      generated_numbers << "Your SUL accession number: #{prefix} #{num}"
+    end
+    generated_numbers
   end
 end

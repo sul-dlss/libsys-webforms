@@ -30,8 +30,13 @@ RSpec.describe AccessionNumbersController, type: :routing do
       expect(patch: '/accession_numbers/1').to route_to('accession_numbers#update', id: '1')
     end
 
-    it 'routes to #generate_number' do
-      expect(get: '/accession_numbers/1/generate_number').to route_to('accession_numbers#generate_number', id: '1')
+    it 'routes to #generate_number_form' do
+      expect(get: '/accession_numbers/1/generate_number_form').to route_to('accession_numbers#generate_number_form',
+                                                                           id: '1')
+    end
+
+    it 'routes to #generate_number via PATCH' do
+      expect(patch: '/accession_numbers/1/generate_number').to route_to('accession_numbers#generate_number', id: '1')
     end
   end
 end

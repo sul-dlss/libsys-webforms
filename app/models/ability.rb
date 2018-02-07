@@ -21,7 +21,7 @@ class Ability
 
   def assign_staff_permission(current_user)
     can :manage, AccessionNumberUpdate if /A|Y/ =~ current_user.accession_number
-    can %i(read generate_number), AccessionNumber if /A|Y/ =~ current_user.accession_number
+    can %i[read generate_number generate_number_form], AccessionNumber if /A|Y/ =~ current_user.accession_number
     can :manage, ManagementReport if /A|Y/ =~ current_user.mgt_rpts
     can %i[create read], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
     can %i[read update], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit

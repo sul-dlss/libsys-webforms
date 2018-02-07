@@ -4,21 +4,21 @@
 <table class='table table-striped'>
   <thead>
     <tr>
-      <th class='col-xs-1'>Location</th>
-      <th class='col-xs-2'>Type of Material</th>
-      <th class='col-xs-3'>Accession Number Prefix</th>
-      <th class='col-xs-4'>Current Accession Number</th>
+      <th>Location</th>
+      <th>Type of Material</th>
+      <th>Accession Number Prefix</th>
+      <th>Current Accession Number</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <% @resource_type.each do |x| %>
       <tr class='<%= cycle("odd", "even") %>'>
-        <td class='col-xs-1'><%= x.location %></td>
-        <td class='col-xs-2'><%= x.item_type %></td>
-        <td class='col-xs-3'><%= x.prefix %></td>
-        <td class='col-xs-4'><%= x.seq_num.to_i %></td>
-        <td><%= link_to 'Get number', generate_number_accession_number_path(:id => x.id), class: 'btn btn-md btn-primary btn-full' %></td>
+        <td><%= x.location %></td>
+        <td><%= x.item_type %></td>
+        <td><%= x.prefix %></td>
+        <td><%= x.seq_num.to_i %></td>
+        <td><%= link_to 'Get number', generate_number_form_accession_number_path(x.id), class: 'btn btn-md btn-primary btn-full' %></td>
       </tr>
     <% end %>
   </tbody>

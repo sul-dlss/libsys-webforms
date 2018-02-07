@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :accession_numbers, except: :destroy do
     member do
-      get 'generate_number'
+      get 'generate_number_form'
+      patch 'generate_number'
     end
   end
   resources :accession_number_updates, only: [:index]

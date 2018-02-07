@@ -1,0 +1,35 @@
+<h1>Generate Accession Numbers</h1>
+<%= form_for @accession_number, class: 'form-group',
+    :url => {
+      :action => :generate_number,
+      :controller => :accession_numbers,
+      :id => params[:id]
+      } do |f| %>
+  <% if @accession_number.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accession_number.errors.count, "error") %> prohibited this accession_number from being saved:</h2>
+
+      <ul>
+      <% @accession_number.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'How many accession numbers to generate?' %><br>
+    <%= f.select :seq_num_incrementer, (1..10),
+      {:class => 'form-control'} %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Get number(s)' %>
+  </div>
+<% end %>
+
+<%= link_to 'Cancel', accession_numbers_path, class: 'btn btn-md btn-default btn-full' %>
+
+<div class="btn-group">
+  <%= main_menu_button %>
+  <%= accession_menu_button %>
+</div>
