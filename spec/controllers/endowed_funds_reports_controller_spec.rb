@@ -13,52 +13,70 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
     end
   end
 
-  describe 'post#create' do
-    xit 'redirects to root_url if create is successful' do
-      post :create, endowed_funds_report: { fund: ['1000501-1-AACIZ'], fund_begin: nil }
-      expect(response).to redirect_to root_path
-    end
+  describe 'post#create gets a set of catalog keys' do
+    before { allow(controller).to receive(:keys).and_return(%w[123 456 789]) }
+
     it 'renders the new template if create is unsuccessful' do
       post :create, endowed_funds_report: { fund: nil, fund_begin: nil }
       expect(response).to render_template('new')
     end
-    xit 'gets a set of catalog keys' do
-      post :create, endowed_funds_report: { fund: nil, fund_begin: ['1000501-1-AACIZ'] }
+    it 'redirects to root_url if create returns and writes ckeys and is successful' do
+      params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
+                 pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
+                 ckeys_file: 'endow123.txt' }
+
+      post :create, endowed_funds_report: params
       expect(response).to redirect_to root_path
     end
-    xit 'creates the cgi params for a get request to symphony using fund string and fy' do
-      post :create, endowed_funds_report: { fund: ['1000501-1-AACIZ', '1000502-1-AACIX'],
-                                            fund_begin: nil, report_format: 'n',
-                                            email: 'some@one.com', fy_start: 'FY 2015' }
-      expect(response).to have_http_status(302)
-      expect(:fund).to be_present
-      expect(:fy_end).to be_present
+    it 'creates the params for a symphony request using several fund strings and fiscal year dates' do
+      params = { fund: ['1000501-1-AACIZ', '1000502-1-AACIX'], fund_begin: nil,
+                 report_format: 'n', email: 'some@one.com', fy_start: 'FY 2015',
+                 ckeys_file: 'endow123.txt' }
+
+      post :create, endowed_funds_report: params
+      expect(EndowedFundsReport.new(params)).to have_attributes(fy_start: 'FY 2015')
     end
-    xit 'creates the cgi params for a get request to symphony using fund_begins string and cal' do
-      post :create, endowed_funds_report: { fund: nil, fund_begin: '1000501-1-AACIZ-',
-                                            report_format: 'n', email: 'some@one.com',
-                                            cal_start: '2015' }
-      expect(response).to have_http_status(302)
-      expect(:fund_begin).to be_present
-      expect(:cal_end).to be_present
+    it 'creates the params for a symphony request using fund_begin string and calendar dates' do
+      params = { fund: nil, fund_begin: '1000501-1-AACIZ-', report_format: 'n',
+                 email: 'some@one.com', cal_start: '2015', cal_end: '2016',
+                 ckeys_file: 'endow123.txt' }
+
+      post :create, endowed_funds_report: params
+      expect(controller.date_start).to eq '2015-01-01'
+      expect(controller.date_end).to eq '2016-12-31'
     end
-    xit 'creates the cgi params for a get request to symphony using fund_egins string and pd' do
-      post :create, endowed_funds_report: { fund: nil, fund_begin: '1000501-1-AACIZ-',
-                                            report_format: 'n', email: 'some@one.com',
-                                            pd_start: '22-DEC-99' }
-      expect(response).to have_http_status(302)
-      expect(:fund_begin).to be_present
-      expect(:pd_end).to be_present
+    it 'creates the params for a symphony request using fund_begin string and paid dates' do
+      params = { fund: nil, fund_begin: '1000501-1-AACIZ-', report_format: 'n',
+                 email: 'some@one.com', pd_start: '22-DEC-98', pd_end: '22-DEC-99',
+                 ckeys_file: 'endow123.txt' }
+
+      post :create, endowed_funds_report: params
+      expect(controller.date_start).to eq '0098-12-22'
+      expect(controller.date_end).to eq '0099-12-22'
     end
-    xit 'sets the date_start for filtering report sql qury by date' do
-      post :create, endowed_funds_report: { fund: ['1000501-1-AACIZ', '1000502-1-AACIX'],
-                                            fund_begin: nil, report_format: 'n',
-                                            email: 'some@one.com', fy_start: 'FY 2015',
-                                            fy_end: 'FY 2016' }
-      expect(:date_start).to be_present
-      expect(:date_start).to equal('2015-07-01')
-      expect(:date_end).to be_present
-      expect(:date_end).to equal('2016-06-30')
+  end
+
+  describe 'rescue_from RecordNotFound' do
+    before { allow(controller).to receive(:funds_keys).and_raise(ActiveRecord::RecordNotFound) }
+    it 'renders the correct template' do
+      params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
+                 pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
+                 ckeys_file: 'endow123.txt' }
+
+      post :create, endowed_funds_report: params
+      expect(response).to render_template('new')
+    end
+  end
+
+  describe 'no ckeys found for query' do
+    before { allow(controller).to receive(:keys).and_return([]) }
+    it 'renders the correct template' do
+      params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
+                 pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
+                 ckeys_file: 'endow123.txt' }
+
+      post :create, endowed_funds_report: params
+      expect(response).to render_template('new')
     end
   end
 end

@@ -2,6 +2,8 @@ Rails:
   Enabled: true
 
 AllCops:
+  TargetRubyVersion: 2.3
+  TargetRailsVersion: 4.2
   Exclude:
     - 'Gemfile'
     - 'bin/**/*'
@@ -13,6 +15,12 @@ AllCops:
     - 'vendor/**/*'
     - 'lib/tasks/display-coverage.rake'
     - 'loc_marc2bibframe2/**/*'
+
+Lint/HandleExceptions:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
 
 Metrics/BlockLength:
   Max: 70
@@ -29,6 +37,9 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Max: 27
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
@@ -36,11 +47,5 @@ Style/StringLiterals:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Lint/HandleExceptions:
-  Enabled: false
-
-Lint/UnusedBlockArgument:
-  Enabled: false
-  
 # Rails/HttpPositionalArguments:
 #   Enabled: false
