@@ -24,21 +24,27 @@ class AccessionNumbersController < ApplicationController
   def create
     @accession_number = AccessionNumber.new(accession_number_params)
     @accession_number.seq_num = '0'
-
-    respond_to do |format|
-      if @accession_number.save
-        format.html { redirect_to @accession_number, notice: 'Accession number was successfully created.' }
-        format.json { render :show, status: :created, location: @accession_number }
-      else
-        format.html { render :new }
-        format.json { render json: @accession_number.errors, status: :unprocessable_entity }
-      end
+    if @accession_number.resource_type.empty?
+      @accession_number.save
+      redirect_to @accession_number
+      flash[:notice] = 'Accession number was successfully created.'
+      flash[:warning] = 'Assign a non-blank resource type to start generating numbers for it.'
+    elsif @accession_number.save
+      redirect_to @accession_number
+      flash[:notice] = 'Accession number was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /accession_numbers/1
   def update
-    if @accession_number.update(accession_number_params)
+    if accession_number_params[:resource_type].blank?
+      @accession_number.update(accession_number_params)
+      redirect_to @accession_number
+      flash[:notice] = 'Accession number was successfully updated.'
+      flash[:warning] = 'Accession numbers with blank resource types are deprecated and cannot be used.'
+    elsif @accession_number.update(accession_number_params)
       redirect_to @accession_number, notice: 'Accession number was successfully updated.'
     else
       render :edit

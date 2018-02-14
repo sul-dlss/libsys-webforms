@@ -14,7 +14,8 @@
   <div class="field">
     <%= f.label :resource_type %><br>
     <%= f.select :resource_type,
-      options_for_select(AccessionNumber.select(:resource_type).where.not(resource_type: [nil]).distinct.map{|c| [c.resource_type]}),
+      options_for_select(AccessionNumber.select(:resource_type).distinct.map{|c| [c.resource_type]}, @accession_number.resource_type),
+      {:include_blank => ''},
       {:class => 'form-control'} %>
   </div>
   <div class="field">
