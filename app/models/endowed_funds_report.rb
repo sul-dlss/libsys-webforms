@@ -21,36 +21,64 @@ class EndowedFundsReport
   def self.ol_cat_key_fund(fund, date_start, date_end)
     fund_codes = []
     fund.each do |fc|
-      Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
-                          TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                         fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
-        fund_codes << ckey
+      begin
+        Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
+                            TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
+                           fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
+          fund_codes << ckey
+        end
+      rescue ActiveRecord::StatementInvalid
+      end
+    end
+    fund_codes.uniq
+  end
+
+  def self.ol_cat_key_fy(fund, date_start, date_end)
+    fund_codes = []
+    fund.each do |fc|
+      begin
+        Expenditures.where('ta_fund_code = ? AND (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)',
+                           fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
+          fund_codes << ckey
+        end
+      rescue ActiveRecord::StatementInvalid
       end
     end
     fund_codes.uniq
   end
 
   def self.ol_cat_key_fund_begin(fund_begin, date_start, date_end)
-    nothing = ''
-    fund_begin = nothing ? fund_begin == 'All SUL Funds' : fund_begin
-
-    Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND ta_date_2encina between
-                        TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                       "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
+    fund_begin ||= 'All SUL Funds'
+    begin
+      Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND ta_date_2encina between
+                          TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
+                         "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
+    rescue ActiveRecord::StatementInvalid
+    end
   end
 
-  attr_reader :ckeys_file
+  def self.ol_cat_key_fy_begin(fund_begin, date_start, date_end)
+    fund_begin ||= 'All SUL Funds'
+    begin
+      Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND
+                         (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)",
+                         "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
+    rescue ActiveRecord::StatementInvalid
+    end
+  end
 
   def write_keys(catalog_keys)
-    symphony_location = "/symphony/Dataload/EndowRpt/#{ckeys_file}"
-    out_file = File.new(symphony_location, 'w')
+    out_file = File.new("#{Settings.symphony_dataload_endowrpt}/#{ckeys_file}", 'w')
     out_file.puts(catalog_keys.join("\n"))
     out_file.close
   end
 
   def fiscal_years
-    years = [fy_start.tr('FY ', ''), fy_end.tr('FY ', '')].delete_if { |a| a == '' }
-    years.push(fy_start.tr('FY ', '')) if years.length == 1
+    years = []
+    if [fy_start, fy_end].all?
+      years = [fy_start.tr('FY ', ''), fy_end.tr('FY ', '')].delete_if { |a| a == '' }
+      years.push(fy_start.tr('FY ', '')) if years.length == 1
+    end
     years
   end
 
