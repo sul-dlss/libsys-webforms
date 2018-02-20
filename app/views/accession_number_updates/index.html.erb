@@ -1,6 +1,7 @@
 <div class="home-page-section">
   <h1>Accession Number Generator</h1>
   <% if /[AY]/ === current_user.accession_number %>
+  <p>Get accession numbers to assign to material in Symphony. See <a href="https://consul.stanford.edu/x/eaNuCQ">Call numbers--Non-print materials</a> for more information.</p>
   <h3>What would you like to do? </h3>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
@@ -45,7 +46,7 @@
       </div>
       <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
         <div class="panel-body">
-          <li><%= link_to "Accession numbers", accession_numbers_path %></li>
+          <li><%= link_to "Accession number table", accession_numbers_path %></li>
         </div>
       </div>
     </div>

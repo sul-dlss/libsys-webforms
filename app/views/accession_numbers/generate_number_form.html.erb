@@ -23,13 +23,15 @@
       {:class => 'form-control'} %>
   </div>
   <div class="actions">
-    <%= f.submit 'Get number(s)' %>
+    <br />
+    <%= f.submit 'Get number(s)', class: 'btn btn-primary btn-md btn-default btn-full' %>
   </div>
 <% end %>
 
-<%= link_to 'Cancel', :back, class: 'btn btn-md btn-default btn-full' %>
 
 <div class="btn-group">
+  <br />
+  <%= link_to 'Cancel', :back, class: 'btn btn-md btn-default btn-full' %>
   <%= main_menu_button %>
   <%= accession_menu_button %>
 </div>
