@@ -1,4 +1,5 @@
-symphony_cgi_url: 'https://morison.stanford.edu/cgi-bin/webforms/'
+symphony_cgi_url: 'https://example.com'
+symphony_dataload_endowrpt: 'tmp/Dataload/EndowRpt'
 # PL/SQL jobs
 pl_sql_jobs:
   circ_stats_job:
@@ -21,4 +22,3 @@ pl_sql_jobs:
       - 'dlrueda'
       - 'sdoljack'
       - 'mahmed'
-    

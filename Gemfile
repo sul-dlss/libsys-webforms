@@ -71,7 +71,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # Rubocop is a static code analyzer to enforce style.
-  gem 'rubocop', require: false
+  gem 'rubocop'
 
   # scss-lint will test the scss files to enforce styles
   gem 'scss_lint', require: false

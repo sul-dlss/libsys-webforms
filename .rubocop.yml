@@ -37,6 +37,9 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Max: 27
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes

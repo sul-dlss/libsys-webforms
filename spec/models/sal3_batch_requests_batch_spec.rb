@@ -11,7 +11,7 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
                                                         'Archive of Recorded Sound - Redwood City' => 'RA',
                                                         'Earth Sciences' => 'DE',
                                                         'Preservation - Book Repair' => 'BR',
-                                                        'Green' => 'DS')
+                                                        'Green Loading Dock' => 'DS')
   end
   it 'Defines a batch_media hash' do
     expect(Sal3BatchRequestsBatch.batch_media).to include(book: %w[BOOK Book], unknown: %w[UNKNOWN Unknown])
