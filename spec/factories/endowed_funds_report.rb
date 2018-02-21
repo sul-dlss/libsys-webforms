@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :expenditures do
     row_date '14-JUL-16'
     review_date '14-JUL-16'

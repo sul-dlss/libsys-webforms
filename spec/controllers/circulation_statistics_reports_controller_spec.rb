@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'circ_stats_report_examples'
 RSpec.describe CirculationStatisticsReportsController, type: :controller do
   before(:each) do
-    stub_current_user(FactoryGirl.create(:authorized_user))
+    stub_current_user(FactoryBot.create(:authorized_user))
   end
 
   let(:params) { { email: 'test@test.org', lib_array: 'GREEN' } }

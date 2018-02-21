@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :circulation_statistics_report do
     email 'test@test.com'
     lib_array ['', 'ARS', 'ART', 'GREEN', 'SAL3']

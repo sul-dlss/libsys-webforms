@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :expenditures_funds do
     fund_id '1065032-103-XYZ'
     fund_name_key 'XYZ'

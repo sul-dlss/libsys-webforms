@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :authorized_user do |f|
     f.user_id 'testuser'
     f.user_name 'Test User'

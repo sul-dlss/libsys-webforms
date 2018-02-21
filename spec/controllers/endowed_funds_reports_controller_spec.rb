@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe EndowedFundsReportsController, type: :controller do
   before do
-    stub_current_user(FactoryGirl.create(:authorized_user))
+    stub_current_user(FactoryBot.create(:authorized_user))
   end
 
   describe 'get#new' do
     it 'renders the correct template' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       get 'new'
       expect(response).to render_template('new')
     end

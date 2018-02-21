@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :unicorn_policy do
     type 'LIBR'
     policy_num 1

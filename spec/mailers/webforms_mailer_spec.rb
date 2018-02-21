@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe WebformsMailer do
   describe 'batch update and delete mail' do
-    let(:uni_updates_batch) { FactoryGirl.create(:uni_updates_batch) }
-    let(:uni_updates_batch_w_no_user) { FactoryGirl.create(:uni_updates_batch, user_email: '') }
+    let(:uni_updates_batch) { FactoryBot.create(:uni_updates_batch) }
+    let(:uni_updates_batch_w_no_user) { FactoryBot.create(:uni_updates_batch, user_email: '') }
     let(:uni_updates_batch_w_emails) do
-      FactoryGirl.build(:uni_updates_batch, user_email: 'libraryuser@stanford.edu,
+      FactoryBot.build(:uni_updates_batch, user_email: 'libraryuser@stanford.edu,
                                                          otheruser@stanford.edu
                                                          anotheruser@stanford.edu;
                                                          lastuser@stanford.edu')

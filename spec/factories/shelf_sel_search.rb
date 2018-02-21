@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shelf_sel_search do
     user_name 'mahmed'
     search_name 'Green Stacks E-F'

@@ -14,9 +14,9 @@ describe 'shared/_top_navbar.html.erb' do
   end
   describe 'logout link' do
     before do
-      stub_current_user_for_view { FactoryGirl.create(:authorized_user) }
-      stub_user_id_for_view { FactoryGirl.create(:authorized_user).user_id }
-      stub_webauth_user_for_view { FactoryGirl.create(:authorized_user) }
+      stub_current_user_for_view { FactoryBot.create(:authorized_user) }
+      stub_user_id_for_view { FactoryBot.create(:authorized_user).user_id }
+      stub_webauth_user_for_view { FactoryBot.create(:authorized_user) }
       render
     end
     it 'should have a logout link if there is a user' do

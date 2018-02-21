@@ -3,7 +3,7 @@ require 'rails_helper'
 describe UniUpdatesErrors do
   describe 'errors_for_batch' do
     it 'returns some table rows with the given batch id' do
-      batch_errors = FactoryGirl.create(:errors_for_batch)
+      batch_errors = FactoryBot.create(:errors_for_batch)
 
       expect(batch_errors.run).to eq '2013-06-15 12:06:35'
       expect(batch_errors.batch).to eq '12845'
