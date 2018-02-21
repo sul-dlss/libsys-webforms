@@ -7,14 +7,14 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   end
   describe 'get#index' do
     it 'is successful returning the index page' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       get 'index'
       expect(response).to render_template('index')
     end
   end
   describe 'get#show' do
     it 'is successful returning a show page' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file)
       get 'show', id: @sal3_batch_requests_batch
       expect(response).to render_template('show')
@@ -22,14 +22,14 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   end
   describe 'get#new' do
     it 'be succesful returning the new page' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       get 'new'
       expect(response).to render_template('new')
     end
   end
   describe 'post#create' do
     it 'returns 302 when saving sal3_batch_requests_batch' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       post :create, sal3_batch_requests_batch: { user_sunetid: 'some-id',
                                                  load_date: '16-06-14',
                                                  last_action_date: nil,
@@ -38,7 +38,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       expect(response).to have_http_status(302)
     end
     it 'renders new template with an invalid object' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       post :create, sal3_batch_requests_batch: { batch_id: '' }
       expect(response).to render_template('new')
     end
@@ -46,7 +46,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   describe 'get#edit' do
     it 'is successful returning the edit view' do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file)
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       get 'edit', id: @sal3_batch_requests_batch
       expect(response).to be_success
     end
@@ -56,7 +56,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10)
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       put :update, id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 1 }
       @sal3_batch_requests_batch.reload
       expect(@sal3_batch_requests_batch.priority).to eq(1)
@@ -68,7 +68,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10)
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       put :update, id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 'foo' }
       expect(response).to_not be_success
     end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :encumbrance_report do
     email 'someone@some.one'
     fund %w(1065032-103-XYZ)

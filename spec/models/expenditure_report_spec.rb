@@ -2,19 +2,19 @@ require 'rails_helper'
 
 RSpec.describe ExpenditureReport, type: :model do
   before(:all) do
-    FactoryGirl.create(:expenditures_fy_date)
-    FactoryGirl.create(:expenditures_fy_date,
-                       fy: 2011,
-                       min_paydate: '0010-09-03 00:00:00',
-                       max_paydate: '0011-08-25 00:00:00')
+    FactoryBot.create(:expenditures_fy_date)
+    FactoryBot.create(:expenditures_fy_date,
+                      fy: 2011,
+                      min_paydate: '0010-09-03 00:00:00',
+                      max_paydate: '0011-08-25 00:00:00')
   end
   it 'has a valid factory' do
-    expect(FactoryGirl.create(:expenditure_report)).to be_valid
+    expect(FactoryBot.create(:expenditure_report)).to be_valid
   end
 
   describe 'callbacks' do
     before do
-      @report = FactoryGirl.create(:expenditure_report)
+      @report = FactoryBot.create(:expenditure_report)
     end
     it 'has attributes' do
       expect(@report).to have_attributes(status: 'REQUEST')

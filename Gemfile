@@ -82,7 +82,7 @@ group :development, :test do
   #Coveralls for code coverage
   gem 'coveralls', require: false
 
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do

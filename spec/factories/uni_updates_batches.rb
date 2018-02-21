@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :uni_updates_batch do
     batch_id 1
     batch_date '2016-05-02 16:06:56'

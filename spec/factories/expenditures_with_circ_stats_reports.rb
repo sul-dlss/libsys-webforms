@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :expenditures_with_circ_stats_report do
     date_type 'fiscal'
     date_request '16-JUN-16'

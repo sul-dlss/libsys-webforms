@@ -2,16 +2,16 @@ require 'rails_helper'
 
 RSpec.describe ExpendituresWithCircStatsReport, type: :model do
   before do
-    FactoryGirl.create(:expenditures_fy_date)
+    FactoryBot.create(:expenditures_fy_date)
   end
 
   it 'has a valid factory' do
-    expect(FactoryGirl.create(:expenditures_with_circ_stats_report)).to be_valid
+    expect(FactoryBot.create(:expenditures_with_circ_stats_report)).to be_valid
   end
 
   describe 'callbacks' do
     before(:all) do
-      @report = FactoryGirl.create(:expenditures_with_circ_stats_report)
+      @report = FactoryBot.create(:expenditures_with_circ_stats_report)
     end
     it 'has attributes' do
       expect(@report).to have_attributes(status: 'REQUEST')
@@ -37,10 +37,10 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     end
     it 'rescues from an error if the fy date is not in the table' do
       expect do
-        FactoryGirl.create(:expenditures_with_circ_stats_report, fy_start: 'FY 2015')
+        FactoryBot.create(:expenditures_with_circ_stats_report, fy_start: 'FY 2015')
       end.to raise_error(ActiveRecord::RecordNotFound)
       expect do
-        FactoryGirl.create(:expenditures_with_circ_stats_report, fy_end: 'FY 2015')
+        FactoryBot.create(:expenditures_with_circ_stats_report, fy_end: 'FY 2015')
       end.to raise_error(ActiveRecord::RecordNotFound)
     end
   end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :circulation_statistics_report_log do
     date_request '14-JUL-16'
     date_ran '14-JUL-16'

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :errors_for_batch, class: UniUpdatesErrors do |f|
     f.run '2013-06-15 12:06:35'
     f.batch '12845'

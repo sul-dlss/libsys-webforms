@@ -1,5 +1,5 @@
 include ActionDispatch::TestProcess
-FactoryGirl.define do
+FactoryBot.define do
   factory :sal3_batch_requests_batch do
     batch_id 1
     batch_name 'Batch name'

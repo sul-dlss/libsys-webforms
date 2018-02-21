@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :uni_updates do
     batch_id '1'
     pending ''

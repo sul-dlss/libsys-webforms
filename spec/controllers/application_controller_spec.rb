@@ -22,7 +22,7 @@ describe ApplicationController do
   describe '#current_user' do
     it 'should set the current_user as a webauth_user' do
       user_id = controller.send(:user_id)
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       current_user = controller.send(:current_user)
       expect(current_user.user_id).to eq(user_id)
     end
@@ -38,7 +38,7 @@ describe ApplicationController do
       allow(controller.request).to receive(:env).and_return('REMOTE_USER' => '')
     end
     it 'should check whether the user is both an current_user and has a user_id from webauth ' do
-      stub_current_user(FactoryGirl.create(:authorized_user))
+      stub_current_user(FactoryBot.create(:authorized_user))
       webauth_user = controller.send(:webauth_user?)
       expect(webauth_user).to be_falsey
     end
