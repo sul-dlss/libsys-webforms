@@ -18,13 +18,13 @@
       <tr class='<%= cycle("odd", "even") %>'>
         <td class='col-xs-1'><%= link_to 'Batch details', sal3_batch_requests_batch_path(batch), class: 'btn btn-default' %></td>
         <td class='col-xs-2'><%= batch.batch_needbydate.strftime('%x') %></td>
-        <td class='col-xs-3'><%= batch.comments %></td>
+        <td class='col-xs-3'><%= batch.batch_name %></td>
         <td class='col-xs-4'><%= batch.stopcode %></td>
         <td class='col-xs-5'><%= batch.num_bcs %></td>
         <td class='col-xs-6'><%= batch.status %></td>
         <td class='col-xs-7'><%= batch.num_bcs > batch.batch_numpullperday %></td>
         <td class='col-xs-8'><%= batch.load_date %></td>
-        <td class='col-xs-9'><%= link_to 'Mange batch request', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %></td>
+        <td class='col-xs-9'><%= link_to 'Manage batch request', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
