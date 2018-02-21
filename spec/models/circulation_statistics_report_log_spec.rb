@@ -39,17 +39,17 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
 
     it 'constructs classic range type params where call_alpha is blank' do
       report = FactoryBot.build(:circulation_statistics_report, range_type: 'classic',
-                                                                 call_lo: 1,
-                                                                 call_hi: 2)
+                                                                call_lo: 1,
+                                                                call_hi: 2)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq(params.merge!('call_range' => '1-2'))
     end
 
     it 'constructs classic range type params where call_alpha is not blank' do
       report = FactoryBot.build(:circulation_statistics_report, range_type: 'classic',
-                                                                 call_alpha: 'L',
-                                                                 call_lo: 1,
-                                                                 call_hi: 2)
+                                                                call_alpha: 'L',
+                                                                call_lo: 1,
+                                                                call_hi: 2)
       log_params = CirculationStatisticsReportLog.process_range_type_params(report)
       expect(log_params).to eq(params.merge!('call_range' => 'L1-2'))
     end

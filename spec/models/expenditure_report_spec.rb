@@ -4,9 +4,9 @@ RSpec.describe ExpenditureReport, type: :model do
   before(:all) do
     FactoryBot.create(:expenditures_fy_date)
     FactoryBot.create(:expenditures_fy_date,
-                       fy: 2011,
-                       min_paydate: '0010-09-03 00:00:00',
-                       max_paydate: '0011-08-25 00:00:00')
+                      fy: 2011,
+                      min_paydate: '0010-09-03 00:00:00',
+                      max_paydate: '0011-08-25 00:00:00')
   end
   it 'has a valid factory' do
     expect(FactoryBot.create(:expenditure_report)).to be_valid
