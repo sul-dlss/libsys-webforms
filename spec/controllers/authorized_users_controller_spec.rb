@@ -21,21 +21,16 @@ RSpec.describe AuthorizedUsersController, type: :controller do
   end
   describe 'post#create' do
     it 'returns 302 when creating a new user' do
-      post :create, authorized_user: { user_id: 'create_user',
-                                       user_name: 'New User',
+      post :create, authorized_user: { user_id: 'create_user', user_name: 'New User',
                                        mgt_rpts: '1' }
       expect(response).to have_http_status(302)
     end
     it 'flashes error if user missing user_id or user_name' do
-      post :create, authorized_user: { user_id: '',
-                                       user_name: ' ',
-                                       mgt_rpts: '1' }
+      post :create, authorized_user: { user_id: '', user_name: ' ', mgt_rpts: '1' }
       expect(flash[:error]).to be_present
     end
     it 'flashes error if user already exists' do
-      post :create, authorized_user: { user_id: 'admin_user',
-                                       user_name: ' ',
-                                       mgt_rpts: '1' }
+      post :create, authorized_user: { user_id: 'admin_user', user_name: ' ', mgt_rpts: '1' }
       expect(flash[:error]).to eq 'User already exists!'
     end
   end

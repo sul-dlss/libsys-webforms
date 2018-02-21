@@ -8,7 +8,7 @@ class ExpenditureReport < ActiveRecord::Base
   validates :email, presence: true
   validates :fund, presence: true, if: 'fund_begin.nil?'
   validates :fund_begin, presence: true, if: 'fund.nil?'
-  validates :date_type, inclusion: %w(fiscal calendar paydate)
+  validates :date_type, inclusion: %w[fiscal calendar paydate]
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   before_save :set_fund, :write_dates, :set_output_file
@@ -35,31 +35,28 @@ class ExpenditureReport < ActiveRecord::Base
   end
 
   def check_fy
-    if fy_start.present? && fy_end.present?
-      write_fy_start(fy_start.sub('FY', ''))
+    write_fy_start(fy_start.sub('FY', ''))
+    if fy_end.present?
       write_fy_end(fy_end.sub('FY', ''))
     else # fy_end is the same as fy_start
-      write_fy_start(fy_start.sub('FY', ''))
       write_fy_end(fy_start.sub('FY', ''))
     end
   end
 
   def check_cal
-    if cal_start.present? && cal_end.present?
-      write_cal_start(cal_start)
+    write_cal_start(cal_start)
+    if cal_end.present?
       write_cal_end(cal_end)
     else # cal_end is the same as cal_start
-      write_cal_start(cal_start)
       write_cal_end(cal_start)
     end
   end
 
   def check_pd
-    if pd_start.present? && pd_end.present?
-      write_pd_start(pd_start)
+    write_pd_start(pd_start)
+    if pd_end.present?
       write_pd_end(pd_end)
     else # pd_end is the same as pd_start
-      write_pd_start(pd_start)
       write_pd_end(pd_start)
     end
   end

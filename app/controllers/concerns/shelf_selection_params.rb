@@ -51,28 +51,29 @@ module ShelfSelectionParams
     end
   end
 
+  def no_array?(array, batch_params)
+    batch_params[array.to_sym].nil? || batch_params[array.to_sym] =~
+      /^(ALL|All\ Formats|All\ Item\ Types|All\ Item\ Category1s)$/
+  end
+
+  def trim_array(array, batch_params, report_params)
+    report_params[array.to_sym] = batch_params[array.to_sym].reject! { |a| a == '' }.join(',')
+  end
+
   def format_str(batch_params, report_params)
-    unless batch_params[:format_array].nil? || batch_params[:format_array] == 'All Formats'
-      report_params[:format_array] = batch_params[:format_array].reject! { |a| a == '' }.join(',')
-    end
+    no_array?(:format_array, batch_params) ? return : trim_array(:format_array, batch_params, report_params)
   end
 
   def itype_str(batch_params, report_params)
-    unless batch_params[:itype_array].nil? || batch_params[:itype_array] == 'All Item Types'
-      report_params[:itype_array] = batch_params[:itype_array].reject! { |a| a == '' }.join(',')
-    end
+    no_array?(:itype_array, batch_params) ? return : trim_array(:itype_array, batch_params, report_params)
   end
 
   def icat1_str(batch_params, report_params)
-    unless batch_params[:icat1_array].nil? || batch_params[:icat1_array] == 'All Item Category1s'
-      report_params[:icat1_array] = batch_params[:icat1_array].reject! { |a| a == '' }.join(',')
-    end
+    no_array?(:icat1_array, batch_params) ? return : trim_array(:icat1_array, batch_params, report_params)
   end
 
   def loc_str(batch_params, report_params)
-    unless batch_params[:loc_array].nil? || batch_params[:loc_array] == 'ALL'
-      report_params[:loc_array] = batch_params[:loc_array].reject! { |a| a == '' }.join(',')
-    end
+    no_array?(:loc_array, batch_params) ? return : trim_array(:loc_array, batch_params, report_params)
   end
 
   def no_boundw(report_params)

@@ -1,16 +1,16 @@
 require 'csv'
 
 UnicornPolicy.destroy_all
-keys = %w(type policy_num name description shadowed destination)
-csv_text = File.read(Rails.root.join('spec/fixtures/files/unicorn_policies.csv'))
+keys = %w[type policy_num name description shadowed destination]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'unicorn_policies.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
 UnicornPolicy.create(hash)
 
 ExpendituresFunds.destroy_all
-keys = %w(fund_id fund_name_key old_fund_id min_pay_date max_pay_date is_endow inv_lib)
-csv_text = File.read(Rails.root.join('spec/fixtures/files/expenditures_funds.csv'))
+keys = %w[fund_id fund_name_key old_fund_id min_pay_date max_pay_date is_endow inv_lib]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures_funds.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
@@ -18,15 +18,15 @@ ExpendituresFunds.create(hash)
 
 ExpendituresPaydates.destroy_all
 keys = ['pay_date']
-csv_text = File.read(Rails.root.join('spec/fixtures/files/expenditures_paydates.csv'))
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures_paydates.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
 ExpendituresPaydates.create(hash)
 
 UniLibsLocs.destroy_all
-keys = %w(library home_loc)
-csv_text = File.read(Rails.root.join('spec/fixtures/files/uni_libs_locs.csv'))
+keys = %w[library home_loc]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'uni_libs_locs.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
@@ -34,7 +34,7 @@ UniLibsLocs.create(hash)
 
 ShelfSelectionItemType.destroy_all
 keys = ['item_type']
-csv_text = File.read(Rails.root.join('spec/fixtures/files/item_types.csv'))
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'item_types.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
@@ -42,7 +42,7 @@ ShelfSelectionItemType.create(hash)
 
 ShelfSelItemCat1.destroy_all
 keys = ['item_category1']
-csv_text = File.read(Rails.root.join('spec/fixtures/files/item_cat1.csv'))
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'item_cat1.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
@@ -50,14 +50,14 @@ ShelfSelItemCat1.create(hash)
 
 CirculationStatisticsReportFormat.destroy_all
 keys = ['format']
-csv_text = File.read(Rails.root.join('spec/fixtures/files/formats.csv'))
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'formats.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
 CirculationStatisticsReportFormat.create(hash)
 
 Expenditures.destroy_all
-keys = %w(
+keys = %w[
   row_date
   review_date
   ta_inv_line_key
@@ -129,16 +129,16 @@ keys = %w(
   ol_volume
   i_created_by
   i_modified_by
-)
-csv_text = File.read(Rails.root.join('spec/fixtures/files/expenditures.csv'))
+]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
 Expenditures.create(hash)
 
 ExpendituresFyDate.destroy_all
-keys = %w(fy min_paydate max_paydate)
-csv_text = File.read(Rails.root.join('spec/fixtures/files/expenditures_fy_dates.csv'))
+keys = %w[fy min_paydate max_paydate]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures_fy_dates.csv'))
 csv = CSV.parse(csv_text, headers: false)
 csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }

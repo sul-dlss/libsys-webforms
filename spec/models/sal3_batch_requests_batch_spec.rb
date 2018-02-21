@@ -14,7 +14,7 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
                                                         'Green Loading Dock' => 'DS')
   end
   it 'Defines a batch_media hash' do
-    expect(Sal3BatchRequestsBatch.batch_media).to include(book: %w(BOOK Book), unknown: %w(UNKNOWN Unknown))
+    expect(Sal3BatchRequestsBatch.batch_media).to include(book: %w[BOOK Book], unknown: %w[UNKNOWN Unknown])
   end
   it 'Defines a batch_container hash' do
     expect(Sal3BatchRequestsBatch.batch_container).to include('Manuscript Box' => 'MANUSCRIPT_BOX',
@@ -23,9 +23,9 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
                                                               'Unknown' => 'UNKNOWN')
   end
   it 'Defines a status array' do
-    expect(Sal3BatchRequestsBatch.status).to eq %w(NEW APPROVED SUSPENDED REJECTED)
+    expect(Sal3BatchRequestsBatch.status).to eq %w[NEW APPROVED SUSPENDED REJECTED]
   end
   it 'Defines a priority array' do
-    expect(Sal3BatchRequestsBatch.priority). to eq %w(1 2 3)
+    expect(Sal3BatchRequestsBatch.priority). to eq %w[1 2 3]
   end
 end

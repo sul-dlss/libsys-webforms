@@ -4,7 +4,9 @@
 class UniUpdates < ActiveRecord::Base
   self.table_name = 'uni_updates'
   self.primary_key = 'batch_id'
-  belongs_to :uni_updates_batch, foreign_key: 'batch_id', class_name: UniUpdatesBatch
+  belongs_to :uni_updates_batch, foreign_key: 'batch_id',
+                                 class_name: UniUpdatesBatch,
+                                 inverse_of: :uni_updates
 
   # rubocop:disable Metrics/MethodLength
   def self.create_for_batch(array_of_item_ids, uni_updates_batch)

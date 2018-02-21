@@ -23,7 +23,7 @@ class Ckey2bibframe
   def marc21_to_xml
     begin
       marcxml = execute_command(convert).force_encoding('UTF-8')
-    rescue => e
+    rescue StandardError => e
       Rails.logger.warn('Unable to connect to Symphony via SSH.')
       Rails.logger.error(e)
     end

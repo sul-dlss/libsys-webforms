@@ -10,7 +10,7 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   validates :fund_begin, presence: true, if: 'fund.nil?'
   validates :lib_array, presence: true
   validates :format_array, presence: true
-  validates :date_type, inclusion: %w(fiscal calendar paydate)
+  validates :date_type, inclusion: %w[fiscal calendar paydate]
 
   before_save :set_fund, :write_dates, :write_lib, :write_fmt
   before_save :check_fy, if: 'date_type == "fiscal"'
@@ -38,31 +38,28 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   end
 
   def check_fy
-    if fy_start.present? && fy_end.present?
-      write_fy_start(fy_start.sub('FY', ''))
+    write_fy_start(fy_start.sub('FY', ''))
+    if fy_end.present?
       write_fy_end(fy_end.sub('FY', ''))
     else # fy_end is the same as fy_start
-      write_fy_start(fy_start.sub('FY', ''))
       write_fy_end(fy_start.sub('FY', ''))
     end
   end
 
   def check_cal
-    if cal_start.present? && cal_end.present?
-      write_cal_start(cal_start)
+    write_cal_start(cal_start)
+    if cal_end.present?
       write_cal_end(cal_end)
     else # cal_end is the same as cal_start
-      write_cal_start(cal_start)
       write_cal_end(cal_start)
     end
   end
 
   def check_pd
-    if pd_start.present? && pd_end.present?
-      write_pd_start(pd_start)
+    write_pd_start(pd_start)
+    if pd_end.present?
       write_pd_end(pd_end)
     else # pd_end is the same as pd_start
-      write_pd_start(pd_start)
       write_pd_end(pd_start)
     end
   end

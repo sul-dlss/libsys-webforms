@@ -11,7 +11,7 @@ AllCops:
     - 'config/**/*'
     - 'spec/spec_helper.rb'
     - 'test/spec_helper.rb'
-#    - 'spec/teaspoon_env.rb'
+    - 'spec/factories/*'
     - 'vendor/**/*'
     - 'lib/tasks/display-coverage.rake'
     - 'loc_marc2bibframe2/**/*'
@@ -46,6 +46,3 @@ Style/StringLiterals:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-# Rails/HttpPositionalArguments:
-#   Enabled: false
