@@ -1,8 +1,14 @@
 # Controller to handle the SAL3 Batch Requests landing page
 class Sal3BatchRequestsBatchesController < ApplicationController
   load_and_authorize_resource
+  has_scope :pullmon
+  has_scope :pulltues
+  has_scope :pullwed
+  has_scope :pullthurs
+  has_scope :pullfri
+
   def index
-    @sal3_batch_requests_batches = Sal3BatchRequestsBatch.all
+    @sal3_batch_requests_batches = apply_scopes(Sal3BatchRequestsBatch).all
   end
 
   def show

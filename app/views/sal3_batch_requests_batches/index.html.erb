@@ -1,6 +1,14 @@
 <h2>SAL3 Batch Requests</h2>
 <table class="table table-striped">
   <thead>
+    <div>
+      <span><%= link_to 'All days', {controller: 'sal3_batch_requests_batches', action: 'index'}, class: 'btn btn-default'  %></span>&nbsp;
+      <span><%= link_to 'Mondays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullmon => '1'}, class: 'btn btn-default' %></span>&nbsp;
+      <span><%= link_to 'Tuesdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pulltues => '1'}, class: 'btn btn-default'  %></span>&nbsp;
+      <span><%= link_to 'Wednesdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullwed => '1'}, class: 'btn btn-default'  %></span>&nbsp;
+      <span><%= link_to 'Thursdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullthurs => '1'}, class: 'btn btn-default'  %></span>&nbsp;
+      <span><%= link_to 'Fridays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullfri => '1'}, class: 'btn btn-default'  %></span>
+    </div>
     <tr>
       <th class='col-xs-1'></th>
       <th class='col-xs-2'>Date needed</th>
@@ -17,13 +25,13 @@
     <% @sal3_batch_requests_batches.each do |batch| %>
       <tr class='<%= cycle("odd", "even") %>'>
         <td class='col-xs-1'><%= link_to 'Batch details', sal3_batch_requests_batch_path(batch), class: 'btn btn-default' %></td>
-        <td class='col-xs-2'><%= batch.batch_needbydate.strftime('%x') %></td>
+        <td class='col-xs-2'><%= batch.batch_needbydate.present? ? batch.batch_needbydate.strftime('%x') : '' %></td>
         <td class='col-xs-3'><%= batch.batch_name %></td>
         <td class='col-xs-4'><%= batch.stopcode %></td>
         <td class='col-xs-5'><%= batch.num_bcs %></td>
         <td class='col-xs-6'><%= batch.status %></td>
         <td class='col-xs-7'><%= batch.num_bcs.to_i > batch.batch_numpullperday.to_i ? 'Yes' : 'No' %></td>
-        <td class='col-xs-8'><%= batch.load_date.strftime('%x') %></td>
+        <td class='col-xs-8'><%= batch.load_date.present? ? batch.load_date.strftime('%x') : '' %></td>
         <td class='col-xs-9'>
           <% if can? :update, Sal3BatchRequestsBatch %>
             <%= link_to 'Manage batch request', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %>

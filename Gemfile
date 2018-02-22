@@ -45,6 +45,8 @@ gem 'honeybadger'
 gem 'uglifier'
 # For fiscal year functions
 gem 'fiscali'
+#To filter Sal3BatchRequestsBatches to day of the week
+gem 'has_scope'
 
 group :production do
   # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
