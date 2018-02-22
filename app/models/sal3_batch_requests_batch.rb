@@ -12,6 +12,13 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
                                     dependent: :destroy,
                                     inverse_of: :sal3_batch_requests_batch
   after_create :set_num_bcs
+
+  scope :pullmon, ->(monday) { where(batch_pullmon: monday) }
+  scope :pulltues, ->(tuesday) { where(batch_pulltues: tuesday) }
+  scope :pullwed, ->(wednesday) { where(batch_pullwed: wednesday) }
+  scope :pullthurs, ->(thursday) { where(batch_pullthurs: thursday) }
+  scope :pullfri, ->(friday) { where(batch_pullfri: friday) }
+
   self.table_name = 'sal3_batch_requests_batch'
   self.primary_key = 'batch_id'
 
