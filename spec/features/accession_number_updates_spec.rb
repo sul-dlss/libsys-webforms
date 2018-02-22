@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'accession number updates pages' do
   before(:each) do
-    stub_current_user(FactoryGirl.create(:authorized_user))
-    @accession_number = FactoryGirl.create(:accession_number)
-    @zvc_number = FactoryGirl.create(:zvc_number)
+    stub_current_user(FactoryBot.create(:authorized_user))
+    @accession_number = FactoryBot.create(:accession_number)
+    @zvc_number = FactoryBot.create(:zvc_number)
     visit accession_number_updates_path
   end
 

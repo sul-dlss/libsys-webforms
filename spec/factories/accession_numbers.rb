@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :accession_number do
     id 1
     resource_type 'Visual Materials'

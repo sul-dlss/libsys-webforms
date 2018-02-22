@@ -3,9 +3,9 @@ require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 RSpec.describe AccessionNumbersController, type: :controller do
   before(:each) do
-    stub_current_user(FactoryGirl.create(:authorized_user))
-    @accession_number = FactoryGirl.create(:accession_number)
-    @zvc_number = FactoryGirl.create(:zvc_number)
+    stub_current_user(FactoryBot.create(:authorized_user))
+    @accession_number = FactoryBot.create(:accession_number)
+    @zvc_number = FactoryBot.create(:zvc_number)
   end
   let(:valid_attributes) do
     { resource_type: 'Sound Recordings',
