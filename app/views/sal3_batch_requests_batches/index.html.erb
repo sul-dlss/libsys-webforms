@@ -8,7 +8,7 @@
       <th class='col-xs-4'>Stop code</th>
       <th class='col-xs-5'>No. of items requested</th>
       <th class='col-xs-6'>Status</th>
-      <th class='col-xs-7'>Multiple requests in batch?</th>
+      <th class='col-xs-7'>Multiple pulls for batch?</th>
       <th class='col-xs-8'>Date requested</th>
       <th class='col-xs-9'></th>
     </tr>
@@ -22,9 +22,13 @@
         <td class='col-xs-4'><%= batch.stopcode %></td>
         <td class='col-xs-5'><%= batch.num_bcs %></td>
         <td class='col-xs-6'><%= batch.status %></td>
-        <td class='col-xs-7'><%= batch.num_bcs > batch.batch_numpullperday %></td>
-        <td class='col-xs-8'><%= batch.load_date %></td>
-        <td class='col-xs-9'><%= link_to 'Manage batch request', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %></td>
+        <td class='col-xs-7'><%= batch.num_bcs.to_i > batch.batch_numpullperday.to_i ? 'Yes' : 'No' %></td>
+        <td class='col-xs-8'><%= batch.load_date.strftime('%x') %></td>
+        <td class='col-xs-9'>
+          <% if can? :update, Sal3BatchRequestsBatch %>
+            <%= link_to 'Manage batch request', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %>
+         <% end %>
+       </td>
       </tr>
     <% end %>
   </tbody>
