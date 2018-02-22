@@ -51,8 +51,8 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  ckeys_file: 'endow123.txt' }
 
       post :create, endowed_funds_report: params
-      expect(controller.date_start).to eq '0098-12-22'
-      expect(controller.date_end).to eq '0099-12-22'
+      expect(controller.date_start).to eq '1998-12-22'
+      expect(controller.date_end).to eq '1999-12-22'
     end
   end
 

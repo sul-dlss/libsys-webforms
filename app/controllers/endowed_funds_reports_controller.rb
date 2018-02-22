@@ -64,9 +64,9 @@ class EndowedFundsReportsController < ApplicationController
     if @endowed_funds_report.fiscal_years.any?
       start_date = @endowed_funds_report.fiscal_years[0]
     elsif @endowed_funds_report.calendar_years.any?
-      start_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[0]}-01-01").strftime('%Y-%m-%d')
+      start_date = Time.parse("#{@endowed_funds_report.calendar_years[0]}-01-01").in_time_zone.strftime('%Y-%m-%d')
     elsif @endowed_funds_report.paid_years.any?
-      start_date = Time.zone.parse(@endowed_funds_report.paid_years[0].to_s).strftime('%Y-%m-%d')
+      start_date = Time.parse(@endowed_funds_report.paid_years[0].to_s).in_time_zone.strftime('%Y-%m-%d')
     end
     start_date
   end
@@ -75,9 +75,9 @@ class EndowedFundsReportsController < ApplicationController
     if @endowed_funds_report.fiscal_years.any?
       end_date = @endowed_funds_report.fiscal_years[1]
     elsif @endowed_funds_report.calendar_years.any?
-      end_date = Time.zone.parse("#{@endowed_funds_report.calendar_years[1]}-12-31").strftime('%Y-%m-%d')
+      end_date = Time.parse("#{@endowed_funds_report.calendar_years[1]}-12-31").in_time_zone.strftime('%Y-%m-%d')
     elsif @endowed_funds_report.paid_years.any?
-      end_date = Time.zone.parse(@endowed_funds_report.paid_years[1].to_s).strftime('%Y-%m-%d')
+      end_date = Time.parse(@endowed_funds_report.paid_years[1].to_s).in_time_zone.strftime('%Y-%m-%d')
     end
     end_date
   end
