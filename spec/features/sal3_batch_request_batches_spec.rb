@@ -10,7 +10,7 @@ describe 'sal3_batch_requests_batches' do
     expect(page).to have_css('th', text: 'Stop code')
     expect(page).to have_css('th', text: 'No. of items requested')
     expect(page).to have_css('th', text: 'Status')
-    expect(page).to have_css('th', text: 'Multiple requests in batch?')
+    expect(page).to have_css('th', text: 'Multiple pulls for batch?')
     expect(page).to have_css('th', text: 'Date requested')
   end
 end

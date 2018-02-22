@@ -27,7 +27,7 @@
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <ul>
             <li><%= link_to "Place batch request", new_sal3_batch_requests_batch_path %></li>
-            <% if can? :read, Sal3BatchRequestsBatch and can? :update, Sal3BatchRequestsBatch %>
+            <% if can? :read, Sal3BatchRequestsBatch %>
               <li><%= link_to "Review batches", sal3_batch_requests_batches_path %></li>
             <% end %>
           </ul>

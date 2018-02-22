@@ -21,9 +21,9 @@ class Ability
 
   def assign_staff_permission(current_user)
     can :manage, ManagementReport if /A|Y/ =~ current_user.mgt_rpts
-    can :create, Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
-    can :create, UserloadRerun if /A|Y/ =~ current_user.userload_rerun
+    can %i[create read], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
     can %i[read update], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
+    can :create, UserloadRerun if /A|Y/ =~ current_user.userload_rerun
   end
 
   def assign_admin_permission(current_user)
