@@ -48,23 +48,17 @@ class EndowedFundsReport
   end
 
   def self.ol_cat_key_fund_begin(fund_begin, date_start, date_end)
-    fund_begin ||= 'All SUL Funds'
-    begin
-      Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND ta_date_2encina between
-                          TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                         "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
-    rescue ActiveRecord::StatementInvalid
-    end
+    Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND ta_date_2encina between
+                        TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
+                       "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
+  rescue ActiveRecord::StatementInvalid
   end
 
   def self.ol_cat_key_fy_begin(fund_begin, date_start, date_end)
-    fund_begin ||= 'All SUL Funds'
-    begin
-      Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND
-                         (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)",
-                         "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
-    rescue ActiveRecord::StatementInvalid
-    end
+    Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND
+                       (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)",
+                       "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
+  rescue ActiveRecord::StatementInvalid
   end
 
   def write_keys(catalog_keys)
