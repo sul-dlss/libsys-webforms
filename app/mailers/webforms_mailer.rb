@@ -3,7 +3,7 @@ class WebformsMailer < ApplicationMailer
   def batch_upload_email(uni_updates_batch, duplicates)
     @uni_updates_batch = uni_updates_batch
     @duplicates = duplicates
-    all_recipients = ['sul-unicorn-devs@lists.stanford.edu']
+    all_recipients = ['sul-unicorn-devs@lists.stanford.edu, sal3contact@stanford.edu']
     if @uni_updates_batch.user_email
       form_recipients = @uni_updates_batch.user_email.split(/[\s,;]+/)
       form_recipients.each { |r| all_recipients << r.strip }

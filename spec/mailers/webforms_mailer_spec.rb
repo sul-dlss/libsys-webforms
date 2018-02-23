@@ -21,6 +21,7 @@ describe WebformsMailer do
     describe 'to' do
       it 'is the list email address and email_user' do
         expect(upload_mail.to).to eq ['sul-unicorn-devs@lists.stanford.edu',
+                                      'sal3contact@stanford.edu',
                                       'libraryuser@stanford.edu',
                                       'otheruser@stanford.edu']
         expect(delete_mail.to).to eq ['sul-unicorn-devs@lists.stanford.edu',
@@ -30,6 +31,7 @@ describe WebformsMailer do
 
       it 'replaces spaces, commas, and semicolons' do
         expect(upload_mail_w_emails.to).to eq ['sul-unicorn-devs@lists.stanford.edu',
+                                               'sal3contact@stanford.edu',
                                                'libraryuser@stanford.edu',
                                                'otheruser@stanford.edu',
                                                'anotheruser@stanford.edu',
@@ -43,7 +45,8 @@ describe WebformsMailer do
       end
 
       it 'is just the email address when no email_user is specified' do
-        expect(upload_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
+        expect(upload_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu',
+                                              'sal3contact@stanford.edu']
         expect(delete_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
       end
     end
