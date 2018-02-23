@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516214706) do
+ActiveRecord::Schema.define(version: 20171219222043) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20170516214706) do
     t.string   "sal3_breq_edit"
     t.string   "userload_rerun"
     t.string   "accession_number"
+  end
+
+  create_table "catnums", force: :cascade do |t|
+    t.string   "item_type"
+    t.string   "location"
+    t.string   "prefix"
+    t.integer  "seq_num"
+    t.string   "resource_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "circ_stats_rpt_fmts", force: :cascade do |t|

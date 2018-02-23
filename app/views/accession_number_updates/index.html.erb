@@ -1,0 +1,60 @@
+<div class="home-page-section">
+  <h1>Accession Number Generator</h1>
+  <% if /[AY]/ === current_user.accession_number %>
+  <p>Get accession numbers to assign to material in Symphony. See <a href="https://consul.stanford.edu/x/eaNuCQ">Call numbers--Non-print materials</a> for more information.</p>
+  <h3>What would you like to do? </h3>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+         Get accession numbers by resource type
+       </a>
+      </h4>
+      </div>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <% @resource_types.each do |x| %>
+        <li><%= link_to x.resource_type, by_resource_type_url(:resource_type => x.resource_type) %></li>
+        <% end %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Get accession numbers by location
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <% @locations.each do |loc| %>
+            <li><%= link_to loc.location, by_location_url(:location => loc.location) %></li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            List accession numbers
+          </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <li><%= link_to "Accession number table", accession_numbers_path %></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>
+<% else %>
+<p><%= link_to "Please login", root_path %></p>
+<% end %>

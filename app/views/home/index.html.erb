@@ -7,6 +7,13 @@
   <%= link_to "Login here", login_path(referrer: request.original_url) %>
   <% else %>
     <h3>What would you like to do?</h3>
+    <% if can? :read, AccessionNumber %>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4><%= link_to "Accession number generator", 'accession_number_updates' %></h4>
+      </div>
+    </div>
+    <% end %>
     <% if can? :manage, BatchRecordUpdate %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
