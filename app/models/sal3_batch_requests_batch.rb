@@ -18,6 +18,10 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   scope :pullwed, ->(wednesday) { where(batch_pullwed: wednesday) }
   scope :pullthurs, ->(thursday) { where(batch_pullthurs: thursday) }
   scope :pullfri, ->(friday) { where(batch_pullfri: friday) }
+  scope :statusfilter, lambda { |code|
+    code == 'All' ? code = status : code
+    where(status: code)
+  }
 
   self.table_name = 'sal3_batch_requests_batch'
   self.primary_key = 'batch_id'

@@ -6,6 +6,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
   has_scope :pullwed
   has_scope :pullthurs
   has_scope :pullfri
+  has_scope :statusfilter
 
   def index
     @sal3_batch_requests_batches = apply_scopes(Sal3BatchRequestsBatch).all
