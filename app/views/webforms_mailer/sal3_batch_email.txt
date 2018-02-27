@@ -10,7 +10,7 @@ Priority: <%= @sal3_batch_requests_batch.priority %>
 Items to pull per day: <%= @sal3_batch_requests_batch.batch_numpullperday %>
 
 Delivery start date: <%= @sal3_batch_requests_batch.batch_startdate.strftime('%d-%^b-%y') %>
-All items deliverd by: <%= @sal3_batch_requests_batch.batch_needbydate.strftime('%d-%^b-%y') %>
+All items delivered by: <%= @sal3_batch_requests_batch.batch_needbydate.strftime('%d-%^b-%y') %>
 Comments: <%= @sal3_batch_requests_batch.comments %>
 
 Delivery days
