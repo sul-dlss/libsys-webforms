@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @sal3_batch_requests_batch.num_bcs %> barcodes submitted for SAL3 retrieval with values:</h1>
+    <p>Batch name: <%= @sal3_batch_requests_batch.batch_name %></p>
+    <p>Delivery location: <%= @sal3_batch_requests_batch.stopcode %></p>
+    <p>Media type: <%= @sal3_batch_requests_batch.batch_media %></p>
+    <p>Container type: <%= @sal3_batch_requests_batch.batch_container %></p>
+    <p>Status: <%= @sal3_batch_requests_batch.status %></p>
+    <p>Priority: <%= @sal3_batch_requests_batch.priority %></p>
+    <p>Items to pull per day: <%= @sal3_batch_requests_batch.batch_numpullperday %></p>
+
+    <p>Delivery start date: <%= @sal3_batch_requests_batch.batch_startdate.strftime('%d-%^b-%y') %></p>
+    <p>All items deliverd by: <%= @sal3_batch_requests_batch.batch_needbydate.strftime('%d-%^b-%y') %></p>
+    <p>Comments: <%= @sal3_batch_requests_batch.comments %></p>
+    <hr>
+    <dt>Delivery days</dt>
+    <dd>Mon: <%= @sal3_batch_requests_batch.batch_pullmon %></dd>
+    <dd>Tues: <%= @sal3_batch_requests_batch.batch_pulltues %></dd>
+    <dd>Wed: <%= @sal3_batch_requests_batch.batch_pullwed %></dd>
+    <dd>Thurs: <%= @sal3_batch_requests_batch.batch_pullthurs %></dd>
+    <dd>Fri: <%= @sal3_batch_requests_batch.batch_pullfri %></dd>
+  </body>
+</html>

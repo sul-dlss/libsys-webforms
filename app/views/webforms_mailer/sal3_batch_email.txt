@@ -1,0 +1,21 @@
+<%= @sal3_batch_requests_batch.num_bcs %> barcodes submitted for SAL3 retrieval with values:
+======================================================================================================
+
+Batch name: <%= @sal3_batch_requests_batch.batch_name %>
+Delivery location: <%= @sal3_batch_requests_batch.stopcode %>
+Media type: <%= @sal3_batch_requests_batch.batch_media %>
+Container type: <%= @sal3_batch_requests_batch.batch_container %>
+Status: <%= @sal3_batch_requests_batch.status %>
+Priority: <%= @sal3_batch_requests_batch.priority %>
+Items to pull per day: <%= @sal3_batch_requests_batch.batch_numpullperday %>
+
+Delivery start date: <%= @sal3_batch_requests_batch.batch_startdate.strftime('%d-%^b-%y') %>
+All items deliverd by: <%= @sal3_batch_requests_batch.batch_needbydate.strftime('%d-%^b-%y') %>
+Comments: <%= @sal3_batch_requests_batch.comments %>
+
+Delivery days
+  Mon: <%= @sal3_batch_requests_batch.batch_pullmon %>
+  Tues: <%= @sal3_batch_requests_batch.batch_pulltues %>
+  Wed: <%= @sal3_batch_requests_batch.batch_pullwed %>
+  Thurs: <%= @sal3_batch_requests_batch.batch_pullthurs %>
+  Fri: <%= @sal3_batch_requests_batch.batch_pullfri %>
