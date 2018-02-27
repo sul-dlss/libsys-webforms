@@ -37,7 +37,7 @@ class UniUpdates < ActiveRecord::Base
     uniques = []
     duplicates = []
     uniq_item_ids.each do |item_id|
-      if UniUpdates.where(item_id: item_id, load_date: Time.zone.today).empty?
+      if UniUpdates.where(item_id: item_id, load_date: Time.zone.today.strftime('%Y-%m-%d')).empty?
         uniques << item_id
       else
         duplicates << item_id

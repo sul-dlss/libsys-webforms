@@ -32,6 +32,8 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, sal3_batch_requests_batch: { user_sunetid: 'some-id',
                                                  load_date: '16-06-14',
+                                                 batch_startdate: '16-06-18',
+                                                 batch_needbydate: '16-06-30',
                                                  last_action_date: nil,
                                                  bc_file: barcode_file }
 

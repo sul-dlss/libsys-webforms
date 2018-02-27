@@ -25,6 +25,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     if @sal3_batch_requests_batch.save
       array_of_item_ids = @sal3_batch_requests_batch.parse_bc_file
       Sal3BatchRequestBcs.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
+      WebformsMailer.sal3_batch_email(@sal3_batch_requests_batch).deliver_now
       flash[:success] = 'Batch requested!'
       redirect_to root_path
     else

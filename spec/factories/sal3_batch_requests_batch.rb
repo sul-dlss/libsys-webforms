@@ -4,6 +4,7 @@ FactoryBot.define do
     batch_id 1
     batch_name 'Batch name'
     user_name 'Test User'
+    user_email 'libraryuser@stanford.edu, otheruser@stanford.edu'
     user_sunetid 'someone'
     status ''
     priority '3'
