@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe AccessionNumbersController, type: :controller do
   before(:each) do
     stub_current_user(FactoryBot.create(:authorized_user))
@@ -100,4 +99,3 @@ RSpec.describe AccessionNumbersController, type: :controller do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

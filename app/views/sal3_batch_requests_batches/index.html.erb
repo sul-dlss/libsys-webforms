@@ -10,29 +10,29 @@
       <span><%= link_to 'Fridays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullfri => '1'}, class: 'btn btn-default'  %></span>
     </div>
     <tr>
-      <th class='col-xs-1'></th>
-      <th class='col-xs-2'>Date needed</th>
-      <th class='col-xs-3'>Name or short description</th>
-      <th class='col-xs-4'>Stop code</th>
-      <th class='col-xs-5'>No. of items requested</th>
-      <th class='col-xs-6'>Status</th>
-      <th class='col-xs-7'>Multiple pulls for batch?</th>
-      <th class='col-xs-8'>Date requested</th>
-      <th class='col-xs-9'></th>
+      <th></th>
+      <th>Date needed</th>
+      <th>Name or short description</th>
+      <th>Stop code</th>
+      <th>No. of items requested</th>
+      <th>Status</th>
+      <th>Multiple pulls for batch?</th>
+      <th>Date requested</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @sal3_batch_requests_batches.each do |batch| %>
       <tr class='<%= cycle("odd", "even") %>'>
-        <td class='col-xs-1'><%= link_to 'Batch details', sal3_batch_requests_batch_path(batch), class: 'btn btn-default' %></td>
-        <td class='col-xs-2'><%= batch.batch_needbydate.present? ? batch.batch_needbydate.strftime('%x') : '' %></td>
-        <td class='col-xs-3'><%= batch.batch_name %></td>
-        <td class='col-xs-4'><%= batch.stopcode %></td>
-        <td class='col-xs-5'><%= batch.num_bcs %></td>
-        <td class='col-xs-6'><%= batch.status %></td>
-        <td class='col-xs-7'><%= batch.num_bcs.to_i > batch.batch_numpullperday.to_i ? 'Yes' : 'No' %></td>
-        <td class='col-xs-8'><%= batch.load_date.present? ? batch.load_date.strftime('%x') : '' %></td>
-        <td class='col-xs-9'>
+        <td><%= link_to 'Batch details', sal3_batch_requests_batch_path(batch), class: 'btn btn-default' %></td>
+        <td><%= batch.batch_needbydate.present? ? batch.batch_needbydate.strftime('%x') : '' %></td>
+        <td><%= batch.batch_name %></td>
+        <td><span style='cursor: pointer' data-toggle='tooltip' data-placement='bottom' title="<%= Sal3BatchRequestsBatch.locations.index(batch.stopcode) %>"><%= batch.stopcode %></span></td>
+        <td><%= batch.num_bcs %></td>
+        <td><%= batch.status %></td>
+        <td><%= batch.num_bcs.to_i > batch.batch_numpullperday.to_i ? 'Yes' : 'No' %></td>
+        <td><%= batch.load_date.present? ? batch.load_date.strftime('%x') : '' %></td>
+        <td>
           <% if can? :update, Sal3BatchRequestsBatch %>
             <%= link_to 'Manage batch request', edit_sal3_batch_requests_batch_path(batch), class: 'btn btn-primary' %>
          <% end %>
