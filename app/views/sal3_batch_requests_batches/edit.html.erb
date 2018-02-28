@@ -101,3 +101,6 @@
 <div class="btn-group">
   <%= link_to 'Review batches', sal3_batch_requests_batches_path, class: 'btn btn-primary' %>
 </div>
+<div class="btn-group">
+  <%= link_to 'Download barcodes file', download_sal3_batch_requests_batch_path(@sal3_batch_requests_batch), class: 'btn btn-default', target: '_blank', onclick: "alert('Downloading file: #{@sal3_batch_requests_batch[:bc_file]}');" %>
+</div>

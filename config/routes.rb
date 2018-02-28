@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :withdraw_items, only: [:new, :create]
   resources :transfer_items, only: [:new, :create]
   resources :sal3_batch_requests_batches, only: [:index, :show, :new, :create, :edit, :update]
+  resources :sal3_batch_requests_batches, only: :edit do
+    get 'download', on: :member
+  end
   resources :encumbrance_reports, only: [:new, :create]
   resources :expenditure_reports, only: [:new, :create]
   resources :circulation_statistics_reports, only: [:new, :create]

@@ -47,6 +47,11 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     end
   end
 
+  def download
+    @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
+    send_file @sal3_batch_requests_batch[:bc_file], type: 'text/plain', disposition: 'attachment'
+  end
+
   def sal3_batch_requests_batch_params
     params.require(:sal3_batch_requests_batch).permit!
   end
