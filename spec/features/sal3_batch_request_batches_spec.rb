@@ -23,4 +23,13 @@ describe 'sal3_batch_requests_batches' do
     expect(page).to have_css('th', text: 'Multiple pulls for batch?')
     expect(page).to have_css('th', text: 'Date requested')
   end
+
+  it 'display the selection of status filters' do
+    expect(page).to have_css('option', text: 'ALL')
+    expect(page).to have_css('option', text: 'NEW')
+    expect(page).to have_css('option', text: 'APPROVED')
+    expect(page).to have_css('option', text: 'REJECTED')
+    expect(page).to have_css('option', text: 'SUSPENDED')
+    expect(page).to have_css('option', text: 'DONE')
+  end
 end
