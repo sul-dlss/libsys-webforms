@@ -1,13 +1,20 @@
+<% day_params = [params[:pullmon], params[:pulltues], params[:pullwed], params[:pullthurs], params[:pullfri] ].any? %>
+<% day_params ? css_all = 'btn btn-default' : css_all = 'btn btn-primary' %>
+<% params[:pullmon] == '1' ? css_mon = 'btn btn-primary' : css_mon = 'btn btn-default' %>
+<% params[:pulltues] == '1' ? css_tue = 'btn btn-primary' : css_tue = 'btn btn-default' %>
+<% params[:pullwed] == '1' ? css_wed = 'btn btn-primary' : css_wed = 'btn btn-default' %>
+<% params[:pullthurs] == '1' ? css_thu = 'btn btn-primary' : css_thu = 'btn btn-default' %>
+<% params[:pullfri] == '1' ? css_fri = 'btn btn-primary' : css_fri = 'btn btn-default' %>
 <h2>SAL3 Batch Requests</h2>
 <table class="table table-striped">
   <thead>
     <div>
-      <span><%= link_to 'All days', {controller: 'sal3_batch_requests_batches', action: 'index'}, class: 'btn btn-default'  %></span>&nbsp;
-      <span><%= link_to 'Mondays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullmon => '1'}, class: 'btn btn-default' %></span>&nbsp;
-      <span><%= link_to 'Tuesdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pulltues => '1'}, class: 'btn btn-default'  %></span>&nbsp;
-      <span><%= link_to 'Wednesdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullwed => '1'}, class: 'btn btn-default'  %></span>&nbsp;
-      <span><%= link_to 'Thursdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullthurs => '1'}, class: 'btn btn-default'  %></span>&nbsp;
-      <span><%= link_to 'Fridays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullfri => '1'}, class: 'btn btn-default'  %></span>
+      <span><%= link_to 'All days', {controller: 'sal3_batch_requests_batches', action: 'index'}, class: "#{css_all}"  %></span>&nbsp;
+      <span><%= link_to 'Mondays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullmon => '1'}, class: "#{css_mon}" %></span>&nbsp;
+      <span><%= link_to 'Tuesdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pulltues => '1'}, class: "#{css_tue}"  %></span>&nbsp;
+      <span><%= link_to 'Wednesdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullwed => '1'}, class: "#{css_wed}"  %></span>&nbsp;
+      <span><%= link_to 'Thursdays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullthurs => '1'}, class: "#{css_thu}"  %></span>&nbsp;
+      <span><%= link_to 'Fridays', {controller: 'sal3_batch_requests_batches', action: 'index', :pullfri => '1'}, class: "#{css_fri}"  %></span>
       <span style='margin-left: 20px'>
         Filter by status:
         <%= select_tag 'Status', options_for_select(Sal3BatchRequestsBatch.status_filter, selected: params[:statusfilter]),
