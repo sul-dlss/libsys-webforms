@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable  Metrics/BlockLength
 RSpec.describe CirculationStatisticsReportLog, type: :model do
   let(:barcode_file) do
     extend ActionDispatch::TestProcess
@@ -91,4 +90,3 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

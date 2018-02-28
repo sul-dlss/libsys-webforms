@@ -8,9 +8,9 @@ describe WebformsMailer do
     let(:sal3_batch_requests_batch_w_no_user) { FactoryBot.create(:sal3_batch_requests_batch, user_email: '') }
     let(:uni_updates_batch_w_emails) do
       FactoryBot.build(:uni_updates_batch, user_email: 'libraryuser@stanford.edu,
-                                                         otheruser@stanford.edu
-                                                         anotheruser@stanford.edu;
-                                                         lastuser@stanford.edu')
+                                                        otheruser@stanford.edu
+                                                        anotheruser@stanford.edu;
+                                                        lastuser@stanford.edu')
     end
     let(:sal3_batch_requests_batch_w_emails) do
       FactoryBot.build(:sal3_batch_requests_batch, user_email: 'libraryuser@stanford.edu,
@@ -60,7 +60,7 @@ describe WebformsMailer do
       it 'is just the email address when no email_user is specified' do
         expect(upload_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
         expect(sal3_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu',
-                                              'sal3contact@stanford.edu']
+                                            'sal3contact@stanford.edu']
         expect(delete_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
       end
     end

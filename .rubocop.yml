@@ -24,7 +24,7 @@ Lint/UnusedBlockArgument:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 70
+  Max: 100
 
 Metrics/LineLength:
   Max: 120
