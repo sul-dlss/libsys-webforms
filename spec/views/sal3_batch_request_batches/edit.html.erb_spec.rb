@@ -7,7 +7,6 @@ RSpec.describe 'sal3_batch_requests_batches/edit', type: :view do
   end
 
   before do
-    stub_current_user_for_view { FactoryBot.create(:authorized_user) }
     assign(:sal3_batch_requests_batch, Sal3BatchRequestsBatch.create!(
                                          id: 1,
                                          batch_id: '1',
