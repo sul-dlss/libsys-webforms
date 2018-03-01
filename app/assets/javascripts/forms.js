@@ -1,4 +1,4 @@
 $(document).on('ready page:load', function () {
-  $('table').tablesorter();
+  $('table').DataTable();
   $("[data-toggle='tooltip']").tooltip();
 });
