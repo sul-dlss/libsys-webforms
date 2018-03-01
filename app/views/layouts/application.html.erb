@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="https://sul-cdn.stanford.edu/sul_styles/0.5.0/sul-icons.min.css">
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag "application", media: "all" %>
+  <%= stylesheet_link_tag "https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.2/js/jquery.tablesorter.js" %>
+  <%= javascript_include_tag "https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js" %>
   <%= javascript_include_tag "https://cdn.jsdelivr.net/webshim/1.15.8/polyfiller.js" %>
   <%= csrf_meta_tags %>
   <%= content_for(:head) %>
