@@ -9,7 +9,7 @@
   <%= accession_menu_button %>
 </div>
 
-<table class="table table-striped">
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>Resource type</th>
@@ -17,13 +17,13 @@
       <th>Location</th>
       <th>Prefix</th>
       <th>Seq num</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @accession_numbers.each do |accession_number| %>
-      <tr>
+      <tr class='<%= cycle("odd", "even") %>'>
         <td><%= accession_number.resource_type %></td>
         <td><%= accession_number.item_type %></td>
         <td><%= accession_number.location %></td>
