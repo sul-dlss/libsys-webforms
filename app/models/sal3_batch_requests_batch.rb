@@ -3,9 +3,9 @@
 ###
 class Sal3BatchRequestsBatch < ActiveRecord::Base
   include FileParser
-  attr_accessor :bc_file
+  attr_accessor :bc_file_obj
 
-  validates :bc_file, presence: true, on: :create
+  validates :bc_file_obj, presence: true, on: :create
   validates :batch_numpullperday, numericality: true, on: :update
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
                                     class_name: Sal3BatchRequestBcs,
@@ -76,7 +76,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   end
 
   def set_num_bcs
-    barcodes = IO.read(bc_file.path).split("\n").uniq.length
+    barcodes = IO.read(bc_file_obj).split("\n").uniq.length
     update_attributes(num_bcs: barcodes)
   end
 end

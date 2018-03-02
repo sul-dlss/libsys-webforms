@@ -22,6 +22,8 @@ class Sal3BatchRequestsBatchesController < ApplicationController
   end
 
   def create
+    file_obj = sal3_batch_requests_batch_params[:bc_file_obj]
+    sal3_batch_requests_batch_params[:bc_file] = file_obj.path unless file_obj.nil?
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.new(sal3_batch_requests_batch_params)
     if @sal3_batch_requests_batch.save
       array_of_item_ids = @sal3_batch_requests_batch.parse_bc_file
@@ -47,6 +49,11 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def download
+    @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
+    send_file @sal3_batch_requests_batch[:bc_file], type: 'text/plain', disposition: 'attachment'
   end
 
   def sal3_batch_requests_batch_params

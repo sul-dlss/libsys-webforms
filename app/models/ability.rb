@@ -24,7 +24,7 @@ class Ability
     can %i[read generate_number generate_number_form], AccessionNumber if /A|Y/ =~ current_user.accession_number
     can :manage, ManagementReport if /A|Y/ =~ current_user.mgt_rpts
     can %i[create read], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
-    can %i[read update], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
+    can %i[read update download], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
     can :create, UserloadRerun if /A|Y/ =~ current_user.userload_rerun
   end
 
