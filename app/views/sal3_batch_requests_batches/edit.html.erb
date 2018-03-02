@@ -1,4 +1,4 @@
-<h2>Edit SAL3 Batch Request</h2>
+<h2>Manage SAL3 Batch Request</h2>
 <%= form_for @sal3_batch_requests_batch, class: 'form-group' do |f| %>
 <% if @sal3_batch_requests_batch.errors.any? %>
 <div id="error-explanation">
@@ -33,6 +33,9 @@
       <%= f.label :priority, "Priority", class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-10'>
         <%= f.select :priority, Sal3BatchRequestsBatch.priority, {}, {size: 3, class: 'form-control'} %>
+        <div class='small'>
+          Batches default to priority=3 when submitted. If this batch should be pulled before other batches, set priority to 1.
+        </div>
       </div>
     </div>
     <div class='form-group row'>
@@ -53,39 +56,34 @@
         <%= f.date_field 'batch_startdate', as: :date, class: 'form-control', value: f.object.batch_startdate.strftime('%d-%^b-%y') %>
       </div>
     </div>
-    <div class='indent'>
-      <div class='form-group row'>
-        <div class='col-sm-2'>Requested delivery days:</div>
-      </div>
-      <div class='form-group row'>
-        <%= f.label :batch_pullmon, "Monday", class: 'col-sm-1 form-control-label' %>
-        <div class='col-sm-1'>
-          <%= f.check_box 'batch_pullmon', class: 'form-control', value: f.object.batch_pullmon %>
-        </div>
-      </div>
-      <div class='form-group row'>
-        <%= f.label :batch_pulltues, "Tuesday", class: 'col-sm-1 form-control-label' %>
-        <div class='col-sm-1'>
-          <%= f.check_box 'batch_pulltues', class: 'form-control', value: f.object.batch_pulltues %>
-        </div>
-      </div>
-      <div class='form-group row'>
-        <%= f.label :batch_pullwed, "Wednesday", class: 'col-sm-1 form-control-label' %>
-        <div class='col-sm-1'>
-          <%= f.check_box 'batch_pullwed', class: 'form-control', value: f.object.batch_pullwed %>
-        </div>
-      </div>
-      <div class='form-group row'>
-        <%= f.label :batch_pullthurs, "Thursday", class: 'col-sm-1 form-control-label' %>
-        <div class='col-sm-1'>
-          <%= f.check_box 'batch_pullthurs', class: 'form-control', value: f.object.batch_pullthurs %>
-        </div>
-      </div>
-      <div class='form-group row'>
-        <%= f.label :batch_pullfri, "Friday", class: 'col-sm-1 form-control-label' %>
-        <div class='col-sm-1'>
-          <%= f.check_box 'batch_pullfri', class: 'form-control', value: f.object.batch_pullfri %>
-        </div>
+    <div class='form-group row'>
+      <%= f.label "Requested delivery days:", class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-10'>
+        <ol class='col-sm-10'>
+          <li>
+            <%= f.label :batch_pullmon, "Monday", class: 'col-sm-1 indent' %>
+            <%= f.check_box 'batch_pullmon', class: 'form-control' %>
+          </li>
+          <li>
+            <%= f.label :batch_pulltues, "Tuesday", class: 'col-sm-1 indent' %>
+            <%= f.check_box 'batch_pulltues', class: 'form-control' %>
+          </li>
+          <li>
+            <%= f.label :batch_pullwed, "Wednesday", class: 'col-sm-1 indent' %>
+            <%= f.check_box 'batch_pullwed', class: 'form-control' %>
+          </li>
+          <li>
+            <%= f.label :batch_pullthurs, "Thursday", class: 'col-sm-1 indent' %>
+            <%= f.check_box 'batch_pullthurs', class: 'form-control' %>
+          </li>
+          <li>
+            <%= f.label :batch_pullfri, "Friday", class: 'col-sm-1 indent' %>
+            <%= f.check_box 'batch_pullfri', class: 'form-control' %>
+          </li>
+        </ol>
+        <ul class='col-sm-10'>
+          <li>Requests must be submitted by 11am for next business day delivery.</li>
+        </ul>
       </div>
     </div>
     <div class='form-group row'>

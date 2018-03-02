@@ -76,7 +76,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   end
 
   def set_num_bcs
-    barcodes = IO.read(bc_file_obj).split("\n").uniq.length
+    file_obj = bc_file_obj.path unless bc_file_obj.nil?
+    barcodes = IO.read(file_obj).split("\n").uniq.length
     update_attributes(num_bcs: barcodes)
   end
 end

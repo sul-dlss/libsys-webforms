@@ -8,7 +8,6 @@ class UniUpdates < ActiveRecord::Base
                                  class_name: UniUpdatesBatch,
                                  inverse_of: :uni_updates
 
-  # rubocop:disable Metrics/MethodLength
   def self.create_for_batch(array_of_item_ids, uni_updates_batch)
     hashes_for_updates = []
     array_of_item_ids.each do |item_id|
@@ -30,7 +29,6 @@ class UniUpdates < ActiveRecord::Base
     end
     UniUpdates.create(hashes_for_updates)
   end
-  # rubocop:enable Metrics/MethodLength
 
   def self.filter_duplicates(item_ids)
     uniq_item_ids = item_ids.uniq
