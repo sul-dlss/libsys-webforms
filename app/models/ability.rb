@@ -30,7 +30,7 @@ class Ability
 
   def assign_admin_permission(current_user)
     can :manage, AccessionNumber if /A/ =~ current_user.accession_number
-    app = AuthorizedUsersController.helpers.authorized_apps(current_user)
+    app = AuthorizedUsersController.helpers.administrator_apps(current_user)
     can :manage, AuthorizedUser if app.any?
   end
 

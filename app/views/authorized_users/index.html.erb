@@ -11,7 +11,7 @@
     <tr>
       <th>SUNet ID</th>
       <th>Name</th>
-      <% authorized_apps(current_user).each do |app| %>
+      <% administrator_apps(current_user).each do |app| %>
         <th><%= apps_translation(app) %></th>
       <% end %>
     </tr>
@@ -23,7 +23,7 @@
         <td><%= user.user_id %></td>
         <td><%= user.user_name %></td>
         <% user.attributes.each do |k,v| %>
-          <% if authorized_apps(current_user).include?(k) %>
+          <% if administrator_apps(current_user).include?(k) %>
             <% if v == 'A' || v == 'Y'%>
               <td><%= check_box_tag(k, v, v, disabled: true) %></td>
             <% else %>

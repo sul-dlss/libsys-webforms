@@ -52,8 +52,11 @@ class AuthorizedUsersController < ApplicationController
 
   def delete
     @authorized_user ||= AuthorizedUser.find_by(user_id: params[:user_id])
-    @authorized_user.destroy
-    flash[:notice] = 'User deleted!'
+    if @authorized_user.destroy
+      flash[:notice] = 'User deleted!'
+    else
+      flash[:error] = 'User has access to other forms and cannot be deleted!'
+    end
     redirect_to authorized_users_index_path
   end
 
