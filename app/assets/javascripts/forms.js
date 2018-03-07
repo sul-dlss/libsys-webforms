@@ -1,4 +1,3 @@
-
 $(document).on('ready page:load', function () {
   jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "non-empty-string-asc": function (str1, str2) {
