@@ -59,4 +59,24 @@ FactoryBot.define do
     f.userload_rerun 'Y'
     f.accession_number 'Y'
   end
+  factory :blank_user, class: AuthorizedUser do |f|
+    f.user_id 'blank_user'
+    f.user_name 'Blank User'
+    f.unicorn_updates ''
+    f.direct_upload ''
+    f.unicorn_circ_batch ''
+    f.priv_approval ''
+    f.email_stats ''
+    f.priv_support ''
+    f.db_access_ids ''
+    f.priceforbills ''
+    f.reset_recall_counter ''
+    f.mgt_rpts ''
+    f.ora_admin ''
+    f.sal3_batch_req ''
+    f.sal3_breq_edit ''
+    f.file_upload ''
+    f.userload_rerun ''
+    f.accession_number ''
+  end
 end
