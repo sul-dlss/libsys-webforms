@@ -1,0 +1,814 @@
+ABBOTT	druid:ws066yy0421	ws066yy0421_00_0001.jp2	The The Donald P. Abbott Fund for Marine Invertebrates
+ABERCROMB	druid:kp761xz4568	kp761xz4568_00_0001.jp2	Mary K. Abercrombie Book Fund
+ABRAHAMSW	druid:fg810xp7654	fg810xp7654_00_0001.jp2	The William Abrahams and Peter Stansky Book Fund for Modern British Studies
+ACKERMANR	druid:jp071np3448	jp071np3448_00_0001.jp2	Robert W. Ackerman Fund for Medieval Studies
+ARONSONB	druid:yj035cd3859	yj035cd3859_00_0001.jp2	Bernard Aronson Memorial Book Fund for Jewish Studies
+ASHENR	druid:dp698zx8237	dp698zx8237_00_0001.jp2	Ruth Geraldine Ashen Memorial Book Fund
+ASULRES	druid:bf605rd2064	bf605rd2064_00_0001.jp2	Associates of the Stanford University Libraries Humanities Book Fund
+AVERYC	druid:jr882jy5502	jr882jy5502_00_0001.jp2	The Catherine W. and Howard M. Avery Book Fund
+BACKERM	druid:dq431wx9261	dq431wx9261_00_0001.jp2	Maria Hart Backer Memorial Book Fund
+BACONR	druid:ws304yq9028	ws304yq9028_00_0001.jp2	Robert D. Bacon Endowed Book Fund
+BAILEYT	druid:tf882hn2198	tf882hn2198_00_0001.jp2	Annie Nelson Bailey Memorial Book Fund
+BALDRIDGE	druid:qy010cn7414	qy010cn7414_00_0001.jp2	The Alan Baldridge Book Fund
+BALLARDE	druid:fv876vd9151	fv876vd9151_00_0001.jp2	Ballard Family Fund
+BANDETH	druid:vy821hz8416	vy821hz8416_00_0001.jp2	The Henry and Regina Bandet Fund for Jewish History and Culture
+BARKSDALE	druid:cj153ft2600	cj153ft2600_00_0001.jp2	The Brent Eugene Barksdale Book Fund
+BARNESJ	druid:rm319kx7047	rm319kx7047_00_0001.jp2	James R. Barnes Memorial Book Fund
+BARONJ	druid:cd966nb0770	cd966nb0770_00_0001.jp2	Jeannette Meisel and Salo Wittmayer Baron Book Fund
+BELLD	druid:mr042rh5823	mr042rh5823_00_0001.jp2	Danily and Laura Louise Bell Endowed Book Fund
+BENDERRM	druid:hd360gv1231	hd360gv1231_00_0001.jp2	Stanford Bookstore : Centennial
+BENNETT	druid:tq045kq6113	tq045kq6113_00_0001.jp2	Richard L. Bennett Memorial Book Fund
+BERNSTEIN	druid:xs343xp3201	xs343xp3201_00_0001.jp2	Sarah J. Bernstein Book Fund
+BOYLESE	druid:qr382wm8668	qr382wm8668_00_0001.jp2	Edgar Amos Boyles Centennial Book Fund
+BREERC	druid:vz791qs5665	vz791qs5665_00_0001.jp2	Carl Breer Library Endowment Fund
+BRICKERF	druid:fj256px8340	fj256px8340_00_0001.jp2	The Frances and Barney Bricker Book Fund in Jewish Studies
+BROOKSC	druid:jr691hw4501	jr691hw4501_00_0001.jp2	Courtaney Perren Brooks Book Fund for Drama
+BURDJ	druid:jg491xc8862	jg491xc8862_00_0001.jp2	Janet & Michael Burd Book Fund
+BURNELLG	druid:wp466bw2122	wp466bw2122_00_0001.jp2	George Edwin Burnell Collection on American Religious Thought
+CAFAROC	druid:yg825tg8345	yg825tg8345_00_0001.jp2	Capri Cafaro Endowed Book Fund
+CAGLEA	druid:nk744fk7887	nk744fk7887_00_0002.jp2	Allen B. Cagle Book Fund
+CARNOCHAN	druid:zd240hv0388	zd240hv0388_00_0001.jp2	The Bliss & Brigitte Carnochan Fund for 18th-Century Studies
+CHAMBERLA	druid:tg134vk8508	tg134vk8508_00_0001.jp2	Gift of Ross Chamberlain
+CHAN	druid:kk387zz3971	kk387zz3971_00_0001.jp2	The Christina Chan Memorial Fund at Stanford University
+CLASS1965	druid:wt963sk5440	wt963sk5440_00_0001.jp2	Gift of the Class of 1965
+CLEBSCH	druid:qc725jm5448	qc725jm5448_00_0001.jp2	William Clebsch Book Fund in Religious Studies
+CLEBSCHW	druid:ry043yb3387	ry043yb3387_00_0001.jp2	William A. Clebsch Endowed Book Fund for the Humanities
+COFFINJ	druid:wd537rb7005	wd537rb7005_00_0001.jp2	James G. Coffin Memorial Book Fund
+COHNA	druid:sf293kx4355	sf293kx4355_00_0001.jp2	Arthur C. Cohn Memorial Book Fund in American Art
+CONNOLLYG	druid:cd301py4971	cd301py4971_00_0001.jp2	Wallace E. and Grace Connolly Endowed Book Fund for Celtic Studies
+COTRELLE	druid:bv766pc9672	bv766pc9672_00_0001.jp2	Edwin Angell Cottrell Fund
+CRAIGW	druid:wb007fb0526	wb007fb0526_00_0001.jp2	William Craig Memorial Book Fund
+CRARYG	druid:hm051nv6365	hm051nv6365_00_0001.jp2	Gordon B. and Mary L. Crary Endowed Book Fund
+CROWL	druid:bj798bk6753	bj798bk6753_00_0001.jp2	Gift of Dr. and Mrs. Lloyd B. Crow
+CUSICKJ	druid:fz836hs7688	fz836hs7688_00_0001.jp2	Joseph D. and Kathryn Moore Cusick Fund for International Studies
+DAVESD	druid:jp212kz5586	jp212kz5586_00_0001.jp2	Delmer L. Daves Memorial Book Fund
+DAVISJ	druid:hp246bz4005	hp246bz4005_00_0001.jp2	The Judith L. Davis Memorial Fund
+DINSMOREM	druid:bm244yj4074	bm244yj4074_00_0001.jp2	Migsie and Treat Dinsmore Memorial Book Fund
+DONNELLD	druid:ft016qn8469	ft016qn8469_00_0001.jp2	Dewey Donnell Book Fund
+DUTTONR	druid:kg223gb3158	kg223gb3158_00_0001.jp2	Robert S. and Nellie V. H. Dutton Fund
+EGGERE	druid:wh772qm8992	wh772qm8992_00_0001.jp2	Ellen M. Egger Fund for Women’s Studies
+ELIOTM	druid:kp102xz2408	kp102xz2408_00_0001.jp2	Martha Bigelow Eliot Fund
+ESBENSHAD	druid:cb886fd7501	cb886fd7501_00_0001.jp2	Richard and Nancy Esbenshade Book Fund
+FEHRENBAC	druid:jf317qt9593	jf317qt9593_00_0002.jp2	The Don E. Fehrenbacher Memorial Book Fund
+FELTONC	druid:tb395pr8268	tb395pr8268_00_0001.jp2	Charlotte Ashley Felton Fund : Perpetuated in her memory by The de Guigné Family
+FITGERWIL	druid:gp803bf6685	gp803bf6685_00_0001.jp2	The Fitger-Williams Book Fund
+FITZHUGHW	druid:mp786sg7725	mp786sg7725_00_0001.jp2	William Marsh Fitzhugh Book Fund
+FORDJ	druid:qt095qf4877	qt095qf4877_00_0001.jp2	Judge John Willard Ford Book Fund
+FOXS	druid:xk736dd6965	xk736dd6965_00_0001.jp2	Stephen Fox Memorial Fund
+FRANKENST	druid:xp511bc2787	xp511bc2787_00_0001.jp2	Gift of the Estate of Alfred Frankenstein
+FRIENDE	druid:hr401mt0505	hr401mt0505_00_0001.jp2	Eugene & Elinor Friend Book Fund for Jewish Studies
+FRYBERGER	druid:mb140cx3543	mb140cx3543_00_0001.jp2	The Elizabeth K. and William B. Fryberger Memorial Book Fund
+GALLAGHER	druid:xj380fc8866	xj380fc8866_00_0001.jp2	Philip B. Gallagher Memorial Book Fund
+GALTCOBL	druid:nc277fj1098	nc277fj1098_00_0001.jp2	The Galt-Coblentz Book Fund
+GEBALLET	druid:fc890jv4264	fc890jv4264_00_0001.jp2	Theodore Henry and Frances Koshland Geballe Book Fund in Jewish Culture and History
+GOLDSTEIN	druid:px313dx1016	px313dx1016_00_0001.jp2	Richard Jay and Rona Goldstein Book Fund in Political Science
+GOODANB	druid:dx237hz4038	dx237hz4038_00_0001.jp2	The Bill Goodan Book Fund in the History of Science
+GORDONA	druid:yk632tw0108	yk632tw0108_00_0001.jp2	Addie Aldridge Gordon Fund
+GREENC	druid:hm626sx3351	hm626sx3351_00_0001.jp2	Cecil H. and Ida M. Green Fund for the Branner Library of Earth Sciences
+GROMMONA	druid:zh005jp9892	zh005jp9892_00_0001.jp2	Professor Alfred H. Grommon and Helen McCurdy Grommon Library Fund for 19th Century and Contemporary American Literature
+HADERLIEE	druid:tj996vv8990	tj996vv8990_00_0001.jp2	The Eugene C. and Aileen E. Haderlie Memorial Book Fund
+HAEFNERJ	druid:xw782xg5259	xw782xg5259_00_0001.jp2	Janice B. Haefner Book Fund for Art
+HAMMONDA	druid:nh023fz6328	nh023fz6328_00_0001.jp2	Andrew B. Hammond Memorial Book Fund
+HANNAP	druid:jg051ng7909	jg051ng7909_00_0001.jp2	Paul R. Hanna Life Membership Book Fund : Associates of the Stanford University Libraries
+HARRASSOW	druid:qn271gv5295	qn271gv5295_00_0001.jp2	Otto Harrassowitz Fund for German Studies
+HARRISJ	druid:dn148nh1196	dn148nh1196_00_0001.jp2	John Kiely Beebe Harris, Class of 1994, Collection of Indian Literature in English
+HARRISL	druid:bm267dr4255	bm267dr4255_00_0001.jp2	Lucie King Harris Books for Music Fund
+HAUGH	druid:yk215sy8387	yk215sy8387_00_0001.jp2	The Sally Breuner Haugh Book Fund
+HAWES	druid:dh965js3523	dh965js3523_00_0001.jp2	Ruth Tuthill Hawes Book Fund
+HEARST	druid:nq819cf9255	nq819cf9255_00_0001.jp2	The William Randolph Hearst Foundation Book Fund
+HIRSCHMAN	druid:mh080jq2791	mh080jq2791_00_0001.jp2	Gift of Reginal M. Hirschman Memorial Book Fund
+HO	druid:fs097tz9774	fs097tz9774_00_0001.jp2	Melvin Leigh Ho Memorial Fund
+HOBSON	druid:th421kb3860	th421kb3860_00_0001.jp2	Evelyn and William Hobson Endowed Book Fund
+HOPKINS	druid:mn275tr3817	mn275tr3817_00_0001.jp2	Timothy Hopkins Fund
+HORTON	druid:zz650nn1639	zz650nn1639_00_0001.jp2	Jack and Betty Horton Library Fund
+HOSKINS	druid:xm480cc6684	xm480cc6684_00_0001.jp2	Janina Wojcicka Hoskins Book Fund for Polish Humanities
+JACKMANC	druid:gx705qx2140	gx705qx2140_00_0001.jp2	C. M. Jackman Charitable Trust Endowed Book Fund for the History of Protestantism
+JACKMAND	druid:bv444dq1836	bv444dq1836_00_0001.jp2	David Jackman Jr. and Sally J. Jackman Endowed Book Fund for Archeology and Anthropology of Pre-Columbian Civilizations
+JACOBSONM	druid:mg914ht8510	mg914ht8510_00_0001.jp2	Mildred Ashworth Jacobson Memorial Book Fund
+JAGELS	druid:hs953bb4862	hs953bb4862_00_0001.jp2	George and Margaret Jagels Book Fund
+JAY	druid:ym977bb3157	ym977bb3157_00_0001.jp2	The Jay Fund
+JEWELFUND	druid:zn902vt3543	zn902vt3543_00_0001.jp2	The Jewel Fund
+JOHNSONJ	druid:qw561pt4254	qw561pt4254_00_0001.jp2	Julie R. Johnson, Class of 1913, Memorial Book Fund
+JOHNSONW	druid:zn020xz4673	zn020xz4673_00_0001.jp2	Walter S. Johnson Fund
+JONESR	druid:vv884sv6469	vv884sv6469_00_0001.jp2	The Roscoe D. Jones, Sr. Memorial Fund
+JORDAN	druid:bc316jk6109	bc316jk6109_00_0001.jp2	The R. E. “Gene” Jordan and Hetty Joy Jordan Endowed Library Fund
+JORDANDM	druid:sf540sk3861	sf540sk3861_00_0001.jp2	David A. and Maureen L. Jordan Fund in Financial Mathematics and Applied Statistics
+KARLE	druid:dk346kq4666	dk346kq4666_00_0001.jp2	Frances Cleveland Karle Book Fund : Books and Manuscripts for the Study of American Literature
+KATSEV	druid:jk524gy6770	jk524gy6770_00_0001.jp2	The Sophia and Johiel Katzev Book Fund
+KATZEVA	druid:gd694sc8108	gd694sc8108_00_0001.jp2	The Aphra R. Katzev '59 Book Fund
+KATZEVS	druid:jj003qx4490	jj003qx4490_00_0001.jp2	Shirley P. Katzev Endowed Book Fund
+KAY	druid:yj400sh3517	yj400sh3517_00_0001.jp2	Edwin W. Kay, Class of 1916, Memorial Book Fund for Romance Languages
+KAYSTEEVE	druid:vm252hp3732	vm252hp3732_00_0001.jp2	Steeve and Helen Kay Book Fund
+KEMBLE	druid:cb648my2115	cb648my2115_00_0001.jp2	John H. Kemble Endowed Book Fund
+KENNEDY	druid:cx330dc7790	cx330dc7790_00_0001.jp2	Robin and Donald Kennedy Fund for Jewish Studies
+KIBLER	druid:vd623qn1355	vd623qn1355_00_0001.jp2	Belva Kibler and Donald P. Morgan Memorial Fund
+KIM	druid:sd365kh9003	sd365kh9003_00_0001.jp2	The James C. Kim Family Fund
+KLEINM	druid:hv638tp3372	hv638tp3372_00_0001.jp2	The Milton and Annette Klein Book Fund in Travel and Exploration
+KNAPPI	druid:vx309kd0263	vx309kd0263_00_0001.jp2	Iris Hay-Edie Knapp Fund for Environmental Studies
+KNAPPJ	druid:dn727rs3828	dn727rs3828_00_0001.jp2	J. Burke Knapp Endowed Book Fund
+KOOPERMAN	druid:pg343ks7284	pg343ks7284_00_0001.jp2	Ben and Kate Kooperman Book Fund
+KUMM	druid:ng424wt9486	ng424wt9486_00_0001.jp2	Ferdinand G. and Sarah L. Kumm Fund for Books on Minnesota and the Midwest
+KUMMA	druid:sk763ch3582	sk763ch3582_00_0001.jp2	Arthur W. Kumm Memorial Book Fund for Books on California and the West
+KWOKL	druid:fn352hv9451	fn352hv9451_00_0001.jp2	Lamson Kwok Memorial Book Fund in Chinese Studies
+LANZ	druid:vf285nm1908	vf285nm1908_00_0001.jp2	Professor Henry Lanz Memorial Book Fund
+LEEBAHAI	druid:yb906dc7284	yb906dc7284_00_0001.jp2	The Fund for the Jack and Arden Lee Baha'i Collection
+LEWIS	druid:gx071ry3967	gx071ry3967_00_0001.jp2	The Janet Lewis Fund for Research Materials in American Poetry and Fiction
+LINDER	druid:xg474qk4925	xg474qk4925_00_0001.jp2	The Doris H. Linder Book Fund
+LITFRANKL	druid:jz623cq4145	jz623cq4145_00_0001.jp2	The Carl Mason Franklin and the Carolyn Craig Franklin Endowed Book Fund
+LITTAUER	druid:rr267yr5326	rr267yr5326_00_0001.jp2	Lucius N. Littauer Judaica Book Fund
+LITTPOET	druid:mk192pr1703	mk192pr1703_00_0001.jp2	The Edmund W. Littlefield Poetry Fund
+LOWENTHAL	druid:tg440wp3239	tg440wp3239_00_0001.jp2	Alexander and Anne Lowenthal Fund for Jewish Studies
+LYMAN	druid:pv568kt7037	pv568kt7037_00_0001.jp2	Richard W. and Jing Lyman Book Fund
+LYMANAWAR	druid:vb962nv5262	vb962nv5262_00_0001.jp2	Richard W. Lyman Award : Gift of the Stanford Alumni Association
+LYNCH	druid:jk469rg5271	jk469rg5271_00_0001.jp2	Lee Lynch Endowed Book Fund
+MASON	druid:kh017mh8118	kh017mh8118_00_0001.jp2	David M. Mason Chemical Engineering Class of 1968 Memorial Book Fund
+MCCULLOUG	druid:cd058bf4696	cd058bf4696_00_0001.jp2	Welden C. McCullough Memorial Book Fund
+MCDOWELL	druid:px028yn6922	px028yn6922_00_0001.jp2	Bernice McDowell Book Fund
+MCLAUGHLN	druid:fk480rk3348	fk480rk3348_00_0001.jp2	Glen McLaughlin Map Reference Library Fund
+MEYERRES2	druid:jk178rf2718	jk178rf2718_00_0001.jp2	The Jackson E. Reynolds Book Fund
+MIRRIELEE	druid:wm960zg6875	wm960zg6875_00_0001.jp2	Edith R. Mirrielees--Pacific Spectator Book Fund for the Humanities
+MIZOTA	druid:wy586nb9924	wy586nb9924_00_0001.jp2	George Mizota Memorial Book Fund
+MORRISON	druid:bz780hp9726	bz780hp9726_00_0001.jp2	Dean and Virginia Morrison Book Fund
+MOSER	druid:cc729ps4343	cc729ps4343_00_0001.jp2	Mary Churchill Small Moser Book Fund
+MOULTON	druid:jf326js8980	jf326js8980_00_0001.jp2	Donald W. and Anne M. Moulton Fund
+MUFFLEY	druid:jc056jy6517	jc056jy6517_00_0001.jp2	Richard B. and Perrina M. Muffley Fund
+MULLERMCC	druid:tx524cd5359	tx524cd5359_00_0001.jp2	Muller-McComas Book Fund
+MUNGER	druid:wy231dd6850	wy231dd6850_00_0001.jp2	Charles T. and Nancy B. Munger Book Fund
+MYERS	druid:vp331zt9239	vp331zt9239_00_0001.jp2	Ralph Cather Myers Endowed Book Fund in Engineering
+NISHINO	druid:pw114bg3719	pw114bg3719_00_0001.jp2	Hiroshi Herbert Nishino Memorial Fund for Engineering
+OBERLIN	druid:wb111mz4550	wb111mz4550_00_0001.jp2	Benjamin Gans Oberlin Family Memorial Fund
+OFFEN	druid:qq390cq2952	qq390cq2952_00_0001.jp2	Offen Family Fund for Continental European Women's History
+PAGE	druid:jp110yn6068	jp110yn6068_00_0001.jp2	Virginia Ingrim Page Book Fund for Studies in American Foreign Policy
+PAYNEB	druid:tb355rz5436	tb355rz5436_00_0001.jp2	Beth M. Payne Book Fund
+PERRETTE	druid:fc667dd6052	fc667dd6052_00_0001.jp2	Perrette Family Book Fund
+PERRY	druid:pm770cq9784	pm770cq9784_00_0001.jp2	Perry-O'Dell-Hennacy Centennial Book Fund
+PETERSONG	druid:sw302mp0967	sw302mp0967_00_0001.jp2	The Greg G. Peterson Memorial Book Fund
+PORTWOOD	druid:fm086nb1004	fm086nb1004_00_0001.jp2	The Portwood Fund for the Stanford University Archives
+PROTHRO	druid:yb125zc8941	yb125zc8941_00_0001.jp2	The Vincent and Caren Prothro Humanities Book Fund
+QUILLEN	druid:wm928zd4873	wm928zd4873_00_0001.jp2	Gift of I. James Quillen
+RASMUSSEN	druid:st080dm1704	st080dm1704_00_0001.jp2	The Sidney C. Rasmussen Family Fund for Interdisciplinary Social & Political Studies
+REHNBORGC	druid:ss018bz0133	ss018bz0133_00_0001.jp2	C. F. Rehnborg Memorial Book Fund in Religious Studies
+REHNBORGJ	druid:tv324dw8103	tv324dw8103_00_0001.jp2	The Joan B. Rehnborg Endowed Book Fund
+REINERT	druid:sw309hz0232	sw309hz0232_00_0001.jp2	Albert H. and Ethel G. Reinert Fund
+RESMATBK	druid:sr145dp1682	sr145dp1682_00_0001.jp2	The Stanford University Bookstore Book Fund
+RESMATCEN	druid:dn757xg6183	dn757xg6183_00_0001.jp2	Centennial Campaign Library Book Fund : Associates of the Stanford University Libraries
+RHOADES	druid:gc698jf6425	gc698jf6425_00_0001.jp2	John Skylstead and Carmel Cole Rhoades Fund for California History and the History of the North American West
+RITTER	druid:sh974tk8788	sh974tk8788_00_0001.jp2	Lucy Alma Ritter Fund
+RIXON	druid:wy648qk9860	wy648qk9860_00_0001.jp2	Charlotte A. Rixon and Marion D. Taylor Memorial Fund
+ROSE	druid:xh901yt7897	xh901yt7897_00_0001.jp2	Ralph S. Rose Fund in Engineering
+ROSENBAUM	druid:gn265yf5796	gn265yf5796_00_0001.jp2	The Hattie Clark Rosenbaum Library Fund
+ROSENBERG	druid:cv850pd2472	cv850pd2472_00_0001.jp2	Marie Louise Rosenberg Fund for Humanities
+SAMSON	druid:xg837yp8347	xg837yp8347_00_0001.jp2	Samson/Copenhagen Judaica Collection
+SCHIRESON	druid:jr578hf4164	jr578hf4164_00_0001.jp2	Clifford N. Schireson Book Fund
+SERVOS	druid:xm110rk1527	xm110rk1527_00_0001.jp2	Professor Kurt Servos Endowment Fund
+SHARP	druid:ft413tn6234	ft413tn6234_00_0001.jp2	Stanley and Tirzah Sharp Family Fund
+SHARPS	druid:rq470hm8269	rq470hm8269_00_0001.jp2	Susan and Ruth Sharp Fund
+SHAVER	druid:mk242pp0415	mk242pp0415_00_0001.jp2	Dennis G. and Kathryn K. Shaver Book Fund
+SHELDON	druid:vn938gf0376	vn938gf0376_00_0001.jp2	Irene Burnside Sheldon Fund for Art History
+SIMPSON	druid:dg579mv3152	dg579mv3152_00_0001.jp2	Claude M. Simpson Jr. Memorial Book Fund
+SKINNER	druid:vb278kw0734	vb278kw0734_00_0001.jp2	The Skinner Family Book Fund for the History of Western Culture
+SMALL	druid:nc890fs1666	nc890fs1666_00_0001.jp2	Rita H. Small Book Fund
+SNEDDEN	druid:rp450sf4120	rp450sf4120_00_0001.jp2	Donald Snedden Memorial Book Fund
+SOARES	druid:sx509jq0275	sx509jq0275_00_0001.jp2	Joseph and Dorathea Soares Fund
+STANDISH	druid:vx827zv0815	vx827zv0815_00_0001.jp2	The Allan Morgan Standish Library Fund
+STEEL	druid:gp727yf3209	gp727yf3209_00_0001.jp2	The Marshall Steel Sr. Foundation Fund : Hopkins Marine Station Library
+STEINBERG	druid:fb282ty7883	fb282ty7883_00_0001.jp2	The Geraldine and Goodwin Steinberg Book Fund
+STEINMETZ	druid:nc092rd1979	nc092rd1979_00_0001.jp2	Verna Pace Steinmetz Endowed Book Fund in History
+STEVENS	druid:pg063bq8835	pg063bq8835_00_0001.jp2	Harold R. Stevens and Florence T. Stevens Fund
+STRUBLE	druid:tw898dw8667	tw898dw8667_00_0001.jp2	William I. and Shirley P. Struble Endowed Book Fund
+SUNDERMEY	druid:fw871vn7368	fw871vn7368_00_0001.jp2	Clayton Sundermeyer Endowed Book Fund for Operation Research to Further Business Applications of Quantitative 
+TAMKIN	druid:yx262cr8442	yx262cr8442_00_0001.jp2	Curtis Sloane Tamkin Class of '58 Fund
+TANENBAUM	druid:yv459xj8957	yv459xj8957_00_0001.jp2	The Mary M. Tanenbaum Chinese Art Fund
+THOMPSONP	druid:zk120pr9897	zk120pr9897_00_0001.jp2	The Patricia Zimmer Thompson Fund for French Renaissance History
+THOMPSONW	druid:tp827zc2074	tp827zc2074_00_0001.jp2	W. O. Thompson Book Fund
+THORPE	druid:bc021rs8705	bc021rs8705_00_0001.jp2	Allene Thorpe Bookshelf
+TIERNAN	druid:fb543zt3540	fb543zt3540_00_0001.jp2	Sallie '45, R. Arthur and Juliette Tiernan Endowed Book Fund
+UPTON	druid:tf537mh0367	tf537mh0367_00_0001.jp2	The Upton Fund for Propaganda and Persuasion Techniques
+VANWYCK	druid:rg753ct8575	rg753ct8575_00_0001.jp2	The Cecil Van Asch Van Wyck Book Fund in Mechanical Engineering
+VICKERS1	druid:kz886px0761	kz886px0761_00_0001.jp2	The John V. Vickers Memorial Fund
+VONSCHLE	druid:sr952pr1332	sr952pr1332_00_0001.jp2	von Schlegell Family Fund
+WALLER	druid:zy548yj8459	zy548yj8459_00_0001.jp2	Luckie Agee Waller Collection in Far Eastern History
+WARREN	druid:sh801kv2294	sh801kv2294_00_0001.jp2	Althea Hester Warren Memorial Fund
+WATT	druid:tq045gb8801	tq045gb8801_00_0001.jp2	Ralph Wardlaw Watt Memorial Book Fund
+WEBB	druid:vb227wy1964	vb227wy1964_00_0001.jp2	James R. Webb Memorial Fund
+WEBSTER	druid:nc358dx1664	nc358dx1664_00_0001.jp2	Webster Collection of Social Anthropology
+WEISS	druid:df139bw5654	df139bw5654_00_0001.jp2	The Allan and Karen Weiss Book Fund
+WHITEHEAD	druid:ph944pq1002	ph944pq1002_00_0001.jp2	Barry Whitehead Memorial Book Fund
+WIEL	druid:qz258nw9067	qz258nw9067_00_0001.jp2	The Eli H. Wiel Book Fund
+WILSON	druid:rq325dy7325	rq325dy7325_00_0001.jp2	La Verne Wilson Memorial Book Fund
+WISE	druid:mn446rd9503	mn446rd9503_00_0001.jp2	Nancy Baker Wise Book Fund
+WOOD	druid:bx865gb8800	bx865gb8800_00_0001.jp2	Morrison C. Wood Book Fund
+WOODBURN	druid:mk237gm4229	mk237gm4229_00_0001.jp2	Bert Elliott Woodburn, Jr. '56 Memorial Book Fund
+WYATT	druid:tg828vf3915	wyatt.jp2	Bradley W. Wyatt Memorial Fund in Civil Engineering
+YOUNGH	druid:wf577ng4344	wf577ng4344_00_0001.jp2	Hobart N. Young Collection on Group Discussion
+YOUNGHMAP	druid:fc212qq1459	fc212qq1459_00_0001.jp2	From the Hobart N. Young Map Fund
+ZALK	druid:xj937jz7849	xj937jz7849_00_0001.jp2	David C. Zalk Class of 1970 Endowed Book Fund
+ABBASI	druid:rn593kb3193	rn593kb3193_00_0001.jp2	Sohaib and Sara Abbasi Collection
+AHNE	druid:wb131kf0893	KAQAT_Ahn.jp2	Edward Sun Ahn Endowed Book Fund
+BARCHASS	druid:fc196dy2215	fc196dy2215_00_0001.jp2	Samuel I. and Cecile M. Barchas Collection in the History of Science and Ideas
+BLACK	druid:hg942tw1391	KBBRK_Black.jp2	The Chuck Black Endowment Fund For Early Jazz And Blues
+BRASCHF	druid:qb123jr2795	qb123jr2795_00_0001.jp2	Gift of Dr. Frederick E. Brasch
+BURROWSD	druid:tj367fc5365	KAQHS_Burrows.jp2	The Diane Axelrad Burrows Book Fund
+CHUCKF	druid:bv859ys2374	KAQHN_Chuck.jp2	The Dr. Frank Y. Chuck and Dr. Bernadine Chuck Fong Family Book Fund
+DGOODAN	druid:qx886sb8230	KBBFJ_Goodan.jp2	The Douglas Goodan Memorial Library Fund
+DOBBSMELT	druid:kj429vs3460	KAQPG_Melton.jp2	Diana Dobbs-Melton Endowed Book Fund
+FIELD	druid:gr825vc7143	gr825vc7143_00_0001.jp2	Field Family Fund for History and the Humanities
+FREED	druid:wh318pz6832	wh318pz6832_00_0001.jp2	James W. Freed (Class of 1960) Rare Book Fund
+FURBUSH	druid:yz347cf2252	yz347cf2252_00_0001.jp2	Malcolm and Margaret Furbush Book Fund
+GOLDMANR	druid:wd875hs4323	wd875hs4323_00_0001.jp2	The Robert L. Goldman Endowment Fund
+GREENW	druid:jm132ys5507	KAQZE_Green.jp2	The William H. and Frances Dinkelspiel Green Book Fund
+GUNSTM	druid:zq909rc0823	zq909rc0823_00_0001.jp2	Morgan A. and Aline D. Gunst Memorial Book Fund
+HANNA	druid:bd573ch6780	bd573ch6780_00_0001.jp2	Frank Lloyd Wright Collection
+HENMULLER	druid:ss048wj5177	ss048wj5177_00_0001.jp2	Henry Muller Book Fund
+HERRICK	druid:tw521qf1087	tw521qf1087_00_0001.jp2	Gale and Marion Herrick Fund for Arts of the Book
+HESS	druid:nc813rt5956	KARBN_Hess.jp2	The Kenneth L. and Connie Irish Hess Book Fund
+HILLMAN	druid:ty991yr0778	KARBZ_Hillman.jp2	The Barbara Ann Hillman Book Fund
+HOWELL1	druid:fh437qr6604	fh437qr6604_00_0001.jp2	Antoinette and Warren R. Howell Fund
+HOWELL2	druid:xn631fk0961	xn631fk0961_00_0001.jp2	Antoinette and Warren R. Howell Rare Book Fund
+JACOBSOND	druid:js260mm6876	KBBGK_Jacobson.jp2	The David and Patricia Jacobson Fund
+KITTLE	druid:zx106ys3574	KARIO_Kittle.jp2	The Jay and Barbara Kittle Book Fund
+KLINEROET	druid:kk525vs7224	kk525vs7224_00_0001.jp2	The Kline/Roethke Collection
+KWOKB	druid:wt256zj2616	KARKL_Kwok.jp2	The Bill C. P. Kwok Book Fund
+MAHARAM	druid:tf535bk6873	KAVDO_Maharam.jp2	The Milton M. and Olga A. Maharam Memorial Book Fund
+MARKUS	druid:kx857nm3154	KAXNY_Markus.jp2	Louise B. Markus Book Fund
+MARTINEAU	druid:jf772nh8500	KAVDC_Martineau.jp2	The Glenn B. Martineau Book Fund for Economic Geology
+MILNE	druid:pf563jc3490	KARNW_Milne.jp2	The Garth, Kay, Jacqueline, and Michael Milne Family Endowed Book Fund
+MKLEIN	druid:yg610dn2171	yg610dn2171_00_0001.jp2	The Marie Klein Memorial Fund
+MSSENDOW	druid:vx848py2310	KBBIH_Manuscript.jp2	Ancient, Medieval and Early Modern Manuscript Fund
+MUNRO	druid:mx793gk8527	KARPS_Munro.jp2	The F. Warren Munro Civil Engineering Memorial Book Fund
+NIELSEN	druid:jc874nw4068	KARSR_Nielsen.jp2	The Russell A. and Lenore Nielsen Memorial Science Library Book Endowment Fund
+PECK	druid:mp796wc7817	KARVK_Peck.jp2	The Templeton Peck Memorial Book Fund
+PHILBRICK	druid:wd105cn7820	wd105cn7820_00_0001.jp2	The Norman D. Philbrick Book Fund
+PRICE	druid:nj320ww5354	KAVGK_Price.jp2	The M. Kelley Price and Nancy Wenke-Price Endowed Book Fund
+ROSS	druid:zv601ht8611	KAQPC_Ross.jp2	The Barbara Ross Book Fund
+SIEVERS	druid:zp196yn5248	KARZP_Sievers.jp2	J. Paul and Elma B. Sievers Book Fund
+SINGH	druid:sq727zr7078	KBBOO_Singh.jp2	Singh Family Book Fund
+STARLING	druid:jy802xh5526	jy802xh5526_00_0001.jp2	Gift of Kenyon Law Starling
+THILLE	druid:tf448ch4259	KARIK_Thille.jp2	The Hardison Kimball Thille Fund
+THOMASR	druid:hz017ks0461	KASCS_Thomas.jp2	The Richard and Sharon Thomas Endowed Book Fund
+WIGGINS	druid:mj029mj6178	KATNQ_Wiggens.jp2	Ira Loren Wiggins and Dorothy Bruce Wiggins Memorial Book Fund
+FRANKLHUM	druid:ny729kb8909	FranklinHUM.jp2	The Carl Mason and Carolyn Craig Franklin Endowed Book Fund in Humanities
+VICKERS2	druid:db964rp5533	Vickers2.jp2	The John V. Vickers Memorial Book Fund
+CRAWFORD	druid:cp841tj9336	CrawfordBookplate.jp2	The Mary E. and Bruce J. Crawford Fund for South and Southeast Asia
+ZENOFF	druid:mj882wf6508	Zenoff2.jp2	The David Brossell Zenoff and Janet Newcomb Hunter Endowed Book Fund in International Relations
+bb021hn9363	druid:bb021hn9363	bb021hn9363_00_0001.jp2	Engineering Library Gift of Publisher
+bb489wp4687	druid:bb489wp4687	bb489wp4687_00_0001.jp2	Landreth Family Book Fund
+bb506cm4212	druid:bb506cm4212	bb506cm4212_00_0001.jp2	In tribute to (blank) - from a gift by (blank) - Stanford University Memorial Fund
+bb963px5915	druid:bb963px5915	bb963px5915_00_0001.jp2	Gift of Jackson Harvey Ralston, Esq.
+bc140cq1195	druid:bc140cq1195	bc140cq1195_00_0001.jp2	Stanford University Library Gift of University of Pennsylvania
+bc211vn3320	druid:bc211vn3320	bc211vn3320_00_0001.jp2	History of Western Civilization Office Library Syllabus Fund
+bd160cb7993	druid:bd160cb7993	bd160cb7993_00_0001.jp2	Germanic Languages
+bf281zg1430	druid:bf281zg1430	bf281zg1430_00_0001.jp2	The Charles J. Tanenbaum Collection of the Eighteenth Century
+bf557zc5438	druid:bf557zc5438	bf557zc5438_00_0001.jp2	Transportation Management Program Graduate School of Business: Thomas L. Yates 1960
+bg740mw7188	druid:bg740mw7188	bg740mw7188_00_0001.jp2	Mortimer C. Leventritt
+bh082yx4063	druid:bh082yx4063	bh082yx4063_00_0001.jp2	Gift of Mrs. Horatio Ward Stebbins
+bh468rd7436	druid:bh468rd7436	bh468rd7436_00_0001.jp2	Gift of Walter Greenwood Beach, Esq.
+bk429wf5761	druid:bk429wf5761	bk429wf5761_00_0001.jp2	From the library of Arley B. Show, Esq. gift of Stuart Bevier Show, Esq.
+bm124rx3164	druid:bm124rx3164	bm124rx3164_00_0001.jp2	Alvin J. Cox, Sr. Fund
+bm876px7300	druid:bm876px7300	bm876px7300_00_0001.jp2	Restoration of this book provided by — (blank)
+bm907xs1270	druid:bm907xs1270	bm907xs1270_00_0001.jp2	The Class of 1938 Fund
+bn208vf6084	druid:bn208vf6084	bn208vf6084_00_0001.jp2	Estate of Dr. Thomas M. Marshall
+bn731tk1865	druid:bn731tk1865	bn731tk1865_00_0001.jp2	Gift of William P. Wreden, Esq.
+bn832kd8080	druid:bn832kd8080	bn832kd8080_00_0001.jp2	Richard W. Lyman Award: Gift of the Stanford Alumni Association, 1984 Recipient: Professor Herant Katchadourian
+bq358bn3543	druid:bq358bn3543	bq358bn3543_00_0001.jp2	Executive Development Program Graduate School of Business (blue)
+bq441jx8446	druid:bq441jx8446	bq441jx8446_00_0001.jp2	Michael Brown Memorial
+br143my7387	druid:br143my7387	br143my7387_00_0001.jp2	Physical Education for Women
+br624hj2846	druid:br624hj2846	br624hj2846_00_0001.jp2	Stanford University Library Gift of Author
+bs077gj9033	druid:bs077gj9033	bs077gj9033_00_0001.jp2	Elizabeth Ann Robertson Library Fund
+bs210mx3750	druid:bs210mx3750	bs210mx3750_00_0001.jp2	Drama Collection
+bs345nc0757	druid:bs345nc0757	bs345nc0757_00_0001.jp2	Gift of R. W. Hamming — Computer Science Library
+bs597fs1431	druid:bs597fs1431	bs597fs1431_00_0001.jp2	Lane Medical Library: Willard G. Snow, 1913-1957, Memorial Fund
+bt124jd1293	druid:bt124jd1293	bt124jd1293_00_0001.jp2	Lucien Kabat Memorial Book Fund
+bt942vy4674	druid:bt942vy4674	bt942vy4674_00_0001.jp2	Stanford Law Library in memory of Henry Vrooman
+bv103rg5094	druid:bv103rg5094	bv103rg5094_00_0001.jp2	Edwin A. Cottrell Collection — Victor J. West Memorial Library
+bv864pm2521	druid:bv864pm2521	bv864pm2521_00_0001.jp2	Gift of James Sandoe, Esq.
+bw131wm7068	druid:bw131wm7068	bw131wm7068_00_0001.jp2	Jackson Library of Business: In Memory of Frederica H. Jackson
+bw368bz4630	druid:bw368bz4630	bw368bz4630_00_0001.jp2	Stanford University Library Gift of British Government
+by834rb8158	druid:by834rb8158	by834rb8158_00_0001.jp2	Eric G. Roell Book Fund
+cc591ms1971	druid:cc591ms1971	cc591ms1971_00_0001.jp2	Lane Medical Library: Frank K. Pomeroy, M.D. Memorial Fund
+cd138cp0054	druid:cd138cp0054	cd138cp0054_00_0001.jp2	The Webster Collection of Social Anthropology established by Hutton Webster & Winifred Fry Webster
+cd595wb8860	druid:cd595wb8860	cd595wb8860_00_0001.jp2	Music Library
+cd863nk7576	druid:cd863nk7576	cd863nk7576_00_0001.jp2	Jackson Library: In Memory of Robert E. Mangan
+cf059hm7764	druid:cf059hm7764	cf059hm7764_00_0001.jp2	Irving W. Robbins, Jr. Ashendene Press Collection
+cg413zj6075	druid:cg413zj6075	cg413zj6075_00_0001.jp2	Ray Lyman Wilbur Fund
+cg458jg3725	druid:cg458jg3725	cg458jg3725_00_0001.jp2	Gift of the esate of John Parrott
+cg735sx6016	druid:cg735sx6016	cg735sx6016_00_0001.jp2	Law Library: M.C. Sloss Collection
+ch443jg9190	druid:ch443jg9190	ch443jg9190_00_0001.jp2	Gift of the Baker Library Graduate School of Business Administration Harvard University
+ch860sp7730	druid:ch860sp7730	ch860sp7730_00_0001.jp2	Gift of George F. Shaner, Esq.
+cj985pq2083	druid:cj985pq2083	cj985pq2083_00_0001.jp2	Gift of Dr. Ward Cooper and Dr. Jerome B. Thomas
+ck369wp8486	druid:ck369wp8486	ck369wp8486_00_0001.jp2	Francis R. Johnson
+cq345gp5136	druid:cq345gp5136	cq345gp5136_00_0001.jp2	Gift of Frederick Thompson
+cr506vj6575	druid:cr506vj6575	cr506vj6575_00_0001.jp2	William Craig Book Fund
+cs127ys8468	druid:cs127ys8468	cs127ys8468_00_0001.jp2	The Stanford University School of Nursing
+cs556sm0456	druid:cs556sm0456	cs556sm0456_00_0001.jp2	Emelie Melville Fund
+cs993tq5498	druid:cs993tq5498	cs993tq5498_00_0001.jp2	In tribute to (blank) - from a gift by (blank) - Stanford University Memorial Fund
+cv530qb6746	druid:cv530qb6746	cv530qb6746_00_0001.jp2	In Memory of Sophie Hardy Executive Director of the Children's Protective Society of San Francisco
+cv983hr4094	druid:cv983hr4094	cv983hr4094_00_0001.jp2	Given in Memory of Kelley Rees by Florence Hopper Rees
+cw149kq9310	druid:cw149kq9310	cw149kq9310_00_0001.jp2	Music Department
+cw517dc9167	druid:cw517dc9167	cw517dc9167_00_0001.jp2	Gift of Marcus C. Sloss Fund
+cw531ds2641	druid:cw531ds2641	cw531ds2641_00_0001.jp2	George E. Farrand Memorial Fund
+cx468ws0113	druid:cx468ws0113	cx468ws0113_00_0001.jp2	School of Education Library Education Book Purchase Fund
+cy289ns1229	druid:cy289ns1229	cy289ns1229_00_0001.jp2	Minal E. Young Memorial Fund
+cy589vb7854	druid:cy589vb7854	cy589vb7854_00_0001.jp2	Cubberley Book Purchase Fund
+dc001qd8694	druid:dc001qd8694	dc001qd8694_00_0001.jp2	Laura De Valle Memorial Library established by Her Husband, Rafael Heliodoro Valle
+dc554fw3022	druid:dc554fw3022	dc554fw3022_00_0001.jp2	Stanford University Library Gift of Carnegie Endowment for Internatinal Peace
+dc908ww7798	druid:dc908ww7798	dc908ww7798_00_0001.jp2	Stanford University Library Gift of (blank)
+dd775mx8480	druid:dd775mx8480	dd775mx8480_00_0001.jp2	Biological Sciences Library from the Collection of Charles Manning Child 1869-1954
+dd911xb9911	druid:dd911xb9911	dd911xb9911_00_0001.jp2	The Hoyt Hopewell Hudson Collection of Minor American Poetry
+df032cb2377	druid:df032cb2377	df032cb2377_00_0001.jp2	Gift of Christian de Guigne - Charlotte Ashley Felton Memorial Library
+dh887dr9385	druid:dh887dr9385	dh887dr9385_00_0001.jp2	Jack H. Lee and Arden T. Lee Baha'i Collection
+dj379my6500	druid:dj379my6500	dj379my6500_00_0001.jp2	Gift of John Stuart Morshead Foundation
+dj650yh5786	druid:dj650yh5786	dj650yh5786_00_0001.jp2	In memory of Hans Otto Storm
+dj753dx2403	druid:dj753dx2403	dj753dx2403_00_0001.jp2	From the Library of Dr. Henry Lanz
+dk886cn6538	druid:dk886cn6538	dk886cn6538_00_0001.jp2	Graduate School of Business Library Domingo Ghirardelli Memorial (2) J. Hugh Jackson Library
+dm399jv6305	druid:dm399jv6305	dm399jv6305_00_0001.jp2	Gift of John C. Cebrian, Esq.
+dn015hm8980	druid:dn015hm8980	dn015hm8980_00_0001.jp2	Taube-Baron Collection of Jewish History and Culture
+dn871dy3413	druid:dn871dy3413	dn871dy3413_00_0001.jp2	Gift of the Ida Wehner Book Fund
+dp740vk7111	druid:dp740vk7111	dp740vk7111_00_0001.jp2	Stanford University Library Gift of Dominion of Canada
+dp947xp1738	druid:dp947xp1738	dp947xp1738_00_0001.jp2	Lane Medical Library: Robert James Dixon, M.D. 1895-1963
+dq127cm2039	druid:dq127cm2039	dq127cm2039_00_0001.jp2	Lane Medical Library: Charles Gardner Lathrop Fund
+dq755gp3084	druid:dq755gp3084	dq755gp3084_00_0001.jp2	Pearl and Hilbert Peterson Memorial Book Fund
+dr699xk8861	druid:dr699xk8861	dr699xk8861_00_0001.jp2	Gift of Mrs. A.S. Baldwin
+dr733sw4623	druid:dr733sw4623	dr733sw4623_00_0001.jp2	Engineering Library Book Fund (blank)
+ds303dq7095	druid:ds303dq7095	ds303dq7095_00_0001.jp2	Cubberley Textbook Collection
+dt720zn0966	druid:dt720zn0966	dt720zn0966_00_0001.jp2	Thomas Welton Stanford Fund
+dt939tx3874	druid:dt939tx3874	dt939tx3874_00_0001.jp2	Gift of Herman Augustus Spoehr Memorial Book fund
+dv167fd8580	druid:dv167fd8580	dv167fd8580_00_0001.jp2	Gift of Peter Paret
+dv377xn5892	druid:dv377xn5892	dv377xn5892_00_0001.jp2	Katharine McElrath Black Collection on the American Indian
+dv467sw8665	druid:dv467sw8665	dv467sw8665_00_0001.jp2	Jackson Library: Gift of (blank) Graduate School of Business
+dv576gp6129	druid:dv576gp6129	dv576gp6129_00_0001.jp2	Joseph and Mary B. Orocchi Memorial Fund
+dw285qk2966	druid:dw285qk2966	dw285qk2966_00_0001.jp2	Children's Literature Collection (small)
+dx394jt9869	druid:dx394jt9869	dx394jt9869_00_0001.jp2	Ralph W. Tyler Collection
+dx420dc0032	druid:dx420dc0032	dx420dc0032_00_0001.jp2	School of Education Library (small)
+dy166cd7500	druid:dy166cd7500	dy166cd7500_00_0001.jp2	Acquired through the Hoover Institution Gift of (blank) (larger)
+dy258qj8459	druid:dy258qj8459	dy258qj8459_00_0001.jp2	Gift of Dr. David Starr Jordan
+fb441wz3045	druid:fb441wz3045	fb441wz3045_00_0001.jp2	Lindsay Peters, Jr. Memorial Book Fund
+fb494bf8368	druid:fb494bf8368	fb494bf8368_00_0001.jp2	Stanford Student Chapter American Society Civil Engineers
+fb746hk5674	druid:fb746hk5674	fb746hk5674_00_0001.jp2	In Memory of (blank) Graduate School of Business
+fc738wm0890	druid:fc738wm0890	fc738wm0890_00_0001.jp2	The Will S. Monroe Whitman Collection
+fc829wf0471	druid:fc829wf0471	fc829wf0471_00_0001.jp2	Branner Geological Library Bequest of Henry W. Turner
+fd277tx0444	druid:fd277tx0444	fd277tx0444_00_0001.jp2	Jackson Library: A Gift in Honor of Anna S. Sweeney and the late Joseph P. Sweeney
+ff096wb6459	druid:ff096wb6459	ff096wb6459_00_0001.jp2	Albert M. Bender Room Stanford University Library (small)
+ff269nk9195	druid:ff269nk9195	ff269nk9195_00_0001.jp2	Gift of Nathan van Patten, Esq.
+ff369xj7098	druid:ff369xj7098	ff369xj7098_00_0001.jp2	Gift of Mrs. Charles G. Norris
+fg755td5083	druid:fg755td5083	fg755td5083_00_0001.jp2	Associates of the Stanford University Libraries a gift in honor of
+fh866bj1280	druid:fh866bj1280	fh866bj1280_00_0001.jp2	Graduate School of Business
+fj326wn3468	druid:fj326wn3468	fj326wn3468_00_0001.jp2	Economics Syllabus Fees
+fj645gd9415	druid:fj645gd9415	fj645gd9415_00_0001.jp2	From the library of Anna Karolina Müller presented by Friends and Classmates
+fk670ff7892	druid:fk670ff7892	fk670ff7892_00_0001.jp2	In memoriam Dr. Henry W. Stager Class of '02
+fk880st7805	druid:fk880st7805	fk880st7805_00_0001.jp2	Lane Medical Library: John Henry Meyer Fund
+fm221gs4940	druid:fm221gs4940	fm221gs4940_00_0001.jp2	Stanford University Library U.S. Government Deposit
+fm828dn7766	druid:fm828dn7766	fm828dn7766_00_0001.jp2	The Law Library: Donald E. Glass Library Fund for International Legal Studies
+fn109hv6616	druid:fn109hv6616	fn109hv6616_00_0001.jp2	Purchased from the Jewel Fund and gift of Newton J. Hale, Leon Sloss, Jr., William P. Wreden
+fp057wc6566	druid:fp057wc6566	fp057wc6566_00_0001.jp2	Insurance Collection established in the Graduate School of Business Library by Flodden W. Heron 1941
+fp154vh1802	druid:fp154vh1802	fp154vh1802_00_0001.jp2	Mortimer C. Leventritt Fund
+fq117vj6387	druid:fq117vj6387	fq117vj6387_00_0001.jp2	Robert Allen Memorial Fund
+fr020dp1328	druid:fr020dp1328	fr020dp1328_00_0001.jp2	Hopkins Marine Station Library
+fr296bq1402	druid:fr296bq1402	fr296bq1402_00_0001.jp2	Cubberley Library - Gift of Shell Oil Company of Canada, Limited, Merid Fellowship Program
+fr739cb8411	druid:fr739cb8411	fr739cb8411_00_0001.jp2	Lane Medical Library: Gift Fund
+fs355mv9186	druid:fs355mv9186	fs355mv9186_00_0001.jp2	Gift of Mrs. Harry C. Benson
+ft303dh6573	druid:ft303dh6573	ft303dh6573_00_0001.jp2	Gift of Harlow Carpenter from the Library of Victor L. Ricketts '38
+ft378mm8474	druid:ft378mm8474	ft378mm8474_00_0001.jp2	Book Club
+ft500jw9992	druid:ft500jw9992	ft500jw9992_00_0001.jp2	Judge William F. James Collection
+fv508ff8253	druid:fv508ff8253	fv508ff8253_00_0001.jp2	M.A. Girshick Memorial Library
+fw607rx1556	druid:fw607rx1556	fw607rx1556_00_0001.jp2	Gift of Professor John Pearce Mitchell '03
+fy531fs4024	druid:fy531fs4024	fy531fs4024_00_0001.jp2	Gift of Mrs. Frederick Fowler
+fz108fc0047	druid:fz108fc0047	KBCAC_Wasney.jp2	Cynthia Wasney Memorial Endowed Fund for Modern Intellectual History and Literature
+fz290zz0879	druid:fz290zz0879	fz290zz0879_00_0001.jp2	Gift of Dr. Camillo von Klenze
+fz427rt6723	druid:fz427rt6723	fz427rt6723_00_0002.jp2	Graduate School of Business Library Domingo Ghirardelli Memorial (1)
+fz541kt8703	druid:fz541kt8703	fz541kt8703_00_0001.jp2	In memory of Colonel J. M. T. Portello by Miss Kathleen Booth
+gb359qc7492	druid:gb359qc7492	gb359qc7492_00_0001.jp2	Peter and Helen Bing Wing of the Cecil H. Green Library
+gb455wb1288	druid:gb455wb1288	gb455wb1288_00_0001.jp2	Gift of Grant Stauffer, Esq.
+gc253gy2490	druid:gc253gy2490	gc253gy2490_00_0001.jp2	Gift of Albert M. Bender, Esquire
+gc822jy6514	druid:gc822jy6514	gc822jy6514_00_0001.jp2	From the library of Dr. Oliver P. Jenkins
+gf266px6810	druid:gf266px6810	gf266px6810_00_0001.jp2	J. V. Uspensky Fund
+gf947bq8496	druid:gf947bq8496	gf947bq8496_00_0001.jp2	In memory of John Beverly Preston by Mrs. A. T. Mercier (Graduate School of Business Library)
+gg056vx2901	druid:gg056vx2901	gg056vx2901_00_0001.jp2	Bequest of Professor Benjamin O. Foster, '95
+gg229tz6164	druid:gg229tz6164	gg229tz6164_00_0001.jp2	Journalism Library This book is a gift of (blank)
+gh946ws4055	druid:gh946ws4055	gh946ws4055_00_0001.jp2	Lane Medical Library: Clive M. Saiz Fund In Memory of Garner Sewell Stenhouse
+gj067yt8474	druid:gj067yt8474	gj067yt8474_00_0001.jp2	Gift of the Greater Bay Area Stanford Clubs in Honor of Dr. and Mrs. J. E. Wallace Sterling
+gj800wr3456	druid:gj800wr3456	gj800wr3456_00_0001.jp2	William Warren Orcutt Memorial Fund
+gn094jv2693	druid:gn094jv2693	gn094jv2693_00_0001.jp2	The Helen Rowan Memorial Book Fund
+gp688fg1490	druid:gp688fg1490	gp688fg1490_00_0001.jp2	Gift of Roland F. Eberhart, Esq.
+gq246sk5432	druid:gq246sk5432	gq246sk5432_00_0001.jp2	Gift of Lucille M. Nixon, December 24, 1908- December 22, 1963, General Consultant Palo Alto Unified School District
+gq632tx6386	druid:gq632tx6386	gq632tx6386_00_0001.jp2	Jackson Library of Business: From the private collection of J. Hugh Jackson
+gq984jm4928	druid:gq984jm4928	gq984jm4928_00_0001.jp2	In Memory of John S. Horn, 1912 - Victor J. West Memorial Library
+gr148jz6705	druid:gr148jz6705	gr148jz6705_00_0001.jp2	Jackson Library: Gift of Colonel Dean Witter
+gr437cd4993	druid:gr437cd4993	gr437cd4993_00_0001.jp2	Graduate School of Business Library Gift of Colonel Dean Witter
+gr958kk0328	druid:gr958kk0328	gr958kk0328_00_0001.jp2	Jackson Library: Gift of George R .Keast
+gt245dt6035	druid:gt245dt6035	gt245dt6035_00_0001.jp2	Stanford-Sloan Program: David Paul Gustafson
+gt771sc4439	druid:gt771sc4439	gt771sc4439_00_0001.jp2	Stanford University Libraries
+gv768wf9480	druid:gv768wf9480	gv768wf9480_00_0001.jp2	Engineering Library Gift Department of Mining Engineering
+gw453rk8386	druid:gw453rk8386	gw453rk8386_00_0001.jp2	A memorial to Leslie C. Rogers, Class of 1917
+gw589jr0009	druid:gw589jr0009	gw589jr0009_00_0001.jp2	Natural History Museum
+gw599wp6888	druid:gw599wp6888	gw599wp6888_00_0001.jp2	Gift of Dr. William Leonard Schwartz
+gw960vz6188	druid:gw960vz6188	gw960vz6188_00_0001.jp2	Nicolas A. de Basily Memorial Collection — Hoover Institution
+gx676jf7776	druid:gx676jf7776	gx676jf7776_00_0001.jp2	Stanford University Memorial Fund - In tribute to (blank) - from a gift by (blank)
+gz424wk1673	druid:gz424wk1673	gz424wk1673_00_0001.jp2	In memory of Leland T. Chapin
+hc216xf6886	druid:hc216xf6886	hc216xf6886_00_0001.jp2	Gift of John E. Cushing Memorial Library Fund
+hc720hs0676	druid:hc720hs0676	hc720hs0676_00_0001.jp2	Wallace Caufield Memorial Fund
+hd302jz7335	druid:hd302jz7335	hd302jz7335_00_0001.jp2	G.H. Houck Library Cowell Student Health Center, In Appreciation of George Hamilton Houck, M.D.
+hd547gs3939	druid:hd547gs3939	hd547gs3939_00_0001.jp2	Frank F. Walker Memorial Fund
+hf970kn6518	druid:hf970kn6518	hf970kn6518_00_0001.jp2	Engineering Library Fund in Honor of Samuel Brooks Morris II
+hf999wp8905	druid:hf999wp8905	hf999wp8905_00_0001.jp2	Stanford-Sloan Program - Alfred P. Sloan Foundation Grant, Graduate School of Business
+hg632vr5729	druid:hg632vr5729	hg632vr5729_00_0001.jp2	Gift of Michael Leo Lebenbaum
+hh232cj9010	druid:hh232cj9010	hh232cj9010_00_0001.jp2	Jackson Library: Eugene B. Favre Memorial Graduate School of Business
+hh252js1500	druid:hh252js1500	hh252js1500_00_0001.jp2	Lane Medical Library: Ernest Walker Sawyer Trace Element Collection In Memory of Ray Lyman Wilbur, M.D.
+hh863by4144	druid:hh863by4144	hh863by4144_00_0001.jp2	C. V. Taylor Memorial Book Fund
+hj107zy4687	druid:hj107zy4687	hj107zy4687_00_0001.jp2	William Dinsmore Briggs Room — English Department
+hj378kr7914	druid:hj378kr7914	hj378kr7914_00_0001.jp2	Charlotte Ashley Felton Memorial Library (small) (blue)
+hk862ng0677	druid:hk862ng0677	hk862ng0677_00_0001.jp2	Bequest of Dr. James O. Griffin
+hk906jq5222	druid:hk906jq5222	hk906jq5222_00_0001.jp2	Gift of Frank H. Abbott, Esq.
+hm523ky7282	druid:hm523ky7282	hm523ky7282_00_0001.jp2	William H. Bonsall Memorial Fund
+hm762vn5406	druid:hm762vn5406	hm762vn5406_00_0001.jp2	Kelley Rees Memorial Fund
+hn961zk0746	druid:hn961zk0746	hn961zk0746_00_0001.jp2	School of Education Library Gift of the Publishers
+hp398sy8234	druid:hp398sy8234	hp398sy8234_00_0001.jp2	Southeast Asia Collection
+hq665sm2945	druid:hq665sm2945	hq665sm2945_00_0001.jp2	Stanford University Libraries (6) square
+hq743sx2758	druid:hq743sx2758	hq743sx2758_00_0001.jp2	Gift of Henry E. Huntington Library and Art Gallery
+hr085db9177	druid:hr085db9177	hr085db9177_00_0001.jp2	Charles B. Woodruff Book Fund
+ht376mz2964	druid:ht376mz2964	ht376mz2964_00_0001.jp2	Horatio Ward Stebbins Book Fund in the Physical Sciences
+hv449vd9809	druid:hv449vd9809	hv449vd9809_00_0001.jp2	Gift of Edward Maslin Hulme, Esq.
+hv872sq2238	druid:hv872sq2238	hv872sq2238_00_0001.jp2	The Lionel Pearson Reading Room from the library of Professor Brooks Otis - Department of Classics
+hw805cw6798	druid:hw805cw6798	hw805cw6798_00_0001.jp2	Anthony W. Anderson and Augusta W. Anderson Memorial Fund
+jb059fy7282	druid:jb059fy7282	jb059fy7282_00_0001.jp2	Physical Education for Women Library
+jb162wk9329	druid:jb162wk9329	jb162wk9329_00_0001.jp2	Caroline Moore and Irving Whitemore Robbins Memorial Collection assembled by Irving Whitemore Robbins, Jr.
+jc180bj7248	druid:jc180bj7248	jc180bj7248_00_0001.jp2	Purchases as a Cooperative Acquisition by the Stanford University Libraries and the University of California - Located at Stanford
+jc245bh0869	druid:jc245bh0869	jc245bh0869_00_0001.jp2	The Law Library: Gift of The Fuller Foundation
+jf747px5889	druid:jf747px5889	jf747px5889_00_0001.jp2	Henry Kuckenberg Fund
+jh139gx4519	druid:jh139gx4519	jh139gx4519_00_0001.jp2	Gift of Jeremiah S. James Book Fund
+jh233sm5765	druid:jh233sm5765	jh233sm5765_00_0001.jp2	Institute of American History
+jh362cx2712	druid:jh362cx2712	jh362cx2712_00_0001.jp2	Gift of Albert C. Hooper, Esq.
+jj219zv9018	druid:jj219zv9018	jj219zv9018_00_0001.jp2	Stanford Program for Executive Management (Sloan Foundation Grant)
+jk162ht1529	druid:jk162ht1529	jk162ht1529_00_0001.jp2	Journalism Collection of Robert Letts Jones
+jk302rj6040	druid:jk302rj6040	jk302rj6040_00_0001.jp2	Jackson Library: In memory of Stewart M. Lowry
+jm305bt3711	druid:jm305bt3711	jm305bt3711_00_0001.jp2	Suzanne Lewis Fund: Medieval Art History
+jm785kw2077	druid:jm785kw2077	jm785kw2077_00_0001.jp2	The Ernest R.Wingate and Dora C. Wingate Collection
+jn361gr4202	druid:jn361gr4202	jn361gr4202_00_0001.jp2	Grayson N. Kefauver Carnegie Grant for Guidance Investigation
+jp410wp6692	druid:jp410wp6692	jp410wp6692_00_0001.jp2	Isaac Newton Collection in Memory of Otto Wilhelm Brasch & Carolyn Johannsen-Brasch
+jq434wp0785	druid:jq434wp0785	jq434wp0785_00_0001.jp2	Alonzo W. Gant Memorial Fund
+jq497jw0721	druid:jq497jw0721	jq497jw0721_00_0001.jp2	Stanford University Libraries
+jq682vd8789	druid:jq682vd8789	jq682vd8789_00_0001.jp2	Gift of Mrs. Timothy Hoskins
+jv074dq6431	druid:jv074dq6431	jv074dq6431_00_0001.jp2	Jackson Library: Gift of Class of 1937 Graduate School of Business
+jv686cf3835	druid:jv686cf3835	jv686cf3835_00_0001.jp2	From the library of Edward K. Putnam
+jw329wq1874	druid:jw329wq1874	jw329wq1874_00_0001.jp2	Hazel Dorothy Hansen Fund
+jw676cz5545	druid:jw676cz5545	jw676cz5545_00_0001.jp2	Bequest of Miss Mary E. Laing
+jz218xm5533	druid:jz218xm5533	jz218xm5533_00_0001.jp2	Gustave Gimon 1907-1991 Philanthrope et Résistant
+jz523fx3244	druid:jz523fx3244	jz523fx3244_00_0001.jp2	Gift of Herbert Hoover, Esquire
+kb590xk9110	druid:kb590xk9110	kb590xk9110_00_0001.jp2	Gift of Mrs. Harry Wheeler Morse
+kc723bt7249	druid:kc723bt7249	kc723bt7249_00_0001.jp2	Jackson Library of Business: In Memory of Leland W. Cutler
+kd003pr3035	druid:kd003pr3035	kd003pr3035_00_0001.jp2	Gift of Mrs. Frieda Vocke McGill
+kd386vm7707	druid:kd386vm7707	kd386vm7707_00_0001.jp2	Stanford University Libraries (8) rectangle with Gift of
+kf117wd7808	druid:kf117wd7808	kf117wd7808_00_0001.jp2	The Mormon Collection established by the friends of Karl I. Winkler
+kf422qm1500	druid:kf422qm1500	kf422qm1500_00_0001.jp2	Jackson Library: Gift of S. Wasul: LDO Coleman
+kf469fq2571	druid:kf469fq2571	kf469fq2571_00_0001.jp2	From the library of Judith Singer Sharp and Michael Stephen Sharp, a gift of Dr. June Singer & Dr. & Mrs. Martin Sharp
+kf497sr7020	druid:kf497sr7020	kf497sr7020_00_0001.jp2	Gift of Charles Sidney Thompson, '03 in memory of Alma Victoria Thompson
+kf955cq7340	druid:kf955cq7340	kf955cq7340_00_0001.jp2	Gift of Herbert E. Clayburgh, Esq.
+kj265jg4027	druid:kj265jg4027	kj265jg4027_00_0001.jp2	Gift of James Augustine Healy in memory of his dear wife Josephine
+kk308nx2898	druid:kk308nx2898	kk308nx2898_00_0001.jp2	Dante Collection of Melville Best Anderson
+kk711hj1955	druid:kk711hj1955	kk711hj1955_00_0001.jp2	Gift of Dr. Ray Lyman Wilbur
+kn541cr8261	druid:kn541cr8261	kn541cr8261_00_0001.jp2	Crothers Hall Law Library, Gift of George E. Crothers
+kp121cn3601	druid:kp121cn3601	kp121cn3601_00_0001.jp2	Elmer E. Robinson Collection
+kp591wy3739	druid:kp591wy3739	kp591wy3739_00_0001.jp2	Gift of Mr. and Mrs. Stewart Marshall
+kp809vs2153	druid:kp809vs2153	kp809vs2153_00_0001.jp2	Engineering Library gift of The Langille Fund
+kq774sf3631	druid:kq774sf3631	kq774sf3631_00_0001.jp2	Richard L. Venezky Collection of Books for Literacy Instruction
+ks700mc0400	druid:ks700mc0400	ks700mc0400_00_0001.jp2	Graduate School of Business Library Gift of James Reed
+kt333vq2253	druid:kt333vq2253	kt333vq2253_00_0001.jp2	Everett W. Smith Memorial Library
+kv204my7487	druid:kv204my7487	kv204my7487_00_0001.jp2	The Douglass M. Leishman Collection in cardio-vascular research (2)
+kv432jp5653	druid:kv432jp5653	kv432jp5653_00_0001.jp2	Exchange Account
+kw124rk1197	druid:kw124rk1197	kw124rk1197_00_0001.jp2	Leonard I. Schiff Fund
+kw745qq0271	druid:kw745qq0271	kw745qq0271_00_0001.jp2	James C. Vickers Book Fund
+kx824pg0224	druid:kx824pg0224	kx824pg0224_00_0001.jp2	Engineering Library gift of The Russell S. Springer Fund
+ky140nq9757	druid:ky140nq9757	ky140nq9757_00_0001.jp2	Horace and Edith King Davis Memorial Fund
+kz021kg4833	druid:kz021kg4833	kz021kg4833_00_0001.jp2	History of Western Civilization Reading Room Syllabus Fund
+mb056zz0362	druid:mb056zz0362	mb056zz0362_00_0001.jp2	Branner Geological Library (small)
+mb203nv0526	druid:mb203nv0526	mb203nv0526_00_0001.jp2	Gift of Leander Miller Hoskins, Esq.
+mc304rt3093	druid:mc304rt3093	mc304rt3093_00_0001.jp2	John Emerson Marble Fund
+mc724nm8759	druid:mc724nm8759	mc724nm8759_00_0001.jp2	Friends of the Secular Yiddish Schools in North America Collection
+md664qz9949	druid:md664qz9949	md664qz9949_00_0001.jp2	Jackson Library: Gift of William H. Lowe, Graduate School of Business
+md836xr8007	druid:md836xr8007	md836xr8007_00_0001.jp2	Graduate School of Business Gift of George R. Keast
+mf649fm1882	druid:mf649fm1882	mf649fm1882_00_0001.jp2	Jackson Library: Gift of Arthur L. Swim Graduate School of Business
+mf943kj7599	druid:mf943kj7599	mf943kj7599_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919 (2)
+mg717xp4172	druid:mg717xp4172	mg717xp4172_00_0001.jp2	Gift of Theo Jung
+mh109qv7155	druid:mh109qv7155	mh109qv7155_00_0001.jp2	William Armfield Holt and Ethel Rhodes Holt Fund
+mh391jp9198	druid:mh391jp9198	mh391jp9198_00_0001.jp2	D.H. Lawrence Collection of Shirley P. Katzev
+mj004ds9530	druid:mj004ds9530	mj004ds9530_00_0001.jp2	History Syllabus Fees
+mk115mg7823	druid:mk115mg7823	mk115mg7823_00_0001.jp2	Ellen S. Taylor Memorial Library Fund — Journalism Library
+mk615vw1854	druid:mk615vw1854	mk615vw1854_00_0001.jp2	R. Arthur and Juliette Tiernan Endowed Book Fund
+mp806ns3699	druid:mp806ns3699	mp806ns3699_00_0001.jp2	Gift of the Class of '03
+mr308jx5859	druid:mr308jx5859	mr308jx5859_00_0001.jp2	Dudley Herbarium
+ms002dk7848	druid:ms002dk7848	ms002dk7848_00_0001.jp2	Jackson Library: Gift of Dr. and Mrs. Wm. Lister Rogers
+ms336pp8540	druid:ms336pp8540	ms336pp8540_00_0001.jp2	Field Family Fund for History and the Humanities
+mw841bk2091	druid:mw841bk2091	mw841bk2091_00_0001.jp2	Gift of Graduate School of Business
+mx590by9435	druid:mx590by9435	mx590by9435_00_0001.jp2	Israel Cohen Collection
+my767rv1582	druid:my767rv1582	my767rv1582_00_0001.jp2	Gift of Richard K. Culver Book Fund
+nb210ty6575	druid:nb210ty6575	nb210ty6575_00_0001.jp2	Stephen Jay Gould Ex Libris
+nb224ng3004	druid:nb224ng3004	nb224ng3004_00_0001.jp2	In Memoriam Marian Williams 1916-1963
+nb314sr5829	druid:nb314sr5829	nb314sr5829_00_0001.jp2	Engineering Library Gift of Dr. John Hedberg
+nb342jr3903	druid:nb342jr3903	nb342jr3903_00_0001.jp2	Engineering Library gift of The Eliot Fund
+nb349ys8348	druid:nb349ys8348	nb349ys8348_00_0001.jp2	Gift of Albert Guérard, Esq.
+nb696vm5379	druid:nb696vm5379	nb696vm5379_00_0001.jp2	Stanford University Libraries (9) rectangle with Gift of in gold color
+nc251vh5468	druid:nc251vh5468	nc251vh5468_00_0001.jp2	Gift of Dr. Alfred Coester
+nd191gx9957	druid:nd191gx9957	nd191gx9957_00_0001.jp2	Charles Andrews Huston Memorial
+nf169fr7451	druid:nf169fr7451	nf169fr7451_00_0001.jp2	Fund presented to the Department of Germanic Languages, Stanford University, by Helen Sutro Schwartz in memory of her Mother, Therese Sutro
+nf544hf6338	druid:nf544hf6338	nf544hf6338_00_0001.jp2	Gift of Dr. Robert Eckles Swain
+nf578vm1446	druid:nf578vm1446	nf578vm1446_00_0001.jp2	Edwin J. Doyle Collection
+ng047zj0068	druid:ng047zj0068	ng047zj0068_00_0001.jp2	Gift of William F. Gantvoort, Esq.
+nk146mt3491	druid:nk146mt3491	nk146mt3491_00_0001.jp2	Gift of John S. Stephens, Esq.
+nk164sb1293	druid:nk164sb1293	nk164sb1293_00_0001.jp2	Lane Medical Library: Henry Lee Dodge Memorial
+nk291gm9041	druid:nk291gm9041	nk291gm9041_00_0001.jp2	George E. Forsythe Fund — Computer Science Library
+nm073hz1903	druid:nm073hz1903	nm073hz1903_00_0001.jp2	Gift of Mrs. John L. Christian in memory of Lt. John L. Christian
+nn073rs5556	druid:nn073rs5556	nn073rs5556_00_0001.jp2	Estate Mrs. Jane Lathrop Stanford
+nn429nx2808	druid:nn429nx2808	nn429nx2808_00_0001.jp2	Food Research Institute Library (2)
+nq836nt1072	druid:nq836nt1072	nq836nt1072_00_0001.jp2	Alfred S. Niles Fund
+nq958xp3578	druid:nq958xp3578	nq958xp3578_00_0001.jp2	Graduate School of Business Gift of (blank)
+nr736jx7431	druid:nr736jx7431	nr736jx7431_00_0001.jp2	California Academy of Sciences Library (on deposit with the CA Acad of Sciences Library)
+ns284pn8772	druid:ns284pn8772	ns284pn8772_00_0001.jp2	David Starr Jordan Memorial Fund for International Relations
+ns509fk6019	druid:ns509fk6019	ns509fk6019_00_0001.jp2	William Irvine Book Fund
+ns582zy5813	druid:ns582zy5813	ns582zy5813_00_0001.jp2	Elmer E. Robinson Collection - Gift of
+nt170nx8054	druid:nt170nx8054	nt170nx8054_00_0001.jp2	Computer Science Library
+nt472hr7550	druid:nt472hr7550	nt472hr7550_00_0001.jp2	Graduate School of Business Gift of William H. Lowe
+nv337nf6590	druid:nv337nf6590	nv337nf6590_00_0001.jp2	Norman H. Strouse Book Fund
+nv617hz2897	druid:nv617hz2897	nv617hz2897_00_0001.jp2	Presented by Henry E. Cutler in memory of his wife Hattie M. Cutler mother of Jeanne Elizabeth Cutler, '40
+nv932fd7267	druid:nv932fd7267	nv932fd7267_00_0001.jp2	Stanford University Libraries (7) square with Gift of
+nw162nj9436	druid:nw162nj9436	nw162nj9436_00_0001.jp2	Edgar E. Robinson Bookfund
+nw890ms6334	druid:nw890ms6334	nw890ms6334_00_0001.jp2	Institute of Hispanic American and Luso-Brazilian Studies *For use in Bolivar House only
+nw948bt8528	druid:nw948bt8528	nw948bt8528_00_0001.jp2	Julia May Babcock Book Fund
+nx702dr6151	druid:nx702dr6151	nx702dr6151_00_0001.jp2	Lane Medical Library: Purchased in Memory of (blank) with funds given by (blank)
+ny497kb3511	druid:ny497kb3511	ny497kb3511_00_0001.jp2	Cubberley Library Gift of the Author
+pb306vs0070	druid:pb306vs0070	pb306vs0070_00_0001.jp2	Executive Development Program Graduate School of Business (red)
+pb374gk5510	druid:pb374gk5510	pb374gk5510_00_0001.jp2	Estate of Dr. Clyde A. Duniway
+pb802xt5635	druid:pb802xt5635	pb802xt5635_00_0001.jp2	Gift of Mrs. Ida S. Oldroyd
+pc390dy8047	druid:pc390dy8047	pc390dy8047_00_0001.jp2	Mary L. Schofield Collection of Children's Literature
+pc675mm5426	druid:pc675mm5426	pc675mm5426_00_0001.jp2	Gift of J.C. L. Fish
+pc843mm6170	druid:pc843mm6170	pc843mm6170_00_0001.jp2	Stanford University Library Gift of Republic of Mexico
+pf194qk2261	druid:pf194qk2261	pf194qk2261_00_0001.jp2	Jackson Library of Business: Graduate School of Business Stanford University
+pf242xt2262	druid:pf242xt2262	pf242xt2262_00_0001.jp2	Gift of J.W. Mailliard, Esq.
+pf974pq7028	druid:pf974pq7028	pf974pq7028_00_0001.jp2	The Residence Library Fund from a gift by Mr. and Mrs. Milton M. Teague
+ph424gp1217	druid:ph424gp1217	ph424gp1217_00_0001.jp2	From the library of Captain Thomas J.J. See
+pj471sq9592	druid:pj471sq9592	pj471sq9592_00_0001.jp2	Stanford University Libraries
+pm254pc6499	druid:pm254pc6499	pm254pc6499_00_0001.jp2	Gift from the Library of Dr. Stephen H. Schneider
+pm353zm9939	druid:pm353zm9939	pm353zm9939_00_0001.jp2	Hilmer Oehlmann, Jr., Award presented to (blank) for excellence in the first year Research and Writing Program (School of Law)
+pm505bb5499	druid:pm505bb5499	pm505bb5499_00_0001.jp2	C. L. Booth Memorial Fund — Cubberley Library
+pm759vw1125	druid:pm759vw1125	pm759vw1125_00_0001.jp2	Edward N. Bewley Memorial Fund
+pn029gp6145	druid:pn029gp6145	pn029gp6145_00_0001.jp2	Stanford University Library Gift of Government
+pn034fs6161	druid:pn034fs6161	pn034fs6161_00_0001.jp2	In tribute to (blank) - from a gift by (blank) - Stanford University Memorial Fund
+pn272mb7023	druid:pn272mb7023	pn272mb7023_00_0001.jp2	Class of 1939 Fund
+pp242vn3353	druid:pp242vn3353	pp242vn3353_00_0001.jp2	Romantic Languages Syllabus Fees
+pp547yq1886	druid:pp547yq1886	pp547yq1886_00_0001.jp2	Gift of Dr. Eph. Weiss
+pq072qw5716	druid:pq072qw5716	pq072qw5716_00_0001.jp2	Bequest of Dr. George Hempl
+pr553dr4333	druid:pr553dr4333	pr553dr4333_00_0001.jp2	Gift of Harris De Haven Connick and Edythe Russ Connick
+pv145cj0654	druid:pv145cj0654	pv145cj0654_00_0001.jp2	Gift of the Committee for Art at Stanford
+pw078jn5169	druid:pw078jn5169	pw078jn5169_00_0001.jp2	Jackson Library: Gift of L. William Lane, Graduate School of Business
+pw455qj6834	druid:pw455qj6834	pw455qj6834_00_0001.jp2	Stanford-Sloan Program: Gary Milton Broemser
+pw560mv9509	druid:pw560mv9509	pw560mv9509_00_0001.jp2	Jo and Jacob Milgrom Fund
+px023xs2952	druid:px023xs2952	px023xs2952_00_0001.jp2	Bequest of Robert Edgar Allardice, Esq.
+pz331wg5565	druid:pz331wg5565	pz331wg5565_00_0001.jp2	Gift of Walter and Elise Haas
+pz648ry5086	druid:pz648ry5086	pz648ry5086_00_0001.jp2	Gift of John W. Dobbins, Esq.
+qb528zv4760	druid:qb528zv4760	qb528zv4760_00_0001.jp2	Solomon R. Baker Book Fund
+qc567rh2809	druid:qc567rh2809	qc567rh2809_00_0001.jp2	From the library of Florence S. Walter presented in her memory by her daughters (2)
+qc663qw5448	druid:qc663qw5448	qc663qw5448_00_0001.jp2	Stanford University Library Gift of the State
+qd197nx1064	druid:qd197nx1064	qd197nx1064_00_0001.jp2	Wendell H. Kinney Fund
+qd535pd4902	druid:qd535pd4902	qd535pd4902_00_0001.jp2	Stanford University Library Gift of Publisher
+qf059xj1478	druid:qf059xj1478	qf059xj1478_00_0001.jp2	Thank you card "Stanford University acknowledges with deep appreciation the gift in memory of (blank) from (blank)…"
+qf246jr8999	druid:qf246jr8999	qf246jr8999_00_0001.jp2	The Law School: Gift of Edward W. Rice
+qf298hm6576	druid:qf298hm6576	qf298hm6576_00_0001.jp2	From the Library of Stewart Parker Elliott
+qg031jg7659	druid:qg031jg7659	qg031jg7659_00_0001.jp2	Stanford-Sloan Program: S. Donley Ritchey, Jr.
+qg465dy4841	druid:qg465dy4841	qg465dy4841_00_0001.jp2	Eleanor D. and Walter H. Boyd Fund
+qh599jd3804	druid:qh599jd3804	qh599jd3804_00_0001.jp2	Imogene Horsley Memorial Book Fund
+qj301dx4008	druid:qj301dx4008	qj301dx4008_00_0001.jp2	Given by Friends of the Stanford Law Library
+qj975dv4959	druid:qj975dv4959	qj975dv4959_00_0001.jp2	Chautauqua Collection in memory of Arthur Eugene Bestor 1879-1944 President of Chautauqua Institution
+qn366dc2671	druid:qn366dc2671	qn366dc2671_00_0001.jp2	"Ci" This publication was donated to the library by (blank)
+qp699rc6684	druid:qp699rc6684	qp699rc6684_00_0001.jp2	Stanford-Sloan Program: Edward Ney Dodson III
+qq131yc5667	druid:qq131yc5667	qq131yc5667_00_0001.jp2	Gift of Mrs. Cyrus F. Tolman in memory of Cyrus F. Tolman (Branner Geological Library)
+qq323kf5498	druid:qq323kf5498	qq323kf5498_00_0001.jp2	Frank Mace MacFarland Fund
+qr191vb2472	druid:qr191vb2472	qr191vb2472_00_0001.jp2	The School of Law: Gift of Marion Rice Kirkwood
+qr398vr0313	druid:qr398vr0313	qr398vr0313_00_0001.jp2	Graduate School of Business Eugene B. Favre Memorial (1)
+qr415tx1795	druid:qr415tx1795	qr415tx1795_00_0001.jp2	Design Division Library gift of the John E. Arnold Family
+qr491wb7382	druid:qr491wb7382	qr491wb7382_00_0001.jp2	John Garber Palache, Helen Palache Lansdale from the estate of the late Judge John Garber
+qt427zq9945	druid:qt427zq9945	qt427zq9945_00_0001.jp2	Gift of Mrs. David Canfield
+qt944rf0415	druid:qt944rf0415	qt944rf0415_00_0001.jp2	Engineering Library Fund in recognition of Samuel Brooks Morris '11, Dean of Engineering 1936-44
+qv098ms1571	druid:qv098ms1571	qv098ms1571_00_0001.jp2	Frances Case Theiss & Roy Edgar Theiss Collection of Colt Press Books
+qv554hp0936	druid:qv554hp0936	qv554hp0936_00_0001.jp2	Lionel Pearson Reading Room — Department of Classics
+qv660tw5882	druid:qv660tw5882	qv660tw5882_00_0001.jp2	Asiatic & Slavic Languages & Civilization
+qw036dy7536	druid:qw036dy7536	qw036dy7536_00_0001.jp2	Mormon Collection in Honor of Karl I. Winkler — Blank
+qw078ns8165	druid:qw078ns8165	qw078ns8165_00_0001.jp2	Given in memory of Florence Atherton Eyre by Edward E. and Dean A. Eyre
+qw221wk3982	druid:qw221wk3982	qw221wk3982_00_0001.jp2	Graham Stuart Fund
+qw312wv2632	druid:qw312wv2632	qw312wv2632_00_0001.jp2	Hugh Moran Fund
+qx509cx1142	druid:qx509cx1142	qx509cx1142_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919: Gift of the A.W. Mellon Educational and Charitable Trust
+qx841kc5703	druid:qx841kc5703	qx841kc5703_00_0001.jp2	Jackson Library: Gift of William D. Witter, Graduate School of Business
+qx920cm4096	druid:qx920cm4096	qx920cm4096_00_0001.jp2	Gift of Lindsay Peters, Jr. Memorial Book Fund
+qx951yk4174	druid:qx951yk4174	qx951yk4174_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919: Gift of Mrs. Robert J. Kerner in memory of Professor Robert J. Kerner
+qy072hj8189	druid:qy072hj8189	qy072hj8189_00_0001.jp2	School of Education Library Gift of Stanford Associates in Education
+qy633dc7149	druid:qy633dc7149	qy633dc7149_00_0001.jp2	Cubberley Library
+qz251tp1888	druid:qz251tp1888	qz251tp1888_00_0001.jp2	The Law Library: Marion McKendry Law Book Fund
+rb341mr9751	druid:rb341mr9751	rb341mr9751_00_0001.jp2	In Memory of (blank) from a gift to the Graduate School of Business by (blank)
+rc335zk2168	druid:rc335zk2168	rc335zk2168_00_0001.jp2	Field Family Fund for History and the Humanities (2)
+rc583bz6228	druid:rc583bz6228	rc583bz6228_00_0001.jp2	Stanford University Libraries
+rc747dv2396	druid:rc747dv2396	rc747dv2396_00_0001.jp2	Francis W. Bergstrom Memorial Collection Bequest of Prof. Francis W. Bergstrom '18
+rd115cx1181	druid:rd115cx1181	rd115cx1181_00_0001.jp2	Gift of Mr. Spencer Bickerton
+rf234xb3822	druid:rf234xb3822	rf234xb3822_00_0001.jp2	In memory of Albert M. Bender (This fund established in MCMXL is for the purchase of rare books, manuscripts, and specimens of writing)
+rf310pd2400	druid:rf310pd2400	rf310pd2400_00_0001.jp2	Stanford University Library Gift of A Group of Donors
+rf759td6218	druid:rf759td6218	rf759td6218_00_0001.jp2	Gift of Professor T.B.L. Webster
+rg798pm5623	druid:rg798pm5623	rg798pm5623_00_0001.jp2	Bequest of Dr. Clelia D. Mosher
+rh083vx7900	druid:rh083vx7900	rh083vx7900_00_0001.jp2	Frances Agnes Bowman Memorial Collection Presented by Roger W. Montgomery, Esq.
+rh249nw8103	druid:rh249nw8103	rh249nw8103_00_0001.jp2	Gift of Fred M. Breslin of Lybrand, Ross Bros. & Montgomery
+rj227bx8021	druid:rj227bx8021	rj227bx8021_00_0001.jp2	William L. and Helen J. Hazlett Memorial Fund for the Arts
+rj234dv8320	druid:rj234dv8320	rj234dv8320_00_0001.jp2	Gift of Biblioteca del Estado Toluca, Mexico
+rm062fx9613	druid:rm062fx9613	rm062fx9613_00_0001.jp2	From the library of Dr. Edward Lincoln Williamson
+rm221nr5855	druid:rm221nr5855	rm221nr5855_00_0001.jp2	Emily Olson Library Fund — Cubberley Library
+rm588jz3536	druid:rm588jz3536	rm588jz3536_00_0001.jp2	Cubberley Library (small)
+rm756rt4652	druid:rm756rt4652	rm756rt4652_00_0001.jp2	Gift of Mrs. David Starr Jordan
+rm920dh9192	druid:rm920dh9192	rm920dh9192_00_0001.jp2	Lane Medical Library: Nathaniel Rosencrantz Memorial Fund
+rn699tn2428	druid:rn699tn2428	rn699tn2428_00_0001.jp2	Francis W. Bergstrom Memorial Collection
+rp769bg2528	druid:rp769bg2528	rp769bg2528_00_0001.jp2	Victor J. West Memorial Library (blank)
+rq557ms2248	druid:rq557ms2248	rq557ms2248_00_0001.jp2	Gift of Frederick H. Fowler, Esq.
+rr146ys3958	druid:rr146ys3958	rr146ys3958_00_0001.jp2	Bernard De Voto Fund
+rr313mr8519	druid:rr313mr8519	rr313mr8519_00_0001.jp2	Gift of the Daughters of Dr. Thomas Andrew Storey
+rs058gy6169	druid:rs058gy6169	rs058gy6169_00_0001.jp2	Gift of Pauline R. Durr in memory of Charles P. Burgess
+rv670cb2122	druid:rv670cb2122	rv670cb2122_00_0001.jp2	LaneMedical Library: United States Government Grant
+rw207pp7951	druid:rw207pp7951	rw207pp7951_00_0001.jp2	George Richard Dobson Memorial Fund
+rw425br2369	druid:rw425br2369	rw425br2369_00_0001.jp2	Barrett H. Clark Collection on American Theater & Drama
+rw924bw6892	druid:rw924bw6892	rw924bw6892_00_0001.jp2	The Law Library: Philip S. Erlich III Memorial Fund
+rx671hp1994	druid:rx671hp1994	rx671hp1994_00_0001.jp2	Stanford University Library Gift of Czechoslavak Republic
+ry503mh8876	druid:ry503mh8876	ry503mh8876_00_0001.jp2	From the Library of Edwin Herbert Lewis
+rz137bw9840	druid:rz137bw9840	rz137bw9840_00_0001.jp2	Haskell F Norman MD Book Fund
+rz478kg9658	druid:rz478kg9658	rz478kg9658_00_0001.jp2	Erichsen Egyptian Collection in memory of Edna Kumpe Upton
+rz532dz8260	druid:rz532dz8260	rz532dz8260_00_0001.jp2	The Gift of Mrs. William Dinsmore Briggs to the English Department of Stanford University
+rz815yh5490	druid:rz815yh5490	rz815yh5490_00_0001.jp2	Guggenheim Laboratory
+sb567gp8943	druid:sb567gp8943	sb567gp8943_00_0001.jp2	Gift of the Commissioner of the Argentine Government to the Golden Gate International Exposition
+sb783ws2768	druid:sb783ws2768	sb783ws2768_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919: Ruth Perry Memorial Collection on Africa
+sc271qy3381	druid:sc271qy3381	sc271qy3381_00_0001.jp2	In memory of John Flesher Newsom A.M., 1892; Ph.D. 1901 by his wife Adelaide Perry Newsom 1931
+sc294nt2138	druid:sc294nt2138	sc294nt2138_00_0001.jp2	The Class of 1904 Fund
+sd469gm3162	druid:sd469gm3162	sd469gm3162_00_0001.jp2	Mulford Sibley Collection
+sd743vj1301	druid:sd743vj1301	sd743vj1301_00_0001.jp2	Gift of William Hawley Davis, Esq.
+sf095vn9010	druid:sf095vn9010	sf095vn9010_00_0001.jp2	Gift of Dr. Payson J. Treat
+sf141tf0821	druid:sf141tf0821	sf141tf0821_00_0001.jp2	The Opisthobranchiate Molluscan Library of Frank Mace MacFarland, a memorial gift
+sg268sk9032	druid:sg268sk9032	sg268sk9032_00_0001.jp2	Gift of Leona Forster
+sj547jg4990	druid:sj547jg4990	sj547jg4990_00_0001.jp2	Stanford University Library Gift of Stanford University Press
+sj581ng7462	druid:sj581ng7462	sj581ng7462_00_0001.jp2	Lane Medical Library Lloyd W. Dinkelspiel Memorial Fund
+sj607wz8318	druid:sj607wz8318	sj607wz8318_00_0001.jp2	Joseph Pichler Memorial Fund
+sj641wx1082	druid:sj641wx1082	sj641wx1082_00_0001.jp2	Stanford University Library (blank) (looks hand-drawn)
+sj761bb0460	druid:sj761bb0460	sj761bb0460_00_0001.jp2	Clarence Irving Lewis Memorial Collection: Tanner Memorial Library
+sn881dn7245	druid:sn881dn7245	sn881dn7245_00_0001.jp2	Jackson Library: Gift of Real Estate Education and Research Fund
+sp403pj6888	druid:sp403pj6888	sp403pj6888_00_0001.jp2	Jackson Library: Gift of James W. McAlister
+sp702kw1357	druid:sp702kw1357	sp702kw1357_00_0001.jp2	Acquired through the Hoover Institution (larger)
+sp988tk7303	druid:sp988tk7303	sp988tk7303_00_0001.jp2	Stanford University Libraries (4) (small)
+sr095qw6014	druid:sr095qw6014	sr095qw6014_00_0001.jp2	Acquired through the Hoover Institution
+sr222hv5667	druid:sr222hv5667	sr222hv5667_00_0001.jp2	The Greenland Library of Dr. Thomas Neergaard Krabbe
+sr583tt9411	druid:sr583tt9411	sr583tt9411_00_0001.jp2	Jackson Library: In Memory of Edgar E. Clark from a gift by George and Marian Latimer
+ss587nd1937	druid:ss587nd1937	ss587nd1937_00_0001.jp2	Graduate School of Business Library Gift of William G. Mackenzie
+st114bq4925	druid:st114bq4925	st114bq4925_00_0001.jp2	Joseph R. Braden Memorial Fund
+sw167cp6598	druid:sw167cp6598	sw167cp6598_00_0001.jp2	Gift of K.F. Cooper, Everly Davis, G. Alfred Lawrence, Oswald S. Lowsley, Ross J. McClelland, Jackson Reynolds, John M. Switzer
+sw977zw1696	druid:sw977zw1696	sw977zw1696_00_0001.jp2	Gift of Dr. Casey Albert Wood
+sx194gg2926	druid:sx194gg2926	sx194gg2926_00_0001.jp2	Gift of Kronos Quartet
+sy262dx8411	druid:sy262dx8411	sy262dx8411_00_0001.jp2	Baha'i Library of Hourolain and Nasrollah Maghzi
+sy452mm9328	druid:sy452mm9328	sy452mm9328_00_0001.jp2	Eighteenth Century Daily Life Collection established in 1975 by Nancy C. Carnochan & W.B. Carnochan
+sy885cv8683	druid:sy885cv8683	sy885cv8683_00_0001.jp2	Jackson Library: In Memory of (blank) from a gift by (blank)
+sz817tb4497	druid:sz817tb4497	sz817tb4497_00_0001.jp2	Professor Alexander Miller Fund for Ecumenical Studies
+sz825mn1786	druid:sz825mn1786	sz825mn1786_00_0001.jp2	William Sunley Anderson Fund
+tc764bw4746	druid:tc764bw4746	tc764bw4746_00_0001.jp2	C. M. Jackman Charitable Trust Endowed Book Fund for the History of Protestantism
+td970jd8629	druid:td970jd8629	td970jd8629_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919: Acquired through the Stanford University Library
+tf111yq0188	druid:tf111yq0188	tf111yq0188_00_0001.jp2	Gift of Dr. Frank A. Golder
+tg309ss0085	druid:tg309ss0085	tg309ss0085_00_0001.jp2	Given by the members of the J. O'B. Gunn family and Mrs. George Alfred Gunn in memory of Mr. J. O'B. Gunn and Mrs. George Alfred Gunn
+tg897ff3162	druid:tg897ff3162	tg897ff3162_00_0001.jp2	Bertram and Mabel Alanson Fund
+th174rc3252	druid:th174rc3252	th174rc3252_00_0001.jp2	Gift of the Southern California Stanford Alumni in Honor of J. E. Wallace Sterling — Meyer Library
+tm155yr4428	druid:tm155yr4428	tm155yr4428_00_0001.jp2	Engineering Library Gift of (blank)
+tm385cj8900	druid:tm385cj8900	tm385cj8900_00_0001.jp2	Branner Earth Sciences Library (1)
+tp629tx2599	druid:tp629tx2599	tp629tx2599_00_0001.jp2	Gift of Dr. Harold Chapman Brown
+tq504vv0666	druid:tq504vv0666	tq504vv0666_00_0001.jp2	W.H. Cowley 1899-1978 Professor of Higher Education 1945-1954 David Jacks Professor of Higher Education 1954-1968
+tr152fb2126	druid:tr152fb2126	tr152fb2126_00_0001.jp2	Transferred to the Stanford University Libraries
+tr768dw5362	druid:tr768dw5362	tr768dw5362_00_0001.jp2	Richard Foster Jones
+ts756gd7171	druid:ts756gd7171	ts756gd7171_00_0001.jp2	John Philip von Blon Memorial Collection of Children's Books presented by his mother Henriette von Blon
+ts769xs3801	druid:ts769xs3801	ts769xs3801_00_0001.jp2	Branner Geological Library Gift of Joseph Anthony Mecia Memorial Fund Mineral Engineering
+tt221mx9872	druid:tt221mx9872	tt221mx9872_00_0001.jp2	Syllabus Fund
+tt703mq3190	druid:tt703mq3190	tt703mq3190_00_0001.jp2	School of Law
+tv018pj9075	druid:tv018pj9075	tv018pj9075_00_0001.jp2	Graduate School of Business Eugene B. Favre Memorial Fund (2) J. Hugh Jackson Library
+tw404wb4051	druid:tw404wb4051	tw404wb4051_00_0001.jp2	J. P. Folinsbee Memorial Fund
+tw496kf9235	druid:tw496kf9235	tw496kf9235_00_0001.jp2	Lane Medical Library: Shadworth O. Beasley, M.D.
+ty709pr1132	druid:ty709pr1132	ty709pr1132_00_0001.jp2	In tribute to (blank) - from a gift by (blank) - Stanford University Memorial Fund
+ty728nk1895	druid:ty728nk1895	ty728nk1895_00_0001.jp2	The Law School: Gift of Frederick P.Whitaker
+ty870mw2849	druid:ty870mw2849	ty870mw2849_00_0001.jp2	Food Research Institute Library
+vd465cx0673	druid:vd465cx0673	vd465cx0673_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919 (1) (Gift of Herbert Hoover)
+vf112gq9638	druid:vf112gq9638	vf112gq9638_00_0001.jp2	Jackson Library: Gift of Ralph K. Davies, Graduate School of Business
+vf401kw1207	druid:vf401kw1207	vf401kw1207_00_0001.jp2	Gift of Robert W. Chandler (Journalism Library)
+vg004zm1385	druid:vg004zm1385	vg004zm1385_00_0001.jp2	William F. Herrin Memorial Fund
+vg689sh5148	druid:vg689sh5148	vg689sh5148_00_0001.jp2	Gift of Food Research Institute
+vg815jk6476	druid:vg815jk6476	vg815jk6476_00_0001.jp2	From the library of the late Dr. Leo Burgerstein Gift of School of Hygiene and Physical Education for Men
+vh110mj9767	druid:vh110mj9767	vh110mj9767_00_0001.jp2	Albert M. Bender Collections (small) (yellow)
+vj415vr7794	druid:vj415vr7794	vj415vr7794_00_0001.jp2	Mark X Fund
+vj566tb6618	druid:vj566tb6618	vj566tb6618_00_0001.jp2	Robert Phelps Caruthers Fund
+vk372mn9398	druid:vk372mn9398	Wiel.jp2	Mrs. Eli H. Wiel Fund
+vm778yt5164	druid:vm778yt5164	vm778yt5164_00_0001.jp2	Rare Book Collection
+vp669xs8228	druid:vp669xs8228	vp669xs8228_00_0001.jp2	Hoover Institution on War, Revolution,and Peace founded by Herbert Hoover, 1919: Ralph H. Lutz Endowment Fund
+vq118hv4552	druid:vq118hv4552	vq118hv4552_00_0001.jp2	Victor K. Thompson Book Fund
+vq152cg4836	druid:vq152cg4836	vq152cg4836_00_0001.jp2	From the library of William Alpha Cooper 1868-1939 Department of Germanic Languages 1901-1934
+vr008ss3662	druid:vr008ss3662	vr008ss3662_00_0001.jp2	Engineering Library gift of John A. Sontheimer Fund
+vr111rf7683	druid:vr111rf7683	vr111rf7683_00_0001.jp2	Estate of Leon Liebes Class of 1909
+vs304sh4536	druid:vs304sh4536	vs304sh4536_00_0001.jp2	Stanford University Library Gift of Commonwealth of New Zealand
+vt012kn8759	druid:vt012kn8759	vt012kn8759_00_0001.jp2	Gift of Lewis P. Hobart
+vv173kq9471	druid:vv173kq9471	vv173kq9471_00_0001.jp2	Stanford University Library Gift of Columbia University
+vx017jm3819	druid:vx017jm3819	vx017jm3819_00_0001.jp2	Gift of Albert H. Baker Graduate School of Business
+vx074gz4986	druid:vx074gz4986	vx074gz4986_00_0001.jp2	From the library of Prof. Arnaud B. Leavelle, Jr. Department of Political Science 1946-1956
+vx222fs9507	druid:vx222fs9507	vx222fs9507_00_0001.jp2	Gift of The Norman D. Sawyer Fund
+vx649wg9316	druid:vx649wg9316	vx649wg9316_00_0001.jp2	Associates of the Stanford University Libraries a gift in memory of
+wb482rd0575	druid:wb482rd0575	wb482rd0575_00_0001.jp2	Luckie Agee Waller Collection in Far Eastern History (tan)
+wb629pw2576	druid:wb629pw2576	wb629pw2576_00_0001.jp2	Evelyn M. Almack Memorial Fund
+wd171xd5184	druid:wd171xd5184	wd171xd5184_00_0001.jp2	From the library of Florence S. Walter presented in her memory by her daughters (1)
+wd480vh5193	druid:wd480vh5193	wd480vh5193_00_0001.jp2	Caroline Moore and Irving Whitemore Robbins Memorial Collection
+wf166cw4779	druid:wf166cw4779	wf166cw4779_00_0001.jp2	Hoover Institution on War, Revolution, and Peace: Gift of Mrs. Frank E. Booth in memory of Herbert Hoover
+wf197jk5230	druid:wf197jk5230	wf197jk5230_00_0001.jp2	Charlotte Ashley Felton Memorial Library: Gift of Eleanor and Christian de Guigne
+wf704qb4496	druid:wf704qb4496	wf704qb4496_00_0001.jp2	Systemic Biology
+wf842kc5477	druid:wf842kc5477	wf842kc5477_00_0001.jp2	Robert Honeyman IV
+wg541yf8832	druid:wg541yf8832	wg541yf8832_00_0001.jp2	Graduate School of Business: International Center for the Advancement of Management Education
+wg677nw6926	druid:wg677nw6926	wg677nw6926_00_0001.jp2	Gift of Norman B. Scofield Memorial
+wg769mw2734	druid:wg769mw2734	wg769mw2734_00_0001.jp2	Gift of Department of Germanic Languages
+wh176tz7805	druid:wh176tz7805	wh176tz7805_00_0001.jp2	Gift of Estate of Dr. Halcott C. Moreno
+wh549hw5436	druid:wh549hw5436	wh549hw5436_00_0001.jp2	Hopkins Transportation Library (small)
+wh651yz6187	druid:wh651yz6187	wh651yz6187_00_0001.jp2	Toni Raubitschek Gift to the Stanford Classics Department
+wh862td6142	druid:wh862td6142	wh862td6142_00_0001.jp2	The Russell S. Springer Fund
+wj042wb5530	druid:wj042wb5530	wj042wb5530_00_0001.jp2	In memory of John Beverly Preston (Graduate School of Business Library)
+wn638kj1785	druid:wn638kj1785	wn638kj1785_00_0001.jp2	Jackson Eli Reynolds Fund
+wp639rk0249	druid:wp639rk0249	wp639rk0249_00_0001.jp2	Graduate School of Business Library Memorial to Norman John Silberling Professor of Business Research 1935-1942
+wq476ds1619	druid:wq476ds1619	wq476ds1619_00_0001.jp2	Anna Karolina Müller
+wr124bs4169	druid:wr124bs4169	wr124bs4169_00_0001.jp2	Gift of Willard E. Hotchkiss in memory of Irma Helen Hotchkiss
+ws467zk4211	druid:ws467zk4211	ws467zk4211_00_0001.jp2	Ex Libris Herbert Hoover
+wt427wq1184	druid:wt427wq1184	wt427wq1184_00_0001.jp2	Gift of the Class of 1973
+wv150rm3875	druid:wv150rm3875	wv150rm3875_00_0001.jp2	The Law Library: Richard E. and Louise F. Lang Book Fund
+wv946zv4867	druid:wv946zv4867	wv946zv4867_00_0001.jp2	Estate of Dr. Henry R. Fairclough
+ww704rq3236	druid:ww704rq3236	ww704rq3236_00_0001.jp2	English Syllabus Fees
+wx103md2191	druid:wx103md2191	wx103md2191_00_0001.jp2	Anna Vickers Crawford Memorial Book Fund
+wx151px8581	druid:wx151px8581	wx151px8581_00_0001.jp2	Lane Medical Library: Exchange
+wx916dc2246	druid:wx916dc2246	wx916dc2246_00_0001.jp2	Gift of Estate of Dr. Herman Knoche
+wy496gq5944	druid:wy496gq5944	wy496gq5944_00_0001.jp2	Branner Geological Library
+wy788ht4714	druid:wy788ht4714	wy788ht4714_00_0001.jp2	Cubberley Library - Gift by the students & faculty of the school of Education in Honor of I. James Quillen, Dean
+xc879dv7155	druid:xc879dv7155	xc879dv7155_00_0001.jp2	The James F. Lincoln Arc Welding Foundation Welding Library
+xf955nh9462	druid:xf955nh9462	xf955nh9462_00_0001.jp2	Gift of Raymond D. Tenney in memory of Dr. Charles D. Tenney
+xh807tr2346	druid:xh807tr2346	xh807tr2346_00_0001.jp2	Bequest of Gilbert T. Benson, Esq.
+xj069bq1358	druid:xj069bq1358	xj069bq1358_00_0001.jp2	In memory of Walter Harrington Boyd, Physician, counselor, educator, Long Beach City College
+xm552nt5188	druid:xm552nt5188	xm552nt5188_00_0001.jp2	Lane Medical Library: Ida G. Hooper Memorial Fund
+xn020vv3976	druid:xn020vv3976	xn020vv3976_00_0001.jp2	Estate of Mrs. Margaret D. Huston
+xq396pj6353	druid:xq396pj6353	xq396pj6353_00_0001.jp2	Lane Medical Library: Palo Alto Hospital Staff Fund
+xr098dn6944	druid:xr098dn6944	xr098dn6944_00_0001.jp2	Gift from Mrs. O.C. Field
+xr946mh4397	druid:xr946mh4397	xr946mh4397_00_0001.jp2	Hoover Institution Microfilm Collection
+xv461gh5931	druid:xv461gh5931	xv461gh5931_00_0001.jp2	Jackson Library: In memory of Joseph Craig Milligan, Graduate School of Business
+xv735ck2482	druid:xv735ck2482	xv735ck2482_00_0001.jp2	Bequest of Henry W. Turner
+xw562tj7932	druid:xw562tj7932	xw562tj7932_00_0001.jp2	In memory of Jean McQueen Devening, Ph.D. 1911-1972
+xw637sn6613	druid:xw637sn6613	xw637sn6613_00_0001.jp2	The Douglass M. Leishman Collection in cardio-vascular research (1)
+xx110gx2112	druid:xx110gx2112	xx110gx2112_00_0001.jp2	From the library of Henry David Gray Professor of English, Emeritus
+xx342hd3512	druid:xx342hd3512	xx342hd3512_00_0001.jp2	Special Public Speaking and Drama Collection
+xz069nh1620	druid:xz069nh1620	xz069nh1620_00_0001.jp2	Engineering Library gift of The Caulfield Fund
+xz401zd9996	druid:xz401zd9996	xz401zd9996_00_0001.jp2	Alice Meyer Buck Fund
+yc040fy5868	druid:yc040fy5868	yc040fy5868_00_0001.jp2	Purchases as a Cooperative Acquisition by the Stanford University Libraries and the University of California - General
+yd077rc0657	druid:yd077rc0657	yd077rc0657_00_0001.jp2	Stanford-Sloan Program - Alfred P. Sloan Foundation Grant, Graduate School of Business: Gary G. Williams
+yd709vq0090	druid:yd709vq0090	yd709vq0090_00_0001.jp2	Executive Development Program Graduate School of Business: Giambattista Zanchi, 1960
+yh138pn9796	druid:yh138pn9796	yh138pn9796_00_0001.jp2	Gift of Dr. William M. Fitzhugh
+yh260sy6316	druid:yh260sy6316	yh260sy6316_00_0001.jp2	Gift of Barbara Jordan Fund - Systemic Biology
+yh489cw4338	druid:yh489cw4338	yh489cw4338_00_0001.jp2	Gift of Mr. and Mrs. Julian J. Meyer
+yj905ht1906	druid:yj905ht1906	yj905ht1906_00_0001.jp2	In memory of Allan Morgan Standish (2)
+yk236tt1090	druid:yk236tt1090	yk236tt1090_00_0001.jp2	Arthur O. Austin Book Fund — Engineering Library
+yk485sk3319	druid:yk485sk3319	yk485sk3319_00_0001.jp2	Gift of the Class of 1903
+yk616yv9467	druid:yk616yv9467	yk616yv9467_00_0001.jp2	Charlotte Ashley Felton Memorial Library (small)
+ym449fg6153	druid:ym449fg6153	ym449fg6153_00_0001.jp2	John C. Almack Memorial Collection
+ym824ph0111	druid:ym824ph0111	ym824ph0111_00_0001.jp2	Lane Medical Library: Julia P. Larsen Memorial Fund
+yq258gn2314	druid:yq258gn2314	yq258gn2314_00_0001.jp2	From the library of Philip Whaley Harsh 1905-1960 Professor of Classics at Stanford 1937-1960
+yq535hn5822	druid:yq535hn5822	yq535hn5822_00_0001.jp2	The Barkan Library of Opthalmology and Otology - Lane Medical Library
+yq828zh0985	druid:yq828zh0985	yq828zh0985_00_0001.jp2	Jackson Library: Graduate School of Business
+yr037cw9285	druid:yr037cw9285	yr037cw9285_00_0001.jp2	Branner Geological Library Gift of (blank)
+yr162hz3679	druid:yr162hz3679	yr162hz3679_00_0001.jp2	Gift of Warren D. Allen, Esq.
+ys325tp6844	druid:ys325tp6844	ys325tp6844_00_0001.jp2	Warren R. Howell Fund
+ys836zw1339	druid:ys836zw1339	ys836zw1339_00_0001.jp2	Gift of Louise Shoup memorial Book Fund
+yt517hz0532	druid:yt517hz0532	yt517hz0532_00_0001.jp2	From the library of Aline D. and Morgan A. Gunst, Albert M. Bender Room
+yt679js8562	druid:yt679js8562	yt679js8562_00_0001.jp2	Hoover Institution on War, Revolution, and Peace: Gift of Mr. & Mrs. Joseph P. Kennedy in memory of Herbert Hoover
+yv090pt5169	druid:yv090pt5169	yv090pt5169_00_0001.jp2	Samuel Stark Theatre Collection
+yw691dp5836	druid:yw691dp5836	yw691dp5836_00_0001.jp2	Jane Sommerich Fund
+yw815pb8868	druid:yw815pb8868	yw815pb8868_00_0001.jp2	Stanford University Library Gift of Commonwealth of Australia
+yx207zb1430	druid:yx207zb1430	yx207zb1430_00_0001.jp2	Ellen Eyre Morgan Marshall and Stewart McColloch Marshall
+yy849gt2759	druid:yy849gt2759	yy849gt2759_00_0001.jp2	Charles J. Tanenbaum Collection of the Eighteenth Century
+zb520st9962	druid:zb520st9962	zb520st9962_00_0001.jp2	Stanford University Library (hand drawn) account 5414-52
+zb767sn1862	druid:zb767sn1862	zb767sn1862_00_0001.jp2	Equipment Fund
+zc563xj9267	druid:zc563xj9267	zc563xj9267_00_0001.jp2	Memorial Fund at Stanford — Blank
+zc572dy9232	druid:zc572dy9232	zc572dy9232_00_0001.jp2	John M. Merrill (France XII) Nancy H. Merrill (Italy XI) Libraries of Overseas Studies Programs
+zc607qr0777	druid:zc607qr0777	zc607qr0777_00_0001.jp2	Bequest of John Maxson Stillman
+zd409tf3283	druid:zd409tf3283	zd409tf3283_00_0001.jp2	Lane Medical Library: Gift
+zd964cc1769	druid:zd964cc1769	zd964cc1769_00_0001.jp2	From the Library of Frank J. Devlin, Esq. Gift of Mrs. Frank J. Devlin
+zf595pz4053	druid:zf595pz4053	zf595pz4053_00_0001.jp2	Stanford University Library Gift of Anonymous Donor
+zh135hj5713	druid:zh135hj5713	zh135hj5713_00_0001.jp2	The Law Library: John T. Nourse, Jr. Book Fund
+zh378sn6689	druid:zh378sn6689	zh378sn6689_00_0001.jp2	In Memoriam Roscoe Leslie Jennings 1863-1939
+zh561pb0257	druid:zh561pb0257	zh561pb0257_00_0001.jp2	Stanford University Libraries (5) (no date at bottom)
+zj322sr0876	druid:zj322sr0876	zj322sr0876_00_0001.jp2	Gift of Margery Bailey
+zk007fc0395	druid:zk007fc0395	zk007fc0395_00_0001.jp2	Bernard B. Robinson Library Fund
+zm939mx9715	druid:zm939mx9715	zm939mx9715_00_0001.jp2	Summer Youth Orchestra 1960
+zn748yx4639	druid:zn748yx4639	zn748yx4639_00_0001.jp2	Juris Doctor Class Memorial Collection on Legal History
+zq002zt6105	druid:zq002zt6105	zq002zt6105_00_0001.jp2	Gift of Chester W. Barker, Esq. In Memory of Minnie Wing Barker
+zq083qc6407	druid:zq083qc6407	zq083qc6407_00_0001.jp2	Doris Anne and Ferdinand Mendenhall — Library of Communication
+zq103xx7035	druid:zq103xx7035	zq103xx7035_00_0001.jp2	Gift of Julia May Babcock
+zq271mg3075	druid:zq271mg3075	zq271mg3075_00_0001.jp2	Branner Earth Sciences Library (2)
+zs309vf9291	druid:zs309vf9291	zs309vf9291_00_0001.jp2	Gift of Cyril Frank Elwell, Esq.
+zv550cp7185	druid:zv550cp7185	zv550cp7185_00_0001.jp2	Gift of Mrs. Rosa Kline from the Pauline Schoenberg Estate
+zv936bs1731	druid:zv936bs1731	zv936bs1731_00_0001.jp2	Robert W. Allen Memorial Fund Gift of His Family and Friends
+zw306xr0654	druid:zw306xr0654	zw306xr0654_00_0001.jp2	Gift of Gilbert Church Book Fund
+zw879hf9644	druid:zw879hf9644	zw879hf9644_00_0001.jp2	Engineering Library
+zx125cn6818	druid:zx125cn6818	zx125cn6818_00_0001.jp2	Stanford University Library Gift of President's Office
+zy022zd6695	druid:zy022zd6695	zy022zd6695_00_0001.jp2	Vance M. Brown Memorial Books on Building Construction - Gift of Robert V. Brown
+zy026hv6975	druid:zy026hv6975	zy026hv6975_00_0001.jp2	Gift of Thomas Angell, Esq.
+KCCNA	druid:wb120vs9456	wb120vs9456_00_0001.jp2	Korea Foundation

@@ -5,6 +5,7 @@ rvm:
 bundler_args: --without production
 before_script:
   - mkdir -p tmp/Dataload/EndowRpt
+  - mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue
 script:
   - bundle exec rake db:test:prepare
   - bundle exec rake db:seed
