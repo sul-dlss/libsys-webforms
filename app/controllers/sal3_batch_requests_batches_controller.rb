@@ -27,7 +27,11 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.new(sal3_batch_requests_batch_params)
     if @sal3_batch_requests_batch.save
       array_of_item_ids = @sal3_batch_requests_batch.parse_bc_file
-      Sal3BatchRequestBcs.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
+      begin
+        Sal3BatchRequestBcs.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
+      rescue ActiveRecord::RecordNotUnique
+        flash[:warning] = 'Batch with unique barcodes already requested.'
+      end
       WebformsMailer.sal3_batch_email(@sal3_batch_requests_batch).deliver_now
       flash[:success] = 'Batch requested!'
       redirect_to root_path
@@ -53,7 +57,12 @@ class Sal3BatchRequestsBatchesController < ApplicationController
 
   def download
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
-    send_file @sal3_batch_requests_batch[:bc_file], type: 'text/plain', disposition: 'attachment'
+    begin
+      send_file @sal3_batch_requests_batch[:bc_file], type: 'text/plain', disposition: 'attachment'
+    rescue TypeError
+      flash[:warning] = 'No barcode file exists for this batch.'
+      redirect_to root_path
+    end
   end
 
   def sal3_batch_requests_batch_params

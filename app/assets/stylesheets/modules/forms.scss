@@ -12,6 +12,7 @@ a {
 }
 
 .indent {
+  font-weight: normal !important;
   margin-left: 20px;
 }
 
@@ -34,4 +35,12 @@ hr {
 
 #error-explanation {
   color: $warning;
+}
+
+.small {
+  font-size: $font-size-tiny;
+}
+
+li {
+  list-style-type: none;
 }

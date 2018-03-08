@@ -10,8 +10,8 @@
 </div>
 <% end %>
 <div>
-  <h3>User Info</h3>
-  <p>This will be used by SAL3 staff to contact you if they have questions about your batch request:</p>
+  <h3>Requester information</h3>
+  <p><span class='small'>This will be used by SAL3 staff to contact you if they have questions about your batch request:</span></p>
   <div class='form-group row'>
     <%= f.label :user_name, class: 'col-sm-2 form-control-label' %>
     <div class='col-sm-10'>
@@ -32,7 +32,7 @@
   </div>
 </div>
 <div>
-  <h3>Batch Info</h3>
+  <h3>Batch information</h3>
   <div class='form-group row'>
     <%= f.label :batch_name, "Name or short description", class: 'col-sm-2 form-control-label' %>
     <div class='col-sm-10'>
@@ -40,7 +40,7 @@
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :pseudo_id, "User ID to charge items", class: 'col-sm-2 form-control-label' %>
+    <%= f.label :pseudo_id, "User ID to charge items in Symphony", class: 'col-sm-2 form-control-label' %>
     <div class='col-sm-10'>
       <%= f.text_field 'pseudo_id', class: 'form-control' %>
     </div>
@@ -88,48 +88,44 @@
             <%= f.date_field 'batch_needbydate', id: 'dp2', class: 'form-control', value: "#{6.months.from_now.strftime('%d-%^b-%y')}" %>
           </div>
         </div>
-        <div class='indent'>
-          <div class='form-group row'>
-            <div class='col-sm-2'>Requested delivery days:</div>
-          </div>
-          <div class='form-group row'>
-            <%= f.label :batch_pullmon, "Monday", class: 'col-sm-1 form-control-label' %>
-            <div class='col-sm-1'>
-              <%= f.check_box 'batch_pullmon', class: 'form-control' %>
-            </div>
-          </div>
-          <div class='form-group row'>
-            <%= f.label :batch_pulltues, "Tuesday", class: 'col-sm-1 form-control-label' %>
-            <div class='col-sm-1'>
-              <%= f.check_box 'batch_pulltues', class: 'form-control' %>
-            </div>
-          </div>
-          <div class='form-group row'>
-            <%= f.label :batch_pullwed, "Wednesday", class: 'col-sm-1 form-control-label' %>
-            <div class='col-sm-1'>
-              <%= f.check_box 'batch_pullwed', class: 'form-control' %>
-            </div>
-          </div>
-          <div class='form-group row'>
-            <%= f.label :batch_pullthurs, "Thursday", class: 'col-sm-1 form-control-label' %>
-            <div class='col-sm-1'>
-              <%= f.check_box 'batch_pullthurs', class: 'form-control' %>
-            </div>
-          </div>
-          <div class='form-group row'>
-            <%= f.label :batch_pullfri, "Friday", class: 'col-sm-1 form-control-label' %>
-            <div class='col-sm-1'>
-              <%= f.check_box 'batch_pullfri', class: 'form-control' %>
-            </div>
+        <div class='form-group row'>
+          <%= f.label "Requested delivery days:", class: 'col-sm-2 form-control-label' %>
+          <div class='col-sm-10'>
+            <ol class='col-sm-10'>
+              <li>
+                <%= f.label :batch_pullmon, "Monday", class: 'col-sm-1 indent' %>
+                <%= f.check_box 'batch_pullmon', class: 'form-control' %>
+              </li>
+              <li>
+                <%= f.label :batch_pulltues, "Tuesday", class: 'col-sm-1 indent' %>
+                <%= f.check_box 'batch_pulltues', class: 'form-control' %>
+              </li>
+              <li>
+                <%= f.label :batch_pullwed, "Wednesday", class: 'col-sm-1 indent' %>
+                <%= f.check_box 'batch_pullwed', class: 'form-control' %>
+              </li>
+              <li>
+                <%= f.label :batch_pullthurs, "Thursday", class: 'col-sm-1 indent' %>
+                <%= f.check_box 'batch_pullthurs', class: 'form-control' %>
+              </li>
+              <li>
+                <%= f.label :batch_pullfri, "Friday", class: 'col-sm-1 indent' %>
+                <%= f.check_box 'batch_pullfri', class: 'form-control' %>
+              </li>
+            </ol>
+            <ul class='col-sm-10'>
+              <li>Requests must be submitted by 11am for next business day delivery.</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :bc_file_obj, 'Upload barcode file (one barcode per line)', class: 'col-sm-2 form-control-label' %>
+    <%= f.label :bc_file_obj, 'Upload barcode file', class: 'col-sm-2 form-control-label' %>
     <div class='col-sm-10'>
       <%= f.file_field 'bc_file_obj', class: 'form-control-file' %>
+      <span class='small'><em>Plain text file. Use Notepad or TextWrangler. One barcode per line. No punctuation.</em></span>
     </div>
   </div>
   <div class='form-group row'>
