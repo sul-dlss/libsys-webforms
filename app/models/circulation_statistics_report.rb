@@ -82,7 +82,7 @@ class CirculationStatisticsReport
     lo_integer = call_lo.to_i
     hi_integer = call_hi.to_i
     message = 'Low and hi callnum range must be all digits, with lo lower than hi.'
-    errors.add(:base, message) unless call_lo =~ /^[0-9]+$/ && call_hi =~ /^[0-9]+$/ && lo_integer < hi_integer
+    errors.add(:base, message) unless call_lo =~ /^[0-9]+$/ && call_hi =~ /^[0-9]+$/ && lo_integer <= hi_integer
   end
 
   # rubocop:disable Metrics/PerceivedComplexity
