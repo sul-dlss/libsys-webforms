@@ -39,7 +39,7 @@ The various oracle gems (including the plsql gem) use an initializer ([`config/i
 
 In order to have the tables populated for testing the app in development you should load the fixture data into the tables with:
 ```
-RAILS_ENV=test rails runner spec/init_libsys_webforms.rb
+RAILS_ENV=development rails runner spec/init_libsys_webforms.rb
 ```
 You should also set up a user for you to use when testing the app in development. Do this in the Rails Console:
 
