@@ -33,5 +33,6 @@ module LibsysWebforms
     config.autoload_paths += %W(#{config.root}/lib)
     config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
+    config.time_zone = 'Pacific Time (US & Canada)'
   end
 end
