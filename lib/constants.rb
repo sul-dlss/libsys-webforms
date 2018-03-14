@@ -2,6 +2,7 @@ module Constants
   AUTHORIZED_USER_APPS = {
     'accession_number' => 'Accession number',
     'db_access_ids' => 'Database access',
+    'digital_bookplates' => 'Digital bookplates',
     'direct_upload' => 'Direct uploads',
     'email_stats' => 'Email stats',
     'file_upload' => 'File uploads',
