@@ -7,4 +7,5 @@ before_script:
   - mkdir -p tmp/Dataload/EndowRpt
 script:
   - bundle exec rake db:test:prepare
+  - bundle exec rake db:seed
   - bundle exec rake spec

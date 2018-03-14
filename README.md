@@ -39,7 +39,7 @@ The various oracle gems (including the plsql gem) use an initializer ([`config/i
 
 In order to have the tables populated for testing the app in development you should load the fixture data into the tables with:
 ```
-RAILS_ENV=development rails runner spec/init_libsys_webforms.rb
+RAILS_ENV=development rake db:seed
 ```
 You should also set up a user for you to use when testing the app in development. Do this in the Rails Console:
 
@@ -68,6 +68,7 @@ REMOTE_USER=some-user rails s
 Before running the tests with rake you should run the migrations in the `test` environment by running:
 ```
 RAILS_ENV=test rake db:test:prepare
+RAILS_ENV=test rake db:seed
 ```
 
 NOTE: Travis uses `db:test:prepare` rather than `db:migrate`
