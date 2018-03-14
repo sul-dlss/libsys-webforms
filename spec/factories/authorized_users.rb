@@ -38,6 +38,7 @@ FactoryBot.define do
     f.file_upload 'Y'
     f.userload_rerun 'Y'
     f.accession_number 'A'
+    f.digital_bookplates 'A'
   end
   factory :staff_user, class: AuthorizedUser do |f|
     f.user_id 'staff_user'
@@ -58,6 +59,7 @@ FactoryBot.define do
     f.file_upload 'Y'
     f.userload_rerun 'Y'
     f.accession_number 'Y'
+    f.digital_bookplates 'Y'
   end
   factory :blank_user, class: AuthorizedUser do |f|
     f.user_id 'blank_user'
