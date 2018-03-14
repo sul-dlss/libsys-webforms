@@ -72,22 +72,22 @@ class ExpenditureReport < ActiveRecord::Base
   end
 
   def write_cal_start(year)
-    cal_start = Time.parse("#{year}-01-01").in_time_zone.strftime('%Y-%m-%d')
+    cal_start = Time.parse("#{year}-01-01").strftime('%Y-%m-%d')
     write_range_start(cal_start)
   end
 
   def write_cal_end(year)
-    cal_end = Time.parse("#{year}-12-31").in_time_zone.strftime('%Y-%m-%d')
+    cal_end = Time.parse("#{year}-12-31").strftime('%Y-%m-%d')
     write_range_end(cal_end)
   end
 
   def write_pd_start(date)
-    pd_start = Time.parse(date).in_time_zone.strftime('%Y-%^b-%d')
+    pd_start = Time.parse(date).strftime('%Y-%^b-%d')
     write_range_start(pd_start)
   end
 
   def write_pd_end(date)
-    pd_end = Time.parse(date).in_time_zone.strftime('%Y-%^b-%d')
+    pd_end = Time.parse(date).strftime('%Y-%^b-%d')
     write_range_end(pd_end)
   end
 
