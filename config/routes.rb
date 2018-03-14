@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :change_item_types, only: [:new, :create]
   resources :change_current_locations, only: [:new, :create]
   resources :change_home_locations, only: [:new, :create]
+  resources :digital_bookplates_batches, only: [:index, :create, :destroy] do
+    get 'add_batch', 'delete_batch', on: :new
+    get 'queue', 'completed', on: :collection
+  end
   resources :uni_updates_batches, only: [:show, :destroy]
   resources :withdraw_items, only: [:new, :create]
   resources :transfer_items, only: [:new, :create]
@@ -57,6 +61,7 @@ Rails.application.routes.draw do
   post 'authorized_users/create' => 'authorized_users#create'
   delete 'authorized_users/delete' => 'authorized_users#delete'
   delete 'authorized_users/delete/:user_id' => 'authorized_users#delete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

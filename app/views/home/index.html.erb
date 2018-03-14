@@ -21,6 +21,13 @@
       </div>
     </div>
     <% end %>
+    <% if can? :read, DigitalBookplatesBatch %>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4><%= link_to "Digital bookplates", 'digital_bookplates_batches' %></h4>
+      </div>
+    </div>
+    <% end %>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <% if can? :create, Sal3BatchRequestsBatch %>
       <div class="panel panel-default">
