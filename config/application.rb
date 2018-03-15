@@ -32,6 +32,7 @@ module LibsysWebforms
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/lib)
     config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
+    config.time_zone = 'Pacific Time (US & Canada)'
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
   end
 end

@@ -22,14 +22,14 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
       expect(@report.date_range_start).not_to be_nil
     end
     it 'checks and writes the dates' do
-      expect(@report.send(:write_fy_start, '2011')).to eq('0010-SEP-03')
-      expect(@report.send(:write_fy_end, '2011')).to eq('0011-AUG-25')
-      expect(@report.send(:check_fy)).to eq('0011-AUG-25')
+      expect(@report.send(:write_fy_start, '2011')).to eq('2010-SEP-03')
+      expect(@report.send(:write_fy_end, '2011')).to eq('2011-AUG-25')
+      expect(@report.send(:check_fy)).to eq('2011-AUG-25')
 
-      expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
-      expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
-      expect(@report.send(:write_pd_start, '04-OCT-96')).to eq('1996-10-04')
-      expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-10-04')
+      expect(@report.send(:write_cal_start, '2011')).to eq('2010-12-31')
+      expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-30')
+      expect(@report.send(:write_pd_start, '04-OCT-96')).to eq('1996-OCT-03')
+      expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-OCT-03')
     end
     it 'sets the attribute for fund_acct with a fund_begin value' do
       @report.update_attributes(fund: nil)
@@ -37,10 +37,10 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     end
     it 'rescues from an error if the fy date is not in the table' do
       expect do
-        FactoryBot.create(:expenditures_with_circ_stats_report, fy_start: 'FY 2015')
+        FactoryBot.create(:expenditures_with_circ_stats_report, fy_start: 'FY 2018')
       end.to raise_error(ActiveRecord::RecordNotFound)
       expect do
-        FactoryBot.create(:expenditures_with_circ_stats_report, fy_end: 'FY 2015')
+        FactoryBot.create(:expenditures_with_circ_stats_report, fy_end: 'FY 2018')
       end.to raise_error(ActiveRecord::RecordNotFound)
     end
   end

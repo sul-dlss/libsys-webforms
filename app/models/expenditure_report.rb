@@ -2,6 +2,7 @@
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
 class ExpenditureReport < ActiveRecord::Base
+  include FundYearUtils
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end, :output_file
 
@@ -23,86 +24,6 @@ class ExpenditureReport < ActiveRecord::Base
   end
 
   private
-
-  def set_fund
-    if fund
-      # the multi select collects an array
-      # but ta_fund_code is a string
-      self[:ta_fund_code] = fund.join(',')
-    elsif fund_begin
-      self[:ta_fund_code] = fund_begin
-    end
-  end
-
-  def check_fy
-    write_fy_start(fy_start.sub('FY', ''))
-    if fy_end.present?
-      write_fy_end(fy_end.sub('FY', ''))
-    else # fy_end is the same as fy_start
-      write_fy_end(fy_start.sub('FY', ''))
-    end
-  end
-
-  def check_cal
-    write_cal_start(cal_start)
-    if cal_end.present?
-      write_cal_end(cal_end)
-    else # cal_end is the same as cal_start
-      write_cal_end(cal_start)
-    end
-  end
-
-  def check_pd
-    write_pd_start(pd_start)
-    if pd_end.present?
-      write_pd_end(pd_end)
-    else # pd_end is the same as pd_start
-      write_pd_end(pd_start)
-    end
-  end
-
-  def write_fy_start(year)
-    fy_start = ExpendituresFyDate.find(year).min_paydate.strftime('%Y-%^b-%d')
-    write_range_start(fy_start)
-  end
-
-  def write_fy_end(year)
-    fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%Y-%^b-%d')
-    write_range_end(fy_end)
-  end
-
-  def write_cal_start(year)
-    cal_start = Time.parse("#{year}-01-01").in_time_zone.strftime('%Y-%m-%d')
-    write_range_start(cal_start)
-  end
-
-  def write_cal_end(year)
-    cal_end = Time.parse("#{year}-12-31").in_time_zone.strftime('%Y-%m-%d')
-    write_range_end(cal_end)
-  end
-
-  def write_pd_start(date)
-    pd_start = Time.parse(date).in_time_zone.strftime('%Y-%^b-%d')
-    write_range_start(pd_start)
-  end
-
-  def write_pd_end(date)
-    pd_end = Time.parse(date).in_time_zone.strftime('%Y-%^b-%d')
-    write_range_end(pd_end)
-  end
-
-  def write_range_start(date)
-    self[:date_range_start] = date
-  end
-
-  def write_range_end(date)
-    self[:date_range_end] = date
-  end
-
-  def write_dates
-    self[:date_request] = Time.zone.now
-    self[:date_ran] = nil
-  end
 
   def set_output_file
     self[:output_file] = output_file
