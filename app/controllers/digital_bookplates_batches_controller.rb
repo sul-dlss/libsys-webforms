@@ -25,7 +25,7 @@ class DigitalBookplatesBatchesController < ApplicationController
   def create
     file_obj = digital_bookplates_batch_params[:file_obj]
     @digital_bookplates_batch = DigitalBookplatesBatch.new(digital_bookplates_batch_params)
-    @digital_bookplates_batch.file = file_obj.original_filename unless file_obj.nil?
+    @digital_bookplates_batch.ckey_file = file_obj.original_filename unless file_obj.nil?
     num_ckeys = count_ckeys(file_obj)
     if num_ckeys <= 10_000
       @digital_bookplates_batch.ckey_count = num_ckeys
@@ -46,7 +46,7 @@ class DigitalBookplatesBatchesController < ApplicationController
   def destroy
     @digital_bookplates_batch = DigitalBookplatesBatch.find_by(batch_id: params[:id])
     if @digital_bookplates_batch.destroy
-      delete_file(@digital_bookplates_batch.file, @digital_bookplates_batch.submit_date.strftime('%Y%m%d%H%M%S'))
+      delete_file(@digital_bookplates_batch.ckey_file, @digital_bookplates_batch.submit_date.strftime('%Y%m%d%H%M%S'))
       flash[:notice] = 'Batch deleted!'
     else
       flash[:error] = 'Batch cannot be deleted!'

@@ -71,7 +71,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
     end
     it 'deletes the uploaded file too' do
       symphony_path = Settings.symphony_dataload_digital_bookplates
-      expect(File).not_to exist("#{symphony_path}/#{@add_batch.submit_date}_#{@add_batch.file}")
+      expect(File).not_to exist("#{symphony_path}/#{@add_batch.submit_date}_#{@add_batch.ckey_file}")
     end
   end
 end

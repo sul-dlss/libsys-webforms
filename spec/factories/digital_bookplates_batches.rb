@@ -2,7 +2,7 @@ include ActionDispatch::TestProcess
 FactoryBot.define do
   factory :digital_bookplates_add_batches, class: DigitalBookplatesBatch do
     batch_id 1
-    file 'test_file.txt'
+    ckey_file 'test_file.txt'
     file_obj { fixture_file_upload(Rails.root.to_s + '/spec/fixtures/files/test_file.txt', 'text/plain') }
     druid 'bb489wp4687'
     user_name 'Staff User'
@@ -14,7 +14,7 @@ FactoryBot.define do
   end
   factory :digital_bookplates_completed_batches, class: DigitalBookplatesBatch do
     batch_id 2
-    file 'test_file.txt'
+    ckey_file 'test_file.txt'
     file_obj { fixture_file_upload(Rails.root.to_s + '/spec/fixtures/files/test_file.txt', 'text/plain') }
     druid 'bb489wp4687'
     user_name 'Admin User'

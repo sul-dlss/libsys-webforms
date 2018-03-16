@@ -1,7 +1,7 @@
 class CreateDigitalBookplatesBatches < ActiveRecord::Migration
   def change
     create_table :digital_bookplates_batches, primary_key: 'batch_id' do |t|
-      t.string :file
+      t.string :ckey_file
       t.string :druid
       t.string :user_name
       t.string :user_email
