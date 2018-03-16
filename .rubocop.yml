@@ -15,7 +15,6 @@ AllCops:
     - 'vendor/**/*'
     - 'lib/tasks/display-coverage.rake'
     - 'loc_marc2bibframe2/**/*'
-  TargetRailsVersion: 4.2
 
 Lint/HandleExceptions:
   Enabled: false
@@ -36,6 +35,9 @@ Metrics/ClassLength:
   Max: 120
 
 Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
   Max: 10
 
 Metrics/MethodLength:
