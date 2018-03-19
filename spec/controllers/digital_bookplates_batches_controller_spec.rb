@@ -46,9 +46,11 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
       post :create, digital_bookplates_batch: valid_attributes
       expect(DigitalBookplatesBatch.last.ckey_count).to eq(2)
     end
-    it 'uses PST timezone for submit date to prepend to filename of the uploaded file' do
+    it 'uses batch_id to prepend to filename of the uploaded file' do
       post :create, digital_bookplates_batch: valid_attributes
-      expect(DigitalBookplatesBatch.last.submit_date.strftime('%Y%m%d%H%M%S')).to eq('20180313205220')
+      symphony_path = Settings.symphony_dataload_digital_bookplates
+      file = "#{DigitalBookplatesBatch.last.batch_id}_#{DigitalBookplatesBatch.last.ckey_file}"
+      expect(File).to exist("#{symphony_path}/#{file}")
     end
     it 'redirects to queue page on success' do
       post :create, digital_bookplates_batch: valid_attributes
@@ -62,16 +64,16 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
     end
   end
   describe 'delete#destroy' do
-    it 'lets users delete a batch' do
-      expect { delete :destroy, id: @add_batch }.to change(DigitalBookplatesBatch, :count).by(-1)
+    it 'lets users delete a batch and corresponding file too' do
+      post :create, digital_bookplates_batch: valid_attributes
+      delete_batch_id = DigitalBookplatesBatch.last.batch_id
+      expect { delete :destroy, id: delete_batch_id }.to change(DigitalBookplatesBatch, :count).by(-1)
+      symphony_path = Settings.symphony_dataload_digital_bookplates
+      expect(File).not_to exist("#{symphony_path}/3_test_file.txt")
     end
     it 'does not delete batches that have a completed_date' do
       expect { delete :destroy, id: @completed_batch }.to change(DigitalBookplatesBatch, :count).by(0)
       expect(flash[:error]).to eq 'Batch cannot be deleted!'
-    end
-    it 'deletes the uploaded file too' do
-      symphony_path = Settings.symphony_dataload_digital_bookplates
-      expect(File).not_to exist("#{symphony_path}/#{@add_batch.submit_date}_#{@add_batch.ckey_file}")
     end
   end
 end

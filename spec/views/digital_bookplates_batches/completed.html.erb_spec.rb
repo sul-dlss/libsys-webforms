@@ -7,7 +7,7 @@ RSpec.describe 'digital_bookplates_batches/completed', type: :view do
     assign(:digital_bookplates_batches, [@digital_bookplates_batch])
     render
   end
-  it 'should display the comleted date in PST timezone' do
+  it 'should display the completed date in PST timezone' do
     expect(rendered).to match('Mar-14-2018 12:02 PM')
   end
   it 'should not display a delete button to delete a batch' do

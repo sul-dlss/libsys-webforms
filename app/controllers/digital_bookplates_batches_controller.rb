@@ -29,8 +29,8 @@ class DigitalBookplatesBatchesController < ApplicationController
     num_ckeys = count_ckeys(file_obj)
     if num_ckeys <= 10_000
       @digital_bookplates_batch.ckey_count = num_ckeys
-      copy_file(file_obj, @digital_bookplates_batch.submit_date.strftime('%Y%m%d%H%M%S'))
       @digital_bookplates_batch.save
+      copy_file(file_obj, @digital_bookplates_batch.batch_id)
       redirect_to queue_digital_bookplates_batches_path
       flash[:notice] = 'Batch uploaded!'
     else
@@ -46,7 +46,7 @@ class DigitalBookplatesBatchesController < ApplicationController
   def destroy
     @digital_bookplates_batch = DigitalBookplatesBatch.find_by(batch_id: params[:id])
     if @digital_bookplates_batch.destroy
-      delete_file(@digital_bookplates_batch.ckey_file, @digital_bookplates_batch.submit_date.strftime('%Y%m%d%H%M%S'))
+      delete_file(@digital_bookplates_batch.ckey_file, @digital_bookplates_batch.batch_id)
       flash[:notice] = 'Batch deleted!'
     else
       flash[:error] = 'Batch cannot be deleted!'
@@ -66,16 +66,16 @@ class DigitalBookplatesBatchesController < ApplicationController
     ckeys
   end
 
-  def copy_file(file_obj, submit_date)
+  def copy_file(file_obj, batch_id)
     FileUtils.chmod 0o644, file_obj.path
     file = file_obj.path
     symphony_path = Settings.symphony_dataload_digital_bookplates
-    new_file = "#{symphony_path}/#{submit_date}_#{file_obj.original_filename}"
+    new_file = "#{symphony_path}/#{batch_id}_#{file_obj.original_filename}"
     FileUtils.cp(file, new_file, preserve: true)
   end
 
-  def delete_file(file, submit_date)
-    file_path = "#{Settings.symphony_dataload_digital_bookplates}/#{submit_date}_#{file}"
+  def delete_file(file, batch_id)
+    file_path = "#{Settings.symphony_dataload_digital_bookplates}/#{batch_id}_#{file}"
     FileUtils.rm(file_path)
   end
 end
