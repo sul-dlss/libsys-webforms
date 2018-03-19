@@ -4,8 +4,7 @@
 class UniUpdates < ActiveRecord::Base
   self.table_name = 'uni_updates'
   self.primary_key = 'batch_id'
-  belongs_to :uni_updates_batch, foreign_key: 'batch_id',
-                                 class_name: UniUpdatesBatch,
+  belongs_to :uni_updates_batch, class_name: UniUpdatesBatch,
                                  inverse_of: :uni_updates
 
   def self.create_for_batch(array_of_item_ids, uni_updates_batch)
@@ -35,10 +34,14 @@ class UniUpdates < ActiveRecord::Base
     uniques = []
     duplicates = []
     uniq_item_ids.each do |item_id|
-      if UniUpdates.where(item_id: item_id, load_date: Time.zone.today.strftime('%Y-%m-%d')).empty?
-        uniques << item_id
-      else
-        duplicates << item_id
+      begin
+        count = UniUpdates.where('item_id = ? AND load_date = trunc(sysdate)', item_id).count
+        if count.zero?
+          uniques << item_id
+        else
+          duplicates << item_id
+        end
+      rescue ActiveRecord::StatementInvalid
       end
     end
     [uniques, duplicates]
