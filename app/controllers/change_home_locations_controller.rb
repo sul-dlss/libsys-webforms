@@ -9,10 +9,10 @@ class ChangeHomeLocationsController < ApplicationController
     @change_home_location = ChangeHomeLocation.new(params[:change_home_location])
     if @change_home_location.valid?
       array_of_item_ids = @change_home_location.parse_uploaded_file
-      filtered_item_ids = UniUpdates.filter_duplicates(array_of_item_ids)
+      filtered_item_ids = FilterDuplicateBarcodes.filtered_item_ids(array_of_item_ids)
       uniques = filtered_item_ids[0]
       duplicates = filtered_item_ids[1].join(' ')
-      @uni_updates_batch = UniUpdatesBatch.create_home_location_batch(params, uniques.count)
+      @uni_updates_batch = ChangeHomeLocation.batch_for_transfer_item(params, uniques)
       UniUpdates.create_for_batch(uniques, @uni_updates_batch)
       WebformsMailer.batch_upload_email(@uni_updates_batch, duplicates).deliver_now
       flash[:notice] = 'Batch uploaded!'

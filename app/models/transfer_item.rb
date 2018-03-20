@@ -10,4 +10,8 @@ class TransferItem
   validates :current_library, :new_library, :new_homeloc, :item_ids,
             presence: true
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
+
+  def self.batch_for_transfer_item(params, uniques)
+    UniUpdatesBatch.create_transfer_item_batch(params, uniques.count)
+  end
 end
