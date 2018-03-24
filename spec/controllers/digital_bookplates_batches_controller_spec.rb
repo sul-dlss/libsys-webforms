@@ -59,8 +59,8 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
     end
     it 'renders "new" template on failure' do
       post :create, digital_bookplates_batch: invalid_attributes
-      expect(flash[:error]).to eq 'Too many ckeys in the file! Limit is 10,000 ckeys.'
-      expect(response).to render_template('add_batch')
+      expect(flash[:error]).to eq 'Ckey count cannot be more than 10,000.'
+      expect(response).to redirect_to(add_batch_new_digital_bookplates_batch_path)
     end
   end
   describe 'delete#destroy' do
