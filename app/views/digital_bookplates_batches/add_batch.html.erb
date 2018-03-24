@@ -2,16 +2,6 @@
 <h2>Add digital bookplate metadata to Symphony records</h2>
 
 <%= form_for @digital_bookplates_batch, class: 'form-group' do |f| %>
-  <% if @digital_bookplates_batch.errors.any? %>
-  <div id="error-explanation">
-    <ul>
-      <% @digital_bookplates_batch.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-
   <div class='form-group row'>
     <%= f.label 'Select bookplate druid', class: 'col-sm-2 form-control-label' %>
     <div class='table-container col-sm-10 pad'>
@@ -47,6 +37,7 @@
     <%= f.label :ckey_file, class: 'col-sm-2 form-control-label' %>
     <div class='col-sm-10'>
       <%= f.file_field :file_obj, class: 'form-control-file' %>
+      <span class='small'>Plain text file. Use Notepad or TextWrangler. One ckey per line. No punctuation.</span>
     </div>
   </div>
   <%= f.hidden_field :user_name, value: current_user.user_id %>
