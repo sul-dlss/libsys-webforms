@@ -7,28 +7,41 @@
       <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-         Upload a file of ckeys
+         Add digital bookplate metadata to Symphony records
        </a>
       </h4>
       </div>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        <li><%= link_to 'Add digital bookplate metadata to Symphony records', add_batch_new_digital_bookplates_batch_path %></li>
-        <% if /A/ === current_user.digital_bookplates %>
-          <li><%= link_to 'Delete digital bookplate metadata from Symphony records', delete_batch_new_digital_bookplates_batch_path %></li>
-        <% end %>
+        <li><%= link_to 'Add 979 fields', add_batch_new_digital_bookplates_batch_path %></li>
       </div>
     </div>
+    <% if /A/ === current_user.digital_bookplates %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         Delete digital bookplate metadata from Symphony records
+       </a>
+      </h4>
+      </div>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <li><%= link_to 'Delete 979 fields', delete_batch_new_digital_bookplates_batch_path %></li>
+      </div>
+    </div>
+    <% end %>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
         <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             Show submitted batches
           </a>
         </h4>
       </div>
-      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+      <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
         <div class="panel-body">
           <li><%= link_to 'Show batches in queue', queue_digital_bookplates_batches_path %></li>
           <li><%= link_to 'Show completed batches', completed_digital_bookplates_batches_path %></li>
