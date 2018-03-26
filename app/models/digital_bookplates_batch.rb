@@ -37,6 +37,7 @@ class DigitalBookplatesBatch < ActiveRecord::Base
 
   def set_filename
     filename = file_obj.original_filename
+    filename.gsub!(/\s+/, '_') if filename =~ /\s+/
     update_attributes(ckey_file: filename)
   end
 
