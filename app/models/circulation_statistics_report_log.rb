@@ -27,7 +27,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
       status: 'REQUEST' }
   end
 
-  # rubocop:disable Metrics/AbcSize,Metrics/PerceivedComplexity,Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
   def self.process_range_type_params(circ_stats)
     range_type_params = {}
     case circ_stats.range_type
@@ -62,7 +62,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
     end
     range_type_params
   end
-  # rubocop:enable Metrics/AbcSize,Metrics/PerceivedComplexity,Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize,Metrics/MethodLength
 
   def self.build_output_type(circ_stats)
     if circ_stats.range_type == 'barcodes'

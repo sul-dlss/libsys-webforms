@@ -16,6 +16,14 @@ module ApplicationHelper
     ), '/batch_record_updates'
   end
 
+  def digital_bookplates_menu_button
+    link_to button_tag(
+      'Digital bookplates menu',
+      id: 'digital-bookplates-menu',
+      class: 'btn btn-md btn-default btn-full'
+    ), '/digital_bookplates_batches'
+  end
+
   def main_menu_button
     link_to button_tag(
       'Main menu',

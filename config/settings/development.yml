@@ -3,10 +3,12 @@ symphony_env: '/s/SUL/Config/sirsi.env'
 symphony_host: 'morison.stanford.edu'
 symphony_cgi_url: 'http://morison.stanford.edu/cgi-bin/webforms'
 symphony_catalogdump: '/s/sirsi/Unicorn/Bin/catalogdump -om -kc -h -z -j -n dumpjunktag.Bibframe 2>/dev/null'
-symphony_dataload_endowrpt: '/symphony/Dataload/EndowRpt'
 # Note: the dumpjunktag.Bibframe file is located on the Symphony server under /s/sirsi/Unicorn/Custom/.
 #       It contains the tag listing '001' which instructs the catalogdump to remove all '001' fields of
 #       the MARC record. The -kc flag then adds back in an '001' field with the ckey as the value
+symphony_dataload_endowrpt: '/symphony/Dataload/EndowRpt'
+symphony_config_digital_bookplates: '/symphony/Config/BookplateMerge/symp_dor.txt'
+symphony_dataload_digital_bookplates: '/symphony/Dataload/BookplateMerge/Batches/Queue'
 base_uri: 'http://ld4p-dev.stanford.edu/'
 # PL/SQL jobs
 pl_sql_jobs:

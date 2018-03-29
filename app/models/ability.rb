@@ -9,6 +9,7 @@ class Ability
     assign_basic_permission
     assign_user_permission if current_user
     assign_batch_permission if /A|Y/ =~ current_user.unicorn_updates
+    alias_action :queue, :completed, to: :read
   end
 
   def assign_basic_permission
@@ -22,6 +23,7 @@ class Ability
   def assign_staff_permission(current_user)
     can :manage, AccessionNumberUpdate if /A|Y/ =~ current_user.accession_number
     can %i[read generate_number generate_number_form], AccessionNumber if /A|Y/ =~ current_user.accession_number
+    can %i[read create destroy add_batch], DigitalBookplatesBatch if /A|Y/ =~ current_user.digital_bookplates
     can :manage, ManagementReport if /A|Y/ =~ current_user.mgt_rpts
     can %i[create read], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
     can %i[read update download], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
@@ -32,6 +34,7 @@ class Ability
     can :manage, AccessionNumber if /A/ =~ current_user.accession_number
     app = AuthorizedUsersController.helpers.administrator_apps(current_user)
     can :manage, AuthorizedUser if app.any?
+    can :delete_batch, DigitalBookplatesBatch if /A/ =~ current_user.digital_bookplates
   end
 
   def assign_batch_permission

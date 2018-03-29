@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301230700) do
+ActiveRecord::Schema.define(version: 20180302192912) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180301230700) do
     t.string   "sal3_breq_edit"
     t.string   "userload_rerun"
     t.string   "accession_number"
+    t.string   "digital_bookplates"
   end
 
   create_table "catnums", force: :cascade do |t|
@@ -76,6 +77,19 @@ ActiveRecord::Schema.define(version: 20180301230700) do
     t.string   "exclude_bad_year"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "digital_bookplates_batches", primary_key: "batch_id", force: :cascade do |t|
+    t.string   "ckey_file"
+    t.string   "druid"
+    t.string   "user_name"
+    t.string   "user_email"
+    t.string   "batch_type"
+    t.integer  "ckey_count"
+    t.datetime "submit_date"
+    t.datetime "completed_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "encumbrance_rpts", force: :cascade do |t|
