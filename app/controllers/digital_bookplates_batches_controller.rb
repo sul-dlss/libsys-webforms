@@ -6,12 +6,10 @@ class DigitalBookplatesBatchesController < ApplicationController
 
   def queue
     @digital_bookplates_batches = DigitalBookplatesBatch.all.where(completed_date: [nil])
-                                                        .order('submit_date DESC')
   end
 
   def completed
     @digital_bookplates_batches = DigitalBookplatesBatch.all.where.not(completed_date: [nil])
-                                                        .order('completed_date DESC')
   end
 
   def add_batch
@@ -31,7 +29,7 @@ class DigitalBookplatesBatchesController < ApplicationController
     else
       if @digital_bookplates_batch.errors.any?
         @digital_bookplates_batch.errors.full_messages.each do |msg|
-          flash[:error] = msg
+          flash[:error] = msg # this only displays the first error message
         end
       end
       redirect_to new_path_redirect(digital_bookplates_batch_params)
