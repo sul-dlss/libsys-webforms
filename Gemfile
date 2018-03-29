@@ -49,6 +49,8 @@ gem 'fiscali'
 gem 'has_scope'
 # To parse tsv for DigitalBookplate data
 gem 'tsv'
+# loofah 2.2.1 Fixes known security vulnerability: CVE-2018-8048
+gem 'loofah', '~> 2.2.1'
 
 group :production do
   # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
