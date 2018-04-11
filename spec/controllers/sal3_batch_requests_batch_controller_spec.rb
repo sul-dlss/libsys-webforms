@@ -15,7 +15,9 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   describe 'get#show' do
     it 'is successful returning a show page' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file)
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
+                                                                  batch_startdate: '11-APR-18',
+                                                                  batch_needbydate: '11-APR-18')
       get 'show', id: @sal3_batch_requests_batch
       expect(response).to render_template('show')
     end
@@ -47,7 +49,9 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   end
   describe 'get#edit' do
     it 'is successful returning the edit view' do
-      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file)
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
+                                                                  batch_startdate: '11-APR-18',
+                                                                  batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
       get 'edit', id: @sal3_batch_requests_batch
       expect(response).to be_success
@@ -57,7 +61,9 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     it 'updates the requested batch' do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
                                                                   priority: 2,
-                                                                  batch_numpullperday: 10)
+                                                                  batch_numpullperday: 10,
+                                                                  batch_startdate: '11-APR-18',
+                                                                  batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
       put :update, id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 1 }
       @sal3_batch_requests_batch.reload
@@ -69,7 +75,9 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       # which is: render 'edit'
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
                                                                   priority: 2,
-                                                                  batch_numpullperday: 10)
+                                                                  batch_numpullperday: 10,
+                                                                  batch_startdate: '11-APR-18',
+                                                                  batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
       put :update, id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 'foo' }
       expect(response).to_not be_success
