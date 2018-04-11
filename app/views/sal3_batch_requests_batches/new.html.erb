@@ -3,8 +3,8 @@
 <% if @sal3_batch_requests_batch.errors.any? %>
 <div id="error-explanation">
   <ul>
-    <% @sal3_batch_requests_batch.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <% @sal3_batch_requests_batch.errors.messages.values.each do |msg| %>
+    <li><%= msg.join %></li>
     <% end %>
   </ul>
 </div>

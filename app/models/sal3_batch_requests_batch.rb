@@ -5,8 +5,11 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   include FileParser
   attr_accessor :bc_file_obj
 
-  validates :bc_file_obj, presence: true, on: :create
-  validates :batch_numpullperday, numericality: true, on: :update
+  validates :bc_file_obj, presence: { message: 'You must upload a file of barcodes' }, on: :create
+  validates :batch_numpullperday, numericality: { message: 'You must enter the number of items to pull per day' },
+                                  on: :update
+  validates :batch_startdate, presence: { message: 'You must enter a start date' }, on: :create
+  validates :batch_needbydate, presence: { message: 'You must enter a completion date' }, on: :create
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
                                     class_name: Sal3BatchRequestBcs,
                                     dependent: :destroy,

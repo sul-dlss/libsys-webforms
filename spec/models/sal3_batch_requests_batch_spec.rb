@@ -28,4 +28,8 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
   it 'Defines a priority array' do
     expect(Sal3BatchRequestsBatch.priority). to eq %w[1 2 3]
   end
+  it 'Validates the presence of needed dates' do
+    request = FactoryBot.build(:sal3_batch_requests_batch, batch_startdate: nil, batch_needbydate: nil)
+    expect(request).not_to be_valid
+  end
 end
