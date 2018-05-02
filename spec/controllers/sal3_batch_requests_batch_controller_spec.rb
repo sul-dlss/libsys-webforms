@@ -69,6 +69,18 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch.reload
       expect(@sal3_batch_requests_batch.priority).to eq(1)
     end
+    it 'is unsuccessful returning to the edit view without required dates' do
+      @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
+                                                                  priority: 2,
+                                                                  batch_numpullperday: 10,
+                                                                  batch_startdate: '11-APR-18',
+                                                                  batch_needbydate: '11-APR-18')
+      stub_current_user(FactoryBot.create(:authorized_user))
+      put :update, id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { batch_startdate: nil,
+                                                                                batch_needbydate: nil }
+      @sal3_batch_requests_batch.reload
+      expect(response).to render_template('edit')
+    end
     it 'redirects to the edit page when update fails' do
       # this spec passes, but doesn't seem to get coverage
       # sal3_batch_requests_batches_controller.rb: 1 untested lines: [40]

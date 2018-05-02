@@ -8,8 +8,10 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   validates :bc_file_obj, presence: { message: 'You must upload a file of barcodes' }, on: :create
   validates :batch_numpullperday, numericality: { message: 'You must enter the number of items to pull per day' },
                                   on: :update
-  validates :batch_startdate, presence: { message: 'You must enter a start date' }, on: :create
-  validates :batch_needbydate, presence: { message: 'You must enter a completion date' }, on: :create
+  validates :batch_startdate, presence: { message: 'You must enter a start date' },
+                              on: %i(create update)
+  validates :batch_needbydate, presence: { message: 'You must enter a completion date' },
+                               on: %i(create update)
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
                                     class_name: Sal3BatchRequestBcs,
                                     dependent: :destroy,
