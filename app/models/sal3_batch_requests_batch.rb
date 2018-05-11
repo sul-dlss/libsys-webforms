@@ -37,7 +37,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
       'Archive of Recorded Sound - Redwood City' => 'RA',
       'Earth Sciences' => 'DE',
       'Preservation - Book Repair' => 'BR',
-      'Green Loading Dock' => 'DS'
+      'Green Loading Dock' => 'DS',
+      'Acquisitions' => 'AQ'
     }
   end
 
