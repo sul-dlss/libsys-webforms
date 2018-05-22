@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302192912) do
+ActiveRecord::Schema.define(version: 20180521184955) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -286,6 +286,7 @@ ActiveRecord::Schema.define(version: 20180302192912) do
     t.datetime "completed_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.datetime "pull_date"
   end
 
   create_table "shelf_sel_item_cat1s", force: :cascade do |t|

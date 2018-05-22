@@ -13,7 +13,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
                                     class_name: Sal3BatchRequestBcs,
                                     dependent: :destroy,
-                                    inverse_of: :sal3_batch_requests_batch
+                                    inverse_of: false
+
   after_create :set_num_bcs
 
   scope :pullmon, ->(monday) { where(batch_pullmon: monday) }

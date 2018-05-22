@@ -1,0 +1,38 @@
+<h2>SAL3 Batch Request Barcodes</h2>
+<code>
+  <ul>
+    <li>Batch Name: <%= @sal3_batch_requests_batch.batch_name %></li>
+    <li>Batch ID: <%= @sal3_batch_requests_batch.batch_id %></li>
+    <li>Status: <%= @sal3_batch_requests_batch.status %></li>
+    <% startdate = @sal3_batch_requests_batch.batch_startdate %>
+    <li>Start date: <%= startdate ? startdate.strftime('%d-%^b-%Y') : 'no date given' %></li>
+    <% needbydate = @sal3_batch_requests_batch.batch_needbydate %>
+    <li>Needed by: <%= needbydate ? needbydate.strftime('%d-%^b-%Y') : 'no date given' %></li>
+    <li>Stop code: <%= @sal3_batch_requests_batch.stopcode %></li>
+    <% pseudo_id = @sal3_batch_requests_batch.pseudo_id %>
+    <li>Pseudo ID: <%= pseudo_id ? pseudo_id : 'no pseudo id' %></li>
+    <li>Number of barcodes: <%= @sal3_batch_requests_batch.num_bcs %></li>
+  </ul>
+</code>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Item ID</th> <!-- item_id -->
+      <th>Request-to-pull Date</th> <!-- pull_date -->
+      <th>Retrieval Date</th> <!-- completed_date -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @sal3_batch_request_bcs.each do |bc| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td><%= bc.item_id %></td>
+        <td><%= bc.pull_date.utc %></td>
+        <td><%= bc.completed_date.utc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if can? :update, Sal3BatchRequestsBatch %>
+  <%= link_to 'Manage this batch request', edit_sal3_batch_requests_batch_path(@sal3_batch_requests_batch), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Show all Batches', sal3_batch_requests_batches_path, class: 'btn btn-default' %>
