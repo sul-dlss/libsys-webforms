@@ -26,8 +26,8 @@
     <% @sal3_batch_request_bcs.each do |bc| %>
       <tr class='<%= cycle("odd", "even") %>'>
         <td><%= bc.item_id %></td>
-        <td><%= bc.pull_date ? bc.pull_date.utc : nil %></td>
-        <td><%= bc.completed_date ? bc.completed_date.utc : nil %></td>
+        <td><%= bc.pull_date ? bc.pull_date.utc.strftime('%F') : nil %></td>
+        <td><%= bc.completed_date ? bc.completed_date.utc.strftime('%F') : nil %></td>
       </tr>
     <% end %>
   </tbody>
