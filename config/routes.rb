@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :sal3_batch_requests_batches, only: :edit do
     get 'download', on: :member
   end
+  resources :sal3_batch_request_bcs, only: :show
   resources :encumbrance_reports, only: [:new, :create]
   resources :expenditure_reports, only: [:new, :create]
   resources :circulation_statistics_reports, only: [:new, :create]

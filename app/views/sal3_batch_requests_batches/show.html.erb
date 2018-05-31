@@ -29,9 +29,11 @@
   <dt><strong>Items to pull per day</strong></dt>
   <dd><%= @sal3_batch_requests_batch.batch_numpullperday %></dd>
   <dt><strong>Delivery start date</strong></dt>
-  <dd><%= @sal3_batch_requests_batch.batch_startdate.strftime('%d-%^b-%y') %></dd>
+  <% startdate = @sal3_batch_requests_batch.batch_startdate %>
+  <dd><%= startdate ? startdate.strftime('%d-%^b-%y') : 'no date given' %></dd>
   <dt><strong>All items deliverd by</strong></dt>
-  <dd><%= @sal3_batch_requests_batch.batch_needbydate.strftime('%d-%^b-%y') %></dd>
+  <% needbydate = @sal3_batch_requests_batch.batch_needbydate %>
+  <dd><%= needbydate ? needbydate.strftime('%d-%^b-%y') : 'no date given' %></dd>
   <dt><strong>Delivery days</strong></dt>
   <dd>Mon: <%= @sal3_batch_requests_batch.batch_pullmon %></dd>
   <dd>Tues: <%= @sal3_batch_requests_batch.batch_pulltues %></dd>
@@ -44,4 +46,5 @@
 <% if can? :update, Sal3BatchRequestsBatch %>
   <%= link_to 'Manage this batch request', edit_sal3_batch_requests_batch_path(@sal3_batch_requests_batch), class: 'btn btn-primary' %>
 <% end %>
+<%= link_to 'View Barcodes', sal3_batch_request_bc_path, class: 'btn btn-default' %>
 <%= link_to 'Show all Batches', sal3_batch_requests_batches_path, class: 'btn btn-default' %>
