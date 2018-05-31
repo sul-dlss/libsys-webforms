@@ -51,7 +51,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
       flash[:success] = 'Batch updated!'
       redirect_to sal3_batch_requests_batches_path
     else
-      render :edit
+      render action: 'edit'
     end
   end
 
