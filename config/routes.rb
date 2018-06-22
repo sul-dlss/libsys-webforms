@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :accession_number_updates, only: [:index]
   resources :batch_record_updates, only: [:index]
+  resources :edi_invoices, only: [:index]
   resources :change_item_types, only: [:new, :create]
   resources :change_current_locations, only: [:new, :create]
   resources :change_home_locations, only: [:new, :create]

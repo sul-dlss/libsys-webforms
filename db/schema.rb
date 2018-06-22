@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521184955) do
+ActiveRecord::Schema.define(version: 20180621234547) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20180521184955) do
     t.string   "userload_rerun"
     t.string   "accession_number"
     t.string   "digital_bookplates"
+    t.string   "edi_inv_manage"
+    t.string   "edi_inv_view"
   end
 
   create_table "catnums", force: :cascade do |t|
@@ -90,6 +92,11 @@ ActiveRecord::Schema.define(version: 20180521184955) do
     t.datetime "completed_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "edi_invoices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "encumbrance_rpts", force: :cascade do |t|

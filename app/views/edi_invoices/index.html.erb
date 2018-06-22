@@ -1,0 +1,14 @@
+<div class="home-page-section">
+  <h1>EDIFACT invoice management</h1>
+  <% if can? :read, EdiInvoice %>
+    <h3>What would you like to do? </h3>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    </div>
+    <div class="btn-group">
+      <%= main_menu_button %>
+    </div>
+  <% else %>
+    <p><%= link_to "Please login", root_path %></p>
+  <% end %>
+  </div>

@@ -7,7 +7,9 @@ describe AuthorizedUserHelper do
       expect(helper.administrator_apps(@authorized_user)).to eq(%w[unicorn_updates
                                                                    mgt_rpts
                                                                    accession_number
-                                                                   digital_bookplates])
+                                                                   digital_bookplates
+                                                                   edi_inv_manage
+                                                                   edi_inv_view])
     end
   end
   describe '#authorized_apps' do
@@ -22,7 +24,9 @@ describe AuthorizedUserHelper do
                                                                 sal3_breq_edit
                                                                 userload_rerun
                                                                 accession_number
-                                                                digital_bookplates])
+                                                                digital_bookplates
+                                                                edi_inv_manage
+                                                                edi_inv_view])
     end
   end
   describe '#apps_translation' do
