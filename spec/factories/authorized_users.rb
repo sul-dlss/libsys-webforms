@@ -18,6 +18,8 @@ FactoryBot.define do
     f.file_upload 'Y'
     f.userload_rerun 'Y'
     f.accession_number 'A'
+    f.edi_inv_view 'Y'
+    f.edi_inv_manage ''
   end
   factory :admin_user, class: AuthorizedUser do |f|
     f.user_id 'admin_user'
@@ -39,6 +41,8 @@ FactoryBot.define do
     f.userload_rerun 'Y'
     f.accession_number 'A'
     f.digital_bookplates 'A'
+    f.edi_inv_view 'A'
+    f.edi_inv_manage 'A'
   end
   factory :staff_user, class: AuthorizedUser do |f|
     f.user_id 'staff_user'
@@ -60,6 +64,8 @@ FactoryBot.define do
     f.userload_rerun 'Y'
     f.accession_number 'Y'
     f.digital_bookplates 'Y'
+    f.edi_inv_view 'Y'
+    f.edi_inv_manage 'Y'
   end
   factory :blank_user, class: AuthorizedUser do |f|
     f.user_id 'blank_user'
@@ -80,5 +86,7 @@ FactoryBot.define do
     f.file_upload ''
     f.userload_rerun ''
     f.accession_number ''
+    f.edi_inv_view ''
+    f.edi_inv_manage ''
   end
 end
