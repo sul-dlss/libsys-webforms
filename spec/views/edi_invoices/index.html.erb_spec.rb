@@ -28,5 +28,21 @@ RSpec.describe 'edi_invoices/index', type: :view do
     it 'should display the page header' do
       assert_select 'h3', text: 'What would you like to do?'.to_s
     end
+    it 'should display the page header' do
+      assert_select 'a', text: 'Exclude an invoice'.to_s,
+                         href: edi_invoices_invoice_exclude_path
+    end
+    it 'should display the page header' do
+      assert_select 'a', text: 'Change invoice line (PO num, fund name)'.to_s,
+                         href: edi_invoices_change_invoice_line_path
+    end
+    it 'should display the page header' do
+      assert_select 'a', text: 'Allow a "noBib"'.to_s,
+                         href: edi_invoices_allow_nobib_path
+    end
+    it 'should display the page header' do
+      assert_select 'a', text: 'Fix duplicate barcode'.to_s,
+                         href: edi_invoices_fix_duplicate_barcode_path
+    end
   end
 end

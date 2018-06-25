@@ -16,6 +16,7 @@ module Constants
     'sal3_breq_edit' => 'Edit SAL3 batch requests',
     'unicorn_updates' => 'Symphony batch updates',
     'unicorn_circ_batch' => 'Symphony circulation batches',
-    'userload_rerun' => 'Userload reruns'
+    'userload_rerun' => 'Userload reruns',
+    'edi_inv_manage' => 'EDI Invoices'
   }.freeze
 end

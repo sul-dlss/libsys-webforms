@@ -8,4 +8,10 @@ RSpec.describe EdiInvoicesController, type: :controller do
       expect(response).to be_successful
     end
   end
+  describe 'get#invoice_exclude' do
+    it 'renders new modal to exclude an invoice' do
+      xhr :get, 'invoice_exclude'
+      expect(response.headers['Content-Type']).to eq 'text/javascript; charset=utf-8'
+    end
+  end
 end

@@ -49,6 +49,12 @@ Rails.application.routes.draw do
   get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
   get 'review_batches' => 'sal3_batch_requests#review_batches'
+
+  get 'edi_invoices/invoice_exclude' => 'edi_invoices#invoice_exclude'
+  get 'edi_invoices/change_invoice_line' => 'edi_invoices#change_invoice_line'
+  get 'edi_invoices/allow_nobib' => 'edi_invoices#allow_nobib'
+  get 'edi_invoices/fix_duplicate_barcode' => 'edi_invoices#fix_duplicate_barcode'
+
   get 'management_reports' => 'management_reports#index'
 
   get 'by_location' => 'accession_number_updates#by_location'
