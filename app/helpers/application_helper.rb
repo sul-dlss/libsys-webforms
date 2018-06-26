@@ -16,6 +16,14 @@ module ApplicationHelper
     ), '/batch_record_updates'
   end
 
+  def edi_menu_button
+    link_to button_tag(
+      'EDI menu',
+      id: 'edi-menu-button',
+      class: 'btn btn-md btn-default  btn-full'
+    ), '/edi_invoices/menu'
+  end
+
   def digital_bookplates_menu_button
     link_to button_tag(
       'Digital bookplates menu',

@@ -1,5 +1,13 @@
 require 'csv'
 
+EdiInvoice.destroy_all
+keys = %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_invoice.csv'))
+csv = CSV.parse(csv_text, headers: false)
+csv.map { |a| Hash[keys.zip(a)] }
+hash = csv.map { |a| Hash[keys.zip(a)] }
+EdiInvoice.create(hash)
+
 UnicornPolicy.destroy_all
 keys = %w[type policy_num name description shadowed destination]
 csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'unicorn_policies.csv'))
@@ -57,7 +65,7 @@ hash = csv.map { |a| Hash[keys.zip(a)] }
 CirculationStatisticsReportFormat.create(hash)
 
 Expenditures.destroy_all
-keys = %w[ row_date review_date ta_inv_line_key ta_fund_code ta_fund_total_paid
+keys = %w[row_date review_date ta_inv_line_key ta_fund_code ta_fund_total_paid
    ta_gl_code ta_ord_line_key ta_inv_key ta_date_2encina ta_encina_key ta_invoice_total_withtax
   ta_tax_total ta_taxtype_flag ta_vend_inv_date ta_vend_inv_num ti_inv_lib ti_inv_line_note
   ti_inv_line_num ti_inv_line_total_us ti_unicorn_inv_num ti_inv_line_type ti_inv_line_total_vendor
