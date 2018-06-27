@@ -51,6 +51,8 @@ gem 'has_scope'
 gem 'tsv'
 # loofah 2.2.1 Fixes known security vulnerability: CVE-2018-8048
 gem 'loofah', '~> 2.2.1'
+# sprockets ~> 3.7.2 Fixes know security vulnerability: CVE-2018-3760: Path Traversal in Sprockets
+gem 'sprockets', '~> 3.7.2'
 
 group :production do
   # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
