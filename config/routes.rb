@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
   get 'review_batches' => 'sal3_batch_requests#review_batches'
 
+  get 'edi_invoices/menu' => 'edi_invoices#menu'
   get 'edi_invoices/invoice_exclude' => 'edi_invoices#invoice_exclude'
   get 'edi_invoices/change_invoice_line' => 'edi_invoices#change_invoice_line'
   get 'edi_invoices/allow_nobib' => 'edi_invoices#allow_nobib'

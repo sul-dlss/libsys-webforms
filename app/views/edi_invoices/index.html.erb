@@ -1,49 +1,38 @@
 <div class="home-page-section">
   <h1>EDIFACT invoice management</h1>
-  <% if can? :read, EdiInvoice %>
-    <div id="new-modal-window" class="modal fade modal-content" role="dialog"
-         aria-labelledby="excludeInvoice" aria-hidden="true"></div>
-    <h3>What would you like to do? </h3>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <% if /[AY]/ === current_user.edi_inv_view %>
-        <div class="panel panel-default">
-          <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Updates
-              </a>
-            </h4>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <%= render partial: 'edi_updates_menu' %>
-          </div>
-        </div>
-      <% end %>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingTwo">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              View invoices
-            </a>
-          </h4>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              View errors
-            </a>
-          </h4>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="btn-group">
-      <%= main_menu_button %>
-    </div>
-  <% else %>
-    <p><%= link_to "Please login", root_path %></p>
-  <% end %>
+  <div style='margin-left: 20px'>
+    Filter by vendor:
+    <%= select_tag 'vendor', options_for_select(EdiInvoice.vendor_filter, selected: params[:vendfilter]),
+                 { controller: 'edi_invoices', action: 'index', onclick: "window.location = 'edi_invoices?vendfilter=' + this.options[this.selectedIndex].text" } %>
   </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Invoice Number</th>
+        <th>Vendor ID</th>
+        <th>Vendor Invoice Date</th>
+        <th>Status</th>
+        <th>Symphony Invoice Date Created</th>
+        <th>Total Pieces</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @edi_invoice.each do |edi| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td><%= edi.edi_doc_num %></td>
+        <td><%= edi.edi_vend_id %></td>
+        <td><%= edi.edi_vend_inv_date.present? ? edi.edi_vend_inv_date.strftime('%x') : '' %></td>
+        <td><%= edi.todo %></td>
+        <td><%= edi.uni_inv_cre_date.present? ? edi.uni_inv_cre_date.strftime('%x') : '' %></td>
+        <td><%= edi.edi_total_pieces.to_i %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="btn-group">
+    <%= main_menu_button %>
+  </div>
+  <div class="btn-group">
+    <%= edi_menu_button %>
+  </div>
+</div>

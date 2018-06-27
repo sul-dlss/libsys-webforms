@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622185511) do
+ActiveRecord::Schema.define(version: 20180622233540) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -95,8 +95,14 @@ ActiveRecord::Schema.define(version: 20180622185511) do
   end
 
   create_table "edi_invoice", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "edi_doc_num"
+    t.string   "edi_vend_id"
+    t.datetime "edi_vend_inv_date"
+    t.string   "todo"
+    t.datetime "uni_inv_cre_date"
+    t.integer  "edi_total_pieces"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "encumbrance_rpts", force: :cascade do |t|

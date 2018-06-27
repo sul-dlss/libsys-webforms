@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
 
 ExpendituresFyDate.destroy_all
 dates = [
@@ -33,3 +34,11 @@ dates = [
 dates.each do |fy, min, max|
   ExpendituresFyDate.create(fy: fy, min_paydate: min, max_paydate: max)
 end
+
+EdiInvoice.destroy_all
+keys = %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_invoice.csv'))
+csv = CSV.parse(csv_text, headers: false)
+csv.map { |a| Hash[keys.zip(a)] }
+hash = csv.map { |a| Hash[keys.zip(a)] }
+EdiInvoice.create(hash)

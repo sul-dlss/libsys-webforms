@@ -1,9 +1,14 @@
 # Controller for EdiInvoice management
 class EdiInvoicesController < ApplicationController
-  def index; end
+  load_and_authorize_resource
+  has_scope :vendfilter
+
+  def index
+    @edi_invoice = apply_scopes(EdiInvoice).all
+  end
 
   def invoice_exclude
-    # @EdiSomeModel = EdiSomeModel.new
+    @edi_invoice = apply_scopes(EdiInvoice).all
     respond_to do |format|
       format.js # invoice_exclude.js.erb
     end
