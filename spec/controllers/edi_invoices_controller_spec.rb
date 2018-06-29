@@ -5,7 +5,7 @@ RSpec.describe EdiInvoicesController, type: :controller do
     @edi_invoice = FactoryBot.create(:edi_invoice)
   end
   describe 'get#index' do
-    it 'be succesful returning the index page' do
+    it 'be successful returning the index page' do
       stub_current_user(FactoryBot.create(:authorized_user))
       get :index
       expect(response).to be_successful

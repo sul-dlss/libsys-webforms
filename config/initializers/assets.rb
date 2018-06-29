@@ -8,4 +8,20 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( accession_number_updates.js
+                                                  accession_numbers.js
+                                                  authorized_users.js
+                                                  batch_record_updates.js
+                                                  circulation_statistics_reports.js
+                                                  digital_bookplates_batches.js
+                                                  edi_error_reports.js
+                                                  edi_invoices.js
+                                                  encumbrance_reports.js
+                                                  endowed_funds_reports.js
+                                                  expenditure_reports.js
+                                                  expenditures_with_circ_stats_reports.js
+                                                  forms.js
+                                                  html5_webshim.js
+                                                  sal3_batch_requests.js
+                                                  shelf_selection_reports.js
+                                                )

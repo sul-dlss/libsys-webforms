@@ -10,6 +10,7 @@ class Ability
     assign_user_permission if current_user
     assign_batch_permission if /A|Y/ =~ current_user.unicorn_updates
     alias_action :queue, :completed, to: :read
+    alias_action :menu, to: :read
   end
 
   def assign_basic_permission
@@ -28,8 +29,9 @@ class Ability
     can %i[create read], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_batch_req
     can %i[read update download], Sal3BatchRequestsBatch if /A|Y/ =~ current_user.sal3_breq_edit
     can :create, UserloadRerun if /A|Y/ =~ current_user.userload_rerun
-    can %i[read manage], EdiInvoice if /A|Y/ =~ current_user.edi_inv_manage
     can :read, EdiInvoice if /Y/ =~ current_user.edi_inv_view
+    can :manage, EdiInvoice if /A|Y/ =~ current_user.edi_inv_manage
+    can :manage, EdiErrorReport if /A|Y/ =~ current_user.edi_inv_manage
   end
 
   def assign_admin_permission(current_user)

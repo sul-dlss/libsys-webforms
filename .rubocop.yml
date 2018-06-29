@@ -36,9 +36,13 @@ Metrics/ClassLength:
 
 Metrics/CyclomaticComplexity:
   Max: 10
+  Exclude:
+    - 'app/models/ability.rb'
 
 Metrics/PerceivedComplexity:
   Max: 10
+  Exclude:
+    - 'app/models/ability.rb'
 
 Metrics/MethodLength:
   Max: 20

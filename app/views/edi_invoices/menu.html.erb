@@ -1,11 +1,10 @@
 <div class="home-page-section">
   <h1>EDIFACT invoice management</h1>
-  <% if can? :read, EdiInvoice %>
     <div id="new-modal-window" class="modal fade modal-content" role="dialog"
          aria-labelledby="excludeInvoice" aria-hidden="true"></div>
     <h3>What would you like to do? </h3>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <% if /[AY]/ === current_user.edi_inv_view %>
+      <% if can? :manage, EdiInvoice %>
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
@@ -18,6 +17,13 @@
             <%= render partial: 'edi_updates_menu' %>
           </div>
         </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+          <h4 class="panel-title link">
+              <%= link_to "View errors", edi_error_reports_path %>
+          </h4>
+        </div>
+      </div>
       <% end %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingTwo">
@@ -26,20 +32,8 @@
           </h4>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-          <h4 class="panel-title link">
-              View errors
-          </h4>
-        </div>
-      </div>
-
-
     </div>
     <div class="btn-group">
       <%= main_menu_button %>
     </div>
-  <% else %>
-    <p><%= link_to "Please login", root_path %></p>
-  <% end %>
   </div>

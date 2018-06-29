@@ -14,7 +14,6 @@
       </div>
     </div>
     <% end %>
-
     <% if can? :manage, BatchRecordUpdate %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -22,7 +21,7 @@
         </div>
       </div>
     <% end %>
-    <% if can? %i[manage read], EdiInvoice %>
+    <% if can? :read, EdiInvoice %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
           <h4><%= link_to "EDIFACT invoice management", edi_invoices_menu_path %></h4>

@@ -13,5 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require forms
-//= require_tree .
+//= require html5_webshim

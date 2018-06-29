@@ -1,5 +1,5 @@
 $(document).on('ready page:load', function() {
-  if (window.webshim && $('[data-behavior="rerun-date-picker"]').length > 0) {
+  if (window.webshim && $('[data-behavior="date-picker"]').length > 0) {
     var webShimOptions = {
       lazyCustomMessages: true,
       replaceUI: true,
