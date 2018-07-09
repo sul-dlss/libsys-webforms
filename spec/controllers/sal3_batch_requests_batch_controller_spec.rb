@@ -16,6 +16,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     it 'is successful returning a show page' do
       stub_current_user(FactoryBot.create(:authorized_user))
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
+                                                                  batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
       get 'show', id: @sal3_batch_requests_batch
@@ -36,6 +37,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
                                                  load_date: '16-06-14',
                                                  batch_startdate: '16-06-18',
                                                  batch_needbydate: '16-06-30',
+                                                 batch_pullmon: 1,
                                                  last_action_date: nil,
                                                  bc_file_obj: barcode_file }
 
@@ -50,6 +52,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   describe 'get#edit' do
     it 'is successful returning the edit view' do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
+                                                                  batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
@@ -62,6 +65,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10,
+                                                                  batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
@@ -73,6 +77,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10,
+                                                                  batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
@@ -88,6 +93,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
                                                                   priority: 2,
                                                                   batch_numpullperday: 10,
+                                                                  batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
