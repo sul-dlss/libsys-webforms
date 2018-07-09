@@ -89,8 +89,14 @@ describe WebformsMailer do
         expect(upload_body).to match(/Batch id: 1/)
         expect(delete_body).to match(/Batch id: 1/)
       end
-      it 'has the id of the sal3 batch' do
+      it 'has the name of the sal3 batch' do
         expect(sal3_body).to match(/Batch name: Batch name/)
+      end
+      it 'has the id of the sal3 batch' do
+        expect(sal3_body).to match(/Batch id: 1/)
+      end
+      it 'has the name of the sal3 batch requestor' do
+        expect(sal3_body).to match(/Requestor name: Test User/)
       end
     end
   end
