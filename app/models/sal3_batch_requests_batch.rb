@@ -92,9 +92,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   private
 
   def batch_pullday_present
-    unless a_pull_day_present?
-      errors.add(:base, 'Please pick at least one day for items to be delivered.')
-    end
+    a_pull_day_present? ? nil : errors.add(:base, 'Please pick at least one day for items to be delivered.')
   end
 
   def a_pull_day_present?
