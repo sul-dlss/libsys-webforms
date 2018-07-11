@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "encumbrance_reports.js" %>
+<% end %>
 <h2>LIB Open Orders Report (Encumbrances)</h2>
 <%= form_for @encumbrance_report, multipart: true, class: 'form-group' do |f| %>
 <% if @encumbrance_report.errors.any? %>

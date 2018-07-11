@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "authorized_users.js" %>
+<% end %>
 <h1>Authorized Users</h1>
 
 <%= link_to "Add a user", authorized_users_new_path, :class => "btn btn-primary",

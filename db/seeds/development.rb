@@ -1,5 +1,13 @@
 require 'csv'
 
+EdiErrorReport.destroy_all
+keys = %w[run type error err_lvl]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_error_report.csv'))
+csv = CSV.parse(csv_text, headers: false)
+csv.map { |a| Hash[keys.zip(a)] }
+hash = csv.map { |a| Hash[keys.zip(a)] }
+EdiErrorReport.create(hash)
+
 EdiInvoice.destroy_all
 keys = %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces]
 csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_invoice.csv'))

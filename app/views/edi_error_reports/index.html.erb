@@ -1,0 +1,42 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "edi_error_reports.js" %>
+<% end %>
+<div class="home-page-section">
+  <h1>EDIFACT invoice errors</h1>
+  <div>
+    <%= link_to 'Show errors for all days', { controller: 'edi_error_reports', action: 'index' }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
+    <%= link_to 'Show errors for today', { controller: 'edi_error_reports', action: 'index', day: "#{Time.zone.today}" }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
+  </div>
+  <div class="field">
+    Show errors for selected date:
+    <%= date_field('edi_errors', 'day', value: params[:day] || "#{Time.zone.today}",
+                     'data-behavior': 'date-picker',
+                     max: Time.zone.today) %>
+  </div>
+  <table class="table-striped" id="table-date">
+    <thead>
+    <tr>
+      <th>Run</th>
+      <th>Type</th>
+      <th>Error</th>
+      <th>Error level</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @edi_error_report.each do |eer| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td><%= eer.run.present? ? eer.run.strftime('%x %H:%M') : '' %></td>
+        <td><%= eer.type %></td>
+        <td><%= eer.error %></td>
+        <td><%= eer.err_lvl %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="btn-group">
+    <%= main_menu_button %>
+  </div>
+  <div class="btn-group">
+    <%= edi_menu_button %>
+  </div>
+</div>

@@ -1,5 +1,8 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "edi_invoices.js" %>
+<% end %>
 <div class="home-page-section">
-  <h1>EDIFACT invoice management</h1>
+  <h1>EDIFACT invoices</h1>
   <div style='margin-left: 20px'>
     Filter by vendor:
     <%= select_tag 'vendor', options_for_select(EdiInvoice.vendor_filter, selected: params[:vendfilter]),

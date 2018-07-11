@@ -19,7 +19,7 @@ FactoryBot.define do
     f.userload_rerun 'Y'
     f.accession_number 'A'
     f.edi_inv_view 'Y'
-    f.edi_inv_manage ''
+    f.edi_inv_manage 'Y'
   end
   factory :admin_user, class: AuthorizedUser do |f|
     f.user_id 'admin_user'

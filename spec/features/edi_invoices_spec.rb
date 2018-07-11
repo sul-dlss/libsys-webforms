@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'edi_incoices' do
+describe 'edi_invoices' do
   before { stub_current_user(FactoryBot.create(:authorized_user)) }
   before(:each) { visit edi_invoices_path }
 
@@ -13,7 +13,7 @@ describe 'edi_incoices' do
   end
 
   it 'display the table of batch requests submitted' do
-    expect(page).to have_text('EDIFACT invoice management')
+    expect(page).to have_text('EDIFACT invoices')
     expect(page).to have_css('th', text: 'Invoice Number')
     expect(page).to have_css('th', text: 'Vendor ID')
     expect(page).to have_css('th', text: 'Vendor Invoice Date')

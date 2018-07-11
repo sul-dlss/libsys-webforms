@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "sal3_batch_requests.js" %>
+<% end %>
 <% day_params = [params[:pullmon], params[:pulltues], params[:pullwed], params[:pullthurs], params[:pullfri] ].any? %>
 <% day_params ? css_all = 'btn btn-default' : css_all = 'btn btn-primary' %>
 <% params[:pullmon] == '1' ? css_mon = 'btn btn-primary' : css_mon = 'btn btn-default' %>

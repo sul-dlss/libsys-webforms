@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "accession_number_updates.js" %>
+<% end %>
 <h2>Accession numbers by location</h2>
 <%= render partial: 'accession_num_message' %>
 <h3><%= @location.pluck(:location)[0] %></h3>

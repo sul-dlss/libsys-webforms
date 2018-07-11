@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "shelf_selection_reports.js" %>
+<% end %>
 <h2>Shelf Selection Report Request</h2>
 <%= form_for @shelf_selection_report, class: 'form-group' do |f| %>
   <% if @shelf_selection_report.errors.any? %>

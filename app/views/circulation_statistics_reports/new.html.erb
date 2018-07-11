@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "circulation_statistics_reports.js" %>
+<% end %>
 <h2>Circulation Statistics Report Request</h2>
 <%= form_for @circulation_statistics_report, multipart: true, class: 'form-group' do |f| %>
   <% if @circulation_statistics_report.errors.any? %>
@@ -199,3 +202,4 @@
 <div class="pad"><%= link_to 'Main menu', root_path, class: 'btn btn-md btn-primary btn-full' %></div>
 <HR>
 <%= render 'shared/call_number_range_examples' %>
+</div>
