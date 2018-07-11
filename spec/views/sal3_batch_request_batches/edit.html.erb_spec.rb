@@ -14,6 +14,7 @@ RSpec.describe 'sal3_batch_requests_batches/edit', type: :view do
                                          load_date: '16-06-14',
                                          batch_startdate: '16-06-18',
                                          batch_needbydate: '16-06-20',
+                                         batch_pullmon: 1,
                                          last_action_date: nil,
                                          bc_file_obj: barcode_file
     ))

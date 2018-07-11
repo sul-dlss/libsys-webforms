@@ -12,6 +12,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
                               on: %i(create update)
   validates :batch_needbydate, presence: { message: 'You must enter a completion date' },
                                on: %i(create update)
+  validate :batch_pullday_present
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
                                     class_name: Sal3BatchRequestBcs,
                                     dependent: :destroy,
@@ -86,5 +87,19 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
     file_obj = bc_file_obj.path unless bc_file_obj.nil?
     barcodes = IO.read(file_obj).split("\n").uniq.length
     update_attributes(num_bcs: barcodes)
+  end
+
+  private
+
+  def batch_pullday_present
+    a_pull_day_present? ? nil : errors.add(:base, 'Please pick at least one day for items to be delivered.')
+  end
+
+  def a_pull_day_present?
+    batch_pullmon.present? || \
+      batch_pulltues.present? || \
+      batch_pullwed.present? || \
+      batch_pullthurs.present? || \
+      batch_pullfri.present?
   end
 end

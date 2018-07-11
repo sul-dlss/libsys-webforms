@@ -10,6 +10,7 @@ RSpec.describe Sal3BatchRequestBcsController, type: :controller do
     it 'is successful returning a show page' do
       stub_current_user(FactoryBot.create(:authorized_user))
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file_obj: barcode_file,
+                                                                  batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
       get 'show', id: @sal3_batch_requests_batch
