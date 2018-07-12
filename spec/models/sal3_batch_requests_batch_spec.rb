@@ -40,6 +40,6 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
                                          batch_pulltues: nil,
                                          batch_pullmon: nil)
     expect(request).to_not be_valid
-    expect(request.errors.messages[:base]).to include('Please pick at least one day for items to be delivered.')
+    expect(request.errors.full_messages).to include('Please pick at least one day for items to be delivered.')
   end
 end

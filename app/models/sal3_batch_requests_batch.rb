@@ -13,11 +13,13 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   validates :batch_needbydate, presence: { message: 'You must enter a completion date' },
                                on: %i(create update)
   validate :batch_pullday_present
+
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
                                     class_name: Sal3BatchRequestBcs,
                                     dependent: :destroy,
                                     inverse_of: false
 
+  before_validation :checkbox_zeros_to_nil
   after_create :set_num_bcs
 
   scope :pullmon, ->(monday) { where(batch_pullmon: monday) }
@@ -90,6 +92,14 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   end
 
   private
+
+  def checkbox_zeros_to_nil
+    self.batch_pullmon = nil if batch_pullmon.to_i.zero?
+    self.batch_pulltues = nil if batch_pulltues.to_i.zero?
+    self.batch_pullwed = nil if batch_pullwed.to_i.zero?
+    self.batch_pullthurs = nil if batch_pullthurs.to_i.zero?
+    self.batch_pullfri = nil if batch_pullfri.to_i.zero?
+  end
 
   def batch_pullday_present
     a_pull_day_present? ? nil : errors.add(:base, 'Please pick at least one day for items to be delivered.')
