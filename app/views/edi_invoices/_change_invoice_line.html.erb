@@ -19,14 +19,14 @@
     <tbody>
     <% @edi_inv_line.each do |line| %>
       <tr class='<%= cycle("odd", "even") %>'>
-        <td><%= radio_button_tag('inv_line', 'edit', false, onclick: "window.location = '/edi_inv_line/#{line.tbl_row_num}/edit'") %></td>
+        <td><%= radio_button_tag('inv_line', 'edit', false, onclick: "window.location = '/edi_inv_line/#{line.tbl_row_num.to_i}/edit'") %></td>
         <td><%= line.edi_vend_id %></td>
         <td><%= line.edi_doc_num %></td>
-        <td><%= line.edi_line_num %></td>
+        <td><%= line.edi_line_num.to_i %></td>
         <td><%= line.edi_fund %></td>
         <td><%= line.edi_po_number %></td>
-        <td><%= line.edi_line_net %></td>
-        <td><%= line.edi_line_gross %></td>
+        <td><%= number_to_currency(line.edi_line_net) %></td>
+        <td><%= number_to_currency(line.edi_line_gross) %></td>
       </tr>
     <% end %>
     </tbody>
