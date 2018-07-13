@@ -6,7 +6,7 @@ class EdiInvLineController < ApplicationController
 
   def update
     @edi_inv_line = EdiInvLine.find(params[:id])
-    if @edi_inv_line.update_attributes(edi_inv_line_params)
+    if @edi_inv_line.update(edi_inv_line_params)
       params_updated = []
       edi_inv_line_params.each do |param|
         params_updated << param[1]

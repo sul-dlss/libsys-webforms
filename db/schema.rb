@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20180712235601) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "edi_inv_line", force: :cascade do |t|
+  create_table "edi_inv_line", primary_key: "tbl_row_num", force: :cascade do |t|
     t.string   "edi_vend_id"
     t.string   "edi_doc_num"
     t.integer  "edi_line_num"

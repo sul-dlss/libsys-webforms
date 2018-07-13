@@ -19,7 +19,7 @@
     <tbody>
     <% @edi_inv_line.each do |line| %>
       <tr class='<%= cycle("odd", "even") %>'>
-        <td><%= radio_button_tag('inv_line', 'edit', false, onclick: "window.location = '/edi_inv_line/#{line.id}/edit'") %></td>
+        <td><%= radio_button_tag('inv_line', 'edit', false, onclick: "window.location = '/edi_inv_line/#{line.tbl_row_num}/edit'") %></td>
         <td><%= line.edi_vend_id %></td>
         <td><%= line.edi_doc_num %></td>
         <td><%= line.edi_line_num %></td>

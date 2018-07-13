@@ -8,5 +8,6 @@ FactoryBot.define do
     edi_line_net 1.5
     edi_line_gross 1.5
     todo "CreOrd"
+    tbl_row_num 654321
   end
 end
