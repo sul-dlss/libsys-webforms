@@ -1,0 +1,65 @@
+<h2>Change invoice line</h2>
+<%= form_for @edi_inv_line, class: 'form-group' do |f| %>
+  <% if @edi_inv_line.errors.any? %>
+    <div id="error-explanation">
+      <ul>
+        <% @edi_inv_line.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div class="panel-group" id="media_group">
+      <div class='form-group row'>
+        <%= f.label 'Vendor', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= f.object.edi_vend_id %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label 'Invoice Num', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= f.object.edi_doc_num %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label 'Line Num', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= f.object.edi_line_num %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label 'Fund Name', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= f.text_field 'edi_fund', class: 'form-control', value: f.object.edi_fund %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label 'PO Number', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= f.text_field 'edi_po_number', class: 'form-control', value: f.object.edi_po_number %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label 'Net Amount', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= number_to_currency(f.object.edi_line_net) %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label 'Gross Amount', class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-10'>
+          <%= number_to_currency(f.object.edi_line_gross) %>
+        </div>
+      </div>
+    </div>
+    <div><%= f.submit 'Submit change', class: 'btn btn-md btn-default  btn-full' %></div><br/>
+  </div>
+<% end %>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>
+<div class="btn-group">
+  <%= edi_menu_button %>
+</div>

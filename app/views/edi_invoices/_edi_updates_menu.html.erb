@@ -2,7 +2,8 @@
   <h5>Choose the type of batch record update you wish to do:</h5>
   <li><%= link_to "Exclude an invoice", edi_invoices_invoice_exclude_path, :remote => true,
               'data-toggle' => "modal", 'data-target' => '#new-modal-window' %></li>
-  <li><%= link_to "Change invoice line (PO num, fund name)", edi_invoices_change_invoice_line_path %></li>
+  <li><%= link_to "Change invoice line (PO num, fund name)", edi_invoices_change_invoice_line_path, :remote => true,
+                  'data-toggle' => "modal", 'data-target' => '#new-modal-window' %></li>
   <li><%= link_to "Allow a \"noBib\"", edi_invoices_allow_nobib_path %></li>
   <li><%= link_to "Fix duplicate barcode", edi_invoices_fix_duplicate_barcode_path %></li>
 </div>

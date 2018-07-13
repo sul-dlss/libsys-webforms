@@ -18,4 +18,10 @@ RSpec.describe EdiInvoicesController, type: :controller do
       expect(response).to have_http_status(302)
     end
   end
+  describe 'get#change_invoice_line' do
+    it 'renders new modal to change an invoice line' do
+      xhr :get, 'change_invoice_line', format: 'js'
+      expect(response).to have_http_status(302)
+    end
+  end
 end

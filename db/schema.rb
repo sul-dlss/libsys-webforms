@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628180104) do
+ActiveRecord::Schema.define(version: 20180712235601) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -101,6 +101,19 @@ ActiveRecord::Schema.define(version: 20180628180104) do
     t.string   "err_lvl"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "edi_inv_line", force: :cascade do |t|
+    t.string   "edi_vend_id"
+    t.string   "edi_doc_num"
+    t.integer  "edi_line_num"
+    t.string   "edi_fund"
+    t.string   "edi_po_number"
+    t.float    "edi_line_net"
+    t.float    "edi_line_gross"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "todo"
   end
 
   create_table "edi_invoice", force: :cascade do |t|
