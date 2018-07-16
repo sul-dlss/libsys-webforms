@@ -2,7 +2,7 @@
   <%= javascript_include_tag "edi_error_reports.js" %>
 <% end %>
 <div class="home-page-section">
-  <h1>EDIFACT invoice errors</h1>
+  <h1>EDIFACT invoice errors <%= params[:level] ? "(#{params[:level]})" : nil %><%= params[:type] ? "(#{params[:type]})" : nil %></h1>
   <div>
     <%= link_to 'Show all errors for all days', { controller: 'edi_error_reports', action: 'index' }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
     <%= link_to 'Show errors for today', { controller: 'edi_error_reports', action: 'index', day: "#{Time.zone.today}", level: params[:level] }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
