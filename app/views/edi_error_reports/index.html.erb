@@ -4,14 +4,14 @@
 <div class="home-page-section">
   <h1>EDIFACT invoice errors</h1>
   <div>
-    <%= link_to 'Show errors for all days', { controller: 'edi_error_reports', action: 'index' }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
-    <%= link_to 'Show errors for today', { controller: 'edi_error_reports', action: 'index', day: "#{Time.zone.today}" }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
+    <%= link_to 'Show all errors for all days', { controller: 'edi_error_reports', action: 'index' }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
+    <%= link_to 'Show errors for today', { controller: 'edi_error_reports', action: 'index', day: "#{Time.zone.today}", level: params[:level] }, class: 'btn btn-default', style: 'margin-bottom: 10px' %>
   </div>
   <div class="field">
     Show errors for selected date:
     <%= date_field('edi_errors', 'day', value: params[:day] || "#{Time.zone.today}",
-                     'data-behavior': 'date-picker',
-                     max: Time.zone.today) %>
+                   'data-behavior': 'date-picker',
+                   max: Time.zone.today) %>
   </div>
   <table class="table-striped" id="table-date">
     <thead>

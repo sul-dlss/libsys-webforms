@@ -2,6 +2,8 @@
 class EdiErrorReportsController < ApplicationController
   load_and_authorize_resource
   has_scope :day
+  has_scope :level
+  has_scope :type
 
   def index
     @edi_error_report = apply_scopes(EdiErrorReport).all

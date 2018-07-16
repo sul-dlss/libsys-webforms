@@ -30,6 +30,6 @@ describe 'edi_error_reports' do
   end
 
   it 'displays the button to show all errors for all days' do
-    expect(page).to have_link('Show errors for all days', href: '/edi_error_reports')
+    expect(page).to have_link('Show all errors for all days', href: '/edi_error_reports')
   end
 end

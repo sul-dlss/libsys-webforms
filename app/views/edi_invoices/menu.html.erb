@@ -23,6 +23,9 @@
               <%= link_to "View errors", edi_error_reports_path %>
           </h4>
         </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <%= render partial: 'edi_errors_links' %>
+        </div>
       </div>
       <% end %>
       <div class="panel panel-default">

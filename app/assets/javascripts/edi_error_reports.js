@@ -26,10 +26,24 @@ jQuery(document).ready(function($) {
 
     $('input#edi_errors_day').on('change', function() {
         var url = window.location.href;
+        var level;
+        var type;
         if (url.indexOf('?') > -1) {
+            if (url.indexOf('level') > -1) {
+                level = '&' + url.substr(url.indexOf('level='));
+            }
+            if (url.indexOf('type') > -1) {
+                type = '&' + url.substr(url.indexOf('type='));
+            }
             url = url.substr(0, url.indexOf('?'));
         }
         url += '?day=' + this.value;
+        if (level !== undefined) {
+            url += level;
+        }
+        if (type !== undefined) {
+            url += type;
+        }
         window.location.href = url;
     })
 });
