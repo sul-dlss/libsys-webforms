@@ -16,6 +16,14 @@ csv.map { |a| Hash[keys.zip(a)] }
 hash = csv.map { |a| Hash[keys.zip(a)] }
 EdiInvoice.create(hash)
 
+EdiInvLine.destroy_all
+keys = %w[tbl_row_num edi_vend_id edi_doc_num edi_line_num edi_fund edi_po_number edi_line_net edi_line_gross todo]
+csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_inv_line.csv'))
+csv = CSV.parse(csv_text, headers: false)
+csv.map { |a| Hash[keys.zip(a)] }
+hash = csv.map { |a| Hash[keys.zip(a)] }
+EdiInvLine.create(hash)
+
 UnicornPolicy.destroy_all
 keys = %w[type policy_num name description shadowed destination]
 csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'unicorn_policies.csv'))

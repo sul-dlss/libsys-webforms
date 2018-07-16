@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h3 id="excludeInvoice">Change invoice line</h3>
+</div>
+<div class="modal-body" style="height: 500px; overflow-y: auto;">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Vendor</th>
+      <th>Invoice number</th>
+      <th>Line number</th>
+      <th>Fund name</th>
+      <th>PO number</th>
+      <th>Net amount</th>
+      <th>Gross amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @edi_inv_line.each do |line| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td><%= radio_button_tag('inv_line', 'edit', false, onclick: "window.location = '/edi_inv_line/#{line.tbl_row_num.to_i}/edit'") %></td>
+        <td><%= line.edi_vend_id %></td>
+        <td><%= line.edi_doc_num %></td>
+        <td><%= line.edi_line_num.to_i %></td>
+        <td><%= line.edi_fund %></td>
+        <td><%= line.edi_po_number %></td>
+        <td><%= number_to_currency(line.edi_line_net) %></td>
+        <td><%= number_to_currency(line.edi_line_gross) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="btn-group">
+    <button class='btn btn-md btn-default btn-full' data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
+</div>
