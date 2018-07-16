@@ -44,5 +44,21 @@ RSpec.describe 'edi_invoices/menu', type: :view do
       assert_select 'a', text: 'View invoices'.to_s,
                          href: edi_invoices_path
     end
+    it 'should display the View errors link' do
+      assert_select 'a', text: 'View errors'.to_s,
+                         href: '/edi_error_reports'
+    end
+    it 'should display the fatal errors link' do
+      assert_select 'a', text: 'Show only fatal errors'.to_s,
+                         href: '/edi_error_reports?level=fatal'
+    end
+    it 'should display the notify errors link' do
+      assert_select 'a', text: 'Show only notify errors'.to_s,
+                         href: 'edi_error_reports?level=notify'
+    end
+    it 'should display the EDI_QUIT_ITEM.do_removes link' do
+      assert_select 'a', text: "Show only 'EDI_QUIT_ITEM.do_removes'".to_s,
+                         href: 'edi_error_reports?type=EDI_QUIT_ITEM.do_removes'
+    end
   end
 end
