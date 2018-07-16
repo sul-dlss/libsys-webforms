@@ -5,7 +5,9 @@
   </head>
   <body>
     <h1><%= @sal3_batch_requests_batch.num_bcs %> barcodes submitted for SAL3 retrieval with values:</h1>
+    <p>Batch id: <%= @sal3_batch_requests_batch.batch_id %></p>
     <p>Batch name: <%= @sal3_batch_requests_batch.batch_name %></p>
+    <p>Requestor name: <%= @sal3_batch_requests_batch.user_name %></p>
     <p>Delivery location: <%= @sal3_batch_requests_batch.stopcode %></p>
     <p>Media type: <%= @sal3_batch_requests_batch.batch_media %></p>
     <p>Container type: <%= @sal3_batch_requests_batch.batch_container %></p>

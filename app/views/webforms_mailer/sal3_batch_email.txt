@@ -1,7 +1,9 @@
 <%= @sal3_batch_requests_batch.num_bcs %> barcodes submitted for SAL3 retrieval with values:
 ======================================================================================================
 
+Batch id: <%= @sal3_batch_requests_batch.batch_id %>
 Batch name: <%= @sal3_batch_requests_batch.batch_name %>
+Requestor name: <%= @sal3_batch_requests_batch.user_name %>
 Delivery location: <%= @sal3_batch_requests_batch.stopcode %>
 Media type: <%= @sal3_batch_requests_batch.batch_media %>
 Container type: <%= @sal3_batch_requests_batch.batch_container %>
