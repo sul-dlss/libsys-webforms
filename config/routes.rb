@@ -58,6 +58,8 @@ Rails.application.routes.draw do
   get 'edi_lins/allow_nobib' => 'edi_lins#allow_nobib'
   get 'edi_lins/update' => 'edi_lins#update'
   get 'edi_invoices/fix_duplicate_barcode' => 'edi_invoices#fix_duplicate_barcode'
+  get 'edi_lins/allow_nobib' => 'edi_lins#allow_nobib'
+  get 'edi_lins/update' => 'edi_lins#update'
 
   get 'management_reports' => 'management_reports#index'
 
