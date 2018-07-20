@@ -55,8 +55,8 @@ Rails.application.routes.draw do
   get 'edi_invoices/menu' => 'edi_invoices#menu'
   get 'edi_invoices/invoice_exclude' => 'edi_invoices#invoice_exclude'
   get 'edi_invoices/change_invoice_line' => 'edi_invoices#change_invoice_line'
-  get 'edi_invoices/update' => 'edi_invoices#update'
-  get 'edi_invoices/allow_nobib' => 'edi_invoices#allow_nobib'
+  get 'edi_lins/allow_nobib' => 'edi_lins#allow_nobib'
+  get 'edi_lins/update' => 'edi_lins#update'
   get 'edi_invoices/fix_duplicate_barcode' => 'edi_invoices#fix_duplicate_barcode'
 
   get 'management_reports' => 'management_reports#index'
