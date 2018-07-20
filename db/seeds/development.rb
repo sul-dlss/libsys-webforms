@@ -1,87 +1,27 @@
 require 'csv'
 
-EdiErrorReport.destroy_all
-keys = %w[run type error err_lvl]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_error_report.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-EdiErrorReport.create(hash)
+def make_table(model, file, keys)
+  model.destroy_all
+  csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', file))
+  csv = CSV.parse(csv_text, headers: false)
+  csv.map { |a| Hash[keys.zip(a)] }
+  hash = csv.map { |a| Hash[keys.zip(a)] }
+  model.create(hash)
+end
 
-EdiInvoice.destroy_all
-keys = %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_invoice.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-EdiInvoice.create(hash)
-
-EdiInvLine.destroy_all
-keys = %w[tbl_row_num edi_vend_id edi_doc_num edi_line_num edi_fund edi_po_number edi_line_net edi_line_gross todo]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_inv_line.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-EdiInvLine.create(hash)
-
-UnicornPolicy.destroy_all
-keys = %w[type policy_num name description shadowed destination]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'unicorn_policies.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-UnicornPolicy.create(hash)
-
-ExpendituresFunds.destroy_all
-keys = %w[fund_id fund_name_key old_fund_id min_pay_date max_pay_date is_endow inv_lib]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures_funds.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-ExpendituresFunds.create(hash)
-
-ExpendituresPaydates.destroy_all
-keys = ['pay_date']
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures_paydates.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-ExpendituresPaydates.create(hash)
-
-UniLibsLocs.destroy_all
-keys = %w[library home_loc]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'uni_libs_locs.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-UniLibsLocs.create(hash)
-
-ShelfSelectionItemType.destroy_all
-keys = ['item_type']
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'item_types.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-ShelfSelectionItemType.create(hash)
-
-ShelfSelItemCat1.destroy_all
-keys = ['item_category1']
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'item_cat1.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-ShelfSelItemCat1.create(hash)
-
-CirculationStatisticsReportFormat.destroy_all
-keys = ['format']
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'formats.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-CirculationStatisticsReportFormat.create(hash)
-
-Expenditures.destroy_all
-keys = %w[row_date review_date ta_inv_line_key ta_fund_code ta_fund_total_paid
+make_table(EdiSumrzBib, 'edi_sumrz_bib.csv', %w[vend_code id001 edi_ckey load_date active_record])
+make_table(EdiLin, 'edi_lin.csv', %w[doc_num vend_id edi_lin_num edi_sublin_count vend_unique_id])
+make_table(EdiErrorReport, 'edi_error_report.csv', %w[run type error err_lvl])
+make_table(EdiInvoice, 'edi_invoice.csv', %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces])
+make_table(EdiInvLine, 'edi_inv_line.csv', %w[tbl_row_num edi_vend_id edi_doc_num edi_line_num edi_fund edi_po_number edi_line_net edi_line_gross todo])
+make_table(UnicornPolicy, 'unicorn_policies.csv', %w[type policy_num name description shadowed destination])
+make_table(ExpendituresFunds, 'expenditures_funds.csv', %w[fund_id fund_name_key old_fund_id min_pay_date max_pay_date is_endow inv_lib])
+make_table(ExpendituresPaydates, 'expenditures_paydates.csv', ['pay_date'])
+make_table(UniLibsLocs, 'uni_libs_locs.csv', %w[library home_loc])
+make_table(ShelfSelectionItemType, 'item_types.csv', ['item_type'])
+make_table(ShelfSelItemCat1, 'item_cat1.csv', ['item_category1'])
+make_table(CirculationStatisticsReportFormat, 'formats.csv', ['format'])
+make_table(Expenditures, 'expenditures.csv', %w[row_date review_date ta_inv_line_key ta_fund_code ta_fund_total_paid
    ta_gl_code ta_ord_line_key ta_inv_key ta_date_2encina ta_encina_key ta_invoice_total_withtax
   ta_tax_total ta_taxtype_flag ta_vend_inv_date ta_vend_inv_num ti_inv_lib ti_inv_line_note
   ti_inv_line_num ti_inv_line_total_us ti_unicorn_inv_num ti_inv_line_type ti_inv_line_total_vendor
@@ -91,12 +31,7 @@ keys = %w[row_date review_date ta_inv_line_key ta_fund_code ta_fund_total_paid
   d2_hldc_type sc_lib sc_id sc_cat1 sc_cat2 or_create_date ca_title ca_author ca_year
   ca_place ca_lang ca_pub260 cn_callnum vn_name_key fn_name_key fn_level1 fn_level2
   fn_level3 fn_level4 fn_fund_key fg_funding_key fg_fundcyc_key ca_fmt ca_020 ca_022
-  ca_024 ca_series ca_962 cn_shlv_key ol_volume i_created_by i_modified_by ]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'expenditures.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-Expenditures.create(hash)
+  ca_024 ca_series ca_962 cn_shlv_key ol_volume i_created_by i_modified_by ])
 
 ExpendituresFyDate.destroy_all
 dates = [
@@ -125,3 +60,4 @@ dates = [
 dates.each do |fy, min, max|
   ExpendituresFyDate.create(fy: fy, min_paydate: min, max_paydate: max)
 end
+

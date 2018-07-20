@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'edi_invoices/index', type: :view do
+  before(:context) do
+    assign(:edi_invoice, [FactoryBot.create(:edi_invoice)])
+  end
   context 'any user' do
-    before(:each) do
+    before do
       stub_current_user_for_view { FactoryBot.create(:staff_user) }
-      assign(:edi_invoice, [FactoryBot.create(:edi_invoice)])
       render
     end
     it 'should display the page header' do

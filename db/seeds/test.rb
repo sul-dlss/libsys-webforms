@@ -7,6 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'csv'
 
+def make_table(model, file, keys)
+  model.destroy_all
+  csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', file))
+  csv = CSV.parse(csv_text, headers: false)
+  csv.map { |a| Hash[keys.zip(a)] }
+  hash = csv.map { |a| Hash[keys.zip(a)] }
+  model.create(hash)
+end
+
+make_table(EdiSumrzBib, 'edi_sumrz_bib.csv', %w[vend_code id001 edi_ckey load_date active_record])
+make_table(EdiLin, 'edi_lin.csv', %w[doc_num vend_id edi_lin_num edi_sublin_count vend_unique_id])
+make_table(EdiInvoice, 'edi_invoice.csv', %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces])
+
 ExpendituresFyDate.destroy_all
 dates = [
   ['9697', '04-OCT-1996', '08-AUG-1997'],
@@ -34,11 +47,3 @@ dates = [
 dates.each do |fy, min, max|
   ExpendituresFyDate.create(fy: fy, min_paydate: min, max_paydate: max)
 end
-
-EdiInvoice.destroy_all
-keys = %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date edi_total_pieces]
-csv_text = File.read(Rails.root.join('spec', 'fixtures', 'files', 'edi_invoice.csv'))
-csv = CSV.parse(csv_text, headers: false)
-csv.map { |a| Hash[keys.zip(a)] }
-hash = csv.map { |a| Hash[keys.zip(a)] }
-EdiInvoice.create(hash)
