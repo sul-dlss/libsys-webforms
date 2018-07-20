@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h3 id="allowNoBib">Allow a "noBib"</h3>
+</div>
+<div class="modal-body">
+  <%= form_tag({controller: 'edi_lins', action: 'update'}, method: 'get') do %>
+  <div class="div-table">
+    <div class="div-table-body">
+      <div class="div-table-row">
+        <div class="div-table-cell">
+          1) Select a vendor
+        </div>
+        <div class="div-table-cell">
+          2) Enter an invoice number
+        </div>
+        <div class="div-table-cell">
+          3) Enter an invoice-line number
+        </div>
+      </div>
+      <div class="div-table-row">
+        <div class="div-table-cell">
+          <%= select_tag 'vendors', options_from_collection_for_select(@edi_lin.vendors, 'vend_id', 'vend_id') %>
+        </div>
+        <div class="div-table-cell">
+          <%= text_field_tag 'invoice_number' %>
+        </div>
+        <div class="div-table-cell">
+          <%= text_field_tag 'invoice_line_number' %>
+        </div>
+      </div>
+    </div>
+    <div class="div-table-row">
+
+    </div>
+    <div class="btn-group">
+      <button class='btn btn-md btn-default btn-full' data-dismiss="modal" aria-hidden="true">Cancel</button>
+    </div>
+    &nbsp;
+    <div class="btn-group">
+      <%= submit_tag 'Next', class: 'btn btn-md btn-primary btn-full'%>
+    </div>
+  </div>
+  <% end %>
+</div>

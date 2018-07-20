@@ -173,6 +173,26 @@ ActiveRecord::Schema.define(version: 20180725220246) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "edi_lin", force: :cascade do |t|
+    t.string   "doc_num"
+    t.string   "vend_id"
+    t.integer  "edi_lin_num"
+    t.integer  "edi_sublin_count"
+    t.string   "vend_unique_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "edi_sumrz_bib", force: :cascade do |t|
+    t.string   "vend_code"
+    t.string   "id001"
+    t.integer  "edi_ckey"
+    t.datetime "load_date"
+    t.integer  "active_record"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "encumbrance_rpts", force: :cascade do |t|
     t.datetime "date_request"
     t.datetime "date_ran"
