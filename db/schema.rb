@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712235601) do
+ActiveRecord::Schema.define(version: 20180725220246) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -116,6 +116,13 @@ ActiveRecord::Schema.define(version: 20180712235601) do
     t.string   "todo"
   end
 
+  create_table "edi_inv_piece", force: :cascade do |t|
+    t.string   "edi_vend_id"
+    t.string   "edi_doc_num"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "edi_invoice", force: :cascade do |t|
     t.string   "edi_doc_num"
     t.string   "edi_vend_id"
@@ -123,8 +130,47 @@ ActiveRecord::Schema.define(version: 20180712235601) do
     t.string   "todo"
     t.datetime "uni_inv_cre_date"
     t.integer  "edi_total_pieces"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "edi_msg_id"
+    t.string   "edi_msg_typ"
+    t.string   "edi_msg_seg"
+    t.integer  "uni_vend_key"
+    t.string   "uni_accrue_or_pay_tax"
+    t.string   "edi_stanfd_account"
+    t.string   "uni_inv_lib"
+    t.integer  "uni_inv_key"
+    t.string   "uni_inv_num"
+    t.integer  "edi_invc_total"
+    t.integer  "uni_invc_total"
+    t.integer  "edi_total_postage"
+    t.integer  "edi_total_freight"
+    t.integer  "edi_total_handling"
+    t.integer  "edi_total_insurance"
+    t.string   "edi_cur_code"
+    t.integer  "edi_total_tax"
+    t.integer  "edi_exchg_rate"
+    t.integer  "edi_tax_rate"
+  end
+
+  create_table "edi_lin", force: :cascade do |t|
+    t.string   "doc_num"
+    t.string   "vend_id"
+    t.integer  "edi_lin_num"
+    t.integer  "edi_sublin_count"
+    t.string   "vend_unique_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "edi_sumrz_bib", force: :cascade do |t|
+    t.string   "vend_code"
+    t.string   "id001"
+    t.integer  "edi_ckey"
+    t.datetime "load_date"
+    t.integer  "active_record"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "encumbrance_rpts", force: :cascade do |t|

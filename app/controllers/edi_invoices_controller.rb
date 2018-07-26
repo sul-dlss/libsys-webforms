@@ -9,6 +9,13 @@ class EdiInvoicesController < ApplicationController
     @edi_invoice = apply_scopes(EdiInvoice).all
   end
 
+  def update
+    @message = EdiInvoice.make_updates(params[:vendors], params[:invoice_number])
+    flash[@message[0].to_sym] = @message[1]
+
+    redirect_to edi_invoices_menu_path
+  end
+
   def change_invoice_line
     @edi_inv_line = EdiInvLine.where("todo = 'CreOrd'")
     respond_to do |format|
