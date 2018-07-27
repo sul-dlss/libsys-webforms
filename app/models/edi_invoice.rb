@@ -13,31 +13,34 @@ class EdiInvoice < ActiveRecord::Base
   end
 
   def self.make_updates(vendor, invoice)
-    edi_invoice = where('edi_vend_id = ? AND edi_doc_num = ?', vendor, invoice)
-    if edi_invoice.present?
-      if [nil, 'CreInvc', 'SKIP', 'CreOrd', 'Excld'].include?(edi_invoice.pluck(:todo)[0].to_s)
-        ['error', "Invoice NOT excluded! Invoice no. #{edi_invoice.edi_doc_num} is already "\
-                'through EDI processing past the point of safe Exclusion via web form.']
+    @edi_invoice = where('edi_vend_id = ? AND edi_doc_num = ?', vendor, invoice)
+    if @edi_invoice.present?
+      if [nil, 'CreInvc', 'SKIP', 'CreOrd', 'Excld'].include?(@edi_invoice.pluck(:todo)[0].to_s)
+        ['error', "Invoice NOT excluded! #{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num} "\
+                  'is already through EDI processing past the point of safe Exclusion via web form.']
       else
-        update_edi_invoice(edi_invoice.first)
-        delete_edi_inv_line(edi_invoice)
-        delete_edi_piece(edi_invoice)
-        ['warning', "Invoice no. #{edi_invoice.edi_doc_num} excluded from EDI processing"]
+        update_edi_invoice
+        delete_edi_inv_line
+        delete_edi_piece
+        ['warning', "#{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num} excluded from EDI processing"]
       end
     else
       insert_edi_invoice(vendor, invoice)
-      ['warning', "Created new Invoice no. #{edi_invoice.edi_doc_num}, excluded from EDI processing"]
+      ['warning', "Created new #{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num}, "\
+                  'excluded from EDI processing']
     end
   end
 
-  def self.delete_edi_inv_line(edi_invoice)
-    inv_line = EdiInvLine.find_by(edi_doc_num: edi_invoice.edi_doc_num, edi_vend_id: edi_invoice.edi_vend_id)
-    inv_line.present? ? inv_line.destroy : nil
+  def self.delete_edi_inv_line
+    EdiInvLine.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
+                           @edi_invoice.edi_doc_num,
+                           @edi_invoice.edi_vend_id[0]])
   end
 
-  def self.delete_edi_piece(edi_invoice)
-    piece = EdiInvPiece.find_by(edi_doc_num: edi_invoice.edi_doc_num, edi_vend_id: edi_invoice.edi_vend_id)
-    piece.present? ? piece.destroy : nil
+  def self.delete_edi_piece
+    EdiInvPiece.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
+                            @edi_invoice.edi_doc_num,
+                            @edi_invoice.edi_vend_id[0]])
   end
 
   def self.edi_doc_num
@@ -55,7 +58,8 @@ class EdiInvoice < ActiveRecord::Base
     excld.save
   end
 
-  def self.update_edi_invoice(edi_invoice)
+  def self.update_edi_invoice
+    edi_invoice = @edi_invoice.first
     edi_invoice.todo = 'Excld'
     edi_invoice.uni_vend_key = nil
     edi_invoice.uni_accrue_or_pay_tax = nil
