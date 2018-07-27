@@ -8,10 +8,6 @@ class EdiInvoice < ActiveRecord::Base
   self.table_name = 'edi_invoice'
   self.primary_keys = :edi_vend_id, :edi_doc_num
 
-  def self.edi_vend_id
-    distinct.pluck(:edi_vend_id)
-  end
-
   def self.make_updates(vendor, invoice)
     @edi_invoice = where('edi_vend_id = ? AND edi_doc_num = ?', vendor, invoice)
     if @edi_invoice.present?
@@ -29,33 +25,6 @@ class EdiInvoice < ActiveRecord::Base
       ['warning', "Created new #{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num}, "\
                   'excluded from EDI processing']
     end
-  end
-
-  def self.delete_edi_inv_line
-    EdiInvLine.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
-                           @edi_invoice.edi_doc_num,
-                           @edi_invoice.edi_vend_id[0]])
-  end
-
-  def self.delete_edi_piece
-    EdiInvPiece.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
-                            @edi_invoice.edi_doc_num,
-                            @edi_invoice.edi_vend_id[0]])
-  end
-
-  def self.edi_doc_num
-    pluck(:edi_doc_num)[0].to_s
-  end
-
-  def self.insert_edi_invoice(vendor, invoice)
-    excld = EdiInvoice.new
-    excld.edi_doc_num = invoice
-    excld.edi_vend_id = vendor
-    excld.edi_msg_id = 'Excld'
-    excld.edi_msg_typ = 'INVOIC'
-    excld.todo = 'Excld'
-    excld.edi_msg_seg = 'HDR'
-    excld.save
   end
 
   def self.update_edi_invoice
@@ -79,6 +48,37 @@ class EdiInvoice < ActiveRecord::Base
     edi_invoice.edi_tax_rate = nil
     edi_invoice.edi_total_pieces = 0
     edi_invoice.save
+  end
+
+  def self.delete_edi_inv_line
+    EdiInvLine.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
+                           @edi_invoice.edi_doc_num,
+                           @edi_invoice.edi_vend_id[0]])
+  end
+
+  def self.delete_edi_piece
+    EdiInvPiece.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
+                            @edi_invoice.edi_doc_num,
+                            @edi_invoice.edi_vend_id[0]])
+  end
+
+  def self.insert_edi_invoice(vendor, invoice)
+    excld = EdiInvoice.new
+    excld.edi_doc_num = invoice
+    excld.edi_vend_id = vendor
+    excld.edi_msg_id = 'Excld'
+    excld.edi_msg_typ = 'INVOIC'
+    excld.todo = 'Excld'
+    excld.edi_msg_seg = 'HDR'
+    excld.save
+  end
+
+  def self.edi_doc_num
+    pluck(:edi_doc_num)[0].to_s
+  end
+
+  def self.edi_vend_id
+    distinct.pluck(:edi_vend_id)
   end
 
   def self.vendor_filter
