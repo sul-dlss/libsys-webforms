@@ -11,7 +11,7 @@ class EdiInvoice < ActiveRecord::Base
   def self.make_updates(vendor, invoice)
     @edi_invoice = where('edi_vend_id = ? AND edi_doc_num = ?', vendor, invoice)
     if @edi_invoice.present?
-      if [nil, 'CreInvc', 'SKIP', 'CreOrd', 'Excld'].include?(@edi_invoice.pluck(:todo)[0].to_s)
+      if %w(CreInvc SKIP CreOrd Excld).include?(@edi_invoice.pluck(:todo)[0].to_s)
         ['error', "Invoice NOT excluded! #{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num} "\
                   'is already through EDI processing past the point of safe Exclusion via web form.']
       else
@@ -22,7 +22,7 @@ class EdiInvoice < ActiveRecord::Base
       end
     else
       insert_edi_invoice(vendor, invoice)
-      ['warning', "Created new #{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num}, "\
+      ['warning', "#{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num}, "\
                   'excluded from EDI processing']
     end
   end
@@ -35,7 +35,7 @@ class EdiInvoice < ActiveRecord::Base
     edi_invoice.edi_stanfd_account = nil
     edi_invoice.uni_inv_lib = nil
     edi_invoice.uni_inv_key = nil
-    edi_invoice.uni_inv_num << '<-Excld'
+    edi_invoice.uni_inv_num.to_s << '<-Excld'
     edi_invoice.edi_invc_total = 0
     edi_invoice.uni_invc_total = 0
     edi_invoice.edi_total_postage = 0
@@ -74,7 +74,7 @@ class EdiInvoice < ActiveRecord::Base
   end
 
   def self.edi_doc_num
-    pluck(:edi_doc_num)[0].to_s
+    pluck(:edi_doc_num)[0]
   end
 
   def self.edi_vend_id
