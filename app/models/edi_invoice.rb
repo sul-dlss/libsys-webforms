@@ -12,17 +12,17 @@ class EdiInvoice < ActiveRecord::Base
     @edi_invoice = where('edi_vend_id = ? AND edi_doc_num = ?', vendor, invoice)
     if @edi_invoice.present?
       if %w(CreInvc SKIP CreOrd Excld).include?(@edi_invoice.pluck(:todo)[0].to_s)
-        ['error', "Invoice NOT excluded! #{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num} "\
+        ['error', "Invoice NOT excluded! #{@edi_invoice.edi_vend_id.to_s} invoice no. #{@edi_invoice.edi_doc_num} "\
                   'is already through EDI processing past the point of safe Exclusion via web form.']
       else
         update_edi_invoice
         delete_edi_inv_line
         delete_edi_piece
-        ['warning', "#{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num} excluded from EDI processing"]
+        ['warning', "#{@edi_invoice.edi_vend_id.to_s} invoice no. #{@edi_invoice.edi_doc_num} excluded from EDI processing"]
       end
     else
       insert_edi_invoice(vendor, invoice)
-      ['warning', "#{@edi_invoice.edi_vend_id} invoice no. #{@edi_invoice.edi_doc_num}, "\
+      ['warning', "#{@edi_invoice.edi_vend_id.to_s} invoice no. #{@edi_invoice.edi_doc_num}, "\
                   'excluded from EDI processing']
     end
   end
