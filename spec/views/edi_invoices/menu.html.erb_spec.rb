@@ -34,11 +34,11 @@ RSpec.describe 'edi_invoices/menu', type: :view do
     end
     it 'should display the allow nobiblink' do
       assert_select 'a', text: 'Allow a "noBib"'.to_s,
-                         href: edi_invoices_allow_nobib_path
+                         href: edi_lins_allow_nobib_path
     end
     it 'should display the fix duplicate barcode link' do
       assert_select 'a', text: 'Fix duplicate barcode'.to_s,
-                         href: edi_invoices_fix_duplicate_barcode_path
+                         href: edi_lins_fix_duplicate_barcode_path
     end
     it 'should display the View invoices link' do
       assert_select 'a', text: 'View invoices'.to_s,

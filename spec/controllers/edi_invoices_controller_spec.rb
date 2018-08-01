@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EdiInvoicesController, type: :controller do
-  before(:each) do
+  before(:context) do
     @edi_invoice = FactoryBot.create(:edi_invoice)
   end
   describe 'get#index' do
