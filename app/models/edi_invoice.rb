@@ -11,7 +11,7 @@ class EdiInvoice < ActiveRecord::Base
   def self.make_updates(vendor, invoice)
     @edi_invoice = where('edi_vend_id = ? AND edi_doc_num = ?', vendor, invoice)
     if @edi_invoice.present?
-      if %w(CreInvc SKIP CreOrd Excld).include?(@edi_invoice.pluck(:todo)[0].to_s)
+      if %w(CreInvc SKIP CreOrd Excld).exclude?(@edi_invoice.pluck(:todo)[0].to_s)
         ['error', "Invoice NOT excluded! #{@edi_invoice.edi_vend_id[0]} invoice no. #{@edi_invoice.edi_doc_num} "\
                   'is already through EDI processing past the point of safe Exclusion via web form.']
       else

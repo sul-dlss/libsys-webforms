@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EdiInvoice, type: :model do
+  Rails.application.load_seed
   let(:vendors) { %w(YANKEE COUTTS CASALI AMALIV HARRAS) }
   describe 'display of vendor lists' do
     it 'defines a set of unique vendors' do
@@ -11,7 +12,11 @@ RSpec.describe EdiInvoice, type: :model do
     end
   end
   describe 'make_updates' do
-    it 'should insert a new exclude row into the  edi_invoice table if an exclude des not exist' do
+    it 'shows an error if the invoice cannot be excluded' do
+      update = EdiInvoice.make_updates('HARRAS', '150302')
+      expect(update[0].to_s).to eq 'error'
+    end
+    it 'should insert a new exclude row into the  edi_invoice table if an exclude does not exist' do
       update = EdiInvoice.make_updates('AMALIV', '12345')
       expect(update[0].to_s).to eq 'warning'
       edi_invoice = EdiInvoice.find_by(edi_vend_id: 'AMALIV', edi_doc_num: '12345')
@@ -20,12 +25,12 @@ RSpec.describe EdiInvoice, type: :model do
       expect(edi_invoice.todo).to eq('Excld')
       expect(edi_invoice.edi_msg_seg).to eq('HDR')
     end
-    it 'should return an error message if the invoice is already excluded' do
+    it 'should update invoices to be excluded if they are not past the point of exclusion' do
       update = []
       2.times do
         update = EdiInvoice.make_updates('AMALIV', '12345')
       end
-      expect(update[0].to_s).to eq 'error'
+      expect(update[0].to_s).to eq 'warning'
     end
     it 'updates the edi_invoice table and deletes the edi_inv_line and edi_piece for an existing excludeable row' do
       update = EdiInvoice.make_updates('HARRAS', '150305')
