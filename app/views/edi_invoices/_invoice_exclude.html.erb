@@ -3,20 +3,33 @@
    <h3 id="excludeInvoice">Exclude an invoice</h3>
 </div>
 <div class="modal-body">
+  <%= form_tag({controller: 'edi_invoices', action: 'update'}, method: 'get') do %>
   <div class="div-table">
     <div class="div-table-body">
       <div class="div-table-row">
         <div class="div-table-cell">
-
+          1) Select a vendor
         </div>
         <div class="div-table-cell">
-
+          2) Enter an invoice number
+        </div>
+      </div>
+      <div class="div-table-row">
+        <div class="div-table-cell">
+          <%= select_tag 'vendors', options_for_select(@edi_invoice.edi_vend_id.compact, 'edi_vend_id') %>
+        </div>
+        <div class="div-table-cell">
+          <%= text_field_tag 'invoice_number' %>
         </div>
       </div>
     </div>
     <div class="btn-group">
-
       <button class='btn btn-md btn-default btn-full' data-dismiss="modal" aria-hidden="true">Cancel</button>
     </div>
+    &nbsp;
+    <div class="btn-group">
+      <%= submit_tag 'Next', class: 'btn btn-md btn-primary btn-full' %>
+    </div>
   </div>
+  <% end %>
 </div>
