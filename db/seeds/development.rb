@@ -9,10 +9,10 @@ def make_table(model, file, keys)
   model.create(hash)
 end
 
-make_table(EdiInvPiece, 'edi_inv_piece.csv', %w[edi_vend_id edi_doc_num])
 make_table(EdiSumrzBib, 'edi_sumrz_bib.csv', %w[vend_code id001 edi_ckey load_date active_record])
 make_table(EdiLin, 'edi_lin.csv', %w[doc_num vend_id edi_lin_num edi_sublin_count vend_unique_id])
 make_table(EdiErrorReport, 'edi_error_report.csv', %w[run type error err_lvl])
+make_table(EdiInvPiece, 'edi_inv_piece.csv', %w[edi_vend_id edi_doc_num])
 make_table(EdiInvoice, 'edi_invoice.csv', %w[edi_doc_num edi_vend_id edi_vend_inv_date todo uni_inv_cre_date
   edi_total_pieces edi_msg_id edi_msg_typ edi_msg_seg uni_vend_key uni_accrue_or_pay_tax edi_stanfd_account uni_inv_lib
   uni_inv_key uni_inv_num edi_invc_total uni_invc_total edi_total_postage edi_total_freight edi_total_handling edi_total_insurance

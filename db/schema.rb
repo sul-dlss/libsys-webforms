@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725220246) do
+ActiveRecord::Schema.define(version: 20180718164936) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
