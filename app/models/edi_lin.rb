@@ -20,9 +20,9 @@ class EdiLin < ActiveRecord::Base
   end
 
   def self.make_nobib(nobib_id)
-    nobib = EdiLin.find_by(vend_unique_id: nobib_id)
-    nobib.vend_unique_id = "#{nobib_id}noBib"
-    nobib.save
+    row = EdiLin.where(vend_unique_id: nobib_id).pluck(row_id).first
+    nobib = EdiLin.find(row)
+    nobib.update(vend_unique_id: "#{nobib_id}noBib")
   end
 
   def self.vend_unique_id
@@ -31,5 +31,17 @@ class EdiLin < ActiveRecord::Base
 
   def self.ids_match?(id001, vend_id)
     id001.casecmp(vend_id).zero?
+  end
+
+  def self.row_id
+    if database =~ /sqlite3/
+      'id'.to_sym
+    else
+      'rowid'.to_sym
+    end
+  end
+
+  def self.database
+    Rails.configuration.database_configuration[Rails.env]['database']
   end
 end
