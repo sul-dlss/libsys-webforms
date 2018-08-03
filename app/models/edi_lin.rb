@@ -32,6 +32,7 @@ class EdiLin < ActiveRecord::Base
   def self.ids_match?(id001, vend_id)
     id001.casecmp(vend_id).zero?
   end
+<<<<<<< HEAD
 
   def self.row_id
     if database =~ /sqlite3/
@@ -44,4 +45,6 @@ class EdiLin < ActiveRecord::Base
   def self.database
     Rails.configuration.database_configuration[Rails.env]['database']
   end
+=======
+>>>>>>> 5c1fe088008c7bc27034cd5af0ad5422989d9627
 end
