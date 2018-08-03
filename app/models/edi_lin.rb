@@ -2,6 +2,10 @@
 class EdiLin < ActiveRecord::Base
   self.table_name = 'edi_lin'
 
+  def self.primary_key
+    row_id
+  end
+
   def self.vendors
     select(:vend_id).uniq
   end
@@ -20,7 +24,7 @@ class EdiLin < ActiveRecord::Base
   end
 
   def self.make_nobib(nobib_id)
-    row = EdiLin.where(vend_unique_id: nobib_id).pluck(row_id).first
+    row = EdiLin.where(vend_unique_id: nobib_id).pluck(row_id.to_sym).first
     nobib = EdiLin.find(row)
     nobib.update(vend_unique_id: "#{nobib_id}noBib")
   end
@@ -35,9 +39,9 @@ class EdiLin < ActiveRecord::Base
 
   def self.row_id
     if database =~ /sqlite3/
-      'id'.to_sym
+      'id'
     else
-      'rowid'.to_sym
+      'rowid'
     end
   end
 
