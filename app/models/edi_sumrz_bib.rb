@@ -13,7 +13,7 @@ class EdiSumrzBib < ActiveRecord::Base
   end
 
   def self.id(vend_unique_id)
-    select(:id001).where(id001: vend_unique_id).pluck(:id001)[0].to_s.upcase
+    select(:id001).where('lower(id001) = ?', vend_unique_id.downcase).pluck(:id001)[0].to_s
   end
 
   def self.fake_ckey
