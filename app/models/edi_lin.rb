@@ -32,7 +32,7 @@ class EdiLin < ActiveRecord::Base
   # rubocop:enable Rails/SkipsModelValidations
 
   def self.vend_unique_id
-    pluck(:vend_unique_id)[0].to_s.upcase
+    pluck(:vend_unique_id)[0].to_s
   end
 
   def self.ids_match?(id001, vend_id)
