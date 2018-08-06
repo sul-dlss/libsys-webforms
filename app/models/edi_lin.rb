@@ -24,9 +24,10 @@ class EdiLin < ActiveRecord::Base
   end
 
   def self.make_nobib(nobib_id)
-    row = EdiLin.where(vend_unique_id: nobib_id).pluck(row_id.to_sym).first
-    nobib = EdiLin.find(row)
-    nobib.update(vend_unique_id: "#{nobib_id}noBib")
+    row = EdiLin.where(vend_unique_id: nobib_id).pluck(primary_key.to_sym).first
+    nobib = EdiLin.find_by(row_id => row)
+    nobib.vend_unique_id = "#{nobib_id}noBib"
+    nobib.save
   end
 
   def self.vend_unique_id
