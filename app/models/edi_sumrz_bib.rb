@@ -22,6 +22,6 @@ class EdiSumrzBib < ActiveRecord::Base
   end
 
   def self.ckey(vend_unique_id)
-    where(id001: vend_unique_id).pluck(:edi_ckey)[0].to_s
+    where(id001: vend_unique_id).pluck(:edi_ckey)[0].to_i
   end
 end
