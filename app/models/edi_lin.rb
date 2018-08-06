@@ -18,10 +18,9 @@ class EdiLin < ActiveRecord::Base
     else
       make_nobib(edi_lin.vend_unique_id)
       EdiSumrzBib.insert(edi_lin)
-      messages = ["#{edi_lin.pluck(:vend_id)[0]} invoice #{edi_lin.pluck(:doc_num)[0]}, "\
-                  "line #{edi_lin.pluck(:edi_lin_num)[0]} will be processed as a NOBIB.",
-                  "#{edi_lin.vend_unique_id} assigned ckey: #{EdiSumrzBib.ckey(edi_lin.vend_unique_id)}"]
-      ['notice', messages.join('<br />')]
+      ['notice', "#{edi_lin.pluck(:vend_id)[0]} invoice #{edi_lin.pluck(:doc_num)[0]}, "\
+                 "line #{edi_lin.pluck(:edi_lin_num)[0]} will be processed as a NOBIB. "\
+                 "#{edi_lin.vend_unique_id} assigned ckey: #{EdiSumrzBib.ckey(edi_lin.vend_unique_id)}"]
     end
   end
 
