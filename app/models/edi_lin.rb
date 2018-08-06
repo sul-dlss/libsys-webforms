@@ -18,17 +18,19 @@ class EdiLin < ActiveRecord::Base
     else
       make_nobib(edi_lin.vend_unique_id)
       EdiSumrzBib.insert(edi_lin)
-      ['notice', "EDI Line updated with new ID: #{edi_lin.vend_unique_id} : "\
-       "EDI_SUMRZ_BIB created with ckey: #{EdiSumrzBib.ckey(edi_lin.vend_unique_id)}"]
+      messages = ["#{edi_lin.pluck(:vend_id)[0]} invoice #{edi_lin.pluck(:doc_num)[0]}, "\
+                  "line #{edi_lin.pluck(:edi_lin_num)[0]} will be processed as a NOBIB.",
+                  "#{edi_lin.vend_unique_id} assigned ckey: #{EdiSumrzBib.ckey(edi_lin.vend_unique_id)}"]
+      ['notice', messages.join('<br />')]
     end
   end
 
+  # rubocop:disable Rails/SkipsModelValidations
   def self.make_nobib(nobib_id)
     row = EdiLin.where(vend_unique_id: nobib_id).pluck(primary_key.to_sym).first
-    nobib = EdiLin.find_by(row_id => row)
-    nobib.vend_unique_id = "#{nobib_id}noBib"
-    nobib.save
+    EdiLin.where(row_id => row).update_all(vend_unique_id: "#{nobib_id}noBib")
   end
+  # rubocop:enable Rails/SkipsModelValidations
 
   def self.vend_unique_id
     pluck(:vend_unique_id)[0].to_s
