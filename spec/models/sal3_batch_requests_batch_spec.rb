@@ -33,6 +33,10 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     request = Sal3BatchRequestsBatch.new(batch_startdate: nil, batch_needbydate: nil)
     expect(request).to_not be_valid
   end
+  it 'Validates the presense of User ID for charge' do
+    request = Sal3BatchRequestsBatch.new(pseudo_id: nil)
+    expect(request).to_not be_valid
+  end
   it 'Adds an error when at least one pull day is not present' do
     request = Sal3BatchRequestsBatch.new(batch_pullfri: nil,
                                          batch_pullthurs: nil,
