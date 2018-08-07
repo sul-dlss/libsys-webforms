@@ -4,6 +4,7 @@
 Batch id: <%= @sal3_batch_requests_batch.batch_id %>
 Batch name: <%= @sal3_batch_requests_batch.batch_name %>
 Requestor name: <%= @sal3_batch_requests_batch.user_name %>
+User ID for charge: <%= @sal3_batch_requests_batch.pseudo_id %>
 Delivery location: <%= @sal3_batch_requests_batch.stopcode %>
 Media type: <%= @sal3_batch_requests_batch.batch_media %>
 Container type: <%= @sal3_batch_requests_batch.batch_container %>
