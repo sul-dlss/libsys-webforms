@@ -11,6 +11,7 @@ RSpec.describe 'sal3_batch_requests_batches/edit', type: :view do
                                          id: 1,
                                          batch_id: '1',
                                          user_sunetid: 'some-id',
+                                         pseudo_id: 'MAPSCANLAB',
                                          load_date: '16-06-14',
                                          batch_startdate: '16-06-18',
                                          batch_needbydate: '16-06-20',

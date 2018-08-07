@@ -12,6 +12,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
                               on: %i(create update)
   validates :batch_needbydate, presence: { message: 'You must enter a completion date' },
                                on: %i(create update)
+  validates :pseudo_id, presence: { message: 'You must provide a user ID for charge' },
+                        on: %i(create update)
   validate :batch_pullday_present
 
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
