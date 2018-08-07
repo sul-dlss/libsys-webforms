@@ -49,7 +49,6 @@
     <div class='form-group row'>
       <%= f.label :stopcode, "Select delivery location", class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-10'>
-        <%#= f.select :stopcode, Sal3BatchRequestsBatch.locations, {}, {size: 6, selected: 'none', class: 'form-control'} %>
         <%= f.select :stopcode, options_for_select(Sal3BatchRequestsBatch.locations.map{|s| [s[0], s[1], {'title'=>"STOP-CODE: #{s[1]}", 'data-toggle'=>'tooltip'}]}), {}, {size: 6, selected: 'none', class: 'form-control'} %>
       </div>
     </div>
