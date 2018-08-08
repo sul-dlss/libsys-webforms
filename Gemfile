@@ -41,6 +41,8 @@ gem 'nokogiri'
 gem 'systemu'
 # For exception reporting
 gem 'honeybadger'
+# For uploading files from Ruby applications
+gem 'carrierwave', '~> 1.0'
 
 gem 'uglifier'
 # For fiscal year functions
