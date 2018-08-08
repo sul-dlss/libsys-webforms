@@ -24,23 +24,24 @@ class EdiLin < ActiveRecord::Base
     end
   end
 
+  # We need to skip model validations on update because we can only retrieve the correct row using a 'where' finder
+  # and only 'update_all' will work on this finding method.
   # rubocop:disable Rails/SkipsModelValidations
   def self.make_nobib(nobib_id)
     row = EdiLin.where(vend_unique_id: nobib_id).pluck(primary_key.to_sym).first
     EdiLin.where(row_id => row).update_all(vend_unique_id: "#{nobib_id}noBib")
   end
-  # rubocop:enable Rails/SkipsModelValidations
 
   def self.update_barcode(vendor, invoice, line, subline, old_barcode, new_barcode)
     row = EdiLin.where(vend_id: vendor,
                        doc_num: invoice,
                        edi_lin_num: line,
                        edi_sublin_count: subline,
-                       barcode_num: old_barcode).pluck(row_id).first
-    barcode = EdiLin.find(row)
-    barcode.update(barcode_num: new_barcode)
+                       barcode_num: old_barcode).pluck(primary_key.to_sym).first
+    EdiLin.where(row_id => row).update_all(barcode_num: new_barcode)
     ['notice', "EDI Line for #{barcode.vend_id}, #{barcode.doc_num} updated with new barcode: #{barcode.barcode_num}"]
   end
+  # rubocop:enable Rails/SkipsModelValidations
 
   def self.vend_unique_id
     pluck(:vend_unique_id)[0].to_s
