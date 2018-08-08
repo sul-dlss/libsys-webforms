@@ -4,7 +4,7 @@
 class ExpenditureReportsController < ApplicationController
   before_action :set_no_cache
 
-  rescue_from ActiveRecord::RecordNotFound do |exception|
+  rescue_from ActiveRecord::RecordNotFound do
     flash[:error] = 'There are no records for the specified date range'
     render action: 'new'
   end
