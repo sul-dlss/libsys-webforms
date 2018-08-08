@@ -39,7 +39,7 @@ class EdiLin < ActiveRecord::Base
                        edi_sublin_count: subline,
                        barcode_num: old_barcode).pluck(primary_key.to_sym).first
     EdiLin.where(row_id => row).update_all(barcode_num: new_barcode)
-    ['notice', "EDI Line for #{barcode.vend_id}, #{barcode.doc_num} updated with new barcode: #{barcode.barcode_num}"]
+    ['notice', "EDI Line for #{vendor}, #{invoice}, line #{line} updated with new barcode: #{new_barcode}"]
   end
   # rubocop:enable Rails/SkipsModelValidations
 
