@@ -24,15 +24,4 @@ RSpec.describe EdiInvoicesController, type: :controller do
       expect(response).to have_http_status(302)
     end
   end
-  let(:message) { get :update, vendors: 'AMALIV', invoice_number: '22222' }
-  describe 'update with actual table updates' do
-    before do
-      stub_current_user(FactoryBot.create(:authorized_user))
-    end
-    it 'notifies of possible changes to the table' do
-      controller.instance_variable_set(:@message, message)
-      expect(flash).to be_present
-      expect(response).to redirect_to edi_invoices_menu_path
-    end
-  end
 end

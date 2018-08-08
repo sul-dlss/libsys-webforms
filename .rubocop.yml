@@ -50,6 +50,9 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Max: 27
 
+Metrics/ParameterLists:
+  Max: 6
+
 Style/PercentLiteralDelimiters:
   Enabled: false
 

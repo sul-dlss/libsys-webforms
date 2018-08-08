@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725220246) do
+ActiveRecord::Schema.define(version: 20180727193130) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -159,8 +159,9 @@ ActiveRecord::Schema.define(version: 20180725220246) do
     t.integer  "edi_lin_num"
     t.integer  "edi_sublin_count"
     t.string   "vend_unique_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "barcode_num",      limit: 6
   end
 
   create_table "edi_sumrz_bib", force: :cascade do |t|

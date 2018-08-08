@@ -10,7 +10,7 @@ class EdiLin < ActiveRecord::Base
     select(:vend_id).uniq
   end
 
-  def self.make_updates(vendor, invoice, line)
+  def self.update_edi_lin(vendor, invoice, line)
     edi_lin = where('vend_id = ? AND doc_num = ? AND edi_lin_num = ? AND edi_sublin_count = 0', vendor, invoice, line)
     if ids_match?(EdiSumrzBib.id(edi_lin.vend_unique_id), edi_lin.vend_unique_id)
       ['error', 'Cannot set this invoice line to "noBib." This invoice line has a bib match in Symphony. '\
@@ -30,6 +30,17 @@ class EdiLin < ActiveRecord::Base
     EdiLin.where(row_id => row).update_all(vend_unique_id: "#{nobib_id}noBib")
   end
   # rubocop:enable Rails/SkipsModelValidations
+
+  def self.update_barcode(vendor, invoice, line, subline, old_barcode, new_barcode)
+    row = EdiLin.where(vend_id: vendor,
+                       doc_num: invoice,
+                       edi_lin_num: line,
+                       edi_sublin_count: subline,
+                       barcode_num: old_barcode).pluck(row_id).first
+    barcode = EdiLin.find(row)
+    barcode.update(barcode_num: new_barcode)
+    ['notice', "EDI Line for #{barcode.vend_id}, #{barcode.doc_num} updated with new barcode: #{barcode.barcode_num}"]
+  end
 
   def self.vend_unique_id
     pluck(:vend_unique_id)[0].to_s

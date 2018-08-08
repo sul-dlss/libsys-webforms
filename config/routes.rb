@@ -56,11 +56,12 @@ Rails.application.routes.draw do
   get 'edi_invoices/invoice_exclude' => 'edi_invoices#invoice_exclude'
   get 'edi_invoices/change_invoice_line' => 'edi_invoices#change_invoice_line'
   get 'edi_lins/allow_nobib' => 'edi_lins#allow_nobib'
-  get 'edi_lins/update' => 'edi_lins#update'
-  get 'edi_invoices/update' => 'edi_invoices#update'
-  get 'edi_invoices/fix_duplicate_barcode' => 'edi_invoices#fix_duplicate_barcode'
-  get 'edi_lins/allow_nobib' => 'edi_lins#allow_nobib'
-  get 'edi_lins/update' => 'edi_lins#update'
+  get 'edi_lins/edit/:vend_id,:doc_num,:edi_lin_num,:edi_sublin_count,:barcode_num' => 'edi_lins#edit'
+  get 'edi_lins/fix_duplicate_barcode' => 'edi_lins#fix_duplicate_barcode'
+  get 'edi_lins/index' => 'edi_lins#index'
+  get 'edi_lins/update_edi_lin' => 'edi_lins#update_edi_lin'
+  get 'edi_lins/update_barcode' => 'edi_lins#update_barcode'
+  get 'edi_lins/show/:barcode_num' => 'edi_lins#show'
 
   get 'management_reports' => 'management_reports#index'
 
