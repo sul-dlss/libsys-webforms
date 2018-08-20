@@ -1,6 +1,6 @@
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  <h3 id="excludeInvoice">Exclude an invoice</h3>
+  <h3 id="fixDuplicateBarcode">Fix duplicate barcode</h3>
 </div>
 <div class="modal-body">
   <%= form_tag({controller: 'edi_lins', action: 'index'}, method: 'get') do %>
@@ -8,7 +8,7 @@
       <div class="div-table-body">
         <div class="div-table-row">
           <div class="div-table-cell">
-            Enter an barcode number
+            Enter barcode
           </div>
         </div>
         <div class="div-table-row">
