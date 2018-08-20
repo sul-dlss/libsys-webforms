@@ -21,7 +21,7 @@
       <span style='margin-left: 20px'>
         Filter by status:
         <%= select_tag 'Status', options_for_select(Sal3BatchRequestsBatch.status_filter, selected: params[:statusfilter]),
-                                   { controller: 'sal3_batch_requests_batches', action: 'index', onclick: "window.location = 'sal3_batch_requests_batches?statusfilter=' + this.options[this.selectedIndex].text"} %>
+                                   { controller: 'sal3_batch_requests_batches', action: 'index', onchange: "window.location = 'sal3_batch_requests_batches?statusfilter=' + this.options[this.selectedIndex].text"} %>
       </span>
     </div>
     <tr>
