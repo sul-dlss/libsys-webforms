@@ -27,7 +27,13 @@ RSpec.describe EdiLinsController, type: :controller do
     end
   end
   describe 'get#index to check for duplicate barcodes' do
-    it 'redirects to the edi menu with a message that there are no duplicates' do
+    it 'redirects to the edi menu with a message that there are no duplicates when zero barcodes found' do
+      get :index, barcode_num: '00000000000000'
+      expect(assigns(:edi_lin).size).to be 0
+      expect(flash).to be_present
+      expect(response).to redirect_to edi_invoices_menu_path
+    end
+    it 'redirects to the edi menu with a message that there are no duplicates when only 1 barcode found' do
       get :index, barcode_num: '36105225172159'
       expect(assigns(:edi_lin).size).to be < 2
       expect(flash).to be_present

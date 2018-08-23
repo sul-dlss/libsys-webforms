@@ -19,9 +19,12 @@ class EdiLinsController < ApplicationController
 
   def index
     @edi_lin = EdiLin.where(barcode_num: params[:barcode_num])
-    message = "Barcode #{params[:barcode_num]} is not a duplicate. It only appears once in the EDI LINE table."
-    if @edi_lin.size < 2
-      redirect_to(edi_invoices_menu_path, flash: { warning: message })
+    if @edi_lin.size.zero?
+      redirect_to(edi_invoices_menu_path, flash: { warning: "Barcode #{params[:barcode_num]} does not exist "\
+                                                            'as a barcode in the EDI_LIN table.' })
+    elsif @edi_lin.size < 2
+      redirect_to(edi_invoices_menu_path, flash: { warning: "Barcode #{params[:barcode_num]} is not a duplicate. "\
+                                                            'It only appears once in the EDI LINE table.' })
     else
       redirect_to "/edi_lins/show/#{params[:barcode_num]}"
     end
