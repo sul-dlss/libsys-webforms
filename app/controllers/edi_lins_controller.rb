@@ -24,7 +24,7 @@ class EdiLinsController < ApplicationController
                                                             'as a barcode in the EDI_LIN table.' })
     elsif @edi_lin.size < 2
       redirect_to(edi_invoices_menu_path, flash: { warning: "Barcode #{params[:barcode_num]} is not a duplicate. "\
-                                                            'It only appears once in the EDI LINE table.' })
+                                                            'It only appears once in the EDI_LIN table.' })
     else
       redirect_to "/edi_lins/show/#{params[:barcode_num]}"
     end
