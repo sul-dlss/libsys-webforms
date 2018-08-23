@@ -40,6 +40,11 @@ Rails.application.routes.draw do
   resources :endowed_funds_reports, only: [:new, :create]
   resources :userload_reruns, only: [:new, :create]
   resources :ckey2bibframes, only: [:new, :create, :show], param: :ckey
+  resources :packages do
+    patch :activate, on: :member
+    patch :deactivate, on: :member
+  end
+  resources :url_exclusions
 
   get 'shelf_selection_reports/home_locations' => 'shelf_selection_reports#home_locations', as: :home_locations_for_library
   get 'shelf_selection_reports/load_saved_options' => 'shelf_selection_reports#load_saved_options', as: :load_saved_options
@@ -76,6 +81,8 @@ Rails.application.routes.draw do
   post 'authorized_users/create' => 'authorized_users#create'
   delete 'authorized_users/delete' => 'authorized_users#delete'
   delete 'authorized_users/delete/:user_id' => 'authorized_users#delete'
+
+  get 'packages/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
