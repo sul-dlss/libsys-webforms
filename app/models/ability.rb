@@ -32,6 +32,7 @@ class Ability
     can :read, EdiInvoice if /Y/ =~ current_user.edi_inv_view
     can :manage, EdiInvoice if /A|Y/ =~ current_user.edi_inv_manage
     can :manage, EdiErrorReport if /A|Y/ =~ current_user.edi_inv_manage
+    can :manage, Package if /A|Y/ =~ current_user.package_manage
   end
 
   def assign_admin_permission(current_user)

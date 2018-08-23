@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan=2></th>
+      <th>Status</th>
+      <th>Package Name</th>
+      <th>Package ID</th>
+      <th>Vendor</th>
+      <th>Date Updated</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @packages.each do |package| %>
+      <tr>
+        <td><%= link_to 'Activate', activate_package_path(package), method: :post, action: :activate, class: 'btn btn-sm btn-success btn-full' %></td>
+        <td><%= link_to 'Deactivate', deactivate_package_path(package), method: :post, action: :deactivate, class: 'btn btn-sm btn-warning btn-full' %></td>
+        <td class='<%= package.package_status.downcase %>'><%= package.package_status %></td>
+        <td><%= package.package_name %></td>
+        <td><%= package.package_id %></td>
+        <td><%= package.vendor_name %></td>
+        <td><%= package.updated_at.to_formatted_s(:db) %></td>
+        <td><%= link_to 'details', package_path(package), class: 'btn btn-sm btn-default' %></td>
+        <td><%= link_to 'edit', edit_package_path(package), class: 'btn btn-sm btn-default' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

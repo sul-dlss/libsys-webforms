@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180727193130) do
+ActiveRecord::Schema.define(version: 20180822235605) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180727193130) do
     t.string   "digital_bookplates"
     t.string   "edi_inv_manage"
     t.string   "edi_inv_view"
+    t.string   "package_manage"
   end
 
   create_table "catnums", force: :cascade do |t|
@@ -355,7 +356,6 @@ ActiveRecord::Schema.define(version: 20180727193130) do
     t.datetime "last_action_date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "bc_file_obj"
   end
 
   create_table "sal3_batch_requests_bcs", force: :cascade do |t|
@@ -469,6 +469,54 @@ ActiveRecord::Schema.define(version: 20180727193130) do
     t.string   "destination"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "url_exclusions", force: :cascade do |t|
+    t.string   "url_substring"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "vnd_packages", primary_key: "record_id", force: :cascade do |t|
+    t.string   "package_id"
+    t.string   "package_name"
+    t.string   "package_status"
+    t.string   "data_pickup_type"
+    t.string   "afs_path"
+    t.string   "ftp_server"
+    t.string   "ftp_user"
+    t.string   "ftp_password"
+    t.string   "ftp_directory"
+    t.string   "ftp_file_prefix"
+    t.string   "ftp_list_type"
+    t.string   "package_url"
+    t.datetime "date_entered"
+    t.string   "vendor_name"
+    t.string   "holding_code"
+    t.string   "comments"
+    t.datetime "date_modified"
+    t.string   "put_file_loc"
+    t.string   "afs_search_string"
+    t.string   "url_field"
+    t.string   "vendor_id_read"
+    t.string   "vendor_id_write"
+    t.string   "access_note"
+    t.string   "export_note"
+    t.string   "junktag_file"
+    t.string   "encoding_level"
+    t.string   "vnd_catcode"
+    t.string   "match_opts"
+    t.string   "proc_type"
+    t.string   "update_040"
+    t.string   "rpt_mail"
+    t.string   "access_urls_plats"
+    t.string   "date_cat"
+    t.string   "export_auth"
+    t.string   "preprocess_modify_script"
+    t.string   "preprocess_split_script"
+    t.string   "preprocess_put_script"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

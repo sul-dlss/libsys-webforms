@@ -1,0 +1,42 @@
+FactoryBot.define do
+  factory :package do |f|
+    f.package_name 'Some package name'
+    f.vendor_name 'Some vnd name'
+    f.record_id 1
+    f.package_id 'something'
+    f.package_status 'something'
+    f.data_pickup_type 'something'
+    f.afs_path 'something'
+    f.ftp_server 'something'
+    f.ftp_user 'something'
+    f.ftp_password 'something'
+    f.ftp_directory 'something'
+    f.ftp_file_prefix 'something'
+    f.ftp_list_type 'something'
+    f.package_url 'something'
+    f.date_entered Time.zone.today
+    f.holding_code 'something'
+    f.comments ''
+    f.date_modified Time.zone.today
+    f.put_file_loc ''
+    f.afs_search_string ''
+    f.url_field ''
+    f.vendor_id_read ''
+    f.vendor_id_write ''
+    f.access_note ''
+    f.export_note ''
+    f.junktag_file ''
+    f.encoding_level ''
+    f.vnd_catcode ''
+    f.match_opts ''
+    f.proc_type ''
+    f.update_040 ''
+    f.rpt_mail ''
+    f.access_urls_plats ''
+    f.date_cat ''
+    f.export_auth ''
+    f.preprocess_modify_script ''
+    f.preprocess_split_script ''
+    f.preprocess_put_script ''
+  end
+end

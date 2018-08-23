@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><strong>Excluded URL text</strong></th>
+      <th colspan='3'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @url_exclusions.each do |url_exclusion| %>
+      <tr>
+        <td class='label label-info'><%= url_exclusion.id %></td>
+        <td><%= url_exclusion.url_substring %></td>
+        <td><%= link_to 'show', url_exclusion, class: 'btn btn-sm btn-default' %></td>
+        <td><%= link_to 'edit', edit_url_exclusion_path(url_exclusion), class: 'btn btn-sm btn-default' %></td>
+        <td><%= link_to 'remove', url_exclusion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-default' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Url exclusion', new_url_exclusion_path, class: 'btn btn-sm btn-primary btn-full' %>
