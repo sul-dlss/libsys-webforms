@@ -4,10 +4,6 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: %i[show edit update destroy activate deactivate]
 
-  def page_title
-    'Electronic resource package management'
-  end
-
   # GET /packages
   # GET /packages.json
   def index
@@ -16,7 +12,9 @@ class PackagesController < ApplicationController
 
   # GET /packages/1
   # GET /packages/1.json
-  def show; end
+  def show
+    @package = Package.find(params[:id])
+  end
 
   # GET /packages/new
   def new

@@ -1,20 +1,12 @@
 # UrlExclusions controller
 class UrlExclusionsController < ApplicationController
-  before_action :set_url_exclusion, only: %i[show edit update destroy]
-
-  def page_title
-    'URLs to remove from vendor records'
-  end
+  before_action :set_url_exclusion, only: %i[edit update destroy]
 
   # GET /url_exclusions
   # GET /url_exclusions.json
   def index
     @url_exclusions = UrlExclusion.all
   end
-
-  # GET /url_exclusions/1
-  # GET /url_exclusions/1.json
-  def show; end
 
   # GET /url_exclusions/new
   def new

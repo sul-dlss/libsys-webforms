@@ -1,8 +1,11 @@
 
-<h3>Editing Url Exclusion <span class='label label-info'>ID <%= @url_exclusion.id %></span></h3>
+<h3>Editing Url Exclusion</h3>
 
-<%= render 'form' %>
+<div class='label label-info'>ID <%= @url_exclusion.id %></div>
+<hr>
+
+<%= render 'change_url' %>
 
 <div class='actions'>
-  <%= link_to 'Back', url_exclusions_path %>
+  <%= link_to 'Back to exclusion list', url_exclusions_path, class: 'btn btn-md btn-default btn-full' %>
 </div>

@@ -1,9 +1,15 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "packages.js" %>
+<% end %>
+
+<h1>URL exclusions for electronic resource packages</h1>
+
 <table>
   <thead>
     <tr>
-      <th></th>
+      <th>ID</th>
       <th><strong>Excluded URL text</strong></th>
-      <th colspan='3'></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -12,9 +18,10 @@
       <tr>
         <td class='label label-info'><%= url_exclusion.id %></td>
         <td><%= url_exclusion.url_substring %></td>
-        <td><%= link_to 'show', url_exclusion, class: 'btn btn-sm btn-default' %></td>
-        <td><%= link_to 'edit', edit_url_exclusion_path(url_exclusion), class: 'btn btn-sm btn-default' %></td>
-        <td><%= link_to 'remove', url_exclusion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-default' %></td>
+        <td>
+          <%= link_to 'edit URL text', edit_url_exclusion_path(url_exclusion), class: 'btn btn-md btn-default' %>
+          <%= link_to 'remove', url_exclusion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-default' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +29,8 @@
 
 <br>
 
-<%= link_to 'New Url exclusion', new_url_exclusion_path, class: 'btn btn-sm btn-primary btn-full' %>
+<%= link_to 'New Url exclusion', new_url_exclusion_path, class: 'btn btn-md btn-primary btn-full' %>
+
+<div class="btn-group">
+  <%= eloader_package_button %>
+</div>

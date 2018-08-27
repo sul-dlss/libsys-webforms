@@ -4,9 +4,9 @@
     <%= link_to :package do %><%= @package.package_id %><% end %>
   </span>
 </h3>
-<%= link_to 'Edit package', edit_package_path(@package), class: 'btn btn-sm btn-default' %>
+<%= link_to 'Edit package', edit_package_path(@package), class: 'btn btn-md btn-default' %>
 
-<%= link_to 'delete package', @package, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-warning' %>
+<%= link_to 'delete package', @package, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-warning' %>
 
 <div class="table">
   <div class="tr">
@@ -185,4 +185,4 @@
   </div>
 </div>
 
-<%= link_to 'Back', packages_path %>
+<%= link_to 'Back to package list', packages_path, class: 'btn btn-md btn-default  btn-full' %>

@@ -41,8 +41,8 @@ Rails.application.routes.draw do
   resources :userload_reruns, only: [:new, :create]
   resources :ckey2bibframes, only: [:new, :create, :show], param: :ckey
   resources :packages do
-    patch :activate, on: :member
-    patch :deactivate, on: :member
+    put :activate, on: :member
+    put :deactivate, on: :member
   end
   resources :url_exclusions
 
