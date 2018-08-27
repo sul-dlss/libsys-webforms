@@ -33,7 +33,7 @@ RSpec.describe PackagesController, type: :controller do
         expect(response).to redirect_to(Package.last)
       end
     end
-    context 'with invalid params' do=
+    context 'with invalid params' do
       it "re-renders the 'new' template" do
         post :create, package: { package_name: '', vendor_name: '', data_pickup_type: '' }
         expect(response).to render_template('new')
