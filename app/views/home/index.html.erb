@@ -77,6 +77,13 @@
       </div>
       <% end %>
     </div>
+    <% if can? :manage, Package %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4><%= link_to "Electronic resource package management", packages_url %></h4>
+        </div>
+      </div>
+    <% end %>
     <% if can? :create, UserloadRerun %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
