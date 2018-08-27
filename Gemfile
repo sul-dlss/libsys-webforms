@@ -54,7 +54,7 @@ gem 'loofah', '~> 2.2.1'
 # sprockets ~> 3.7.2 Fixes know security vulnerability: CVE-2018-3760: Path Traversal in Sprockets
 gem 'sprockets', '~> 3.7.2'
 
-group :production, :development do
+group :production do
   # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
   # When upgrading to rails 5 we can remove the deprecated self.emulate_* lines from config/initializers/oracle.rb
   # See https://github.com/rsim/oracle-enhanced#rails-52 and https://github.com/rsim/oracle-enhanced/issues/1449
