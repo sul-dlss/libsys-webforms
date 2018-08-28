@@ -18,6 +18,7 @@ module Constants
     'unicorn_circ_batch' => 'Symphony circulation batches',
     'userload_rerun' => 'Userload reruns',
     'edi_inv_view' => 'View EDI Invoices',
-    'edi_inv_manage' => 'Manage EDI Invoices'
+    'edi_inv_manage' => 'Manage EDI Invoices',
+    'package_manage' => 'Manage ELoader Packages'
   }.freeze
 end
