@@ -33,7 +33,7 @@
         <td><%= package.package_name %></td>
         <td><%= package.package_id %></td>
         <td><%= package.vendor_name %></td>
-        <td><%= package.updated_at.to_formatted_s(:db) %></td>
+        <td><%= package.date_modified.to_formatted_s(:db) %></td>
         <td>
           <%= link_to 'details', package_path(package), class: 'btn btn-md btn-default' %>
           <%= link_to 'edit', edit_package_path(package), class: 'btn btn-md btn-default' %>
