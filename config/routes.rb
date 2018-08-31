@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'webauth/login' => 'authentication#login', as: :login
-  get 'webauth/logout' => 'authentication#logout', as: :logout
 
   resources :accession_numbers, except: :destroy do
     member do
