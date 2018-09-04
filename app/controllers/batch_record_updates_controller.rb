@@ -9,6 +9,11 @@ class BatchRecordUpdatesController < ApplicationController
     @uni_updates_errors = UniUpdatesErrors.where(batch: params[:batch_number])
   end
 
+  def errors_for_mhld
+    @uni_updates_batch = UniUpdatesBatch.where(batch_id: params[:batch_number])
+    @uni_mhld_errors = UniUpdMhldError.where(batch_id: params[:batch_number])
+  end
+
   def show_batches_not_complete
     query = 'select b.batch_id, min(b.batch_date), min(b.user_name),
     min(b.user_email), min(b.orig_lib), min(b.action),
