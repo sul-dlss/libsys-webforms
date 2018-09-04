@@ -1,0 +1,7 @@
+<div id="show-errors" class="panel-body">
+  <%= form_tag("batch_record_updates/errors_for_mhld", method: "get") do %>
+    <%= label_tag(:batch_number, "Enter a batch number:") %>
+    <%= text_field_tag(:batch_number) %>
+    <%= submit_tag("Go") %>
+  <% end %>
+</div>
