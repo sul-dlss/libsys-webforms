@@ -1,0 +1,21 @@
+<div class="home-page-section">
+  <h2>Visitor attendance report</h2>
+  <h4>
+    <p>ID: <%= @lobbytrack.first.values[0] %></p>
+    <p>Name: <%= @lobbytrack.first.values[2] %> <%= @lobbytrack.first.values[3] %></p>
+    <p>Email: <%= @lobbytrack.first.values[4] %></p>
+  </h4>
+  <p>
+    <h4>Visits:</h4>
+  </p>
+  <div>
+    <% @lobbytrack.each_with_index do |row, index| %>
+    <ul>
+      <li><%= index %>: <%= row.values[1] ? row.values[1].strftime('%F %R') : '' %></li>
+    </ul>
+      <% end %>
+  </div>
+</div>
+<div class="btn-group">
+  <%= main_menu_button %>
+</div>

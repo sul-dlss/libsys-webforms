@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830220045) do
+ActiveRecord::Schema.define(version: 20180905171401) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180830220045) do
     t.string   "edi_inv_manage"
     t.string   "edi_inv_view"
     t.string   "package_manage"
+    t.string   "lobbytrack"
   end
 
   create_table "catnums", force: :cascade do |t|
