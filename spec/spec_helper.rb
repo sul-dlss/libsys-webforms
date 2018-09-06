@@ -45,6 +45,9 @@ RSpec.configure do |config|
   end
 
   config.include ApplicationHelper
+
+  config.filter_run_excluding :type => 'lobbytrack' unless Settings.lobbytrack_ips.include?(ENV['HTTP_CLIENT_IP'].to_s)
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
