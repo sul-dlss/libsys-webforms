@@ -116,4 +116,9 @@ pl_sql_jobs:
       - 'usera'
       - 'userb'
 ```
-links with collapsed "Run" buttons will automatically be created on the home page and will only appear for people who are logged in and listed in the sunet_ids section of the config. Clicking the "Run" link will execute the configured PL/SQL command via the already configured OCI8 connection gem (using the environment's database.yml connection details). If more jobs need to be added in the future, just fill out a new section under the pl_sql_jobs section in the https://github.com/sul-dlss/shared_configs repository and follow the instructions there for deploying to the application server.
+links with collapsed "Run" buttons will automatically be created on the home page and will only appear for people who are 
+logged in and listed in the sunet_ids section of the config. (Permissions for PL/SQL jobs are managed here because there 
+is no Rails ORM on which to base an Ability.)  Clicking the "Run" link will execute the configured PL/SQL command via the 
+already configured OCI8 connection gem (using the environment's database.yml connection details). If more jobs need to be 
+added in the future, just fill out a new section under the pl_sql_jobs section in the https://github.com/sul-dlss/shared_configs 
+repository and follow the instructions there for deploying to the application server.
