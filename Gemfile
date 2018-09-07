@@ -8,10 +8,8 @@ gem 'sqlite3'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # A gem for adding Stanford University Libraries styles to Rails applications
 gem 'sul_styles'
-
 # Use sass-powered bootstrap
 gem 'bootstrap-sass', "~> 3.3.4"
 # Use bootstrap_form for easy form building
@@ -23,8 +21,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails', '< 4.1'
 # Use cancan for authorization
 gem 'cancan'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 # composite_primary_keys for models that have two or more primary_keys
 gem 'composite_primary_keys', '=8.1.4'
 # Use Unicorn as the app server
@@ -43,7 +39,7 @@ gem 'systemu'
 gem 'honeybadger'
 # For uploading files from Ruby applications
 gem 'carrierwave', '~> 1.0'
-
+# to compress javascript
 gem 'uglifier'
 # For fiscal year functions
 gem 'fiscali'
@@ -51,10 +47,8 @@ gem 'fiscali'
 gem 'has_scope'
 # To parse tsv for DigitalBookplate data
 gem 'tsv'
-# loofah 2.2.1 Fixes known security vulnerability: CVE-2018-8048
-gem 'loofah', '~> 2.2.1'
-# sprockets ~> 3.7.2 Fixes know security vulnerability: CVE-2018-3760: Path Traversal in Sprockets
-gem 'sprockets', '~> 3.7.2'
+# Rails javascript runtime environment
+gem 'therubyracer'
 
 group :production do
   # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
@@ -63,16 +57,6 @@ group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
-end
-
-gem 'therubyracer'
-
-group :deployment do
-  gem 'capistrano', '~> 3.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-passenger'
-  gem 'dlss-capistrano'
 end
 
 group :development, :test do
@@ -99,4 +83,12 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'ruby-plsql'
+end
+
+group :deployment do
+  gem 'capistrano', '~> 3.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'dlss-capistrano'
 end
