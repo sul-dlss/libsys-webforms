@@ -53,6 +53,8 @@ gem 'tsv'
 gem 'loofah', '~> 2.2.1'
 # sprockets ~> 3.7.2 Fixes know security vulnerability: CVE-2018-3760: Path Traversal in Sprockets
 gem 'sprockets', '~> 3.7.2'
+# To query an sqlserver instance (lobbytrack)
+gem 'tiny_tds'
 
 group :production do
   # This is for the rails 4.2 version. See https://github.com/rsim/oracle-enhanced#rails-42
@@ -61,7 +63,6 @@ group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
-  gem 'tiny_tds'
 end
 
 gem 'therubyracer'
