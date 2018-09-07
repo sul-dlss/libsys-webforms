@@ -9,7 +9,7 @@ RSpec.describe EdiSumrzBib, type: :model do
       edi_sumrz_bib = EdiSumrzBib.find_by(edi_ckey: -1)
       expect(edi_sumrz_bib.vend_code).to eq 'AMALIV'
       expect(edi_sumrz_bib.id001).to eq 'aal0762919'
-      expect(edi_sumrz_bib.load_date.strftime('%T')).to eq Time.zone.now.strftime('%T')
+      expect(edi_sumrz_bib.load_date.strftime('%R')).to eq Time.zone.now.strftime('%R')
       expect(edi_sumrz_bib.active_record).to eq nil
     end
   end
