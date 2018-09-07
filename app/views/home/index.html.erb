@@ -70,7 +70,7 @@
       </div>
       <% end %>
     </div>
-    <% if can? :manage, LobbyTrack %>
+    <% if Settings.lobbytrack_ips.include?(ENV['HTTP_CLIENT_IP'].to_s) %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab">
           <h4 class="link" role="button" data-toggle="collapse" href="#buttonCollapseLT" aria-expanded="false" aria-controls="buttonCollapseLT">LobbyTrack visitor report</h4>
