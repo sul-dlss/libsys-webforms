@@ -3,9 +3,8 @@
 ###
 class Sal3BatchRequestsBatch < ActiveRecord::Base
   include FileParser
-  attr_accessor :bc_file_obj
 
-  validates :bc_file_obj, presence: { message: 'You must upload a file of barcodes' }, on: :create
+  validates :bc_file, presence: { message: 'You must upload a file of barcodes' }, on: :create
   validates :batch_numpullperday, numericality: { message: 'You must enter the number of items to pull per day' },
                                   on: :update
   validates :batch_startdate, presence: { message: 'You must enter a start date' },
@@ -36,6 +35,8 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
 
   self.table_name = 'sal3_batch_requests_batch'
   self.primary_key = 'batch_id'
+
+  mount_uploader :bc_file, BarcodeFileUploader
 
   def self.locations
     {
@@ -87,8 +88,12 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
     %w[1 2 3]
   end
 
+  def uploader
+    BarcodeFileUploader.new(self, 'bc_file')
+  end
+
   def set_num_bcs
-    file_obj = bc_file_obj.path unless bc_file_obj.nil?
+    file_obj = bc_file.current_path
     barcodes = IO.read(file_obj).split("\n").uniq.length
     update_attributes(num_bcs: barcodes)
   end
