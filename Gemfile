@@ -63,6 +63,8 @@ group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
+  # To query an sqlserver instance (lobbytrack)
+  gem 'tiny_tds'
 end
 
 gem 'therubyracer'

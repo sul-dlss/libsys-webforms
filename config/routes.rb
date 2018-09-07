@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   get 'edi_lins/update_barcode' => 'edi_lins#update_barcode'
   get 'edi_lins/show/:barcode_num' => 'edi_lins#show'
 
+  get 'lobbytrack/:id' => 'lobbytrack#show'
   get 'management_reports' => 'management_reports#index'
 
   get 'by_location' => 'accession_number_updates#by_location'

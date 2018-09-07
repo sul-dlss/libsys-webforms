@@ -296,6 +296,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     tins (1.16.3)
+    tiny_tds (2.1.2)
     tsv (1.0.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -352,6 +353,7 @@ DEPENDENCIES
   sul_styles
   systemu
   therubyracer
+  tiny_tds
   tsv
   uglifier
   web-console (~> 2.0)

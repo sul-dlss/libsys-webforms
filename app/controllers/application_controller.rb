@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_id
 
+  def client_ip
+    request.env['HTTP_CLIENT_IP'] || ENV['HTTP_CLIENT_IP']
+  end
+  helper_method :client_ip
+
   def webauth_user?
     current_user.present? && user_id.present?
   end

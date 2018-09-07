@@ -70,6 +70,18 @@
       </div>
       <% end %>
     </div>
+    <% if Settings.lobbytrack_ips.include?(request.remote_ip) %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab">
+          <h4 class="link" role="button" data-toggle="collapse" href="#buttonCollapseLT" aria-expanded="false" aria-controls="buttonCollapseLT">LobbyTrack visitor report</h4>
+          <div id='buttonCollapseLT' class='collapse' aria-labelledby='buttonCollapseLT'>
+            <%= label_tag 'Enter visitor ID:' %>
+            <%= text_field_tag('lobbytrack_id') %>
+            <%= link_to 'Go', '#', :onclick => "window.location.href='/lobbytrack/' + $('#lobbytrack_id').val();", class: 'btn btn-md btn-default' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <% if can? :create, UserloadRerun %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">

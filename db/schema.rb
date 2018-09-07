@@ -356,6 +356,7 @@ ActiveRecord::Schema.define(version: 20180905171401) do
     t.datetime "last_action_date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "bc_file_obj"
   end
 
   create_table "sal3_batch_requests_bcs", force: :cascade do |t|
