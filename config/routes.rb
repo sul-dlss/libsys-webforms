@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'webauth/login' => 'authentication#login', as: :login
-  get 'webauth/logout' => 'authentication#logout', as: :logout
 
   resources :accession_numbers, except: :destroy do
     member do
@@ -53,6 +52,8 @@ Rails.application.routes.draw do
 
   get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
   get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
+  get 'batch_record_updates/errors_for_mhld' => 'batch_record_updates#errors_for_mhld'
+  get 'batch_record_updates/errors_for_mhld/:batch_number' => 'batch_record_updates#errors_for_mhld'
   get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
   get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
   get 'review_batches' => 'sal3_batch_requests#review_batches'

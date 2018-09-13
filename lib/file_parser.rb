@@ -5,6 +5,6 @@ module FileParser
   end
 
   def parse_bc_file
-    bc_file_obj.read.split("\n")
+    bc_file.read.split("\n")
   end
 end

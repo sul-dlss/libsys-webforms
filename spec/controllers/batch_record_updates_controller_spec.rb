@@ -15,6 +15,13 @@ RSpec.describe BatchRecordUpdatesController, type: :controller do
       expect(response).to render_template('errors_for_batch')
     end
   end
+  describe 'get#errors_for_mhld' do
+    it 'renders the correct template' do
+      stub_current_user(FactoryBot.create(:authorized_user))
+      get 'errors_for_mhld'
+      expect(response).to render_template('errors_for_mhld')
+    end
+  end
   describe 'get#show_batches_not_complete' do
     it 'renders the correct template' do
       stub_current_user(FactoryBot.create(:authorized_user))

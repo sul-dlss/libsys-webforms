@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180822235605) do
+ActiveRecord::Schema.define(version: 20180905171401) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -407,6 +407,16 @@ ActiveRecord::Schema.define(version: 20180822235605) do
   create_table "uni_libs_locs", force: :cascade do |t|
     t.string "library"
     t.string "home_loc"
+  end
+
+  create_table "uni_upd_mhld_errors", force: :cascade do |t|
+    t.integer "batch_id"
+    t.string  "flex"
+    t.string  "err_msg"
+    t.string  "format"
+    t.string  "old_lib"
+    t.string  "new_lib"
+    t.string  "new_loc"
   end
 
   create_table "uni_updates", force: :cascade do |t|

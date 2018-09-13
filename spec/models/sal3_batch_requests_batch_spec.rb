@@ -46,4 +46,9 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     expect(request).to_not be_valid
     expect(request.errors.full_messages).to include('Please pick at least one day for items to be delivered.')
   end
+  it 'Has an uploader mount' do
+    obj = Sal3BatchRequestsBatch.new
+    expect(obj.uploader.instance_variable_get(:@mounted_as)).to eq 'bc_file'
+    expect(obj.uploader.instance_variable_get(:@model).class.to_s.underscore).to eq 'sal3_batch_requests_batch'
+  end
 end

@@ -22,8 +22,7 @@ FactoryBot.define do
     pseudo_id 'MAPSCANLAB'
     comments 'Test comment'
     ckey '1234567'
-    bc_file_obj { fixture_file_upload(Rails.root.to_s + '/spec/fixtures/files/test_file.txt', 'text/plain') }
-    bc_file 'spec/fixtures/files/test_file.txt'
+    bc_file { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/test_file.txt')) }
     num_bcs ''
     num_nonsymph_bcs ''
     pending ''

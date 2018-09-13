@@ -9,6 +9,8 @@ def make_table(model, file, keys)
   model.create(hash)
 end
 
+make_table(UniUpdatesBatch, 'uni_updates_batch.csv', %w[batch_id batch_date user_name user_email action priority export_yn check_bc_first orig_lib new_lib new_homeloc new_curloc new_itype total_bcs pending comments num_errors])
+make_table(UniUpdMhldError, 'uni_upd_mhld_errors.csv', %w[batch_id flex err_msg format old_lib new_lib new_loc])
 make_table(EdiSumrzBib, 'edi_sumrz_bib.csv', %w[vend_code id001 edi_ckey load_date active_record])
 make_table(EdiErrorReport, 'edi_error_report.csv', %w[run type error err_lvl])
 make_table(EdiInvPiece, 'edi_inv_piece.csv', %w[edi_vend_id edi_doc_num])
