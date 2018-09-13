@@ -1,27 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-jQuery(document).ready(function($) {
-    jQuery.extend( jQuery.fn.dataTableExt.oSort, {
-        "date-uk-pre": function ( a ) {
-            var ukDatea = a.split('/');
-            var yearWithoutTime = ukDatea[2].split(' ')[0];
-            return (yearWithoutTime + ukDatea[1] + ukDatea[0]) * 1;
-        },
-        "date-uk-asc": function ( a, b ) {
-            console.log("asc");
-            return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-        },
-        "date-uk-desc": function ( a, b ) {
-            console.log("desc");
-            return ((a < b) ? 1 : ((a > b) ? -1 : 0));
-        }
-    } );
-
+$(document).ready(function() {
     $('table').DataTable({
-        "order": [[ 0, "desc" ]],
-        columnDefs: [
-            { type: 'date-uk', targets: 0 } // define 'run' column as date
-        ]
+        "order": [[ 0, "desc" ]]
     });
 
     $('input#edi_errors_day').on('change', function() {

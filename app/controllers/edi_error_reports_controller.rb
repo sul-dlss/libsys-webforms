@@ -6,7 +6,7 @@ class EdiErrorReportsController < ApplicationController
   has_scope :type
 
   def index
-    @edi_error_report = apply_scopes(EdiErrorReport).all
+    @edi_error_report = apply_scopes(EdiErrorReport.order(run: :desc)).all
   rescue StandardError => e
     flash[:error] = e.message
     redirect_to edi_error_reports_path

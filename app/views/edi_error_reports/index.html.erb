@@ -25,7 +25,7 @@
     <tbody>
     <% @edi_error_report.each do |eer| %>
       <tr class='<%= cycle("odd", "even") %>'>
-        <td><%= eer.run.present? ? eer.run.strftime('%x %H:%M') : '' %></td>
+        <td><%= eer.run.present? ? eer.run.strftime('%Y-%m-%d %H:%M') : '' %></td>
         <td><%= eer.type %></td>
         <td><%= eer.error %></td>
         <td><%= eer.err_lvl %></td>
