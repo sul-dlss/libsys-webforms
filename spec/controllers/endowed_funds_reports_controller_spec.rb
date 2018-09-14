@@ -42,8 +42,8 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  ckeys_file: 'endow123.txt' }
 
       post :create, endowed_funds_report: params
-      expect(controller.date_start).to eq '2014-12-31'
-      expect(controller.date_end).to eq '2016-12-30'
+      expect(controller.date_start).to eq '2015-01-01'
+      expect(controller.date_end).to eq '2016-12-31'
     end
     it 'creates the params for a symphony request using fund_begin string and paid dates' do
       params = { fund: nil, fund_begin: '1000501-1-AACIZ-', report_format: 'n',
@@ -51,8 +51,8 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  ckeys_file: 'endow123.txt' }
 
       post :create, endowed_funds_report: params
-      expect(controller.date_start).to eq '1998-12-21'
-      expect(controller.date_end).to eq '1999-12-21'
+      expect(controller.date_start).to eq '1998-12-22'
+      expect(controller.date_end).to eq '1999-12-22'
     end
   end
 

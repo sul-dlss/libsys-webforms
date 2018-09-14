@@ -4,9 +4,9 @@ class EdiErrorReport < ActiveRecord::Base
   # which rails uses to define the subclass of a model that should be loaded.
   self.inheritance_column = 'inheritance_type'
 
-  scope :day, ->(day) { where(date_query, day.to_date) }
-  scope :level, ->(level) { where(err_lvl: level) }
-  scope :type, ->(type) { where(type: type) }
+  scope :day, ->(day) { where(date_query, day.to_date).order(run: :desc) }
+  scope :level, ->(level) { where(err_lvl: level).order(run: :desc) }
+  scope :type, ->(type) { where(type: type).order(run: :desc) }
 
   self.table_name = 'edi_error_report'
 

@@ -11,9 +11,7 @@ RSpec.describe 'edi_error_reports/index', type: :view do
       assert_select 'h1', text: 'EDIFACT invoice errors'.to_s
     end
     it 'should display an error line' do
-      assert_select 'td', text: '02/02/18 14:05'.to_s
-      assert_select 'td', text: /EDI_PROCESS_ORDER.do_inv_line_order:xcptn==stop_this_line ||===|| vendor==CASALI*/
-      assert_select 'td', text: /failed step==firm:verify_po on err==supplied PO# not in Unicorn:CAS6729454 edi_ckey:*/
+      assert_select 'td', text: '2018-02-02 14:05'.to_s
       assert_select 'td', text: 'notify'.to_s
     end
   end
