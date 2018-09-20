@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "batch_record_updates.js" %>
+<% end %>
 <h3>Errors for Batch: <%= params[:batch_number] %></h3>
 <table class="table table-striped">
   <thead>
