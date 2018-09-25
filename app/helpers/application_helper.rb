@@ -24,6 +24,14 @@ module ApplicationHelper
     ), '/edi_invoices/menu'
   end
 
+  def eloader_package_button
+    link_to button_tag(
+      'Eloader packages',
+      id: 'eloader-package-button',
+      class: 'btn btn-md btn-default  btn-full'
+    ), '/packages'
+  end
+
   def digital_bookplates_menu_button
     link_to button_tag(
       'Digital bookplates menu',

@@ -1,0 +1,188 @@
+<h3>
+  Details for <%= @package.package_name %>
+  <span class='label label-success'>
+    <%= link_to :package do %><%= @package.package_id %><% end %>
+  </span>
+</h3>
+<%= link_to 'Edit package', edit_package_path(@package), class: 'btn btn-md btn-default' %>
+
+<%= link_to 'delete package', @package, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-warning' %>
+
+<div class="table">
+  <div class="tr">
+    <div class="td"><h3>Package Information</h3></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Package Status</div>
+    <div class="td"><%= @package.package_status %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Package ID</div>
+    <div class="td"><%= @package.package_id %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Package Name</div>
+    <div class="td"><%= @package.package_name %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Vendor Name</div>
+    <div class="td"><%= @package.vendor_name %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Documentation URL</div>
+    <div class="td"><%= @package.package_url %></div>
+  </div>
+</div>
+
+<div class="table">
+  <div class="tr">
+    <div class="td"><h3>Pickup Information</h3></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Data Pickup Type</div>
+    <div class="td"><%= @package.data_pickup_type %></div>
+  </div>
+  <div class="tr">
+    <div class="td"><h4>Option for "AFS" and "FTP to AFS" Data Pickup Types</h4></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">AFS Directory Path</div>
+    <div class="td"><%= @package.afs_path %></div>
+  </div>
+  <div class="tr">
+    <div class="td"><h4>Option for "FTP to AFS" Data Pickup Type</h4></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">FTP Download Directory Path</div>
+    <div class="td"><%= @package.put_file_loc %></div>
+  </div>
+  <div class="tr">
+    <div class="td"><h4>Options for "FTP" and "FTP to AFS" Data Pickup Types</h4></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">FTP Server</div>
+    <div class="td"><%= @package.ftp_server %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">FTP User</div>
+    <div class="td"><%= @package.ftp_user %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">FTP Password</div>
+    <div class="td"><%= @package.ftp_password %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">FTP Remote Directory</div>
+    <div class="td"><%= @package.ftp_directory %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">FTP File Name Pattern (Perl regex)</div>
+    <div class="td"><%= @package.ftp_file_prefix %></div>
+  </div>
+</div>
+
+<div class="table">
+  <div class="tr">
+    <div class="td"><h2>Rules for Create New or Merge URL</h2></div>
+  </div>
+  <div class="tr">
+    <div class="td"><h4>Create New Record or Merge URL Field</h4></div>
+    <div class="td">
+      <ul>
+          <li>
+            <%= @package.proc_type %>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tr">
+    <div class="td"><h4>Fields to Match Incoming to Symphony Records</h4>
+      <p><em>At least one required if "Merge or New" or "Merge only" selected above. Not used in "New only" or "CKEY-URL Merge"</em></p>
+    </div>
+    <div class="td">
+      <ul>
+        <li>
+          <%= @package.match_opts %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="table">
+  <div class="tr">
+    <div class="td"><h2>Processing Information</h2></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Symphony URL Destination</div>
+    <div class="td"><%= @package.url_field %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Vendor ID Field (Read)</div>
+    <div class="td"><%= @package.vendor_id_read %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Add Access Restriction Note</div>
+    <div class="td"><%= @package.access_note %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Create/Update 040 with CSt</div>
+    <div class="td"><%= @package.update_040 %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Vendor Cataloging Code for 040</div>
+    <div class="td"><%= @package.vnd_catcode %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Export Record to OCLC</div>
+    <div class="td"><%= @package.export_note %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Export Record to Backstage</div>
+    <div class="td"><%= @package.export_auth %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Date cataloged for new records</div>
+    <div class="td"><%= @package.date_cat %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Holding Code</div>
+    <div class="td"><%= @package.holding_code %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">MARC Encoding Level</div>
+    <div class="td"><%= @package.encoding_level %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Custom Junktag File Name</div>
+    <div class="td"><%= @package.junktag_file %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Full Path of Preprocess Modify Script</div>
+    <div class="td"><%= @package.preprocess_modify_script %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Full Path of Preprocess Split Script</div>
+    <div class="td"><%= @package.preprocess_split_script %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Full Path of Preprocess Put in AFS Script</div>
+    <div class="td"><%= @package.preprocess_put_script %></div>
+  </div>
+</div>
+
+<div class="table">
+  <div class="tr">
+    <div class="td"><h2>Other</h2></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Extra email Addresses for Report Mail</div>
+    <div class="td"><%= @package.rpt_mail %></div>
+  </div>
+  <div class="tr">
+    <div class="td data-label">Comments</div>
+    <div class="td"><%= @package.comments %></div>
+  </div>
+</div>
+
+<%= link_to 'Back to package list', packages_path, class: 'btn btn-md btn-default  btn-full' %>

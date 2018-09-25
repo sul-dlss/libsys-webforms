@@ -1,0 +1,36 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "packages.js" %>
+<% end %>
+
+<h1>URL exclusions for electronic resource packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th><strong>Excluded URL text</strong></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @url_exclusions.each do |url_exclusion| %>
+      <tr>
+        <td class='label label-info'><%= url_exclusion.id %></td>
+        <td><%= url_exclusion.url_substring %></td>
+        <td>
+          <%= link_to 'edit URL text', edit_url_exclusion_path(url_exclusion), class: 'btn btn-md btn-default' %>
+          <%= link_to 'remove', url_exclusion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-default' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Url exclusion', new_url_exclusion_path, class: 'btn btn-md btn-primary btn-full' %>
+
+<div class="btn-group">
+  <%= eloader_package_button %>
+</div>
