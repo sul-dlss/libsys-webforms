@@ -85,8 +85,6 @@ Rails.application.routes.draw do
   delete 'authorized_users/delete' => 'authorized_users#delete'
   delete 'authorized_users/delete/:user_id' => 'authorized_users#delete'
 
-  get 'packages/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
