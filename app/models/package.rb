@@ -7,4 +7,14 @@ class Package < ActiveRecord::Base
 
   validates :record_id, uniqueness: true
   validates :package_name, :vendor_name, :data_pickup_type, :package_status, presence: true
+
+  private
+
+  def timestamp_attributes_for_create
+    super << :date_entered
+  end
+
+  def timestamp_attributes_for_update
+    super << :date_modified
+  end
 end
