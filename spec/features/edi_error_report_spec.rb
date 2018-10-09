@@ -24,9 +24,9 @@ describe 'edi_error_reports' do
     expect(page).to have_link('Show errors for today', href: "/edi_error_reports?day=#{Time.zone.today.to_date}")
   end
 
-  it 'displays a date field to show all errors for the day' do
-    field = page.find_field('edi_errors_day').value.to_date
-    expect(field).to eq(Time.zone.today)
+  it 'displays a date field to show all errors for the day with placeholder text' do
+    field = page.find_field('edi_errors_day')['placeholder']
+    expect(field).to eq('select a date')
   end
 
   it 'displays the button to show all errors for all days' do
