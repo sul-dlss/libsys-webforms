@@ -21,4 +21,38 @@ module Constants
     'edi_inv_manage' => 'Manage EDI Invoices',
     'package_manage' => 'Manage ELoader Packages'
   }.freeze
+
+  PACKAGE_COLUMNS = {
+    'package_status' => 'Package status',
+    'package_id' => 'Package ID',
+    'package_name' => 'Package name',
+    'vendor_name' => 'Vendor name',
+    'package_url' => 'Documentation URL',
+    'data_pickup_type' => 'Data pickup type',
+    'afs_path' => 'AFS directory path',
+    'put_file_loc' => 'FTP download directory path',
+    'ftp_server' => 'FTP server',
+    'ftp_user' => 'FTP user',
+    'ftp_password' => 'FTP password',
+    'ftp_directory' => 'FTP remote directory',
+    'ftp_file_prefix' => 'FTP file name pattern (Perl regex)',
+    'proc_type' => 'Create new record or merge URL',
+    'match_opts' => 'Fields to match incoming to Symphony records',
+    'url_field' => 'Symphony URL destination',
+    'vendor_id_read' => 'Vendor ID field (read)',
+    'access_note' => 'Add access restriction note',
+    'update_040' => 'Create/Update 040 with CSt',
+    'vnd_catcode' => 'Vendor cataloging code for 040',
+    'export_note' => 'Export record to OCLC',
+    'export_auth' => 'Export record to Backstage',
+    'date_cat' => 'Date cataloged for new records',
+    'holding_code' => 'Holding code',
+    'encoding_level' => 'MARC encoding level',
+    'junktag_file' => 'Custom junktag filename',
+    'preprocess_modify_script' => 'Full path of preprocess modify script',
+    'preprocess_split_script' => 'Full path of preprocess split script',
+    'preprocess_put_script' => 'Full path of preprocess put in AFS script',
+    'rpt_mail' => 'Extra email addresses for reports',
+    'comments' => 'Comments'
+  }.freeze
 end
