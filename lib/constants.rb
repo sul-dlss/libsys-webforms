@@ -55,4 +55,12 @@ module Constants
     'rpt_mail' => 'Extra email addresses for reports',
     'comments' => 'Comments'
   }.freeze
+
+  PACKAGE_MATCH_OPTS = {
+    '020' => '020 (subfield a,z) to Symphony 020 or 776',
+    '776_isbn' => '776 (subfield z) to Symphony 020 or 776',
+    '022' => '022 (subfield a,y,z) to Symphony 022 or 776',
+    '776_issn' => '776 (subfield x) to Symphony 022 or 776',
+    '024_isbn' => '024 (subfield a,z) to Symphony 020 or 776'
+  }.freeze
 end
