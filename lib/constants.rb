@@ -63,4 +63,11 @@ module Constants
     '776_issn' => '776 (subfield x) to Symphony 022 or 776',
     '024_isbn' => '024 (subfield a,z) to Symphony 020 or 776'
   }.freeze
+
+  PACKAGE_PROC_TYPE = {
+    'newonly' => 'New only',
+    'newmerge' => 'Merge or new',
+    'mergeonly' => 'Merge only',
+    'ckeymerge' => 'CKEY-URL merge'
+  }.freeze
 end
