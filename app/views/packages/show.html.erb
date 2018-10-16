@@ -54,7 +54,13 @@
     <% processing_info.each do |x| %>
     <tr class='<%= cycle("odd", "even") %>'>
       <td class='col-sm-4'><strong><%= package_label(x) %></strong></td>
-      <td class='col-sm-8'><%= @package[x] %></td>
+      <td class='col-sm-8'>
+        <% if x == 'encoding_level' %>
+          <%= marc_encoding_lvl[@package[x]] %>
+        <% else %>
+          <%= @package[x] %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

@@ -17,6 +17,10 @@ module PackageHelper
     Constants::PACKAGE_PROC_TYPE.fetch(type, '')
   end
 
+  def marc_encoding_lvl
+    Constants::PACKAGE_MARC_ENCDG_LVL
+  end
+
   def package_info
     %w(package_status package_id package_name vendor_name package_url)
   end
