@@ -63,4 +63,25 @@ module Constants
     '776_issn' => '776 (subfield x) to Symphony 022 or 776',
     '024_isbn' => '024 (subfield a,z) to Symphony 020 or 776'
   }.freeze
+
+  PACKAGE_PROC_TYPE = {
+    'newonly' => 'New only',
+    'newmerge' => 'Merge or new',
+    'mergeonly' => 'Merge only',
+    'ckeymerge' => 'CKEY-URL merge'
+  }.freeze
+
+  PACKAGE_MARC_ENCDG_LVL = {
+    'ASIS' => 'Do not replace',
+    ' ' => '<space character> Full level',
+    '1' => '1 - Full level, material not examined',
+    '2' => '2 - Less-than-full level, material not examined',
+    '3' => '3 - Abbreviated level',
+    '4' => '4 - Core level',
+    '5' => '5 - Partial (preliminary) level',
+    '7' => '7 - Minimal level',
+    '8' => '8 - Prepublication level',
+    'u' => 'u - Unknown',
+    'z' => 'z - Not applicable'
+  }.freeze
 end

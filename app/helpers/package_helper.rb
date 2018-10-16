@@ -12,6 +12,15 @@ module PackageHelper
     Constants::PACKAGE_MATCH_OPTS.fetch(opt, '')
   end
 
+  # get user friendly labels for proc_type
+  def processing_type(type)
+    Constants::PACKAGE_PROC_TYPE.fetch(type, '')
+  end
+
+  def marc_encoding_lvl
+    Constants::PACKAGE_MARC_ENCDG_LVL
+  end
+
   def package_info
     %w(package_status package_id package_name vendor_name package_url)
   end
