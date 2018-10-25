@@ -41,9 +41,9 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   def self.locations
     {
       'Data Control' => 'DC',
-      'Special Collections - Redwood City' => 'RW',
+      'Redwood City (Special Collections materials)' => 'RW',
       'Archive of Recorded Sound' => 'DA',
-      'Archive of Recorded Sound - Redwood City' => 'RA',
+      'Redwood City (Archive of Recorded Sounds materials)' => 'RA',
       'Earth Sciences' => 'DE',
       'Preservation - Book Repair' => 'BR',
       'Green Loading Dock' => 'DS',
