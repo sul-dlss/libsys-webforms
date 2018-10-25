@@ -43,7 +43,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
       'Data Control' => 'DC',
       'Redwood City (Special Collections materials)' => 'RW',
       'Archive of Recorded Sound' => 'DA',
-      'Redwood City (Archive of Recorded Sounds materials)' => 'RA',
+      'Redwood City (Archive of Recorded Sound materials)' => 'RA',
       'Earth Sciences' => 'DE',
       'Preservation - Book Repair' => 'BR',
       'Green Loading Dock' => 'DS',
