@@ -8,7 +8,7 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     expect(Sal3BatchRequestsBatch.locations).to include('Data Control' => 'DC',
                                                         'Redwood City (Special Collections materials)' => 'RW',
                                                         'Archive of Recorded Sound' => 'DA',
-                                                        'Redwood City (Archive of Recorded Sounds materials)' => 'RA',
+                                                        'Redwood City (Archive of Recorded Sound materials)' => 'RA',
                                                         'Earth Sciences' => 'DE',
                                                         'Preservation - Book Repair' => 'BR',
                                                         'Green Loading Dock' => 'DS',
