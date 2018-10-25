@@ -4,21 +4,21 @@
 module PackageHelper
   # get user friendly labels for package columns
   def package_label(val)
-    Constants::PACKAGE_COLUMNS.fetch(val, '')
+    Package::COLUMNS.fetch(val, '')
   end
 
   # get user friendly labels for match_opts
   def match_options(opt)
-    Constants::PACKAGE_MATCH_OPTS.fetch(opt, '')
+    Package::MATCH_OPTS.fetch(opt, '')
   end
 
   # get user friendly labels for proc_type
   def processing_type(type)
-    Constants::PACKAGE_PROC_TYPE.fetch(type, '')
+    Package::PROC_TYPE.fetch(type, '')
   end
 
   def marc_encoding_lvl
-    Constants::PACKAGE_MARC_ENCDG_LVL
+    Package::MARC_ENCDG_LVL
   end
 
   def package_info
