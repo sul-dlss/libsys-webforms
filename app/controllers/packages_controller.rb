@@ -30,6 +30,7 @@ class PackagesController < ApplicationController
     @package = Package.new(package_params)
     respond_to do |format|
       if @package.save
+        set_access_urls_plats(url_config_params)
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully created.'
         format.json { render :show, status: :created, location: @package }
@@ -45,6 +46,7 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
+        set_access_urls_plats(url_config_params)
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully updated.'
         format.json { render :show, status: :ok, location: @package }
@@ -87,5 +89,23 @@ class PackagesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def package_params
     params.require(:package).permit!
+  end
+
+  def url_config_params
+    { url_substring: params[:url_substring],
+      link_text: params[:link_text],
+      provider_name: params[:provider_name],
+      collection_name: params[:collection_name],
+      access_type: params[:access_type]
+    }
+  end
+
+  def set_access_urls_plats(url_config_params)
+    url_settings=''
+    url_config_params.values.transpose.each do |x|
+      url_settings << x.join("\t") + '|'
+    end
+    url_settings=url_settings.gsub(/(\t{4}\|)+/, '')
+    @package.update(access_urls_plats: url_settings)
   end
 end

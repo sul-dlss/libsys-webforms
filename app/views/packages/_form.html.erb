@@ -1,4 +1,4 @@
-<%= form_for(@package) do |f| %>
+<%= form_for @package, class: 'form-group' do |f| %>
   <% if @package.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
@@ -11,215 +11,344 @@
     </div>
   <% end %>
 
-<div class="table">
-  <div class="tr">
-    <div class="td"><h3>Package Information</h3></div>
+<div>
+  <h3>Package information</h3>
+  <div class='form-group row'>
+    <%= f.label :package_status, package_label('package_status'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :package_status, %w(Inactive Active), class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :package_status, 'Package Status' %></div>
-    <div class="td"><%= f.select :package_status, %w(Inactive Active) %></div>
+  <div class='form-group row'>
+    <%= f.label :package_id, package_label('package_id'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :package_id, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :package_id, 'Package ID' %></div>
-    <div class="td"><%= f.text_field :package_id, size: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :package_name, package_label('package_name'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :package_name, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :package_name %></div>
-    <div class="td"><%= f.text_field :package_name, size: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :vendor_name, package_label('vendor_name'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :vendor_name, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :vendor_name %></div>
-    <div class="td"><%= f.text_field :vendor_name, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :package_url, 'Documentation URL' %></div>
-    <div class="td"><%= f.text_field :package_url, size: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :package_url, package_label('package_url'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :package_url, class: 'form-control' %>
+    </div>
   </div>
 </div>
 
-<div class="table">
-  <div class="tr">
-    <div class="td"><h3>Pickup Information</h3></div>
+<div>
+  <h3>Pickup information</h3>
+  <div class='form-group row'>
+    <%= f.label :data_pickup_type, package_label('data_pickup_type'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :data_pickup_type, ['FTP', 'AFS', 'FTP to AFS'], class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :data_pickup_type %></div>
-    <div class="td"><%= f.select :data_pickup_type, ['FTP', 'AFS', 'FTP to AFS'] %></div>
+  <p>Option for "AFS" and "FTP to AFS" Data Pickup Types</p>
+  <div class='form-group row'>
+    <%= f.label :afs_path, package_label('afs_path'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :afs_path, size: 75, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><h4>Option for "AFS" and "FTP to AFS" Data Pickup Types</h4></div>
+  <p>Option for "FTP to AFS" Data Pickup Type.</p>
+  <div class='form-group row'>
+    <%= f.label :put_file_loc, package_label('put_file_loc'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :put_file_loc, size: 75, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :afs_path, 'AFS Directory Path' %></div>
-    <div class="td"><%= f.text_field :afs_path, size: 75 %></div>
+  <p>Options for "FTP" and "FTP to AFS" Data Pickup Types</p>
+  <div class='form-group row'>
+    <%= f.label :ftp_server, package_label('ftp_server'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :ftp_server, size: 75, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><h4>Option for "FTP to AFS" Data Pickup Type</h4></div>
+  <div class='form-group row'>
+    <%= f.label :ftp_user, package_label('ftp_user'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :ftp_user, size: 75, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :put_file_loc, 'FTP Download Directory Path' %></div>
-    <div class="td"><%= f.text_field :put_file_loc, size: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :ftp_password, package_label('ftp_password'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :ftp_password, size: 75, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><h4>Options for "FTP" and "FTP to AFS" Data Pickup Types</h4></div>
+  <div class='form-group row'>
+    <%= f.label :ftp_directory, package_label('ftp_directory'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :ftp_directory, size: 75, class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :ftp_server, 'FTP Server' %></div>
-    <div class="td"><%= f.text_field :ftp_server, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :ftp_user, 'FTP User' %></div>
-    <div class="td"><%= f.text_field :ftp_user, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :ftp_password, 'FTP Password' %></div>
-    <div class="td"><%= f.text_field :ftp_password, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :ftp_directory, 'FTP Remote Directory' %></div>
-    <div class="td"><%= f.text_field :ftp_directory, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :ftp_file_prefix, 'FTP File Name Pattern (Perl regex)' %></div>
-    <div class="td"><%= f.text_field :ftp_file_prefix, size: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :ftp_file_prefix, package_label('ftp_file_prefix'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :ftp_file_prefix, size: 75, class: 'form-control' %>
+    </div>
   </div>
 </div>
 
-<div class="table">
-  <div class="tr">
-    <div class="td"><h3>Rules for Create New or Merge URL</h3></div>
-  </div>
-  <div class="tr">
-    <div class="td"><h4>Create New Record or Merge URL Field</h4></div>
-    <div class="td">
-      <ul>
-          <li>
-            <%= f.radio_button :proc_type, "newonly" %>
-            <strong>New only Always create new or overlay, no search for matching print record in Symphony</strong>
-          </li>
-          <li>
-            <%= f.radio_button :proc_type, "mergenew" %>
-            <strong> Merge or New Create new only if no overlay match or merge match with field(s) below </strong>
-          </li>
-          <li>
-            <%= f.radio_button :proc_type, "mergeonly" %>
-            <strong>Merge only Never create new, merge URL if match found with field(s) below</strong>
-          </li>
-          <li>
-            <%= f.radio_button :proc_type, "ckeymerge" %>
-            <strong>CKEY-URL Merge Merge URL from ckey-URL input list</strong>
-          </li>
-      </ul>
-    </div>
-  </div>
-  <div class="tr">
-    <div class="td"><h4>Fields to Match Incoming to Symphony Records</h4>
-      <p><em>At least one required if "Merge or New" or "Merge only" selected above. Not used in "New only" or "CKEY-URL Merge"</em></p>
-    </div>
-    <div class="td">
+<div>
+  <h3>Processing rules</h3>
+  <div class='form-group row'>
+    <strong class='col-sm-4'>Create new record or merge URL field</strong>
+    <div class='col-sm-8'>
       <ul>
         <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '020', nil %>
-          <%= f.label :match_opts_020, '020 (subfield a,z) to Symphony 020 or 776' %>
+          <%= f.radio_button :proc_type, 'newonly' %>
+          <%= f.label :proc_type_newonly, processing_type('newonly') %>
+          <em>Always create new or overlay, no search for matching print record in Symphony</em>
         </li>
         <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '776_isbn', nil %>
-          <%= f.label :match_opts_776_isbn, '776 (subfield z) to Symphony 020 or 776' %>
+          <%= f.radio_button :proc_type, 'newmerge' %>
+          <%= f.label :proc_type_newmerge, processing_type('newmerge') %>
+          <em>Create new only if no overlay match or merge match with field(s) below</em>
         </li>
         <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '022', nil %>
-          <%= f.label :match_opts_022, '022 (subfield a,y,z) to Symphony 022 or 776' %>
+          <%= f.radio_button :proc_type, 'mergeonly' %>
+          <%= f.label :proc_type_mergeonly, processing_type('mergeonly') %>
+          <em>Never create new, merge URL if match found with field(s) below</em>
         </li>
         <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '776_issn', nil %>
-          <%= f.label :match_opts_776_issn, '776 (subfield x) to Symphony 022 or 776' %>
-        </li>
-        <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '024_isbn', nil %>
-          <%= f.label :match_opts_024_isbn, '024 (subfield a,z) to Symphony 020 or 776' %>
+          <%= f.radio_button :proc_type, 'ckeymerge' %>
+          <%= f.label :proc_type_ckeymerge, processing_type('ckeymerge') %>
+          <em>Merge URL from ckey-URL input list</em>
         </li>
       </ul>
     </div>
   </div>
-</div>
-
-<div class="table">
-  <div class="tr">
-    <div class="td"><h3>Processing Information</h3></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :url_field, 'Symphony URL Destination' %></div>
-    <div class="td"><%= f.select :url_field, %w(856 956) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :vendor_id_read, 'Vendor ID Field (Read)' %></div>
-    <div class="td"><%= f.select :vendor_id_read, %w(001 090) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :access_note, 'Add Access Restriction Note' %></div>
-    <div class="td"><%= f.select :access_note, %w(No Yes) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :update_040, 'Create/Update 040 with CSt' %></div>
-    <div class="td"><%= f.select :update_040, %w(No Yes) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :vnd_catcode, 'Vendor Cataloging Code for 040' %></div>
-    <div class="td"><%= f.text_field :vnd_catcode, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :export_note, 'Export Record to OCLC' %></div>
-    <div class="td"><%= f.select :export_note, %w(No Yes) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :export_auth, 'Export Record to Backstage' %></div>
-    <div class="td"><%= f.select :export_auth, ['No', 'Yes - Weekly'] %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :date_cat, 'Date cataloged for new records' %></div>
-    <div class="td"><%= f.select :date_cat, %w(Today Never) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :holding_code, 'Holding Code' %></div>
-    <div class="td"><%= f.select :holding_code, %w(LAW-INT-H SUL-INT-H) %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :encoding_level, 'MARC Encoding Level' %></div>
-    <div class="td"><%= f.select :encoding_level, ['ASIS', ' ', '1', '2', '3', '4', '5', '7', '8', 'u', 'z'] %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :junktag_file, 'Custom Junktag File Name' %></div>
-    <div class="td"><%= f.text_field :junktag_file, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :preprocess_modify_script, 'Full Path of Preprocess Modify Script' %></div>
-    <div class="td"><%= f.text_field :preprocess_modify_script, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :preprocess_split_script, 'Full Path of Preprocess Split Script' %></div>
-    <div class="td"><%= f.text_field :preprocess_split_script, size: 75 %></div>
-  </div>
-  <div class="tr">
-    <div class="td"><%= f.label :preprocess_put_script, 'Full Path of Preprocess Put in AFS Script' %></div>
-    <div class="td"><%= f.text_field :preprocess_put_script, size: 75 %></div>
+  <div class='form-group row'>
+    <div class='col-sm-4'>
+      <strong><%= package_label('match_opts') %></strong><br />
+      <em>At least one required if "Merge or New" or "Merge only" selected above. Not used in "New only" or "CKEY-URL Merge"</em>
+    </div>
+    <div class='col-sm-6'>
+      <ul>
+        <li>
+          <%= f.check_box :match_opts, { :multiple => true }, '020', '' %>
+          <%= f.label(:match_opts_020, match_options('020')) %>
+        </li>
+        <li>
+          <%= f.check_box :match_opts, { :multiple => true }, '776_isbn', '' %>
+          <%= f.label(:match_opts_776_isbn, match_options('776_isbn')) %>
+        </li>
+        <li>
+          <%= f.check_box :match_opts, { :multiple => true }, '022', '' %>
+          <%= f.label(:match_opts_022, match_options('022')) %>
+        </li>
+        <li>
+          <%= f.check_box :match_opts, { :multiple => true }, '776_issn', '' %>
+          <%= f.label(:match_opts_776_issn, match_options('776_issn')) %>
+        </li>
+        <li>
+          <%= f.check_box :match_opts, { :multiple => true }, '024_isbn', '' %>
+          <%= f.label(:match_opts_024_isbn, match_options('024_isbn')) %>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<div class="table">
-  <div class="tr">
-    <div class="td"><h3>Other</h3></div>
+<div>
+  <h3>Processing information</h3>
+  <div class='form-group row'>
+    <%= f.label :url_field, package_label('url_field'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :url_field, %w(856 956), class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :rpt_mail, 'Extra email Addresses for Report Mail' %></div>
-    <div class="td"><%= f.text_field :rpt_mail, size: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :vendor_id_read, package_label('vendor_id_read'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :vendor_id_read, %w(001 090), class: 'form-control' %>
+    </div>
   </div>
-  <div class="tr">
-    <div class="td"><%= f.label :comments, 'Comments' %></div>
-    <div class="td"><%= f.text_area :comments, rows: 4, cols: 75 %></div>
+  <div class='form-group row'>
+    <%= f.label :access_note, package_label('access_note'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :access_note, %w(No Yes), class: 'form-control' %>
+    </div>
+  </div>
+  <% if @package.access_urls_plats.present? %>
+    <% url_configs = [] %>
+    <% @package.access_urls_plats.split('|').each do |row| %>
+      <% url_configs << row.split(/\t/) %>
+    <% end %>
+    <% url_configs.each do |x| %>
+      <div class='form-group row'>
+        <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+        <div class='col-sm-2'>
+          <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+          <%= text_field_tag 'url_substring[]', x[0], class: 'form-control' %>
+        </div>
+        <div class='col-sm-2'>
+          <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+          <%= text_field_tag 'link_text[]', x[1], class: 'form-control' %>
+        </div>
+        <div class='col-sm-2'>
+          <%= f.label :provider_name, class: 'form-control-label' %>
+          <%= text_field_tag 'provider_name[]', x[2], class: 'form-control' %>
+        </div>
+        <div class='col-sm-2'>
+          <%= f.label :collection_name, class: 'form-control-label' %>
+          <%= text_field_tag 'collection_name[]', x[3], class: 'form-control' %>
+        </div>
+        <div class='col-sm-2'>
+          <%= f.label :access_type, class: 'form-control-label' %>
+          <%= select_tag 'access_type[]', options_for_select(['purchased', 'subscribed'], x[4]), include_blank: true, class: 'form-control' %>
+        </div>
+      </div>
+    <% end %>
+    <div class='form-group row'>
+      <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-2'>
+        <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+        <%= text_field_tag 'url_substring[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+        <%= text_field_tag 'link_text[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :provider_name, class: 'form-control-label' %>
+        <%= text_field_tag 'provider_name[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :collection_name, class: 'form-control-label' %>
+        <%= text_field_tag 'collection_name[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :access_type, class: 'form-control-label' %>
+        <%= select_tag 'access_type[]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+  <% else %>
+    <div class='form-group row'>
+      <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-2'>
+        <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+        <%= text_field_tag 'url_substring[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+        <%= text_field_tag 'link_text[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :provider_name, class: 'form-control-label' %>
+        <%= text_field_tag 'provider_name[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :collection_name, class: 'form-control-label' %>
+        <%= text_field_tag 'collection_name[]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :access_type, class: 'form-control-label' %>
+        <%= select_tag 'access_type[]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+  <div class='form-group row'>
+    <%= f.label :update_040, package_label('update_040'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :update_040, %w(No Yes), class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :vnd_catcode, package_label('vnd_catcode'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :vnd_catcode, size: 75, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :export_note, package_label('export_note'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :export_note, %w(No Yes), class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :export_auth, package_label('export_auth'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :export_auth, ['No', 'Yes - Weekly'], class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :date_cat, package_label('date_cat'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :date_cat, %w(TODAY NEVER), class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :holding_code, package_label('holding_code'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :holding_code, %w(LAW-INT-H SUL-INT-H), class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :encoding_level, package_label('encoding_level'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.select :encoding_level, class: 'form-control' do %>
+        <% marc_encoding_lvl.each do |k, v| %>
+          <%= content_tag(:option, v, value: k) %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :junktag_file, package_label('junktag_file'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :junktag_file, size: 75, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :preprocess_modify_script, package_label('preprocess_modify_script'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :preprocess_modify_script, size: 75, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :preprocess_split_script, package_label('preprocess_split_script'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :preprocess_split_script, size: 75, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :preprocess_put_script, package_label('preprocess_put_script'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :preprocess_put_script, size: 75, class: 'form-control' %>
+    </div>
   </div>
 </div>
 
-  <div class="actions">
-    <%= f.submit class: 'btn btn-md btn-primary btn-full' %>
+<div>
+  <h3>Other</h3>
+  <div class='form-group row'>
+    <%= f.label :rpt_mail, package_label('rpt_mail'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :rpt_mail, size: 75, class: 'form-control' %>
+    </div>
   </div>
+  <div class='form-group row'>
+    <%= f.label :comments, package_label('comments'), class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
+      <%= f.text_field :comments, rows: 4, cols: 75, class: 'form-control' %>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <%= f.submit class: 'btn btn-md btn-primary btn-full' %>
+</div>
 <% end %>
-<p></p>
+<br />

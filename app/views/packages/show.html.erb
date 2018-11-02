@@ -57,6 +57,27 @@
       <td class='col-sm-8'>
         <% if x == 'encoding_level' %>
           <%= marc_encoding_lvl[@package[x]] %>
+        <% elsif x == 'access_urls_plats' && @package[x].present? %>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>URL Substring</th>
+                <th>Link text</th>
+                <th>Provider name</th>
+                <th>Collection name</th>
+                <th>Access type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @package[x].split('|').each do |row| %>
+                <tr>
+                  <% row.split(/\t/).each do |data| %>
+                    <td><%= data %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         <% else %>
           <%= @package[x] %>
         <% end %>

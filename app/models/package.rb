@@ -5,6 +5,8 @@ class Package < ActiveRecord::Base
   self.table_name = 'vnd_packages'
   self.primary_key = 'record_id'
 
+  attr_accessor :url_substring, :link_text, :provider_name, :collection_name, :access_type
+
   validates :record_id, uniqueness: true
   validates :package_name, :vendor_name, :data_pickup_type, :package_status, presence: true
 
@@ -27,6 +29,7 @@ class Package < ActiveRecord::Base
     'url_field' => 'Symphony URL destination',
     'vendor_id_read' => 'Vendor ID field (read)',
     'access_note' => 'Add access restriction note',
+    'access_urls_plats' => 'URL substrings, with associated subfields to be added to 856 if substring found in URL',
     'update_040' => 'Create/Update 040 with CSt',
     'vnd_catcode' => 'Vendor cataloging code for 040',
     'export_note' => 'Export record to OCLC',
