@@ -69,65 +69,61 @@
         </div>
       </div>
     </div>
-    <div class='form-group row panel-collapse collapse book archival flat film magnetic newspaper optical rolled shellac vinyl unknown'>
-      <div class="panel-body">
-        <div class='form-group row'>
-          <%= f.label :batch_numpullperday, "Items to pull per day:", class: 'col-sm-2 form-control-label' %>
-          <div class='col-sm-10'>
-            <%= f.text_field 'batch_numpullperday', value: '10', class: 'form-control' %>
-          </div>
-        </div>
-        <div class='form-group row'>
-          <%= f.label :batch_startdate, "Delivery start date:*", class: 'col-sm-2 form-control-label' %>
-          <div class='col-sm-10'>
-            <%= f.date_field 'batch_startdate', id: 'dp1', class: 'form-control', value: "#{DateTime.now.strftime('%d-%^b-%y')}" %>
-          </div>
-        </div>
-        <div class='form-group row'>
-          <%= f.label :batch_needbydate, "All items delivered by:*", class: 'col-sm-2 form-control-label' %>
-          <div class='col-sm-10'>
-            <%= f.date_field 'batch_needbydate', id: 'dp2', class: 'form-control', value: "#{6.months.from_now.strftime('%d-%^b-%y')}" %>
-          </div>
-        </div>
-        <div class='form-group row'>
-          <%= f.label "Requested delivery days:*", class: 'col-sm-2 form-control-label' %>
-          <ul class='col-sm-10'>
-            <li>
-              <%= f.label :batch_pullmon, class: 'col-sm-1 indent' do %>
-              <%= f.check_box 'batch_pullmon', class: 'form-control' %>
-              Monday
-              <% end %>
-            </li>
-            <li>
-              <%= f.label :batch_pulltues, class: 'col-sm-1 indent' do %>
-              <%= f.check_box 'batch_pulltues', class: 'form-control' %>
-              Tuesday
-              <% end %>
-            </li>
-            <li>
-              <%= f.label :batch_pullwed, class: 'col-sm-1 indent' do %>
-              <%= f.check_box 'batch_pullwed', class: 'form-control' %>
-              Wednesday
-              <% end %>
-            </li>
-            <li>
-              <%= f.label :batch_pullthurs, class: 'col-sm-1 indent' do %>
-              <%= f.check_box 'batch_pullthurs', class: 'form-control' %>
-              Thursday
-              <% end %>
-            </li>
-            <li>
-              <%= f.label :batch_pullfri, class: 'col-sm-1 indent' do %>
-              <%= f.check_box 'batch_pullfri', class: 'form-control' %>
-              Friday
-              <% end %>
-            </li>
-          </ul>
-          <ul class='col-sm-10 indent2'>
-            <li class='small'>Requests must be submitted by 11am for next business day delivery.</li>
-          </ul>
-        </div>
+    <div class='form-group row'>
+      <%= f.label :batch_numpullperday, "Items to pull per day:", class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-10'>
+        <%= f.text_field 'batch_numpullperday', value: '10', class: 'form-control' %>
       </div>
+    </div>
+    <div class='form-group row'>
+      <%= f.label :batch_startdate, "Delivery start date:*", class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-10'>
+        <%= f.date_field 'batch_startdate', id: 'dp1', class: 'form-control', value: "#{DateTime.now.strftime('%d-%^b-%y')}" %>
+      </div>
+    </div>
+    <div class='form-group row'>
+      <%= f.label :batch_needbydate, "All items delivered by:*", class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-10'>
+        <%= f.date_field 'batch_needbydate', id: 'dp2', class: 'form-control', value: "#{6.months.from_now.strftime('%d-%^b-%y')}" %>
+      </div>
+    </div>
+    <div class='form-group row'>
+      <%= f.label "Requested delivery days:*", class: 'col-sm-2 form-control-label' %>
+      <ul class='col-sm-10'>
+        <li>
+          <%= f.label :batch_pullmon, class: 'col-sm-1 indent' do %>
+          <%= f.check_box 'batch_pullmon', class: 'form-control' %>
+          Monday
+          <% end %>
+        </li>
+        <li>
+          <%= f.label :batch_pulltues, class: 'col-sm-1 indent' do %>
+          <%= f.check_box 'batch_pulltues', class: 'form-control' %>
+          Tuesday
+          <% end %>
+        </li>
+        <li>
+          <%= f.label :batch_pullwed, class: 'col-sm-1 indent' do %>
+          <%= f.check_box 'batch_pullwed', class: 'form-control' %>
+          Wednesday
+          <% end %>
+        </li>
+        <li>
+          <%= f.label :batch_pullthurs, class: 'col-sm-1 indent' do %>
+          <%= f.check_box 'batch_pullthurs', class: 'form-control' %>
+          Thursday
+          <% end %>
+        </li>
+        <li>
+          <%= f.label :batch_pullfri, class: 'col-sm-1 indent' do %>
+          <%= f.check_box 'batch_pullfri', class: 'form-control' %>
+          Friday
+          <% end %>
+        </li>
+      </ul>
+      <ul class='col-sm-10 indent2'>
+        <li class='small'>Requests must be submitted by 11am for next business day delivery.</li>
+      </ul>
     </div>
   </div>
   <div class='form-group row'>
