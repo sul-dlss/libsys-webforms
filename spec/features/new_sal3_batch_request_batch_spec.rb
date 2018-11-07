@@ -14,4 +14,8 @@ describe 'sal3_batch_requests_batches' do
     expect(page).to have_xpath("//option[@title='STOP-CODE: DS']")
     expect(page).to have_xpath("//option[@title='STOP-CODE: AQ']")
   end
+
+  it 'displays asterisk for required field' do
+    expect(page).to have_css('label', text: 'Upload barcode file*')
+  end
 end
