@@ -136,26 +136,24 @@
     </div>
     <div class='col-sm-6'>
       <ul>
-        <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '020', '' %>
-          <%= f.label(:match_opts_020, match_options('020')) %>
-        </li>
-        <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '776_isbn', '' %>
-          <%= f.label(:match_opts_776_isbn, match_options('776_isbn')) %>
-        </li>
-        <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '022', '' %>
-          <%= f.label(:match_opts_022, match_options('022')) %>
-        </li>
-        <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '776_issn', '' %>
-          <%= f.label(:match_opts_776_issn, match_options('776_issn')) %>
-        </li>
-        <li>
-          <%= f.check_box :match_opts, { :multiple => true }, '024_isbn', '' %>
-          <%= f.label(:match_opts_024_isbn, match_options('024_isbn')) %>
-        </li>
+        <% match_opts_vals = ['020', '776_isbn', '022', '776_issn', '024_isbn'] %>
+        <% match_opts_vals.each do |opt| %>
+          <% if @package.match_opts.present? %>
+            <li>
+              <% if @package.match_opts.split(',').include?(opt) %>
+                <%= f.check_box :match_opts, { :multiple => true, :checked => true }, opt %>
+              <% else %>
+                <%= f.check_box :match_opts, { :multiple => true }, opt %>
+              <% end %>
+              <%= f.label match_options(opt) %>
+            </li>
+          <% else %>
+            <li>
+              <%= f.check_box :match_opts, { :multiple => true }, opt %>
+              <%= f.label match_options(opt) %>
+            </li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>

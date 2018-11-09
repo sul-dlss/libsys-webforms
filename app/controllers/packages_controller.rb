@@ -31,6 +31,7 @@ class PackagesController < ApplicationController
     respond_to do |format|
       if @package.save
         set_access_urls_plats(url_config_params)
+        set_match_opts(package_params[:match_opts])
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully created.'
         format.json { render :show, status: :created, location: @package }
@@ -47,6 +48,7 @@ class PackagesController < ApplicationController
     respond_to do |format|
       if @package.update(package_params)
         set_access_urls_plats(url_config_params)
+        set_match_opts(package_params[:match_opts])
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully updated.'
         format.json { render :show, status: :ok, location: @package }
@@ -107,5 +109,16 @@ class PackagesController < ApplicationController
     end
     url_settings=url_settings.gsub(/(\t{4}\|)+/, '')
     @package.update(access_urls_plats: url_settings)
+  end
+
+  def set_match_opts(match_opts)
+    options=[]
+    match_opts.each do |opt|
+      opt = nil if opt.to_i.zero?
+      options.push(opt)
+    end
+    options = options.reject(&:blank?).join(',')
+    options = nil if options.empty?
+    @package.update(match_opts: options)
   end
 end
