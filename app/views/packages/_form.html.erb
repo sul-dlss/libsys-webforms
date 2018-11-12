@@ -50,13 +50,14 @@
   <div class='form-group row'>
     <%= f.label :data_pickup_type, package_label('data_pickup_type'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
-      <%= f.select :data_pickup_type, ['FTP', 'AFS', 'FTP to AFS'], class: 'form-control' %>
+      <%= f.select :data_pickup_type, ['AFS', 'FTP to AFS', 'FTP'], class: 'form-control' %>
     </div>
   </div>
   <p>Option for "AFS" and "FTP to AFS" Data Pickup Types</p>
   <div class='form-group row'>
     <%= f.label :afs_path, package_label('afs_path'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
+      <p><span class='small'>/afs/ir/dept/SUL/dsg/libsys/Eload/</span></p>
       <%= f.text_field :afs_path, size: 75, class: 'form-control' %>
     </div>
   </div>
@@ -64,7 +65,9 @@
   <div class='form-group row'>
     <%= f.label :put_file_loc, package_label('put_file_loc'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
+      <p><span class='small'>/s/SUL/Dataload/EloadNotGeneric/</span></p>
       <%= f.text_field :put_file_loc, size: 75, class: 'form-control' %>
+      <p><span class='small'>(Ignored for FTP Data Pickup Type)</span></p>
     </div>
   </div>
   <p>Options for "FTP" and "FTP to AFS" Data Pickup Types</p>
@@ -95,7 +98,15 @@
   <div class='form-group row'>
     <%= f.label :ftp_file_prefix, package_label('ftp_file_prefix'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
-      <%= f.text_field :ftp_file_prefix, size: 75, class: 'form-control' %>
+      <% if @package.ftp_file_prefix == 'NO FTP SEARCH ***' %>
+        <%= f.text_field :ftp_file_prefix, :value => '', size: 75, class: 'form-control' %>
+        <%= f.check_box :no_ftp_search, { :checked => false } %>
+      <% else %>
+        <%= f.text_field :ftp_file_prefix, size: 75, class: 'form-control' %>
+        <%= f.check_box :no_ftp_search, { :checked => true } %>
+      <% end %>
+      <%= f.label :no_ftp_search, package_label('no_ftp_search'), class: 'form-control-label' %>
+      <p><span class='small'>Uncheck if using another process to select files for download.</span></p>
     </div>
   </div>
 </div>

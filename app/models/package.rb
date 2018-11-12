@@ -5,7 +5,7 @@ class Package < ActiveRecord::Base
   self.table_name = 'vnd_packages'
   self.primary_key = 'record_id'
 
-  attr_accessor :url_substring, :link_text, :provider_name, :collection_name, :access_type
+  attr_accessor :url_substring, :link_text, :provider_name, :collection_name, :access_type, :no_ftp_search
 
   validates :record_id, uniqueness: true
   validates :package_name, :vendor_name, :data_pickup_type, :package_status, presence: true
@@ -18,11 +18,12 @@ class Package < ActiveRecord::Base
     'package_url' => 'Documentation URL',
     'data_pickup_type' => 'Data pickup type',
     'afs_path' => 'AFS directory path',
-    'put_file_loc' => 'FTP download directory path',
+    'put_file_loc' => 'FTP to AFS download directory path',
     'ftp_server' => 'FTP server',
     'ftp_user' => 'FTP user',
     'ftp_password' => 'FTP password',
     'ftp_directory' => 'FTP remote directory',
+    'no_ftp_search' => 'Eloader searches for new files on FTP server',
     'ftp_file_prefix' => 'FTP file name pattern (Perl regex)',
     'proc_type' => 'Create new record or merge URL',
     'match_opts' => 'Fields to match incoming to Symphony records',

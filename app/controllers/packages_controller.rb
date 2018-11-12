@@ -32,6 +32,7 @@ class PackagesController < ApplicationController
       if @package.save
         set_access_urls_plats(url_config_params)
         set_match_opts(package_params[:match_opts])
+        set_ftp_file_prefix(package_params[:no_ftp_search])
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully created.'
         format.json { render :show, status: :created, location: @package }
@@ -49,6 +50,7 @@ class PackagesController < ApplicationController
       if @package.update(package_params)
         set_access_urls_plats(url_config_params)
         set_match_opts(package_params[:match_opts])
+        set_ftp_file_prefix(package_params[:no_ftp_search])
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully updated.'
         format.json { render :show, status: :ok, location: @package }
@@ -120,5 +122,11 @@ class PackagesController < ApplicationController
     options = options.reject(&:blank?).join(',')
     options = nil if options.empty?
     @package.update(match_opts: options)
+  end
+
+  def set_ftp_file_prefix(no_ftp_search)
+    if no_ftp_search == '0'
+      @package.update(ftp_file_prefix: 'NO FTP SEARCH ***')
+    end
   end
 end

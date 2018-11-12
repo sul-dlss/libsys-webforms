@@ -17,12 +17,29 @@
 </table>
 
 <h3>Pickup information</h3>
+<span class='small'>Location for files ready to load: /s/SUL/Dataload/Eload/Import</span>
 <table class='table table-striped'>
   <tbody>
     <% pickup_info.each do |x| %>
     <tr class='<%= cycle("odd", "even") %>'>
       <td class='col-sm-4'><strong><%= package_label(x) %></strong></td>
-      <td class='col-sm-8'><%= @package[x] %></td>
+      <td class='col-sm-8'>
+        <% if x == 'afs_path' && ! @package[x].blank? %>
+          <span class='small'>/afs/ir/dept/SUL/dsg/libsys/Eload/</span>
+        <% end %>
+        <% if x == 'put_file_loc' && ! @package[x].blank? %>
+          <span class='small'>/s/SUL/Dataload/EloadNotGeneric/</span>
+        <% end %>
+        <% if x == 'no_ftp_search' && @package.ftp_file_prefix == 'NO FTP SEARCH ***' %>
+          <p>NO</p>
+        <% elsif x == 'no_ftp_search' %>
+          <p>YES</p>
+        <% end %>
+        <% if x == 'ftp_file_prefix' && @package.ftp_file_prefix == 'NO FTP SEARCH ***' %>
+          <% next %>
+        <% end %>
+        <%= @package[x] %>
+      </td>
     </tr>
     <% end %>
   </tbody>

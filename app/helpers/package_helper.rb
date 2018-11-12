@@ -26,7 +26,7 @@ module PackageHelper
   end
 
   def pickup_info
-    %w(data_pickup_type afs_path put_file_loc ftp_server ftp_user ftp_password ftp_directory ftp_file_prefix)
+    %w(data_pickup_type afs_path put_file_loc ftp_server ftp_user ftp_password ftp_directory no_ftp_search ftp_file_prefix)
   end
 
   def processing_rules
