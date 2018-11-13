@@ -200,23 +200,23 @@
         <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
         <div class='col-sm-2'>
           <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
-          <%= text_field_tag 'url_substring[]', x[0], class: 'form-control' %>
+          <%= text_field_tag 'package[url_substring][]', x[0], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
           <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
-          <%= text_field_tag 'link_text[]', x[1], class: 'form-control' %>
+          <%= text_field_tag 'package[link_text][]', x[1], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
           <%= f.label :provider_name, class: 'form-control-label' %>
-          <%= text_field_tag 'provider_name[]', x[2], class: 'form-control' %>
+          <%= text_field_tag 'package[provider_name][]', x[2], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
           <%= f.label :collection_name, class: 'form-control-label' %>
-          <%= text_field_tag 'collection_name[]', x[3], class: 'form-control' %>
+          <%= text_field_tag 'package[collection_name][]', x[3], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
           <%= f.label :access_type, class: 'form-control-label' %>
-          <%= select_tag 'access_type[]', options_for_select(['purchased', 'subscribed'], x[4]), include_blank: true, class: 'form-control' %>
+          <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed'], x[4]), include_blank: true, class: 'form-control' %>
         </div>
       </div>
     <% end %>
@@ -224,23 +224,23 @@
       <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-2'>
         <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
-        <%= text_field_tag 'url_substring[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[url_substring][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
-        <%= text_field_tag 'link_text[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[link_text][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :provider_name, class: 'form-control-label' %>
-        <%= text_field_tag 'provider_name[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[provider_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :collection_name, class: 'form-control-label' %>
-        <%= text_field_tag 'collection_name[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[collection_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :access_type, class: 'form-control-label' %>
-        <%= select_tag 'access_type[]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
+        <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
       </div>
     </div>
   <% else %>
@@ -248,23 +248,23 @@
       <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-2'>
         <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
-        <%= text_field_tag 'url_substring[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[url_substring][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
-        <%= text_field_tag 'link_text[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[link_text][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :provider_name, class: 'form-control-label' %>
-        <%= text_field_tag 'provider_name[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[provider_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :collection_name, class: 'form-control-label' %>
-        <%= text_field_tag 'collection_name[]', '', class: 'form-control' %>
+        <%= text_field_tag 'package[collection_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
         <%= f.label :access_type, class: 'form-control-label' %>
-        <%= select_tag 'access_type[]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
+        <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
       </div>
     </div>
   <% end %>

@@ -30,9 +30,9 @@ class PackagesController < ApplicationController
     @package = Package.new(package_params)
     respond_to do |format|
       if @package.save
-        set_access_urls_plats(url_config_params)
-        set_match_opts(package_params[:match_opts])
-        set_ftp_file_prefix(package_params[:no_ftp_search])
+        set_access_urls_plats(url_config_params) if url_config_params.values.any?
+        set_match_opts(package_params[:match_opts]) if package_params[:match_opts].present?
+        set_ftp_file_prefix(package_params[:no_ftp_search]) if package_params[:no_ftp_search].present?
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully created.'
         format.json { render :show, status: :created, location: @package }
@@ -48,9 +48,9 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        set_access_urls_plats(url_config_params)
-        set_match_opts(package_params[:match_opts])
-        set_ftp_file_prefix(package_params[:no_ftp_search])
+        set_access_urls_plats(url_config_params) if url_config_params.values.any?
+        set_match_opts(package_params[:match_opts]) if package_params[:match_opts].present?
+        set_ftp_file_prefix(package_params[:no_ftp_search]) if package_params[:no_ftp_search].present?
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully updated.'
         format.json { render :show, status: :ok, location: @package }
@@ -96,11 +96,11 @@ class PackagesController < ApplicationController
   end
 
   def url_config_params
-    { url_substring: params[:url_substring],
-      link_text: params[:link_text],
-      provider_name: params[:provider_name],
-      collection_name: params[:collection_name],
-      access_type: params[:access_type]
+    { url_substring: package_params[:url_substring],
+      link_text: package_params[:link_text],
+      provider_name: package_params[:provider_name],
+      collection_name: package_params[:collection_name],
+      access_type: package_params[:access_type]
     }
   end
 
