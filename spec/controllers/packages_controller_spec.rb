@@ -52,6 +52,31 @@ RSpec.describe PackagesController, type: :controller do
         put :update, id: package[:id], package: valid_attributes
         package.reload
       end
+      it 'updates match_opts' do
+        valid_attributes.update(match_opts: ['0', '020', '0', '776_isbn', '0', '0', '0'])
+        package = FactoryBot.create(:package)
+        put :update, id: package[:id], package: valid_attributes
+        package.reload
+        expect(Package.find(package[:id]).match_opts).to eq('020,776_isbn')
+      end
+      it 'updates access_urls_plats as tab- and pipe-delimited string' do
+        valid_attributes.update(url_substring: ['ieeexplore.ieee.org', ''],
+                                link_text: ['IEEE Xplore Digital Library', ''],
+                                provider_name: ['IEEE', ''],
+                                collection_name: ['MIT Press eBooks', ''],
+                                access_type: ['purchased', ''])
+        package = FactoryBot.create(:package)
+        put :update, id: package[:id], package: valid_attributes
+        package.reload
+        expect(Package.find(package[:id]).access_urls_plats).to eq("ieeexplore.ieee.org\tIEEE Xplore Digital Library\tIEEE\tMIT Press eBooks\tpurchased|")
+      end
+      it 'updates ftp_file_prefix when eloader searches for files on ftp server checkbox is unchecked' do
+        valid_attributes.update(no_ftp_search: '0')
+        package = FactoryBot.create(:package)
+        put :update, id: package[:id], package: valid_attributes
+        package.reload
+        expect(Package.find(package[:id]).ftp_file_prefix).to eq('NO FTP SEARCH ***')
+      end
       it 'redirects to the package' do
         package = FactoryBot.create(:package)
         put :update, id: package[:id], package: valid_attributes
@@ -77,7 +102,7 @@ RSpec.describe PackagesController, type: :controller do
       expect(Package.find(package[:id]).package_status).to eq('Active')
     end
   end
-  describe 'activate a package' do
+  describe 'deactivate a package' do
     let(:inactive) do
       { package_name: 'different name', package_status: 'Inactive',
         vendor_name: 'different vend', data_pickup_type: 'some other' }
