@@ -4,7 +4,7 @@
 module PackageHelper
   # get user friendly labels for package columns
   def package_label(val)
-    Package::COLUMNS.fetch(val, '')
+    Package::COLUMNS.fetch(val)
   end
 
   # get user friendly labels for match_opts
