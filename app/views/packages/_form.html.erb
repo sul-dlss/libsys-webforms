@@ -267,6 +267,29 @@
         <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
       </div>
     </div>
+    <div class='form-group row'>
+      <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+      <div class='col-sm-2'>
+        <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+        <%= text_field_tag 'package[url_substring][]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+        <%= text_field_tag 'package[link_text][]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :provider_name, class: 'form-control-label' %>
+        <%= text_field_tag 'package[provider_name][]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :collection_name, class: 'form-control-label' %>
+        <%= text_field_tag 'package[collection_name][]', '', class: 'form-control' %>
+      </div>
+      <div class='col-sm-2'>
+        <%= f.label :access_type, class: 'form-control-label' %>
+        <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
   <% end %>
   <div class='form-group row'>
     <%= f.label :update_040, package_label('update_040'), class: 'col-sm-4 form-control-label' %>
