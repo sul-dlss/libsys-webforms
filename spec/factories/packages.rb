@@ -3,9 +3,9 @@ FactoryBot.define do
     f.package_name 'Some package name'
     f.vendor_name 'Some vnd name'
     f.record_id 1
-    f.package_id 'something'
+    f.package_id 'np'
     f.package_status 'something'
-    f.data_pickup_type 'something'
+    f.data_pickup_type 'AFS'
     f.afs_path 'something'
     f.ftp_server 'something'
     f.ftp_user 'something'

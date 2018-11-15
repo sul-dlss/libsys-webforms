@@ -9,7 +9,7 @@
   <tbody>
     <% package_info.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-4'><strong><%= t("activerecord.attributes.package.#{package_attribute}") %></strong></td>
       <td class='col-sm-8'><%= @package[package_attribute] %></td>
     </tr>
     <% end %>
@@ -22,7 +22,7 @@
   <tbody>
     <% pickup_info.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-4'><strong><%= t("activerecord.attributes.package.#{package_attribute}") %></strong></td>
       <td class='col-sm-8'>
         <% if package_attribute == 'afs_path' && ! @package[package_attribute].blank? %>
           <span class='small'>/afs/ir/dept/SUL/dsg/libsys/Eload/</span>
@@ -51,11 +51,11 @@
 <table class='table table-striped'>
   <tbody>
     <tr class='odd'>
-      <td class='col-sm-4'><strong><%= package_label('proc_type') %></strong></td>
+      <td class='col-sm-4'><strong><%= t('activerecord.attributes.package.proc_type') %></strong></td>
       <td class='col-sm-8'><%= processing_type(@package.proc_type) %></td>
     </tr>
     <tr class='even'>
-      <td class='col-sm-4'><strong><%= package_label('match_opts') %></strong></td>
+      <td class='col-sm-4'><strong><%= t('activerecord.attributes.package.match_opts') %></strong></td>
       <td class='col-sm-8'>
         <% unless @package.match_opts.nil? %>
           <% @package.match_opts.split(',').each do |match_opts_values| %>
@@ -72,7 +72,7 @@
   <tbody>
     <% processing_info.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-4'><strong><%= t("activerecord.attributes.package.#{package_attribute}") %></strong></td>
       <td class='col-sm-8'>
         <% if package_attribute == 'encoding_level' %>
           <%= marc_encoding_lvl[@package[package_attribute]] %>
@@ -80,11 +80,11 @@
           <table class='table'>
             <thead>
               <tr>
-                <th>URL Substring</th>
-                <th>Link text</th>
-                <th>Provider name</th>
-                <th>Collection name</th>
-                <th>Access type</th>
+                <th><%= t('activerecord.attributes.package.url_substring')%></th>
+                <th><%= t('activerecord.attributes.package.link_text') %></th>
+                <th><%= t('activerecord.attributes.package.provider_name') %></th>
+                <th><%= t('activerecord.attributes.package.collection_name') %></th>
+                <th><%= t('activerecord.attributes.package.access_type') %></th>
               </tr>
             </thead>
             <tbody>
@@ -111,7 +111,7 @@
   <tbody>
     <% package_other.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-4'><strong><%= t("activerecord.attributes.package.#{package_attribute}") %></strong></td>
       <td class='col-sm-8'><%= @package[package_attribute] %></td>
     </tr>
     <% end %>
