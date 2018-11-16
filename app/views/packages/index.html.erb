@@ -15,10 +15,10 @@
     <tr>
       <th>&nbsp;</th>
       <th>Status</th>
-      <th>Package Name</th>
       <th>Package ID</th>
+      <th>Package Name</th>
       <th>Vendor</th>
-      <th>Date Updated</th>
+      <th>Date Entered</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -26,17 +26,20 @@
     <% @packages.each do |package| %>
       <tr>
         <td>
-          <%= link_to 'Activate', activate_package_path(package), method: :put, action: :activate, class: 'btn btn-md btn-success btn-full' %>
-          <%= link_to 'Deactivate', deactivate_package_path(package), method: :put, action: :deactivate, class: 'btn btn-md btn-warning btn-full' %>
+          <% if package.package_status.downcase == 'active' %>
+            <%= link_to 'Deactivate', deactivate_package_path(package), method: :put, action: :deactivate, class: 'btn btn-md btn-warning btn-full' %>
+          <% else %>
+            <%= link_to 'Activate', activate_package_path(package), method: :put, action: :activate, class: 'btn btn-md btn-success btn-full' %>
+          <% end %>
         </td>
-        <td class='<%= package.package_status.downcase %>'><%= package.package_status %></td>
-        <td><%= package.package_name %></td>
+        <td><%= package.package_status %></td>
         <td><%= package.package_id %></td>
+        <td><%= package.package_name %></td>
         <td><%= package.vendor_name %></td>
-        <td><%= package.date_modified.to_formatted_s(:db) %></td>
-        <td>
-          <%= link_to 'details', package_path(package), class: 'btn btn-md btn-default' %>
-          <%= link_to 'edit', edit_package_path(package), class: 'btn btn-md btn-default' %>
+        <td><%= package.date_entered.strftime('%d-%b-%Y') %></td>
+        <td class='no-wrap'>
+          <%= link_to 'Details', package_path(package), class: 'btn btn-md btn-default' %>
+          <%= link_to 'Edit', edit_package_path(package), class: 'btn btn-md btn-default' %>
         </td>
       </tr>
     <% end %>

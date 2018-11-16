@@ -30,6 +30,7 @@ class PackagesController < ApplicationController
     @package = Package.new(package_params)
     respond_to do |format|
       if @package.save
+        update_special_attributes
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully created.'
         format.json { render :show, status: :created, location: @package }
@@ -45,6 +46,7 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
+        update_special_attributes
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully updated.'
         format.json { render :show, status: :ok, location: @package }
@@ -87,5 +89,43 @@ class PackagesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def package_params
     params.require(:package).permit!
+  end
+
+  def update_special_attributes
+    make_access_urls_plats(url_config_params) if url_config_params.values.any?
+    make_match_opts(package_params[:match_opts]) if package_params[:match_opts].present?
+    make_ftp_file_prefix(package_params[:no_ftp_search]) if package_params[:no_ftp_search].present?
+  end
+
+  def url_config_params
+    { url_substring: package_params[:url_substring],
+      link_text: package_params[:link_text],
+      provider_name: package_params[:provider_name],
+      collection_name: package_params[:collection_name],
+      access_type: package_params[:access_type] }
+  end
+
+  def make_access_urls_plats(url_config_params)
+    url_settings = ''
+    url_config_params.values.transpose.each do |x|
+      url_settings << x.join("\t") + '|'
+    end
+    url_settings = url_settings.gsub(/(\t{4}\|)+/, '')
+    @package.update(access_urls_plats: url_settings)
+  end
+
+  def make_match_opts(match_opts)
+    options = []
+    match_opts.each do |opt|
+      opt = nil if opt.to_i.zero?
+      options.push(opt)
+    end
+    options = options.reject(&:blank?).join(',')
+    options = nil if options.empty?
+    @package.update(match_opts: options)
+  end
+
+  def make_ftp_file_prefix(no_ftp_search)
+    @package.update(ftp_file_prefix: 'NO FTP SEARCH ***') if no_ftp_search == '0'
   end
 end

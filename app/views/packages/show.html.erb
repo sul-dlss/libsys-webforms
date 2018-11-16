@@ -7,22 +7,41 @@
 <h3>Package information</h3>
 <table class='table table-striped'>
   <tbody>
-    <% package_info.each do |x| %>
+    <% package_info.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(x) %></strong></td>
-      <td class='col-sm-8'><%= @package[x] %></td>
+      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-8'><%= @package[package_attribute] %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
 <h3>Pickup information</h3>
+<span class='small'>Location for files ready to load: /s/SUL/Dataload/Eload/Import</span>
 <table class='table table-striped'>
   <tbody>
-    <% pickup_info.each do |x| %>
+    <% pickup_info.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(x) %></strong></td>
-      <td class='col-sm-8'><%= @package[x] %></td>
+      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-8'>
+        <% if package_attribute == 'afs_path' && ! @package[package_attribute].blank? %>
+          <span class='small'>/afs/ir/dept/SUL/dsg/libsys/Eload/</span>
+        <% end %>
+        <% if package_attribute == 'put_file_loc' && ! @package[package_attribute].blank? %>
+          <span class='small'>/s/SUL/Dataload/EloadNotGeneric/</span>
+        <% end %>
+        <% if package_attribute == 'no_ftp_search' %>
+          <% if @package.ftp_file_prefix == 'NO FTP SEARCH ***' %>
+            <p>NO</p>
+          <% else %>
+            <p>YES</p>
+          <% end %>
+        <% end %>
+        <% if package_attribute == 'ftp_file_prefix' && @package.ftp_file_prefix == 'NO FTP SEARCH ***' %>
+          <% next %>
+        <% end %>
+        <%= @package[package_attribute] %>
+      </td>
     </tr>
     <% end %>
   </tbody>
@@ -33,14 +52,14 @@
   <tbody>
     <tr class='odd'>
       <td class='col-sm-4'><strong><%= package_label('proc_type') %></strong></td>
-      <td class='col-sm-8'><%= processing_type(@package.proc_type) %><td>
+      <td class='col-sm-8'><%= processing_type(@package.proc_type) %></td>
     </tr>
     <tr class='even'>
       <td class='col-sm-4'><strong><%= package_label('match_opts') %></strong></td>
       <td class='col-sm-8'>
         <% unless @package.match_opts.nil? %>
-          <% @package.match_opts.split(',').each do |x| %>
-            <p><%= match_options(x) %></p>
+          <% @package.match_opts.split(',').each do |match_opts_values| %>
+            <p><%= match_options(match_opts_values) %></p>
           <% end %>
         <% end %>
       </td>
@@ -51,14 +70,35 @@
 <h3>Processing information</h3>
 <table class='table table-striped'>
   <tbody>
-    <% processing_info.each do |x| %>
+    <% processing_info.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(x) %></strong></td>
+      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
       <td class='col-sm-8'>
-        <% if x == 'encoding_level' %>
-          <%= marc_encoding_lvl[@package[x]] %>
+        <% if package_attribute == 'encoding_level' %>
+          <%= marc_encoding_lvl[@package[package_attribute]] %>
+        <% elsif package_attribute == 'access_urls_plats' && @package[package_attribute].present? %>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>URL Substring</th>
+                <th>Link text</th>
+                <th>Provider name</th>
+                <th>Collection name</th>
+                <th>Access type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @package[package_attribute].split('|').each do |row| %>
+                <tr>
+                  <% row.split(/\t/).each do |data| %>
+                    <td><%= data %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         <% else %>
-          <%= @package[x] %>
+          <%= @package[package_attribute] %>
         <% end %>
       </td>
     </tr>
@@ -69,10 +109,10 @@
 <h3>Other</h3>
 <table class='table table-striped'>
   <tbody>
-    <% package_other.each do |x| %>
+    <% package_other.each do |package_attribute| %>
     <tr class='<%= cycle("odd", "even") %>'>
-      <td class='col-sm-4'><strong><%= package_label(x) %></strong></td>
-      <td class='col-sm-8'><%= @package[x] %></td>
+      <td class='col-sm-4'><strong><%= package_label(package_attribute) %></strong></td>
+      <td class='col-sm-8'><%= @package[package_attribute] %></td>
     </tr>
     <% end %>
   </tbody>

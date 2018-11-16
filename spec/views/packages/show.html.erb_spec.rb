@@ -19,4 +19,11 @@ RSpec.describe 'packages/show', type: :view do
   it 'should display label for MARC encoding level' do
     assert_select 'table>tbody>tr>td', text: 'Do not replace'.to_s, count: 1
   end
+
+  it 'should display empty fields if there are no processing rules' do
+    @package.update(proc_type: nil, match_opts: nil)
+    expect(render(template: 'packages/show.html.erb')).not_to have_css('td', text: 'Merge or new')
+    expect(render(template: 'packages/show.html.erb')).not_to have_css('td',
+                                                                       text: '776 (subfield z) to Symphony 020 or 776')
+  end
 end
