@@ -8,43 +8,14 @@ class Package < ActiveRecord::Base
   attr_accessor :url_substring, :link_text, :provider_name, :collection_name, :access_type, :no_ftp_search
 
   validates :record_id, uniqueness: true
-  validates :package_name, :vendor_name, :data_pickup_type, :package_status, presence: true
-
-  COLUMNS = {
-    'package_status' => 'Package status',
-    'package_id' => 'Package ID',
-    'package_name' => 'Package name',
-    'vendor_name' => 'Vendor name',
-    'package_url' => 'Documentation URL',
-    'data_pickup_type' => 'Data pickup type',
-    'afs_path' => 'AFS directory path',
-    'put_file_loc' => 'FTP to AFS download directory path',
-    'ftp_server' => 'FTP server',
-    'ftp_user' => 'FTP user',
-    'ftp_password' => 'FTP password',
-    'ftp_directory' => 'FTP remote directory',
-    'no_ftp_search' => 'Eloader searches for new files on FTP server',
-    'ftp_file_prefix' => 'FTP file name pattern (Perl regex)',
-    'proc_type' => 'Create new record or merge URL',
-    'match_opts' => 'Fields to match incoming to Symphony records',
-    'url_field' => 'Symphony URL destination',
-    'vendor_id_read' => 'Vendor ID field (read)',
-    'access_note' => 'Add access restriction note',
-    'access_urls_plats' => 'URL substrings, with associated subfields to be added to 856 if substring found in URL',
-    'update_040' => 'Create/Update 040 with CSt',
-    'vnd_catcode' => 'Vendor cataloging code for 040',
-    'export_note' => 'Export record to OCLC',
-    'export_auth' => 'Export record to Backstage',
-    'date_cat' => 'Date cataloged for new records',
-    'holding_code' => 'Holding code',
-    'encoding_level' => 'MARC encoding level',
-    'junktag_file' => 'Custom junktag filename',
-    'preprocess_modify_script' => 'Full path of preprocess modify script',
-    'preprocess_split_script' => 'Full path of preprocess split script',
-    'preprocess_put_script' => 'Full path of preprocess put in AFS script',
-    'rpt_mail' => 'Extra email addresses for reports',
-    'comments' => 'Comments'
-  }.freeze
+  validates :package_id, :package_name, :vendor_name, :data_pickup_type, :package_status, presence: true
+  validates :package_id, format: { with: /\A[a-z]{2}\z/, message: 'only 2-character alpha code allowed.' },
+                         uniqueness: true
+  validate :check_if_package_id_changed, on: :update
+  validate :needs_afs_path, on: %i(create update)
+  validate :needs_ftp_info, on: %i(create update)
+  validate :needs_put_file_loc, on: %i(create update)
+  validate :check_match_opts, on: %i(create update)
 
   MATCH_OPTS = {
     '020' => '020 (subfield a,z) to Symphony 020 or 776',
@@ -83,5 +54,42 @@ class Package < ActiveRecord::Base
 
   def timestamp_attributes_for_update
     super << :date_modified
+  end
+
+  def check_if_package_id_changed
+    errors.add(:base, 'Package ID is marked as readonly.') if package_id_changed?
+  end
+
+  def needs_afs_path
+    errors.add(:base, 'AFS directory path cannot be empty.') if afs_path.blank? && data_pickup_type.include?('AFS')
+  end
+
+  def use_ftp?
+    data_pickup_type.include?('FTP')
+  end
+
+  def needs_ftp_info
+    errors.add(:base, 'FTP server cannot be empty.') if ftp_server.blank? && use_ftp?
+    errors.add(:base, 'FTP user cannot be empty.') if ftp_user.blank? && use_ftp?
+    errors.add(:base, 'FTP password cannot be empty.') if ftp_password.blank? && use_ftp?
+    errors.add(:base, 'FTP remote directory cannot be empty.') if ftp_directory.blank? && use_ftp?
+  end
+
+  def use_ftp_to_afs?
+    data_pickup_type.include?('AFS') && data_pickup_type.include?('FTP')
+  end
+
+  def needs_put_file_loc
+    errors.add(:base, 'FTP to AFS download directory path cannot be empty.') \
+      if put_file_loc.blank? && use_ftp_to_afs?
+  end
+
+  def needs_match_options?
+    (proc_type.include?('newmerge') || proc_type.include?('mergeonly')) if proc_type.present?
+  end
+
+  def check_match_opts
+    errors.add(:base, "#{Package.human_attribute_name('match_opts')} cannot be empty.") \
+      if match_opts.blank? && needs_match_options?
   end
 end

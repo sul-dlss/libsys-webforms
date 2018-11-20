@@ -6,7 +6,7 @@ RSpec.describe PackagesController, type: :controller do
   end
   let(:valid_attributes) do
     { package_name: 'different name', package_status: 'Inactive',
-      vendor_name: 'different vend', data_pickup_type: 'some other' }
+      vendor_name: 'different vend', data_pickup_type: 'AFS', afs_path: 'somedir' }
   end
   let(:invalid_attributes) { { package_name: '', package_status: 'Active', vendor_name: '', data_pickup_type: '' } }
   describe 'GET #index' do
@@ -25,13 +25,15 @@ RSpec.describe PackagesController, type: :controller do
     end
   end
   describe 'POST #create' do
+    before do
+      valid_attributes.update(package_id: 'id')
+    end
     context 'with valid params' do
       it 'creates a new Package' do
-        expect { post(:create, package: valid_attributes) }.to change(Package, :count).by(1)
+        expect { post :create, package: valid_attributes }.to change(Package, :count).by(1)
       end
       it 'redirects to the created package' do
-        post :create, package: valid_attributes
-        expect(response).to redirect_to(Package.last)
+        expect(post(:create, package: valid_attributes)).to redirect_to(Package.last)
       end
     end
     context 'with invalid params' do

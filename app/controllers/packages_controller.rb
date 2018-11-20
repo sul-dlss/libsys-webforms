@@ -27,10 +27,10 @@ class PackagesController < ApplicationController
   # POST /packages
   # POST /packages.json
   def create
+    update_special_attributes
     @package = Package.new(package_params)
     respond_to do |format|
       if @package.save
-        update_special_attributes
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully created.'
         format.json { render :show, status: :created, location: @package }
@@ -45,8 +45,8 @@ class PackagesController < ApplicationController
   # PATCH/PUT /packages/1.json
   def update
     respond_to do |format|
+      update_special_attributes
       if @package.update(package_params)
-        update_special_attributes
         format.html { redirect_to @package }
         flash[:success] = 'Package was successfully updated.'
         format.json { render :show, status: :ok, location: @package }
@@ -93,8 +93,8 @@ class PackagesController < ApplicationController
 
   def update_special_attributes
     make_access_urls_plats(url_config_params) if url_config_params.values.any?
-    make_match_opts(package_params[:match_opts]) if package_params[:match_opts].present?
-    make_ftp_file_prefix(package_params[:no_ftp_search]) if package_params[:no_ftp_search].present?
+    make_match_opts if package_params[:match_opts].present?
+    make_ftp_file_prefix if package_params[:no_ftp_search].present?
   end
 
   def url_config_params
@@ -111,21 +111,21 @@ class PackagesController < ApplicationController
       url_settings << x.join("\t") + '|'
     end
     url_settings = url_settings.gsub(/(\t{4}\|)+/, '')
-    @package.update(access_urls_plats: url_settings)
+    package_params.merge!(access_urls_plats: url_settings)
   end
 
-  def make_match_opts(match_opts)
+  def make_match_opts
     options = []
-    match_opts.each do |opt|
+    package_params[:match_opts].each do |opt|
       opt = nil if opt.to_i.zero?
       options.push(opt)
     end
     options = options.reject(&:blank?).join(',')
     options = nil if options.empty?
-    @package.update(match_opts: options)
+    package_params.merge!(match_opts: options)
   end
 
-  def make_ftp_file_prefix(no_ftp_search)
-    @package.update(ftp_file_prefix: 'NO FTP SEARCH ***') if no_ftp_search == '0'
+  def make_ftp_file_prefix
+    package_params.merge!(ftp_file_prefix: 'NO FTP SEARCH ***') if package_params[:no_ftp_search] == '0'
   end
 end

@@ -1,7 +1,7 @@
 <%= form_for @package, class: 'form-group' do |f| %>
   <% if @package.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+    <div id="error-explanation">
+      <h4><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h4>
 
       <ul>
       <% @package.errors.full_messages.each do |message| %>
@@ -14,31 +14,31 @@
 <div>
   <h3>Package information</h3>
   <div class='form-group row'>
-    <%= f.label :package_status, package_label('package_status'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :package_status, t('activerecord.attributes.package.package_status'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :package_status, %w(Inactive Active), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :package_id, package_label('package_id'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :package_id, t('activerecord.attributes.package.package_id'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :package_id, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :package_name, package_label('package_name'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :package_name, t('activerecord.attributes.package.package_name'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :package_name, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :vendor_name, package_label('vendor_name'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :vendor_name, t('activerecord.attributes.package.vendor_name'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :vendor_name, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :package_url, package_label('package_url'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :package_url, t('activerecord.attributes.package.package_url'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :package_url, class: 'form-control' %>
     </div>
@@ -48,14 +48,14 @@
 <div>
   <h3>Pickup information</h3>
   <div class='form-group row'>
-    <%= f.label :data_pickup_type, package_label('data_pickup_type'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :data_pickup_type, t('activerecord.attributes.package.data_pickup_type'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :data_pickup_type, ['AFS', 'FTP to AFS', 'FTP'], class: 'form-control' %>
     </div>
   </div>
   <p>Option for "AFS" and "FTP to AFS" Data Pickup Types</p>
   <div class='form-group row'>
-    <%= f.label :afs_path, package_label('afs_path'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :afs_path, t('activerecord.attributes.package.afs_path'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <p><span class='small'>/afs/ir/dept/SUL/dsg/libsys/Eload/</span></p>
       <%= f.text_field :afs_path, size: 75, class: 'form-control' %>
@@ -63,7 +63,7 @@
   </div>
   <p>Option for "FTP to AFS" Data Pickup Type.</p>
   <div class='form-group row'>
-    <%= f.label :put_file_loc, package_label('put_file_loc'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :put_file_loc, t('activerecord.attributes.package.put_file_loc'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <p><span class='small'>/s/SUL/Dataload/EloadNotGeneric/</span></p>
       <%= f.text_field :put_file_loc, size: 75, class: 'form-control' %>
@@ -72,31 +72,31 @@
   </div>
   <p>Options for "FTP" and "FTP to AFS" Data Pickup Types</p>
   <div class='form-group row'>
-    <%= f.label :ftp_server, package_label('ftp_server'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :ftp_server, t('activerecord.attributes.package.ftp_server'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :ftp_server, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :ftp_user, package_label('ftp_user'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :ftp_user, t('activerecord.attributes.package.ftp_user'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :ftp_user, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :ftp_password, package_label('ftp_password'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :ftp_password, t('activerecord.attributes.package.ftp_password'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :ftp_password, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :ftp_directory, package_label('ftp_directory'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :ftp_directory, t('activerecord.attributes.package.ftp_directory'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :ftp_directory, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :ftp_file_prefix, package_label('ftp_file_prefix'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :ftp_file_prefix, t('activerecord.attributes.package.ftp_file_prefix'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <% if @package.ftp_file_prefix == 'NO FTP SEARCH ***' %>
         <%= f.text_field :ftp_file_prefix, :value => '', size: 75, class: 'form-control' %>
@@ -105,7 +105,7 @@
         <%= f.text_field :ftp_file_prefix, size: 75, class: 'form-control' %>
         <%= f.check_box :no_ftp_search, { :checked => true } %>
       <% end %>
-      <%= f.label :no_ftp_search, package_label('no_ftp_search'), class: 'form-control-label' %>
+      <%= f.label :no_ftp_search, t('activerecord.attributes.package.no_ftp_search'), class: 'form-control-label' %>
       <p><span class='small'>Uncheck if using another process to select files for download.</span></p>
     </div>
   </div>
@@ -142,7 +142,7 @@
   </div>
   <div class='form-group row'>
     <div class='col-sm-4'>
-      <strong><%= package_label('match_opts') %></strong><br />
+      <strong><%= t('activerecord.attributes.package.match_opts') %></strong><br />
       <em>At least one required if "Merge or New" or "Merge only" selected above. Not used in "New only" or "CKEY-URL Merge"</em>
     </div>
     <div class='col-sm-6'>
@@ -173,19 +173,19 @@
 <div>
   <h3>Processing information</h3>
   <div class='form-group row'>
-    <%= f.label :url_field, package_label('url_field'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :url_field, t('activerecord.attributes.package.url_field'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :url_field, %w(856 956), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :vendor_id_read, package_label('vendor_id_read'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :vendor_id_read, t('activerecord.attributes.package.vendor_id_read'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :vendor_id_read, %w(001 090), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :access_note, package_label('access_note'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :access_note, t('activerecord.attributes.package.access_note'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :access_note, %w(No Yes), class: 'form-control' %>
     </div>
@@ -197,138 +197,138 @@
     <% end %>
     <% url_configs.each do |x| %>
       <div class='form-group row'>
-        <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+        <%= f.label :access_urls_plats, t('activerecord.attributes.package.access_urls_plats'), class: 'col-sm-2 form-control-label' %>
         <div class='col-sm-2'>
-          <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+          <%= f.label :url_substring, t('activerecord.attributes.package.url_substring'), class: 'form-control-label' %>
           <%= text_field_tag 'package[url_substring][]', x[0], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
-          <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+          <%= f.label :link_text, t('activerecord.attributes.package.link_text'), class: 'form-control-label' %>
           <%= text_field_tag 'package[link_text][]', x[1], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
-          <%= f.label :provider_name, class: 'form-control-label' %>
+          <%= f.label :provider_name, t('activerecord.attributes.package.provider_name'), class: 'form-control-label' %>
           <%= text_field_tag 'package[provider_name][]', x[2], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
-          <%= f.label :collection_name, class: 'form-control-label' %>
+          <%= f.label :collection_name, t('activerecord.attributes.package.collection_name'), class: 'form-control-label' %>
           <%= text_field_tag 'package[collection_name][]', x[3], class: 'form-control' %>
         </div>
         <div class='col-sm-2'>
-          <%= f.label :access_type, class: 'form-control-label' %>
+          <%= f.label :access_type, t('activerecord.attributes.package.access_type'), class: 'form-control-label' %>
           <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed'], x[4]), include_blank: true, class: 'form-control' %>
         </div>
       </div>
     <% end %>
     <div class='form-group row'>
-      <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+      <%= f.label :access_urls_plats, t('activerecord.attributes.package.access_urls_plats'), class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-2'>
-        <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+        <%= f.label :url_substring, t('activerecord.attributes.package.url_substring'), class: 'form-control-label' %>
         <%= text_field_tag 'package[url_substring][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+        <%= f.label :link_text, t('activerecord.attributes.package.link_text'), class: 'form-control-label' %>
         <%= text_field_tag 'package[link_text][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :provider_name, class: 'form-control-label' %>
+        <%= f.label :provider_name, t('activerecord.attributes.package.provider_name'), class: 'form-control-label' %>
         <%= text_field_tag 'package[provider_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :collection_name, class: 'form-control-label' %>
+        <%= f.label :collection_name, t('activerecord.attributes.package.collection_name'), class: 'form-control-label' %>
         <%= text_field_tag 'package[collection_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :access_type, class: 'form-control-label' %>
+        <%= f.label :access_type, t('activerecord.attributes.package.access_type'), class: 'form-control-label' %>
         <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
       </div>
     </div>
   <% else %>
     <div class='form-group row'>
-      <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+      <%= f.label :access_urls_plats, t('activerecord.attributes.package.access_urls_plats'), class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-2'>
-        <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+        <%= f.label :url_substring, t('activerecord.attributes.package.url_substring'), class: 'form-control-label' %>
         <%= text_field_tag 'package[url_substring][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+        <%= f.label :link_text, t('activerecord.attributes.package.link_text'), class: 'form-control-label' %>
         <%= text_field_tag 'package[link_text][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :provider_name, class: 'form-control-label' %>
+        <%= f.label :provider_name, t('activerecord.attributes.package.provider_name'), class: 'form-control-label' %>
         <%= text_field_tag 'package[provider_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :collection_name, class: 'form-control-label' %>
+        <%= f.label :collection_name, t('activerecord.attributes.package.collection_name'), class: 'form-control-label' %>
         <%= text_field_tag 'package[collection_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :access_type, class: 'form-control-label' %>
+        <%= f.label :access_type, t('activerecord.attributes.package.access_type'), class: 'form-control-label' %>
         <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
       </div>
     </div>
     <div class='form-group row'>
-      <%= f.label :access_urls_plats, package_label('access_urls_plats'), class: 'col-sm-2 form-control-label' %>
+      <%= f.label :access_urls_plats, t('activerecord.attributes.package.access_urls_plats'), class: 'col-sm-2 form-control-label' %>
       <div class='col-sm-2'>
-        <%= f.label :url_substring, 'URL substring', class: 'form-control-label' %>
+        <%= f.label :url_substring, t('activerecord.attributes.package.url_substring'), class: 'form-control-label' %>
         <%= text_field_tag 'package[url_substring][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :link_text, 'Link text', class: 'form-control-label' %>
+        <%= f.label :link_text, t('activerecord.attributes.package.link_text'), class: 'form-control-label' %>
         <%= text_field_tag 'package[link_text][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :provider_name, class: 'form-control-label' %>
+        <%= f.label :provider_name, t('activerecord.attributes.package.provider_name'), class: 'form-control-label' %>
         <%= text_field_tag 'package[provider_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :collection_name, class: 'form-control-label' %>
+        <%= f.label :collection_name, t('activerecord.attributes.package.collection_name'), class: 'form-control-label' %>
         <%= text_field_tag 'package[collection_name][]', '', class: 'form-control' %>
       </div>
       <div class='col-sm-2'>
-        <%= f.label :access_type, class: 'form-control-label' %>
+        <%= f.label :access_type, t('activerecord.attributes.package.access_type'), class: 'form-control-label' %>
         <%= select_tag 'package[access_type][]', options_for_select(['purchased', 'subscribed']), include_blank: true, class: 'form-control' %>
       </div>
     </div>
   <% end %>
   <div class='form-group row'>
-    <%= f.label :update_040, package_label('update_040'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :update_040, t('activerecord.attributes.package.update_040'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :update_040, %w(No Yes), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :vnd_catcode, package_label('vnd_catcode'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :vnd_catcode, t('activerecord.attributes.package.vnd_catcode'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :vnd_catcode, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :export_note, package_label('export_note'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :export_note, t('activerecord.attributes.package.export_note'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :export_note, %w(No Yes), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :export_auth, package_label('export_auth'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :export_auth, t('activerecord.attributes.package.export_auth'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :export_auth, ['No', 'Yes - Weekly'], class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :date_cat, package_label('date_cat'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :date_cat, t('activerecord.attributes.package.date_cat'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :date_cat, %w(TODAY NEVER), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :holding_code, package_label('holding_code'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :holding_code, t('activerecord.attributes.package.holding_code'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :holding_code, %w(LAW-INT-H SUL-INT-H), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :encoding_level, package_label('encoding_level'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :encoding_level, t('activerecord.attributes.package.encoding_level'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.select :encoding_level, class: 'form-control' do %>
         <% marc_encoding_lvl.each do |k, v| %>
@@ -338,25 +338,25 @@
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :junktag_file, package_label('junktag_file'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :junktag_file, t('activerecord.attributes.package.junktag_file'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :junktag_file, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :preprocess_modify_script, package_label('preprocess_modify_script'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :preprocess_modify_script, t('activerecord.attributes.package.preprocess_modify_script'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :preprocess_modify_script, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :preprocess_split_script, package_label('preprocess_split_script'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :preprocess_split_script, t('activerecord.attributes.package.preprocess_split_script'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :preprocess_split_script, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :preprocess_put_script, package_label('preprocess_put_script'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :preprocess_put_script, t('activerecord.attributes.package.preprocess_put_script'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :preprocess_put_script, size: 75, class: 'form-control' %>
     </div>
@@ -366,13 +366,13 @@
 <div>
   <h3>Other</h3>
   <div class='form-group row'>
-    <%= f.label :rpt_mail, package_label('rpt_mail'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :rpt_mail, t('activerecord.attributes.package.rpt_mail'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :rpt_mail, size: 75, class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :comments, package_label('comments'), class: 'col-sm-4 form-control-label' %>
+    <%= f.label :comments, t('activerecord.attributes.package.comments'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
       <%= f.text_field :comments, rows: 4, cols: 75, class: 'form-control' %>
     </div>
