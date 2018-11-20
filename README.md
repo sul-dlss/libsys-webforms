@@ -41,24 +41,11 @@ In order to have the tables populated for testing the app in development you sho
 ```
 RAILS_ENV=development rake db:seed
 ```
-You should also set up a user for you to use when testing the app in development. Do this in the Rails Console:
+Running the above rake task will seed the development database with an admin user.
 
+Start the development server:
 ```
-> rails c
-
-2.3.4 :001 > au=AuthorizedUser.new
-2.3.4 :002 > au.user_id = 'some-user'
-2.3.4 :003 > au.user_name = 'Some User'
-2.3.4 :004 > au.mgt_rpts = 'Y'
-2.3.4 :005 > au.unicorn_updates = 'Y'
-2.3.4 :006 > au.sal3_batch_req = 'Y'
-2.3.4 :007 > au.sal3_breq_edit = 'Y'
-2.3.4 :008 > au.save
-```
-
-Start the development server
-```
-REMOTE_USER=some-user rails s
+REMOTE_USER=admin rails s
 ```
 
 ## Testing
@@ -116,9 +103,9 @@ pl_sql_jobs:
       - 'usera'
       - 'userb'
 ```
-links with collapsed "Run" buttons will automatically be created on the home page and will only appear for people who are 
-logged in and listed in the sunet_ids section of the config. (Permissions for PL/SQL jobs are managed here because there 
-is no Rails ORM on which to base an Ability.)  Clicking the "Run" link will execute the configured PL/SQL command via the 
-already configured OCI8 connection gem (using the environment's database.yml connection details). If more jobs need to be 
-added in the future, just fill out a new section under the pl_sql_jobs section in the https://github.com/sul-dlss/shared_configs 
+links with collapsed "Run" buttons will automatically be created on the home page and will only appear for people who are
+logged in and listed in the sunet_ids section of the config. (Permissions for PL/SQL jobs are managed here because there
+is no Rails ORM on which to base an Ability.)  Clicking the "Run" link will execute the configured PL/SQL command via the
+already configured OCI8 connection gem (using the environment's database.yml connection details). If more jobs need to be
+added in the future, just fill out a new section under the pl_sql_jobs section in the https://github.com/sul-dlss/shared_configs
 repository and follow the instructions there for deploying to the application server.
