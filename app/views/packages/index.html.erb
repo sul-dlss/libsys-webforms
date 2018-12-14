@@ -5,8 +5,9 @@
 
 <div class ='nav-buttons'>
   <ul class='nav nav-pills'>
-    <li role="presentation"><%= link_to 'Add package', new_package_path, class: 'btn btn-md btn-default btn-full' %></li>
-    <li role="presentation"><%= link_to 'Exclude Url List', url_exclusions_path, class: 'btn btn-md btn-default btn-full' %></li>
+    <li><%= link_to 'Add package', new_package_path, class: 'btn btn-md btn-default btn-full' %></li>
+    <li><%= link_to 'Run tests', run_tests_packages_path, class: 'btn btn-md btn-default btn-full' %></li>
+    <li><%= link_to 'Exclude URL List', url_exclusions_path, class: 'btn btn-md btn-default btn-full' %></li>
   </ul>
 </div>
 
@@ -40,6 +41,7 @@
         <td class='no-wrap'>
           <%= link_to 'Details', package_path(package), class: 'btn btn-md btn-default' %>
           <%= link_to 'Edit', edit_package_path(package), class: 'btn btn-md btn-default' %>
+          <%= link_to 'Show pkg files', package_files_completed_url(:package_id => package.package_id), class: 'btn btn-md btn-default' %>
         </td>
       </tr>
     <% end %>

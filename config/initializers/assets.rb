@@ -23,6 +23,7 @@ Rails.application.config.assets.precompile += %w( accession_number_updates.js
                                                   forms.js
                                                   html5_webshim.js
                                                   packages.js
+                                                  package_files.js
                                                   sal3_batch_requests.js
                                                   shelf_selection_reports.js
                                                 )

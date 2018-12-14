@@ -199,3 +199,55 @@ Package.create!(
   export_auth: 'WEEKLY',
   preprocess_modify_script: '/s/SUL/Bin/Eloader/IEEE/modify_ieee.pl'
 )
+
+PackageFile.delete_all
+PackageFile.create!(
+  package_id: 'mp',
+  vendor_name: 'IEEE Xplore',
+  seq_number: 478_042,
+  package_status: 'Active',
+  file_name: 'mit_press_update_20180223.mrc',
+  date_created: Time.utc(2018,11,15,14,10,19),
+  new_file_name: 'mp_mit_press_update_20180223.mrc',
+  file_size_bytes: nil,
+  file_type: 'binary',
+  vnd_file_function: 'get',
+  date_extracted: nil,
+  date_of_action: Time.utc(2018,11,15,22,10,29),
+  date_ftpd: Time.utc(2018,11,15,22,10,29),
+  date_to_load: nil,
+  place_to_load: 'Palatino',
+  date_loaded: nil,
+  record_source: 'PROCESS_GEN_LIST_AFS',
+  status_ftp: 'DONE',
+  status_load: 'REQUEST',
+  parms_used: nil,
+  count_of_titles: 0,
+  note: 'Generic e-load',
+  remote_dir: nil
+)
+PackageFile.create!(
+  package_id: 'lm',
+  vendor_name: 'OCLC WorldShare',
+  seq_number: 467_320,
+  package_status: 'Active',
+  file_name: 'metacoll.STF.updates.Q20180105.T190919.LLMC.1.mrc',
+  date_created: Time.utc(2018,11,14,18,41,12),
+  new_file_name: 'lm_metacoll.STF.updates.Q20180105.T190919.LLMC.1.mrc',
+  file_size_bytes: nil,
+  file_type: 'binary',
+  vnd_file_function: 'get',
+  date_extracted: nil,
+  date_of_action: Time.utc(2018,11,14,18,41,16),
+  date_ftpd: Time.utc(2018,11,14,18,41,16),
+  date_to_load: nil,
+  place_to_load: 'Palatino',
+  date_loaded: nil,
+  record_source: 'PROCESS_GEN_LIST_AFS',
+  status_ftp: 'DONE',
+  status_load: 'DONE',
+  parms_used: nil,
+  count_of_titles: 0,
+  note: 'Generic e-load',
+  remote_dir: 'metacoll/out/ongoing/updates'
+)

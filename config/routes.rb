@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   resources :packages do
     put :activate, on: :member
     put :deactivate, on: :member
+    get :run_tests, on: :collection
+    get :list_transfer_logs, on: :collection
   end
   resources :url_exclusions
 
@@ -75,7 +77,12 @@ Rails.application.routes.draw do
   get 'by_location' => 'accession_number_updates#by_location'
   get 'by_resource_type' => 'accession_number_updates#by_resource_type'
 
+  get 'vnd_runlogs/recent' => 'vnd_runlogs#recent'
+  get 'package_files/queue' => 'package_files#queue'
+  get 'package_files/completed' => 'package_files#completed'
   get 'pl_sql_job/create' => 'pl_sql_job#create'
+  get 'pl_sql_job/package_test_load' => 'pl_sql_job#package_test_load'
+  get 'pl_sql_job/package_file_transfer' => 'pl_sql_job#package_file_transfer'
   get 'authorized_users/index' => 'authorized_users#index'
   get 'authorized_users/edit' => 'authorized_users#edit'
   get 'authorized_users/edit/:user_id' => 'authorized_users#edit'

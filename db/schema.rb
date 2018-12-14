@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180905171401) do
+ActiveRecord::Schema.define(version: 20181121214017) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -487,6 +487,34 @@ ActiveRecord::Schema.define(version: 20180905171401) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "vnd_files_gen", force: :cascade do |t|
+    t.string   "package_id"
+    t.string   "vendor_name"
+    t.integer  "seq_number"
+    t.string   "package_status"
+    t.string   "file_name"
+    t.datetime "date_created"
+    t.string   "new_file_name"
+    t.integer  "file_size_bytes"
+    t.string   "file_type"
+    t.string   "vnd_file_function"
+    t.datetime "date_extracted"
+    t.datetime "date_of_action"
+    t.datetime "date_ftpd"
+    t.datetime "date_to_load"
+    t.string   "place_to_load"
+    t.datetime "date_loaded"
+    t.string   "record_source"
+    t.string   "status_ftp"
+    t.string   "status_load"
+    t.string   "parms_used"
+    t.integer  "count_of_titles"
+    t.string   "note"
+    t.string   "remote_dir"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "vnd_packages", primary_key: "record_id", force: :cascade do |t|
     t.string   "package_id"
     t.string   "package_name"
@@ -527,6 +555,20 @@ ActiveRecord::Schema.define(version: 20180905171401) do
     t.string   "preprocess_put_script"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "vnd_runlog", force: :cascade do |t|
+    t.datetime "run_date"
+    t.string   "procedure_name"
+    t.string   "priority"
+    t.string   "message"
+    t.string   "vendor_name"
+    t.string   "action_type"
+    t.integer  "seq_number"
+    t.string   "file_name"
+    t.string   "note"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

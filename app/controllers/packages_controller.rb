@@ -1,5 +1,5 @@
 ##
-# Package controller for eloader-pkg-admin app
+# Package controller for eloader
 ##
 class PackagesController < ApplicationController
   before_action :set_package, only: %i[show edit update destroy activate deactivate]
@@ -77,6 +77,12 @@ class PackagesController < ApplicationController
       format.html { redirect_to @package, notice: 'Package was successfully removed.' }
       format.json { head :no_content }
     end
+  end
+
+  def run_tests() end
+
+  def list_transfer_logs
+    @logs = VndRunlog.all.where('run_date > ?', Time.now.getlocal - 1)
   end
 
   private

@@ -33,5 +33,13 @@ RSpec.describe PackagesController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/packages/1').to route_to('packages#destroy', id: '1')
     end
+
+    it 'routes to #run_tests' do
+      expect(get: '/packages/run_tests').to route_to('packages#run_tests')
+    end
+
+    it 'routes to #list_transfer_logs' do
+      expect(get: '/packages/list_transfer_logs').to route_to('packages#list_transfer_logs')
+    end
   end
 end
