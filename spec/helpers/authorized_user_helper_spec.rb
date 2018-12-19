@@ -9,7 +9,8 @@ describe AuthorizedUserHelper do
                                                                    accession_number
                                                                    digital_bookplates
                                                                    edi_inv_manage
-                                                                   edi_inv_view])
+                                                                   edi_inv_view
+                                                                   package_manage])
     end
   end
   describe '#authorized_apps' do
@@ -26,7 +27,8 @@ describe AuthorizedUserHelper do
                                                                 accession_number
                                                                 digital_bookplates
                                                                 edi_inv_manage
-                                                                edi_inv_view])
+                                                                edi_inv_view
+                                                                package_manage])
     end
   end
   describe '#apps_translation' do

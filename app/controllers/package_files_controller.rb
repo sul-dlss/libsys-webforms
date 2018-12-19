@@ -2,6 +2,7 @@
 # Package Files controller for eloader
 ##
 class PackageFilesController < ApplicationController
+  load_and_authorize_resource
   def queue
     @files = PackageFile.files_to_load
   end

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'packages list transfer logs' do
   before(:each) do
+    stub_current_user(FactoryBot.create(:admin_user))
     @vnd_runlog = FactoryBot.create(:vnd_runlog)
     @vnd_runlog_info = FactoryBot.create(:vnd_runlog_info)
     visit list_transfer_logs_packages_path

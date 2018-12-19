@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'package files' do
   before(:each) do
+    stub_current_user(FactoryBot.create(:admin_user))
     @package_file = FactoryBot.create(:package_file)
     @package_file_done = FactoryBot.create(:package_file_done)
     @package = FactoryBot.create(:package)
@@ -22,7 +23,11 @@ describe 'package files' do
 
   context 'completed page' do
     before(:each) do
+      stub_current_user(FactoryBot.create(:staff_user))
       visit package_files_completed_url(package_id: @package_file_done.package_id)
+    end
+    it 'returns http success for staff_user' do
+      expect(page).to have_http_status(:success)
     end
     it 'should display a table' do
       expect(page).to have_css('table>thead>tr>th', text: 'Package ID')

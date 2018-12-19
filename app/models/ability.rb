@@ -9,8 +9,9 @@ class Ability
     assign_basic_permission
     assign_user_permission if current_user
     assign_batch_permission if /A|Y/ =~ current_user.unicorn_updates
-    alias_action :queue, :completed, to: :read
+    alias_action :queue, :completed, :recent, to: :read
     alias_action :menu, to: :read
+    alias_action :activate, :deactivate, :run_tests, to: :manage
   end
 
   def assign_basic_permission
@@ -32,7 +33,8 @@ class Ability
     can :read, EdiInvoice if /Y/ =~ current_user.edi_inv_view
     can :manage, EdiInvoice if /A|Y/ =~ current_user.edi_inv_manage
     can :manage, EdiErrorReport if /A|Y/ =~ current_user.edi_inv_manage
-    can :manage, Package if /A|Y/ =~ current_user.package_manage
+    can :read, Package if /A|Y/ =~ current_user.package_manage
+    can :read, PackageFile if /A|Y/ =~ current_user.package_manage
   end
 
   def assign_admin_permission(current_user)
@@ -40,6 +42,8 @@ class Ability
     app = AuthorizedUsersController.helpers.administrator_apps(current_user)
     can :manage, AuthorizedUser if app.any?
     can :delete_batch, DigitalBookplatesBatch if /A/ =~ current_user.digital_bookplates
+    can %i[manage list_transfer_logs], Package if /A/ =~ current_user.package_manage
+    can :read, VndRunlog if /A/ =~ current_user.package_manage
   end
 
   def assign_batch_permission

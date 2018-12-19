@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PackagesController, type: :controller do
   before do
+    stub_current_user(FactoryBot.create(:admin_user))
     @package = FactoryBot.create(:package)
   end
   let(:valid_attributes) do

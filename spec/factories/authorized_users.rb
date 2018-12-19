@@ -43,6 +43,7 @@ FactoryBot.define do
     f.digital_bookplates 'A'
     f.edi_inv_view 'A'
     f.edi_inv_manage 'A'
+    f.package_manage 'A'
   end
   factory :staff_user, class: AuthorizedUser do |f|
     f.user_id 'staff_user'
@@ -66,6 +67,7 @@ FactoryBot.define do
     f.digital_bookplates 'Y'
     f.edi_inv_view 'Y'
     f.edi_inv_manage 'Y'
+    f.package_manage 'Y'
   end
   factory :blank_user, class: AuthorizedUser do |f|
     f.user_id 'blank_user'
