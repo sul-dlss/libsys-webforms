@@ -47,7 +47,6 @@ Rails.application.routes.draw do
       get :list_transfer_logs, on: :collection
     end
   end
-  resources :url_exclusions
 
   get 'shelf_selection_reports/home_locations' => 'shelf_selection_reports#home_locations', as: :home_locations_for_library
   get 'shelf_selection_reports/load_saved_options' => 'shelf_selection_reports#load_saved_options', as: :load_saved_options
