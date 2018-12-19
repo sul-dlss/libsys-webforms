@@ -62,4 +62,8 @@ module ApplicationHelper
     cyc = ('2000'..financial_year).to_a.reverse
     cyc.push('9899', '9798', '9697')
   end
+
+  def restrict_to_development_or_test
+    return true if Rails.env.development? || Rails.env.test?
+  end
 end

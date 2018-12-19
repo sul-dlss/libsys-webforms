@@ -46,4 +46,8 @@ class ApplicationController < ActionController::Base
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = 'Fri, 01 Jan 1990 00:00:00 GMT'
   end
+
+  def restrict_to_development_or_test
+    head(:bad_request) unless Rails.env.development? || Rails.env.test?
+  end
 end
