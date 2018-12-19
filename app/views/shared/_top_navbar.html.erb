@@ -21,3 +21,9 @@
 
 <div class="topnav-divider">
 </div>
+
+<% if restrict_to_development_or_test %>
+  <div class='topnav-below-divider'>
+    <h4>Test system</h4>
+  </div>
+<% end %>
