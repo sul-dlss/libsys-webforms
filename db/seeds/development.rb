@@ -67,6 +67,25 @@ dates.each do |fy, min, max|
   ExpendituresFyDate.create(fy: fy, min_paydate: min, max_paydate: max)
 end
 
+AuthorizedUser.delete_all
+def admin_user_attrs
+  exclude = ['id', 'user_id', 'user_name', 'updated_at', 'created_at']
+  admin_attrs = AuthorizedUser.column_names - exclude
+  admin_user = {}
+  admin_attrs.each do |attr|
+    admin_user[attr]='A'
+  end
+  admin_user
+end
+
+user = AuthorizedUser.new(
+  user_id: 'admin',
+  user_name: 'Administrator'
+)
+
+user.attributes = admin_user_attrs
+user.save
+
 UrlExclusion.delete_all
 UrlExclusion.create!(id: 1, url_substring: 'proxy')
 UrlExclusion.create!(id: 2, url_substring: 'encompass.library.cornell.edu')
