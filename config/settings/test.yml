@@ -13,7 +13,6 @@ pl_sql_jobs:
       - 'jgreben'
       - 'dlrueda'
       - 'sdoljack'
-      - 'mahmed'
   delphi_pay_test_job:
     text: 'Delphi payment test run'
     confirm: 'Delphi payment test run started'
@@ -23,4 +22,67 @@ pl_sql_jobs:
       - 'jgreben'
       - 'dlrueda'
       - 'sdoljack'
-      - 'mahmed'
+package_file_transfer_pl_sql_jobs:
+  list_afs:
+    text: 'Do AFS List'
+    confirm: 'Do AFS list started'
+    command: 'vnd_get_gen_files_list.do_afs_list'
+    desc: 'Get file names for all AFS directories that are ready to process and enter them into the VND_FILES_GEN table.'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'ahafele'
+  get_afs:
+    text: 'Do AFS Get'
+    confirm: 'Do AFS get started'
+    command: 'vnd_afs_files.vnd_do_afs_gen'
+    desc: 'Transfer AFS files listed in the VND_FILES_GEN table that are ready to process.'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'ahafele'
+  list_ftp:
+    text: 'Do FTP List'
+    confirm: 'Do FTP list started'
+    command: 'vnd_get_gen_files_list.do_ftp_list'
+    desc: 'Get file names from all FTP sites that are ready to process and enter them into the VND_FILES_GEN table.'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'ahafele'
+  get_ftp:
+    text: 'Do FTP Get'
+    confirm: 'Do FTP get started'
+    command: 'vnd_afs_files.vnd_do_ftp_gen'
+    desc: 'FTP files listed in the VND_FILES_GEN table that are ready to process.
+           Note that this action may take a long time, since it is fetching data from one or more remote sites.'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'ahafele'
+package_load_pl_sql_jobs:
+  do_load:
+    text: 'Load all to Symphony'
+    confirm: 'Load all to Symphony started'
+    command: 'vnd_load_data_eload.do_load'
+    desc: 'Load into Symphony all files that are ready to process.'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'ahafele'
+  do_false_load:
+    text: 'Test load with no Symphony update'
+    confirm: 'Test load with no updates started'
+    command: 'vnd_load_data_eload.do_load(false)'
+    desc: 'Tests record sorting script, and preprocess script(s) if any, but stops before any Symphony updates.
+           Also deletes table row(s) for the file(s), so a retest of the same file must start with FTP/AFS list again.'
+    sunet_ids:
+      - 'jgreben'
+      - 'dlrueda'
+      - 'sdoljack'
+      - 'ahafele'
