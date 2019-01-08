@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :circulation_statistics_report_format do
-    format 'EQUIP'
+    format { 'EQUIP' }
   end
 end

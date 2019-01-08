@@ -1,75 +1,75 @@
 FactoryBot.define do
   factory :expenditures do
-    row_date '14-JUL-16'
-    review_date '14-JUL-16'
-    ta_inv_line_key 1
-    ta_fund_code '1065089-103-AABNK'
-    ta_fund_total_paid 100
-    ta_gl_code ''
-    ta_ord_line_key 1
-    ta_inv_key 1
-    ta_date_2encina '14-JUL-16'
-    ta_encina_key ''
-    ta_invoice_total_withtax 100
-    ta_tax_total 100
-    ta_taxtype_flag ''
-    ta_vend_inv_date '14-JUL-16'
-    ta_vend_inv_num   ''
-    ti_inv_lib        ''
-    ti_inv_line_note  ''
-    ti_inv_line_num   ''
-    ti_inv_line_total_us 100
-    ti_unicorn_inv_num  ''
-    ti_inv_line_type    ''
-    ti_inv_line_total_vendor 100
-    ti_fiscal_cycle     ''
-    ti_vendor_alpha_id  ''
-    to_order_id         ''
-    to_order_line_num 1
-    to_ord_key 1
-    to_order_line_control_type ''
-    to_order_line_copies 1
-    to_order_line_cre_date '14-JUL-16'
-    to_order_line_dollars_paid 100
-    to_order_line_seg_type ''
-    ts_date_mailed '14-JUL-16'
-    ol_selector ''
-    ol_cat_key  '1234567'
-    ol_call_seq ''
-    ds_hold_code ''
-    d2_hldc_lib ''
-    d2_hldc_loc ''
-    d2_hldc_type ''
-    sc_lib ''
-    sc_id ''
-    sc_cat1 ''
-    sc_cat2 ''
-    or_create_date '14-JUL-16'
-    ca_title  ''
-    ca_author ''
-    ca_year ''
-    ca_place ''
-    ca_lang ''
-    ca_pub260 ''
-    cn_callnum  ''
-    vn_name_key ''
-    fn_name_key ''
-    fn_level1 ''
-    fn_level2 ''
-    fn_level3 ''
-    fn_level4 ''
-    fn_fund_key ''
-    fg_funding_key  ''
-    fg_fundcyc_key  ''
-    ca_fmt  ''
-    ca_020  ''
-    ca_022  ''
-    ca_024  ''
-    ca_series ''
-    ca_962 ''
-    cn_shlv_key ''
-    ol_volume ''
-    i_created_by  ''
-    i_modified_by ''
+    row_date { '14-JUL-16' }
+    review_date { '14-JUL-16' }
+    ta_inv_line_key { 1 }
+    ta_fund_code { '1065089-103-AABNK' }
+    ta_fund_total_paid { 100 }
+    ta_gl_code { '' }
+    ta_ord_line_key { 1 }
+    ta_inv_key { 1 }
+    ta_date_2encina { '14-JUL-16' }
+    ta_encina_key { '' }
+    ta_invoice_total_withtax { 100 }
+    ta_tax_total { 100 }
+    ta_taxtype_flag { '' }
+    ta_vend_inv_date { '14-JUL-16' }
+    ta_vend_inv_num   { '' }
+    ti_inv_lib        { '' }
+    ti_inv_line_note  { '' }
+    ti_inv_line_num   { '' }
+    ti_inv_line_total_us { 100 }
+    ti_unicorn_inv_num  { '' }
+    ti_inv_line_type    { '' }
+    ti_inv_line_total_vendor { 100 }
+    ti_fiscal_cycle     { '' }
+    ti_vendor_alpha_id  { '' }
+    to_order_id         { '' }
+    to_order_line_num { 1 }
+    to_ord_key { 1 }
+    to_order_line_control_type { '' }
+    to_order_line_copies { 1 }
+    to_order_line_cre_date { '14-JUL-16' }
+    to_order_line_dollars_paid { 100 }
+    to_order_line_seg_type { '' }
+    ts_date_mailed { '14-JUL-16' }
+    ol_selector { '' }
+    ol_cat_key  { '1234567' }
+    ol_call_seq { '' }
+    ds_hold_code { '' }
+    d2_hldc_lib { '' }
+    d2_hldc_loc { '' }
+    d2_hldc_type { '' }
+    sc_lib { '' }
+    sc_id { '' }
+    sc_cat1 { '' }
+    sc_cat2 { '' }
+    or_create_date { '14-JUL-16' }
+    ca_title  { '' }
+    ca_author { '' }
+    ca_year { '' }
+    ca_place { '' }
+    ca_lang { '' }
+    ca_pub260 { '' }
+    cn_callnum  { '' }
+    vn_name_key { '' }
+    fn_name_key { '' }
+    fn_level1 { '' }
+    fn_level2 { '' }
+    fn_level3 { '' }
+    fn_level4 { '' }
+    fn_fund_key { '' }
+    fg_funding_key  { '' }
+    fg_fundcyc_key  { '' }
+    ca_fmt  { '' }
+    ca_020  { '' }
+    ca_022  { '' }
+    ca_024  { '' }
+    ca_series { '' }
+    ca_962 { '' }
+    cn_shlv_key { '' }
+    ol_volume { '' }
+    i_created_by  { '' }
+    i_modified_by { '' }
   end
 end
