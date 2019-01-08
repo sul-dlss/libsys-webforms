@@ -1,0 +1,42 @@
+<table class='table table-striped'>
+  <tbody>
+    <% @logs.each do |log| %>
+    <tr class='<%= cycle("odd", "even") %>'>
+      <td>
+        <table>
+          <tbody>
+            <tr>
+              <td class='col-sm-2'><strong>Run date/time</strong></td>
+              <td class='col-sm-10'><%= log.run_date.strftime('%b-%d-%Y %l:%M %p') %></td>
+            </tr>
+            <tr>
+              <td class='col-sm-2'><strong>Procedure name</strong></td>
+              <td class='col-sm-10'><%= log.procedure_name %></td>
+            </tr>
+            <tr>
+              <td class='col-sm-2'><strong>Message</strong></td>
+              <td class='col-sm-10'><%= log.message %></td>
+            </tr>
+            <tr>
+              <td class='col-sm-2'><strong>Vendor name</strong></td>
+              <td class='col-sm-10'><%= log.vendor_name %></td>
+            </tr>
+            <tr>
+              <td class='col-sm-2'><strong>Action type</strong></td>
+              <td class='col-sm-10'><%= log.action_type %></td>
+            </tr>
+            <tr>
+              <td class='col-sm-2'><strong>File name</strong></td>
+              <td class='col-sm-10'><%= log.file_name %></td>
+            </tr>
+            <tr>
+              <td class='col-sm-2'><strong>Note</strong></td>
+              <td class='col-sm-10'><%= log.note %></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,44 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "package_files.js" %>
+<% end %>
+<h1>Files loaded for <em><%= @package.package_name %></em></h1>
+
+<div class ='nav-buttons'>
+  <ul class='nav nav-pills'>
+    <li><%= link_to 'Package list', packages_path, class: 'btn btn-md btn-default  btn-full' %></li>
+    <% if can? :manage, Package %>
+      <li><%= link_to 'Add package', new_package_path, class: 'btn btn-md btn-default btn-full' %></li>
+      <% if restrict_to_development_or_test %>
+        <li><%= link_to 'Run tests', run_tests_packages_path, class: 'btn btn-md btn-default btn-full' %></li>
+      <% end %>
+    <% end %>
+    <li><%= link_to 'Exclude URL List', url_exclusions_path, class: 'btn btn-md btn-default btn-full' %></li>
+  </ul>
+</div>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Package ID</th>
+      <th>Vendor</th>
+      <th>Status</th>
+      <th>File Name</th>
+      <th>Date of Action</th>
+      <th>Transfer Status</th>
+      <th>Load Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @files.each do |file| %>
+      <tr>
+        <td><%= file.package_id %></td>
+        <td><%= file.vendor_name %></td>
+        <td><%= file.package_status %></td>
+        <td><%= file.new_file_name %></td>
+        <td><%= file.date_of_action.strftime('%b-%d-%Y %l:%M %p') %></td>
+        <td><%= file.status_ftp %></td>
+        <td><%= file.status_load %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

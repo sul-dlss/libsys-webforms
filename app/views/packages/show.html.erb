@@ -1,8 +1,9 @@
 <h3>Details for <em><%= @package.package_name %></em></h3>
+<% if can? :manage, Package %>
+  <%= link_to 'Edit package', edit_package_path(@package), class: 'btn btn-md btn-default' %>
 
-<%= link_to 'Edit package', edit_package_path(@package), class: 'btn btn-md btn-default' %>
-
-<%= link_to 'Delete package', @package, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-warning' %>
+  <%= link_to 'Delete package', @package, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-md btn-warning' %>
+<% end %>
 
 <h3>Package information</h3>
 <table class='table table-striped'>

@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :package do |f|
-    f.package_name 'Some package name'
-    f.vendor_name 'Some vnd name'
+    f.package_name 'Theatre in Video'
+    f.vendor_name 'Alexander Street Press'
     f.record_id 1
-    f.package_id 'np'
-    f.package_status 'something'
+    f.package_id 'tv'
+    f.package_status 'Active'
     f.data_pickup_type 'AFS'
-    f.afs_path 'something'
+    f.afs_path 'TheatreVideo'
     f.ftp_server 'something'
     f.ftp_user 'something'
     f.ftp_password 'something'
