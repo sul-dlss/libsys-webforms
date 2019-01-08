@@ -4,7 +4,6 @@
 class PackagesController < ApplicationController
   load_and_authorize_resource
   before_action :set_package, only: %i[show edit update destroy activate deactivate]
-  before_action :restrict_to_development_or_test, only: %i[run_tests list_transfer_logs]
 
   # GET /packages
   # GET /packages.json

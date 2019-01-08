@@ -11,7 +11,7 @@ class Ability
     assign_batch_permission if /A|Y/ =~ current_user.unicorn_updates
     alias_action :queue, :completed, :recent, to: :read
     alias_action :menu, to: :read
-    alias_action :activate, :deactivate, :run_tests, to: :manage
+    alias_action :activate, :deactivate, to: :manage
   end
 
   def assign_basic_permission
@@ -42,7 +42,12 @@ class Ability
     app = AuthorizedUsersController.helpers.administrator_apps(current_user)
     can :manage, AuthorizedUser if app.any?
     can :delete_batch, DigitalBookplatesBatch if /A/ =~ current_user.digital_bookplates
-    can %i[manage list_transfer_logs], Package if /A/ =~ current_user.package_manage
+    can :manage, Package if /A/ =~ current_user.package_manage
+    if dev_test_env? && /A/ =~ current_user.package_manage
+      can %i[run_tests list_transfer_logs], Package
+    else
+      cannot %i[run_tests list_transfer_logs], Package
+    end
     can :read, VndRunlog if /A/ =~ current_user.package_manage
   end
 
@@ -53,5 +58,9 @@ class Ability
     can :manage, ChangeHomeLocation
     can :manage, WithdrawItem
     can :manage, TransferItem
+  end
+
+  def dev_test_env?
+    return true if Rails.env.development? || Rails.env.test?
   end
 end
