@@ -47,6 +47,10 @@
 }
 // scss-lint:enable ColorVariable
 
+.topnav-below-divider {
+  padding-left: 10px;
+}
+
 @media screen and (max-width: $screen-xs-max) {
   #topnav {
     padding-left: 10px;
