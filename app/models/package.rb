@@ -4,6 +4,9 @@
 class Package < ActiveRecord::Base
   self.table_name = 'vnd_packages'
   self.primary_key = 'record_id'
+  # sets sequence name because it doesn't follow the Oracle default sequence
+  # name pattern: #{table_name}_seq
+  self.sequence_name = 'vnd_packages_id_seq'
 
   attr_accessor :url_substring, :link_text, :provider_name, :collection_name, :access_type, :no_ftp_search
 
