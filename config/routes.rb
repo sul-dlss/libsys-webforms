@@ -76,6 +76,8 @@ Rails.application.routes.draw do
   get 'by_location' => 'accession_number_updates#by_location'
   get 'by_resource_type' => 'accession_number_updates#by_resource_type'
 
+  get 'test_packages/show' => 'test_packages#show'
+  get 'test_packages/show/:package_id' => 'test_packages#show'
   get 'package_files/queue' => 'package_files#queue'
   get 'package_files/completed' => 'package_files#completed'
   get 'vnd_runlogs/recent' => 'vnd_runlogs#recent'

@@ -66,4 +66,8 @@ module ApplicationHelper
   def restrict_to_development_or_test
     return true if Rails.env.development? || Rails.env.test?
   end
+
+  def restrict_to_production
+    return true if Rails.env.production?
+  end
 end

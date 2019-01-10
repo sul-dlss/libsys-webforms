@@ -29,6 +29,9 @@ RSpec.describe 'packages/index', type: :view do
     it 'should display a link to run test loads' do
       assert_select 'a', text: 'Run tests'.to_s, href: '/packages/run_tests'.to_s
     end
+    it 'should not display copy package settings form in test environment' do
+      expect(rendered).to_not have_css('a', text: 'Copy package settings from test')
+    end
   end
 
   context 'for eloader package management staff user' do

@@ -19,7 +19,17 @@ class PackagesController < ApplicationController
 
   # GET /packages/new
   def new
-    @package = Package.new
+    if params.key?(:package_id)
+      @test_package = TestPackage.find_by(package_id: params[:package_id])
+      if @test_package
+        @package = Package.new(@test_package.attributes.slice(*Package.attribute_names - ['record_id']))
+      else
+        flash[:error] = 'Package ID doesn\'t exists!'
+        redirect_to packages_path
+      end
+    else
+      @package = Package.new
+    end
   end
 
   # GET /packages/1/edit
