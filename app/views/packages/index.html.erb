@@ -12,6 +12,23 @@
     <% end %>
   </ul>
 </div>
+<% if restrict_to_production %>
+  <br />
+  <div class='panel-group' id='accordion' role='tablist'>
+    <div class='panel panel-default'>
+      <div class='panel-heading' role='tab' id='headingOne'>
+        <h4 class='panel-title'>
+          <a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseOne' aria-expanded='false' aria-controls='collapseOne'>
+            Copy package settings from test
+          </a>
+        </h4>
+      </div>
+      <div id='collapseOne' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingOne'>
+        <%= render template: 'test_packages/copy_form' %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <% end %>
 
 <table class='table table-striped'>

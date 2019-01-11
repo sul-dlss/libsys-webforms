@@ -47,6 +47,7 @@ class Ability
       can %i[run_tests list_transfer_logs], Package
     else
       cannot %i[run_tests list_transfer_logs], Package
+      can :read, TestPackage if /A/ =~ current_user.package_manage
     end
     can :read, VndRunlog if /A/ =~ current_user.package_manage
   end
