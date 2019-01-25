@@ -187,7 +187,7 @@
   <div class='form-group row'>
     <%= f.label :access_note, t('activerecord.attributes.package.access_note'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
-      <%= f.select :access_note, %w(No Yes), class: 'form-control' %>
+      <%= f.select :access_note, %w(NO YES), class: 'form-control' %>
     </div>
   </div>
   <% if @package.access_urls_plats.present? %>
@@ -294,7 +294,7 @@
   <div class='form-group row'>
     <%= f.label :update_040, t('activerecord.attributes.package.update_040'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
-      <%= f.select :update_040, %w(No Yes), class: 'form-control' %>
+      <%= f.select :update_040, %w(NO YES), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
@@ -306,13 +306,13 @@
   <div class='form-group row'>
     <%= f.label :export_note, t('activerecord.attributes.package.export_note'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
-      <%= f.select :export_note, %w(No Yes), class: 'form-control' %>
+      <%= f.select :export_note, %w(NO YES), class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>
     <%= f.label :export_auth, t('activerecord.attributes.package.export_auth'), class: 'col-sm-4 form-control-label' %>
     <div class='col-sm-8'>
-      <%= f.select :export_auth, ['No', 'Yes - Weekly'], class: 'form-control' %>
+      <%= f.select :export_auth, ['NO', 'WEEKLY'], class: 'form-control' %>
     </div>
   </div>
   <div class='form-group row'>

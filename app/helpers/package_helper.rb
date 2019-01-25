@@ -30,7 +30,7 @@ module PackageHelper
   end
 
   def processing_info
-    %w(url_field vendor_id_read access_note access_urls_plats update_040
+    %w(url_field vendor_id_read vendor_id_write access_note access_urls_plats update_040
        vnd_catcode export_note export_auth date_cat holding_code encoding_level
        junktag_file preprocess_modify_script preprocess_split_script
        preprocess_put_script)
