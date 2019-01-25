@@ -42,6 +42,7 @@ en:
         match_opts: 'Fields to match incoming to Symphony records'
         url_field: 'Symphony URL destination'
         vendor_id_read: 'Vendor ID field (read)'
+        vendor_id_write: 'Vendor ID field (write)'
         access_note: 'Add access restriction note'
         access_urls_plats: 'URL substrings, with associated subfields to be added to 856 if substring found in URL'
         url_substring: 'URL substring'
