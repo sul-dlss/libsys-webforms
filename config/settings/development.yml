@@ -62,7 +62,7 @@ package_file_transfer_pl_sql_jobs:
   get_ftp:
     text: 'Do FTP Get'
     confirm: 'Do FTP get started'
-    command: 'vnd_afs_files.vnd_do_ftp_gen'
+    command: 'vnd_ftp_files.vnd_do_ftp_gen'
     desc: 'FTP files listed in the VND_FILES_GEN table that are ready to process.
            Note that this action may take a long time, since it is fetching data from one or more remote sites.'
     sunet_ids:
