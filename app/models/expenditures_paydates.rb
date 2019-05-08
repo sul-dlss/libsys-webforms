@@ -1,7 +1,7 @@
 ###
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
-class ExpendituresPaydates < ActiveRecord::Base
+class ExpendituresPaydates < ApplicationRecord
   attr_accessor :date_range
   self.table_name = 'expenditures_paydates'
 

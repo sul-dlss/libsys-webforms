@@ -1,7 +1,7 @@
 ###
 # Accession numbers for cataloging
 ###
-class AccessionNumber < ActiveRecord::Base
+class AccessionNumber < ApplicationRecord
   self.table_name = 'catnums'
   self.primary_key = 'id'
 

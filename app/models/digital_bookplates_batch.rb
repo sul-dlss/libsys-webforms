@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the DIGITAL_BOOKPLATES_BATCH table
 ###
-class DigitalBookplatesBatch < ActiveRecord::Base
+class DigitalBookplatesBatch < ApplicationRecord
   self.table_name = 'digital_bookplates_batches'
   self.primary_key = 'batch_id'
   attr_accessor :file_obj

@@ -1,5 +1,5 @@
 # app/models/uni_libs_locs.rb
-class UniLibsLocs < ActiveRecord::Base
+class UniLibsLocs < ApplicationRecord
   self.table_name = 'uni_libs_locs'
 
   def self.libraries

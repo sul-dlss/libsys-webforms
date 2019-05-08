@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the SAL3_BATCH_REQUESTS_BATCH table in Symphony
 ###
-class Sal3BatchRequestsBatch < ActiveRecord::Base
+class Sal3BatchRequestsBatch < ApplicationRecord
   include FileParser
 
   validates :bc_file, presence: { message: 'You must upload a file of barcodes' }, on: :create

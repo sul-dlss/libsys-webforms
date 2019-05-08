@@ -1,5 +1,5 @@
 # Model for the Edi Error Report table
-class EdiErrorReport < ActiveRecord::Base
+class EdiErrorReport < ApplicationRecord
   # so we can use the database table column name 'type' which is normally a reserved keyword
   # which rails uses to define the subclass of a model that should be loaded.
   self.inheritance_column = 'inheritance_type'

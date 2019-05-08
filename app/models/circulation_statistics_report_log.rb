@@ -1,5 +1,5 @@
 # app/models/circulation_statistics_report_log.rb
-class CirculationStatisticsReportLog < ActiveRecord::Base
+class CirculationStatisticsReportLog < ApplicationRecord
   self.table_name = 'circ_stats_rpt_log'
 
   def self.save_stats(circ_stats)

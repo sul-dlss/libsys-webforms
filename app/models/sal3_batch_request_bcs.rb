@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the UNI_UPDATES table in Symphony
 ###
-class Sal3BatchRequestBcs < ActiveRecord::Base
+class Sal3BatchRequestBcs < ApplicationRecord
   self.table_name = 'sal3_batch_requests_bcs'
   self.primary_key = 'batch_id'
   belongs_to :sal3_batch_requests_batch, foreign_key: 'batch_id', class_name: Sal3BatchRequestsBatch, inverse_of: false

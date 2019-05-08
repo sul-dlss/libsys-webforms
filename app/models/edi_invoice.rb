@@ -1,5 +1,5 @@
 # Model for EDI Invoice
-class EdiInvoice < ActiveRecord::Base
+class EdiInvoice < ApplicationRecord
   scope :vendfilter, lambda { |vend|
     vend == 'ALL' ? vend = edi_vend_id : vend
     where(edi_vend_id: vend)

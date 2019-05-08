@@ -1,5 +1,5 @@
 # Model for EDI_LIN table
-class EdiLin < ActiveRecord::Base
+class EdiLin < ApplicationRecord
   self.table_name = 'edi_lin'
 
   def self.primary_key
