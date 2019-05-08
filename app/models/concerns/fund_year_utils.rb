@@ -44,8 +44,8 @@ module FundYearUtils
   def write_fy_start(year)
     begin
       fy_val = ExpendituresFyDate.find(year).min_paydate.strftime('%Y-%^b-%d')
-    rescue ActiveRecord::RecordNotFound => error
-      raise error
+    rescue ActiveRecord::RecordNotFound => e
+      raise e
     end
     write_range_start(fy_val)
   end
@@ -53,8 +53,8 @@ module FundYearUtils
   def write_fy_end(year)
     begin
       fy_end = ExpendituresFyDate.find(year).max_paydate.strftime('%Y-%^b-%d')
-    rescue ActiveRecord::RecordNotFound => error
-      raise error
+    rescue ActiveRecord::RecordNotFound => e
+      raise e
     end
     write_range_end(fy_end)
   end

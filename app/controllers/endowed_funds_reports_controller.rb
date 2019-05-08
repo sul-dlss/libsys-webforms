@@ -22,7 +22,7 @@ class EndowedFundsReportsController < ApplicationController
     @endowed_funds_report = EndowedFundsReport.new(batch_params)
     if @endowed_funds_report.valid?
       # write keys to file to Symphony mount [/symphony] on libsys-webforms-dev
-      if keys.any?
+      if keys.present?
         @endowed_funds_report.write_keys(keys)
         flash[:success] = 'Report requested!'
         redirect_to root_path

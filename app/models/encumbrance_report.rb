@@ -1,7 +1,7 @@
 ###
 # Class to model the Encumberances Report table
 ###
-class EncumbranceReport < ActiveRecord::Base
+class EncumbranceReport < ApplicationRecord
   attr_accessor :fund_select, :show_dates, :fund, :fund_begin, :email,
                 :date_ran, :date_request, :output_file
 

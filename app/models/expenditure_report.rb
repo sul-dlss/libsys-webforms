@@ -1,7 +1,7 @@
 ###
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
-class ExpenditureReport < ActiveRecord::Base
+class ExpenditureReport < ApplicationRecord
   include FundYearUtils
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_ran, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end, :output_file

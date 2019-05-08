@@ -1,5 +1,5 @@
 # app/models/shelf_sel_item_cat1.rb
-class ShelfSelItemCat1 < ActiveRecord::Base
+class ShelfSelItemCat1 < ApplicationRecord
   self.table_name = 'shelf_sel_item_cat1s'
 
   def self.item_category1s

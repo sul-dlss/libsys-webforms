@@ -1,7 +1,7 @@
 ###
 # User for authentication and authorization
 ###
-class AuthorizedUser < ActiveRecord::Base
+class AuthorizedUser < ApplicationRecord
   include AuthorizedUserHelper
   self.table_name = 'authorized_user'
   self.primary_key = 'user_id'
@@ -14,7 +14,11 @@ class AuthorizedUser < ActiveRecord::Base
 
   def app_user?
     # No Y or A in any AuthorizedUser table column.
-    non_admin_user? && admin_user?
+    if non_admin_user? && admin_user?
+      true
+    else
+      throw(:abort)
+    end
   end
 
   def non_admin_user?

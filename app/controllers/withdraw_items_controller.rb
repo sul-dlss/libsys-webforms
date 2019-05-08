@@ -1,12 +1,13 @@
 # Controller for the withdrawal of items from the database
 class WithdrawItemsController < ApplicationController
   load_and_authorize_resource
+
   def new
     @withdraw_item = WithdrawItem.new
   end
 
   def create
-    @withdraw_item = WithdrawItem.new(params[:withdraw_item])
+    @withdraw_item = WithdrawItem.new(withdraw_item_params)
     if @withdraw_item.valid?
       array_of_item_ids = @withdraw_item.parse_uploaded_file
       filtered_item_ids = UniUpdates.filter_duplicates(array_of_item_ids)
@@ -20,5 +21,11 @@ class WithdrawItemsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  private
+
+  def withdraw_item_params
+    params.require(:withdraw_item).permit(:current_library, :item_ids)
   end
 end

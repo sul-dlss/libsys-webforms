@@ -41,7 +41,7 @@ class PackagesController < ApplicationController
     update_special_attributes
     # vendor_id_write isn't actually used by vnd_load_data_eload but the value
     # 001 is written to the table
-    package_params.store(:vendor_id_write, '001')
+    package_params[:vendor_id_write] = '001'
     @package = Package.new(package_params)
     respond_to do |format|
       if @package.save

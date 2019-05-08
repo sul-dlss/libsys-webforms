@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the VND_PACKAGES table
 ###
-class Package < ActiveRecord::Base
+class Package < ApplicationRecord
   self.table_name = 'vnd_packages'
   self.primary_key = 'record_id'
   # sets sequence name because it doesn't follow the Oracle default sequence

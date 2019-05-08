@@ -7,8 +7,9 @@ describe 'shared/_top_navbar.html.erb' do
     stub_webauth_user_for_view {}
     render
   end
+
   describe 'login link' do
-    it 'should have a login link if there is no user' do
+    it 'has a login link if there is no user' do
       expect(rendered).to have_css('a', text: 'Login')
     end
   end

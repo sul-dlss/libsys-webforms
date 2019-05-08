@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'packages/new', type: :view do
-  before(:each) do
+  before do
     @package = FactoryBot.create(:package)
   end
 

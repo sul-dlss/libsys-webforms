@@ -8,7 +8,7 @@ RSpec.describe ShelfSelectionItemType, type: :model do
 
     it 'returns a list of item types' do
       FactoryBot.create(:shelf_selection_item_type)
-      expect(ShelfSelectionItemType.item_types).to eq(['All Item Types', 'ATLAS'])
+      expect(described_class.item_types).to eq(['All Item Types', 'ATLAS'])
     end
   end
 end

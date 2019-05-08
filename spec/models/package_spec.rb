@@ -4,44 +4,96 @@ RSpec.describe Package, type: :model do
   before do
     @package = FactoryBot.create(:package)
   end
+
   it 'has a valid factory' do
     expect(@package).to be_valid
   end
-  it 'has an immutable package_id' do
-    @package.update(package_id: 'id')
-    expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
-    expect(@package.errors.full_messages).to eq(['Package ID is marked as readonly.'])
+
+  describe 'package id is immutable' do
+    before do
+      @package.update(package_id: 'id')
+    end
+
+    it 'raises an error' do
+      expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+    it 'provides an error message' do
+      expect(@package.errors.full_messages).to eq(['Package ID is marked as readonly.'])
+    end
   end
-  it 'adds an error when afs_path is not present for AFS data_pickup_type' do
-    @package.update(afs_path: '')
-    expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
-    expect(@package.errors.full_messages).to eq(['AFS directory path cannot be empty.'])
-    expect(@package).to_not be_valid
+
+  describe 'afs_path is not present for AFS data_pickup_type' do
+    before do
+      @package.update(afs_path: '')
+    end
+
+    it 'raises an error' do
+      expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+    it 'validated the package' do
+      expect(@package).not_to be_valid
+    end
+    it 'provides an error message' do
+      expect(@package.errors.full_messages).to eq(['AFS directory path cannot be empty.'])
+    end
   end
-  it 'adds an error when FTP information is not present for FTP data_pickup_type' do
-    @package.update(data_pickup_type: 'FTP')
-    @package.update(ftp_server: '')
-    expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
-    expect(@package.errors.full_messages).to eq(['FTP server cannot be empty.'])
+
+  describe 'when FTP information is not present for FTP data_pickup_type' do
+    before do
+      @package.update(data_pickup_type: 'FTP')
+      @package.update(ftp_server: '')
+    end
+
+    it 'raises an error' do
+      expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+    it 'adds an error message' do
+      expect(@package.errors.full_messages).to eq(['FTP server cannot be empty.'])
+    end
   end
-  it 'adds an error when AFS and FTP information is not present for FTP to AFS data_pickup_type' do
-    @package.update(data_pickup_type: 'FTP to AFS')
-    @package.update(afs_path: '')
-    @package.update(ftp_server: '')
-    expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
-    expect(@package.errors.full_messages).to eq(['AFS directory path cannot be empty.',
-                                                 'FTP server cannot be empty.',
-                                                 'FTP to AFS download directory path cannot be empty.'])
+
+  describe 'when AFS and FTP information is not present for FTP to AFS data_pickup_type' do
+    before do
+      @package.update(data_pickup_type: 'FTP to AFS')
+      @package.update(afs_path: '')
+      @package.update(ftp_server: '')
+    end
+
+    it 'raises an error' do
+      expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+    it 'adds an error message' do
+      expect(@package.errors.full_messages).to eq(['AFS directory path cannot be empty.',
+                                                   'FTP server cannot be empty.',
+                                                   'FTP to AFS download directory path cannot be empty.'])
+    end
   end
-  it 'adds an error when FTP to AFS download directory path is not present for FTP to AFS data_pickup_type' do
-    @package.update(data_pickup_type: 'FTP to AFS')
-    @package.update(put_file_loc: '')
-    expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
-    expect(@package.errors.full_messages).to eq(['FTP to AFS download directory path cannot be empty.'])
+
+  describe 'when FTP to AFS download directory path is not present for FTP to AFS data_pickup_type' do
+    before do
+      @package.update(data_pickup_type: 'FTP to AFS')
+      @package.update(put_file_loc: '')
+    end
+
+    it 'raises an error' do
+      expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+    it 'adds an error message' do
+      expect(@package.errors.full_messages).to eq(['FTP to AFS download directory path cannot be empty.'])
+    end
   end
-  it 'adds an error when match_opts is empty but proc_type is newmerge or mergeonly' do
-    @package.update(match_opts: nil)
-    expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
-    expect(@package.errors.full_messages).to eq(["#{Package.human_attribute_name('match_opts')} cannot be empty."])
+
+  describe 'when match_opts is empty but proc_type is newmerge or mergeonly' do
+    before do
+      @package.update(match_opts: nil)
+    end
+
+    it 'raises an error' do
+      expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+    it 'adds an error message' do
+      expect(@package.errors.full_messages)
+        .to eq(["#{described_class.human_attribute_name('match_opts')} cannot be empty."])
+    end
   end
 end

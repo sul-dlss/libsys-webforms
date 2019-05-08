@@ -24,6 +24,6 @@ class BatchRecordUpdatesController < ApplicationController
   end
 
   def show_batches_complete
-    @batches_complete = UniUpdatesBatch.joins(:uni_updates).where('uni_updates_batch.pending is null').uniq
+    @batches_complete = UniUpdatesBatch.joins(:uni_updates).where('uni_updates_batch.pending is null').distinct
   end
 end

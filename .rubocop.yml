@@ -1,9 +1,10 @@
-Rails:
-  Enabled: true
+require:
+ - rubocop-performance
+ - rubocop-rails
+ - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.3
-  TargetRailsVersion: 4.2
+  TargetRubyVersion: 2.6
   Exclude:
     - 'Gemfile'
     - 'bin/**/*'
@@ -26,7 +27,7 @@ Lint/UnusedBlockArgument:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 100
+  Max: 101
 
 Metrics/LineLength:
   Max: 120
@@ -52,6 +53,24 @@ Metrics/AbcSize:
 
 Metrics/ParameterLists:
   Max: 6
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'app/models/edi_lin.rb'
+
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/views/shared/_top_navbar.html.erb_spec.rb'
+
+RSpec/ExampleLength:
+  Max: 8
+
+RSpec/InstanceVariable:
+  Enabled: false
 
 Style/PercentLiteralDelimiters:
   Enabled: false

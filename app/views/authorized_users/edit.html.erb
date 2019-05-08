@@ -1,6 +1,6 @@
 <h2>Edit Authorized User</h2>
 <div class="div-table">
-  <%= form_for @authorized_user, class: 'form-group',
+  <%= form_for @edit, class: 'form-group',
       :url => {
         :action => :update,
         :controller => :authorized_users,
@@ -9,7 +9,7 @@
   <%= render partial: 'authorized_user_header' %>
   <div class="div-table-body">
     <div class="div-table-row">
-      <% if current_user.user_id == @authorized_user.user_id %>
+      <% if current_user.user_id == @edit.user_id %>
         <div class="div-table-cell">
           <%= user_id %>
         </div>
@@ -22,7 +22,7 @@
         <%= f.text_field :user_name %>
       </div>
       <!-- disable checkbox if the value is 'A' -->
-      <% @authorized_user.attributes.each do |k,v| %>
+      <% @edit.attributes.each do |k,v| %>
         <% if administrator_apps(current_user).include?(k) %>
           <% if v == 'A' %>
             <div class="div-table-cell">
@@ -43,11 +43,11 @@
   </div>
   <% end %>
 </div>
-<% if administrator_apps(@authorized_user).empty? %>
+<% if administrator_apps(@edit).empty? %>
 <!-- only allow delete user if not admin user -->
 <div class="btn-group">
   <%= button_to 'Delete User', { action: :delete,
-                                 user_id: @authorized_user.user_id },
+                                 user_id: @edit.user_id },
                                 method: :delete,
                                 class: 'btn btn-md btn-primary btn-full' %>
 </div>

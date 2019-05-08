@@ -86,16 +86,6 @@ user = AuthorizedUser.new(
 user.attributes = admin_user_attrs
 user.save
 
-UrlExclusion.delete_all
-UrlExclusion.create!(id: 1, url_substring: 'proxy')
-UrlExclusion.create!(id: 2, url_substring: 'encompass.library.cornell.edu')
-UrlExclusion.create!(id: 3, url_substring: 'umn.edu')
-UrlExclusion.create!(id: 4, url_substring: 'e-streams.com')
-UrlExclusion.create!(id: 5, url_substring: 'public.eblib.com')
-UrlExclusion.create!(id: 6, url_substring: 'acces-distant.upmc.fr')
-UrlExclusion.create!(id: 7, url_substring: 'helicon.vuw.ac.nz')
-UrlExclusion.create!(id: 8, url_substring: 'contentreserve.com')
-
 Package.delete_all
 Package.create!(
   package_id: 'ws',

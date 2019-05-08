@@ -10,7 +10,8 @@ module OperatingSystem
   def execute_command(command)
     status, stdout, stderr = systemu(command)
     raise stderr if status.exitstatus.nonzero?
-    return stdout
+
+    stdout
   rescue StandardError
     msg = "Command failed to execute: [#{command}] caused by
           <STDERR = #{stderr}>"

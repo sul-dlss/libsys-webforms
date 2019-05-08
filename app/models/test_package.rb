@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the VND_PACKAGES table on LTRXDEV2
 ###
-class TestPackage < ActiveRecord::Base
+class TestPackage < ApplicationRecord
   establish_connection :morison if Rails.env.production?
   self.table_name = 'vnd_packages'
   self.primary_key = 'record_id'

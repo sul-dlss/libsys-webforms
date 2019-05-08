@@ -4,7 +4,8 @@ RSpec.describe ShelfSelSearchesController, type: :controller do
     it 'returns a 200 response code' do
       stub_current_user(FactoryBot.create(:authorized_user))
       FactoryBot.create(:shelf_sel_search)
-      xhr :get, :delete_saved_search, user: 'mahmed', search_name: 'Green Stacks E-F'
+      get :delete_saved_search, params: { user_name: 'mahmed',
+                                          search_name: 'Green Stacks E-F' }, xhr: true
       expect(response.status).to eq(200)
     end
   end

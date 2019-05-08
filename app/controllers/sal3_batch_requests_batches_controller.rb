@@ -46,7 +46,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
 
   def update
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
-    if @sal3_batch_requests_batch.update_attributes(sal3_batch_requests_batch_params)
+    if @sal3_batch_requests_batch.update(sal3_batch_requests_batch_params)
       flash[:success] = 'Batch updated!'
       redirect_to sal3_batch_requests_batches_path
     else
