@@ -1,9 +1,11 @@
+require: rubocop-performance
+
 Rails:
   Enabled: true
 
 AllCops:
-  TargetRubyVersion: 2.3
-  TargetRailsVersion: 4.2
+  TargetRubyVersion: 2.5
+  TargetRailsVersion: 5.0
   Exclude:
     - 'Gemfile'
     - 'bin/**/*'

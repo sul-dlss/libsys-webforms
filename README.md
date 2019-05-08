@@ -27,7 +27,7 @@ Libsys-Webforms depends on a backing Oracle production database, so when running
 
 ```ruby
 group :production, :development do
-  gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
+  gem 'activerecord-oracle_enhanced-adapter', '~> 1.7.0'
   gem 'ruby-oci8'
 end
 ```

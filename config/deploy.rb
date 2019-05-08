@@ -19,6 +19,9 @@ set :log_level, :info
 # Default value for :pty is false
 # set :pty, true
 
+# Default restart method: `passenger-config restart-app`
+set :passenger_restart_with_touch, false # Note that `nil` is NOT the same as `false` here
+
 # Default value for :linked_files is []
 set :linked_files, %w(config/secrets.yml config/database.yml config/honeybadger.yml)
 # Default value for linked_dirs is []
