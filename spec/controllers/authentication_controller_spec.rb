@@ -6,7 +6,7 @@ describe AuthenticationController do
   end
   describe 'login' do
     it 'should redirect back to the provided referrer' do
-      get :login, referrer: '/'
+      get :login, params: { referrer: '/' }
       expect(response).to redirect_to('/')
     end
     it 'should redirect back when there is no provided referrer' do

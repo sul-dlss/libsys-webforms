@@ -17,7 +17,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
     before { allow(controller).to receive(:keys).and_return(%w[123 456 789]) }
 
     it 'renders the new template if create is unsuccessful' do
-      post :create, endowed_funds_report: { fund: nil, fund_begin: nil }
+      post :create, params: { endowed_funds_report: { fund: nil, fund_begin: nil } }
       expect(response).to render_template('new')
     end
     it 'redirects to root_url if create returns and writes ckeys and is successful' do
@@ -25,7 +25,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
                  ckeys_file: 'endow123.txt' }
 
-      post :create, endowed_funds_report: params
+      post :create, params: { endowed_funds_report: params }
       expect(response).to redirect_to root_path
     end
     it 'creates the params for a symphony request using several fund strings and fiscal year dates' do
@@ -33,7 +33,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  report_format: 'n', email: 'some@one.com', fy_start: 'FY 2015',
                  ckeys_file: 'endow123.txt' }
 
-      post :create, endowed_funds_report: params
+      post :create, params: { endowed_funds_report: params }
       expect(EndowedFundsReport.new(params)).to have_attributes(fy_start: 'FY 2015')
     end
     it 'creates the params for a symphony request using fund_begin string and calendar dates' do
@@ -41,7 +41,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  email: 'some@one.com', cal_start: '2015', cal_end: '2016',
                  ckeys_file: 'endow123.txt' }
 
-      post :create, endowed_funds_report: params
+      post :create, params: { endowed_funds_report: params }
       expect(controller.date_start).to eq '2015-01-01'
       expect(controller.date_end).to eq '2016-12-31'
     end
@@ -50,7 +50,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  email: 'some@one.com', pd_start: '22-DEC-98', pd_end: '22-DEC-99',
                  ckeys_file: 'endow123.txt' }
 
-      post :create, endowed_funds_report: params
+      post :create, params: { endowed_funds_report: params }
       expect(controller.date_start).to eq '1998-12-22'
       expect(controller.date_end).to eq '1999-12-22'
     end
@@ -63,7 +63,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
                  ckeys_file: 'endow123.txt' }
 
-      post :create, endowed_funds_report: params
+      post :create, params: { endowed_funds_report: params }
       expect(response).to render_template('new')
     end
   end
@@ -75,7 +75,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
                  pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
                  ckeys_file: 'endow123.txt' }
 
-      post :create, endowed_funds_report: params
+      post :create, params: { endowed_funds_report: params }
       expect(response).to render_template('new')
     end
   end

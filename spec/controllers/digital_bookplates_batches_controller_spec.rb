@@ -42,37 +42,37 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
   end
   describe 'post#create' do
     it 'counts the number of ckeys in the uploaded file' do
-      post :create, digital_bookplates_batch: valid_attributes
+      post :create, params: { digital_bookplates_batch: valid_attributes }
       expect(DigitalBookplatesBatch.last.ckey_count).to eq(2)
     end
     it 'uses batch_id to prepend to filename of the uploaded file' do
-      post :create, digital_bookplates_batch: valid_attributes
+      post :create, params: { digital_bookplates_batch: valid_attributes }
       symphony_path = Settings.symphony_dataload_digital_bookplates
       file = "#{DigitalBookplatesBatch.last.batch_id}_#{DigitalBookplatesBatch.last.ckey_file}"
       expect(File).to exist("#{symphony_path}/#{file}")
     end
     it 'redirects to queue page on success' do
-      post :create, digital_bookplates_batch: valid_attributes
+      post :create, params: { digital_bookplates_batch: valid_attributes }
       expect(response).to redirect_to(queue_digital_bookplates_batches_path)
       expect(flash[:notice]).to be_present
     end
     it 'renders "new" template on failure' do
-      post :create, digital_bookplates_batch: invalid_attributes
+      post :create, params: { digital_bookplates_batch: invalid_attributes }
       expect(flash[:error]).to eq 'Ckey count cannot be more than 10,000.'
       expect(response).to redirect_to(add_batch_new_digital_bookplates_batch_path)
     end
   end
   describe 'delete#destroy' do
     it 'lets users delete a batch and corresponding file too' do
-      post :create, digital_bookplates_batch: valid_attributes
+      post :create, params: { digital_bookplates_batch: valid_attributes }
       test_file = DigitalBookplatesBatch.last.ckey_file
       delete_batch_id = DigitalBookplatesBatch.last.batch_id
-      expect { delete :destroy, id: delete_batch_id }.to change(DigitalBookplatesBatch, :count).by(-1)
+      expect { delete :destroy, params: { id: delete_batch_id } }.to change(DigitalBookplatesBatch, :count).by(-1)
       symphony_path = Settings.symphony_dataload_digital_bookplates
       expect(File).not_to exist("#{symphony_path}/#{test_file}")
     end
     it 'does not delete batches that have a completed_date' do
-      expect { delete :destroy, id: @completed_batch }.to change(DigitalBookplatesBatch, :count).by(0)
+      expect { delete :destroy, params: { id: @completed_batch } }.to change(DigitalBookplatesBatch, :count).by(0)
       expect(flash[:error]).to eq 'Batch cannot be deleted!'
     end
   end

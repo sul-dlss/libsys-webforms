@@ -22,13 +22,13 @@ RSpec.describe PackagesController, type: :controller do
   end
   describe 'GET #show' do
     it 'shows the package details' do
-      expect(get(:show, id: @package)).to render_template('show')
+      expect(get(:show, params: { id: @package })).to render_template('show')
     end
   end
   describe 'POST #create' do
     before do
       valid_attributes.update(package_id: 'id')
-      post :create, package: valid_attributes
+      post :create, params: { package: valid_attributes }
     end
     context 'with valid params' do
       it 'creates a new Package' do
@@ -43,7 +43,7 @@ RSpec.describe PackagesController, type: :controller do
     end
     context 'with invalid params' do
       it "re-renders the 'new' template" do
-        post :create, package: invalid_attributes
+        post :create, params: { package: invalid_attributes }
         expect(response).to render_template('new')
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe PackagesController, type: :controller do
                                 access_type: ['purchased', ''],
                                 match_opts: %w[0 020 0 776_isbn 0 0 0],
                                 no_ftp_search: '0')
-        put :update, id: @package[:id], package: valid_attributes
+        put :update, params: { id: @package[:id], package: valid_attributes }
       end
       it 'updates the requested package and redirects to the package' do
         expect(response).to redirect_to(@package)
@@ -76,27 +76,27 @@ RSpec.describe PackagesController, type: :controller do
     end
     context 'with invalid params' do
       it "re-renders the 'edit' template" do
-        put :update, id: @package[:id], package: invalid_attributes
+        put :update, params: { id: @package[:id], package: invalid_attributes }
         expect(response).to render_template('edit')
       end
     end
   end
   describe 'activate/deactivate a package' do
     it 'updates a package status and redirects to home' do
-      put :activate, id: @package[:id]
+      put :activate, params: { id: @package[:id] }
       expect(Package.find(@package[:id]).package_status).to eq('Active')
     end
     it 'updates a package status and redirects to home' do
-      put :deactivate, id: @package[:id]
+      put :deactivate, params: { id: @package[:id] }
       expect(Package.find(@package[:id]).package_status).to eq('Inactive')
     end
   end
   describe 'DELETE #destroy' do
     it 'destroys the requested package' do
-      expect { delete :destroy, id: @package[:id] }.to change(Package, :count).by(-1)
+      expect { delete :destroy, params: { id: @package[:id] } }.to change(Package, :count).by(-1)
     end
     it 'redirects to the package list' do
-      delete :destroy, id: @package[:id]
+      delete :destroy, params: { id: @package[:id] }
       expect(response).to redirect_to(:packages)
     end
   end

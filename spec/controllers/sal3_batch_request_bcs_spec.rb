@@ -14,7 +14,7 @@ RSpec.describe Sal3BatchRequestBcsController, type: :controller do
                                                                   batch_pullmon: 1,
                                                                   batch_startdate: '11-APR-18',
                                                                   batch_needbydate: '11-APR-18')
-      get 'show', id: @sal3_batch_requests_batch
+      get 'show', params: { id: @sal3_batch_requests_batch }
       expect(response).to render_template('show')
     end
   end

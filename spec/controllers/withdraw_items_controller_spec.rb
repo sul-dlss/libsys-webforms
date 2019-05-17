@@ -15,12 +15,12 @@ RSpec.describe WithdrawItemsController, type: :controller do
     end
     it 'returns 302 when withdraw_item' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      post :create, withdraw_item: { current_library: 'GREEN', item_ids: barcode_file }
+      post :create, params: { withdraw_item: { current_library: 'GREEN', item_ids: barcode_file } }
       expect(response).to have_http_status(302)
     end
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      post :create, withdraw_item: { current_library: '' }
+      post :create, params: { withdraw_item: { current_library: '' } }
       expect(response).to render_template('new')
     end
   end

@@ -5,7 +5,7 @@ RSpec.describe UniUpdatesBatchesController, type: :controller do
     before { @uni_updates_batch = FactoryBot.create(:uni_updates_batch) }
     it 'renders the requested batch' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      get :show, id: @uni_updates_batch
+      get :show, params: { id: @uni_updates_batch }
       expect(response).to render_template :show
     end
   end
@@ -14,11 +14,11 @@ RSpec.describe UniUpdatesBatchesController, type: :controller do
     before { @uni_updates_batch = FactoryBot.create(:uni_updates_batch) }
     it 'deletes the contact' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      expect { delete :destroy, id: @uni_updates_batch }.to change(UniUpdatesBatch, :count).by(-1)
+      expect { delete :destroy, params: { id: @uni_updates_batch } }.to change(UniUpdatesBatch, :count).by(-1)
     end
     it 'redirects to root_path' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      delete :destroy, id: @uni_updates_batch
+      delete :destroy, params: { id: @uni_updates_batch }
       expect(response).to redirect_to root_path
     end
   end
