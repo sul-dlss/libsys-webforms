@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe ShelfSelectionReportsController, type: :controller do
@@ -30,8 +29,8 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
     it 'redirects to root_url when params are valid' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { shelf_selection_report: { email: 'testuser@test.org', range_type: 'lc',
-                                              loc_array: 'ALL', call_lo: 'A',
-                                              format_array: ['', 'EQUIP'], itype_array: ['', 'ATLAS'] } }
+                                                        loc_array: 'ALL', call_lo: 'A',
+                                                        format_array: ['', 'EQUIP'], itype_array: ['', 'ATLAS'] } }
       expect(response).to redirect_to root_url
     end
     it 'renders the new action when params are invalid' do

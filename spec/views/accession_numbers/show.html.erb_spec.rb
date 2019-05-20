@@ -9,7 +9,7 @@ RSpec.describe 'accession_numbers/show', type: :view do
                                                     location: 'Location',
                                                     prefix: 'Prefix',
                                                     seq_num: 2
-    ))
+                                                  ))
   end
 
   it 'renders attributes in <p>' do

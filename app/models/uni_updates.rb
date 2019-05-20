@@ -34,15 +34,13 @@ class UniUpdates < ApplicationRecord
     uniques = []
     duplicates = []
     uniq_item_ids.each do |item_id|
-      begin
-        count = UniUpdates.where('item_id = ? AND load_date = trunc(sysdate)', item_id).count
-        if count.zero?
-          uniques << item_id
-        else
-          duplicates << item_id
-        end
-      rescue ActiveRecord::StatementInvalid
+      count = UniUpdates.where('item_id = ? AND load_date = trunc(sysdate)', item_id).count
+      if count.zero?
+        uniques << item_id
+      else
+        duplicates << item_id
       end
+    rescue ActiveRecord::StatementInvalid
     end
     [uniques, duplicates]
   end

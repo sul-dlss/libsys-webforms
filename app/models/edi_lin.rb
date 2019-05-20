@@ -52,7 +52,7 @@ class EdiLin < ApplicationRecord
   end
 
   def self.row_id
-    if database =~ /sqlite3/
+    if /sqlite3/.match?(database)
       'id'
     else
       'rowid'

@@ -16,8 +16,8 @@ RSpec.describe TransferItemsController, type: :controller do
     it 'returns 302 when transfer_item' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { transfer_item: { current_library: 'GREEN', new_library: 'SAL3',
-                                     new_homeloc: 'STACKS', new_item_type: 'UNKNOWN',
-                                     item_ids: barcode_file } }
+                                               new_homeloc: 'STACKS', new_item_type: 'UNKNOWN',
+                                               item_ids: barcode_file } }
       expect(response).to have_http_status(302)
     end
     it 'renders new template with an invalid object' do

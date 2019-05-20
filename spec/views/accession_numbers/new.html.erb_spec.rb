@@ -6,7 +6,7 @@ RSpec.describe 'accession_numbers/new', type: :view do
                                 item_type: 'MyString',
                                 location: 'MyString',
                                 prefix: 'MyString'
-    ))
+                              ))
   end
 
   it 'renders new accession_number form' do

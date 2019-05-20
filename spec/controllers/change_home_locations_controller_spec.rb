@@ -16,14 +16,14 @@ RSpec.describe ChangeHomeLocationsController, type: :controller do
     it 'returns 302 when changing_home_location' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { change_home_location: { current_library: 'GREEN',
-                                            new_home_location: 'STACKS',
-                                            item_ids: barcode_file } }
+                                                      new_home_location: 'STACKS',
+                                                      item_ids: barcode_file } }
       expect(response).to have_http_status(302)
     end
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { change_current_location: { current_library: '',
-                                               new_current_location: '' } }
+                                                         new_current_location: '' } }
       expect(response).to render_template('new')
     end
   end

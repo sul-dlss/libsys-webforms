@@ -35,7 +35,7 @@ RSpec.describe ExpenditureReport, type: :model do
       expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-OCT-04')
     end
     it 'sets the attribute for fund_acct with a fund_begin value' do
-      @report.update_attributes(fund: nil)
+      @report.update(fund: nil)
       expect(@report.send(:set_fund)).to eq('1065032-103-')
     end
   end

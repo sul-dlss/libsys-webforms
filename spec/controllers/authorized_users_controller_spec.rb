@@ -23,7 +23,7 @@ RSpec.describe AuthorizedUsersController, type: :controller do
   describe 'post#create' do
     it 'returns 302 when creating a new user' do
       post :create, params: { authorized_user: { user_id: 'create_user', user_name: 'New User',
-                                       mgt_rpts: '1' } }
+                                                 mgt_rpts: '1' } }
       expect(response).to have_http_status(302)
     end
     it 'flashes error if user missing user_id or user_name' do

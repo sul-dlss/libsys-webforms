@@ -12,9 +12,10 @@ module SymphonyCgi
       Rails.logger.warn("request_url: #{request_url}")
       request_conn = Faraday.get(request_url)
       return empty_response(request_conn.body) unless request_conn.success?
+
       request_conn
-    rescue Faraday::Error => e
-      empty_response(e)
+                      rescue Faraday::Error => e
+                        empty_response(e)
     end
   end
 

@@ -18,7 +18,7 @@ RSpec.describe 'sal3_batch_requests_batches/edit', type: :view do
                                          batch_pullmon: 1,
                                          last_action_date: nil,
                                          bc_file: barcode_file
-    ))
+                                       ))
   end
 
   it 'renders the edit sal3_batch_requests_batches form' do

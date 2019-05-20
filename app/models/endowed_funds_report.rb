@@ -21,14 +21,12 @@ class EndowedFundsReport
   def self.ol_cat_key_fund(fund, date_start, date_end)
     fund_codes = []
     fund.each do |fc|
-      begin
-        Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
-                            TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
-                           fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
-          fund_codes << ckey
-        end
-      rescue ActiveRecord::StatementInvalid
+      Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
+                          TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
+                         fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
+        fund_codes << ckey
       end
+    rescue ActiveRecord::StatementInvalid
     end
     fund_codes.uniq
   end
@@ -36,13 +34,11 @@ class EndowedFundsReport
   def self.ol_cat_key_fy(fund, date_start, date_end)
     fund_codes = []
     fund.each do |fc|
-      begin
-        Expenditures.where('ta_fund_code = ? AND (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)',
-                           fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
-          fund_codes << ckey
-        end
-      rescue ActiveRecord::StatementInvalid
+      Expenditures.where('ta_fund_code = ? AND (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)',
+                         fc, date_start, date_end).pluck(:ol_cat_key).each do |ckey|
+        fund_codes << ckey
       end
+    rescue ActiveRecord::StatementInvalid
     end
     fund_codes.uniq
   end

@@ -22,7 +22,7 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
   describe 'post#create' do
     it 'redirects to root_url on success' do
       post :create, params: { circulation_statistics_report: { email: 'test@test.org', lib_array: 'GREEN',
-                                                     call_lo: 'L', format_array: ['', 'MARC'] } }
+                                                               call_lo: 'L', format_array: ['', 'MARC'] } }
       expect(response).to redirect_to root_url
     end
     it 'renders new template on failure' do
