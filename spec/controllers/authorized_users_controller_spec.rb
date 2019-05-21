@@ -16,7 +16,7 @@ RSpec.describe AuthorizedUsersController, type: :controller do
   end
   describe 'get#new' do
     it 'renders new modal to add a user' do
-      xhr :get, 'new'
+      get :new, xhr: true
       expect(response.headers['Content-Type']).to eq 'text/javascript; charset=utf-8'
     end
   end

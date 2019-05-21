@@ -7,7 +7,7 @@ RSpec.describe EdiLinsController, type: :controller do
   end
   describe 'allow a noBib entry form' do
     it 'is successful returning the form' do
-      xhr :get, :allow_nobib, format: :js
+      get :allow_nobib, format: :js, xhr: true
       expect(response).to render_template(:allow_nobib)
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe EdiLinsController, type: :controller do
   end
   describe 'allow a Fix Duplicate Barcode entry form' do
     it 'is successful returning the form' do
-      xhr :get, :fix_duplicate_barcode, format: :js
+      get :fix_duplicate_barcode, format: :js, xhr: true
       expect(response).to render_template(:fix_duplicate_barcode)
     end
   end

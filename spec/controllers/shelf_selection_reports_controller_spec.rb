@@ -12,7 +12,7 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
   describe 'get#home_locations' do
     it 'returns a 200 response code' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      xhr :get, :home_locations
+      get :home_locations, xhr: true
       expect(response.status).to eq(200)
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
   describe 'get#load_saved_options' do
     it 'returns a 200 response code' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      xhr :get, :load_saved_options, search_name: 'Green Stacks A-Z, testuser'
+      get :load_saved_options, params: { search_name: 'Green Stacks A-Z, testuser' }, xhr: true
       expect(response.status).to eq(200)
     end
   end

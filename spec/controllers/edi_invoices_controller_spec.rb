@@ -14,13 +14,13 @@ RSpec.describe EdiInvoicesController, type: :controller do
   end
   describe 'get#invoice_exclude' do
     it 'renders new modal to exclude an invoice' do
-      xhr :get, 'invoice_exclude', format: 'js'
+      get :invoice_exclude, format: 'js', xhr: true
       expect(response).to have_http_status(302)
     end
   end
   describe 'get#change_invoice_line' do
     it 'renders new modal to change an invoice line' do
-      xhr :get, 'change_invoice_line', format: 'js'
+      get :change_invoice_line, format: 'js', xhr: true
       expect(response).to have_http_status(302)
     end
   end
