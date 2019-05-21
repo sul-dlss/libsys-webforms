@@ -16,7 +16,7 @@ class Sal3BatchRequestsBatch < ApplicationRecord
   validate :batch_pullday_present
 
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
-                                    class_name: Sal3BatchRequestBcs,
+                                    class_name: 'Sal3BatchRequestBcs',
                                     dependent: :destroy,
                                     inverse_of: false
 
