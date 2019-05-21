@@ -22,8 +22,8 @@ RSpec.describe ChangeHomeLocationsController, type: :controller do
     end
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      post :create, params: { change_current_location: { current_library: '',
-                                                         new_current_location: '' } }
+      post :create, params: { change_home_location: { current_library: '',
+                                                      new_home_location: '' } }
       expect(response).to render_template('new')
     end
   end

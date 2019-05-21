@@ -13,7 +13,7 @@ RSpec.describe AccessionNumbersController, type: :controller do
       prefix: 'MCD' }
   end
   let(:invalid_attributes) { valid_attributes.update(location: nil) }
-  let(:update_attributes) { valid_attributes.update(prefix: 'ZCD', seq_num: 2) }
+  let(:modify_attributes) { valid_attributes.update(prefix: 'ZCD', seq_num: 2) }
 
   describe 'get#index' do
     it 'be succesful returning the index page' do
@@ -50,12 +50,12 @@ RSpec.describe AccessionNumbersController, type: :controller do
 
   describe 'put#update' do
     it 'updates the requested accession number' do
-      patch :update, params: { id: '1', accession_number: update }
+      patch :update, params: { id: '1', accession_number: modify_attributes }
       @accession_number.reload
       expect(@accession_number.prefix).to eq 'ZCD'
     end
     it 'does not update the seq_num' do
-      patch :update, params: { id: '1', accession_number: update }
+      patch :update, params: { id: '1', accession_number: modify_attributes }
       @accession_number.reload
       expect(@accession_number.seq_num).to eq(1)
     end
