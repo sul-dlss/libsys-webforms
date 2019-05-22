@@ -5,7 +5,13 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
     stub_current_user(FactoryBot.create(:authorized_user))
   end
 
-  let(:params) { { email: 'test@test.org', lib_array: 'GREEN' } }
+  let(:valid_attributes) do
+    { email: 'test@test.org',
+      lib_array: ['GREEN'],
+      format_array: ['', 'MARC'],
+      call_lo: 'L' }
+  end
+  let(:invalid_attributes) { valid_attributes.update(lib_array: nil) }
 
   describe 'get#new' do
     it 'renders the correct template' do
@@ -21,12 +27,12 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
   end
   describe 'post#create' do
     it 'redirects to root_url on success' do
-      post :create, params: { circulation_statistics_report: { email: 'test@test.org', lib_array: 'GREEN',
-                                                               call_lo: 'L', format_array: ['', 'MARC'] } }
-      expect(response).to redirect_to root_url
+      post :create, params: { circulation_statistics_report: valid_attributes }
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(root_path)
     end
     it 'renders new template on failure' do
-      post :create, params: { circulation_statistics_report: { email: '', lib_array: '', call_lo: '' } }
+      post :create, params: { circulation_statistics_report: invalid_attributes }
       expect(response).to render_template('new')
     end
   end

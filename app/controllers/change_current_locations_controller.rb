@@ -6,7 +6,7 @@ class ChangeCurrentLocationsController < ApplicationController
   end
 
   def create
-    @change_current_location = ChangeCurrentLocation.new(params[:change_current_location])
+    @change_current_location = ChangeCurrentLocation.new(change_current_location_params)
     if @change_current_location.valid?
       array_of_item_ids = @change_current_location.parse_uploaded_file
       filtered_item_ids = UniUpdates.filter_duplicates(array_of_item_ids)
@@ -20,5 +20,17 @@ class ChangeCurrentLocationsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  private
+
+  def change_current_location_params
+    params.require(:change_current_location).permit(:current_library,
+                                                    :new_current_location,
+                                                    :new_item_type,
+                                                    :item_ids, :email, :comments,
+                                                    :load_date, :user_name,
+                                                    :action, :priority,
+                                                    :export_yn, :check_bc_first)
   end
 end

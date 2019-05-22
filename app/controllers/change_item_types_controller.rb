@@ -6,7 +6,7 @@ class ChangeItemTypesController < ApplicationController
   end
 
   def create
-    @change_item_type = ChangeItemType.new(params[:change_item_type])
+    @change_item_type = ChangeItemType.new(change_item_type_params)
     if @change_item_type.valid?
       array_of_item_ids = @change_item_type.parse_uploaded_file
       filtered_item_ids = UniUpdates.filter_duplicates(array_of_item_ids)
@@ -20,5 +20,16 @@ class ChangeItemTypesController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  private
+
+  def change_item_type_params
+    params.require(:change_item_type).permit(:current_library, :new_item_type,
+                                             :item_ids, :email, :comments,
+                                             :load_date, :user_name, :action,
+                                             :priority, :export_yn, :new_lib,
+                                             :new_homeloc, :new_curloc,
+                                             :check_bc_first)
   end
 end
