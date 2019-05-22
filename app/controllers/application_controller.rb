@@ -9,13 +9,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-  # https://github.com/ryanb/cancan/issues/835#issuecomment-18663815
-  before_action do
-    resource = controller_name.singularize.to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
-  end
-
   def current_user
     @current_user ||= begin
       AuthorizedUser.find_by(user_id: user_id)
