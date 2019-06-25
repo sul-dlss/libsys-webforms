@@ -11,7 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # A gem for adding Stanford University Libraries styles to Rails applications
 gem 'sul_styles'
 # Use sass-powered bootstrap
-gem 'bootstrap-sass', "~> 3.3.4"
+gem 'bootstrap-sass', ">= 3.4.1"
 # Use bootstrap_form for easy form building
 gem 'bootstrap_form'
 # Use SCSS for stylesheets
