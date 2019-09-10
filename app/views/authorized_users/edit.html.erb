@@ -43,8 +43,8 @@
   </div>
   <% end %>
 </div>
-<% if administrator_apps(@edit).empty? %>
-<!-- only allow delete user if not admin user -->
+<% if administrator_apps(@edit).empty? && authorized_apps(@edit).empty? %>
+<!-- only allow delete user if user is not an admin user for any app and they do not have current access to any apps -->
 <div class="btn-group">
   <%= button_to 'Delete User', { action: :delete,
                                  user_id: @edit.user_id },
