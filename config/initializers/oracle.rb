@@ -53,18 +53,13 @@ if Rails.env.development? || Rails.env.production?
         register_class_with_limit my_map, /char/i, ActiveRecord::OracleEnhanced::Type::String
         register_class_with_limit my_map, /clob/i, ActiveRecord::OracleEnhanced::Type::Text
 
-        my_map.register_type 'NCHAR',  ActiveRecord::OracleEnhanced::Type::NationalCharacterString.new
-        my_map.alias_type /NVARCHAR2/i,    'NCHAR'
+        my_map.register_type 'NCHAR', ActiveRecord::OracleEnhanced::Type::NationalCharacterString.new
+        my_map.alias_type /NVARCHAR2/i, 'NCHAR'
 
         my_map.register_type(/NUMBER/i) do |sql_type|
-          scale = extract_scale(sql_type)
           precision = extract_precision(sql_type)
           limit = extract_limit(sql_type)
-          if scale.nil? || scale == 0
-            ActiveRecord::OracleEnhanced::Type::Integer.new(precision: precision, limit: limit)
-          else
-            ActiveRecord::OracleEnhanced::Type::Decimal.new(precision: precision, scale: scale)
-          end
+          ActiveRecord::OracleEnhanced::Type::Integer.new(precision: precision, limit: limit)
         end
 
         my_map.register_type /^NUMBER\(1\)/i, ActiveRecord::OracleEnhanced::Type::Boolean.new if emulate_booleans
