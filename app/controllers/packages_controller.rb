@@ -96,7 +96,7 @@ class PackagesController < ApplicationController
   def run_tests() end
 
   def list_transfer_logs
-    @logs = VndRunlog.all.where('run_date > ?', Time.now.getlocal - 1)
+    @logs = VndRunlog.all.where('run_date > ?', Time.now.getlocal.strftime('%Y-%m-%d'))
   end
 
   private
