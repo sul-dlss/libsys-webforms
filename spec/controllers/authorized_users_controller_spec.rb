@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe AuthorizedUsersController, type: :controller do
   before do
     stub_current_user(FactoryBot.create(:authorized_user))
-    @authorized_user = FactoryBot.create(:admin_user)
-    @staff_user = FactoryBot.create(:staff_user)
     @blank_user = FactoryBot.create(:blank_user)
   end
 
@@ -80,12 +78,6 @@ RSpec.describe AuthorizedUsersController, type: :controller do
   describe 'delete#delete' do
     it 'deletes a user' do
       expect { delete :delete, params: { user_id: @blank_user } }.to change(AuthorizedUser, :count).by(-1)
-    end
-    it 'does not delete an admin user' do
-      expect { delete :delete, params: { user_id: @authorized_user } }.to change(AuthorizedUser, :count).by(0)
-    end
-    it 'does not delete a staff user that still has access to an app' do
-      expect { delete :delete, params: { user_id: @staff_user } }.to change(AuthorizedUser, :count).by(0)
     end
   end
 end
