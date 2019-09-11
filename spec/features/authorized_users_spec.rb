@@ -4,9 +4,6 @@ describe 'Authorized Users Edit Page', type: :feature do
   describe 'delete authorized user button' do
     before do
       stub_current_user(FactoryBot.create(:admin_user))
-      # FactoryBot.create(:authorized_user)
-      # FactoryBot.create(:admin_user)
-      # FactoryBot.create(:staff_user)
     end
 
     context 'when user is not an admin user for any app does not have current access to any apps' do
