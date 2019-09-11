@@ -96,7 +96,9 @@ class PackagesController < ApplicationController
   def run_tests() end
 
   def list_transfer_logs
-    @logs = VndRunlog.all.where('run_date > ?', Time.now.getlocal.strftime('%Y-%m-%d'))
+    # get vnd_runlog entries for the procedure just kicked off and related log entries
+    @logs = VndRunlog.all.where('run_date >= ? AND LOWER(procedure_name) LIKE LOWER(?)',
+                                Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'), 'VND%')
   end
 
   private
