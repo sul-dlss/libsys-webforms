@@ -12,8 +12,6 @@ class DigitalBookplatesBatch < ApplicationRecord
 
   after_create :set_ckey_count, :set_filename
 
-  before_destroy :in_queue_batch?
-
   private
 
   def parse_ckey_file
@@ -39,13 +37,5 @@ class DigitalBookplatesBatch < ApplicationRecord
     filename = file_obj.original_filename
     filename.gsub!(/\s+/, '_') if /\s+/.match?(filename)
     update(ckey_file: filename)
-  end
-
-  def in_queue_batch?
-    if completed_date.nil?
-      true
-    else
-      throw(:abort)
-    end
   end
 end
