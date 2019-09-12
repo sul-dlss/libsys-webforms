@@ -36,7 +36,7 @@ class ShelfSelSearch < ActiveRecord::Base
       na_i_e_mhlds: shelf_sel_rpt.mhlds.to_i,
       na_i_e_multvol: shelf_sel_rpt.multvol.to_i,
       na_i_e_multcop: shelf_sel_rpt.multcop.to_i,
-      lang: shelf_sel_rpt.lang,
+      lang: strip_spaces(shelf_sel_rpt.lang),
       icat1s: shelf_sel_rpt.icat1_array.join(',')[1..-1] }
   end
   # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
@@ -67,5 +67,11 @@ class ShelfSelSearch < ActiveRecord::Base
 
   def call_hi
     call_range.split('-')[1]
+  end
+
+  private
+
+  def self.strip_spaces(str)
+    str&.gsub(/\s+/, '')
   end
 end

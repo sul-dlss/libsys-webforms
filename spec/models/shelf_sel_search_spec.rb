@@ -42,5 +42,12 @@ RSpec.describe ShelfSelSearch, type: :model do
         ShelfSelSearch.update_search(shelf_selection_report)
       end
     end
+
+    describe 'strip_spaces' do
+      it 'strips the spaces from the lang string' do
+        str = ' jpn, chi, kor '
+        expect(ShelfSelSearch.strip_spaces(str)).to eq 'jpn,chi,kor'
+      end
+    end
   end
 end
