@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the DIGITAL_BOOKPLATES_BATCH table
 ###
-class DigitalBookplatesBatch < ActiveRecord::Base
+class DigitalBookplatesBatch < ApplicationRecord
   self.table_name = 'digital_bookplates_batches'
   self.primary_key = 'batch_id'
   attr_accessor :file_obj
@@ -11,8 +11,6 @@ class DigitalBookplatesBatch < ActiveRecord::Base
   validate :num_ckeys
 
   after_create :set_ckey_count, :set_filename
-
-  before_destroy :in_queue_batch?
 
   private
 
@@ -32,16 +30,12 @@ class DigitalBookplatesBatch < ActiveRecord::Base
 
   def set_ckey_count
     ckeys = parse_ckey_file
-    update_attributes(ckey_count: ckeys)
+    update(ckey_count: ckeys)
   end
 
   def set_filename
     filename = file_obj.original_filename
-    filename.gsub!(/\s+/, '_') if filename =~ /\s+/
-    update_attributes(ckey_file: filename)
-  end
-
-  def in_queue_batch?
-    completed_date.nil?
+    filename.gsub!(/\s+/, '_') if /\s+/.match?(filename)
+    update(ckey_file: filename)
   end
 end

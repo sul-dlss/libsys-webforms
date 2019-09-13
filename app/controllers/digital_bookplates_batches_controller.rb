@@ -38,8 +38,9 @@ class DigitalBookplatesBatchesController < ApplicationController
 
   def destroy
     @digital_bookplates_batch = DigitalBookplatesBatch.find_by(batch_id: params[:id])
-    if @digital_bookplates_batch.destroy
+    if @digital_bookplates_batch[:completed_date].nil?
       delete_file(@digital_bookplates_batch.ckey_file, @digital_bookplates_batch.batch_id)
+      @digital_bookplates_batch.destroy
       flash[:notice] = 'Batch deleted!'
     else
       flash[:error] = 'Batch cannot be deleted!'

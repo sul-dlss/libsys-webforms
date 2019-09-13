@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'accession_numbers/new', type: :view do
-  before(:each) do
+  before do
     assign(:accession_number, AccessionNumber.new(
                                 item_type: 'MyString',
                                 location: 'MyString',
                                 prefix: 'MyString'
-    ))
+                              ))
   end
 
   it 'renders new accession_number form' do

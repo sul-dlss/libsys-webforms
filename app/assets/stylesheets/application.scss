@@ -1,13 +1,4 @@
-@import 'bootstrap-sprockets';
-@import 'sul-styles';
-@import 'variables';
-@import 'bootstrap';
-@import 'home';
-@import 'layout';
-@import 'authorized_user';
-
-// Imports sul-icons
-@import 'sul-icons-rails';
-@import 'sul-icons-aliases';
-// Helper classes used in icons
-@import 'sul-icons/helpers';
+//
+//= require style
+//= require bootstrap-datepicker3
+//= require_self

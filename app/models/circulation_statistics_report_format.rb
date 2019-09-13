@@ -1,5 +1,5 @@
 # app/models/circulation_statistics_report_format.rb
-class CirculationStatisticsReportFormat < ActiveRecord::Base
+class CirculationStatisticsReportFormat < ApplicationRecord
   self.table_name = 'circ_stats_rpt_fmts'
 
   def self.formats

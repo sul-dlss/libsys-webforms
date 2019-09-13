@@ -1,7 +1,7 @@
 ###
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
-class ExpendituresWithCircStatsReport < ActiveRecord::Base
+class ExpendituresWithCircStatsReport < ApplicationRecord
   include FundYearUtils
   attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
@@ -23,11 +23,11 @@ class ExpendituresWithCircStatsReport < ActiveRecord::Base
   private
 
   def write_lib
-    self[:libraries] = lib_array.delete_if { |a| a == '' || a == 'All Libraries' }.join(',')
+    self[:libraries] = lib_array.delete_if { |a| a.empty? || a == 'All Libraries' }.join(',')
   end
 
   def write_fmt
-    self[:formats] = format_array.delete_if { |a| a == '' || a == 'All Formats' }.join(',')
+    self[:formats] = format_array.delete_if { |a| a.empty? || a == 'All Formats' }.join(',')
   end
 
   def write_dates

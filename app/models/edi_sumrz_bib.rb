@@ -1,5 +1,5 @@
 # Model for EdiSumrzBib
-class EdiSumrzBib < ActiveRecord::Base
+class EdiSumrzBib < ApplicationRecord
   self.table_name = 'edi_sumrz_bib'
 
   def self.insert(edi_lin)

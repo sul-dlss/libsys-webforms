@@ -13,7 +13,7 @@ RSpec.describe UserloadRerunsController, type: :controller do
     xit context 'with valid params' do
       it 'redirects to the home page' do
         post :create, params: { rerun_date: '2017-01-04' }
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:found)
       end
     end
     xit context 'with invalid params' do

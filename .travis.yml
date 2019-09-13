@@ -1,7 +1,11 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.3.4
+  - 2.6.3
+cache:
+  - bundler
+  - directories
+    - '/home/travis/.rvm/'
 bundler_args: --without production
 before_script:
   - mkdir -p tmp/Dataload/EndowRpt

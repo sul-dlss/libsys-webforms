@@ -59,7 +59,7 @@ class CirculationStatisticsReport
 
   def lc_call_lo
     message = 'Low callnum range must be at most two uppercase letters or one plus #'
-    errors.add(:base, message) unless call_lo =~ call_regex
+    errors.add(:base, message) unless call_lo&.match?(call_regex)
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -68,11 +68,11 @@ class CirculationStatisticsReport
       callnum_range = call_lo..'Z'
       message = 'Hi callnum range must be empty or a later letter.'
       errors.add(:base, message) unless call_hi.blank? || callnum_range.include?(call_hi)
-    elsif call_lo =~ /^[A-Z]{2}$/
+    elsif /^[A-Z]{2}$/.match?(call_lo)
       first_letter = call_lo[0]
       message = 'Hi callnum range must be empty or two letters with the same first letter as low range'
       errors.add(:base, message) unless call_hi.blank? || call_hi =~ /^[#{Regexp.quote(first_letter)}][A-Z]$/
-    elsif call_lo =~ /^[A-Z]\#$/
+    elsif /^[A-Z]\#$/.match?(call_lo)
       call_hi.present? && errors.add(:base, 'Hi callnum range must be empty.')
     end
   end

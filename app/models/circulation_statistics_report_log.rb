@@ -1,5 +1,5 @@
 # app/models/circulation_statistics_report_log.rb
-class CirculationStatisticsReportLog < ActiveRecord::Base
+class CirculationStatisticsReportLog < ApplicationRecord
   self.table_name = 'circ_stats_rpt_log'
 
   def self.save_stats(circ_stats)
@@ -16,7 +16,7 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
 
   def self.other_params(circ_stats)
     { email: circ_stats.email, selcall_src: circ_stats.source,
-      format: circ_stats.format_array.reject! { |a| a == '' || a == 'All Formats' }.join(','),
+      format: process_format_array(circ_stats.format_array),
       exclude_inactive: circ_stats.exclude_inactive,
       exclude_bad_year: circ_stats.exclude_bad_yr, summary_only: circ_stats.no_qtrly,
       ckey_url: circ_stats.ckey_url, extras_url: circ_stats.tags_url,
@@ -25,6 +25,11 @@ class CirculationStatisticsReportLog < ActiveRecord::Base
       extra_field2: circ_stats.tag_field2, link_type: circ_stats.link_type,
       blank_columns: String(circ_stats.blank_col_array).split(',').join(','),
       status: 'REQUEST' }
+  end
+
+  def self.process_format_array(formats)
+    remove_formats = ['', 'All Formats']
+    (formats - remove_formats).join(',').presence
   end
 
   # rubocop:disable Metrics/AbcSize,Metrics/MethodLength

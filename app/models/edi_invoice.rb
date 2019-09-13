@@ -1,5 +1,5 @@
 # Model for EDI Invoice
-class EdiInvoice < ActiveRecord::Base
+class EdiInvoice < ApplicationRecord
   scope :vendfilter, lambda { |vend|
     vend == 'ALL' ? vend = edi_vend_id : vend
     where(edi_vend_id: vend)
@@ -52,15 +52,15 @@ class EdiInvoice < ActiveRecord::Base
   end
 
   def self.delete_edi_inv_line
-    EdiInvLine.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
-                           @edi_invoice.edi_doc_num,
-                           @edi_invoice.edi_vend_id[0]])
+    EdiInvLine.where('edi_doc_num = ? AND edi_vend_id = ?',
+                     @edi_invoice.edi_doc_num,
+                     @edi_invoice.edi_vend_id[0]).delete_all
   end
 
   def self.delete_edi_piece
-    EdiInvPiece.delete_all(['edi_doc_num = ? AND edi_vend_id = ?',
-                            @edi_invoice.edi_doc_num,
-                            @edi_invoice.edi_vend_id[0]])
+    EdiInvPiece.where('edi_doc_num = ? AND edi_vend_id = ?',
+                      @edi_invoice.edi_doc_num,
+                      @edi_invoice.edi_vend_id[0]).delete_all
   end
 
   def self.insert_edi_invoice(vendor, invoice)

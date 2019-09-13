@@ -1,5 +1,5 @@
 # app/model/shelf_sel_search.rb
-class ShelfSelSearch < ActiveRecord::Base
+class ShelfSelSearch < ApplicationRecord
   self.table_name = 'shelf_sel_searches'
   self.primary_keys = :user_name, :search_name
 

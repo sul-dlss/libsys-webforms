@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the SAL3_BATCH_REQUESTS_BATCH table in Symphony
 ###
-class Sal3BatchRequestsBatch < ActiveRecord::Base
+class Sal3BatchRequestsBatch < ApplicationRecord
   include FileParser
 
   validates :bc_file, presence: { message: 'You must upload a file of barcodes' }, on: :create
@@ -16,7 +16,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   validate :batch_pullday_present
 
   has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
-                                    class_name: Sal3BatchRequestBcs,
+                                    class_name: 'Sal3BatchRequestBcs',
                                     dependent: :destroy,
                                     inverse_of: false
 
@@ -95,7 +95,7 @@ class Sal3BatchRequestsBatch < ActiveRecord::Base
   def set_num_bcs
     file_obj = bc_file.current_path
     barcodes = IO.read(file_obj).split("\n").uniq.length
-    update_attributes(num_bcs: barcodes)
+    update(num_bcs: barcodes)
   end
 
   private

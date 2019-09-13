@@ -1,5 +1,5 @@
 # Model for EDI_LIN table
-class EdiLin < ActiveRecord::Base
+class EdiLin < ApplicationRecord
   self.table_name = 'edi_lin'
 
   def self.primary_key
@@ -7,7 +7,7 @@ class EdiLin < ActiveRecord::Base
   end
 
   def self.vendors
-    select(:vend_id).uniq
+    select(:vend_id).distinct
   end
 
   def self.update_edi_lin(vendor, invoice, line)
@@ -26,7 +26,6 @@ class EdiLin < ActiveRecord::Base
 
   # We need to skip model validations on update because we can only retrieve the correct row using a 'where' finder
   # and only 'update_all' will work on this finding method.
-  # rubocop:disable Rails/SkipsModelValidations
   def self.make_nobib(nobib_id)
     row = EdiLin.where(vend_unique_id: nobib_id).pluck(primary_key.to_sym).first
     EdiLin.where(row_id => row).update_all(vend_unique_id: "#{nobib_id}noBib")
@@ -41,7 +40,6 @@ class EdiLin < ActiveRecord::Base
     EdiLin.where(row_id => row).update_all(barcode_num: new_barcode)
     ['notice', "EDI Line for #{vendor}, #{invoice}, line #{line} updated with new barcode: #{new_barcode}"]
   end
-  # rubocop:enable Rails/SkipsModelValidations
 
   def self.vend_unique_id
     pluck(:vend_unique_id)[0].to_s
@@ -52,7 +50,7 @@ class EdiLin < ActiveRecord::Base
   end
 
   def self.row_id
-    if database =~ /sqlite3/
+    if /sqlite3/.match?(database)
       'id'
     else
       'rowid'

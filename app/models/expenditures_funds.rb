@@ -1,7 +1,7 @@
 ###
 # Class to model EXPENDITURES_FUNDS oracle table
 ###
-class ExpendituresFunds < ActiveRecord::Base
+class ExpendituresFunds < ApplicationRecord
   self.table_name = 'expenditures_funds'
 
   def self.fund_id

@@ -7,6 +7,6 @@ RSpec.describe ShelfSelItemCat1, type: :model do
 
   it 'returns array of item category1s' do
     FactoryBot.create(:shelf_sel_item_cat1)
-    expect(ShelfSelItemCat1.item_category1s).to eq(['All Item Category1s', 'BUSCORPRPT'])
+    expect(described_class.item_category1s).to eq(['All Item Category1s', 'BUSCORPRPT'])
   end
 end

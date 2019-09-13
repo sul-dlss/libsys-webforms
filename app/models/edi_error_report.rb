@@ -1,5 +1,5 @@
 # Model for the Edi Error Report table
-class EdiErrorReport < ActiveRecord::Base
+class EdiErrorReport < ApplicationRecord
   # so we can use the database table column name 'type' which is normally a reserved keyword
   # which rails uses to define the subclass of a model that should be loaded.
   self.inheritance_column = 'inheritance_type'
@@ -15,7 +15,7 @@ class EdiErrorReport < ActiveRecord::Base
   # against the environment to construct the correct query.
   # (N.B. There may be a less hacky way to do this using the oracle_enhanced adapter or ruby-oci8...)
   def self.date_query
-    if Rails.configuration.database_configuration[Rails.env]['database'] =~ /sqlite3/
+    if /sqlite3/.match?(Rails.configuration.database_configuration[Rails.env]['database'])
       'DATE(run) = ?'
     else
       'trunc(run) = ?'

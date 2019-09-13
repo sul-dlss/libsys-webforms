@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the VND_FILES_GEN table
 ###
-class PackageFile < ActiveRecord::Base
+class PackageFile < ApplicationRecord
   self.table_name = 'vnd_files_gen'
 
   def self.files_to_load

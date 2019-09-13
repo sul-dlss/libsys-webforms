@@ -9,7 +9,7 @@ RSpec.describe ShelfSelSearch, type: :model do
     describe '#saved_cursors' do
       it 'returns array of saved cursors' do
         FactoryBot.create(:shelf_sel_search)
-        expect(ShelfSelSearch.saved_cursors('mahmed')).to eq(['Green Stacks E-F, mahmed'])
+        expect(described_class.saved_cursors('mahmed')).to eq(['Green Stacks E-F, mahmed'])
       end
     end
 
@@ -30,16 +30,16 @@ RSpec.describe ShelfSelSearch, type: :model do
     describe 'save_search class method' do
       it 'creates a ShelfSelSearch from ShelfSelRpt params' do
         shelf_selection_report = FactoryBot.build(:shelf_selection_report)
-        shelf_sel_search = ShelfSelSearch.save_search(shelf_selection_report)
-        expect(shelf_sel_search).to be_instance_of(ShelfSelSearch)
+        shelf_sel_search = described_class.save_search(shelf_selection_report)
+        expect(shelf_sel_search).to be_instance_of(described_class)
       end
     end
 
     describe 'update_search class method' do
       it 'updates a ShelfSelSearch from ShelfSelRpt params' do
         shelf_selection_report = FactoryBot.build(:shelf_selection_report)
-        ShelfSelSearch.save_search(shelf_selection_report)
-        ShelfSelSearch.update_search(shelf_selection_report)
+        described_class.save_search(shelf_selection_report)
+        described_class.update_search(shelf_selection_report)
       end
     end
 

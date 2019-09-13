@@ -1,8 +1,18 @@
 require 'rails_helper'
 
-describe 'edi_invoices' do
-  before { stub_current_user(FactoryBot.create(:authorized_user)) }
-  before(:each) { visit edi_invoices_path }
+describe 'Edi Invoices', type: :feature do
+  before do
+    stub_current_user(FactoryBot.create(:authorized_user))
+    visit edi_invoices_path
+  end
+
+  let(:headers) do
+    /(Invoice Number|Vendoe ID|Vendor Invoice Date|Status|Symphony Invoice Date Created|Total Pieces)/
+  end
+
+  let(:statuses) do
+    /(ALL|YANKEE|COUTTS|CASALI|AMALIV|HARRAS)/
+  end
 
   it 'display a button to the main menu' do
     expect(page).to have_selector(:css, 'a[href="/"]')
@@ -14,20 +24,13 @@ describe 'edi_invoices' do
 
   it 'display the table of batch requests submitted' do
     expect(page).to have_text('EDIFACT invoices')
-    expect(page).to have_css('th', text: 'Invoice Number')
-    expect(page).to have_css('th', text: 'Vendor ID')
-    expect(page).to have_css('th', text: 'Vendor Invoice Date')
-    expect(page).to have_css('th', text: 'Status')
-    expect(page).to have_css('th', text: 'Symphony Invoice Date Created')
-    expect(page).to have_css('th', text: 'Total Pieces')
+  end
+
+  it 'displays table header text' do
+    expect(page).to have_css('th', text: headers)
   end
 
   it 'display the selection of status filters' do
-    expect(page).to have_css('option', text: 'ALL')
-    expect(page).to have_css('option', text: 'YANKEE')
-    expect(page).to have_css('option', text: 'COUTTS')
-    expect(page).to have_css('option', text: 'CASALI')
-    expect(page).to have_css('option', text: 'AMALIV')
-    expect(page).to have_css('option', text: 'HARRAS')
+    expect(page).to have_css('option', text: statuses)
   end
 end

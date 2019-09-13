@@ -3,8 +3,8 @@ class PlSqlJobController < ApplicationController
   def create
     begin
       plsql.instance_eval(create_params[:command])
-    rescue StandardError => error
-      flash[:error] = "Error - cannot run #{create_params[:command]}: #{error}"
+    rescue StandardError => e
+      flash[:error] = "Error - cannot run #{create_params[:command]}: #{e}"
     else
       flash[:success] = create_params[:confirm].to_s
     end
@@ -15,8 +15,8 @@ class PlSqlJobController < ApplicationController
   def package_file_transfer
     begin
       plsql.instance_eval(create_params[:command])
-    rescue StandardError => error
-      flash[:error] = "Error - cannot run #{create_params[:command]}: #{error}"
+    rescue StandardError => e
+      flash[:error] = "Error - cannot run #{create_params[:command]}: #{e}"
     else
       flash[:success] = create_params[:confirm].to_s
     end
@@ -26,8 +26,8 @@ class PlSqlJobController < ApplicationController
   def package_test_load
     begin
       plsql.instance_eval(create_params[:command])
-    rescue StandardError => error
-      flash[:error] = "Error - cannot run #{create_params[:command]}: #{error}"
+    rescue StandardError => e
+      flash[:error] = "Error - cannot run #{create_params[:command]}: #{e}"
     else
       flash[:success] = create_params[:confirm].to_s
     end

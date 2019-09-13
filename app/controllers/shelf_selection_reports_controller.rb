@@ -4,7 +4,7 @@
 class ShelfSelectionReportsController < ApplicationController
   include SymphonyCgi
   after_action only: :create do
-    submit_shelf_selection(batch_params)
+    submit_shelf_selection(shelf_selection_report_params)
   end
 
   def new
@@ -12,7 +12,7 @@ class ShelfSelectionReportsController < ApplicationController
   end
 
   def create
-    @shelf_selection_report = ShelfSelectionReport.new(params[:shelf_selection_report])
+    @shelf_selection_report = ShelfSelectionReport.new(shelf_selection_report_params)
     if @shelf_selection_report.valid?
       flash[:notice] = 'Shelf Selection Report request submitted!'
       ShelfSelSearch.save_search(@shelf_selection_report) if @shelf_selection_report.save_search?
@@ -33,7 +33,9 @@ class ShelfSelectionReportsController < ApplicationController
     render layout: false
   end
 
-  def batch_params
+  private
+
+  def shelf_selection_report_params
     params.require(:shelf_selection_report).permit!
   end
 end

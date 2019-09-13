@@ -1,7 +1,7 @@
 ###
 #  Class to connect to the UNICORN_POLICIES table in Symphony
 ###
-class UnicornPolicy < ActiveRecord::Base
+class UnicornPolicy < ApplicationRecord
   self.table_name = 'unicorn_policies'
   self.inheritance_column = nil
 

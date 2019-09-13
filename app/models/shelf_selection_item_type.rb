@@ -1,5 +1,5 @@
 # app/models/shelf_selection_item_type.rb
-class ShelfSelectionItemType < ActiveRecord::Base
+class ShelfSelectionItemType < ApplicationRecord
   self.table_name = 'shelf_sel_item_types'
 
   def self.item_types

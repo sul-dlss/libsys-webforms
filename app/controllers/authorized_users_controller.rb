@@ -33,7 +33,7 @@ class AuthorizedUsersController < ApplicationController
   end
 
   def edit
-    @authorized_user ||= AuthorizedUser.find_by(user_id: params[:user_id])
+    @edit ||= AuthorizedUser.find_by(user_id: params[:user_id])
   end
 
   def update

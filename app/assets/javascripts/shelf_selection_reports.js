@@ -53,7 +53,7 @@ $(document).ready(function() {
       $.ajax({
         url: '/shelf_sel_searches/delete_saved_search',
         type: 'GET',
-        data: { user: user, search_name: search_name_param },
+        data: { user_name: user, search_name: search_name_param },
         cache: false,
         success: function(result) {
           $('#' + search_id).remove();

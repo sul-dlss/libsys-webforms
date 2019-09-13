@@ -8,7 +8,7 @@ RSpec.describe CirculationStatisticsReportFormat, type: :model do
 
     it 'returns a list of formats' do
       FactoryBot.create(:circulation_statistics_report_format)
-      expect(CirculationStatisticsReportFormat.formats).to eq(['All Formats', 'EQUIP'])
+      expect(described_class.formats).to eq(['All Formats', 'EQUIP'])
     end
   end
 end

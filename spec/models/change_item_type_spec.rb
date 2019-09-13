@@ -6,8 +6,9 @@ RSpec.describe ChangeItemType, type: :model do
       extend ActionDispatch::TestProcess
       fixture_file_upload('files/test_file.txt', 'text/plain')
     end
+
     it 'returns an array from a string of ids' do
-      change_item_type = ChangeItemType.new
+      change_item_type = described_class.new
       change_item_type.item_ids = barcode_file
       expect(change_item_type.parse_uploaded_file).to be_kind_of(Array)
     end

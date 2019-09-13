@@ -1,8 +1,14 @@
 require 'rails_helper'
 
-describe 'edi_error_reports' do
-  before { stub_current_user(FactoryBot.create(:authorized_user)) }
-  before(:each) { visit edi_error_reports_path }
+describe 'Edi Error Reports', type: :feature do
+  before do
+    stub_current_user(FactoryBot.create(:authorized_user))
+    visit edi_error_reports_path
+  end
+
+  let(:headers) do
+    /(Run|Type|Error|Error level)/
+  end
 
   it 'display a button to the main menu' do
     expect(page).to have_selector(:css, 'a[href="/"]')
@@ -12,12 +18,12 @@ describe 'edi_error_reports' do
     expect(page).to have_selector(:css, 'a[href="/edi_invoices/menu"]')
   end
 
-  it 'display the table of batch requests submitted' do
+  it 'displays the table of batch requests submitted' do
     expect(page).to have_text('EDIFACT invoice errors')
-    expect(page).to have_css('th', text: 'Run')
-    expect(page).to have_css('th', text: 'Type')
-    expect(page).to have_css('th', text: 'Error')
-    expect(page).to have_css('th', text: 'Error level')
+  end
+
+  it 'display the table headers for batch requests submitted' do
+    expect(page).to have_css('th', text: headers)
   end
 
   it 'displays the button to show all errors for the day' do

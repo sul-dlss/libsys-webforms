@@ -13,4 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require html5_webshim
+//= require bootstrap-datepicker

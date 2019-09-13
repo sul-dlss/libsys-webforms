@@ -23,18 +23,6 @@ bundle install
 
 ## Development
 
-Libsys-Webforms depends on a backing Oracle production database, so when running the project in development, you will need to run the `ruby-oci8` gem and the `activerecord-oracle_enhanced-adapter` as a pass-through to the development sqlite database. If you get a `ConnectionAdapters::OracleEnhancedAdapter` error when running a rails or rake task, temporarily add `:development` to the group that contains the oracle gems:
-
-```ruby
-group :production, :development do
-  gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'
-  gem 'ruby-oci8'
-end
-```
-<strong>...but do not commit this change, and revert it before deployment!</strong>
-
-The various oracle gems (including the plsql gem) use an initializer ([`config/initializers/oracle.rb`](https://github.com/sul-dlss/libsys-webforms/blob/master/config/initializers/oracle.rb)) to configure the oracle emulations. See that file for more information about the configuration.
-
 #### Setting up fixtures for development
 
 In order to have the tables populated for testing the app in development you should load the fixture data into the tables with:

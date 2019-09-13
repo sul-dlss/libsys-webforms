@@ -8,21 +8,23 @@ RSpec.describe TransferItemsController, type: :controller do
       expect(response).to render_template('new')
     end
   end
+
   describe 'post#create' do
     let(:barcode_file) do
       extend ActionDispatch::TestProcess
       fixture_file_upload('files/test_file.txt', 'text/plain')
     end
+
     it 'returns 302 when transfer_item' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      post :create, transfer_item: { current_library: 'GREEN', new_library: 'SAL3',
-                                     new_homeloc: 'STACKS', new_item_type: 'UNKNOWN',
-                                     item_ids: barcode_file }
-      expect(response).to have_http_status(302)
+      post :create, params: { transfer_item: { current_library: 'GREEN', new_library: 'SAL3',
+                                               new_homeloc: 'STACKS', new_item_type: 'UNKNOWN',
+                                               item_ids: barcode_file } }
+      expect(response).to have_http_status(:found)
     end
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
-      post :create, transfer_item: { current_library: '' }
+      post :create, params: { transfer_item: { current_library: '' } }
       expect(response).to render_template('new')
     end
   end

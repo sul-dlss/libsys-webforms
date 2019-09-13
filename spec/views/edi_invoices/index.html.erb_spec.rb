@@ -1,18 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe 'edi_invoices/index', type: :view do
-  before(:context) do
+  before do
     assign(:edi_invoice, [FactoryBot.create(:edi_invoice)])
   end
-  context 'any user' do
+
+  context 'with any user' do
     before do
       stub_current_user_for_view { FactoryBot.create(:staff_user) }
       render
     end
-    it 'should display the page header' do
+
+    it 'displays the page header' do
       assert_select 'h1', text: 'EDIFACT invoices'.to_s
     end
-    it 'should display an invoice line' do
+    it 'displays an invoice line' do
       assert_select 'td', text: 'I-10235828'.to_s
       assert_select 'td', text: 'COUTTS'.to_s
       assert_select 'td', text: '07/23/13'.to_s

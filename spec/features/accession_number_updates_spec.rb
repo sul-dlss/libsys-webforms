@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'accession number updates pages' do
-  before(:each) do
+describe 'Accession Number Updates Pages', type: :feature do
+  before do
     stub_current_user(FactoryBot.create(:authorized_user))
     @accession_number = FactoryBot.create(:accession_number)
     @zvc_number = FactoryBot.create(:zvc_number)
@@ -16,19 +16,41 @@ describe 'accession number updates pages' do
     expect(page).to have_css('li>a', text: 'Media Microtext')
   end
 
-  it 'displays a list of accession numbers by resource type' do
-    click_link 'Visual Materials'
-    expect(page).to have_css('h3', text: 'Visual Materials')
-    expect(page).to have_css('th', text: 'Location')
-    expect(page).to have_css('tr>td', text: 'DVD')
-    expect(page).to have_css('tr>td', text: 'ZVC')
-    expect(page).to have_css('td>a', text: 'Get number')
+  describe 'accession number generator for visual materials resource type' do
+    before do
+      click_link 'Visual Materials'
+    end
+
+    it 'displays the header' do
+      expect(page).to have_css('h3', text: 'Visual Materials')
+    end
+    it 'displays the table header' do
+      expect(page).to have_css('th', text: 'Location')
+    end
+    it 'diaplays one visual material type option' do
+      expect(page).to have_css('tr>td', text: 'DVD')
+    end
+    it 'displays another visual material type option' do
+      expect(page).to have_css('tr>td', text: 'ZVC')
+    end
+    it 'has a link to generate the accession number' do
+      expect(page).to have_css('td>a', text: 'Get number')
+    end
   end
 
-  it 'displays a list of accession numbers by location' do
-    click_link 'Media Microtext'
-    expect(page).to have_css('h3', text: 'Media Microtext')
-    expect(page).to have_css('th', text: 'Resource Type')
-    expect(page).to have_css('td>a', text: 'Get number')
+  describe 'accession number generator for media microtext resource type' do
+    before do
+      click_link 'Media Microtext'
+    end
+
+    it 'displays the header' do
+      expect(page).to have_css('h3', text: 'Media Microtext')
+    end
+    it 'displays the table header' do
+      expect(page).to have_css('th', text: 'Resource Type')
+    end
+    it 'has a link to generate the accession number' do
+      expect(page).to have_css('td>a', text: 'Get number')
+    end
   end
 end

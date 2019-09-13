@@ -6,7 +6,7 @@ class TransferItemsController < ApplicationController
   end
 
   def create
-    @transfer_item = TransferItem.new(params[:transfer_item])
+    @transfer_item = TransferItem.new(transfer_item_params)
     if @transfer_item.valid?
       array_of_item_ids = @transfer_item.parse_uploaded_file
       filtered_item_ids = UniUpdates.filter_duplicates(array_of_item_ids)
@@ -21,5 +21,11 @@ class TransferItemsController < ApplicationController
       render action: 'new'
       flash[:error] = 'Check that all fields are entered correctly'
     end
+  end
+
+  private
+
+  def transfer_item_params
+    params.require(:transfer_item).permit(:current_library, :new_library, :new_homeloc, :new_item_type, :item_ids)
   end
 end
