@@ -31,7 +31,7 @@ module LibsysWebforms
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.eager_load_paths << Rails.root.join('lib')
     config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
     config.active_record.default_timezone = :local
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
