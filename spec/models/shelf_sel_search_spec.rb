@@ -46,7 +46,11 @@ RSpec.describe ShelfSelSearch, type: :model do
     describe 'strip_spaces' do
       it 'strips the spaces from the lang string' do
         str = ' jpn, chi, kor '
-        expect(ShelfSelSearch.strip_spaces(str)).to eq 'jpn,chi,kor'
+        expect(described_class.strip_spaces(str)).to eq 'jpn,chi,kor'
+      end
+
+      it 'ignores stripping spaces if the lang string is nil' do
+        expect(described_class.strip_spaces(nil)).to be_nil
       end
     end
   end

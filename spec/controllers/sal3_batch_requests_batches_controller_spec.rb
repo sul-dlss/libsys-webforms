@@ -69,7 +69,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
                                                                   batch_needbydate: '11-APR-18')
       stub_current_user(FactoryBot.create(:authorized_user))
       get 'edit', params: { id: @sal3_batch_requests_batch }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -103,7 +103,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       # which is: render 'edit'
       stub_current_user(FactoryBot.create(:authorized_user))
       put :update, params: { id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 'foo' } }
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
     end
   end
 end

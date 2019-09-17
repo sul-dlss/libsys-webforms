@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable  Metrics/BlockLength
 RSpec.describe ExpendituresWithCircStatsReport, type: :model do
   before do
     FactoryBot.create(:expenditures_fy_date)
@@ -9,7 +10,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     expect(FactoryBot.create(:expenditures_with_circ_stats_report)).to be_valid
   end
 
-  describe 'callbacks' do
+  describe 'callbacks for fiscal year dates' do
     before do
       @report = FactoryBot.create(:expenditures_with_circ_stats_report)
     end
@@ -20,32 +21,34 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     it 'checks the funds' do
       expect(@report.send(:set_fund)).to eq(@report.fund.join(','))
     end
+
     it 'writes the funds' do
       @report.save
       expect(@report.date_range_start).not_to be_nil
     end
 
-    describe 'checking the report dates' do
+    describe 'checking the report fiscal year dates' do
       it 'writes fy_start' do
         expect(@report.send(:write_fy_start, '2011')).to eq('2010-SEP-03')
       end
       it 'writes fy_end' do
         expect(@report.send(:write_fy_end, '2011')).to eq('2011-AUG-25')
       end
-      it 'checks fiscal year dates' do
-        expect(@report.send(:check_fy)).to eq('2011-AUG-25')
+    end
+
+    context 'when fy end date is present' do
+      it 'checks calendar year dates' do
+        expect(@report.send(:check_fy)).to eq('2010-AUG-26')
       end
-      it 'writes cal_start' do
-        expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
+    end
+
+    context 'when no fy end date present' do
+      before do
+        @report = FactoryBot.create(:expenditures_with_circ_stats_report, fy_end: '')
       end
-      it 'writes cal_end' do
-        expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
-      end
-      it 'writes pd_start' do
-        expect(@report.send(:write_pd_start, '04-OCT-96')).to eq('1996-OCT-04')
-      end
-      it 'writes pd_end' do
-        expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-OCT-04')
+
+      it 'sets the fy end date the same as the start date' do
+        expect(@report.send(:check_fy)).to eq('2009-AUG-27')
       end
     end
 
@@ -53,15 +56,94 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
       @report.update(fund: nil)
       expect(@report.send(:set_fund)).to eq('1065032-103-')
     end
-    it 'rescues from an error if the fy start date is not in the table' do
-      expect do
-        FactoryBot.create(:expenditures_with_circ_stats_report, fy_start: 'FY 2018')
-      end.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  describe 'callbacks for calendar year dates' do
+    before do
+      @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'calendar')
     end
-    it 'rescues from an error if the fy end date is not in the table' do
-      expect do
-        FactoryBot.create(:expenditures_with_circ_stats_report, fy_end: 'FY 2018')
-      end.to raise_error(ActiveRecord::RecordNotFound)
+
+    it 'writes the funds' do
+      @report.save
+      expect(@report.date_range_start).not_to be_nil
+    end
+    it 'writes cal_start' do
+      expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
+    end
+    it 'writes cal_end' do
+      expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
+    end
+
+    context 'when end date is present' do
+      it 'checks calendar year dates' do
+        expect(@report.send(:check_cal)).to eq('2001-12-31')
+      end
+    end
+
+    context 'when no end date present' do
+      before do
+        @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'calendar', cal_end: '')
+      end
+
+      it 'sets the end date the same as the start date' do
+        expect(@report.send(:check_cal)).to eq('2000-12-31')
+      end
     end
   end
+
+  describe 'callbacks for paid dates' do
+    before do
+      @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'paydate')
+    end
+
+    it 'writes the funds' do
+      @report.save
+      expect(@report.date_range_start).not_to be_nil
+    end
+
+    it 'writes pd_start' do
+      expect(@report.send(:write_pd_start, '04-OCT-96')).to eq('1996-OCT-04')
+    end
+    it 'writes pd_end' do
+      expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-OCT-04')
+    end
+
+    context 'when end date is present' do
+      it 'checks paid dates' do
+        expect(@report.send(:check_pd)).to eq('1997-OCT-04')
+      end
+    end
+
+    context 'when no end date present' do
+      before do
+        @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'paydate', pd_end: '')
+      end
+
+      it 'sets the end date the same as the start date' do
+        expect(@report.send(:check_pd)).to eq('1996-OCT-04')
+      end
+    end
+  end
+
+  describe 'reports with invalid dates' do
+    before do
+      @report = FactoryBot.create(:expenditures_with_circ_stats_report)
+    end
+
+    # The order of the tests matters here
+    # rubocop:disable RSpec/MultipleExpectations
+    it 'raises an error' do
+      expect do
+        @report.update!(fy_end: 'FY 2100')
+        @report.send(:check_fy)
+      end.to raise_error(ActiveRecord::RecordNotFound)
+
+      expect do
+        @report.update!(fy_start: 'FY 2099')
+        @report.send(:check_fy)
+      end.to raise_error(ActiveRecord::RecordNotFound)
+    end
+    # rubocop:enable RSpec/MultipleExpectations
+  end
 end
+# rubocop:enable  Metrics/BlockLength

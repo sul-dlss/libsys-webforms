@@ -47,7 +47,6 @@ RSpec.describe AuthorizedUsersController, type: :controller do
   describe 'patch#update' do
     it 'does not update the user id' do
       patch :update, params: { user_id: 'admin_user', authorized_user: { user_id: 'adminuser' } }
-      @authorized_user.reload
       expect(@authorized_user.user_id).to eq('admin_user')
     end
     it 'updates an checked checkbox to Y' do

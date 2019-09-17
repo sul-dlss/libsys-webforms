@@ -6,7 +6,7 @@ RSpec.describe EdiInvLineController, type: :controller do
       @edi_inv_line = FactoryBot.create(:edi_inv_line)
       stub_current_user(FactoryBot.create(:authorized_user))
       get 'edit', params: { id: @edi_inv_line }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
