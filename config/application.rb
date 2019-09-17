@@ -34,6 +34,14 @@ module LibsysWebforms
     config.eager_load_paths << Rails.root.join('lib')
     config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
     config.active_record.default_timezone = :local
+
+    # DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+    # set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+    # boolean values and must have old data converted to 1 and 0 (its native boolean
+    # serialization) before setting this flag to true.
+    # Note: Libsys-webforms does not have any boolean columns in the schema.
+    config.active_record.sqlite3.represent_boolean_as_integer = true
+
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
   end
 end

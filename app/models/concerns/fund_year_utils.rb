@@ -88,7 +88,7 @@ module FundYearUtils
   end
 
   def write_dates
-    self[:date_request] = Time.zone.now
+    self[:date_request] = Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S')
     self[:date_ran] = nil
   end
 end

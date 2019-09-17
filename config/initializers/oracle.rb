@@ -49,20 +49,20 @@ if Rails.env.development? || Rails.env.production?
         # oracle
         register_class_with_limit my_map, /date/i, ActiveRecord::Type::DateTime
         register_class_with_precision my_map, /TIMESTAMP/i, ActiveRecord::Timestamp
-        register_class_with_limit my_map, /raw/i, ActiveRecord::OracleEnhanced::Type::Raw
-        register_class_with_limit my_map, /char/i, ActiveRecord::OracleEnhanced::Type::String
-        register_class_with_limit my_map, /clob/i, ActiveRecord::OracleEnhanced::Type::Text
+        register_class_with_limit my_map, /raw/i, ActiveRecord::Type::OracleEnhanced::Raw
+        register_class_with_limit my_map, /char/i, ActiveRecord::Type::OracleEnhanced::String
+        register_class_with_limit my_map, /clob/i, ActiveRecord::Type::OracleEnhanced::Text
 
-        my_map.register_type 'NCHAR', ActiveRecord::OracleEnhanced::Type::NationalCharacterString.new
+        my_map.register_type 'NCHAR', ActiveRecord::Type::OracleEnhanced::NationalCharacterString.new
         my_map.alias_type /NVARCHAR2/i, 'NCHAR'
 
         my_map.register_type(/NUMBER/i) do |sql_type|
           precision = extract_precision(sql_type)
           limit = extract_limit(sql_type)
-          ActiveRecord::OracleEnhanced::Type::Integer.new(precision: precision, limit: limit)
+          ActiveRecord::Type::OracleEnhanced::Integer.new(precision: precision, limit: limit)
         end
 
-        my_map.register_type /^NUMBER\(1\)/i, ActiveRecord::OracleEnhanced::Type::Boolean.new if emulate_booleans
+        my_map.register_type /^NUMBER\(1\)/i, ActiveRecord::Type::OracleEnhanced::Boolean.new if emulate_booleans
       end
     end
 
