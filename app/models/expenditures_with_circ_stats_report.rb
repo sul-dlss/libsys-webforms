@@ -3,24 +3,29 @@
 ###
 class ExpendituresWithCircStatsReport < ApplicationRecord
   include FundYearUtils
-  attr_accessor :fund, :fund_begin, :fund_select, :date_request, :date_type,
+  attr_accessor :fund, :fund_begin, :fund_select, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
                 :lib_array, :libraries, :format_array, :formats
 
-  validates :fund, presence: true, if: -> { :fund_begin.blank? }
-  validates :fund_begin, presence: true, if: -> { :fund.blank? }
+  validates :fund, presence: true, if: :blank_fund_begin?
+  validates :fund_begin, presence: true, if: :blank_fund?
   validates :lib_array, presence: true
   validates :format_array, presence: true
   validates :date_type, inclusion: %w[fiscal calendar paydate]
 
-  before_save :set_fund, :write_dates, :write_lib, :write_fmt
-  before_save :check_fy, if: -> { :date_type == 'fiscal' }
-  before_save :check_cal, if: -> { :date_type == 'calendar' }
-  before_save :check_pd, if: -> { :date_type == 'paydate' }
+  before_save :set_fund, :write_lib, :write_fmt, :check_dates
 
   self.table_name = 'expenditures_circ_log'
 
   private
+
+  def blank_fund_begin?
+    fund_begin.blank?
+  end
+
+  def blank_fund?
+    fund.blank?
+  end
 
   def write_lib
     self[:libraries] = lib_array.delete_if { |a| a.empty? || a == 'All Libraries' }.join(',')

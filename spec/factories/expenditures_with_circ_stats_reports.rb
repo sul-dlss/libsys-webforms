@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :expenditures_with_circ_stats_report do
     date_type { 'fiscal' }
-    date_request { '16-JUN-16' }
-    date_ran { '16-JUN-16' }
     status { 'REQUEST' }
     email { 'someone@some.one' }
     fund { %w(1065032-103-XYZ) }

@@ -19,4 +19,31 @@ RSpec.describe EncumbranceReport, type: :model do
       expect(@report.send(:set_fund)).to eq('1065032-103-')
     end
   end
+
+  describe 'validations' do
+    before do
+      @report = described_class.new(email: nil, fund_begin: nil, fund: nil)
+      @report.valid?
+    end
+
+    it 'validates the presence of an email address' do
+      expect(@report.errors.messages[:email]).to include "can't be blank"
+    end
+    it 'validates the presence of a fund_begin' do
+      expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
+    end
+    it 'validates the presence of a fund' do
+      expect(@report.errors.messages[:fund]).to include "can't be blank"
+    end
+    it 'validates the correct form of an email address' do
+      @report = described_class.new(email: 'test@testtest.com')
+      @report.valid?
+      expect(@report.errors.messages[:email]).not_to include "can't be blank"
+    end
+    it 'validates the incorrect form of an email address' do
+      @report = described_class.new(email: 'test@test@test.com')
+      @report.valid?
+      expect(@report.errors.messages[:email]).to include 'is invalid'
+    end
+  end
 end
