@@ -145,5 +145,28 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     end
     # rubocop:enable RSpec/MultipleExpectations
   end
+
+  describe 'validations' do
+    before do
+      @report = described_class.new(date_type: nil, format_array: nil, lib_array: nil, fund_begin: nil, fund: nil)
+      @report.valid?
+    end
+
+    it 'validates the inclusion of a date_type' do
+      expect(@report.errors.messages[:date_type]).to include 'is not included in the list'
+    end
+    it 'validates the presence of a fund_begin' do
+      expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
+    end
+    it 'validates the presence of a fund' do
+      expect(@report.errors.messages[:fund]).to include "can't be blank"
+    end
+    it 'validated the presence of a format_array' do
+      expect(@report.errors.messages[:format_array]).to include "can't be blank"
+    end
+    it 'validated the presence of a lib_array' do
+      expect(@report.errors.messages[:lib_array]).to include "can't be blank"
+    end
+  end
 end
 # rubocop:enable  Metrics/BlockLength
