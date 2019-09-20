@@ -4,6 +4,7 @@ RSpec.describe EncumbranceReport, type: :model do
   it 'has a valid factory' do
     expect(FactoryBot.create(:encumbrance_report)).to be_valid
   end
+
   it 'Defines a list of fund cycles' do
     expect(fiscal_years).to include('2015', '9899', '9798', '9697')
   end

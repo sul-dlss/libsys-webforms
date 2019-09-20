@@ -11,6 +11,7 @@ RSpec.describe 'edi_error_reports/index', type: :view do
     it 'displays the page header' do
       assert_select 'h1', text: 'EDIFACT invoice errors'.to_s
     end
+
     it 'displays an error line' do
       assert_select 'td', text: '2018-02-02 14:05'.to_s
       assert_select 'td', text: 'notify'.to_s
@@ -28,11 +29,13 @@ RSpec.describe 'edi_error_reports/index', type: :view do
       render
       assert_select 'h1', text: 'EDIFACT invoice errors (EDI_QUIT_ITEM.do_removes)'.to_s
     end
+
     it 'displays the page header with the fatal error level' do
       allow(controller).to receive(:params).and_return(level: 'fatal')
       render
       assert_select 'h1', text: 'EDIFACT invoice errors (fatal)'.to_s
     end
+
     it 'displays the page header with the notify error level' do
       allow(controller).to receive(:params).and_return(level: 'notify')
       render

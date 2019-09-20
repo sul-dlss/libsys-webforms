@@ -17,15 +17,19 @@ RSpec.describe 'accession_numbers/show', type: :view do
   it 'renders Type of resource attribute' do
     expect(rendered).to match(/Type of resource/)
   end
+
   it 'renders Type of material attribute' do
     expect(rendered).to match(/Type of material/)
   end
+
   it 'renders Location attribute' do
     expect(rendered).to match(/Location/)
   end
+
   it 'renders Prefix attribute' do
     expect(rendered).to match(/Prefix/)
   end
+
   it 'renders attribute' do
     expect(rendered).to match(/2/)
   end

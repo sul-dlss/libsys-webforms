@@ -8,6 +8,7 @@ RSpec.describe EdiInvoice, type: :model do
     it 'defines a set of unique vendors' do
       expect(described_class.edi_vend_id).to include(*vendors)
     end
+
     it 'defines the vendor filter for the table scope' do
       expect(described_class.vendor_filter).to include(*vendors.push('ALL'))
     end
@@ -20,6 +21,7 @@ RSpec.describe EdiInvoice, type: :model do
       update = described_class.make_updates('HARRAS', '150302')
       expect(update[0].to_s).to eq 'error'
     end
+
     it 'inserts a new exclude row into the  edi_invoice table if an exclude does not exist' do
       update = described_class.make_updates('AMALIV', '12345')
       expect(update[0].to_s).to eq 'warning'
@@ -29,6 +31,7 @@ RSpec.describe EdiInvoice, type: :model do
       expect(edi_invoice.todo).to eq('Excld')
       expect(edi_invoice.edi_msg_seg).to eq('HDR')
     end
+
     it 'updates invoices to be excluded if they are not past the point of exclusion' do
       update = []
       2.times do
@@ -36,6 +39,7 @@ RSpec.describe EdiInvoice, type: :model do
       end
       expect(update[0].to_s).to eq 'warning'
     end
+
     it 'updates the edi_invoice table and deletes the edi_inv_line and edi_piece for an existing excludeable row' do
       update = described_class.make_updates('HARRAS', '150305')
       expect(update[0].to_s).to eq 'warning'

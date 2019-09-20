@@ -19,6 +19,7 @@ module Constants
     'digital_bookplates' => 'Digital bookplates',
     'edi_inv_manage' => 'Manage EDI Invoices',
     'edi_inv_view' => 'View EDI Invoices',
-    'package_manage' => 'Manage ELoader Packages'
+    'package_manage' => 'Manage ELoader Packages',
+    'illiad_user_export' => 'ILLiad User Exports'
   }.freeze
 end

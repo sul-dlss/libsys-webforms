@@ -43,9 +43,11 @@ RSpec.describe EdiLinsController, type: :controller do
       it 'zero barcodes are found' do
         expect(assigns(:edi_lin).size).to be 0
       end
+
       it 'flashes a message that there are no duplicate barcodes' do
         expect(flash).to be_present
       end
+
       it 'redirects to teh edi_menu' do
         expect(response).to redirect_to edi_invoices_menu_path
       end
@@ -57,9 +59,11 @@ RSpec.describe EdiLinsController, type: :controller do
       it 'only 1 barcode found' do
         expect(assigns(:edi_lin).size).to be < 2
       end
+
       it 'flashes a message that there are no duplicate barcodes' do
         expect(flash).to be_present
       end
+
       it 'redirects to the edi menu' do
         expect(response).to redirect_to edi_invoices_menu_path
       end
@@ -71,6 +75,7 @@ RSpec.describe EdiLinsController, type: :controller do
       it 'more than one barcodes are found' do
         expect(assigns(:edi_lin).size).to be > 1
       end
+
       it 'redirects to the show page with the duplicate barcode param' do
         expect(response).to redirect_to '/edi_lins/show/99999999999999'
       end
@@ -115,6 +120,7 @@ RSpec.describe EdiLinsController, type: :controller do
     it 'notifies of a duplicate barcode change' do
       expect(flash).to be_present
     end
+
     it 'redirects to the edi invoices menu' do
       expect(response).to redirect_to edi_invoices_menu_path
     end

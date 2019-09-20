@@ -53,6 +53,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
 
       expect(response).to have_http_status(:found)
     end
+
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { sal3_batch_requests_batch: { batch_id: '' } }
@@ -90,6 +91,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch.reload
       expect(@sal3_batch_requests_batch.priority).to eq(1)
     end
+
     it 'is unsuccessful returning to the edit view without required dates' do
       stub_current_user(FactoryBot.create(:authorized_user))
       put :update, params: { id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { batch_startdate: nil,
@@ -97,6 +99,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch.reload
       expect(response).to render_template('edit')
     end
+
     it 'redirects to the edit page when update fails' do
       # this spec passes, but doesn't seem to get coverage
       # sal3_batch_requests_batches_controller.rb: 1 untested lines: [40]

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserloadRerunsController, type: :controller do
+RSpec.describe IlliadUserExportsController, type: :controller do
   describe 'GET #new' do
     it 'renders the correct template' do
       stub_current_user(FactoryBot.create(:authorized_user))
@@ -12,14 +12,14 @@ RSpec.describe UserloadRerunsController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'redirects to the home page' do
-        post :create, params: { userload_rerun: { rerun_date: '2017-01-04' } }
+        post :create, params: { illiad_user_export: { sunet_ids: 'sunetone\n\rsunettwo' } }
         expect(response).to have_http_status(:found)
       end
     end
 
     context 'with invalid params' do
       it 'creates a new UserloadRerun' do
-        post :create, params: { userload_rerun: { rerun_date: '' } }
+        post :create, params: { illiad_user_export: { sunet_ids: '' } }
         expect(response).to render_template('new')
       end
     end

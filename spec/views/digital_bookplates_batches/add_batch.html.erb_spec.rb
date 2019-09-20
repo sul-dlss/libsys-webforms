@@ -11,11 +11,13 @@ RSpec.describe 'digital_bookplates_batches/new/add_batch', type: :view do
   it 'displays header for adding a batch' do
     assert_select 'h2', text: 'Add digital bookplate metadata to Symphony records'.to_s
   end
+
   it 'displays bookplate data in a table' do
     assert_select 'table>tbody>tr>td', text: 'ABBASI'.to_s, count: 1
     assert_select 'table>tbody>tr>td', text: 'rn593kb3193'.to_s, count: 1
     assert_select 'table>tbody>tr>td', text: 'Sohaib and Sara Abbasi Collection'.to_s, count: 1
   end
+
   it 'has a hidden field with \"add\" as the value' do
     assert_select 'input[type=hidden][value=add]'
   end

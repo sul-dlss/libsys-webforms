@@ -34,10 +34,12 @@ describe WebformsMailer do
         expect(upload_mail.to)
           .to eq %w(sul-unicorn-devs@lists.stanford.edu libraryuser@stanford.edu otheruser@stanford.edu)
       end
+
       it 'is the list email address and email_user for deletes' do
         expect(delete_mail.to)
           .to eq %w(sul-unicorn-devs@lists.stanford.edu libraryuser@stanford.edu otheruser@stanford.edu)
       end
+
       it 'is the list email address and email_users for sal3' do
         expect(sal3_mail.to)
           .to eq %w(sul-unicorn-devs@lists.stanford.edu sal3contact@stanford.edu
@@ -48,6 +50,7 @@ describe WebformsMailer do
         expect(upload_mail_w_emails.to).to eq %w(sul-unicorn-devs@lists.stanford.edu libraryuser@stanford.edu
                                                  otheruser@stanford.edu anotheruser@stanford.edu lastuser@stanford.edu)
       end
+
       it 'replaces spaces, commas, and semicolons fr delete mail' do
         expect(delete_mail_w_emails.to).to eq %w(sul-unicorn-devs@lists.stanford.edu libraryuser@stanford.edu
                                                  otheruser@stanford.edu anotheruser@stanford.edu lastuser@stanford.edu)
@@ -56,9 +59,11 @@ describe WebformsMailer do
       it 'upload mail is just the email address when no email_user is specified' do
         expect(upload_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
       end
+
       it 'sal3 mail is just the email address when no email_user is specified' do
         expect(sal3_mail_no_user.to).to eq %w(sul-unicorn-devs@lists.stanford.edu sal3contact@stanford.edu)
       end
+
       it 'delete is just the email address when no email_user is specified' do
         expect(delete_mail_no_user.to).to eq ['sul-unicorn-devs@lists.stanford.edu']
       end
@@ -68,9 +73,11 @@ describe WebformsMailer do
       it 'is the default from address for upload mail' do
         expect(upload_mail.from).to eq ['no-reply@libsys-webforms.stanford.edu']
       end
+
       it 'is the default from address for delete mail' do
         expect(delete_mail.from).to eq ['no-reply@libsys-webforms.stanford.edu']
       end
+
       it 'is the default from address for sal3 mail' do
         expect(sal3_mail.from).to eq ['no-reply@libsys-webforms.stanford.edu']
       end
@@ -80,9 +87,11 @@ describe WebformsMailer do
       it 'is about a batch upload or deletion for upload mail' do
         expect(upload_mail.subject).to eq 'Batch update request'
       end
+
       it 'is about a batch upload or deletion for delete mail' do
         expect(delete_mail.subject).to eq 'Batch update deletion'
       end
+
       it 'is about a batch upload or deletion for sal3 mail' do
         expect(sal3_mail.subject).to eq 'SAL3 pull request'
       end
@@ -96,15 +105,19 @@ describe WebformsMailer do
       it 'has the id of the batch updated for upload mail' do
         expect(upload_body).to match(/Batch id: 1/)
       end
+
       it 'has the id of the batch updated for delete mail' do
         expect(delete_body).to match(/Batch id: 1/)
       end
+
       it 'has the name of the sal3 batch' do
         expect(sal3_body).to match(/Batch name: Batch name/)
       end
+
       it 'has the id of the sal3 batch' do
         expect(sal3_body).to match(/Batch id: 1/)
       end
+
       it 'has the name of the sal3 batch requestor' do
         expect(sal3_body).to match(/Requestor name: Test User/)
       end

@@ -37,6 +37,7 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
       it 'is successful' do
         expect(response).to have_http_status(:success)
       end
+
       it 'redirects to root_url' do
         expect(response).to render_template(root_path)
       end

@@ -22,6 +22,7 @@ RSpec.describe ChangeItemTypesController, type: :controller do
                                                   item_ids: barcode_file } }
       expect(response).to have_http_status(:found)
     end
+
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { change_item_type: { current_library: '', new_item_type: '' } }

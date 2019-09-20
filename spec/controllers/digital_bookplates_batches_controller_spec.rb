@@ -50,6 +50,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
       post :create, params: { digital_bookplates_batch: valid_attributes }
       expect(DigitalBookplatesBatch.last.ckey_count).to eq(2)
     end
+
     it 'uses batch_id to prepend to filename of the uploaded file' do
       post :create, params: { digital_bookplates_batch: valid_attributes }
       symphony_path = Settings.symphony_dataload_digital_bookplates
@@ -65,6 +66,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
       it 'redirects to queue page' do
         expect(response).to redirect_to(queue_digital_bookplates_batches_path)
       end
+
       it 'flashes a message' do
         expect(flash[:notice]).to be_present
       end
@@ -78,6 +80,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
       it 'renders "new" template on failure' do
         expect(response).to redirect_to(add_batch_new_digital_bookplates_batch_path)
       end
+
       it 'flashes an error message' do
         expect(flash[:error]).to eq 'Ckey count cannot be more than 10,000.'
       end
@@ -96,6 +99,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
       it 'lets users delete a batch and corresponding file too' do
         expect { delete :destroy, params: { id: delete_batch_id } }.to change(DigitalBookplatesBatch, :count).by(-1)
       end
+
       it 'lets the user delete the corresponding batch file' do
         symphony_path = Settings.symphony_dataload_digital_bookplates
         expect(File).not_to exist("#{symphony_path}/#{test_file}")
@@ -106,6 +110,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
       it 'does not delete batches that have a completed_date' do
         expect { delete :destroy, params: { id: @completed_batch } }.to change(DigitalBookplatesBatch, :count).by(0)
       end
+
       it 'flashes an error message' do
         delete :destroy, params: { id: @completed_batch }
         expect(flash[:error]).to eq 'Batch cannot be deleted!'

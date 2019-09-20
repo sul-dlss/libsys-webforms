@@ -20,6 +20,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
       post :create, params: { endowed_funds_report: { fund: nil, fund_begin: nil } }
       expect(response).to render_template('new')
     end
+
     it 'redirects to root_url if create returns and writes ckeys and is successful' do
       params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
                  pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
@@ -28,6 +29,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
       post :create, params: { endowed_funds_report: params }
       expect(response).to redirect_to root_path
     end
+
     it 'creates the params for a symphony request using several fund strings and fiscal year dates' do
       params = { fund: ['1000501-1-AACIZ', '1000502-1-AACIX'], fund_begin: nil,
                  report_format: 'n', email: 'some@one.com', fy_start: 'FY 2015',
@@ -51,6 +53,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
       it 'creates a symphony request using a fund_begin string with the start date' do
         expect(controller.date_start).to eq '2015-01-01'
       end
+
       it 'creates a symphony request using a fund_begin string with the end date' do
         expect(controller.date_end).to eq '2016-12-31'
       end
@@ -70,6 +73,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
       it 'creates a symphony request using a fund_begin string with the start date' do
         expect(controller.date_start).to eq '1998-12-22'
       end
+
       it 'creates a symphony request using a fund_begin string with the end date' do
         expect(controller.date_end).to eq '1999-12-22'
       end
