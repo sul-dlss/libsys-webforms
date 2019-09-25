@@ -21,7 +21,12 @@ RSpec.describe EncumbranceReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(email: nil, fund_begin: nil, fund: nil)
+      @report = described_class.new(email: nil,
+                                    fund_begin: nil,
+                                    fund: nil,
+                                    status: nil,
+                                    output_file: nil,
+                                    date_request: nil)
       @report.valid?
     end
 
@@ -43,6 +48,15 @@ RSpec.describe EncumbranceReport, type: :model do
       @report = described_class.new(email: 'test@test@test.com')
       @report.valid?
       expect(@report.errors.messages[:email]).to include 'is invalid'
+    end
+    it 'validates presence of request_date' do
+      expect(@report.errors.messages[:date_request]).to include "can't be blank"
+    end
+    it 'validates presence of status' do
+      expect(@report.errors.messages[:status]).to include "can't be blank"
+    end
+    it 'validates presence of output_file' do
+      expect(@report.errors.messages[:output_file]).to include "can't be blank"
     end
   end
 end
