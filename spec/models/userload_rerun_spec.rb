@@ -5,7 +5,7 @@ RSpec.describe UserloadRerun, type: :model do
     FileUtils.mkdir_p('tmp/Dataload/UserloadRerun')
   end
 
-  it 'validates that sunet ids are submitted' do
+  it 'validates that a rerun date is submitted' do
     @form = described_class.new(rerun_date: nil)
     @form.valid?
     expect(@form.errors.messages[:rerun_date]).to include "can't be blank"
