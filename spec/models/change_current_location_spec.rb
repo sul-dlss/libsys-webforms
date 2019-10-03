@@ -21,12 +21,14 @@ RSpec.describe ChangeCurrentLocation, type: :model do
       change_location.valid?
       expect(change_location.errors[:email]).not_to include('is invalid')
     end
+
     it 'passes the email validation with empty email string' do
       change_location = described_class.new
       change_location.email = ''
       change_location.valid?
       expect(change_location.errors[:email]).not_to include('is invalid')
     end
+
     it 'fails the email validation with invalid email string' do
       change_location = described_class.new
       change_location.email = 'one@one.comtwo@two.ca;three@four.net, five@six seven@eight.it'

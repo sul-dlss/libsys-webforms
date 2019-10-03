@@ -20,6 +20,7 @@ RSpec.describe WithdrawItemsController, type: :controller do
       post :create, params: { withdraw_item: { current_library: 'GREEN', item_ids: barcode_file } }
       expect(response).to have_http_status(:found)
     end
+
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { withdraw_item: { current_library: '' } }

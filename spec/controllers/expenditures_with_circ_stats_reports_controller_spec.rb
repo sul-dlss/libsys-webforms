@@ -27,31 +27,37 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
 
       expect(flash[:error]).to eq('There are no records for the specified date range')
     end
+
     it 'returns 302 when saving a report for fiscal years' do
       params.merge!(date_type: 'fiscal', fy_start: 'FY 2009')
       post :create, params: { expenditures_with_circ_stats_report: params }
       expect(response).to have_http_status(:found)
     end
+
     it 'returns 302 when saving a report for calendar years with only cal_start set' do
       params.merge!(date_type: 'calendar', cal_start: '1996')
       post :create, params: { expenditures_with_circ_stats_report: params }
       expect(response).to have_http_status(:found)
     end
+
     it 'returns 302 when saving a report for calendar years with cal_start and cal_end set' do
       params.merge!(date_type: 'calendar', cal_start: '1996', cal_end: '1997')
       post :create, params: { expenditures_with_circ_stats_report: params }
       expect(response).to have_http_status(:found)
     end
+
     it 'returns 302 when saving a report for paydate years with only pd_start set' do
       params.merge!(date_type: 'paydate', pd_start: '22-DEC-99')
       post :create, params: { expenditures_with_circ_stats_report: params }
       expect(response).to have_http_status(:found)
     end
+
     it 'returns 302 when saving a report for paydate years with pd_start and pd_end set' do
       params.merge!(date_type: 'paydate', pd_start: '17-DEC-99', pd_end: '22-DEC-99')
       post :create, params: { expenditures_with_circ_stats_report: params }
       expect(response).to have_http_status(:found)
     end
+
     it 'renders new template with an invalid object' do
       post :create, params: { expenditures_with_circ_stats_report: { email: '' } }
       expect(response).to render_template('new')

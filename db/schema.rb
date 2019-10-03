@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181121214017) do
+ActiveRecord::Schema.define(version: 20190919230845) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string   "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20181121214017) do
     t.string   "edi_inv_manage"
     t.string   "edi_inv_view"
     t.string   "package_manage"
+    t.string   "illiad_user_export"
   end
 
   create_table "catnums", force: :cascade do |t|

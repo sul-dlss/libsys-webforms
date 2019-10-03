@@ -12,6 +12,7 @@ RSpec.describe ChangeHomeLocation, type: :model do
       change_home_location.item_ids = barcode_file
       expect(change_home_location.parse_uploaded_file).to be_kind_of(Array)
     end
+
     it 'accepts a valid email_pattern' do
       change_home_location = described_class.new(email: 'vtang@stanford.edu, rtamares@law.stanford.edu',
                                                  current_library: 'GREEN',
@@ -19,6 +20,7 @@ RSpec.describe ChangeHomeLocation, type: :model do
                                                  item_ids: barcode_file)
       expect(change_home_location).to be_valid
     end
+
     it 'rejects an invalid email_pattern' do
       change_home_location = described_class.new(email: 'vtang@stanford rtamares-.stanford.edu',
                                                  current_library: 'GREEN',

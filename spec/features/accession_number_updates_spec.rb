@@ -24,15 +24,19 @@ describe 'Accession Number Updates Pages', type: :feature do
     it 'displays the header' do
       expect(page).to have_css('h3', text: 'Visual Materials')
     end
+
     it 'displays the table header' do
       expect(page).to have_css('th', text: 'Location')
     end
+
     it 'diaplays one visual material type option' do
       expect(page).to have_css('tr>td', text: 'DVD')
     end
+
     it 'displays another visual material type option' do
       expect(page).to have_css('tr>td', text: 'ZVC')
     end
+
     it 'has a link to generate the accession number' do
       expect(page).to have_css('td>a', text: 'Get number')
     end
@@ -46,9 +50,11 @@ describe 'Accession Number Updates Pages', type: :feature do
     it 'displays the header' do
       expect(page).to have_css('h3', text: 'Media Microtext')
     end
+
     it 'displays the table header' do
       expect(page).to have_css('th', text: 'Resource Type')
     end
+
     it 'has a link to generate the accession number' do
       expect(page).to have_css('td>a', text: 'Get number')
     end

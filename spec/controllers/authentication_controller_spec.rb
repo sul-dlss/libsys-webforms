@@ -7,10 +7,12 @@ describe AuthenticationController do
       get :login
       expect(response).to redirect_to('https://example.com')
     end
+
     it 'redirects to root_path when there is no provided referrer' do
       get :login
       expect(response).to redirect_to(root_path)
     end
+
     it 'has a flash success message informing the user they logged in' do
       get :login
       expect(flash[:success]).to eq 'You have been successfully logged in.'

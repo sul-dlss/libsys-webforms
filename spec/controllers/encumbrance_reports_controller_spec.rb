@@ -18,6 +18,7 @@ RSpec.describe EncumbranceReportsController, type: :controller do
 
       expect(response).to have_http_status(:found)
     end
+
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { encumbrance_report: { fund: '' } }

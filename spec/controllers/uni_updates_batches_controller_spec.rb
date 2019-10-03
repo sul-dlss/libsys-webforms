@@ -18,6 +18,7 @@ RSpec.describe UniUpdatesBatchesController, type: :controller do
       stub_current_user(FactoryBot.create(:authorized_user))
       expect { delete :destroy, params: { id: @uni_updates_batch } }.to change(UniUpdatesBatch, :count).by(-1)
     end
+
     it 'redirects to root_path' do
       stub_current_user(FactoryBot.create(:authorized_user))
       delete :destroy, params: { id: @uni_updates_batch }

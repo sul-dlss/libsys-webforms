@@ -84,6 +84,13 @@
       </div>
     </div>
     <% end %>
+    <% if can? :create, IlliadUserExport %>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4><%= link_to "ILLiad User Export", new_illiad_user_export_path %></h4>
+          </div>
+        </div>
+    <% end %>
   <% end %>
   <% Settings.pl_sql_jobs.each_with_index do |(k,v),i| %>
     <% if v.sunet_ids.include?(user_id) %>

@@ -9,6 +9,7 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
   it 'has a valid factory' do
     expect(FactoryBot.create(:circulation_statistics_report_log)).to be_valid
   end
+
   describe '#process_range_type_params' do
     let(:params) { { 'libs_locs' => 'ARS/RECORDINGS,ART/ARTLCKM/ARTLCKS,GREEN/BENDER,SAL3' } }
 
@@ -90,9 +91,11 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
     it 'gets the output file name' do
       expect(output_hash[:output_name]).to include('test_file')
     end
+
     it 'gets a file of barcodes' do
       expect(report.barcodes).to be_a(Rack::Test::UploadedFile)
     end
+
     it 'gets the file path' do
       expect(path).to include('test_file')
     end

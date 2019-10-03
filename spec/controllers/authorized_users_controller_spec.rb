@@ -27,10 +27,12 @@ RSpec.describe AuthorizedUsersController, type: :controller do
                                                  mgt_rpts: '1' } }
       expect(response).to have_http_status(:found)
     end
+
     it 'flashes error if user missing user_id or user_name' do
       post :create, params: { authorized_user: { user_id: '', user_name: ' ', mgt_rpts: '1' } }
       expect(flash[:error]).to be_present
     end
+
     it 'flashes error if user already exists' do
       post :create, params: { authorized_user: { user_id: 'admin_user', user_name: ' ', mgt_rpts: '1' } }
       expect(flash[:error]).to eq 'User already exists!'
@@ -50,11 +52,13 @@ RSpec.describe AuthorizedUsersController, type: :controller do
       @authorized_user.reload
       expect(@authorized_user.user_id).to eq('admin_user')
     end
+
     it 'updates an checked checkbox to Y' do
       patch :update, params: { user_id: 'admin_user', authorized_user: { unicorn_circ_batch: 'Y' } }
       @authorized_user.reload
       expect(@authorized_user.unicorn_circ_batch).to eq('Y')
     end
+
     it 'updates an unchecked checkbox to nil' do
       patch :update, params: { user_id: 'admin_user', authorized_user: { ora_admin: '' } }
       @authorized_user.reload
@@ -70,6 +74,7 @@ RSpec.describe AuthorizedUsersController, type: :controller do
       it 'does not update the user name' do
         expect(@authorized_user.user_name).to eq('Admin User')
       end
+
       it 'flashes a message' do
         expect(flash[:error]).to be_present
       end
