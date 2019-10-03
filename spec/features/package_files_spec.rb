@@ -16,9 +16,11 @@ describe 'Package Files', type: :feature do
     it 'displays a table with Package ID header' do
       expect(page).to have_css('table>thead>tr>th', text: 'Package ID')
     end
+
     it 'displays a table with File Name header' do
       expect(page).to have_css('table>thead>tr>th', text: 'File Name')
     end
+
     it 'displays file name' do
       expect(page).to have_css('table>tbody>tr>td', text: 'tv_theatervideo_all_pp_DELETES.mrc')
     end
@@ -33,15 +35,19 @@ describe 'Package Files', type: :feature do
     it 'returns http success for staff_user' do
       expect(page).to have_http_status(:success)
     end
+
     it 'displays a table with Package ID header' do
       expect(page).to have_css('table>thead>tr>th', text: 'Package ID')
     end
+
     it 'displays a table with File Name header' do
       expect(page).to have_css('table>thead>tr>th', text: 'File Name')
     end
+
     it 'displays a table with Load Status header' do
       expect(page).to have_css('table>thead>tr>th', text: 'Load Status')
     end
+
     it 'displays file name' do
       expect(page).to have_css('table>tbody>tr>td', text: 'tv_theatervideo_all_pp_NEW.mrc')
     end

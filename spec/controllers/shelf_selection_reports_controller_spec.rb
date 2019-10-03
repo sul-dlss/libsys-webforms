@@ -33,6 +33,7 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
                                                         format_array: ['', 'EQUIP'], itype_array: ['', 'ATLAS'] } }
       expect(response).to redirect_to root_url
     end
+
     it 'renders the new action when params are invalid' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { shelf_selection_report: { email: '' } }

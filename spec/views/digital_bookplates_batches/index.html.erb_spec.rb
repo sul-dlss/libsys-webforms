@@ -13,9 +13,11 @@ RSpec.describe 'digital_bookplates_batches/index', type: :view do
       assert_select 'a', text: 'Delete digital bookplate metadata from Symphony records'.to_s,
                          href: '/digital_bookplates_batches/new/delete_batch'.to_s
     end
+
     it 'displays a link to batches in the queue' do
       assert_select 'a', text: 'Show batches in queue'.to_s, href: '/digital_bookplates_batches/queue'.to_s
     end
+
     it 'displays a link to completed batches' do
       assert_select 'a', text: 'Show completed batches'.to_s, href: '/digital_bookplates_batches/completed'.to_s
     end
@@ -32,9 +34,11 @@ RSpec.describe 'digital_bookplates_batches/index', type: :view do
                          href: '/digital_bookplates_batches/new/add_batch'.to_s
       expect(rendered).not_to have_css('a', text: 'Delete digital bookplate metadata from Symphony records')
     end
+
     it 'displays a link to batches in the queue' do
       assert_select 'a', text: 'Show batches in queue'.to_s, href: '/digital_bookplates_batches/queue'.to_s
     end
+
     it 'displays a link to completed batches' do
       assert_select 'a', text: 'Show completed batches'.to_s, href: '/digital_bookplates_batches/completed'.to_s
     end

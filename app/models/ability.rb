@@ -6,6 +6,8 @@ class Ability
     current_user ||= AuthorizedUser.new
     assign_staff_specified_permission(current_user)
     assign_staff_manage_permission(current_user)
+    assign_staff_create_permission(current_user)
+    assign_staff_read_permission(current_user)
     assign_admin_permission(current_user)
     assign_basic_permission
     assign_user_permission if current_user
@@ -28,7 +30,14 @@ class Ability
     can %i[read create destroy add_batch], DigitalBookplatesBatch if /A|Y/.match?(current_user.digital_bookplates)
     can %i[create read], Sal3BatchRequestsBatch if /A|Y/.match?(current_user.sal3_batch_req)
     can %i[read update download], Sal3BatchRequestsBatch if /A|Y/.match?(current_user.sal3_breq_edit)
+  end
+
+  def assign_staff_create_permission(current_user)
     can :create, UserloadRerun if /A|Y/.match?(current_user.userload_rerun)
+    can :create, IlliadUserExport if /A|Y/.match?(current_user.illiad_user_export)
+  end
+
+  def assign_staff_read_permission(current_user)
     can :read, EdiInvoice if /Y/.match?(current_user.edi_inv_view)
     can :read, Package if /A|Y/.match?(current_user.package_manage)
     can :read, PackageFile if /A|Y/.match?(current_user.package_manage)

@@ -17,12 +17,14 @@ RSpec.shared_examples 'circ_stats_report_examples' do
       report.valid?
       expect(report.errors.full_messages).to include(message)
     end
+
     it 'validates whether lc hi callnum range is empty or has two letters with the same first letter as low range' do
       message = 'Hi callnum range must be empty or two letters with the same first letter as low range'
       report = CirculationStatisticsReport.new(valid_attributes.merge!(range_type: 'lc', call_lo: 'LL', call_hi: 'AA'))
       report.valid?
       expect(report.errors.full_messages).to include(message)
     end
+
     it 'validates whether lc hi callnum range is empty when lo range is a letter followed by #' do
       message = 'Hi callnum range must be empty.'
       report = CirculationStatisticsReport.new(valid_attributes.merge!(range_type: 'lc', call_lo: 'L#', call_hi: 'AA'))

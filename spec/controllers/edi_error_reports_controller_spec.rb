@@ -11,6 +11,7 @@ RSpec.describe EdiErrorReportsController, type: :controller do
       get :index
       expect(response).to be_successful
     end
+
     it 'be unsuccessful returning the index page' do
       get :index, params: { day: '2012' }
       expect(controller).to redirect_to(edi_error_reports_path)

@@ -69,8 +69,6 @@ class ShelfSelSearch < ApplicationRecord
     call_range.split('-')[1]
   end
 
-  private
-
   def self.strip_spaces(str)
     str&.gsub(/\s+/, '')
   end

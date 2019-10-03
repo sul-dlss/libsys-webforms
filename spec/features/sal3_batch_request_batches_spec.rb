@@ -13,15 +13,19 @@ describe 'Sal3 Batch Requests Batch Page', type: :feature do
   it 'display the button links to filter the scope to pullmon' do
     expect(page).to have_selector(:css, 'a[href="/sal3_batch_requests_batches?pullmon=1"]')
   end
+
   it 'display the button links to filter the scope to pulltues' do
     expect(page).to have_selector(:css, 'a[href="/sal3_batch_requests_batches?pulltues=1"]')
   end
+
   it 'display the button links to filter the scope to pullwed' do
     expect(page).to have_selector(:css, 'a[href="/sal3_batch_requests_batches?pullwed=1"]')
   end
+
   it 'display the button links to filter the scope to pullthurs' do
     expect(page).to have_selector(:css, 'a[href="/sal3_batch_requests_batches?pullthurs=1"]')
   end
+
   it 'display the button links to filter the scope to pullfri' do
     expect(page).to have_selector(:css, 'a[href="/sal3_batch_requests_batches?pullfri=1"]')
   end
@@ -40,6 +44,7 @@ describe 'Sal3 Batch Requests Batch Page', type: :feature do
     it 'displays a page title' do
       expect(page).to have_text('SAL3 Batch Requests')
     end
+
     it 'displays several table headers' do
       expect(page).to have_css('th', text: headers)
     end

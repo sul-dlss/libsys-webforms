@@ -17,6 +17,7 @@ RSpec.describe Package, type: :model do
     it 'raises an error' do
       expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
     it 'provides an error message' do
       expect(@package.errors.full_messages).to eq(['Package ID is marked as readonly.'])
     end
@@ -30,9 +31,11 @@ RSpec.describe Package, type: :model do
     it 'raises an error' do
       expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
     it 'validated the package' do
       expect(@package).not_to be_valid
     end
+
     it 'provides an error message' do
       expect(@package.errors.full_messages).to eq(['AFS directory path cannot be empty.'])
     end
@@ -47,6 +50,7 @@ RSpec.describe Package, type: :model do
     it 'raises an error' do
       expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
     it 'adds an error message' do
       expect(@package.errors.full_messages).to eq(['FTP server cannot be empty.'])
     end
@@ -62,6 +66,7 @@ RSpec.describe Package, type: :model do
     it 'raises an error' do
       expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
     it 'adds an error message' do
       expect(@package.errors.full_messages).to eq(['AFS directory path cannot be empty.',
                                                    'FTP server cannot be empty.',
@@ -78,6 +83,7 @@ RSpec.describe Package, type: :model do
     it 'raises an error' do
       expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
     it 'adds an error message' do
       expect(@package.errors.full_messages).to eq(['FTP to AFS download directory path cannot be empty.'])
     end
@@ -91,6 +97,7 @@ RSpec.describe Package, type: :model do
     it 'raises an error' do
       expect { @package.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
+
     it 'adds an error message' do
       expect(@package.errors.full_messages)
         .to eq(["#{described_class.human_attribute_name('match_opts')} cannot be empty."])

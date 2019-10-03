@@ -2,6 +2,8 @@ symphony_cgi_url: 'https://example.com'
 symphony_dataload_endowrpt: 'tmp/Dataload/EndowRpt'
 symphony_config_digital_bookplates: 'spec/fixtures/files/symp_dor.txt'
 symphony_dataload_digital_bookplates: 'tmp/Dataload/BookplateMerge/Batches/Queue'
+symphony_illiad_user_export: 'tmp/Dataload/ILLiadUserExport/sunet_id_file'
+symphony_userload_rerun: 'tmp/Dataload/UserloadRerun/rerun_file'
 symphony_libsys_webforms: 'tmp/Libsys_webforms'
 # PL/SQL jobs
 pl_sql_jobs:

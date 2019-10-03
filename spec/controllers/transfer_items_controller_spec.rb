@@ -22,6 +22,7 @@ RSpec.describe TransferItemsController, type: :controller do
                                                item_ids: barcode_file } }
       expect(response).to have_http_status(:found)
     end
+
     it 'renders new template with an invalid object' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { transfer_item: { current_library: '' } }

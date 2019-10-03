@@ -11,6 +11,7 @@ RSpec.describe EdiLin, type: :model do
       edi_lin = described_class.find_by(vend_unique_id: 'aal0762919noBib')
       expect(edi_sumrz_bib.id001).to eq edi_lin.vend_unique_id
     end
+
     it 'returns an error message if the ID from EdiSumrzBib matches' do
       update = []
       2.times do
@@ -31,9 +32,11 @@ RSpec.describe EdiLin, type: :model do
     it 'gets the database type used from the Rails config' do
       expect(described_class.database).to eq 'db/test.sqlite3'
     end
+
     it 'uses the id pseudocolumn for the dev/test sqlite database primary key' do
       expect(described_class.primary_key).to eq 'id'
     end
+
     it 'uses the id pseudocolumn for the dev/test sqlite database row id' do
       expect(described_class.row_id).to eq 'id'
     end
@@ -47,9 +50,11 @@ RSpec.describe EdiLin, type: :model do
     it 'gets the database type used from the Rails config' do
       expect(described_class.database).to eq 'LTRXPRD1'
     end
+
     it 'uses the id pseudocolumn for the prod oracle database primary key' do
       expect(described_class.primary_key).to eq 'rowid'
     end
+
     it 'uses the id pseudocolumn for the prod oracle database row id' do
       expect(described_class.row_id).to eq 'rowid'
     end

@@ -25,6 +25,7 @@ RSpec.describe EdiInvLineController, type: :controller do
       it 'updates the edi_fund' do
         expect(@edi_inv_line.edi_fund).to eq('My new string')
       end
+
       it 'updates the edi_po_number' do
         expect(@edi_inv_line.edi_po_number).to eq('MyString')
       end

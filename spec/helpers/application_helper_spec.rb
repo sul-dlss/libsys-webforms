@@ -7,6 +7,7 @@ describe ApplicationHelper do
     it 'renders the button with main-menu-button id' do
       expect(button).to have_css('button[id="main-menu-button"]')
     end
+
     it 'renders the button with a link to the root path' do
       expect(button).to have_css('a[href="/"]')
     end
@@ -18,6 +19,7 @@ describe ApplicationHelper do
     it 'renders the button with batch-menu-button id' do
       expect(button).to have_css('button[id="batch-menu-button"]')
     end
+
     it 'renders the button with a link to the batch_record_updates view' do
       expect(button).to have_css('a[href="/batch_record_updates"]')
     end

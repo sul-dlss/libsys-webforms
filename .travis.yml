@@ -10,6 +10,8 @@ bundler_args: --without production
 before_script:
   - mkdir -p tmp/Dataload/EndowRpt
   - mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue
+  - mkdir -p tmp/Dataload/UserloadRerun
+  - mkdir -p tmp/Dataload/ILLiadUserExport
   - mkdir -p tmp/Libsys_webforms/sal3_batch_requests_batch/bc_file
 script:
   - bundle exec rake db:test:prepare

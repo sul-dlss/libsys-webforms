@@ -14,6 +14,7 @@ RSpec.describe 'edi_invoices/index', type: :view do
     it 'displays the page header' do
       assert_select 'h1', text: 'EDIFACT invoices'.to_s
     end
+
     it 'displays an invoice line' do
       assert_select 'td', text: 'I-10235828'.to_s
       assert_select 'td', text: 'COUTTS'.to_s
