@@ -9,6 +9,7 @@ symphony_catalogdump: '/s/sirsi/Unicorn/Bin/catalogdump -om -kc -h -z -j -n dump
 symphony_dataload_endowrpt: '/symphony/Dataload/EndowRpt'
 symphony_config_digital_bookplates: '/symphony/Config/BookplateMerge/symp_dor.txt'
 symphony_dataload_digital_bookplates: '/symphony/Dataload/BookplateMerge/Batches/Queue'
+symphony_libsys_webforms: '/symphony/Libsys_webforms'
 base_uri: 'http://ld4p-dev.stanford.edu/'
 # PL/SQL jobs
 pl_sql_jobs:
