@@ -28,3 +28,4 @@ config/settings/server.conf
 dump.rdb
 
 public/uploads/
+public/tmp/

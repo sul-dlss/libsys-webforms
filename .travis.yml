@@ -12,8 +12,7 @@ before_script:
   - mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue
   - mkdir -p tmp/Dataload/UserloadRerun
   - mkdir -p tmp/Dataload/ILLiadUserExport
-  - sudo mkdir -p /symphony/Libsys_webforms/sal3_batch_requests_batch/bc_file
-  - sudo chmod -R a+w /symphony
+  - mkdir -p tmp/Libsys_webforms/sal3_batch_requests_batch/bc_file
 script:
   - bundle exec rake db:test:prepare
   - bundle exec rake db:seed
