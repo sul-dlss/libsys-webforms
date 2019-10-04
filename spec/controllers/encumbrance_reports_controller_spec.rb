@@ -10,13 +10,13 @@ RSpec.describe EncumbranceReportsController, type: :controller do
   end
 
   describe 'post#create' do
-    it 'returns 302 when saving encumbrance report' do
+    it 'returns ok when saving encumbrance report' do
       stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { encumbrance_report: { email: 'someone@some.one',
                                                     fund: %w[1008930-1-HAGOY],
                                                     fundcyc_cycle: '2016' } }
 
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'renders new template with an invalid object' do

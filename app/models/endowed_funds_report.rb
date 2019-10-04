@@ -9,11 +9,11 @@ class EndowedFundsReport
                 :date_ran, :date_type, :fy_start, :fy_end, :cal_start, :cal_end,
                 :pd_start, :pd_end, :email, :ckeys_file
 
-  validates :fund, presence: true, if: 'fund_begin.blank?'
-  validates :fund_begin, presence: true, if: 'fund.blank?'
-  validates :fy_start, presence: true, if: 'cal_start.blank? && pd_start.blank?'
-  validates :cal_start, presence: true, if: 'fy_start.blank? && pd_start.blank?'
-  validates :pd_start, presence: true, if: 'cal_start.blank? && fy_start.blank?'
+  validates :fund, presence: true, if: :blank_fund_begin?
+  validates :fund_begin, presence: true, if: :blank_fund?
+  validates :fy_start, presence: true, if: :only_fy?
+  validates :cal_start, presence: true, if: :only_cal?
+  validates :pd_start, presence: true, if: :only_pd?
   validates :email, presence: true
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
@@ -82,5 +82,27 @@ class EndowedFundsReport
     years = [pd_start, pd_end].delete_if { |a| a == '' }
     years.push(pd_start) if years.length == 1
     years
+  end
+
+  private
+
+  def blank_fund_begin?
+    fund_begin.blank?
+  end
+
+  def blank_fund?
+    fund.blank?
+  end
+
+  def only_fy?
+    cal_start.blank? && pd_start.blank?
+  end
+
+  def only_cal?
+    fy_start.blank? && pd_start.blank?
+  end
+
+  def only_pd?
+    fy_start.blank? && cal_start.blank?
   end
 end

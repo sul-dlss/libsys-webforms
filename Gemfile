@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.13'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -53,7 +53,7 @@ gem 'tsv'
 gem 'therubyracer'
 
 group :production do
-  gem 'activerecord-oracle_enhanced-adapter', '~> 1.7.0'
+  gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.0'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
 end
