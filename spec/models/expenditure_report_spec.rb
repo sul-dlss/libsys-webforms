@@ -29,6 +29,7 @@ RSpec.describe ExpenditureReport, type: :model do
       it 'sets the date_range_start' do
         expect(@report.date_range_start).to eq '2008-09-05 00:00:00.000000000 -0700'
       end
+
       it 'sets the date_range_end' do
         expect(@report.date_range_end).to eq '2011-08-25 00:00:00.000000000 -0700'
       end
@@ -86,20 +87,25 @@ RSpec.describe ExpenditureReport, type: :model do
     it 'validates the inclusion of a date_type' do
       expect(@report.errors.messages[:date_type]).to include 'is not included in the list'
     end
+
     it 'validates the presence of an email address' do
       expect(@report.errors.messages[:email]).to include "can't be blank"
     end
+
     it 'validates the presence of a fund_begin' do
       expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
     end
+
     it 'validates the presence of a fund' do
       expect(@report.errors.messages[:fund]).to include "can't be blank"
     end
+
     it 'validates the correct form of an email address' do
       @report = described_class.new(email: 'test@testtest.com')
       @report.valid?
       expect(@report.errors.messages[:email]).not_to include "can't be blank"
     end
+
     it 'validates the incorrect form of an email address' do
       @report = described_class.new(email: 'test@test@test.com')
       @report.valid?

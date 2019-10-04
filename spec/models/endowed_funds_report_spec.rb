@@ -103,26 +103,33 @@ RSpec.describe EndowedFundsReport, type: :model do
     it 'validated the presence of fy start date' do
       expect(@report.errors.messages[:fy_start]).to include "can't be blank"
     end
+
     it 'validated the presence of cal start date' do
       expect(@report.errors.messages[:cal_start]).to include "can't be blank"
     end
+
     it 'validated the presence of pd start date' do
       expect(@report.errors.messages[:pd_start]).to include "can't be blank"
     end
+
     it 'validates the presence of an email address' do
       expect(@report.errors.messages[:email]).to include "can't be blank"
     end
+
     it 'validates the presence of a fund_begin' do
       expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
     end
+
     it 'validates the presence of a fund' do
       expect(@report.errors.messages[:fund]).to include "can't be blank"
     end
+
     it 'validates the correct form of an email address' do
       @report = described_class.new(email: 'test@testtest.com')
       @report.valid?
       expect(@report.errors.messages[:email]).not_to include "can't be blank"
     end
+
     it 'validates the incorrect form of an email address' do
       @report = described_class.new(email: 'test@test@test.com')
       @report.valid?

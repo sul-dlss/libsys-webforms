@@ -69,9 +69,11 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
       @report.save
       expect(@report.date_range_start).not_to be_nil
     end
+
     it 'writes cal_start' do
       expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
     end
+
     it 'writes cal_end' do
       expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
     end
@@ -106,6 +108,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     it 'writes pd_start' do
       expect(@report.send(:write_pd_start, '04-OCT-96')).to eq('1996-OCT-04')
     end
+
     it 'writes pd_end' do
       expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-OCT-04')
     end
@@ -157,15 +160,19 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     it 'validates the inclusion of a date_type' do
       expect(@report.errors.messages[:date_type]).to include 'is not included in the list'
     end
+
     it 'validates the presence of a fund_begin' do
       expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
     end
+
     it 'validates the presence of a fund' do
       expect(@report.errors.messages[:fund]).to include "can't be blank"
     end
+
     it 'validated the presence of a format_array' do
       expect(@report.errors.messages[:format_array]).to include "can't be blank"
     end
+
     it 'validated the presence of a lib_array' do
       expect(@report.errors.messages[:lib_array]).to include "can't be blank"
     end
