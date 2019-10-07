@@ -80,6 +80,8 @@ group :development, :test do
   gem 'coveralls', require: false
 
   gem 'factory_bot_rails'
+
+  gem 'webdrivers'
 end
 
 group :development do
