@@ -4,6 +4,17 @@
 module FundYearUtils
   extend ActiveSupport::Concern
 
+  def check_dates
+    case date_type
+    when 'fiscal'
+      check_fy
+    when 'calendar'
+      check_cal
+    when 'paydate'
+      check_pd
+    end
+  end
+
   def set_fund
     if fund
       # the multi select collects an array
@@ -85,10 +96,5 @@ module FundYearUtils
 
   def write_range_end(date)
     self[:date_range_end] = date
-  end
-
-  def write_dates
-    self[:date_request] = Time.zone.now
-    self[:date_ran] = nil
   end
 end
