@@ -66,3 +66,4 @@ en:
   time:
     formats:
       oracle: '%Y-%m-%d %H:%M:%S'
+      timestamp: '%y%m%d%H%M%S%L%1N'
