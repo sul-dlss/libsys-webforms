@@ -44,7 +44,7 @@
     </div>
   </div>
   <%= f.hidden_field :user_name, value: current_user.user_id %>
-  <%= f.hidden_field :submit_date, value: Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S') %>
+  <%= f.hidden_field :submit_date, value: l(Time.now.getlocal, format: :oracle) %>
   <%= f.hidden_field :batch_type, value: 'add' %>
   <div class="btn-group">
     <br />

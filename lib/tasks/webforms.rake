@@ -6,7 +6,7 @@ namespace :webforms do
   task :transfer_items, %i[path_to_file current_lib new_lib new_homeloc new_curloc
                            new_itype email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
-    @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'),
+    @uni_updates_batch = UniUpdatesBatch.create(batch_date: l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
                                                 action: 'TRANSFER',
@@ -33,7 +33,7 @@ namespace :webforms do
   desc 'Withdraw a batch'
   task :withdraw_items, %i[path_to_file current_lib email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
-    @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'),
+    @uni_updates_batch = UniUpdatesBatch.create(batch_date: l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
                                                 action: 'WITHDRAW',
@@ -57,7 +57,7 @@ namespace :webforms do
   task :change_home_location, %i[path_to_file current_lib new_homeloc
                                  new_curloc new_itype email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
-    @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'),
+    @uni_updates_batch = UniUpdatesBatch.create(batch_date: l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
                                                 action: 'UPDHOMELOC',
@@ -84,7 +84,7 @@ namespace :webforms do
   task :change_current_location, %i[path_to_file current_lib
                                     new_curloc email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
-    @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'),
+    @uni_updates_batch = UniUpdatesBatch.create(batch_date: l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
                                                 action: 'UPDCURLOC',
@@ -109,7 +109,7 @@ namespace :webforms do
   task :change_item_type, %i[path_to_file current_lib new_itype
                              email comments] => :environment do |_t, args|
     barcodes = IO.read(args[:path_to_file]).split("\n").uniq
-    @uni_updates_batch = UniUpdatesBatch.create(batch_date: Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'),
+    @uni_updates_batch = UniUpdatesBatch.create(batch_date: l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
                                                 action: 'UPDITEMTYPE',

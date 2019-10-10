@@ -98,7 +98,7 @@ class PackagesController < ApplicationController
   def list_transfer_logs
     # get vnd_runlog entries for the procedure just kicked off and related log entries
     @logs = VndRunlog.all.where('run_date >= ? AND LOWER(procedure_name) LIKE LOWER(?)',
-                                Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S'), 'VND%')
+                                l(Time.now.getlocal, format: :oracle), 'VND%')
   end
 
   private

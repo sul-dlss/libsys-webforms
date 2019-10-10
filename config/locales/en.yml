@@ -63,3 +63,6 @@ en:
         preprocess_put_script: 'Full path of preprocess put in AFS script'
         rpt_mail: 'Extra email addresses for reports'
         comments: 'Comments'
+  time:
+    formats:
+      oracle: '%Y-%m-%d %H:%M:%S'
