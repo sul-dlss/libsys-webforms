@@ -7,6 +7,6 @@ describe 'Expenditure Reports Page', type: :feature do
 
   it 'renders the hidden field for date_request' do
     attribute = page.find('#expenditure_report_date_request', visible: false).value
-    expect(attribute).to match Time.now.getlocal.strftime('%Y-%m-%d %H:%M')
+    expect(attribute).to eq I18n.l(Time.now.getlocal, format: :oracle)
   end
 end

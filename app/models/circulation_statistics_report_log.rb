@@ -72,9 +72,9 @@ class CirculationStatisticsReportLog < ApplicationRecord
   def self.build_output_type(circ_stats)
     if circ_stats.range_type == 'barcodes'
       file_basename = File.basename(circ_stats.barcodes.original_filename, '.*')
-      { output_name: "#{file_basename}#{Time.zone.now.strftime('%y%m%d%H%M%S')}" }
+      { output_name: "#{file_basename}#{I18n.l(Time.now.getlocal, format: :timestamp)}" }
     else
-      { output_name: "circ_rpt#{Time.zone.now.strftime('%y%m%d%H%M%S')}" }
+      { output_name: "circ_rpt#{I18n.l(Time.now.getlocal, format: :timestamp)}" }
     end
   end
 end
