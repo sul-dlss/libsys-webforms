@@ -1,0 +1,74 @@
+<h2>SSRC Dataset Request Form</h2>
+<p>
+  Please fill in this form with the correct information, then click on the "Send to SSRC" button at the bottom of the page.
+  Contact SSRC for more information
+</p>
+<%= form_for @ssds_request, multipart: true, class: 'form-group' do |f| %>
+  <% if @ssds_request.errors.any? %>
+    <div id="error-explanation">
+      <ul>
+        <% @ssds_request.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div class='form-group row cols-md-8'>
+      <%= f.label :sunet, 'SUNet ID:', class: 'col-md-2 form-control-label' %>
+      <div class='col-md-3'>
+        <%= f.text_field :sunet, { value: user_id, class: 'form-control' } %><br/>
+      </div>
+      <%= f.label :affiliation, 'Stanford Affiliation:', class: 'col-md-2 form-control-label' %>
+      <div class='col-sm-3'>
+        <%= f.select :affiliation, options_for_select(@ssds_request.affiliations, 'Other'), {}, {class: 'form-control'} %>
+      </div>
+    </div>
+    <div class='form-group row cols-md-8'>
+      <%= f.label :name, 'Name:', class: 'col-md-2 form-control-label' %>
+      <div class='col-md-3'>
+        <%= f.text_field :name, { value: display_name, class: 'form-control' } %><br/>
+      </div>
+      <%= f.label :department, 'Department/Major:', class: 'col-md-2 form-control-label' %>
+      <div class='col-sm-3'>
+        <%= f.select :department, options_for_select(@ssds_request.departments, 'Other'), {}, {class: 'form-control'} %>
+      </div>
+    </div>
+    <div class='form-group row cols-md-8'>
+      <%= f.label :phone, 'Phone:', class: 'col-md-2 form-control-label' %>
+      <div class='col-md-3'>
+        <%= f.text_field :phone, { class: 'form-control' } %><br/>
+      </div>
+      <%= f.label :sponsor, 'Faculty Sponsor/Advisor:', class: 'col-md-2 form-control-label' %>
+      <div class='col-md-3'>
+        <%= f.text_field :sponsor, { class: 'form-control' } %><br/>
+      </div>
+    </div>
+    <hr />
+    <h3>Dataset Title: <em><%= @ssds_request.title_in %></em></h3>
+    <div class='form-group row cols-md-8'>
+      <%= f.label :dataset_type, 'Dataset Type:', class: 'col-md-2 form-control-label' %>
+      <div class='col-md-3'>
+        <%= f.select :dataset_type, options_for_select(@ssds_request.datasets, @ssds_request.dataset_default), {}, {class: 'form-control'} %>
+      </div>
+      <%= f.label :call_no_in, 'Dataset Number:', class: 'col-md-2 form-control-label' %>
+      <div class='col-md-3'>
+        <%= f.text_field :call_no_in, { value: @ssds_request.call_no_in, class: 'form-control' } %><br/>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :unicorn_id_in, 'Catalog Key' %><br>
+      <%= f.text_field :unicorn_id_in, value: @ssds_request.unicorn_id_in  %>
+    </div>
+    <br />
+    <div class="field">
+      <%= f.label :notes, 'Other relevant information' %><br>
+      <%= f.text_area :notes, :cols => 158, :rows => 5  %>
+    </div>
+    <hr />
+    <div class='btn-group'>
+      <%= f.submit 'Send to SSRC', class: 'btn btn-md btn-primary btn-full' %>
+    </div>
+    <%= f.hidden_field :title_in, value: @ssds_request.title_in %>
+  </div>
+<% end %>

@@ -21,6 +21,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_id
 
+  def display_name
+    request.env['displayName'] || ENV['displayName'] || current_user_name
+  end
+  helper_method :display_name
+
   def webauth_user?
     current_user.present? && user_id.present?
   end
