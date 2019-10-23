@@ -1,5 +1,7 @@
 # Controller for the Userload rerun form
 class UserloadRerunsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /userload_reruns/new
   def new
     @userload_rerun = UserloadRerun.new
