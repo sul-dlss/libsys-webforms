@@ -7,6 +7,10 @@ describe 'New SSDS Request', type: :feature do
     visit 'ssds_requests/new?call_no_in=TAPE+NO.+AS1999+ETC&title_in=Shool+for+Gifted+Youngsters&unicorn_id_in=510163'
   end
 
+  it 'has a contect link for SSRC' do
+    expect(page).to have_css('a[href="mailto:consult-data@lists.stanford.edu"]')
+  end
+
   it 'shows the SUNet ID label' do
     expect(page).to have_css('label[for="ssds_request_sunet"]')
   end

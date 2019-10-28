@@ -1,8 +1,9 @@
 <h2>SSRC Dataset Request Form</h2>
 <p>
   Please fill in this form with the correct information, then click on the "Send to SSRC" button at the bottom of the page.
-  Contact SSRC for more information
+  <%= mail_to 'consult-data@lists.stanford.edu', 'Contact SSRC' %> for more information
 </p>
+<br />
 <%= form_for @ssds_request, multipart: true, class: 'form-group' do |f| %>
   <% if @ssds_request.errors.any? %>
     <div id="error-explanation">
