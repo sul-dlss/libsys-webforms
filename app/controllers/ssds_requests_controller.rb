@@ -1,5 +1,7 @@
 # Controller for SSDS request form
 class SsdsRequestsController < ApplicationController
+  layout 'ssds'
+
   def index
     @ssds_request = SsdsRequest.new(ssds_request_params)
   end

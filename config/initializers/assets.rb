@@ -26,4 +26,4 @@ Rails.application.config.assets.precompile += %w( accession_number_updates.js
                                                   package_files.js
                                                   sal3_batch_requests.js
                                                   shelf_selection_reports.js
-                                                )
+                                                  ssds.css )
