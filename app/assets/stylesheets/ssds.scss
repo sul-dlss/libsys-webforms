@@ -1,34 +1,41 @@
+$blackish-yellow: #2e2d29;
+$dark-grey-red: #544948;
+
 h1 {
-  color: #2e2d29;
+  color: $blackish-yellow;
   font-size: 2.323em;
   font-weight: 300;
   line-height: 1.2em;
 }
+
 h2 {
-  color: #544948;
+  color: $dark-grey-red;
   font-size: 1.793em;
   font-weight: 400;
   line-height: 1.2em;
+
+  span {
+    font-weight: 300;
+  }
 }
 
-label.form-control-label {
-  padding-top: calc(.375rem + 1px);
-  padding-bottom: calc(.375rem + 1px);
-  margin-bottom: 0;
+label {
   font-size: inherit;
-  line-height: 1.5;
   font-weight: normal;
-}
-label.col-sm-4.form-control-label {
+  line-height: 1.5;
+  margin-bottom: 0;
+  padding-bottom: calc(.375rem + 1px);
+  padding-top: calc(.375rem + 1px);
   text-align: right;
 }
-form#new_ssds_request {
+
+//scss-lint:disable SelectorFormat
+#new_ssds_request {
   margin-top: 2em;
 }
-h2 span {
-  font-weight: 300;
-}
+//scss-lint:enable SelectorFormat
 
 #topnav-container #topnav {
   padding: 5px 0;
 }
+
