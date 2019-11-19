@@ -75,7 +75,7 @@
     <div class='field'>
       <%= f.label :notes, 'Notes about your request', class: 'form-control-label' %>
       <div>
-        <%= f.text_area :notes, :cols => 110, :rows => 5  %>
+        <%= f.text_area :notes, { class: 'fill-width', :rows => 5 }  %>
       </div>
     </div>
     <div class='btn-group'>
