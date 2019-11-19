@@ -205,7 +205,7 @@ GEM
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
     nio4r (2.5.2)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     okcomputer (1.17.4)
     parallel (1.18.0)
@@ -384,7 +384,7 @@ DEPENDENCIES
   honeybadger
   jbuilder
   jquery-rails
-  nokogiri
+  nokogiri (>= 1.10.5)
   okcomputer
   rails (~> 5.2)
   rails-controller-testing
