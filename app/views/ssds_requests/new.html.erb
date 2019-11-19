@@ -84,7 +84,7 @@
     <div class='btn-group'>
       <%= f.submit 'Send to SSRC', class: 'btn btn-md btn-primary btn-full' %>
     </div>
-    <%= link_to 'Cancel', request.referrer, class: 'btn btn-md btn-full' %>
+    <%= link_to 'Cancel', request.url, class: 'btn btn-md btn-full' %>
     <%= f.hidden_field :title_in, value: @ssds_request.title_in %>
   </div>
 <% end %>
