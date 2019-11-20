@@ -66,7 +66,7 @@
     <div class='form-group row'>
       <%= f.label :call_no_in, 'Dataset number', class: 'col-sm-4 form-control-label' %>
       <div class='col-sm-8'>
-        <%= f.text_field :call_no_in, { value: @ssds_request.call_no_in, class: 'form-control', readonly: @ssds_request.call_no_in.present? } %>
+        <%= f.text_field :call_no_in, { value: @ssds_request.call_no_in, class: 'form-control' } %>
       </div>
     </div>
     <div class='form-group row'>
@@ -84,7 +84,7 @@
     <div class='btn-group'>
       <%= f.submit 'Send to SSRC', class: 'btn btn-md btn-primary btn-full' %>
     </div>
-    <%= link_to 'Cancel', "#{request.referer}view/#{@ssds_request.unicorn_id_in}", class: 'btn btn-md btn-full' %>
+    <%= link_to 'Cancel', "#{Settings.searchworks_url}/#{@ssds_request.unicorn_id_in}", class: 'btn btn-md btn-full' %>
     <%= f.hidden_field :title_in, value: @ssds_request.title_in %>
   </div>
 <% end %>
