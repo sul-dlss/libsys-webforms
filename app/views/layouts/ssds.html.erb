@@ -4,29 +4,26 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="description" content="Stanford University Libraries - LibSys Web Form" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <title>LibsysWebforms</title>
+  <title>SSRC dataset request</title>
   <link href="https://www.stanford.edu/su-identity/css/su-identity.css" rel="stylesheet">
   <link rel="stylesheet" href="https://sul-cdn.stanford.edu/sul_styles/0.5.0/sul-icons.min.css">
   <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'ssds', media: 'all' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= stylesheet_link_tag 'https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css' %>
-  <%= javascript_include_tag 'application' %>
   <%= yield :javascript_includes %>
-  <%= javascript_include_tag 'https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js' %>
-  <%= javascript_include_tag 'https://cdn.jsdelivr.net/webshim/1.15.8/polyfiller.js' %>
   <%= csrf_meta_tags %>
   <%= content_for(:head) %>
-    <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
-    <!--[if IE 8]> <link rel="stylesheet" type="text/css" href="https://www.stanford.edu/su-identity/css/ie/ie8.css" /> <![endif]-->
-    <!--[if IE 7]> <link rel="stylesheet" type="text/css" href="https://www.stanford.edu/su-identity/css/ie/ie7.css" /> <![endif]-->
+  <!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <!--[if IE 8]> <link rel="stylesheet" type="text/css" href="https://www.stanford.edu/su-identity/css/ie/ie8.css" /> <![endif]-->
+  <!--[if IE 7]> <link rel="stylesheet" type="text/css" href="https://www.stanford.edu/su-identity/css/ie/ie7.css" /> <![endif]-->
 </head>
 <body>
-
   <div id="su-wrap"> <!-- #su-wrap start -->
     <div id="su-content"> <!-- #su-content start -->
       <div id="outer-container" class="container-fluid">
-        <%= render 'shared/top_navbar' %>
+        <%= render 'shared/ssds_top_navbar' %>
         <section id="main-container" role="main">
           <%= render 'shared/flashes' %>
           <%= yield %>

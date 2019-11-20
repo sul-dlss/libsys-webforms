@@ -33,4 +33,9 @@ class WebformsMailer < ApplicationMailer
     all_recipients.join(',')
     mail(to: all_recipients, subject: 'SAL3 pull request')
   end
+
+  def ssds_request(ssds_request)
+    @ssds_request = ssds_request
+    mail(to: Settings.ssds_contact_email, subject: 'SSDS Request')
+  end
 end

@@ -1,0 +1,45 @@
+$blackish-yellow: #2e2d29;
+$dark-grey-red: #544948;
+
+.fill-width {
+  width: 66%;
+}
+
+h1 {
+  color: $blackish-yellow;
+  font-size: 2.323em;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+h2 {
+  color: $dark-grey-red;
+  font-size: 1.793em;
+  font-weight: 400;
+  line-height: 1.2em;
+
+  span {
+    font-weight: 300;
+  }
+}
+
+label {
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+  padding-bottom: calc(.375rem + 1px);
+  padding-top: calc(.375rem + 1px);
+  text-align: right;
+}
+
+//scss-lint:disable SelectorFormat
+#new_ssds_request {
+  margin-top: 2em;
+}
+//scss-lint:enable SelectorFormat
+
+#topnav-container #topnav {
+  padding: 5px 0;
+}
+

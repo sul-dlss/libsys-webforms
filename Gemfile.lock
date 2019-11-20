@@ -384,7 +384,7 @@ DEPENDENCIES
   honeybadger
   jbuilder
   jquery-rails
-  nokogiri
+  nokogiri (>= 1.10.5)
   okcomputer
   rails (~> 5.2)
   rails-controller-testing
