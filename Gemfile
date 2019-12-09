@@ -34,7 +34,7 @@ gem 'config'
 # Use okcomputer to set up checks to monitor
 gem 'okcomputer'
 # Use nokogiri for xml printing
-gem 'nokogiri', ' >= 1.10.5'
+gem 'nokogiri', '>= 1.10.5'
 # Use systemu to handle OS calls
 gem 'systemu'
 # For exception reporting
