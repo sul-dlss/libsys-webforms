@@ -1,3 +1,6 @@
+@import 'sul-styles';
+@import 'variables';
+
 .div-table {
   display: table;
   padding: 10px;
@@ -14,7 +17,7 @@
 }
 
 .div-table-heading {
-  background-color: $sul-footer-bg-color;
+  background-color: $color-beige-10;
   display: table-header-group;
   font-weight: bold;
 }
