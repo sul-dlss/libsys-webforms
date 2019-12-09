@@ -59,7 +59,7 @@
         <td><%= package.package_id %></td>
         <td><%= package.package_name %></td>
         <td><%= package.vendor_name %></td>
-        <td><%= package.date_entered.strftime('%d-%b-%Y') %></td>
+        <td><%= package.date_entered && package.date_entered.strftime('%d-%b-%Y') %></td>
         <td class='no-wrap'>
           <%= link_to 'Details', package_path(package), class: 'btn btn-md btn-default' %>
           <% if can? :manage, Package %>
