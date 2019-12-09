@@ -17,7 +17,7 @@ AllCops:
     - 'lib/tasks/display-coverage.rake'
     - 'loc_marc2bibframe2/**/*'
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: false
 
 Lint/UnreachableCode:
