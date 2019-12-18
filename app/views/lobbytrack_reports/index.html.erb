@@ -1,0 +1,39 @@
+<h1>Lobbytrack Reports</h1>
+<%= form_for(@lobbytrack_reports, url: { action: 'visits', params: { visit_id: @lobbytrack_reports.visit_id } } ) do |f| %>
+  <div class="form-group row">
+    <%= f.label 'Daily visits by cardholder ID' %>
+    <%= f.text_field(:visit_id) %>
+    <span class='pad'><%= f.submit 'Go', class: 'btn btn-sm btn-default btn-full' %></span>
+  </div>
+<% end %>
+<%= form_for(@lobbytrack_reports, url: { action: 'visit_dates', params: {
+    visit_date1: @lobbytrack_reports.visit_date1, visit_date2: @lobbytrack_reports.visit_date2 }
+  }) do |f| %>
+  <div class="form-group row">
+    <%= f.label 'Daily visits on a range of dates' %>
+    <%= f.date_field(:visit_date1, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
+    <%= f.date_field(:visit_date2, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
+    <span class='pad'><%= f.submit 'Go', class: 'btn btn-sm btn-default btn-full' %></span>
+  </div>
+<% end %>
+<%= form_for(@lobbytrack_reports, url: { action: 'checkins', params: { checkin_id: @lobbytrack_reports.checkin_id } } ) do |f| %>
+  <div class="form-group row">
+    <%= f.label 'Daily check-ins by cardholder ID' %>
+    <%= f.text_field(:checkin_id) %>
+    <span class='pad'><%= f.submit 'Go', class: 'btn btn-sm btn-default btn-full' %></span>
+  </div>
+<% end %>
+<%= form_for(@lobbytrack_reports, url: { action: 'checkin_dates', params: {
+    checkin_date1: @lobbytrack_reports.checkin_date1, checkin_date2: @lobbytrack_reports.checkin_date2 }
+  }) do |f| %>
+  <div class="form-group row">
+    <%= f.label 'Daily check-ins on a range of dates' %>
+    <%= f.date_field(:checkin_date1, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
+    <%= f.date_field(:checkin_date2, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
+    <span class='pad'><%= f.submit 'Go', class: 'btn btn-sm btn-default btn-full' %></span>
+  </div>
+<% end %>
+<p />
+<div class="btn-group">
+    <%= main_menu_button %>
+</div>

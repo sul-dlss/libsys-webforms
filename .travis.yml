@@ -7,6 +7,14 @@ cache:
   - directories
     - '/home/travis/.rvm/'
 bundler_args: --without production
+before_install:
+  - sudo wget http://www.freetds.org/files/stable/freetds-1.1.6.tar.gz
+  - sudo tar -xzf freetds-1.1.6.tar.gz
+  - cd freetds-1.1.6
+  - sudo ./configure --prefix=/usr/local --with-tdsver=7.3
+  - sudo make
+  - sudo make install
+  - cd ..
 before_script:
   - mkdir -p tmp/Dataload/EndowRpt
   - mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue

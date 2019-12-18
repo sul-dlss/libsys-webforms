@@ -97,3 +97,18 @@ is no Rails ORM on which to base an Ability.)  Clicking the "Run" link will exec
 already configured OCI8 connection gem (using the environment's database.yml connection details). If more jobs need to be
 added in the future, just fill out a new section under the pl_sql_jobs section in the https://github.com/sul-dlss/shared_configs
 repository and follow the instructions there for deploying to the application server.
+
+## Lobbytrack Report
+
+ The lobbytrack database connection settings are kept in the Settings config file along with an array of IP addresses that 
+have firewall access to the lobbytrack database and can also use this webform. Inclusion of the client IP address here will 
+allow the Lobbytrack report menu item to appear for only cliets with the IPs listed here:
+```yml
+# Lobbytrack settings
+lobbytrack_host: '-----'
+lobbytrack_user: '-----'
+lobbytrack_password: '-----'
+lobbytrack_db: '-----'
+lobbytrack_port: -----
+lobbytrack_ips: ['1.1.1.1', '2.2.2.2']
+```

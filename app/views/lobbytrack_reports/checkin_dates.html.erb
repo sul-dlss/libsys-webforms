@@ -1,0 +1,65 @@
+<div class="home-page-section">
+  <h1>Visitor check-ins by date range: <%= @dates %></h1>
+  <div>
+    <div class="btn-group">
+      <%= link_to button_tag('LobbyTrack reports', class: 'btn btn-md btn-default btn-full'), lobbytrack_reports_path %>
+    </div>
+    <div class="btn-group">
+      <%= main_menu_button %>
+    </div>
+  </div>
+  <h2><%= @lobbytrack_reports.size %> Checkins</h2>
+  <div>
+    <table class='table table-striped'>
+      <thead>
+      <tr>
+        <th>
+          Cardholder ID
+        </th>
+        <th>
+          Check-in date
+        </th>
+        <th>
+          First name
+        </th>
+        <th>
+          Last name
+        </th>
+        <th>
+          Email address
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @lobbytrack_reports.each_with_index do |row| %>
+          <tr>
+            <td>
+              <%= row['CardHolderID'] ? row['CardHolderID'] : '' %>
+            </td>
+            <td>
+              <%= row['DateOfEvent'] ? row['DateOfEvent'].strftime('%F %R') : '' %>
+            </td>
+            <td>
+              <%= row['ReportField1'] ? row['ReportField1'] : '' %>
+            </td>
+            <td>
+              <%= row['ReportField2'] ? row['ReportField2'] : '' %>
+            </td>
+            <td>
+              <%= row['LookupField1'] ? row['LookupField1'] : '' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p />
+<div>
+  <div class="btn-group">
+    <%= link_to button_tag('LobbyTrack reports', class: 'btn btn-md btn-default btn-full'), lobbytrack_reports_path %>
+  </div>
+  <div class="btn-group">
+    <%= main_menu_button %>
+  </div>
+</div>

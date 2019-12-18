@@ -1,0 +1,53 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag 'lobbytrack_reports.js' %>
+<% end %>
+<div class="home-page-section">
+  <h1>Visitor check-in report</h1>
+  <div>
+    <div class="btn-group">
+      <%= link_to button_tag('LobbyTrack reports', class: 'btn btn-md btn-default btn-full'), lobbytrack_reports_path %>
+    </div>
+    <div class="btn-group">
+      <%= main_menu_button %>
+    </div>
+  </div>
+  <h2>
+    <p>ID: <%= @lobbytrack_reports.first['CardHolderID'] %></p>
+    <p>Name: <%= @lobbytrack_reports.first['ReportField1'] %> <%= @lobbytrack_reports.first['ReportField2'] %></p>
+    <p>Email: <%= @lobbytrack_reports.first['LookupField1'] %></p>
+  </h2>
+  <h3><%= @lobbytrack_reports.size %> Check-ins</h3>
+  <div>
+    <table class='table table-striped'>
+      <thead>
+      <tr>
+        <th>
+          Check-in count
+        </th>
+        <th>
+          Check-in date
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @lobbytrack_reports.each_with_index do |row, index| %>
+          <tr>
+            <td> <%= index + 1 %> </td>
+            <td>
+              <%= row['DateOfEvent'] ? row['DateOfEvent'].strftime('%F %R') : '' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p />
+<div>
+  <div class="btn-group">
+    <%= link_to button_tag('LobbyTrack reports', class: 'btn btn-md btn-default btn-full'), lobbytrack_reports_path %>
+  </div>
+  <div class="btn-group">
+    <%= main_menu_button %>
+  </div>
+</div>
