@@ -33,7 +33,7 @@ GEM
       activemodel (= 5.2.4)
       activesupport (= 5.2.4)
       arel (>= 9.0)
-    activerecord-oracle_enhanced-adapter (5.2.6)
+    activerecord-oracle_enhanced-adapter (5.2.8)
       activerecord (~> 5.2.0)
       ruby-plsql (>= 0.6.0)
     activestorage (5.2.4)
@@ -337,7 +337,7 @@ GEM
     tilt (2.0.10)
     tins (1.21.1)
     tsv (1.0.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -361,7 +361,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-oracle_enhanced-adapter (~> 5.2.0)
+  activerecord-oracle_enhanced-adapter (~> 5.2.8)
   bootstrap-datepicker-rails
   bootstrap-sass
   bootstrap_form

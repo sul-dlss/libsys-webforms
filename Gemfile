@@ -53,7 +53,7 @@ gem 'tsv'
 gem 'therubyracer'
 
 group :production do
-  gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.0'
+  gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.8'
   gem 'ruby-oci8'
   gem 'ruby-plsql'
 end
