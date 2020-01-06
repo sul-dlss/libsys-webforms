@@ -17,6 +17,9 @@ AllCops:
     - 'lib/tasks/display-coverage.rake'
     - 'loc_marc2bibframe2/**/*'
 
+Layout/LineLength:
+  Max: 120
+
 Lint/SuppressedException:
   Enabled: false
 
@@ -28,9 +31,6 @@ Lint/UnusedBlockArgument:
 
 Metrics/BlockLength:
   Max: 101
-
-Metrics/LineLength:
-  Max: 120
 
 Metrics/ClassLength:
   Max: 120
