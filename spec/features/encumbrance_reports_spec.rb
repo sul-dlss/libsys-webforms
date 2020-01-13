@@ -7,6 +7,8 @@ describe 'Encumbrance Reports Page', type: :feature do
 
   it 'renders the hidden field for date_request' do
     attribute = page.find('#encumbrance_report_date_request', visible: false).value
-    expect(attribute).to eq I18n.l(Time.now.getlocal, format: :oracle)
+    time = Time.parse(attribute)
+    now = Time.parse(I18n.l(Time.now.getlocal, format: :oracle))
+    expect(time.strftime('%F %R')).to eq now.strftime('%F %R')
   end
 end
