@@ -113,10 +113,13 @@ lobbytrack_port: -----
 lobbytrack_ips: ['1.1.1.1', '2.2.2.2']
 ```
 
-To work with LobbyTrack Reports in development you need to have your static IP address (`123.45.67.89` in the example below)
+To be able to successfully run the LobbyTrack Reports in development you need to have your static IP address (`123.45.67.89` in the example below)
 allowed through sul-lobbytrack.stanford.edu's firewall, and then start up the local development server bound to that same IP address:
 ```sh
 $ REMOTE_USER=yourSUNet rails s -b 123.45.67.89
 ```
 
 Then you would visit `123.45.67.89:3000` in your browser to view the locally running application.
+
+Without this configuration you will only be able to see the LobbyTrack report form, but will not be able to connect to the 
+lobbytrack server to make a query.
