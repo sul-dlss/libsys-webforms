@@ -8,6 +8,7 @@ class LobbytrackReportsController < ApplicationController
 
   def visits
     id = params[:lobbytrack_report][:visit_id]
+
     begin
       @lobbytrack_reports = LobbytrackReport.query_visits(id)
     rescue TinyTds::Error => e
@@ -16,11 +17,7 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    if Settings.lobbytrack_ips.include?(client_ip.to_s)
-      flash[:error] = 'You cannot access Lobbytrack from the current client IP address'
-    elsif id
-      flash[:warning] = "There is no attendance history for id #{id}"
-    end
+    flash[:warning] = "There is no attendance history for id #{id}"
     redirect_to lobbytrack_reports_path
   end
 
@@ -35,11 +32,7 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    if Settings.lobbytrack_ips.include?(client_ip.to_s)
-      flash[:error] = 'You cannot access Lobbytrack from the current client IP address'
-    elsif id
-      flash[:warning] = "There is no attendance history for id #{id}"
-    end
+    flash[:warning] = "There is no attendance history for id #{id}"
     redirect_to lobbytrack_reports_path
   end
 
@@ -56,11 +49,7 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    if Settings.lobbytrack_ips.include?(client_ip.to_s)
-      flash[:error] = 'You cannot access Lobbytrack from the current client IP address'
-    elsif @dates
-      flash[:warning] = "There is no attendance history between the dates #{@dates}"
-    end
+    flash[:warning] = "There is no attendance history between the dates #{@dates}"
     redirect_to lobbytrack_reports_path
   end
 
@@ -77,11 +66,7 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    if Settings.lobbytrack_ips.include?(client_ip.to_s)
-      flash[:error] = 'You cannot access Lobbytrack from the current client IP address'
-    elsif @dates
-      flash[:warning] = "There is no attendance history between the dates #{@dates}"
-    end
+    flash[:warning] = "There is no attendance history between the dates #{@dates}"
     redirect_to lobbytrack_reports_path
   end
 end
