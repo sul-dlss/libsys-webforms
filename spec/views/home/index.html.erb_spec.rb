@@ -36,4 +36,30 @@ describe 'home/index', type: :view do
       expect(rendered).to have_link('Ckey to Bibframe Conversion', href: '/ckey2bibframes/new')
     end
   end
+
+  describe 'LobbyTrack reports' do
+    context 'when authorized user' do
+      before do
+        stub_current_user_for_view { FactoryBot.create(:authorized_user) }
+        stub_user_id_for_view { FactoryBot.create(:authorized_user) }
+        render
+      end
+
+      it 'shows the lobbytrack menu item' do
+        expect(rendered).to have_link('LobbyTrack Reports')
+      end
+    end
+
+    context 'when non-authorized user' do
+      before do
+        stub_current_user_for_view { FactoryBot.create(:blank_user) }
+        stub_user_id_for_view { FactoryBot.create(:blank_user) }
+        render
+      end
+
+      it 'does not show the lobbytrack menu item' do
+        expect(rendered).not_to have_link('LobbyTrack Reports')
+      end
+    end
+  end
 end
