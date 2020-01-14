@@ -91,7 +91,7 @@
         </div>
       </div>
     <% end %>
-    <% if Settings.lobbytrack_ips.include?(request.remote_ip) %>
+    <% if can? :manage, LobbytrackReport %>
         <div class="panel panel-default">
           <div class="panel-heading" role="tab">
             <h4><%= link_to 'LobbyTrack Reports', lobbytrack_reports_path %></h4>
