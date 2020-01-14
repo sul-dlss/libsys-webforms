@@ -73,6 +73,14 @@ Rails.application.routes.draw do
   get 'edi_lins/update_barcode' => 'edi_lins#update_barcode'
   get 'edi_lins/show/:barcode_num' => 'edi_lins#show'
 
+  resources :lobbytrack_reports, only: [:index]
+  post 'lobbytrack_reports/visits' => 'lobbytrack_reports#visits'
+  post 'lobbytrack_reports/visit_dates' => 'lobbytrack_reports#visit_dates'
+  post 'lobbytrack_reports/checkins' => 'lobbytrack_reports#checkins'
+  post 'lobbytrack_reports/checkin_dates' => 'lobbytrack_reports#checkin_dates'
+
+  get 'lobbytrack_reports/visits' => 'lobbytrack_reports#visits'
+
   get 'management_reports' => 'management_reports#index'
 
   get 'by_location' => 'accession_number_updates#by_location'

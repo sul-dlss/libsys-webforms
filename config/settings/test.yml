@@ -6,6 +6,7 @@ symphony_illiad_user_export: 'tmp/Dataload/ILLiadUserExport/sunet_id_file'
 symphony_userload_rerun: 'tmp/Dataload/UserloadRerun/rerun_file'
 symphony_libsys_webforms: 'tmp/Libsys_webforms'
 ssds_contact_email: 'sul-unicorn-devs@lists.stanford.edu'
+lobbytrack_ips: ['171.1.1.1', '171.67.138.83']
 # PL/SQL jobs
 pl_sql_jobs:
   circ_stats_job:

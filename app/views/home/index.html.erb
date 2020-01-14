@@ -4,41 +4,41 @@
   <div class="access-error">
     You do not have permissions to use other staff web forms.
   </div>
-  <%= link_to "Login here", login_path(referrer: request.original_url) %>
+  <%= link_to 'Login here', login_path(referrer: request.original_url) %>
   <% else %>
     <h3>What would you like to do?</h3>
     <% if can? :read, AccessionNumber %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
-        <h4><%= link_to "Accession number generator", 'accession_number_updates' %></h4>
+        <h4><%= link_to 'Accession number generator', 'accession_number_updates' %></h4>
       </div>
     </div>
     <% end %>
     <% if can? :manage, BatchRecordUpdate %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-          <h4><%= link_to "Batch record updates", 'batch_record_updates' %></h4>
+          <h4><%= link_to 'Batch record updates', 'batch_record_updates' %></h4>
         </div>
       </div>
     <% end %>
     <% if can? :read, DigitalBookplatesBatch %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-          <h4><%= link_to "Digital bookplates", 'digital_bookplates_batches' %></h4>
+          <h4><%= link_to 'Digital bookplates', 'digital_bookplates_batches' %></h4>
         </div>
       </div>
     <% end %>
     <% if can? :read, EdiInvoice %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-          <h4><%= link_to "EDIFACT invoice management", edi_invoices_menu_path %></h4>
+          <h4><%= link_to 'EDIFACT invoice management', edi_invoices_menu_path %></h4>
         </div>
       </div>
     <% end %>
     <% if can? :read, Package %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-          <h4><%= link_to "Electronic resource package management", packages_url %></h4>
+          <h4><%= link_to 'Electronic resource package management', packages_url %></h4>
         </div>
       </div>
     <% end %>
@@ -54,9 +54,9 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <ul>
-            <li><%= link_to "Place batch request", new_sal3_batch_requests_batch_path %></li>
+            <li><%= link_to 'Place batch request', new_sal3_batch_requests_batch_path %></li>
             <% if can? :read, Sal3BatchRequestsBatch %>
-              <li><%= link_to "Review batches", sal3_batch_requests_batches_path %></li>
+              <li><%= link_to 'Review batches', sal3_batch_requests_batches_path %></li>
             <% end %>
           </ul>
         </div>
@@ -72,7 +72,7 @@
           </h4>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-          <%= render template: "management_reports/index" %>
+          <%= render template: 'management_reports/index' %>
         </div>
       </div>
       <% end %>
@@ -80,16 +80,23 @@
     <% if can? :create, UserloadRerun %>
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
-        <h4><%= link_to "Userload Rerun", new_userload_rerun_path %></h4>
+        <h4><%= link_to 'Userload Rerun', new_userload_rerun_path %></h4>
       </div>
     </div>
     <% end %>
     <% if can? :create, IlliadUserExport %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-          <h4><%= link_to "ILLiad User Export", new_illiad_user_export_path %></h4>
+          <h4><%= link_to 'ILLiad User Export', new_illiad_user_export_path %></h4>
         </div>
       </div>
+    <% end %>
+    <% if can? :manage, LobbytrackReport %>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+            <h4><%= link_to 'LobbyTrack Reports', lobbytrack_reports_path %></h4>
+          </div>
+        </div>
     <% end %>
   <% end %>
   <% Settings.pl_sql_jobs.each_with_index do |(k,v),i| %>
@@ -98,7 +105,7 @@
     <div class="panel panel-default">
       <div class="panel-heading" role="tab">
         <h4 class="link" role="button" data-toggle="collapse" href="#buttonCollapse<%=i%>" aria-expanded="false" aria-controls="buttonCollapse<%=i%>"><%= v.text %></h4>
-        <%= link_to "Run", pl_sql_job_create_path(command: v.command, confirm: v.confirm), id: "buttonCollapse#{i}", class: "collapse btn btn-md btn-default", style: "width:60px", "aria-labelledby" => "buttonCollapse#{i}" %>
+        <%= link_to 'Run', pl_sql_job_create_path(command: v.command, confirm: v.confirm), id: "buttonCollapse#{i}", class: "collapse btn btn-md btn-default", style: "width:60px", "aria-labelledby" => "buttonCollapse#{i}" %>
       </div>
     </div>
     <% end %>
@@ -107,7 +114,7 @@
   <p></p>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
-      <h4><%= link_to "Ckey to Bibframe Conversion", new_ckey2bibframe_path %></h4>
+      <h4><%= link_to 'Ckey to Bibframe Conversion', new_ckey2bibframe_path %></h4>
     </div>
   </div>
   <% end %>

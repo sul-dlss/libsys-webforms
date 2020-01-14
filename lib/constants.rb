@@ -20,6 +20,7 @@ module Constants
     'edi_inv_manage' => 'Manage EDI Invoices',
     'edi_inv_view' => 'View EDI Invoices',
     'package_manage' => 'Manage ELoader Packages',
-    'illiad_user_export' => 'ILLiad User Exports'
+    'illiad_user_export' => 'ILLiad User Exports',
+    'lobbytrack_report' => 'LobbyTrack Reports'
   }.freeze
 end

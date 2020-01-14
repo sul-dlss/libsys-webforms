@@ -45,9 +45,10 @@ class Ability
 
   def assign_staff_manage_permission(current_user)
     can :manage, AccessionNumberUpdate if /A|Y/.match?(current_user.accession_number)
-    can :manage, ManagementReport if /A|Y/.match?(current_user.mgt_rpts)
     can :manage, EdiInvoice if /A|Y/.match?(current_user.edi_inv_manage)
     can :manage, EdiErrorReport if /A|Y/.match?(current_user.edi_inv_manage)
+    can :manage, LobbytrackReport if /A|Y/.match? current_user.lobbytrack_report
+    can :manage, ManagementReport if /A|Y/.match?(current_user.mgt_rpts)
   end
 
   def assign_admin_permission(current_user)

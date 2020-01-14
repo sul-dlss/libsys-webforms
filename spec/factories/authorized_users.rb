@@ -21,6 +21,7 @@ FactoryBot.define do
     edi_inv_view { 'Y' }
     edi_inv_manage { 'Y' }
     illiad_user_export { 'Y' }
+    lobbytrack_report { 'Y' }
   end
   factory :admin_user, class: AuthorizedUser do
     user_id { 'admin_user' }
