@@ -409,7 +409,7 @@ DEPENDENCIES
   sul_styles
   systemu
   therubyracer
-  tiny_tds
+  tiny_tds (~> 2.1.2)
   tsv
   uglifier
   web-console
