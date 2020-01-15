@@ -2,7 +2,8 @@ $(document).ready(function() {
     clickRow();
 
     $('table').DataTable({
-        clickablerow: clickRow
+        clickablerow: clickRow,
+        scrollX: true
     });
 
     function clickRow() {
