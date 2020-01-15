@@ -41,11 +41,15 @@
 }
 // scss-lint:enable PropertySortOrder, PropertySpelling
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (min-height: 50px) {
   #topnav,
   #main-container,
   #sul-footer {
     width: 750px;
+  }
+
+  .modal {
+    top: -125px;
   }
 
   .modal-body {
@@ -54,7 +58,7 @@
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 980px) and (min-height: 750px) {
   #topnav,
   #main-container,
   #sul-footer {
@@ -67,7 +71,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (min-height: 950px) {
   #topnav,
   #main-container,
   #sul-footer {
