@@ -36,6 +36,8 @@
   width: 1px;
   min-width: 100%;
   *width: 100%;
+  height: 280px;
+  overflow-y: auto;
 }
 // scss-lint:enable PropertySortOrder, PropertySpelling
 
@@ -45,6 +47,11 @@
   #sul-footer {
     width: 750px;
   }
+
+  .modal-body {
+    height: 324px;
+    overflow-y: auto;
+  }
 }
 
 @media (min-width: 980px) {
@@ -53,6 +60,11 @@
   #sul-footer {
     width: 970px;
   }
+
+  .modal-body {
+    height: 525px;
+    overflow-y: auto;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -60,6 +72,11 @@
   #main-container,
   #sul-footer {
     width: 1170px;
+  }
+
+  .modal-body {
+    height: 705px;
+    overflow-y: auto;
   }
 }
 
