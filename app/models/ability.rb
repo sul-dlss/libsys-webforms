@@ -14,7 +14,6 @@ class Ability
     assign_batch_permission if /A|Y/.match?(current_user.unicorn_updates)
     alias_action :queue, :completed, :recent, to: :read
     alias_action :menu, to: :read
-    alias_action :activate, :deactivate, to: :manage
   end
 
   def assign_basic_permission
