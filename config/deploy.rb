@@ -55,7 +55,7 @@ namespace :loc do
 end
 
 before 'deploy:updated', 'loc:update_marc2bibframe2'
-before 'deploy:restart', 'shared_configs:update'
+before 'shared_configs:update', 'deploy:restart'
 
 namespace :deploy do
 
