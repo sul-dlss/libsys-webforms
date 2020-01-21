@@ -20,11 +20,8 @@
 
   <div class="field">
     <%= f.label :rerun_date %><br>
-    <%= f.date_field(:rerun_date, value: params[:rerun_date] || Time.zone.yesterday,
-                     data: { provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
-                             'date-today-highlight': true,
-                             'date-start-date': 1.week.ago.strftime('%Y-%m-%d'),
-                             'date-end-date': 1.day.ago.strftime('%Y-%m-%d') } ) %>
+    <%= f.date_field :rerun_date, as: :date, value: params[:rerun_date] || Time.zone.yesterday,value: f.object.try(:strftime, '%Y-%m-%d'),
+                     min: 1.week.ago.strftime('%Y-%m-%d'), max: 1.day.ago.strftime('%Y-%m-%d') %>
   </div>
   <p>
   <div class="btn-group">

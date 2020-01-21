@@ -54,8 +54,6 @@ GEM
     autoprefixer-rails (9.6.1.1)
       execjs
     bindex (0.8.1)
-    bootstrap-datepicker-rails (1.8.0.1)
-      railties (>= 3.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -369,7 +367,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-oracle_enhanced-adapter (~> 5.2.8)
-  bootstrap-datepicker-rails
   bootstrap-sass
   bootstrap_form
   byebug
