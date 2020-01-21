@@ -14,8 +14,6 @@ gem 'sul_styles'
 gem 'bootstrap-sass'
 # Use bootstrap_form for easy form building
 gem 'bootstrap_form'
-# Use boostrap datepicker
-gem 'bootstrap-datepicker-rails'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use jquery as the JavaScript library
