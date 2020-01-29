@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag 'lobbytrack_reports.js' %>
+<% end %>
 <h1>Lobbytrack Reports</h1>
 <%= form_for(@lobbytrack_reports, url: { action: 'visits', params: { visit_id: @lobbytrack_reports.visit_id } } ) do |f| %>
   <div class="form-group row">

@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "sal3_batch_requests.js" %>
+<% end %>
 <h2>Manage SAL3 Batch Request</h2>
 <p><span class='small'>* = required field</span></p>
 <%= form_for @sal3_batch_requests_batch, class: 'form-group' do |f| %>
