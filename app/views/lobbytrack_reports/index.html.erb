@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag 'lobbytrack_reports.js' %>
+<% end %>
 <h1>Lobbytrack Reports</h1>
 <%= form_for(@lobbytrack_reports, url: { action: 'visits', params: { visit_id: @lobbytrack_reports.visit_id } } ) do |f| %>
   <div class="form-group row">
@@ -11,8 +14,8 @@
   }) do |f| %>
   <div class="form-group row">
     <%= f.label 'Daily visits on a range of dates' %>
-    <%= f.date_field(:visit_date1, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
-    <%= f.date_field(:visit_date2, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
+    <%= f.date_field :visit_date1, as: :date, value: f.object.try(:strftime, '%Y-%m-%d') %>
+    <%= f.date_field :visit_date2, as: :date, value: f.object.try(:strftime, '%Y-%m-%d') %>
     <span class='pad'><%= f.submit 'Go', class: 'btn btn-sm btn-default btn-full' %></span>
   </div>
 <% end %>
@@ -28,8 +31,8 @@
   }) do |f| %>
   <div class="form-group row">
     <%= f.label 'Daily check-ins on a range of dates' %>
-    <%= f.date_field(:checkin_date1, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
-    <%= f.date_field(:checkin_date2, data: {provide: 'datepicker', 'date-format': 'yyyy-mm-dd', 'date-today-highlight': true}) %>
+    <%= f.date_field :checkin_date1, as: :date, value: f.object.try(:strftime, '%Y-%m-%d') %>
+    <%= f.date_field :checkin_date2, as: :date, value: f.object.try(:strftime, '%Y-%m-%d') %>
     <span class='pad'><%= f.submit 'Go', class: 'btn btn-sm btn-default btn-full' %></span>
   </div>
 <% end %>

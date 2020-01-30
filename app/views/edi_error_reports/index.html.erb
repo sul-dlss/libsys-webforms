@@ -9,11 +9,7 @@
   </div>
   <div class="field">
     Show errors for selected date:
-    <%= date_field('edi_errors', 'day', value: params[:day], 'placeholder': 'select a date',
-                   data: { provide: 'datepicker', 'date-format': 'yyyy-mm-dd',
-                           'date-today-highlight': true,
-                           'date-end-date': Time.zone.today.strftime('%Y-%m-%d') }
-        ) %>
+    <%= date_field 'edi_errors', 'day', value: params[:day], max: Time.zone.today.strftime('%Y-%m-%d') %>
   </div>
   <table class="table-striped" id="table-date">
     <thead>
