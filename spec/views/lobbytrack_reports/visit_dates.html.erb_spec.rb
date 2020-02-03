@@ -43,6 +43,7 @@ RSpec.describe 'lobbytrack_reports/visit_dates.html.erb', type: :view do
 
     it 'displays a table with some report results' do
       assert_select 'td', text: '007', count: 1
+      assert_select 'a', text: '007', count: 1
       assert_select 'td', text: '2018-08-31 00:00', count: 1
       assert_select 'td', text: 'BOND', count: 1
       assert_select 'td', text: 'JAMES', count: 1
@@ -51,6 +52,7 @@ RSpec.describe 'lobbytrack_reports/visit_dates.html.erb', type: :view do
 
     it 'displays a table with more report results' do
       assert_select 'td', text: '009', count: 1
+      assert_select 'a', text: '009', count: 1
       assert_select 'td', text: '2018-09-13 00:00', count: 1
       assert_select 'td', text: 'TREVELYAN', count: 1
       assert_select 'td', text: 'ALEC', count: 1

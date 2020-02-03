@@ -28,13 +28,16 @@
         <th>
           Email address
         </th>
+        <th>
+          Check-in location
+        </th>
       </tr>
       </thead>
       <tbody>
       <% @lobbytrack_reports.each_with_index do |row| %>
           <tr>
             <td>
-              <%= row['CardHolderID'] ? row['CardHolderID'] : '' %>
+              <%= row['CardHolderID'] ? (link_to row['CardHolderID'], lobbytrack_reports_checkins_path(lobbytrack_report: {checkin_id: row['CardHolderID']}), method: :post) : '' %>
             </td>
             <td>
               <%= row['DateOfEvent'] ? row['DateOfEvent'].strftime('%F %R') : '' %>
@@ -47,6 +50,9 @@
             </td>
             <td>
               <%= row['LookupField1'] ? row['LookupField1'] : '' %>
+            </td>
+            <td>
+              <%= LobbytrackReport.location.fetch(row['LocationID']) %>
             </td>
           </tr>
       <% end %>

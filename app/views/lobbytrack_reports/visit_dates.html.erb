@@ -37,7 +37,7 @@
       <% @lobbytrack_reports.each_with_index do |row| %>
           <tr>
             <td>
-              <%= row['CardHolderID'] ? row['CardHolderID'] : '' %>
+              <%= row['CardHolderID'] ? (link_to row['CardHolderID'], lobbytrack_reports_visits_path(lobbytrack_report: {visit_id: row['CardHolderID']}), method: :post) : '' %>
             </td>
             <td>
               <%= row['DateIn'] ? row['DateIn'].strftime('%F %R') : '' %>

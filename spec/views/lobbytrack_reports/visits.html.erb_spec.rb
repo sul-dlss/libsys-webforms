@@ -3,30 +3,45 @@ require 'rails_helper'
 RSpec.describe 'lobbytrack_reports/visits.html.erb', type: :view do
   let(:lobbytrack_report_results) do
     [
-      { 'CardHolderID' => '1140250',
-        'DateIn' => Date.parse('2018-08-31 09:19:39'),
-        'ReportField1' => 'JAMES',
-        'ReportField2' => 'BOND',
-        'LookupField1' => 'jbond@mi6.org' },
-      { 'CardHolderID' => '1140250',
-        'DateIn' => Date.parse('2018-09-13 15:05:56'),
-        'ReportField1' => 'JAMES',
-        'ReportField2' => 'BOND',
-        'LookupField1' => 'jbond@mi6.org' }
+      { 'CardHolderID' => '007',
+        'DateIn' => Date.parse('2018-08-31 09:19:39') },
+      { 'CardHolderID' => '007',
+        'DateIn' => Date.parse('2018-09-13 15:05:56') }
+    ]
+  end
+
+  let(:lobbytrack_visitor) do
+    [
+      {
+        'IDNumber' => '007',
+        'LastName' => 'BOND',
+        'FirstName' => 'JAMES',
+        'Email' => 'jbond@mi6.org',
+        'StreetAddress' => 'SIS Building',
+        'City' => 'London',
+        'State' => 'England',
+        'PostalCode' => '00707',
+        'PhoneNumber' => '7707007007',
+        'Photo' => nil
+      }
     ]
   end
 
   before do
     assign(:lobbytrack_reports, lobbytrack_report_results)
+    assign(:lobbytrack_visitor, lobbytrack_visitor)
     render
   end
 
   describe 'visits result page' do
     it 'displays a header with some info about the report' do
       assert_select 'h1', text: 'Visit report', count: 1
-      assert_select 'p', text: 'ID: 1140250', count: 1
-      assert_select 'p', text: 'Name: JAMES BOND', count: 1
+      assert_select 'p', text: 'ID: 007', count: 1
+      assert_select 'p', text: 'Name: BOND, JAMES', count: 1
       assert_select 'p', text: 'Email: jbond@mi6.org', count: 1
+      assert_select 'p', text: 'Address: SIS Building, London, England, 00707', count: 1
+      assert_select 'p', text: 'Phone: 7707007007', count: 1
+      assert_select 'div.photo', count: 1
       assert_select 'h3', text: '2 Visits', count: 1
     end
 

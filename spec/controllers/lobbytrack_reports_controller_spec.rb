@@ -30,18 +30,12 @@ RSpec.describe LobbytrackReportsController, type: :controller do
     context 'when there is a visit id' do
       let(:lobbytrack_reports) do
         {
-          'CardHolderID' => '1140250',
-          'DateIn' => '2018-08-31 09 :19:39 -0700',
-          'ReportField1' => 'JAMES',
-          'ReportField2' => 'BOND',
-          'LookupField1' => 'jbond@mi6.com'
+          'CardHolderID' => '1007007',
+          'DateIn' => '2018-08-31 09 :19:39 -0700'
         }
         {
-          'CardHolderID' => '1140250',
-          'DateIn' => '2018-09-13 15 :05:56 -0700',
-          'ReportField1' => 'JAMES',
-          'ReportField2' => 'BOND',
-          'LookupField1' => 'jbond@mi6.com'
+          'CardHolderID' => '1007007',
+          'DateIn' => '2018-09-13 15 :05:56 -0700'
         }
       end
 
@@ -50,7 +44,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'shows the visits result page' do
-        post :visits, params: { lobbytrack_report: { visit_id: '007' } }
+        post :visits, params: { lobbytrack_report: { visit_id: '1007007' } }
         expect(response).to render_template 'visits'
       end
     end
@@ -71,6 +65,37 @@ RSpec.describe LobbytrackReportsController, type: :controller do
         expect(flash[:warning]).to eq 'There is no attendance history for id 000'
       end
     end
+
+    context 'when the visit id is invalid' do
+      before do
+        post :visits, params: { lobbytrack_report: { visit_id: "' OR 1=1" } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error]).to eq 'Invalid ID entered.'
+      end
+    end
+
+    context 'when the visit query returns empty data' do
+      let(:lobbytrack_visitor) { [] }
+
+      before do
+        allow(mock_client).to receive(:execute).and_return lobbytrack_visitor
+        post :visits, params: { lobbytrack_report: { visit_id: '9009009' } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+    end
   end
 
   describe 'post#visit_dates', type: :lobbytrack_reports do
@@ -81,18 +106,12 @@ RSpec.describe LobbytrackReportsController, type: :controller do
     context 'when there are results with in the date range' do
       let(:lobbytrack_reports) do
         {
-          'CardHolderID' => '1140250',
-          'DateIn' => '2018-08-31 09 :19:39 -0700',
-          'ReportField1' => 'JAMES',
-          'ReportField2' => 'BOND',
-          'LookupField1' => 'jbond@mi6.com'
+          'CardHolderID' => '1007007',
+          'DateIn' => '2018-08-31 09 :19:39 -0700'
         }
         {
-          'CardHolderID' => '1140250',
-          'DateIn' => '2018-09-13 15 :05:56 -0700',
-          'ReportField1' => 'JAMES',
-          'ReportField2' => 'BOND',
-          'LookupField1' => 'jbond@mi6.com'
+          'CardHolderID' => '1007007',
+          'DateIn' => '2018-09-13 15 :05:56 -0700'
         }
       end
 
@@ -101,7 +120,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'shows the visit dates result page' do
-        post :visit_dates, params: { lobbytrack_report: { visit_date1: '01/01/2019', visit_date2: '01/01/2020' } }
+        post :visit_dates, params: { lobbytrack_report: { visit_date1: '2019-01-01', visit_date2: '2020-01-01' } }
         expect(response).to render_template 'visit_dates'
       end
     end
@@ -122,34 +141,95 @@ RSpec.describe LobbytrackReportsController, type: :controller do
         expect(flash[:warning]).to eq 'There is no attendance history between the dates 01/01/2019 to 01/01/2020'
       end
     end
+
+    context 'with a invalid dates' do
+      before do
+        post :visit_dates, params: { lobbytrack_report: { visit_date1: "' OR 1=1'", visit_date2: '' } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error]).to eq 'Invalid date entered.'
+      end
+    end
   end
 
   describe 'get#checkins', type: :lobbytrack_reports do
-    let(:lobbytrack_reports) do
-      {
-        'CardHolderID' => '1140250',
-        'DateIn' => '2018-08-31 09 :19:39 -0700',
-        'ReportField1' => 'JAMES',
-        'ReportField2' => 'BOND',
-        'LookupField1' => 'jbond@mi6.com'
-      }
-      {
-        'CardHolderID' => '1140250',
-        'DateIn' => '2018-09-13 15 :05:56 -0700',
-        'ReportField1' => 'JAMES',
-        'ReportField2' => 'BOND',
-        'LookupField1' => 'jbond@mi6.com'
-      }
-    end
-
     before do
       stub_current_user(FactoryBot.create(:authorized_user))
-      allow(controller).to receive(:checkins).and_return(lobbytrack_reports)
     end
 
-    it 'gets the checkins page' do
-      post :checkins, params: { lobbytrack_report: { checkin_id: 111 } }
-      expect(response).to render_template 'checkins'
+    context 'when the checkin id is valid' do
+      let(:lobbytrack_reports) do
+        {
+          'CardHolderID' => '1007007',
+          'DateIn' => '2018-08-31 09 :19:39 -0700'
+        }
+        {
+          'CardHolderID' => '1007007',
+          'DateIn' => '2018-09-13 15 :05:56 -0700'
+        }
+      end
+
+      before do
+        allow(controller).to receive(:checkins).and_return(lobbytrack_reports)
+      end
+
+      it 'gets the checkins page' do
+        post :checkins, params: { lobbytrack_report: { checkin_id: '1007007' } }
+        expect(response).to render_template 'checkins'
+      end
+    end
+
+    context 'when the checkin id is empty or not found' do
+      let(:lobbytrack_reports) { [] }
+
+      before do
+        allow(mock_client).to receive(:execute).and_return lobbytrack_reports
+        post :checkins, params: { lobbytrack_report: { checkin_id: '1000777' } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:warning]).to eq 'There is no attendance history for id 1000777'
+      end
+    end
+
+    context 'when the checkin id is invalid' do
+      before do
+        post :checkins, params: { lobbytrack_report: { checkin_id: "' OR 1=1" } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error]).to eq 'Invalid ID entered.'
+      end
+    end
+
+    context 'when the checkin query returns empty data' do
+      let(:lobbytrack_visitor) { [] }
+
+      before do
+        allow(mock_client).to receive(:execute).and_return lobbytrack_visitor
+        post :checkins, params: { lobbytrack_report: { checkin_id: '9009009' } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
     end
   end
 
@@ -161,18 +241,12 @@ RSpec.describe LobbytrackReportsController, type: :controller do
     context 'when there are results with in the date range' do
       let(:lobbytrack_reports) do
         {
-          'CardHolderID' => '1140250',
-          'DateOfEvent' => '2018-08-31 09 :19:39 -0700',
-          'ReportField1' => 'JAMES',
-          'ReportField2' => 'BOND',
-          'LookupField1' => 'jbond@mi6.com'
+          'CardHolderID' => '1007007',
+          'DateOfEvent' => '2018-08-31 09 :19:39 -0700'
         }
         {
-          'CardHolderID' => '1140250',
-          'DateOfEvent' => '2018-09-13 15 :05:56 -0700',
-          'ReportField1' => 'JAMES',
-          'ReportField2' => 'BOND',
-          'LookupField1' => 'jbond@mi6.com'
+          'CardHolderID' => '1007007',
+          'DateOfEvent' => '2018-09-13 15 :05:56 -0700'
         }
       end
 
@@ -181,7 +255,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'shows the visit dates result page' do
-        post :checkin_dates, params: { lobbytrack_report: { checkin_date1: '01/01/2019', checkin_date2: '01/01/2020' } }
+        post :checkin_dates, params: { lobbytrack_report: { checkin_date1: '2019-01-01', checkin_date2: '2020-01-01' } }
         expect(response).to render_template 'checkin_dates'
       end
     end
@@ -200,6 +274,20 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
       it 'displays a flash message' do
         expect(flash[:warning]).to eq 'There is no attendance history between the dates 01/01/2019 to 01/01/2020'
+      end
+    end
+
+    context 'with a invalid dates' do
+      before do
+        post :checkin_dates, params: { lobbytrack_report: { checkin_date1: '', checkin_date2: "' OR 1=1'" } }
+      end
+
+      it 'returns to the lobbytrack reports page' do
+        expect(response).to redirect_to lobbytrack_reports_path
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error]).to eq 'Invalid date entered.'
       end
     end
   end

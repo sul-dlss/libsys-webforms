@@ -1,0 +1,8 @@
+<h2>
+  <p>ID: <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['IDNumber'] %></p>
+  <p>Name: <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['LastName'] %>, <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['FirstName'] %></p>
+  <p>Email: <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['Email'] %></p>
+  <p>Address: <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['StreetAddress'] %>, <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['City'] %>, <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['State'] %>, <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['PostalCode'] %></p>
+  <p>Phone: <%= LobbytrackReport.visitor_hash(@lobbytrack_visitor)['PhoneNumber'] %></p>
+  <p><div class="photo"><%= @lobbytrack_visitor_data && @lobbytrack_visitor_data.first['Photo'] && ('<img src="data:image/jpg;base64,%s">' % Base64.encode64(@lobbytrack_visitor.first['Photo'])).html_safe %></div></p>
+</h2>
