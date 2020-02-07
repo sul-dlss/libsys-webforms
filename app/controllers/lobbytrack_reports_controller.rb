@@ -23,7 +23,6 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    flash[:warning] = "There is no attendance history for id #{id}"
     redirect_to lobbytrack_reports_path
   end
 
@@ -44,14 +43,12 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    flash[:warning] = "There is no attendance history for id #{id}"
     redirect_to lobbytrack_reports_path
   end
 
   def visit_dates
     date1 = params[:lobbytrack_report][:visit_date1]
     date2 = params[:lobbytrack_report][:visit_date2]
-    @dates = "#{date1} to #{date2}"
 
     @lobbytrack_form = LobbytrackReport.new(visit_date1: date1, visit_date2: date2)
     if @lobbytrack_form.valid?
@@ -66,14 +63,12 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    flash[:warning] = "There is no attendance history between the dates #{@dates}"
     redirect_to lobbytrack_reports_path
   end
 
   def checkin_dates
     date1 = params[:lobbytrack_report][:checkin_date1]
     date2 = params[:lobbytrack_report][:checkin_date2]
-    @dates = "#{date1} to #{date2}"
 
     @lobbytrack_form = LobbytrackReport.new(checkin_date1: date1, checkin_date2: date2)
     if @lobbytrack_form.valid?
@@ -88,7 +83,6 @@ class LobbytrackReportsController < ApplicationController
 
     return if @lobbytrack_reports&.any?
 
-    flash[:warning] = "There is no attendance history between the dates #{@dates}"
     redirect_to lobbytrack_reports_path
   end
 end

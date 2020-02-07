@@ -5,8 +5,8 @@ class LobbytrackReport
 
   attr_accessor :visit_id, :checkin_id, :visit_date1, :visit_date2, :checkin_date1, :checkin_date2
 
-  validates :visit_id, length: { is: 7 }, numericality: true, allow_blank: true
-  validates :checkin_id, length: { is: 7 }, numericality: true, allow_blank: true
+  validates :visit_id, length: { minimum: 1 }, numericality: true, allow_blank: true
+  validates :checkin_id, length: { minimum: 1 }, numericality: true, allow_blank: true
   validates :visit_date1, format: { with: /[0-9]{4}-[0-9]{2}-[0-9]{2}/ }, allow_blank: true
   validates :visit_date2, format: { with: /[0-9]{4}-[0-9]{2}-[0-9]{2}/ }, allow_blank: true
   validates :checkin_date1, format: { with: /[0-9]{4}-[0-9]{2}-[0-9]{2}/ }, allow_blank: true
@@ -19,27 +19,42 @@ class LobbytrackReport
   end
 
   def self.query_visits(visit_id)
-    client.active? ? client.execute(visits(visit_id)).each : client.close
+    result = client.active? ? client.execute(visits(visit_id)).each : client.close
+    raise query_error("There is no attendance history for id #{visit_id}") unless result.any?
+
+    result
   end
 
   def self.query_visit_dates(date1, date2)
-    client.active? ? client.execute(visits_for_dates(date1, date2)).each : client.close
+    result = client.active? ? client.execute(visits_for_dates(date1, date2)).each : client.close
+    raise query_error("There is no attendance history between the dates #{date1} and #{date2}") unless result.any?
+
+    result
   end
 
   def self.query_checkins(visit_id)
-    client.active? ? client.execute(checkins(visit_id)).each : client.close
+    result = client.active? ? client.execute(checkins(visit_id)).each : client.close
+    raise query_error("There is no attendance history for id #{visit_id}") unless result.any?
+
+    result
   end
 
   def self.query_checkin_dates(date1, date2)
-    client.active? ? client.execute(checkins_for_dates(date1, date2)).each : client.close
+    result = client.active? ? client.execute(checkins_for_dates(date1, date2)).each : client.close
+    raise query_error("There is no attendance history between the dates #{date1} and #{date2}") unless result.any?
+
+    result
   end
 
   def self.query_visitor(id)
     result = client.active? ? client.execute(visitor_data(id)).each : client.close
-    query_error = TinyTds::Error.new('Visitor ID not found')
-    raise query_error unless result.any?
+    raise query_error("No ID found for visitor #{id}") unless result.any?
 
     result
+  end
+
+  def self.query_error(message)
+    TinyTds::Error.new(message)
   end
 
   def self.visits(id)
@@ -57,7 +72,8 @@ class LobbytrackReport
     " SET @date2 = '#{date2} 23:59:59'" \
     ' SELECT CardHolderID, DateIn, ReportField1, ReportField2, LookupField1' \
     ' FROM Jolly.dbo.logAttendance' \
-    ' WHERE DateIn between @date1 and @date2'
+    ' WHERE DateIn between @date1 and @date2' \
+    " AND CardHolderID > ''"
   end
 
   def self.checkins(id)
@@ -75,7 +91,8 @@ class LobbytrackReport
     " SET @date2 = '#{date2} 23:59:59'" \
     ' SELECT CardHolderID, DateOfEvent, LocationID, ReportField1, ReportField2, LookupField1' \
     ' FROM Jolly.dbo.logPerson' \
-    ' WHERE DateOfEvent between @date1 and @date2'
+    ' WHERE DateOfEvent between @date1 and @date2' \
+    " AND CardHolderID > ''"
   end
 
   def self.visitor_data(id)

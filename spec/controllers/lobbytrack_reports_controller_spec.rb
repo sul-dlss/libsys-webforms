@@ -6,6 +6,23 @@ RSpec.describe LobbytrackReportsController, type: :controller do
   let(:mock_client) { double(TinyTds) }
   # rubocop:enable RSpec/VerifiedDoubles
 
+  let(:lobbytrack_visitor) do
+    [
+      {
+        'IDNumber' => '7007007',
+        'LastName' => 'BOND',
+        'FirstName' => 'JAMES',
+        'Email' => 'jbond@mi6.org',
+        'StreetAddress' => 'SIS Building',
+        'City' => 'London',
+        'State' => 'England',
+        'PostalCode' => '00707',
+        'PhoneNumber' => '7707007007',
+        'Photo' => nil
+      }
+    ]
+  end
+
   before do
     allow(mock_client).to receive(:active?).and_return true
     allow(LobbytrackReport).to receive(:client).and_return(mock_client)
@@ -51,9 +68,10 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
     context 'when the visit id is empty or not found' do
       let(:lobbytrack_reports) { [] }
+      let(:lobbytrack_visitor) { [] }
 
       before do
-        allow(mock_client).to receive(:execute).and_return lobbytrack_reports
+        allow(mock_client).to receive(:execute).and_return(lobbytrack_visitor, lobbytrack_reports)
         post :visits, params: { lobbytrack_report: { visit_id: '000' } }
       end
 
@@ -61,8 +79,12 @@ RSpec.describe LobbytrackReportsController, type: :controller do
         expect(response).to redirect_to lobbytrack_reports_path
       end
 
+      it 'displays a TinyTds Error' do
+        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+
       it 'displays a flash message' do
-        expect(flash[:warning]).to eq 'There is no attendance history for id 000'
+        expect(flash[:error].message).to eq 'No ID found for visitor 000'
       end
     end
 
@@ -81,19 +103,23 @@ RSpec.describe LobbytrackReportsController, type: :controller do
     end
 
     context 'when the visit query returns empty data' do
-      let(:lobbytrack_visitor) { [] }
+      let(:lobbytrack_reports) { [] }
 
       before do
-        allow(mock_client).to receive(:execute).and_return lobbytrack_visitor
-        post :visits, params: { lobbytrack_report: { visit_id: '9009009' } }
+        allow(mock_client).to receive(:execute).and_return(lobbytrack_visitor, lobbytrack_reports)
+        post :visits, params: { lobbytrack_report: { visit_id: '7007007' } }
       end
 
       it 'returns to the lobbytrack reports page' do
         expect(response).to redirect_to lobbytrack_reports_path
       end
 
-      it 'displays a flash message' do
+      it 'displays a TinyTds Error' do
         expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error].message).to eq 'There is no attendance history for id 7007007'
       end
     end
   end
@@ -116,7 +142,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       before do
-        allow(mock_client).to receive(:execute).and_return lobbytrack_reports
+        allow(mock_client).to receive(:execute).and_return(lobbytrack_visitor, lobbytrack_reports)
       end
 
       it 'shows the visit dates result page' do
@@ -130,15 +156,19 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
       before do
         allow(mock_client).to receive(:execute).and_return lobbytrack_reports
-        post :visit_dates, params: { lobbytrack_report: { visit_date1: '01/01/2019', visit_date2: '01/01/2020' } }
+        post :visit_dates, params: { lobbytrack_report: { visit_date1: '2019-01-01', visit_date2: '2020-01-01' } }
       end
 
       it 'returns to the lobbytrack reports page' do
         expect(response).to redirect_to lobbytrack_reports_path
       end
 
+      it 'displays a TinyTds Error' do
+        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+
       it 'displays a flash message' do
-        expect(flash[:warning]).to eq 'There is no attendance history between the dates 01/01/2019 to 01/01/2020'
+        expect(flash[:error].message).to eq 'There is no attendance history between the dates 2019-01-01 and 2020-01-01'
       end
     end
 
@@ -188,7 +218,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       let(:lobbytrack_reports) { [] }
 
       before do
-        allow(mock_client).to receive(:execute).and_return lobbytrack_reports
+        allow(mock_client).to receive(:execute).and_return(lobbytrack_visitor, lobbytrack_reports)
         post :checkins, params: { lobbytrack_report: { checkin_id: '1000777' } }
       end
 
@@ -196,8 +226,12 @@ RSpec.describe LobbytrackReportsController, type: :controller do
         expect(response).to redirect_to lobbytrack_reports_path
       end
 
+      it 'displays a TinyTds Error' do
+        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+
       it 'displays a flash message' do
-        expect(flash[:warning]).to eq 'There is no attendance history for id 1000777'
+        expect(flash[:error].message).to eq 'There is no attendance history for id 1000777'
       end
     end
 
@@ -216,19 +250,23 @@ RSpec.describe LobbytrackReportsController, type: :controller do
     end
 
     context 'when the checkin query returns empty data' do
-      let(:lobbytrack_visitor) { [] }
+      let(:lobbytrack_reports) { [] }
 
       before do
-        allow(mock_client).to receive(:execute).and_return lobbytrack_visitor
-        post :checkins, params: { lobbytrack_report: { checkin_id: '9009009' } }
+        allow(mock_client).to receive(:execute).and_return(lobbytrack_visitor, lobbytrack_reports)
+        post :checkins, params: { lobbytrack_report: { checkin_id: '7007007' } }
       end
 
       it 'returns to the lobbytrack reports page' do
         expect(response).to redirect_to lobbytrack_reports_path
       end
 
-      it 'displays a flash message' do
+      it 'displays a TinyTds Error' do
         expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+
+      it 'displays a flash message' do
+        expect(flash[:error].message).to eq 'There is no attendance history for id 7007007'
       end
     end
   end
@@ -265,15 +303,19 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
       before do
         allow(mock_client).to receive(:execute).and_return lobbytrack_reports
-        post :checkin_dates, params: { lobbytrack_report: { checkin_date1: '01/01/2019', checkin_date2: '01/01/2020' } }
+        post :checkin_dates, params: { lobbytrack_report: { checkin_date1: '2019-01-01', checkin_date2: '2020-01-01' } }
       end
 
       it 'returns to the lobbytrack reports page' do
         expect(response).to redirect_to lobbytrack_reports_path
       end
 
+      it 'displays a TinyTds Error' do
+        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+      end
+
       it 'displays a flash message' do
-        expect(flash[:warning]).to eq 'There is no attendance history between the dates 01/01/2019 to 01/01/2020'
+        expect(flash[:error].message).to eq 'There is no attendance history between the dates 2019-01-01 and 2020-01-01'
       end
     end
 

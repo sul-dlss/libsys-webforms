@@ -13,7 +13,8 @@ RSpec.describe LobbytrackReport, type: :model do
       expect(described_class.visits_for_dates('01/01/2019', '01/01/2020')).to eq 'DECLARE @date1 date' \
     " DECLARE @date2 date SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59'" \
     ' SELECT CardHolderID, DateIn, ReportField1, ReportField2, LookupField1' \
-    ' FROM Jolly.dbo.logAttendance WHERE DateIn between @date1 and @date2'
+    ' FROM Jolly.dbo.logAttendance WHERE DateIn between @date1 and @date2' \
+    " AND CardHolderID > ''"
     end
   end
 
@@ -29,7 +30,8 @@ RSpec.describe LobbytrackReport, type: :model do
       expect(described_class.checkins_for_dates('01/01/2019', '01/01/2020')).to eq 'DECLARE @date1 date' \
       " DECLARE @date2 date SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59'" \
       ' SELECT CardHolderID, DateOfEvent, LocationID, ReportField1, ReportField2, LookupField1' \
-      ' FROM Jolly.dbo.logPerson WHERE DateOfEvent between @date1 and @date2'
+      ' FROM Jolly.dbo.logPerson WHERE DateOfEvent between @date1 and @date2' \
+      " AND CardHolderID > ''"
     end
   end
 
