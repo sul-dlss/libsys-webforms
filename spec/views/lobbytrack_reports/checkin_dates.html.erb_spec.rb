@@ -5,11 +5,13 @@ RSpec.describe 'lobbytrack_reports/checkin_dates.html.erb', type: :view do
     [
       { 'CardHolderID' => '007',
         'DateOfEvent' => Date.parse('2018-08-31 09:19:39'),
+        'LocationID' => 1,
         'ReportField1' => 'JAMES',
         'ReportField2' => 'BOND',
         'LookupField1' => 'jbond@mi6.org' },
       { 'CardHolderID' => '009',
         'DateOfEvent' => Date.parse('2018-09-13 15:05:56'),
+        'LocationID' => 6,
         'ReportField1' => 'ALEC',
         'ReportField2' => 'TREVELYAN',
         'LookupField1' => 'atrevelyan@spectre.org' }
@@ -43,18 +45,22 @@ RSpec.describe 'lobbytrack_reports/checkin_dates.html.erb', type: :view do
 
     it 'displays a table with some report results' do
       assert_select 'td', text: '007', count: 1
+      assert_select 'a', text: '007', count: 1
       assert_select 'td', text: '2018-08-31 00:00', count: 1
       assert_select 'td', text: 'BOND', count: 1
       assert_select 'td', text: 'JAMES', count: 1
       assert_select 'td', text: 'jbond@mi6.org', count: 1
+      assert_select 'td', text: 'Green', count: 1
     end
 
     it 'displays a table with more report results' do
       assert_select 'td', text: '009', count: 1
+      assert_select 'a', text: '009', count: 1
       assert_select 'td', text: '2018-09-13 00:00', count: 1
       assert_select 'td', text: 'TREVELYAN', count: 1
       assert_select 'td', text: 'ALEC', count: 1
       assert_select 'td', text: 'atrevelyan@spectre.org', count: 1
+      assert_select 'td', text: 'Art', count: 1
     end
   end
 end

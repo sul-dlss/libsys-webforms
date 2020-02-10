@@ -11,11 +11,7 @@
       <%= main_menu_button %>
     </div>
   </div>
-  <h2>
-    <p>ID: <%= @lobbytrack_reports.first['CardHolderID'] %></p>
-    <p>Name: <%= @lobbytrack_reports.first['ReportField1'] %> <%= @lobbytrack_reports.first['ReportField2'] %></p>
-    <p>Email: <%= @lobbytrack_reports.first['LookupField1'] %></p>
-  </h2>
+  <%= render 'visitor' %>
   <h3><%= @lobbytrack_reports.size %> Visits</h3>
   <div>
     <table class='table table-striped'>

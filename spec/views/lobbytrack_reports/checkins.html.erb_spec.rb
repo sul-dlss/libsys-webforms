@@ -5,19 +5,39 @@ RSpec.describe 'lobbytrack_reports/checkins.html.erb', type: :view do
     [
       { 'CardHolderID' => '007',
         'DateOfEvent' => Date.parse('2018-08-31 09:19:39'),
+        'LocationID' => 1,
         'ReportField1' => 'JAMES',
         'ReportField2' => 'BOND',
         'LookupField1' => 'jbond@mi6.org' },
       { 'CardHolderID' => '007',
         'DateOfEvent' => Date.parse('2018-09-13 15:05:56'),
+        'LocationID' => 6,
         'ReportField1' => 'JAMES',
         'ReportField2' => 'BOND',
         'LookupField1' => 'jbond@mi6.org' }
     ]
   end
 
+  let(:lobbytrack_visitor) do
+    [
+      {
+        'IDNumber' => '007',
+        'LastName' => 'BOND',
+        'FirstName' => 'JAMES',
+        'Email' => 'jbond@mi6.org',
+        'StreetAddress' => 'SIS Building',
+        'City' => 'London',
+        'State' => 'England',
+        'PostalCode' => '00707',
+        'PhoneNumber' => '7707007007',
+        'Photo' => nil
+      }
+    ]
+  end
+
   before do
     assign(:lobbytrack_reports, lobbytrack_report_results)
+    assign(:lobbytrack_visitor, lobbytrack_visitor)
     render
   end
 
@@ -25,7 +45,7 @@ RSpec.describe 'lobbytrack_reports/checkins.html.erb', type: :view do
     it 'displays a header with some info about the report' do
       assert_select 'h1', text: 'Visitor check-in report', count: 1
       assert_select 'p', text: 'ID: 007', count: 1
-      assert_select 'p', text: 'Name: JAMES BOND', count: 1
+      assert_select 'p', text: 'Name: BOND, JAMES', count: 1
       assert_select 'p', text: 'Email: jbond@mi6.org', count: 1
       assert_select 'h3', text: '2 Check-ins', count: 1
     end
@@ -42,6 +62,7 @@ RSpec.describe 'lobbytrack_reports/checkins.html.erb', type: :view do
       assert_select 'td', text: '1', count: 1
       assert_select 'td', text: '2018-08-31 00:00', count: 1
       assert_select 'td', text: '2018-09-13 00:00', count: 1
+      assert_select 'td', text: 'Green', count: 1
     end
   end
 end
