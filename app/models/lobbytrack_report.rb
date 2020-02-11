@@ -58,7 +58,8 @@ class LobbytrackReport
   end
 
   def self.visits(id)
-    'DECLARE @id VARCHAR(7)' \
+    "#{default_sets}" \
+    ' DECLARE @id VARCHAR(7)' \
     " SET @id = '#{id}'" \
     ' SELECT DateIn' \
     ' FROM Jolly.dbo.logAttendance' \
@@ -66,7 +67,8 @@ class LobbytrackReport
   end
 
   def self.visits_for_dates(date1, date2)
-    'DECLARE @date1 date' \
+    "#{default_sets}" \
+    ' DECLARE @date1 date' \
     ' DECLARE @date2 date' \
     " SET @date1 = '#{date1} 00:00:00'" \
     " SET @date2 = '#{date2} 23:59:59'" \
@@ -77,7 +79,8 @@ class LobbytrackReport
   end
 
   def self.checkins(id)
-    'DECLARE @id VARCHAR(7)' \
+    "#{default_sets}" \
+    ' DECLARE @id VARCHAR(7)' \
     " SET @id = '#{id}'" \
     ' SELECT DateOfEvent, LocationID' \
     ' FROM Jolly.dbo.logPerson' \
@@ -85,7 +88,8 @@ class LobbytrackReport
   end
 
   def self.checkins_for_dates(date1, date2)
-    'DECLARE @date1 date' \
+    "#{default_sets}" \
+    ' DECLARE @date1 date' \
     ' DECLARE @date2 date' \
     " SET @date1 = '#{date1} 00:00:00'" \
     " SET @date2 = '#{date2} 23:59:59'" \
@@ -96,11 +100,21 @@ class LobbytrackReport
   end
 
   def self.visitor_data(id)
-    'DECLARE @id VARCHAR(7)' \
+    "#{default_sets}" \
+    ' DECLARE @id VARCHAR(7)' \
     " SET @id = '#{id}'" \
     ' SELECT IDNumber, FirstName, LastName, PhoneNumber, Email, StreetAddress, City, State, PostalCode, Photo' \
     ' FROM GroupTables.dbo.Visitor' \
     ' WHERE IDNumber = @id'
+  end
+
+  def self.default_sets
+    'SET ANSI_DEFAULTS ON' \
+    ' SET QUOTED_IDENTIFIER ON' \
+    ' SET CURSOR_CLOSE_ON_COMMIT OFF' \
+    ' SET IMPLICIT_TRANSACTIONS OFF' \
+    ' SET TEXTSIZE 2147483647' \
+    ' SET CONCAT_NULL_YIELDS_NULL ON'
   end
 
   def self.visitor_hash(data)
