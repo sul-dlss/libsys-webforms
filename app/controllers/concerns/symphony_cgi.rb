@@ -10,7 +10,7 @@ module SymphonyCgi
     @request_conn ||= begin
       request_url = request_url(script, cgi_params)
       Rails.logger.warn("request_url: #{request_url}")
-      request_conn = Faraday.get(request_url)
+      request_conn = Faraday.get(request_url, 'accept-encoding' => 'none')
       return empty_response(request_conn.body) unless request_conn.success?
 
       request_conn
