@@ -1,5 +1,6 @@
 ###
-# Utilities to chose and/or transform the date range that gets persisted by Expenditure reports
+# Utilities to chose and/or transform the date range that gets persisted by Expenditure reports.
+# There must be a start date, but the end date is optional and if absent will be set the same as the start date
 ###
 module FundYearUtils
   extend ActiveSupport::Concern

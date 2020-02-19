@@ -12,6 +12,7 @@ class ExpendituresWithCircStatsReport < ApplicationRecord
   validates :lib_array, presence: true
   validates :format_array, presence: true
   validates :date_type, inclusion: %w[fiscal calendar paydate]
+  validates :start_date_present?, inclusion: { in: [true], message: 'Please choose a start date for the report.' }
 
   before_save :set_fund, :write_lib, :write_fmt, :check_dates
 
@@ -33,5 +34,16 @@ class ExpendituresWithCircStatsReport < ApplicationRecord
 
   def write_fmt
     self[:formats] = format_array.delete_if { |a| a.empty? || a == 'All Formats' }.join(',')
+  end
+
+  def start_date_present?
+    case date_type
+    when 'calendar'
+      cal_start.present?
+    when 'fiscal'
+      fy_start.present?
+    when 'paydate'
+      pd_start.present?
+    end
   end
 end
