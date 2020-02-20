@@ -1,5 +1,7 @@
 <div class='form-group row'>
-  <%= f.label :fund_select, 'Select funds for report by:', class: 'col-sm-5 form-control-label'%>
+  <div class='col-sm-10'>
+    <%= f.label :fund_select, 'Select funds for report by:', class: 'form-control-label'%>
+  </div>
   <div class='col-sm-10'>
     <p><%= f.radio_button :fund_select, 'fund_name_id', {'class'=>'fund_selects', 'data-toggle' => 'collapse', 'data-target' => '.fund_name_id', onChange: '$(".collapse").removeClass("in");$(".all_sul").prop("checked", false);'} %> Fund ID/PTA or name</p>
     <p><%= f.radio_button :fund_select, 'fund_begins_with', {'class'=>'fund_selects', 'data-toggle' => 'collapse', 'data-target' => '.fund_begins_with', onChange: '$(".collapse").removeClass("in");$(".all_sul").prop("checked", false);'} %> Fund ID/PTA begins with</p>

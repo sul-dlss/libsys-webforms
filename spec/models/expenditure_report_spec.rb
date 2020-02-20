@@ -80,7 +80,7 @@ RSpec.describe ExpenditureReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(date_type: nil, email: nil, fund_begin: nil, fund: nil)
+      @report = described_class.new(date_type: nil, email: nil, fund_begin: nil, fund: nil, cal_start: nil)
       @report.valid?
     end
 
@@ -98,6 +98,10 @@ RSpec.describe ExpenditureReport, type: :model do
 
     it 'validates the presence of a fund' do
       expect(@report.errors.messages[:fund]).to include "can't be blank"
+    end
+
+    it 'validates the presence of a start date' do
+      expect(@report.errors.messages[:start_date_present?]).to include 'Please choose a start date for the report.'
     end
 
     it 'validates the correct form of an email address' do

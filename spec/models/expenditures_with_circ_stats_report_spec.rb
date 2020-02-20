@@ -153,7 +153,8 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(date_type: nil, format_array: nil, lib_array: nil, fund_begin: nil, fund: nil)
+      @report = described_class.new(date_type: nil, format_array: nil, lib_array: nil,
+                                    fund_begin: nil, fund: nil, cal_start: nil)
       @report.valid?
     end
 
@@ -175,6 +176,10 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
     it 'validated the presence of a lib_array' do
       expect(@report.errors.messages[:lib_array]).to include "can't be blank"
+    end
+
+    it 'validates the presence of a start date' do
+      expect(@report.errors.messages[:start_date_present?]).to include 'Please choose a start date for the report.'
     end
   end
 end

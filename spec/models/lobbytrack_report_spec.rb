@@ -40,8 +40,10 @@ RSpec.describe LobbytrackReport, type: :model do
 
   describe 'sql query for checkins_for_dates' do
     it 'creates a querystring with the given dates' do
-      expect(described_class.checkins_for_dates('01/01/2019', '01/01/2020')).to eq "#{default_sets} DECLARE @date1 date" \
-      " DECLARE @date2 date SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59'" \
+      expect(described_class.checkins_for_dates('01/01/2019', '01/01/2020')).to eq "#{default_sets}" \
+      ' DECLARE @date1 date' \
+      ' DECLARE @date2 date' \
+      " SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59'" \
       ' SELECT CardHolderID, DateOfEvent, LocationID, ReportField1, ReportField2, LookupField1' \
       ' FROM Jolly.dbo.logPerson WHERE DateOfEvent between @date1 and @date2' \
       " AND CardHolderID > ''"

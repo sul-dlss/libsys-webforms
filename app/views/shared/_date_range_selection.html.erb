@@ -1,6 +1,8 @@
 <div class='container'>
   <div class='form-group row'>
-    <%= f.label :date_type, 'Range of dates to include:', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.label :date_type, 'Range of dates to include:', class: 'form-control-label' %>
+    </div>
     <div class='col-sm-10'>
       <p>
         <%= f.radio_button :date_type, 'fiscal', {'data-toggle' => 'collapse', 'data-target' => '.fiscal', onChange: '$(".collapse").removeClass("in")'} %>

@@ -10,6 +10,7 @@ class ExpenditureReport < ApplicationRecord
   validates :fund, presence: true, if: :blank_fund_begin?
   validates :fund_begin, presence: true, if: :blank_fund?
   validates :date_type, inclusion: %w[fiscal calendar paydate]
+  validates :start_date_present?, inclusion: { in: [true], message: 'Please choose a start date for the report.' }
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   before_save :set_fund, :set_output_file, :check_dates
@@ -33,5 +34,16 @@ class ExpenditureReport < ApplicationRecord
 
   def set_output_file
     self[:output_file] = output_file
+  end
+
+  def start_date_present?
+    case date_type
+    when 'calendar'
+      cal_start.present?
+    when 'fiscal'
+      fy_start.present?
+    when 'paydate'
+      pd_start.present?
+    end
   end
 end
