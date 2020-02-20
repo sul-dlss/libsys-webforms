@@ -66,7 +66,7 @@ GEM
       thor (~> 0.18)
     byebug (11.1.1)
     cancancan (3.0.2)
-    capistrano (3.11.2)
+    capistrano (3.12.0)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -103,7 +103,7 @@ GEM
     childprocess (3.0.0)
     composite_primary_keys (11.2.0)
       activerecord (~> 5.2.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
