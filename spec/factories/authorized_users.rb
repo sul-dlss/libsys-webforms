@@ -68,7 +68,7 @@ FactoryBot.define do
     accession_number { 'Y' }
     digital_bookplates { 'Y' }
     edi_inv_view { 'Y' }
-    edi_inv_manage { 'Y' }
+    edi_inv_manage { '' }
     package_manage { 'Y' }
   end
   factory :blank_user, class: AuthorizedUser do

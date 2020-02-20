@@ -1,6 +1,7 @@
 # Controller to handle the SAL3 Batch Requests landing page
 class Sal3BatchRequestsBatchesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :sal3_batch_requests_batch_params
+
   has_scope :pullmon
   has_scope :pulltues
   has_scope :pullwed
@@ -27,7 +28,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     if @sal3_batch_requests_batch.save
       array_of_item_ids = @sal3_batch_requests_batch.parse_bc_file
       begin
-        Sal3BatchRequestBcs.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
+        Sal3BatchRequestsBc.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
       rescue ActiveRecord::RecordNotUnique
         flash[:warning] = 'Batch with unique barcodes already requested.'
       end

@@ -1,5 +1,7 @@
 # Controller for Edi Lines
 class EdiLinsController < ApplicationController
+  load_and_authorize_resource
+
   def allow_nobib
     @edi_lin = EdiLin.all
     respond_to do |format|

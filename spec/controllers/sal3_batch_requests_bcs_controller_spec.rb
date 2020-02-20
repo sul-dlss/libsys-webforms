@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Sal3BatchRequestBcsController, type: :controller do
+RSpec.describe Sal3BatchRequestsBcsController, type: :controller do
+  before do
+    stub_current_user(FactoryBot.create(:authorized_user))
+  end
+
   let(:barcode_file) do
     extend ActionDispatch::TestProcess
     fixture_file_upload('files/test_file.txt', 'text/plain')
@@ -8,7 +12,6 @@ RSpec.describe Sal3BatchRequestBcsController, type: :controller do
 
   describe 'get#show' do
     it 'is successful returning a show page' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   pseudo_id: 'MAPSCANLAB',
                                                                   batch_pullmon: 1,

@@ -2,6 +2,8 @@
 # Controller to handle the Encumberances Report
 ###
 class ExpendituresWithCircStatsReportsController < ApplicationController
+  load_and_authorize_resource param_method: :batch_params
+
   rescue_from ActiveRecord::RecordNotFound do |exception|
     flash[:error] = 'There are no records for the specified date range'
     render action: 'new'

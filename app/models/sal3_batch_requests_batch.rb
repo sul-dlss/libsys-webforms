@@ -15,10 +15,10 @@ class Sal3BatchRequestsBatch < ApplicationRecord
                         on: %i(create update)
   validate :batch_pullday_present
 
-  has_many :sal3_batch_request_bcs, foreign_key: 'batch_id',
-                                    class_name: 'Sal3BatchRequestBcs',
-                                    dependent: :destroy,
-                                    inverse_of: false
+  has_many :sal3_batch_requests_bcs, foreign_key: 'batch_id',
+                                     class_name: 'Sal3BatchRequestBcs',
+                                     dependent: :destroy,
+                                     inverse_of: false
 
   before_validation :checkbox_zeros_to_nil
   after_create :set_num_bcs

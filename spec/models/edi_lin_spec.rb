@@ -28,7 +28,7 @@ RSpec.describe EdiLin, type: :model do
     end
   end
 
-  describe 'sets the kind of rowid used for sql in test' do
+  describe 'sets the kind of rowid used for sqlite3 in test' do
     it 'gets the database type used from the Rails config' do
       expect(described_class.database).to eq 'db/test.sqlite3'
     end
@@ -42,7 +42,7 @@ RSpec.describe EdiLin, type: :model do
     end
   end
 
-  describe 'sets the kind of rowid used for sql in test' do
+  describe 'sets the kind of rowid used for oracle sql in test' do
     before do
       allow(described_class).to receive(:database).and_return('LTRXPRD1')
     end

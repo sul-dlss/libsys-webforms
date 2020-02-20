@@ -1,6 +1,6 @@
 # Controller for the Userload rerun form
 class UserloadRerunsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :userload_rerun_params
 
   # GET /userload_reruns/new
   def new

@@ -1,6 +1,7 @@
 # Controller for EdiInvoice management
 class EdiInvoicesController < ApplicationController
   load_and_authorize_resource
+
   has_scope :vendfilter
 
   def menu; end

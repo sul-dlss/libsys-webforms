@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'Expenditures With Circ Stats Reports Page', type: :feature do
   before do
+    stub_current_user(FactoryBot.create(:authorized_user))
     visit new_expenditures_with_circ_stats_report_path
   end
 

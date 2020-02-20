@@ -6,6 +6,7 @@ class Ability
     current_user ||= AuthorizedUser.new
     assign_staff_specified_permission(current_user)
     assign_staff_manage_permission(current_user)
+    assign_management_reports_permissions(current_user)
     assign_staff_create_permission(current_user)
     assign_staff_read_permission(current_user)
     assign_admin_permission(current_user)
@@ -38,8 +39,10 @@ class Ability
 
   def assign_staff_read_permission(current_user)
     can :read, EdiInvoice if /Y/.match?(current_user.edi_inv_view)
+    can :read, EdiErrorReport if /Y/.match?(current_user.edi_inv_view)
     can :read, Package if /A|Y/.match?(current_user.package_manage)
     can :read, PackageFile if /A|Y/.match?(current_user.package_manage)
+    can :read, Sal3BatchRequestsBc if /A|Y/.match?(current_user.sal3_batch_req)
   end
 
   def assign_staff_manage_permission(current_user)
@@ -47,7 +50,21 @@ class Ability
     can :manage, EdiInvoice if /A|Y/.match?(current_user.edi_inv_manage)
     can :manage, EdiErrorReport if /A|Y/.match?(current_user.edi_inv_manage)
     can :manage, LobbytrackReport if /A|Y/.match? current_user.lobbytrack_report
-    can :manage, ManagementReport if /A|Y/.match?(current_user.mgt_rpts)
+  end
+
+  def assign_management_reports_permissions(current_user)
+    return unless /A|Y/.match?(current_user.mgt_rpts)
+
+    can :manage, CirculationStatisticsReport
+    can :manage, EdiInvLine
+    can :manage, EdiLin
+    can :manage, EncumbranceReport
+    can :manage, EndowedFundsReport
+    can :manage, ExpenditureReport
+    can :manage, ExpendituresWithCircStatsReport
+    can :manage, ManagementReport
+    can :manage, Sal3BatchRequestsBatch
+    can :manage, ShelfSelectionReport
   end
 
   def assign_admin_permission(current_user)
@@ -72,6 +89,7 @@ class Ability
     can :manage, ChangeHomeLocation
     can :manage, WithdrawItem
     can :manage, TransferItem
+    can :manage, UniUpdatesBatch
   end
 
   def dev_test_env?

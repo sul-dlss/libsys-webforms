@@ -2,6 +2,8 @@
 # Controller to handle the Encumberances Report
 ###
 class EndowedFundsReportsController < ApplicationController
+  load_and_authorize_resource param_method: :batch_params
+
   include SymphonyCgi
   before_action :set_no_cache
 
