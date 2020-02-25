@@ -6,6 +6,7 @@ class Ability
     current_user ||= AuthorizedUser.new
     assign_staff_specified_permission(current_user)
     assign_staff_manage_permission(current_user)
+    assign_edi_manage_permissions(current_user)
     assign_management_reports_permissions(current_user)
     assign_staff_create_permission(current_user)
     assign_staff_read_permission(current_user)
@@ -52,15 +53,13 @@ class Ability
     can :manage, AccessionNumberUpdate if /A|Y/.match?(current_user.accession_number)
     can :manage, EdiInvoice if /A|Y/.match?(current_user.edi_inv_manage)
     can :manage, EdiErrorReport if /A|Y/.match?(current_user.edi_inv_manage)
-    can :manage, LobbytrackReport if /A|Y/.match? current_user.lobbytrack_report
+    can :manage, LobbytrackReport if /A|Y/.match?(current_user.lobbytrack_report)
   end
 
   def assign_management_reports_permissions(current_user)
     return unless /A|Y/.match?(current_user.mgt_rpts)
 
     can :manage, CirculationStatisticsReport
-    can :manage, EdiInvLine
-    can :manage, EdiLin
     can :manage, EncumbranceReport
     can :manage, EndowedFundsReport
     can :manage, ExpenditureReport
@@ -68,6 +67,13 @@ class Ability
     can :manage, ManagementReport
     can :manage, Sal3BatchRequestsBatch
     can :manage, ShelfSelectionReport
+  end
+
+  def assign_edi_manage_permissions(current_user)
+    return unless /A|Y/.match?(current_user.edi_inv_manage)
+
+    can :manage, EdiInvLine
+    can :manage, EdiLin
   end
 
   def assign_admin_permission(current_user)
