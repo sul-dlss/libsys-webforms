@@ -19,6 +19,9 @@ class Ability
 
   def assign_basic_permission
     can :manage, Ckey2bibframe
+    can :read, UniUpdatesErrors
+    can :read, UniUpdMhldError
+    can :read, BatchRecordUpdate
   end
 
   def assign_user_permission
