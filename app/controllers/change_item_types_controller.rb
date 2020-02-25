@@ -1,6 +1,7 @@
 # Controller for the change_item_type form
 class ChangeItemTypesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :change_item_type_params
+
   def new
     @change_item_type = ChangeItemType.new
   end

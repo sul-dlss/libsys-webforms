@@ -1,5 +1,7 @@
 # Controller for EdiInvLine editing and updating
 class EdiInvLineController < ApplicationController
+  load_and_authorize_resource param_method: :edi_inv_line_params
+
   def edit
     @edi_inv_line = EdiInvLine.find(params[:id])
   end

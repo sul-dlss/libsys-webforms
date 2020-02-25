@@ -1,6 +1,7 @@
 # Controller for the withdrawal of items from the database
 class TransferItemsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :transfer_item_params
+
   def new
     @transfer_item = TransferItem.new
   end

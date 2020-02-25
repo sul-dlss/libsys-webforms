@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'Expenditure Reports Page', type: :feature do
   before do
+    stub_current_user(FactoryBot.create(:authorized_user))
     visit new_expenditure_report_path
   end
 

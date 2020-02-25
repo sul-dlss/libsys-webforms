@@ -3,10 +3,9 @@
 <% end %>
 <div class="home-page-section">
   <h1>Batch Record Updates</h1>
-  <% if current_user %>
   <h3>What would you like to do? </h3>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <% if /[AY]/ === current_user.unicorn_updates %>
+    <% if current_user && /[AY]/ === current_user.unicorn_updates %>
      <div class="panel panel-default">
        <div class="panel-heading" role="tab" id="headingOne">
          <h4 class="panel-title">
@@ -60,8 +59,4 @@
 </div>
 <div class="btn-group">
   <%= main_menu_button %>
-</div>
-<% else %>
-<p><%= link_to "Please login", root_path %></p>
-<% end %>
 </div>

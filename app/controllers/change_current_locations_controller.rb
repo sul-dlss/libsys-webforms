@@ -1,6 +1,7 @@
 # Controller for the batch update for current locations
 class ChangeCurrentLocationsController < ApplicationController
   load_and_authorize_resource
+
   def new
     @change_current_location = ChangeCurrentLocation.new
   end

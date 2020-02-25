@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
+  before do
+    stub_current_user(FactoryBot.create(:authorized_user))
+  end
+
   let(:barcode_file) do
     extend ActionDispatch::TestProcess
     fixture_file_upload('files/test_file.txt', 'text/plain')
@@ -16,7 +20,6 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
 
   describe 'get#show' do
     it 'is successful returning a show page' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   batch_pullmon: 1,
                                                                   pseudo_id: 'MAPSCANLAB',
@@ -29,7 +32,6 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
 
   describe 'get#new' do
     it 'be succesful returning the new page' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       get 'new'
       expect(response).to render_template('new')
     end
@@ -48,14 +50,12 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     end
 
     it 'returns 302 when saving sal3_batch_requests_batch' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { sal3_batch_requests_batch: batch_params }
 
       expect(response).to have_http_status(:found)
     end
 
     it 'renders new template with an invalid object' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       post :create, params: { sal3_batch_requests_batch: { batch_id: '' } }
       expect(response).to render_template('new')
     end
@@ -86,14 +86,12 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     end
 
     it 'updates the requested batch' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       put :update, params: { id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 1 } }
       @sal3_batch_requests_batch.reload
       expect(@sal3_batch_requests_batch.priority).to eq(1)
     end
 
     it 'is unsuccessful returning to the edit view without required dates' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       put :update, params: { id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { batch_startdate: nil,
                                                                                           batch_needbydate: nil } }
       @sal3_batch_requests_batch.reload
@@ -104,7 +102,6 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       # this spec passes, but doesn't seem to get coverage
       # sal3_batch_requests_batches_controller.rb: 1 untested lines: [40]
       # which is: render 'edit'
-      stub_current_user(FactoryBot.create(:authorized_user))
       put :update, params: { id: @sal3_batch_requests_batch, sal3_batch_requests_batch: { priority: 'foo' } }
       expect(response).not_to be_successful
     end

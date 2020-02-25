@@ -1,5 +1,7 @@
 # Controller to show and destroy UniUpdatesBatches
 class UniUpdatesBatchesController < ApplicationController
+  load_and_authorize_resource
+
   def show
     @uni_updates_batch = UniUpdatesBatch.find_by(batch_id: params[:id])
   end

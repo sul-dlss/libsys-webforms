@@ -24,12 +24,8 @@ describe 'home/index', type: :view do
       render
     end
 
-    it 'does not display what would you like to do text' do
-      expect(rendered).not_to have_css('h3', text: 'What would you like to do?')
-    end
-
-    it 'does not display permissions warning text' do
-      expect(rendered).to have_css('div', text: 'You do not have permissions to use other staff web forms.')
+    it 'displays the batch record updates link for viewing only' do
+      expect(rendered).to have_link('Batch record updates', href: 'batch_record_updates')
     end
 
     it 'does not display ckey2Bibframe link' do

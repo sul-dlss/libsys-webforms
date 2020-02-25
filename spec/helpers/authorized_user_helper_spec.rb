@@ -26,7 +26,6 @@ describe AuthorizedUserHelper do
          userload_rerun
          accession_number
          digital_bookplates
-         edi_inv_manage
          edi_inv_view
          package_manage]
     end

@@ -3,6 +3,7 @@
 ##
 class PackagesController < ApplicationController
   load_and_authorize_resource
+
   before_action :set_package, only: %i[show edit update destroy activate deactivate]
 
   # GET /packages

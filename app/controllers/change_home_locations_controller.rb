@@ -1,6 +1,7 @@
 # Controller for the change home location form
 class ChangeHomeLocationsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :change_home_location_params
+
   def new
     @change_home_location = ChangeHomeLocation.new
   end

@@ -23,7 +23,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @sal3_batch_request_bcs.each do |bc| %>
+    <% @sal3_batch_requests_bcs.each do |bc| %>
       <tr class='<%= cycle("odd", "even") %>'>
         <td><%= bc.item_id %></td>
         <td><%= bc.pull_date ? bc.pull_date.utc.strftime('%F') : nil %></td>

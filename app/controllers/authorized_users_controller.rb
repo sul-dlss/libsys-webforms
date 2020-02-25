@@ -1,6 +1,7 @@
 # Controller to show, create, and edit AuthorizedUsers
 class AuthorizedUsersController < ApplicationController
   load_and_authorize_resource
+
   before_action :redirect_cancel, only: %i[create update]
 
   def index

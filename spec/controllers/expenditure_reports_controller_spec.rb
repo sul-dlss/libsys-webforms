@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ExpenditureReportsController, type: :controller do
+  before do
+    stub_current_user(FactoryBot.create(:authorized_user))
+  end
+
   describe 'get#new' do
     it 'be succesful returning the index page' do
       stub_current_user(FactoryBot.create(:authorized_user))

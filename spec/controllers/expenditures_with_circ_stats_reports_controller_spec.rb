@@ -21,9 +21,10 @@ RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
 
     it 'raises an error when fiscal year is not in the table' do
       allow(controller).to receive(:create).and_raise(ActiveRecord::RecordNotFound)
-      post :create, params: { email: 'someone@some.one', fund_begin: 'All SUL Funds',
-                              lib_array: %w[ART], format_array: %w[MARC],
-                              date_type: 'fiscal', fy_start: 'FY 2015' }
+      params = { email: 'someone@some.one', fund_begin: 'All SUL Funds',
+                 lib_array: %w[ART], format_array: %w[MARC],
+                 date_type: 'fiscal', fy_start: 'FY 2015' }
+      post :create, params: { expenditures_with_circ_stats_report: params }
 
       expect(flash[:error]).to eq('There are no records for the specified date range')
     end
