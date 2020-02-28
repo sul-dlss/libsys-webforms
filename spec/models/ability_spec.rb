@@ -36,7 +36,12 @@ def admin_permissions
 end
 
 def only_authorized_permissions
-  perms = staff_specified_permissions + staff_create_permissions + staff_read_permissions + staff_manage_permissions + admin_permissions # rubocop:disable Metrics/LineLength
+  perms = staff_specified_permissions \
+  + staff_create_permissions \
+  + staff_read_permissions \
+  + staff_manage_permissions \
+  + admin_permissions
+
   perms -= [BatchRecordUpdate]
   perms
 end
