@@ -192,9 +192,9 @@
   </div>
   <P>
   <div class='form-group row'>
-    <%= f.label :subj_name, 'Name of this report\'s selection criteria. Leave blank to not use.', class: 'col-sm-4 form-control-label' %>
-    <div class='col-sm-8'>
-      <%= f.text_field :subj_name, class: 'form-control' %>
+    <%= f.label :subj_name, 'Name of this report\'s selection criteria. Leave blank to not use.', class: 'col-sm-10 form-control-label' %>
+    <div class='col-sm-10'>
+      <%= f.text_field :subj_name, maxlength: 80, class: 'form-control' %>
       <em>The control allows entering up to 80 characters.</em>
     </div>
   </div>

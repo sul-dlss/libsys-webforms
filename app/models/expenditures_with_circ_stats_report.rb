@@ -7,12 +7,10 @@ class ExpendituresWithCircStatsReport < ApplicationRecord
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
                 :lib_array, :libraries, :format_array, :formats
 
-  validates :fund, presence: true, if: :blank_fund_begin?
-  validates :fund_begin, presence: true, if: :blank_fund?
-  validates :lib_array, presence: true
-  validates :format_array, presence: true
   validates :date_type, inclusion: %w[fiscal calendar paydate]
   validates :start_date_present?, inclusion: { in: [true], message: 'Please choose a start date for the report.' }
+  validate :email_format
+  validate :fund_selection_present
 
   before_save :set_fund, :write_lib, :write_fmt, :check_dates
 
@@ -45,5 +43,15 @@ class ExpendituresWithCircStatsReport < ApplicationRecord
     when 'paydate'
       pd_start.present?
     end
+  end
+
+  def email_format
+    message = 'Email address is missing or not in a correct format'
+    errors.add(:base, message) unless email.match(Rails.configuration.email_pattern)
+  end
+
+  def fund_selection_present
+    message = 'Select either a single Fund ID/PTA or a fund that begins with an ID/PTA number'
+    errors.add(:base, message) unless fund.present? || fund_begin.present?
   end
 end
