@@ -24,67 +24,67 @@
 <div>
   <%= render 'shared/enter_email', f: f %>
   <div class='form-group row pad'>
-    <%= f.label :lib, 'Select Library:', class: 'col-sm-5 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :lib, 'Select Library:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.select :lib, UniLibsLocs.libraries, { selected: 'GREEN' }, { class: 'form-control' } %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :loc_array, 'Select Home Location(s) from the list below after selecting library above:', class: 'col-sm-10 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :loc_array, 'Select Home Location(s) from the list below after selecting library above:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.select :loc_array, UniLibsLocs.home_locations_from('GREEN'), {}, { multiple: true, class: 'form-control' } %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :cloc_diff, 'Exclude items with Current Location different from Home Location', class: 'col-sm-10 form-control-label' do %>
+    <%= f.label :cloc_diff, 'Exclude items with Current Location different from Home Location', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.check_box :cloc_diff %>
-      Exclude items with Current Location different from Home Location
-    <% end %>
+    </div>
   </div>
   <%= render 'shared/circulation_statistics_report_formats', f: f %>
   <div class='form-group row'>
-    <%= f.label :itype_array, 'Select the item types to include:', class: 'col-sm-10 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :itype_array, 'Select the item types to include:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.select :itype_array, ShelfSelectionItemType.item_types, { selected: 'All Item Types' }, { multiple: true, class: 'form-control' } %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :icat1_array, 'Select the item category1s to include:', class: 'col-sm-10 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :icat1_array, 'Select the item category1s to include:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.select :icat1_array, ShelfSelItemCat1.item_category1s, { selected: 'All Item Category1s' }, { multiple: true, class: 'form-control' } %>
     </div>
   </div>
   <div class='form-group row'>Leave any text input fields below blank to not filter by those conditions</div>
   <div class='form-group row'>
-    <%= f.label :lang, 'Include only titles with language code(s) (For multiple codes, separate with commas.):', class: 'col-sm-10 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :lang, 'Include only titles with language code(s) (For multiple codes, separate with commas.):', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.text_field :lang, class: 'input-mini' %>
       <%= link_to 'Language codes list', 'http://www.loc.gov/marc/languages/language_code.html' %>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :min_yr, 'Exclude items created before:', class: 'col-sm-3 form-control-label' %>
-    <div class='col-sm-13'>
+    <%= f.label :min_yr, 'Exclude items created before:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.text_field :min_yr, class: 'input-mini inline' %>
       Enter 4-digit years in these fields.
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :max_yr, 'Exclude items created after:', class: 'col-sm-3 form-control-label' %>
-    <div class='col-sm-13'>
+    <%= f.label :max_yr, 'Exclude items created after:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.text_field :max_yr, class: 'input-mini' %>
     </div>
   </div>
   <div class='form-group row'>
     <%= f.label :min_circ, 'Exclude items with Circulation Count below:', class: 'col-sm-4 form-control-label' %>
-    <div class='col-sm-13'>
+    <div class='col-sm-8'>
       <%= f.text_field :min_circ, class: 'input-mini' %>
       Circulation count includes charges and in-house use.
     </div>
   </div>
   <div class='form-group row'>
     <%= f.label :max_circ, 'Exclude items with Circulation Count above:', class: 'col-sm-4 form-control-label' %>
-    <div class='col-sm-13'>
+    <div class='col-sm-8'>
       <%= f.text_field :max_circ, class: 'input-mini' %>
     </div>
   </div>
@@ -131,25 +131,29 @@
     <%= f.label :multcop, 'if title has Multiple Copies (of the same volume) at the selected library/locations(s).', class: 'col-sm-13 form-control-label' %>
   </div>
   <div class='form-group row'>
-    <%= f.label :no_boundw, 'Exclude Bound-With Child items', class: 'col-sm-10 form-control-label' do %>
+    <%= f.label :no_boundw, 'Exclude Bound-With Child items', class: 'col-sm-2 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.check_box :no_boundw, id: 'noboundw', checked: 'checked' %>
-      Exclude Bound-With Child items
-    <% end %>
+    </div>
   </div>
   <div class='form-group row'><strong>Type of Call Number selection to use in the report:</strong> <em>(See bottom of page for examples of call number options)</em></div>
   <div class='form-group row'>
-    <%= f.label :range_type, 'LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters', class:'col-sm-10 form-control-label' do %>
+    <div class='col-sm-2'>
         <%= f.radio_button :range_type, 'lc', { checked: 'checked', onChange: '$("input[id*=\'_call_\']").val("")' } %>
-        LC Letter Range: All LC call numbers beginning with specified letter(s) or range of letters
-    <% end %>
-    <%= f.label :range_type, 'Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers', class:'col-sm-10 form-control-label' do %>
+    </div>
+    <%= f.label :range_type, 'LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters', class:'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
       <%= f.radio_button :range_type, 'classic', { onChange: '$("input[id*=\'_call_\']").val("")' } %>
-      Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers
-    <% end %>
-    <%= f.label :range_type, 'Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number', class:'col-sm-10 form-control-label' do %>
+    </div>
+    <%= f.label :range_type, 'Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers', class:'col-sm-13 form-control-label' %>
+  </div>
+  <div class='form-group row'>
+    <div class='col-sm-2'>
       <%= f.radio_button :range_type, 'other', { onChange: '$("input[id*=\'_call_\']").val("")' } %>
-      Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number
-    <% end %>
+    </div>
+    <%= f.label :range_type, 'Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number', class:'col-sm-13 form-control-label' %>
   </div>
   <!-- bunch of javascript to show some fields depending on the range_type -->
   <div>
@@ -188,21 +192,23 @@
   </div>
   <P>
   <div class='form-group row'>
-    <%= f.label :subj_name, 'Name of this report\'s selection criteria. Leave blank to not use.', class: 'col-sm-10 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :subj_name, 'Name of this report\'s selection criteria. Leave blank to not use.', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.text_field :subj_name, class: 'form-control' %>
       <em>The control allows entering up to 80 characters.</em>
     </div>
   </div>
   <div class='form-group row'>
-    <%= f.label :save_opt, 'Use as email subject and name of saved criteria.', class:'col-sm-5 form-control-label' do %>
-      <%= f.radio_button :save_opt, 'save', checked: true %>
-      Use as email subject and name of saved criteria.
-    <% end %>
-    <%= f.label :save_opt, "Use as email subject only, don't save.", class:'form-control-label' do %>
+    <%= f.label :save_opt, 'Use as email subject and name of saved criteria.', class:'col-sm-4 form-control-label' %>
+      <div class='col-sm-8'>
+        <%= f.radio_button :save_opt, 'save', checked: true %>
+      </div>
+  </div>
+  <div class='form-group row'>
+    <%= f.label :save_opt, "Use as email subject only, don't save.", class:'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.radio_button :save_opt, 'nosave' %>
-      Use as email subject only, don't save.
-    <% end %>
+    </div>
   </div>
     <%= f.hidden_field :user_id, value: "#{current_user.user_id}" %>
   <div><%= f.submit 'Submit', class: 'btn btn-md btn-default  btn-full' %></div>

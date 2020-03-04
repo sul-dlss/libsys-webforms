@@ -17,16 +17,16 @@
   <%= render 'shared/funds_selection', f: f %>
   <%= render 'shared/date_range_selection', f: f %>
   <div class='form-group row'>
-    <%= f.label :lib_array, 'Select libraries to collect stats for:', class: 'col-sm-5 form-control-label' %>
-    <div class='col-sm-10'>
+    <%= f.label :lib_array, 'Select libraries to collect stats for:', class: 'col-sm-4 form-control-label' %>
+    <div class='col-sm-8'>
       <%= f.select :lib_array, (['All Libraries'] + UniLibsLocs.libraries), { selected: 'All Libraries' }, {multiple: true, size: 6, class: 'form-control'} %>
     </div>
   </div>
   <%= render 'shared/circulation_statistics_report_formats', f: f %>
 
   <div class='form-group row'>
-    <%= f.label :one_row_total, 'Show Circulation counts for each title (ckey) as:', class: 'col-sm-5 form-control-label'%>
-    <div class='col-sm-10'>
+    <%= f.label :one_row_total, 'Show Circulation counts for each title (ckey) as:', class: 'col-sm-4 form-control-label'%>
+    <div class='col-sm-8'>
       <p><%= f.radio_button :one_row_total, 0, { checked: true } %> Separate row of circulation counts for each selected library having copies/volumes of the title </p>
       <p><%= f.radio_button :one_row_total, 1 %> Single row with total circulation of the title at all selected libraries</p>
     </div>
@@ -41,7 +41,7 @@
 <%= f.hidden_field :date_request, value: l(Time.now.getlocal, format: :oracle) %>
 <%= f.hidden_field :date_ran, value: nil %>
 
-<div class='pad'><%= f.submit 'Submit request', class: 'btn btn-md btn-default  btn-full' %></div><br/>
+<div class='pad'><%= f.submit 'Submit request', class: 'btn btn-md btn-primary btn-full' %></div><br/>
 
 <% end %>
 <div class="btn-group">
