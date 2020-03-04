@@ -3,10 +3,10 @@ FactoryBot.define do
     email { 'test@test.com' }
     lib_array { ['', 'ARS', 'ART', 'GREEN', 'SAL3'] }
     source { 0 }
-    range_type { 'lc' }
+    range_type { '' }
     call_alpha { '' }
     barcodes { '' }
-    call_lo { 'K' }
+    call_lo { '' }
     call_hi { '' }
     format_array { ['', 'EQUIP', 'MANUSCRIPT'] }
     exclude_inactive { 1 }
@@ -16,6 +16,8 @@ FactoryBot.define do
     include_inhouse { 1 }
     tag_field { '' }
     tag_field2 { '' }
+    tag_field3 { '' }
+    tag_field4 { '' }
     tags_url { 'Y' }
     link_type { 'E' }
     col_header1 { 'Selector Decision' }

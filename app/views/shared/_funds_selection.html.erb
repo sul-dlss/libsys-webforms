@@ -1,7 +1,5 @@
 <div class='form-group row'>
-  <div class='col-sm-10'>
-    <%= f.label :fund_select, 'Select funds for report by:', class: 'form-control-label'%>
-  </div>
+  <%= f.label :fund_select, 'Select funds for report by:', class: 'col-sm-2 form-control-label'%>
   <div class='col-sm-10'>
     <p><%= f.radio_button :fund_select, 'fund_name_id', {'class'=>'fund_selects', 'data-toggle' => 'collapse', 'data-target' => '.fund_name_id', onChange: '$(".collapse").removeClass("in");$(".all_sul").prop("checked", false);'} %> Fund ID/PTA or name</p>
     <p><%= f.radio_button :fund_select, 'fund_begins_with', {'class'=>'fund_selects', 'data-toggle' => 'collapse', 'data-target' => '.fund_begins_with', onChange: '$(".collapse").removeClass("in");$(".all_sul").prop("checked", false);'} %> Fund ID/PTA begins with</p>
@@ -66,7 +64,10 @@
       <% end %>
     </div>
   </div>
+</div>
+<div class='form-group row'>
+  <label class="col-sm-2 form-control-label" for="encumbrance_report_fund_begin"></label>
   <div class='col-sm-10'>
-    <p> <%= f.radio_button :fund_begin, 'All SUL Funds', class: 'all_sul', onClick: "$('input:radio[class=fund_selects]').each(function () { $(this).prop('checked', false); });$('.collapse').removeClass('in')" %> Select all SUL funds </p>
+    <%= f.radio_button :fund_begin, 'All SUL Funds', class: 'all_sul', onClick: "$('input:radio[class=fund_selects]').each(function () { $(this).prop('checked', false); });$('.collapse').removeClass('in')" %> Select all SUL funds </p>
   </div>
 </div>

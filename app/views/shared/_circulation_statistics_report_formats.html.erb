@@ -1,6 +1,6 @@
 <div class='form-group row'>
-  <%= f.label :format_array, 'Select the formats to include:', class: 'col-sm-10 form-control-label' %>
-  <div class='col-sm-10'>
-    <%= f.select :format_array, CirculationStatisticsReportFormat.formats, { selected: 'All Formats' }, { multiple: true, class: 'form-control' } %>
+  <%= f.label :format_array, 'Select the formats to include:', class: 'col-sm-4 form-control-label' %>
+  <div class='col-sm-8'>
+    <%= f.select :format_array, CirculationStatisticsReportFormat.formats, { selected: 'All Formats' }, { multiple: true, size: CirculationStatisticsReportFormat.formats.size/2, class: 'form-control' } %>
   </div>
 </div>

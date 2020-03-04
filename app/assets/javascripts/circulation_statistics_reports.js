@@ -66,8 +66,8 @@ $(document).ready(function(){
           $('#' + value + 'select').append(html);
         }
       })
-      $('#' + value).show();
     })
+    $('#' + selected_libs).show();
   })
   $('.btn').click(function(){
     var col1 = $('#circulation_statistics_report_col_header1').val();

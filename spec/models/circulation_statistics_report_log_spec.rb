@@ -22,19 +22,19 @@ RSpec.describe CirculationStatisticsReportLog, type: :model do
     end
 
     it 'constructs lc range type params where call_hi is blank' do
-      report = FactoryBot.build(:circulation_statistics_report)
+      report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'K')
       log_params = described_class.process_range_type_params(report)
       expect(log_params).to eq(params.merge!('call_range' => 'K'))
     end
 
     it 'constructs lc range type params where call_lo includes #' do
-      report = FactoryBot.build(:circulation_statistics_report, call_lo: 'L#')
+      report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'L#')
       log_params = described_class.process_range_type_params(report)
       expect(log_params).to eq(params.merge!('call_range' => 'L0-9999'))
     end
 
     it 'constructs lc range type params where call_hi is not blank' do
-      report = FactoryBot.build(:circulation_statistics_report, call_hi: 'LZ')
+      report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'K', call_hi: 'LZ')
       log_params = described_class.process_range_type_params(report)
       expect(log_params).to eq(params.merge!('call_range' => 'K-LZ'))
     end
