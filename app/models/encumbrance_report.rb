@@ -49,7 +49,7 @@ class EncumbranceReport < ApplicationRecord
   end
 
   def fund_selection_present
-    message = 'Select either a single Fund ID/PTA or a fund that begins with an ID/PTA number'
+    message = 'Select a single Fund ID/PTA, a fund that begins with an ID/PTA number, or all SUL funds'
     errors.add(:base, message) unless fund.present? || fund_begin.present?
   end
 end

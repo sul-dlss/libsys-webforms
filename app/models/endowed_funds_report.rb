@@ -9,13 +9,9 @@ class EndowedFundsReport
                 :date_ran, :date_type, :fy_start, :fy_end, :cal_start, :cal_end,
                 :pd_start, :pd_end, :email, :ckeys_file
 
-  validates :fund, presence: true, if: :blank_fund_begin?
-  validates :fund_begin, presence: true, if: :blank_fund?
-  validates :fy_start, presence: true, if: :only_fy?
-  validates :cal_start, presence: true, if: :only_cal?
-  validates :pd_start, presence: true, if: :only_pd?
-  validates :email, presence: true
-  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
+  validate :email_format
+  validate :fund_selection_present
+  validate :start_date_present
 
   # get cat keys
   def self.ol_cat_key_fund(fund, date_start, date_end)
@@ -86,23 +82,29 @@ class EndowedFundsReport
 
   private
 
-  def blank_fund_begin?
-    fund_begin.blank?
+  def start_date_present
+    message = 'Choose a start date for fiscal, calendar, or paid date'
+    errors.add(:base, message) unless type_of_date_present?
   end
 
-  def blank_fund?
-    fund.blank?
+  def type_of_date_present?
+    case date_type
+      when 'calendar'
+        cal_start.present?
+      when 'fiscal'
+        fy_start.present?
+      when 'paydate'
+        pd_start.present?
+    end
   end
 
-  def only_fy?
-    cal_start.blank? && pd_start.blank?
+  def email_format
+    message = 'Email address is missing or not in a correct format'
+    errors.add(:base, message) unless email.match(Rails.configuration.email_pattern)
   end
 
-  def only_cal?
-    fy_start.blank? && pd_start.blank?
-  end
-
-  def only_pd?
-    fy_start.blank? && cal_start.blank?
+  def fund_selection_present
+    message = 'Select a single Fund ID/PTA, a fund that begins with an ID/PTA number, or all SUL funds'
+    errors.add(:base, message) unless fund.present? || fund_begin.present?
   end
 end
