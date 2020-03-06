@@ -35,7 +35,7 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
     end
 
     it 'renders the new action when params are invalid' do
-      post :create, params: { shelf_selection_report: { email: '' } }
+      post :create, params: { shelf_selection_report: { email: '', loc_array: 'ALL' } }
       expect(response).to render_template('new')
     end
   end

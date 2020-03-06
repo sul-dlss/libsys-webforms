@@ -11,6 +11,7 @@ class CirculationStatisticsReport
                 :col_header2, :col_header3, :col_header4, :col_header5,
                 :blank_col_array, :lib_loc_array, :user_id
 
+  validates :lib_array, length: { minimum: 2, message: 'Select at least one library' }, unless: :barcode_range_type?
   validates :barcodes, presence: { is: true, message: 'Upload a file of barcodes' }, if: :barcode_range_type?
   validates :email, format: { with: Rails.configuration.email_pattern,
                               message: 'Email address is missing or not in a correct format' }
@@ -28,7 +29,6 @@ class CirculationStatisticsReport
                          numericality: { only_integer: true, message: 'Bibfield must be a 3-digit number' },
                          exclusion: { in: %w[008], message: 'Bibfield cannot be 008' },
                          allow_blank: true
-  validate :library_present
   validate :lc_call_lo, if: :lc_range_type?
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
@@ -58,11 +58,6 @@ class CirculationStatisticsReport
 
   def call_regex
     /^[A-Z]{1,2}$|^[A-Z]\#$/
-  end
-
-  def library_present
-    message = 'Select at least one library'
-    errors.add(:base, message) unless lib_array.any?(&:present?) || barcode_range_type?
   end
 
   def lc_call_lo

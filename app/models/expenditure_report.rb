@@ -32,12 +32,12 @@ class ExpenditureReport < ApplicationRecord
 
   def type_of_date_present?
     case date_type
-      when 'calendar'
-        cal_start.present?
-      when 'fiscal'
-        fy_start.present?
-      when 'paydate'
-        pd_start.present?
+    when 'calendar'
+      cal_start.present?
+    when 'fiscal'
+      fy_start.present?
+    when 'paydate'
+      pd_start.present?
     end
   end
 

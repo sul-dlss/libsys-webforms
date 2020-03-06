@@ -153,33 +153,19 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(date_type: nil, format_array: nil, lib_array: nil,
-                                    fund_begin: nil, fund: nil, cal_start: nil)
-      @report.valid?
+      @report = FactoryBot.build(:expenditures_with_circ_stats_report,
+                                 date_type: nil, fund_begin: nil, fund: nil, cal_start: nil)
+
+      @report.validate
     end
 
-    it 'validates the inclusion of a date_type' do
-      expect(@report.errors.messages[:date_type]).to include 'is not included in the list'
-    end
-
-    it 'validates the presence of a fund_begin' do
-      expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
+    it 'validates the inclusion of a start date' do
+      expect(@report.errors.messages[:base]).to include 'Choose a start date for fiscal, calendar, or paid date'
     end
 
     it 'validates the presence of a fund' do
-      expect(@report.errors.messages[:fund]).to include "can't be blank"
-    end
-
-    it 'validated the presence of a format_array' do
-      expect(@report.errors.messages[:format_array]).to include "can't be blank"
-    end
-
-    it 'validated the presence of a lib_array' do
-      expect(@report.errors.messages[:lib_array]).to include "can't be blank"
-    end
-
-    it 'validates the presence of a start date' do
-      expect(@report.errors.messages[:start_date_present?]).to include 'Please choose a start date for the report.'
+      expect(@report.errors.messages[:base]).to include \
+        'Select a single Fund ID/PTA, a fund that begins with an ID/PTA number, or all SUL funds'
     end
   end
 end

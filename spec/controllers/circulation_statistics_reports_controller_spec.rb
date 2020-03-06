@@ -12,6 +12,7 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
       format_array: ['', 'MARC'],
       call_lo: 'L' }
   end
+
   let(:invalid_attributes) { valid_attributes.update(lib_array: nil) }
 
   describe 'get#new' do

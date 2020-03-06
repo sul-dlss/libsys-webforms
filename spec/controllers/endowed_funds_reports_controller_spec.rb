@@ -14,95 +14,62 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
   end
 
   describe 'post#create gets a set of catalog keys' do
-    before { allow(controller).to receive(:keys).and_return(%w[123 456 789]) }
-
-    it 'renders the new template if create is unsuccessful' do
-      post :create, params: { endowed_funds_report: { fund: nil, fund_begin: nil } }
-      expect(response).to render_template('new')
-    end
-
-    it 'redirects to root_url if create returns and writes ckeys and is successful' do
-      params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
-                 pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
-                 ckeys_file: 'endow123.txt' }
-
-      post :create, params: { endowed_funds_report: params }
-      expect(response).to redirect_to root_path
-    end
-
-    it 'creates the params for a symphony request using several fund strings and fiscal year dates' do
-      params = { fund: ['1000501-1-AACIZ', '1000502-1-AACIX'], fund_begin: nil,
-                 report_format: 'n', email: 'some@one.com', fy_start: 'FY 2015',
-                 ckeys_file: 'endow123.txt' }
-
-      post :create, params: { endowed_funds_report: params }
-      expect(EndowedFundsReport.new(params)).to have_attributes(fy_start: 'FY 2015')
-    end
-
-    context 'when using calender dates' do
-      let(:params) do
-        { fund: nil, fund_begin: '1000501-1-AACIZ-', report_format: 'n',
-          email: 'some@one.com', cal_start: '2015', cal_end: '2016',
-          ckeys_file: 'endow123.txt' }
-      end
-
+    context 'when there are keys returned from the Expenditires table' do
       before do
-        post :create, params: { endowed_funds_report: params }
+        %w(123 456 789).each do |ckey|
+          FactoryBot.create(:expenditures, ol_cat_key: ckey)
+        end
       end
 
-      it 'creates a symphony request using a fund_begin string with the start date' do
-        expect(controller.date_start).to eq '2015-01-01'
-      end
-
-      it 'creates a symphony request using a fund_begin string with the end date' do
-        expect(controller.date_end).to eq '2016-12-31'
-      end
-    end
-
-    context 'when using paid dates' do
       let(:params) do
-        { fund: nil, fund_begin: '1000501-1-AACIZ-', report_format: 'n',
-          email: 'some@one.com', pd_start: '22-DEC-98', pd_end: '22-DEC-99',
-          ckeys_file: 'endow123.txt' }
+        {
+          fund: %w(1065089-103-AABNK), fy_start: 'FY 2010', fy_end: 'FY 2011', email: 'some@one.com',
+          date_type: 'fiscal', report_format: 'n', ckeys_file: 'endow123.txt'
+        }
       end
 
-      before do
+      it 'redirects to root_url if create returns and writes ckeys and is successful' do
         post :create, params: { endowed_funds_report: params }
+        expect(response).to redirect_to root_path
       end
-
-      it 'creates a symphony request using a fund_begin string with the start date' do
-        expect(controller.date_start).to eq '1998-12-22'
-      end
-
-      it 'creates a symphony request using a fund_begin string with the end date' do
-        expect(controller.date_end).to eq '1999-12-22'
-      end
-    end
-  end
-
-  describe 'rescue_from RecordNotFound' do
-    before { allow(controller).to receive(:funds_keys).and_raise(ActiveRecord::RecordNotFound) }
-
-    it 'renders the correct template' do
-      params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
-                 pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
-                 ckeys_file: 'endow123.txt' }
-
-      post :create, params: { endowed_funds_report: params }
-      expect(response).to render_template('new')
     end
   end
 
   describe 'no ckeys found for query' do
-    before { allow(controller).to receive(:keys).and_return([]) }
+    let(:params) do
+      {
+        fund: %w(1065089-103-AABNK), fy_start: 'FY 1810', fy_end: 'FY 1811', email: 'some@one.com',
+        date_type: 'fiscal', report_format: 'n', ckeys_file: 'endow123.txt'
+      }
+    end
 
-    it 'renders the correct template' do
-      params = { fund: ['1065032-101-KARJZ'], email: 'some@one.com',
-                 pd_start: '03-OCT-96', pd_end: '30-NOV-96', report_format: 'n',
-                 ckeys_file: 'endow123.txt' }
-
+    it 'renders a new template' do
       post :create, params: { endowed_funds_report: params }
       expect(response).to render_template('new')
+    end
+
+    it 'flashes an error message' do
+      post :create, params: { endowed_funds_report: params }
+      expect(flash[:error]).to eq 'Could not find catalog keys for the date range selected'
+    end
+  end
+
+  describe 'invalid parameters' do
+    let(:params) do
+      {
+        fund: '', fy_start: '', fy_end: '', email: '',
+        date_type: 'fiscal', report_format: 'n', ckeys_file: 'endow123.txt'
+      }
+    end
+
+    it 'renders a new template' do
+      post :create, params: { endowed_funds_report: params }
+      expect(response).to render_template('new')
+    end
+
+    it 'flashes a warning message' do
+      post :create, params: { endowed_funds_report: params }
+      expect(flash[:warning]).to eq 'Check that all form fields are entered'
     end
   end
 end

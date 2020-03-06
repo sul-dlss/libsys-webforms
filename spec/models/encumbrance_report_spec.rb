@@ -22,49 +22,18 @@ RSpec.describe EncumbranceReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(email: nil,
-                                    fund_begin: nil,
-                                    fund: nil,
-                                    status: nil,
-                                    output_file: nil,
-                                    date_request: nil)
-      @report.valid?
+      @report = FactoryBot.build(:encumbrance_report,
+                                 email: '', fund_begin: nil, fund: nil)
+      @report.validate
     end
 
     it 'validates the presence of an email address' do
-      expect(@report.errors.messages[:email]).to include "can't be blank"
-    end
-
-    it 'validates the presence of a fund_begin' do
-      expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
+      expect(@report.errors.messages[:base]).to include 'Email address is missing or not in a correct format'
     end
 
     it 'validates the presence of a fund' do
-      expect(@report.errors.messages[:fund]).to include "can't be blank"
-    end
-
-    it 'validates the correct form of an email address' do
-      @report = described_class.new(email: 'test@testtest.com')
-      @report.valid?
-      expect(@report.errors.messages[:email]).not_to include "can't be blank"
-    end
-
-    it 'validates the incorrect form of an email address' do
-      @report = described_class.new(email: 'test@test@test.com')
-      @report.valid?
-      expect(@report.errors.messages[:email]).to include 'is invalid'
-    end
-
-    it 'validates presence of request_date' do
-      expect(@report.errors.messages[:date_request]).to include "can't be blank"
-    end
-
-    it 'validates presence of status' do
-      expect(@report.errors.messages[:status]).to include "can't be blank"
-    end
-
-    it 'validates presence of output_file' do
-      expect(@report.errors.messages[:output_file]).to include "can't be blank"
+      expect(@report.errors.messages[:base]).to include \
+        'Select a single Fund ID/PTA, a fund that begins with an ID/PTA number, or all SUL funds'
     end
   end
 end

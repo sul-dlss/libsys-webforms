@@ -15,14 +15,14 @@ FactoryBot.define do
     ta_taxtype_flag { '' }
     ta_vend_inv_date { '14-JUL-16' }
     ta_vend_inv_num   { '' }
-    ti_inv_lib        { '' }
+    ti_inv_lib        { 'SUL' }
     ti_inv_line_note  { '' }
     ti_inv_line_num   { '' }
     ti_inv_line_total_us { 100 }
     ti_unicorn_inv_num  { '' }
     ti_inv_line_type    { '' }
     ti_inv_line_total_vendor { 100 }
-    ti_fiscal_cycle     { '' }
+    ti_fiscal_cycle     { '2010' }
     ti_vendor_alpha_id  { '' }
     to_order_id         { '' }
     to_order_line_num { 1 }
@@ -34,7 +34,7 @@ FactoryBot.define do
     to_order_line_seg_type { '' }
     ts_date_mailed { '14-JUL-16' }
     ol_selector { '' }
-    ol_cat_key  { '1234567' }
+    ol_cat_key  { '' }
     ol_call_seq { '' }
     ds_hold_code { '' }
     d2_hldc_lib { '' }

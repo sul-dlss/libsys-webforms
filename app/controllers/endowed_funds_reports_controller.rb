@@ -24,8 +24,11 @@ class EndowedFundsReportsController < ApplicationController
     @endowed_funds_report = EndowedFundsReport.new(batch_params)
     if @endowed_funds_report.valid?
       # write keys to file to Symphony mount [/symphony] on libsys-webforms-dev
+      keys = @endowed_funds_report.keys
       if keys.present?
-        @endowed_funds_report.write_keys(keys)
+        out_file = File.new("#{Settings.symphony_dataload_endowrpt}/#{@endowed_funds_report.ckeys_file}", 'w')
+        out_file.puts(keys.join("\n"))
+        out_file.close
         flash[:success] = 'Report requested!'
         redirect_to root_path
       else
@@ -33,55 +36,9 @@ class EndowedFundsReportsController < ApplicationController
         render action: 'new'
       end
     else
-      flash[:warning] = 'Check that all form fields are entered!'
+      flash[:warning] = 'Check that all form fields are entered'
       render action: 'new'
     end
-  end
-
-  def keys
-    if !@endowed_funds_report.fund.nil?
-      @endowed_funds_report.fiscal_years.any? ? funds_fy : funds_keys
-    elsif !@endowed_funds_report.fund_begin.nil?
-      @endowed_funds_report.fiscal_years.any? ? funds_fy_begin : funds_keys_begin
-    end
-  end
-
-  def funds_keys
-    EndowedFundsReport.ol_cat_key_fund(@endowed_funds_report.fund, date_start, date_end)
-  end
-
-  def funds_fy
-    EndowedFundsReport.ol_cat_key_fy(@endowed_funds_report.fund, date_start, date_end)
-  end
-
-  def funds_keys_begin
-    EndowedFundsReport.ol_cat_key_fund_begin(@endowed_funds_report.fund, date_start, date_end)
-  end
-
-  def funds_fy_begin
-    EndowedFundsReport.ol_cat_key_fy_begin(@endowed_funds_report.fund, date_start, date_end)
-  end
-
-  def date_start
-    if @endowed_funds_report.fiscal_years.any?
-      start_date = @endowed_funds_report.fiscal_years[0]
-    elsif @endowed_funds_report.calendar_years.any?
-      start_date = Time.parse("#{@endowed_funds_report.calendar_years[0]}-01-01").in_time_zone.strftime('%Y-%m-%d')
-    elsif @endowed_funds_report.paid_years.any?
-      start_date = Time.parse(@endowed_funds_report.paid_years[0].to_s).in_time_zone.strftime('%Y-%m-%d')
-    end
-    start_date
-  end
-
-  def date_end
-    if @endowed_funds_report.fiscal_years.any?
-      end_date = @endowed_funds_report.fiscal_years[1]
-    elsif @endowed_funds_report.calendar_years.any?
-      end_date = Time.parse("#{@endowed_funds_report.calendar_years[1]}-12-31").in_time_zone.strftime('%Y-%m-%d')
-    elsif @endowed_funds_report.paid_years.any?
-      end_date = Time.parse(@endowed_funds_report.paid_years[1].to_s).in_time_zone.strftime('%Y-%m-%d')
-    end
-    end_date
   end
 
   def batch_params

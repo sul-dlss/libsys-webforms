@@ -13,8 +13,16 @@ class EndowedFundsReport
   validate :fund_selection_present
   validate :start_date_present
 
+  def keys
+    if fund.present?
+      fiscal_years.any? ? ol_cat_key_fy : ol_cat_key_fund
+    elsif fund_begin.present?
+      fiscal_years.any? ? ol_cat_key_fy_begin : ol_cat_key_fund_begin
+    end
+  end
+
   # get cat keys
-  def self.ol_cat_key_fund(fund, date_start, date_end)
+  def ol_cat_key_fund
     fund_codes = []
     fund.each do |fc|
       Expenditures.where("ta_fund_code = ? AND ta_date_2encina between
@@ -27,7 +35,7 @@ class EndowedFundsReport
     fund_codes.uniq
   end
 
-  def self.ol_cat_key_fy(fund, date_start, date_end)
+  def ol_cat_key_fy
     fund_codes = []
     fund.each do |fc|
       Expenditures.where('ta_fund_code = ? AND (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)',
@@ -39,24 +47,40 @@ class EndowedFundsReport
     fund_codes.uniq
   end
 
-  def self.ol_cat_key_fund_begin(fund_begin, date_start, date_end)
+  def ol_cat_key_fund_begin
     Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND ta_date_2encina between
                         TO_DATE(?, 'yyyy-mm-dd') AND TO_DATE(?, 'yyyy-mm-dd')",
                        "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
   rescue ActiveRecord::StatementInvalid
   end
 
-  def self.ol_cat_key_fy_begin(fund_begin, date_start, date_end)
+  def ol_cat_key_fy_begin
     Expenditures.where("ta_fund_code LIKE ? AND ti_inv_lib = 'SUL' AND
                        (ti_fiscal_cycle >= ? AND ti_fiscal_cycle <= ?)",
                        "%#{fund_begin}%", date_start, date_end).pluck(:ol_cat_key)
   rescue ActiveRecord::StatementInvalid
   end
 
-  def write_keys(catalog_keys)
-    out_file = File.new("#{Settings.symphony_dataload_endowrpt}/#{ckeys_file}", 'w')
-    out_file.puts(catalog_keys.join("\n"))
-    out_file.close
+  def date_start
+    if fiscal_years.any?
+      start_date = fiscal_years[0]
+    elsif calendar_years.any?
+      start_date = Time.parse("#{calendar_years[0]}-01-01").in_time_zone.strftime('%Y-%m-%d')
+    elsif paid_years.any?
+      start_date = Time.parse(paid_years[0].to_s).in_time_zone.strftime('%Y-%m-%d')
+    end
+    start_date
+  end
+
+  def date_end
+    if fiscal_years.any?
+      end_date = fiscal_years[1]
+    elsif calendar_years.any?
+      end_date = Time.parse("#{calendar_years[1]}-12-31").in_time_zone.strftime('%Y-%m-%d')
+    elsif paid_years.any?
+      end_date = Time.parse(paid_years[1].to_s).in_time_zone.strftime('%Y-%m-%d')
+    end
+    end_date
   end
 
   def fiscal_years
@@ -89,12 +113,12 @@ class EndowedFundsReport
 
   def type_of_date_present?
     case date_type
-      when 'calendar'
-        cal_start.present?
-      when 'fiscal'
-        fy_start.present?
-      when 'paydate'
-        pd_start.present?
+    when 'calendar'
+      cal_start.present?
+    when 'fiscal'
+      fy_start.present?
+    when 'paydate'
+      pd_start.present?
     end
   end
 
