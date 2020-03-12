@@ -32,8 +32,8 @@ class CirculationStatisticsReportsController < ApplicationController
                                                           { format_array: [] }, :exclude_inactive, :min_yr,
                                                           :max_yr, :exclude_bad_yr, :include_inhouse,
                                                           :no_qtrly, :ckey_url, :tag_field, :tag_field2,
-                                                          :tags_url, :link_type, :col_header1, :col_header2,
-                                                          :col_header3, :col_header4, :col_header5,
-                                                          :blank_col_array, :lib_loc_array, :user_id)
+                                                          :tag_field3, :tag_field4, :tags_url, :link_type,
+                                                          :col_header1, :col_header2, :col_header3, :col_header4,
+                                                          :col_header5, :blank_col_array, :lib_loc_array, :user_id)
   end
 end
