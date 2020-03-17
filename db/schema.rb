@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_192744) do
+ActiveRecord::Schema.define(version: 2020_03_10_222311) do
 
   create_table "authorized_user", force: :cascade do |t|
     t.string "user_id"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 2019_12_18_192744) do
     t.string "exclude_bad_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "extra_field3"
+    t.string "extra_field4"
   end
 
   create_table "digital_bookplates_batches", primary_key: "batch_id", force: :cascade do |t|

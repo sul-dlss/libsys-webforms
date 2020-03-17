@@ -15,22 +15,22 @@
   <div>
     <%= render 'shared/enter_email', f: f %>
     <div class='form-group row'>
-      <%= f.label :lib_array, 'Select libraries to collect stats for:', class: 'col-sm-5 form-control-label' %>
-      <div class='col-sm-10'>
-        <%= f.select :lib_array, UniLibsLocs.libraries, {}, {multiple: true, size: 6, selected: 'none', class: 'form-control'} %>
+      <%= f.label :lib_array, 'Select libraries for collecting stats:', class: 'col-sm-4 form-control-label' %>
+      <div class='col-sm-8'>
+        <%= f.select :lib_array, UniLibsLocs.libraries, {}, {multiple: true, size: UniLibsLocs.libraries.size/2, selected: 'none', class: 'form-control'} %>
       </div>
     </div>
     <div class='form-group row'>
-      <%= f.label :source, 'Select from:', class: 'col-sm-3 form-control-label' %>
-      <div class='col-sm-10'>
+      <%= f.label :source, 'Select from:', class: 'col-sm-4 form-control-label' %>
+      <div class='col-sm-8'>
         <%= f.radio_button :source, 0, checked: true %> All of Symphony<br />
         <%= f.radio_button :source, 1 %> Google candidates (standard barcode)<br />
         <%= f.radio_button :source, 2 %> Google candidates (auto-barcode)<br />
       </div>
     </div>
     <div class='form-group row'>
-      <%= f.label :range_type, 'Type of selection of records to include in the report: (See examples of call number options below)', class: 'col-sm-7 form-control-label' %>
-      <div class='col-sm-10'>
+      <%= f.label :range_type, 'Type of selection of records to include in the report: (See examples of call number options below)', class: 'col-sm-4 form-control-label' %>
+      <div class='col-sm-8'>
         <%= f.radio_button :range_type, 'lc', checked: true %> LC Letters Range: All LC call numbers beginning with specified letter(s) or range of letters<br />
         <%= f.radio_button :range_type, 'classic' %> Classic Selection: LC numerical range all beginning with same letter(s), or any range of Dewey numbers<br />
         <%= f.radio_button :range_type, 'other' %> Other call numbers: All that are neither LC nor Dewey, optionally filtered by start of call number<br />
@@ -71,9 +71,9 @@
       <p>Default values below are appropriate for most purposes. You can scroll down and submit the report request now, as is, if you don't need to change any options below.</p>
       <% UniLibsLocs.libraries.each do |library| %>
         <div class='form-group row' id='<%= library %>' style='display:none;'>
-          <label class="col-sm-7 form-control-label" for="<%= library %>">Select the Home Location(s) you want included in the counts for <%= library %>.</label>
-          <div class='col-sm-10'>
-            <select multiple="multiple" class="form-control" id="<%= library %>select"></select>
+          <label class="col-sm-4 form-control-label" for="<%= library %>">Select the Home Location(s) you want included in the counts for <%= library %>.</label>
+          <div class='col-sm-8'>
+            <select multiple="multiple" size=<%= UniLibsLocs.home_locations_from(library).size/2 %> class="form-control" id="<%= library %>select"></select>
           </div>
         </div>
       <% end %>
@@ -81,125 +81,153 @@
       <%= render 'shared/circulation_statistics_report_formats', f: f %>
 
       <div class='form-group row'>
-        <%= f.label :exclude_inactive, 'Exclude Inactive Copies. (Omits counts for copies in following Current Locations: WITHDRAWN SEL-NOTIFY LOST).', class: 'col-sm-10 form-control-label' do %>
-        <%= f.check_box :exclude_inactive, checked: true %>
-        Exclude Inactive Copies. (Omits counts for copies in following Current Locations: WITHDRAWN SEL-NOTIFY LOST).
-        <% end %>
+        <%= f.label :exclude_inactive, 'Exclude Inactive Copies. (Omits counts for copies in following Current Locations: WITHDRAWN SEL-NOTIFY LOST).', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.check_box :exclude_inactive, checked: true %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :min_yr, 'Exclude titles published in or before year:', class: 'col-sm-12 form-control-label' do %>
-          Exclude titles published in or before year:
+        <%= f.label :min_yr, 'Exclude titles published in or before year:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.text_field :min_yr %>
           <em>Enter 4-digit years in either or both of these fields to filter by publication year. Ignored if left empty.</em>
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :max_yr, 'Exclude titles published in or after year:', class: 'col-sm-12 form-control-label' do %>
-          Exclude titles published in or after year:
+        <%= f.label :max_yr, 'Exclude titles published in or after year:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.text_field :max_yr %>
           <em>Date filter is not applied to invalid publication years.</em>
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :exclude_bad_yr, 'Exclude titles with invalid publication years (e.g. 3 digits, 22nd century)', class: 'col-sm-10 form-control-label' do %>
+        <%= f.label :exclude_bad_yr, 'Exclude titles with invalid publication years (e.g. 3 digits, 22nd century)', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.check_box :exclude_bad_yr, {}, 'Y', nil %>
-          Exclude titles with invalid publication years (e.g. 3 digits, 22nd century).
-        <% end %>
+        </div>
       </div>
       <h4>Optional Output</h4>
       <div class='form-group row'>
-        <%= f.label :include_inhouse, 'Include separate counts of Charges and In-House use', class: 'col-sm-12 form-control-label' do %>
+        <%= f.label :include_inhouse, 'Include separate counts of Charges and In-House use', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.radio_button :include_inhouse, 1, checked: true %>
-          Include separate counts of Charges and In-House use
-        <% end %>
-        <%= f.label :include_inhouse, 'Only include counts of Charges', class: 'col-sm-12 form-control-label' do %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :include_inhouse, 'Only include counts of Charges', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.radio_button :include_inhouse, 0 %>
-          Only include counts of Charges
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :no_qtrly, 'Show Summary circ totals only, omit individual quarters.', class: 'col-sm-10 form-control-label' do %>
+        <%= f.label :no_qtrly, 'Show Summary circ totals only, omit individual quarters.', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.check_box :no_qtrly, {}, 'Y', nil %>
-          Show Summary circ totals only, omit individual quarters.
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :ckey_url, 'Show CKEY cells as links to Searchworks pages for those ckeys.', class: 'col-sm-10 form-control-label' do %>
+        <%= f.label :ckey_url, 'Show CKEY cells as links to Searchworks pages for those ckeys.', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.check_box :ckey_url, { checked: true }, 'Y', nil %>
-          Show CKEY cells as links to Searchworks pages for those ckeys.
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :tag_field, 'Add an extra column with bib field number:', class: 'col-sm-12 form-control-label' do %>
-          Add an extra column with bib field number:
+        <%= f.label :tag_field, 'Add an extra column with bib field number:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.text_field :tag_field %>
           <p>Enter 3 digit tag number, e.g. 956. Leave blank for none.<br/>
             (Empty cell if no field of that number. Only first is shown if more than one. Field is truncated if more than 360 characters)<br/>
             There's no need to enter 1xx, 245 or 440/490 fields, which are already included the report.</p>
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :tag_field2, 'Add another extra column with bib field number:', class: 'col-sm-10 form-control-label' do %>
-          Add another extra column with bib field number:
+        <%= f.label :tag_field2, 'Add another extra column with bib field number:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.text_field :tag_field2 %>
           <p>Enter another 3 digit tag number same way as above, or leave blank for none.</p>
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :tags_url, 'In extra columns chosen above (if any) show any cell with URL text as a clickable link.', class: 'col-sm-10 form-control-label' do %>
+        <%= f.label :tag_field3, 'Add another extra column with bib field number:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.text_field :tag_field3 %>
+          <p>Enter another 3 digit tag number same way as above, or leave blank for none.</p>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :tag_field4, 'Add another extra column with bib field number:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.text_field :tag_field4 %>
+          <p>Enter another 3 digit tag number same way as above, or leave blank for none.</p>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :tags_url, 'In extra columns chosen above (if any) show any cell with URL text as a clickable link.', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.check_box :tags_url, { checked: true }, 'Y', nil %>
-          In extra columns chosen above (if any) show any cell with URL text as a clickable link.
-        <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :link_type, 'Microsoft Excel', class: 'col-sm-12 form-control-label' do %>
-          If URL link option is selected above for CKEY and/or extra columns, create clickable links formatted to work in:<br/>
+        <%= f.label :link_type, 'Microsoft Excel', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.radio_button :link_type, 'E', checked: true %>
-          Microsoft Excel
-        <% end %>
-        <%= f.label :link_type, 'Open Office Calc', class: 'col-sm-12 form-control-label' do %>
+          <p>If URL link option is selected above for CKEY and/or extra columns, create clickable links formatted to work in:<br/>
+        </div>
+        <%= f.label :link_type, 'Open Office Calc', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.radio_button :link_type, 'C' %>
-          Open Offic Calc
           <p>Note: Fields longer than 255 characters will not work as links in Excel, but will work in Calc.<br/>
             The option to use Open Office Calc is the user's responsibility, and is not supported by anybody in SUL Tech Support, Expert Partners or Library Systems.</p>
-          <% end %>
+        </div>
       </div>
       <div class='form-group row'>
-        <%= f.label :col_header1, 'Column header label for 1st empty column:', class: 'col-sm-10 form-control-label' do %>
-          If you want empty columns for your own notations in the report, enter up to five column header labels below. For any/all empty columns you don't want, delete the default column header label (if any) in the input fields below.<br/>
-          Column header label for 1st empty column:
+        <%= f.label :col_header1, 'Column header label for 1st empty column:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
           <%= f.text_field :col_header1, value: 'Selector Decision' %>
-        <% end %>
-      <%= f.label :col_header2, 'Column header label for 2nd empty column:', class: 'col-sm-10 form-control-label' do %>
-        Column header label for 2nd empty column:
-        <%= f.text_field :col_header2, value: 'Notes' %>
-      <% end %>
-      <%= f.label :col_header3, 'Column header label for 3rd empty column:', class: 'col-sm-10 form-control-label' do %>
-        Column header label for 3rd empty column:
-        <%= f.text_field :col_header3, value: 'Selector Initials' %>
-      <% end %>
-      <%= f.label :col_header4, 'Column header label for 4th empty column:', class: 'col-sm-10 form-control-label' do %>
-        Column header label for 4th empty column:
-        <%= f.text_field :col_header4 %>
-      <% end %>
-      <%= f.label :col_header5, 'Column header label for 5th empty column:', class: 'col-sm-10 form-control-label' do %>
-        Column header label for 5th empty column:
-        <%= f.text_field :col_header5 %>
-      <% end %>
+          <p>If you want empty columns for your own notations in the report, enter up to five column header labels below. For any/all empty columns you don't want, delete the default column header label (if any) in the input fields below.<br/>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :col_header2, 'Column header label for 2nd empty column:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.text_field :col_header2, value: 'Notes' %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :col_header3, 'Column header label for 3rd empty column:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.text_field :col_header3, value: 'Selector Initials' %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :col_header4, 'Column header label for 4th empty column:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.text_field :col_header4 %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :col_header5, 'Column header label for 5th empty column:', class: 'col-sm-4 form-control-label' %>
+        <div class='col-sm-8'>
+          <%= f.text_field :col_header5 %>
+        </div>
     </div>
     <%= f.hidden_field :blank_col_array %>
     <%= f.hidden_field :lib_loc_array %>
     <%= f.hidden_field :user_id, value: user_id %>
     <div class='btn-group'>
-      <%= f.submit 'Submit request', class: 'btn btn-md btn-default  btn-full' %>
+      <%= f.submit 'Submit request', class: 'btn btn-md btn-primary btn-full' %>
     </div>
   </div>
 <% end %>
 <div class="btn-group">
-  <%= link_to 'Reset form', new_circulation_statistics_report_path, class: 'btn btn-md btn-primary btn-full' %>
-  <%= link_to 'Proceed to next step', home_locations_for_libraries_path, class: 'btn btn-md btn-default  btn-full', id: 'populate-home-locations', remote: true %>
+  <div class="pad">
+  <%= link_to 'Reset form', new_circulation_statistics_report_path, class: 'btn btn-md btn-default btn-full' %>
+  </div>
+  <div class="pad">
+    <%= link_to 'Proceed to next step', home_locations_for_libraries_path, class: 'btn btn-md btn-primary btn-full', id: 'populate-home-locations', remote: true %>
+  </div>
 </div>
-<div class="pad"><%= link_to 'Main menu', root_path, class: 'btn btn-md btn-primary btn-full' %></div>
+<div class="pad"><%= link_to 'Main menu', root_path, class: 'btn btn-md btn-default btn-full' %></div>
 <HR>
 <%= render 'shared/call_number_range_examples' %>
 </div>

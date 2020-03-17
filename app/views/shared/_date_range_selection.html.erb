@@ -1,55 +1,67 @@
-<div class='container'>
+<div class='form-group row'>
+  <%= f.label :date_type, 'Range of dates to include:', class: 'col-sm-4 form-control-label' %>
+  <div class='col-sm-8'>
+    <p>
+      <%= f.radio_button :date_type, 'fiscal', {'data-toggle' => 'collapse', 'data-target' => '.fiscal', onChange: '$(".collapse").removeClass("in")'} %>
+      Fiscal year
+    </p>
+
+    <p>
+      <%= f.radio_button :date_type, 'calendar', {'data-toggle' => 'collapse', 'data-target' => '.calendar', onChange: '$(".collapse").removeClass("in")'} %>
+      Calendar year
+    </p>
+
+    <p>
+      <%= f.radio_button :date_type, 'paydate', {'data-toggle' => 'collapse', 'data-target' => '.paydate', onChange: '$(".collapse").removeClass("in")'} %>
+      Pay date to Accounts Payable
+    </p>
+  </div>
+</div>
+<div class='fiscal collapse'>
   <div class='form-group row'>
-    <div class='col-sm-10'>
-      <%= f.label :date_type, 'Range of dates to include:', class: 'form-control-label' %>
+    <div class='col-sm-4 text-right'>First fiscal payment date:</div>
+    <div class='col-sm-8'>
+      <p>
+        <%= f.select :fy_start, options_for_select(fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Choose FY Start'}, {class: 'form-control'} %>
+      </p>
     </div>
-    <div class='col-sm-10'>
+    <div class='col-sm-4 text-right'>Last fiscal payment date:</div>
+    <div class='col-sm-8'>
       <p>
-        <%= f.radio_button :date_type, 'fiscal', {'data-toggle' => 'collapse', 'data-target' => '.fiscal', onChange: '$(".collapse").removeClass("in")'} %>
-        Fiscal year
-      </p>
-
-      <p>
-        <%= f.radio_button :date_type, 'calendar', {'data-toggle' => 'collapse', 'data-target' => '.calendar', onChange: '$(".collapse").removeClass("in")'} %>
-        Calendar year
-      </p>
-
-      <p>
-        <%= f.radio_button :date_type, 'paydate', {'data-toggle' => 'collapse', 'data-target' => '.paydate', onChange: '$(".collapse").removeClass("in")'} %>
-        Pay date to Accounts Payable
+        <%= f.select :fy_end, options_for_select(fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Same FY as Start'}, {class: 'form-control'} %>
       </p>
     </div>
   </div>
+</div>
+<div class='calendar collapse'>
   <div class='form-group row'>
-    <div class='panel-body fiscal collapse'>
-      <div class='form-group'>
-        <div class='col-sm-3'>First payment date:
-          <%= f.select :fy_start, options_for_select(fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Choose FY Start'}, {class: 'form-control'} %>
-        </div>
-        <div class='col-sm-3'>Last payment date:
-          <%= f.select :fy_end, options_for_select(fiscal_years.map{ |d| [ "FY #{d}" ] }), {include_blank: 'Same FY as Start'}, {class: 'form-control'} %>
-        </div>
-      </div>
+    <div class='col-sm-4 text-right'>First calendar payment date:</div>
+    <div class='col-sm-8'>
+      <p>
+        <%= f.select :cal_start, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {include_blank: 'Choose Start Year'}, {class: 'form-control'} %>
+      </p>
     </div>
-    <div class='panel-body calendar collapse'>
-      <div class='form-group'>
-        <div class='col-sm-3'>First payment date:
-          <%= f.select :cal_start, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {include_blank: 'Choose Start Year'}, {class: 'form-control'} %>
-        </div>
-        <div class='col-sm-3'>Last payment date:
-          <%= f.select :cal_end, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {include_blank: 'Same Year as Start'}, {class: 'form-control'} %>
-        </div>
-      </div>
+    <div class='col-sm-4 text-right'>Last calendar payment date:</div>
+    <div class='col-sm-8'>
+      <p>
+        <%= f.select :cal_end, options_for_select(ExpendituresPaydates.calendar_years.map{ |d| [ d ] }), {include_blank: 'Same Year as Start'}, {class: 'form-control'} %>
+      </p>
     </div>
-    <div class='panel-body paydate collapse'>
-      <div class='form-group'>
-        <div class='col-sm-3'>First payment date:
-          <%= f.select :pd_start, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {include_blank: 'Choose First payment date Paid'}, {class: 'form-control'} %>
-        </div>
-        <div class='col-sm-3'>Last payment date:
-          <%= f.select :pd_end, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {include_blank: 'Same Date Paid as Start'}, {class: 'form-control'} %>
-        </div>
-      </div>
+  </div>
+</div>
+<div class='paydate collapse'>
+  <div class='form-group row'>
+    <div class='col-sm-4 text-right'>First payment date paid:</div>
+    <div class='col-sm-8'>
+      <p>
+        <%= f.select :pd_start, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {include_blank: 'Choose First payment date Paid'}, {class: 'form-control'} %>
+      </p>
+    </div>
+    <div class='col-sm-4 text-right'>Last payment date paid:</div>
+    <div class='col-sm-8'>
+      <p>
+        <%= f.select :pd_end, options_for_select(ExpendituresPaydates.pay_dates.map{ |d| [ d.pay_date.try(:strftime, '%d-%^b-%y') ] }), {include_blank: 'Same Date Paid as Start'}, {class: 'form-control'} %>
+      </p>
     </div>
   </div>
 </div>

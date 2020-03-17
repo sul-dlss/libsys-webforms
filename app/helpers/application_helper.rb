@@ -44,7 +44,7 @@ module ApplicationHelper
     link_to button_tag(
       'Main menu',
       id: 'main-menu-button',
-      class: 'btn btn-md btn-primary btn-full'
+      class: 'btn btn-md btn-default btn-full'
     ), root_path
   end
 
