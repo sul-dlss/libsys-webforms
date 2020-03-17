@@ -11,18 +11,28 @@ class CirculationStatisticsReport
                 :link_type, :col_header1, :col_header2, :col_header3, :col_header4,
                 :col_header5, :blank_col_array, :lib_loc_array, :user_id
 
-  validates :email, :lib_array, presence: true
-  validates :barcodes, presence: true, if: :barcode_range_type?
-  validates :lib_array, length: { minimum: 2, message: "can't be empty" }, if: :not_barcode_range_type?
-  validates :min_yr, length: { is: 4 }, numericality: { only_integer: true }, allow_blank: true
-  validates :max_yr, length: { is: 4 }, numericality: { only_integer: true }, allow_blank: true
-  validates :tag_field, :tag_field2, :tag_field3, :tag_field4, length: { is: 3 }, numericality: { only_integer: true },
-                                                               exclusion: { in: %w[008] }, allow_blank: true
+  validates :lib_array, length: { minimum: 2, message: 'Select at least one library' }, unless: :barcode_range_type?
+  validates :barcodes, presence: { is: true, message: 'Upload a file of barcodes' }, if: :barcode_range_type?
+  validates :email, format: { with: Rails.configuration.email_pattern,
+                              message: 'Email address is missing or not in a correct format' }
+  validates :min_yr, length: { is: 4, message: 'Year length must be four digits' },
+                     numericality: { only_integer: true },
+                     allow_blank: true
+  validates :max_yr, length: { is: 4, message: 'Year length must be four digits' },
+                     numericality: { only_integer: true },
+                     allow_blank: true
+  validates :tag_field, :tag_field2, :tag_field3, :tag_field4, length: { is: 3,
+                                                                         message: 'Bibfield number must be 3 digits' },
+                                                               numericality: { only_integer: true,
+                                                                               message:
+                                                                                 'Bibfield must be a 3-digit number' },
+                                                               exclusion: { in: %w[008],
+                                                                            message: 'Bibfield cannot be 008' },
+                                                               allow_blank: true
   validate :lc_call_lo, if: :lc_range_type?
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
   validate :classic_call_alpha, if: :classic_range_type?
-  validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 
   before_validation :upcase_call_numbers
 
@@ -44,10 +54,6 @@ class CirculationStatisticsReport
 
   def classic_range_type?
     range_type == 'classic'
-  end
-
-  def not_barcode_range_type?
-    range_type != 'barcodes'
   end
 
   def call_regex

@@ -80,40 +80,22 @@ RSpec.describe ExpenditureReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(date_type: nil, email: nil, fund_begin: nil, fund: nil, cal_start: nil)
-      @report.valid?
-    end
-
-    it 'validates the inclusion of a date_type' do
-      expect(@report.errors.messages[:date_type]).to include 'is not included in the list'
+      @report = FactoryBot.build(:expenditure_report,
+                                 email: '', date_type: nil, fund_begin: nil, fund: nil, cal_start: nil)
+      @report.validate
     end
 
     it 'validates the presence of an email address' do
-      expect(@report.errors.messages[:email]).to include "can't be blank"
-    end
-
-    it 'validates the presence of a fund_begin' do
-      expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
+      expect(@report.errors.messages[:base]).to include 'Email address is missing or not in a correct format'
     end
 
     it 'validates the presence of a fund' do
-      expect(@report.errors.messages[:fund]).to include "can't be blank"
+      expect(@report.errors.messages[:base]).to include \
+        'Select a single Fund ID/PTA, a fund that begins with an ID/PTA number, or all SUL funds'
     end
 
-    it 'validates the presence of a start date' do
-      expect(@report.errors.messages[:start_date_present?]).to include 'Please choose a start date for the report.'
-    end
-
-    it 'validates the correct form of an email address' do
-      @report = described_class.new(email: 'test@testtest.com')
-      @report.valid?
-      expect(@report.errors.messages[:email]).not_to include "can't be blank"
-    end
-
-    it 'validates the incorrect form of an email address' do
-      @report = described_class.new(email: 'test@test@test.com')
-      @report.valid?
-      expect(@report.errors.messages[:email]).to include 'is invalid'
+    it 'validates the presence of a date' do
+      expect(@report.errors.messages[:base]).to include 'Choose a start date for fiscal, calendar, or paid date'
     end
   end
 end

@@ -1,35 +1,54 @@
 require 'rails_helper'
 
-# rubocop:disable  Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
 RSpec.describe EndowedFundsReport, type: :model do
-  describe 'querying from expenditures' do
-    let(:ckeys) { class_double('EndowedFundsReport') }
+  describe 'querying specific funds from expenditures' do
+    before do
+      %w(123 456 789).each do |ckey|
+        FactoryBot.create(:expenditures, ol_cat_key: ckey)
+      end
+    end
+
+    let(:report) do
+      described_class.new(fund: %w(1065089-103-AABNK), fy_start: 'FY 2010', fy_end: 'FY 2011')
+    end
 
     it 'retrieves a set of catalog keys' do
-      allow(ckeys).to receive(:ol_cat_key_fund)
-        .with(%w(1000501-1-AACIZ 1000502-1-AACIX), '2015-07-01', '2016-06-30')
-        .and_return(%w[123 456 789])
+      expect(report.keys.size).to be 3
+    end
+  end
 
-      subject = ckeys.ol_cat_key_fund(%w(1000501-1-AACIZ 1000502-1-AACIX), '2015-07-01', '2016-06-30')
-      expect(subject.size).to be 3
+  describe 'querying a partial fund name' do
+    before do
+      FactoryBot.reload
+      %w(123 456 789).each do |ckey|
+        FactoryBot.create(:expenditures, ol_cat_key: ckey)
+      end
     end
 
-    it 'handles the All SUL Funds selection' do
-      allow(ckeys).to receive(:ol_cat_key_fund)
-        .with('All SUL Funds', '2015-07-01', '2016-06-30')
-        .and_return(%w[456 789 101 112 131 415])
-
-      subject = ckeys.ol_cat_key_fund('All SUL Funds', '2015-07-01', '2016-06-30')
-      expect(subject.size).to be 6
+    let(:report) do
+      described_class.new(fund_begin: '1065089-103-', fy_start: 'FY 2010', fy_end: 'FY 2011')
     end
 
-    it 'retrieves a set of catalog keys from a partial fund name' do
-      allow(ckeys).to receive(:ol_cat_key_fund)
-        .with('1065032-101-NAANF-', '2012-09-01', '2013-08-31')
-        .and_return(%w[101 112 131 415])
+    it 'retrieves a set of catalog keys' do
+      expect(report.keys.size).to be 3
+    end
+  end
 
-      subject = ckeys.ol_cat_key_fund('1065032-101-NAANF-', '2012-09-01', '2013-08-31')
-      expect(subject.size).to be 4
+  describe 'querying all SUL funds' do
+    before do
+      FactoryBot.reload
+      %w(123 456 789).each do |ckey|
+        FactoryBot.create(:expenditures, ol_cat_key: ckey, ta_fund_code: 'All SUL Funds')
+      end
+    end
+
+    let(:report) do
+      described_class.new(fund_begin: 'All SUL Funds', fy_start: 'FY 2010', fy_end: 'FY 2011')
+    end
+
+    it 'retrieves a set of catalog keys' do
+      expect(report.keys.size).to be 3
     end
   end
 
@@ -95,46 +114,22 @@ RSpec.describe EndowedFundsReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = described_class.new(email: nil, fund_begin: nil, fund: nil,
-                                    fy_start: nil, cal_start: nil, pd_start: nil)
-      @report.valid?
+      @report = described_class.new(email: '', fund_begin: nil, fund: nil, fy_start: nil, cal_start: nil, pd_start: nil)
+      @report.validate
     end
 
-    it 'validated the presence of fy start date' do
-      expect(@report.errors.messages[:fy_start]).to include "can't be blank"
-    end
-
-    it 'validated the presence of cal start date' do
-      expect(@report.errors.messages[:cal_start]).to include "can't be blank"
-    end
-
-    it 'validated the presence of pd start date' do
-      expect(@report.errors.messages[:pd_start]).to include "can't be blank"
-    end
-
-    it 'validates the presence of an email address' do
-      expect(@report.errors.messages[:email]).to include "can't be blank"
-    end
-
-    it 'validates the presence of a fund_begin' do
-      expect(@report.errors.messages[:fund_begin]).to include "can't be blank"
+    it 'validated the presence of a date' do
+      expect(@report.errors.messages[:base]).to include 'Choose a start date for fiscal, calendar, or paid date'
     end
 
     it 'validates the presence of a fund' do
-      expect(@report.errors.messages[:fund]).to include "can't be blank"
+      expect(@report.errors.messages[:base]).to include \
+        'Select a single Fund ID/PTA, a fund that begins with an ID/PTA number, or all SUL funds'
     end
 
-    it 'validates the correct form of an email address' do
-      @report = described_class.new(email: 'test@testtest.com')
-      @report.valid?
-      expect(@report.errors.messages[:email]).not_to include "can't be blank"
-    end
-
-    it 'validates the incorrect form of an email address' do
-      @report = described_class.new(email: 'test@test@test.com')
-      @report.valid?
-      expect(@report.errors.messages[:email]).to include 'is invalid'
+    it 'validates the email address' do
+      expect(@report.errors.messages[:base]).to include 'Email address is missing or not in a correct format'
     end
   end
 end
-# rubocop:enable  Metrics/BlockLength
+# rubocop:enable Metrics/BlockLength

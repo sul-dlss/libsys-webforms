@@ -6,8 +6,10 @@
   <% if @circulation_statistics_report.errors.any? %>
     <div id="error-explanation">
       <ul>
-        <% @circulation_statistics_report.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% @circulation_statistics_report.errors.messages.values.each do |msg| %>
+            <%msg.each do  |m| %>
+                <li><%= m %></li>
+            <%end %>
         <% end %>
       </ul>
     </div>
