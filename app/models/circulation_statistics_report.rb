@@ -7,9 +7,9 @@ class CirculationStatisticsReport
   attr_accessor :email, :lib_array, :source, :range_type, :call_lo, :call_hi,
                 :call_alpha, :barcodes, :format_array, :exclude_inactive, :min_yr,
                 :max_yr, :exclude_bad_yr, :include_inhouse, :no_qtrly, :ckey_url,
-                :tag_field, :tag_field2, :tags_url, :link_type, :col_header1,
-                :col_header2, :col_header3, :col_header4, :col_header5,
-                :blank_col_array, :lib_loc_array, :user_id
+                :tag_field, :tag_field2, :tag_field3, :tag_field4, :tags_url,
+                :link_type, :col_header1, :col_header2, :col_header3, :col_header4,
+                :col_header5, :blank_col_array, :lib_loc_array, :user_id
 
   validates :lib_array, length: { minimum: 2, message: 'Select at least one library' }, unless: :barcode_range_type?
   validates :barcodes, presence: { is: true, message: 'Upload a file of barcodes' }, if: :barcode_range_type?
@@ -21,14 +21,14 @@ class CirculationStatisticsReport
   validates :max_yr, length: { is: 4, message: 'Year length must be four digits' },
                      numericality: { only_integer: true },
                      allow_blank: true
-  validates :tag_field, length: { is: 3, message: 'Bibfield number must be 3 digits' },
-                        numericality: { only_integer: true, message: 'Bibfield must be a 3-digit number' },
-                        exclusion: { in: %w[008], message: 'Bibfield cannot be 008' },
-                        allow_blank: true
-  validates :tag_field2, length: { is: 3, message: 'Bibfield number must be 3 digits' },
-                         numericality: { only_integer: true, message: 'Bibfield must be a 3-digit number' },
-                         exclusion: { in: %w[008], message: 'Bibfield cannot be 008' },
-                         allow_blank: true
+  validates :tag_field, :tag_field2, :tag_field3, :tag_field4, length: { is: 3,
+                                                                         message: 'Bibfield number must be 3 digits' },
+                                                               numericality: { only_integer: true,
+                                                                               message:
+                                                                                 'Bibfield must be a 3-digit number' },
+                                                               exclusion: { in: %w[008],
+                                                                            message: 'Bibfield cannot be 008' },
+                                                               allow_blank: true
   validate :lc_call_lo, if: :lc_range_type?
   validate :lc_call_hi, if: :lc_range_type?
   validate :classic_call_lo_and_hi, if: :classic_range_type?
