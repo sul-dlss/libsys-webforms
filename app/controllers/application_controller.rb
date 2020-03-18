@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def user_id
-    request.env['REMOTE_USER'] || ENV['REMOTE_USER']
+    request.env['REMOTE_USER'].presence || ENV['REMOTE_USER']
   end
   helper_method :user_id
 
