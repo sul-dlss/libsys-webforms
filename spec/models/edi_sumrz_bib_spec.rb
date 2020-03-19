@@ -11,7 +11,7 @@ RSpec.describe EdiSumrzBib, type: :model do
       edi_sumrz_bib = described_class.find_by(edi_ckey: -1)
       expect(edi_sumrz_bib.vend_code).to eq 'AMALIV'
       expect(edi_sumrz_bib.id001).to eq 'aal0762919'
-      expect(edi_sumrz_bib.load_date.strftime('%R')).to eq Time.zone.now.strftime('%R')
+      expect(edi_sumrz_bib.load_date).to eq Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S %z')
       expect(edi_sumrz_bib.active_record).to eq nil
     end
     # rubocop:enable RSpec/MultipleExpectations

@@ -7,7 +7,7 @@ class EdiSumrzBib < ApplicationRecord
     edi_sumrz_bib.vend_code = edi_lin.pluck(:vend_id)[0].to_s
     edi_sumrz_bib.id001 = edi_lin.pluck(:vend_unique_id)[0].to_s
     edi_sumrz_bib.edi_ckey = fake_ckey
-    edi_sumrz_bib.load_date = Time.zone.now
+    edi_sumrz_bib.load_date = I18n.l(Time.now.getlocal, format: :oracle)
     edi_sumrz_bib.active_record = nil
     edi_sumrz_bib.save
   end
