@@ -112,6 +112,21 @@ RSpec.describe EndowedFundsReport, type: :model do
     end
   end
 
+  describe 'invalid statements' do
+    before do
+      instance = instance_double(described_class)
+      allow(instance).to receive(:ol_cat_key_fund_query).and_return(ActiveRecord::StatementInvalid)
+    end
+
+    let(:report) do
+      described_class.new(fund_begin: 'All SUL Funds', fy_start: 'FY 2010', fy_end: 'FY 2011')
+    end
+
+    it 'returns empty ' do
+      expect(report.keys.size).to be 0
+    end
+  end
+
   describe 'validations' do
     before do
       @report = described_class.new(email: '', fund_begin: nil, fund: nil, fy_start: nil, cal_start: nil, pd_start: nil)
