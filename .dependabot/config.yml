@@ -1,0 +1,9 @@
+version: 1
+update_configs:
+  - package_manager: "ruby:bundler"
+    directory: "/"
+    update_schedule: "weekly"
+    ignored_updates:
+      - match:
+          dependency_name: "rails"
+          dependency_name: "activerecord-oracle_enhanced-adapter"
