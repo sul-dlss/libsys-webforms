@@ -33,7 +33,7 @@
       <%= f.file_field 'item_ids', class: 'form-control-file' %>
     </div>
   </div>
-  <div class='form-group row col-sm-2 form-control-label'>
+  <div class='form-group row form-control-label'>
     <%= f.label 'Email (optional)', class: 'col-sm-2 form-control-label' %>
     <div class='col-sm-10'>
       <%= f.text_field 'email', class: 'form-control' %>
@@ -54,7 +54,7 @@
   <!-- new_homeloc -->
   <!-- new_curloc -->
   <%= f.hidden_field :check_bc_first, value: 'N' %>
-  <div><%= f.submit 'Upload batch', class: 'btn' %></div><br/>
+  <div><%= f.submit 'Upload batch', class: 'btn btn-primary' %></div><br/>
 <% end %>
 <div class="btn-group">
   <%= main_menu_button %>
