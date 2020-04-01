@@ -58,6 +58,10 @@ Rails/SkipsModelValidations:
   Exclude:
     - 'app/models/edi_lin.rb'
 
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+    - 'app/models/package.rb'
+
 RSpec/AnyInstance:
   Exclude:
     - 'spec/rails_helper.rb'
