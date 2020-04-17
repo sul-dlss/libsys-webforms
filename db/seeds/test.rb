@@ -23,6 +23,7 @@ make_table(EdiInvoice, 'edi_invoice.csv', %w[edi_doc_num edi_vend_id edi_vend_in
   uni_inv_key uni_inv_num edi_invc_total uni_invc_total edi_total_postage edi_total_freight edi_total_handling edi_total_insurance
   edi_cur_code edi_total_tax edi_exchg_rate edi_tax_rate edi_total_pieces])
 make_table(EdiLin, 'edi_lin.csv', %w[doc_num vend_id edi_lin_num edi_sublin_count vend_unique_id barcode_num])
+make_table(ExpendituresFunds, 'expenditures_funds.csv', %w[fund_id fund_name_key old_fund_id min_pay_date max_pay_date is_endow inv_lib])
 
 ExpendituresFyDate.destroy_all
 dates = [
