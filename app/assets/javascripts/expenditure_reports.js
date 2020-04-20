@@ -12,8 +12,8 @@ jQuery(document).ready(function($) {
     ]
   });
 
-  const input_checked = 'input[name="expenditure_report[fund][]"]';
-  const max_funds = $("div#fundalert").attr('data-max');
+  var input_checked = 'input[name="expenditure_report[fund][]"]';
+  var max_funds = $("div#fundalert").attr('data-max');
   $(input_checked).click(function() {
     var checked_funds = $(input_checked + ':checked').length;
     if (checked_funds > max_funds) {
