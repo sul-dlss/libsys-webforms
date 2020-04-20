@@ -25,10 +25,10 @@
   <%= f.hidden_field :date_request, value: l(Time.now.getlocal, format: :oracle) %>
   <%= f.hidden_field :date_ran, value: nil %>
 
-  <div class='pad'><%= f.submit 'Submit request', class: 'btn btn-md btn-default  btn-full' %></div><br/>
+  <div class='pad'><%= f.submit 'Submit request', class: 'btn btn-md btn-primary btn-full' %></div><br/>
 
-  <% end %>
-  <div class='btn-group'>
-    <%= link_to 'Main menu', root_path, id: 'main-menu-button', class: 'btn btn-md btn-primary btn-full'  %>
-  </div>
+</div>
+<% end %>
+<div class="btn-group">
+  <%= main_menu_button %>
 </div>
