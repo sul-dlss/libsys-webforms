@@ -20,6 +20,9 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Lint/RaiseException:
   Enabled: true
 
@@ -82,12 +85,8 @@ RSpec/ExampleLength:
 RSpec/InstanceVariable:
   Enabled: false
 
-Style/PercentLiteralDelimiters:
-  Enabled: false
-
-Style/StringLiterals:
+Style/ExponentialNotation:
   Enabled: true
-  EnforcedStyle: single_quotes
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -100,3 +99,10 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes

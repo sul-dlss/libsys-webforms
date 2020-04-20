@@ -32,7 +32,7 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
   end
 
   it 'Defines a priority array' do
-    expect(described_class.priority). to eq %w[1 2 3]
+    expect(described_class.priority).to eq %w[1 2 3]
   end
 
   it 'Validates the presence of needed dates' do
