@@ -26,10 +26,12 @@ jQuery(document).ready(function($) {
 
 function addAlert(){
   $(".alert").addClass('in').removeClass('out');
+  $('input[name="commit"]').attr("disabled", true);
   return false;
 }
 
 function removeAlert(){
   $(".alert").addClass('out').removeClass('in');
+  $('input[name="commit"]').attr("disabled", false);
   return false;
 }
