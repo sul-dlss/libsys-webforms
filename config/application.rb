@@ -42,6 +42,6 @@ module LibsysWebforms
     # Note: Libsys-webforms does not have any boolean columns in the schema.
     config.active_record.sqlite3.represent_boolean_as_integer = true
 
-    config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
+    config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
   end
 end
