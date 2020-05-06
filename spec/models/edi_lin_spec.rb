@@ -5,11 +5,16 @@ RSpec.describe EdiLin, type: :model do
   # rubocop:disable RSpec/MultipleExpectations
   describe 'make_updates' do
     it 'updates the edi_lin table unique_vend_id with "noBib"' do
-      update = described_class.update_edi_lin('AMALIV', '592924', '11')
+      update = described_class.update_edi_lin('AMALIV', '592924', 11)
       expect(update[0].to_s).to eq 'notice'
       edi_sumrz_bib = EdiSumrzBib.find_by(edi_ckey: -1)
       edi_lin = described_class.find_by(vend_unique_id: 'aal0762919noBib')
       expect(edi_sumrz_bib.id001).to eq edi_lin.vend_unique_id
+    end
+
+    it 'returns an error message if the edi line is not an integer' do
+      update = described_class.update_edi_lin('AMALIV', '592924', 'line11')
+      expect(update[0].to_s).to eq 'error'
     end
 
     it 'returns an error message if the ID from EdiSumrzBib matches' do
