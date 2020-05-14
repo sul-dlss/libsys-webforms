@@ -11,11 +11,20 @@ class ExpendituresWithCircStatsReport < ApplicationRecord
   validate :fund_selection_present
   validate :start_date_present
 
-  before_save :set_fund, :write_lib, :write_fmt, :check_dates
+  before_save :set_fund, :write_lib, :write_fmt, :check_dates, :set_output_file
 
   self.table_name = 'expenditures_circ_log'
 
+  def kickoff
+    ActiveRecord::Base.connection.execute("begin expend_rpt.run_rpt_circ('#{output_file}'); end;")
+  rescue ActiveRecord::StatementInvalid
+  end
+
   private
+
+  def set_output_file
+    self[:output_file] = output_file
+  end
 
   def write_lib
     self[:libraries] = lib_array.delete_if { |a| a.empty? || a == 'All Libraries' }.join(',')
