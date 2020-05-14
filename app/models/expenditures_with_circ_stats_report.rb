@@ -5,7 +5,7 @@ class ExpendituresWithCircStatsReport < ApplicationRecord
   include FundUtils
   attr_accessor :fund, :fund_begin, :fund_select, :date_type,
                 :fy_start, :fy_end, :cal_start, :cal_end, :pd_start, :pd_end,
-                :lib_array, :libraries, :format_array, :formats
+                :lib_array, :libraries, :format_array, :formats, :output_file
 
   validate :email_format
   validate :fund_selection_present
