@@ -43,8 +43,6 @@ module LibsysWebforms
     config.active_record.sqlite3.represent_boolean_as_integer = true
 
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
-
-    # config.hosts << 'localhost'
     config.hosts << Settings.local_hostname
   end
 end
