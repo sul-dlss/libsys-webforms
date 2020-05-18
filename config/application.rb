@@ -1,13 +1,13 @@
 require_relative 'boot'
 
-require "rails"
+require 'rails'
 # Pick the frameworks you want:
-require "active_model/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "tsv"
+require 'active_model/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'action_view/railtie'
+require 'tsv'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -43,5 +43,8 @@ module LibsysWebforms
     config.active_record.sqlite3.represent_boolean_as_integer = true
 
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
+
+    config.hosts << 'localhost'
+    config.hosts << /libsys-webforms-(prod|dev)\.stanford\.edu/
   end
 end
