@@ -45,6 +45,6 @@ module LibsysWebforms
     config.email_pattern = /(\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}\s*)([;,\s]+([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))*\z)/i
 
     config.hosts << 'localhost'
-    config.hosts << /libsys-webforms-(prod|dev)\.stanford\.edu/
+    config.hosts << Settings.local_hostname
   end
 end
