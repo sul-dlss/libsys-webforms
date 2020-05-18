@@ -15,7 +15,6 @@ symphony_libsys_webforms: 'tmp/Libsys_webforms'
 base_uri: 'http://ld4p-dev.stanford.edu/'
 ssds_contact_email: 'sul-unicorn-devs@lists.stanford.edu'
 searchworks_url: 'https://searchworks-morison.stanford.edu/view'
-local_hostname: 'localhost'
 # PL/SQL jobs
 pl_sql_jobs:
   circ_stats_job:

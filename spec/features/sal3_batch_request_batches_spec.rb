@@ -4,7 +4,6 @@ describe 'Sal3 Batch Requests Batch Page', type: :feature do
   before do
     stub_current_user(FactoryBot.create(:authorized_user))
     visit sal3_batch_requests_batches_path
-    puts page.current_host
   end
 
   it 'display the button links to filter the scope by all pull days' do
