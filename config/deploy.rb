@@ -38,7 +38,7 @@ namespace :loc do
   task :clone_marc2bibframe2 do
     on roles(:web) do
       cmd  = "cd #{shared_path} && "
-      cmd += "if [ ! -d loc_marc2bibframe2 ]; then "
+      cmd += "if [ ! ls -A loc_marc2bibframe2 ]; then "
       cmd += "  git clone https://github.com/lcnetdev/marc2bibframe2.git loc_marc2bibframe2; "
       cmd += "fi"
       execute cmd
