@@ -28,7 +28,8 @@ describe 'home/index', type: :view do
       expect(rendered).to have_link('Batch record updates', href: 'batch_record_updates')
     end
 
-    it 'displays ckey2Bibframe link' do
+    # Temporarily disable ckey2bibframe until it is requested as needed
+    xit 'displays ckey2Bibframe link' do
       expect(rendered).to have_link('Ckey to Bibframe Conversion', href: '/ckey2bibframes/new')
     end
   end
