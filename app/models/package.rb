@@ -20,6 +20,14 @@ class Package < ApplicationRecord
   validate :needs_put_file_loc, on: %i(create update)
   validate :check_match_opts, on: %i(create update)
 
+  def self.timestamp_attributes_for_create_in_model
+    super << :date_entered
+  end
+
+  def self.timestamp_attributes_for_update_in_model
+    super << :date_modified
+  end
+
   MATCH_OPTS = {
     '020' => '020 (subfield a,z) to Symphony 020 or 776',
     '776_isbn' => '776 (subfield z) to Symphony 020 or 776',
@@ -50,14 +58,6 @@ class Package < ApplicationRecord
   }.freeze
 
   private
-
-  def timestamp_attributes_for_create
-    super << :date_entered
-  end
-
-  def timestamp_attributes_for_update
-    super << :date_modified
-  end
 
   def check_if_package_id_changed
     errors.add(:base, 'Package ID is marked as readonly.') if package_id_changed?
