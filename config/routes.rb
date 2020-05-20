@@ -39,7 +39,8 @@ Rails.application.routes.draw do
   resources :endowed_funds_reports, only: [:new, :create]
   resources :userload_reruns, only: [:new, :create]
   resources :illiad_user_exports, only: [:new, :create]
-  resources :ckey2bibframes, only: [:new, :create, :show], param: :ckey
+  # Temporarily disable ckey2bibframe until it is requested as needed
+  # resources :ckey2bibframes, only: [:new, :create, :show], param: :ckey
   resources :packages do
     put :activate, on: :member
     put :deactivate, on: :member
