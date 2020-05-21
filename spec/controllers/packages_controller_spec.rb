@@ -48,6 +48,10 @@ RSpec.describe PackagesController, type: :controller do
       it 'hardcodes vendor_id_write to 001' do
         expect(Package.last.vendor_id_write).to eq('001')
       end
+
+      it 'creates value for date_entered' do
+        expect(Package.find(1).date_modified.strftime('%Y-%b-%d')).to eq(Time.zone.now.strftime('%Y-%b-%d'))
+      end
     end
 
     context 'with invalid params' do
@@ -86,6 +90,10 @@ RSpec.describe PackagesController, type: :controller do
 
       it 'updates ftp_file_prefix when eloader searches for files on ftp server checkbox is unchecked' do
         expect(Package.find(1).ftp_file_prefix).to eq('NO FTP SEARCH ***')
+      end
+
+      it 'updates date_modified' do
+        expect(Package.find(1).date_modified.strftime('%Y-%b-%d')).to eq(Time.zone.now.strftime('%Y-%b-%d'))
       end
     end
 
