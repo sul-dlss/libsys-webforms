@@ -103,4 +103,18 @@ RSpec.describe Package, type: :model do
         .to eq(["#{described_class.human_attribute_name('match_opts')} cannot be empty."])
     end
   end
+
+  describe 'when oracle date formats are used' do
+    before do
+      @package.update(package_status: 'Inactive')
+    end
+
+    it 'date entered has a value' do
+      expect(@package.date_entered).to eq Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle))
+    end
+
+    it 'date modified is updated' do
+      expect(@package.date_modified).to eq Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle))
+    end
+  end
 end
