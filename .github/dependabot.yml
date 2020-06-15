@@ -1,0 +1,15 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: '09:00'
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: activerecord-oracle_enhanced-adapter
+    versions:
+    - ">= 0"
+  - dependency-name: rails
+    versions:
+    - ">= 0"
