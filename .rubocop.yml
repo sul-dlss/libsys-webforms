@@ -16,26 +16,12 @@ AllCops:
     - 'vendor/**/*'
     - 'lib/tasks/display-coverage.rake'
     - 'loc_marc2bibframe2/**/*'
+  NewCops: enable
 
 Layout/LineLength:
   Max: 120
 
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
 Lint/SuppressedException:
-  Enabled: false
-
-Lint/UnreachableCode:
-  Enabled: false
-
-Lint/UnusedBlockArgument:
   Enabled: false
 
 Metrics/BlockLength:
@@ -85,22 +71,13 @@ RSpec/ExampleLength:
 RSpec/InstanceVariable:
   Enabled: false
 
-Style/ExponentialNotation:
-  Enabled: true
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
 Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/SlicingWithRange:
   Enabled: false
 
 Style/StringLiterals:

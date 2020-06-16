@@ -18,6 +18,7 @@ class ChangeItemType
   attr_accessor :new_homeloc
   attr_accessor :new_curloc
   attr_accessor :check_bc_first
+
   validates :current_library, :new_item_type, :item_ids, presence: true
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 end

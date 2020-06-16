@@ -4,6 +4,7 @@ class Ckey2bibframe
   include ActiveModel::Model
   include ActiveModel::Validations
   attr_accessor :ckey, :baseuri, :marcxml
+
   validates :ckey, numericality: { message: ': You must enter a known ckey!' }
 
   def convert

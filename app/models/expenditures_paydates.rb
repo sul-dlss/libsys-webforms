@@ -3,6 +3,7 @@
 ###
 class ExpendituresPaydates < ApplicationRecord
   attr_accessor :date_range
+
   self.table_name = 'expenditures_paydates'
 
   def self.calendar_years

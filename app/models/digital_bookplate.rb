@@ -4,6 +4,7 @@
 class DigitalBookplate
   include ActiveModel::Model
   attr_reader :fund, :druid, :title
+
   validates :fund, :druid, :title, presence: true
 
   def self.parse_data
