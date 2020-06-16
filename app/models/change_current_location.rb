@@ -17,6 +17,7 @@ class ChangeCurrentLocation
   attr_accessor :priority
   attr_accessor :export_yn
   attr_accessor :check_bc_first
+
   validates :current_library, :new_current_location, :item_ids, presence: true
   validates :email, format: { with: Rails.configuration.email_pattern }, allow_blank: true
 end

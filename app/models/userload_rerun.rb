@@ -2,6 +2,7 @@
 class UserloadRerun
   include ActiveModel::Model
   attr_accessor :rerun_date
+
   validates :rerun_date, presence: true
 
   def write_date

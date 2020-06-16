@@ -26,7 +26,7 @@ module SymphonyCgi
   end
 
   def query(cgi_params)
-    cgi_params.keep_if { |k, v| v.present? }
+    cgi_params.keep_if { |_, v| v.present? }
     URI.encode_www_form(cgi_params.to_h)
   end
 
