@@ -81,7 +81,7 @@ class Ability
     can :manage, AuthorizedUser if app.any?
     can :delete_batch, DigitalBookplatesBatch if /A/.match?(current_user.digital_bookplates)
     can :manage, Package if /A/.match?(current_user.package_manage)
-    if dev_test_env? && /A/ =~ current_user.package_manage
+    if dev_test_env? && /A/.match?(current_user.package_manage)
       can %i[run_tests list_transfer_logs], Package
     else
       cannot %i[run_tests list_transfer_logs], Package
