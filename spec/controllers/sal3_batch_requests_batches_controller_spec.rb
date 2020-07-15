@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop: disable Metrics/BlockLength
 RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   before do
     stub_current_user(FactoryBot.create(:authorized_user))
@@ -38,26 +39,53 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   end
 
   describe 'post#create' do
-    let(:batch_params) do
-      { user_sunetid: 'some-id',
-        pseudo_id: 'MAPSCANLAB',
-        load_date: '16-06-14',
-        batch_startdate: '16-06-18',
-        batch_needbydate: '16-06-30',
-        batch_pullmon: 1,
-        last_action_date: nil,
-        bc_file: barcode_file }
+    context 'when a valid file of barcodes' do
+      let(:batch_params) do
+        { user_sunetid: 'some-id',
+          pseudo_id: 'MAPSCANLAB',
+          load_date: '16-06-14',
+          batch_startdate: '16-06-18',
+          batch_needbydate: '16-06-30',
+          batch_pullmon: 1,
+          last_action_date: nil,
+          bc_file: barcode_file }
+      end
+
+      it 'returns 302 when saving sal3_batch_requests_batch' do
+        post :create, params: { sal3_batch_requests_batch: batch_params }
+
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'renders new template with an invalid object' do
+        post :create, params: { sal3_batch_requests_batch: { batch_id: '' } }
+        expect(response).to render_template('new')
+      end
     end
 
-    it 'returns 302 when saving sal3_batch_requests_batch' do
-      post :create, params: { sal3_batch_requests_batch: batch_params }
+    context 'when it is an unsupported barcode file format' do
+      let(:xlsx_file) do
+        extend ActionDispatch::TestProcess
+        fixture_file_upload('files/test_file.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+      end
 
-      expect(response).to have_http_status(:found)
-    end
+      let(:batch_params) do
+        { user_sunetid: 'some-id',
+          pseudo_id: 'MAPSCANLAB',
+          load_date: '16-06-14',
+          batch_startdate: '16-06-18',
+          batch_needbydate: '16-06-30',
+          batch_pullmon: 1,
+          last_action_date: nil,
+          bc_file: xlsx_file }
+      end
 
-    it 'renders new template with an invalid object' do
-      post :create, params: { sal3_batch_requests_batch: { batch_id: '' } }
-      expect(response).to render_template('new')
+      it 'validates the array of item_ids to check that they are UTF-8 encodable (i.e. not an xlsx file)' do
+        post :create, params: { sal3_batch_requests_batch: batch_params }
+
+        expect(flash[:error])
+          .to eq 'There was a problem reading the file. Please check the format of the file you are uploading.'
+      end
     end
   end
 
@@ -107,3 +135,4 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     end
   end
 end
+# rubocop: enable Metrics/BlockLength

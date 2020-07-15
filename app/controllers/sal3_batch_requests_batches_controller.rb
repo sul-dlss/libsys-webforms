@@ -25,15 +25,15 @@ class Sal3BatchRequestsBatchesController < ApplicationController
   def create
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.new(sal3_batch_requests_batch_params)
     @sal3_batch_requests_batch.bc_file = sal3_batch_requests_batch_params[:bc_file]
+
     if @sal3_batch_requests_batch.save
-      array_of_item_ids = @sal3_batch_requests_batch.parse_bc_file
       begin
         Sal3BatchRequestsBc.create_sal3_request(array_of_item_ids, bcs_params(@sal3_batch_requests_batch))
       rescue ActiveRecord::RecordNotUnique
         flash[:warning] = 'Batch with unique barcodes already requested.'
       end
       WebformsMailer.sal3_batch_email(@sal3_batch_requests_batch).deliver_now
-      flash[:success] = 'Batch requested!'
+      validate_array_of_item_ids
       redirect_to root_path
     else
       render action: 'new'
@@ -76,5 +76,21 @@ class Sal3BatchRequestsBatchesController < ApplicationController
       load_date: sal3_batch.load_date,
       priority: sal3_batch.priority
     }
+  end
+
+  def validate_array_of_item_ids
+    array_of_item_ids.each do |s|
+      begin
+        s.encode('UTF-8')
+      rescue Encoding::UndefinedConversionError
+        flash[:error] = 'There was a problem reading the file. Please check the format of the file you are uploading.'
+        return false
+      end
+    end
+    flash[:success] = 'Batch requested!'
+  end
+
+  def array_of_item_ids
+    @sal3_batch_requests_batch.parse_bc_file
   end
 end

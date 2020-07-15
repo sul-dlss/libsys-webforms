@@ -94,8 +94,11 @@ class Sal3BatchRequestsBatch < ApplicationRecord
 
   def set_num_bcs
     file_obj = bc_file.current_path
-    barcodes = IO.read(file_obj).split("\n").uniq.length
-    update(num_bcs: barcodes)
+    begin
+      barcodes = IO.read(file_obj).split("\n").uniq.length
+    rescue ArgumentError
+      update(num_bcs: barcodes)
+    end
   end
 
   private
