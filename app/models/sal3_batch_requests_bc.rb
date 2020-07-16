@@ -14,7 +14,7 @@ class Sal3BatchRequestsBc < ApplicationRecord
       hashes_for_updates << hash_for_update(item_id, sal3_batch_request)
     end
     Sal3BatchRequestsBc.create(hashes_for_updates)
-  rescue Encoding::UndefinedConversionError
+  rescue ActiveRecord::StatementInvalid, Encoding::UndefinedConversionError
   end
 
   def self.hash_for_update(item_id, sal3_batch_request)
