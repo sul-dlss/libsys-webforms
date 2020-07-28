@@ -10,8 +10,8 @@ FactoryBot.define do
     priority { '3' }
     batch_container { 'Unknown' }
     batch_media { 'Unknown' }
-    batch_startdate { '14-06-16' }
-    batch_needbydate { '24-06-16' }
+    batch_startdate { Time.zone.today }
+    batch_needbydate { Time.zone.today + 30 }
     batch_numpullperday { 10 }
     batch_pullmon { '1' }
     batch_pulltues { '1' }

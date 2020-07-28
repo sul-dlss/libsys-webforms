@@ -1,4 +1,4 @@
-class Sal3BatchRequestsBatch < ActiveRecord::Migration
+class Sal3BatchRequestsBatch < ActiveRecord::Migration[5.0]
   def change
     create_table :sal3_batch_requests_batch, primary_key: "batch_id" do |t|
       t.string    :batch_name

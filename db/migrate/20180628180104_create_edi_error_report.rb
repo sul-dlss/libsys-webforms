@@ -1,4 +1,4 @@
-class CreateEdiErrorReport < ActiveRecord::Migration
+class CreateEdiErrorReport < ActiveRecord::Migration[5.0]
   def change
     create_table :edi_error_report do |t|
       t.datetime :run

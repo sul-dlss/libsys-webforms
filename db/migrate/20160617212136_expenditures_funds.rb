@@ -1,4 +1,4 @@
-class ExpendituresFunds < ActiveRecord::Migration
+class ExpendituresFunds < ActiveRecord::Migration[5.0]
   def change
     create_table  :expenditures_funds do |t|
       t.string    :fund_id, array: true

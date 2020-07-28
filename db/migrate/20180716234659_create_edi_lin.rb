@@ -1,4 +1,4 @@
-class CreateEdiLin < ActiveRecord::Migration
+class CreateEdiLin < ActiveRecord::Migration[5.0]
   def change
     create_table :edi_lin do |t|
       t.string :doc_num

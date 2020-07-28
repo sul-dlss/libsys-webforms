@@ -10,6 +10,8 @@ class Sal3BatchRequestsBatch < ApplicationRecord
   validates :batch_startdate, presence: { message: 'You must enter a start date' },
                               on: %i(create update)
   validates :batch_needbydate, presence: { message: 'You must enter a completion date' },
+                               inclusion: { in: (Time.zone.today + 1..Date::Infinity.new),
+                                            message: 'Completion date cannot be in the past' },
                                on: %i(create update)
   validates :pseudo_id, presence: { message: 'You must provide a user ID for checkout' },
                         on: %i(create update)

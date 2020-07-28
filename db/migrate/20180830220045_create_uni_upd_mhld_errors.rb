@@ -1,4 +1,4 @@
-class CreateUniUpdMhldErrors < ActiveRecord::Migration
+class CreateUniUpdMhldErrors < ActiveRecord::Migration[5.0]
   def change
     create_table :uni_upd_mhld_errors do |t|
       t.integer :batch_id

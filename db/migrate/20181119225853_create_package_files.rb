@@ -1,4 +1,4 @@
-class CreatePackageFiles < ActiveRecord::Migration
+class CreatePackageFiles < ActiveRecord::Migration[5.0]
   def change
     create_table :vnd_files_gen do |t|
       t.string :package_id

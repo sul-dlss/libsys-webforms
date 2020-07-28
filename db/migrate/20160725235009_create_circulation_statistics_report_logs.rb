@@ -1,4 +1,4 @@
-class CreateCirculationStatisticsReportLogs < ActiveRecord::Migration
+class CreateCirculationStatisticsReportLogs < ActiveRecord::Migration[5.0]
   def change
     create_table :circ_stats_rpt_log do |t|
       t.datetime :date_request

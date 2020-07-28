@@ -1,4 +1,4 @@
-class AddColumnsToEdiInvoice < ActiveRecord::Migration
+class AddColumnsToEdiInvoice < ActiveRecord::Migration[5.0]
   def change
     add_column :edi_invoice, :edi_msg_id, :string
     add_column :edi_invoice, :edi_msg_typ, :string

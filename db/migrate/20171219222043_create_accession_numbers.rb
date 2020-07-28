@@ -1,4 +1,4 @@
-class CreateAccessionNumbers < ActiveRecord::Migration
+class CreateAccessionNumbers < ActiveRecord::Migration[5.0]
   def change
     create_table :catnums do |t|
       t.string :item_type
