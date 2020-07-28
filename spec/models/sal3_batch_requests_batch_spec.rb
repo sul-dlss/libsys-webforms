@@ -40,6 +40,11 @@ RSpec.describe Sal3BatchRequestsBatch, type: :model do
     expect(request).not_to be_valid
   end
 
+  it 'Validates the needed date is not in the past' do
+    request = described_class.new(batch_startdate: Time.zone.today, batch_needbydate: Time.zone.yesterday)
+    expect(request).not_to be_valid
+  end
+
   it 'Validates the presense of User ID for charge' do
     request = described_class.new(pseudo_id: nil)
     expect(request).not_to be_valid

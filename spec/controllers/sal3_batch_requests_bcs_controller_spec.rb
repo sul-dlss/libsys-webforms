@@ -15,8 +15,8 @@ RSpec.describe Sal3BatchRequestsBcsController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   pseudo_id: 'MAPSCANLAB',
                                                                   batch_pullmon: 1,
-                                                                  batch_startdate: '11-APR-18',
-                                                                  batch_needbydate: '11-APR-18')
+                                                                  batch_startdate: Time.zone.today,
+                                                                  batch_needbydate: Time.zone.today + 30)
       get 'show', params: { id: @sal3_batch_requests_batch }
       expect(response).to render_template('show')
     end

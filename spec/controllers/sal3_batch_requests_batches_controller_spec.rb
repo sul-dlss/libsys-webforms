@@ -24,8 +24,8 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   batch_pullmon: 1,
                                                                   pseudo_id: 'MAPSCANLAB',
-                                                                  batch_startdate: '11-APR-18',
-                                                                  batch_needbydate: '11-APR-18')
+                                                                  batch_startdate: Time.zone.today,
+                                                                  batch_needbydate: Time.zone.today + 30)
       get 'show', params: { id: @sal3_batch_requests_batch }
       expect(response).to render_template('show')
     end
@@ -44,8 +44,8 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
         { user_sunetid: 'some-id',
           pseudo_id: 'MAPSCANLAB',
           load_date: '16-06-14',
-          batch_startdate: '16-06-18',
-          batch_needbydate: '16-06-30',
+          batch_startdate: Time.zone.today,
+          batch_needbydate: Time.zone.today + 30,
           batch_pullmon: 1,
           last_action_date: nil,
           bc_file: barcode_file }
@@ -73,8 +73,8 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
         { user_sunetid: 'some-id',
           pseudo_id: 'MAPSCANLAB',
           load_date: '16-06-14',
-          batch_startdate: '16-06-18',
-          batch_needbydate: '16-06-30',
+          batch_startdate: Time.zone.today,
+          batch_needbydate: Time.zone.today + 30,
           batch_pullmon: 1,
           last_action_date: nil,
           bc_file: xlsx_file }
@@ -94,8 +94,8 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
       @sal3_batch_requests_batch = Sal3BatchRequestsBatch.create!(bc_file: barcode_file,
                                                                   batch_pullmon: 1,
                                                                   pseudo_id: 'MAPSCANLAB',
-                                                                  batch_startdate: '11-APR-18',
-                                                                  batch_needbydate: '11-APR-18')
+                                                                  batch_startdate: Time.zone.today,
+                                                                  batch_needbydate: Time.zone.today + 30)
       stub_current_user(FactoryBot.create(:authorized_user))
       get 'edit', params: { id: @sal3_batch_requests_batch }
       expect(response).to be_successful
@@ -109,8 +109,8 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
                                                                   priority: 2,
                                                                   batch_numpullperday: 10,
                                                                   batch_pullmon: 1,
-                                                                  batch_startdate: '11-APR-18',
-                                                                  batch_needbydate: '11-APR-18')
+                                                                  batch_startdate: Time.zone.today,
+                                                                  batch_needbydate: Time.zone.today + 30)
     end
 
     it 'updates the requested batch' do
