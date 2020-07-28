@@ -1,4 +1,4 @@
-class CreateEdiInvLine < ActiveRecord::Migration
+class CreateEdiInvLine < ActiveRecord::Migration[5.0]
   def change
     create_table :edi_inv_line, primary_key: 'tbl_row_num' do |t|
       t.string :edi_vend_id

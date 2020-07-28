@@ -1,4 +1,4 @@
-class EncumbranceReport < ActiveRecord::Migration
+class EncumbranceReport < ActiveRecord::Migration[5.0]
   def change
     create_table :encumbrance_rpts do |t|
       t.datetime  :date_request

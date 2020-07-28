@@ -1,4 +1,4 @@
-class CreateUniUpdatesErrors < ActiveRecord::Migration
+class CreateUniUpdatesErrors < ActiveRecord::Migration[5.0]
   def change
     create_table :uni_updates_errors do |t|
       t.string :run

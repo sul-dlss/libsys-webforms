@@ -1,4 +1,4 @@
-class CreateShelfSelSearch < ActiveRecord::Migration
+class CreateShelfSelSearch < ActiveRecord::Migration[5.0]
   def change
     create_table :shelf_sel_searches do |t|
       t.string :user_name

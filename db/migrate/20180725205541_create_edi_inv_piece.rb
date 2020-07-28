@@ -1,4 +1,4 @@
-class CreateEdiInvPiece < ActiveRecord::Migration
+class CreateEdiInvPiece < ActiveRecord::Migration[5.0]
   def change
     create_table :edi_inv_piece do |t|
       t.string :edi_vend_id

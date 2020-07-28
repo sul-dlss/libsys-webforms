@@ -1,4 +1,4 @@
-class CreateEdiSumrzBib < ActiveRecord::Migration
+class CreateEdiSumrzBib < ActiveRecord::Migration[5.0]
   def change
     create_table :edi_sumrz_bib do |t|
       t.string :vend_code

@@ -1,4 +1,4 @@
-class CreateVndRunlogs < ActiveRecord::Migration
+class CreateVndRunlogs < ActiveRecord::Migration[5.0]
   def change
     create_table :vnd_runlog do |t|
       t.datetime :run_date

@@ -1,4 +1,4 @@
-class ExpenditureReport < ActiveRecord::Migration
+class ExpenditureReport < ActiveRecord::Migration[5.0]
   def change
     create_table :expenditures_log do |t|
       t.datetime  :date_request

@@ -1,4 +1,4 @@
-class Expenditures < ActiveRecord::Migration
+class Expenditures < ActiveRecord::Migration[5.0]
   def change
     create_table :expenditures do |t|
       t.datetime  :row_date

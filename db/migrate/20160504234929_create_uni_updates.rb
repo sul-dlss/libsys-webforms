@@ -1,4 +1,4 @@
-class CreateUniUpdates < ActiveRecord::Migration
+class CreateUniUpdates < ActiveRecord::Migration[5.0]
   def change
     create_table :uni_updates do |t|
       t.integer :batch_id

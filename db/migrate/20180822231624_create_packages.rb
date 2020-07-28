@@ -1,4 +1,4 @@
-class CreatePackages < ActiveRecord::Migration
+class CreatePackages < ActiveRecord::Migration[5.0]
   def change
     create_table :vnd_packages, :primary_key => :record_id do |t|
       t.string :package_id

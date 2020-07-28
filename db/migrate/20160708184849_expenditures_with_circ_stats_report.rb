@@ -1,4 +1,4 @@
-class ExpendituresWithCircStatsReport < ActiveRecord::Migration
+class ExpendituresWithCircStatsReport < ActiveRecord::Migration[5.0]
   def change
     create_table :expenditures_circ_log do |t|
       t.datetime  :date_request

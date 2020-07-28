@@ -1,4 +1,4 @@
-class CreateEdiInvoice < ActiveRecord::Migration
+class CreateEdiInvoice < ActiveRecord::Migration[5.0]
   def change
     create_table :edi_invoice do |t|
       t.string :edi_doc_num

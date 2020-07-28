@@ -1,4 +1,4 @@
-class CreateDigitalBookplatesBatches < ActiveRecord::Migration
+class CreateDigitalBookplatesBatches < ActiveRecord::Migration[5.0]
   def change
     create_table :digital_bookplates_batches, primary_key: 'batch_id' do |t|
       t.string :ckey_file

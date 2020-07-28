@@ -1,4 +1,4 @@
-class CreateUniUpdatesBatch < ActiveRecord::Migration
+class CreateUniUpdatesBatch < ActiveRecord::Migration[5.0]
   def change
     create_table :uni_updates_batch, :primary_key => :batch_id do |t|
       t.datetime :batch_date

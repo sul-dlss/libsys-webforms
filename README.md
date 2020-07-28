@@ -48,6 +48,14 @@ RAILS_ENV=test rake db:seed
 
 NOTE: Travis uses `db:test:prepare` rather than `db:migrate`
 
+Also make sure the necessary `tmp` file directories are present (this is to mock the `/symphony` mount on the libsys-webforms servers)
+```
+mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue
+mkdir -p tmp/Dataload/EndowRpt
+mkdir -p tmp/Dataload/ILLiadUserExport
+mkdir -p tmp/Dataload/UserloadRerun
+```
+
 ### Rake, etc.
 The test suite (with RuboCop style enforcement) will be run with the default rake task (also run on travis)
 
