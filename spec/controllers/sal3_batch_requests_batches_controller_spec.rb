@@ -51,6 +51,12 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
           bc_file: barcode_file }
       end
 
+      let(:request) { FactoryBot.create(:sal3_batch_requests_batch) }
+
+      it 'records the number of barcodes in the model' do
+        expect(request.num_bcs).to eq 2
+      end
+
       it 'returns 302 when saving sal3_batch_requests_batch' do
         post :create, params: { sal3_batch_requests_batch: batch_params }
 
@@ -78,6 +84,12 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
           batch_pullmon: 1,
           last_action_date: nil,
           bc_file: xlsx_file }
+      end
+
+      let(:request) { FactoryBot.create(:sal3_batch_requests_batch_invalid_file) }
+
+      it 'records the number of barcodes in the model' do
+        expect(request.num_bcs).to eq nil
       end
 
       it 'validates the array of item_ids to check that they are UTF-8 encodable (i.e. not an xlsx file)' do
