@@ -54,6 +54,7 @@ class AccessionNumbersController < ApplicationController
   # GET /accession_numbers/1/generate_number_form
   def generate_number_form() end
 
+  # rubocop:disable Metrics/AbcSize
   # PATCH /accession_numbers/1/generate_number
   def generate_number
     if check_for_already_assigned_nums(@accession_number.id, @accession_number.seq_num.to_i)
@@ -69,6 +70,7 @@ class AccessionNumbersController < ApplicationController
       flash[:warning] = 'For Blu-ray, follow the accession number with BLU-RAY' if @accession_number.prefix == 'ZDVD'
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   private
 

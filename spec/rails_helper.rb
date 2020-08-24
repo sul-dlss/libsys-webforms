@@ -69,7 +69,7 @@ def stub_current_user_for_view(&block)
   controller.singleton_class.class_exec(block) do
     helper_method :current_user
     define_method :current_user do
-      yield
+      yield(block)
     end
   end
 end
@@ -78,7 +78,7 @@ def stub_user_id_for_view(&block)
   controller.singleton_class.class_exec(block) do
     helper_method :user_id
     define_method :user_id do
-      yield
+      yield(block)
     end
   end
 end
@@ -87,7 +87,7 @@ def stub_webauth_user_for_view(&block)
   controller.singleton_class.class_exec(block) do
     helper_method :webauth_user?
     define_method :webauth_user? do
-      yield
+      yield(block)
     end
   end
 end

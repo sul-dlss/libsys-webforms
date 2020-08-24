@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe EdiSumrzBib, type: :model do
   describe 'inserting a new line' do
     # The order of the tests and setting the variables matters here
-    # rubocop:disable RSpec/MultipleExpectations
+    # rubocop:disable RSpec/MultipleExpectations, Rails/SkipsModelValidations
     it 'adds an entry with a fake ckey' do
       edi_lin = EdiLin.where(vend_id: 'AMALIV', doc_num: '592924', edi_lin_num: '11')
       insert = described_class.insert(edi_lin)
@@ -14,6 +14,6 @@ RSpec.describe EdiSumrzBib, type: :model do
       expect(edi_sumrz_bib.load_date).to eq Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S %z')
       expect(edi_sumrz_bib.active_record).to eq nil
     end
-    # rubocop:enable RSpec/MultipleExpectations
+    # rubocop:enable RSpec/MultipleExpectations, Rails/SkipsModelValidations
   end
 end

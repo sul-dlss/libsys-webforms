@@ -20,8 +20,8 @@ class Package < ApplicationRecord
   validate :needs_put_file_loc, on: %i(create update)
   validate :check_match_opts, on: %i(create update)
 
-  before_create :set_time_stamps
   before_save :set_time_stamps
+  before_create :set_time_stamps
 
   MATCH_OPTS = {
     '020' => '020 (subfield a,z) to Symphony 020 or 776',

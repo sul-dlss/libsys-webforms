@@ -71,6 +71,9 @@ RSpec/ExampleLength:
 RSpec/InstanceVariable:
   Enabled: false
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
