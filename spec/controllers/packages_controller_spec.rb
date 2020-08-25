@@ -64,7 +64,7 @@ RSpec.describe PackagesController, type: :controller do
   end
 
   describe 'PUT #update' do
-    context 'with valid params' do
+    context 'with valid params to #update_special_attributes' do
       before do
         valid_attributes.update(url_substring: ['ieeexplore.ieee.org', ''],
                                 link_text: ['IEEE Xplore Digital Library', ''],

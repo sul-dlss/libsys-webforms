@@ -30,24 +30,12 @@ class EdiInvoice < ApplicationRecord
 
   def self.update_edi_invoice
     edi_invoice = @edi_invoice.first
-    edi_invoice.todo = 'Excld'
-    edi_invoice.uni_vend_key = nil
-    edi_invoice.uni_accrue_or_pay_tax = nil
-    edi_invoice.edi_stanfd_account = nil
-    edi_invoice.uni_inv_lib = nil
-    edi_invoice.uni_inv_key = nil
-    edi_invoice.uni_inv_num.to_s << '<-Excld'
-    edi_invoice.edi_invc_total = 0
-    edi_invoice.uni_invc_total = 0
-    edi_invoice.edi_total_postage = 0
-    edi_invoice.edi_total_freight = 0
-    edi_invoice.edi_total_handling = 0
-    edi_invoice.edi_total_insurance = 0
-    edi_invoice.edi_cur_code = nil
-    edi_invoice.edi_total_tax = 0
-    edi_invoice.edi_exchg_rate = nil
-    edi_invoice.edi_tax_rate = nil
-    edi_invoice.edi_total_pieces = 0
+    edi_invoice.update(
+      todo: 'Excld', uni_vend_key: nil, uni_accrue_or_pay_tax: nil, edi_stanfd_account: nil, uni_inv_lib: nil,
+      uni_inv_key: nil, uni_inv_num: "#{edi_invoice.uni_inv_num}<-Excld", edi_invc_total: 0, uni_invc_total: 0,
+      edi_total_postage: 0, edi_total_freight: 0, edi_total_handling: 0, edi_total_insurance: 0, edi_cur_code: nil,
+      edi_total_tax: 0, edi_exchg_rate: nil, edi_tax_rate: nil, edi_total_pieces: 0
+    )
     edi_invoice.save
   end
 

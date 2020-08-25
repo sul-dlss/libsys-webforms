@@ -131,7 +131,7 @@ class PackagesController < ApplicationController
   def make_access_urls_plats(url_config_params)
     url_settings = ''
     url_config_params.values.transpose.each do |x|
-      url_settings << x.join("\t") + '|'
+      url_settings << "#{x.join("\t")}|"
     end
     url_settings = url_settings.gsub(/(\t{4}\|)+/, '')
     package_params.merge!(access_urls_plats: url_settings)

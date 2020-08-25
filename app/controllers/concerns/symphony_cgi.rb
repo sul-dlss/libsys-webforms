@@ -22,7 +22,7 @@ module SymphonyCgi
   private
 
   def request_url(script, cgi_params)
-    [Settings.symphony_cgi_url, script].join('/') + '?' + query(cgi_params)
+    "#{[Settings.symphony_cgi_url, script].join('/')}?#{query(cgi_params)}"
   end
 
   def query(cgi_params)
