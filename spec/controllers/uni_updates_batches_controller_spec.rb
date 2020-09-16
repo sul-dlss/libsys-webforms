@@ -12,15 +12,22 @@ RSpec.describe UniUpdatesBatchesController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
-    before { @uni_updates_batch = FactoryBot.create(:uni_updates_batch) }
+    before do
+      stub_current_user(FactoryBot.create(:authorized_user))
+      @uni_updates_batch = FactoryBot.create(:uni_updates_batch)
+      FactoryBot.create(:uni_updates)
+    end
 
     it 'deletes the contact' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       expect { delete :destroy, params: { id: @uni_updates_batch } }.to change(UniUpdatesBatch, :count).by(-1)
     end
 
+    it 'removes the associated uni_updates' do
+      delete :destroy, params: { id: @uni_updates_batch }
+      expect(UniUpdates.count).to eq 0
+    end
+
     it 'redirects to root_path' do
-      stub_current_user(FactoryBot.create(:authorized_user))
       delete :destroy, params: { id: @uni_updates_batch }
       expect(response).to redirect_to root_path
     end

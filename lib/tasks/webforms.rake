@@ -134,7 +134,7 @@ namespace :webforms do
   task :delete_batch, [:batch_id] => :environment do |_t, args|
     uni_updates_batch = UniUpdatesBatch.find(args[:batch_id])
     puts "Deleting batch id #{uni_updates_batch.batch_id}"
-    uni_updates_batch.destroy
     WebformsMailer.batch_delete_email(uni_updates_batch).deliver_now
+    uni_updates_batch.destroy
   end
 end
