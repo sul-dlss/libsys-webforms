@@ -377,7 +377,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionview (>= 5.2.4.4)
   activerecord-oracle_enhanced-adapter (~> 5.2.8)
   bootstrap-sass
   bootstrap_form
