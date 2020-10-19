@@ -8,8 +8,7 @@ cache:
     - '/home/travis/.rvm/'
 bundler_args: --without production
 before_install:
-  - sudo wget http://www.freetds.org/files/stable/freetds-1.1.6.tar.gz
-  - sudo tar -xzf freetds-1.1.6.tar.gz
+  - sudo tar -xzf lib/assets/freetds_1.1.6.orig.tar.gz
   - cd freetds-1.1.6
   - sudo ./configure --prefix=/usr/local --with-tdsver=7.3
   - sudo make
