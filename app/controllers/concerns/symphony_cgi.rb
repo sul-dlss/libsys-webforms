@@ -14,8 +14,8 @@ module SymphonyCgi
       Faraday.new headers: { accept_encoding: 'none' } do |conn|
         conn.get(request_url)
       end
-                      rescue Faraday::Error => e
-                        empty_response(e)
+    rescue Faraday::Error => e
+      empty_response(e)
     end
   end
 
