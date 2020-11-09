@@ -21,6 +21,9 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
+Lint/EmptyBlock:
+  Enabled: false
+
 Lint/SuppressedException:
   Enabled: false
 
