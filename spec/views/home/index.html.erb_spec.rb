@@ -19,8 +19,8 @@ describe 'home/index', type: :view do
 
   describe 'non-authorized user' do
     before do
-      stub_current_user_for_view {}
-      stub_user_id_for_view {}
+      stub_current_user_for_view { FactoryBot.create(:blank_user) }
+      stub_user_id_for_view { FactoryBot.create(:blank_user) }
       render
     end
 
