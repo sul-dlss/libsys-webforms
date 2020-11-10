@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6.3
+    - name: Install FreeTDS for LobbyTrack Tests
+      run: |
+        sudo tar -xzf lib/assets/freetds_1.1.6.orig.tar.gz
+        cd freetds-1.1.6
+        sudo ./configure --prefix=/usr/local --with-tdsver=7.3
+        sudo make
+        sudo make install
+        cd ..
+    - name: Install activerecord-oracle_enhanced-adapter gem
+      run: gem install activerecord-oracle_enhanced-adapter -v 5.2.8
+    - name: Install dependencies
+      run: bundle install --without production
+    - name: Setup file directories for tests
+      run: |
+        mkdir -p tmp/Dataload/EndowRpt
+        mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue
+        mkdir -p tmp/Dataload/UserloadRerun
+        mkdir -p tmp/Dataload/ILLiadUserExport
+        mkdir -p tmp/Libsys_webforms/sal3_batch_requests_batch/bc_file
+    - name: Set time zone for tests
+      run: sudo timedatectl set-timezone America/Los_Angeles
+    - name: Run tests
+      run: |
+        RAILS_ENV=test bundle exec rake db:test:prepare
+        RAILS_ENV=test bundle exec rake db:seed
+        bundle exec rake spec
