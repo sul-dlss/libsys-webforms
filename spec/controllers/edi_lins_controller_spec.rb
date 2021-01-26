@@ -106,10 +106,10 @@ RSpec.describe EdiLinsController, type: :controller do
     end
 
     let(:message) do
-      get 'update_barcode', params: { new_barcode: '11111111111111',
-                                      vend_id: 'AMALIV', doc_num: '592924',
-                                      edi_lin_num: 1, edi_sublin_count: 0,
-                                      old_barcode: '99999999999999' }
+      patch 'update_barcode', params: { edi_lin:
+                                          { new_barcode: '11111111111111', vend_id: 'AMALIV',
+                                            doc_num: '592924', edi_lin_num: 1, edi_sublin_count: 0,
+                                            old_barcode: '99999999999999' } }
     end
 
     before do

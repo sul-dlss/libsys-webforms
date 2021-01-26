@@ -48,12 +48,13 @@ class EdiLinsController < ApplicationController
   end
 
   def update_barcode
-    @barcode_result = EdiLin.update_barcode(params[:vend_id],
-                                            params[:doc_num],
-                                            params[:edi_lin_num],
-                                            params[:edi_sublin_count],
-                                            params[:old_barcode],
-                                            params[:new_barcode])
+    @barcode_result = EdiLin.update_barcode(params[:edi_lin][:vend_id],
+                                            params[:edi_lin][:doc_num],
+                                            params[:edi_lin][:edi_lin_num],
+                                            params[:edi_lin][:edi_sublin_count],
+                                            params[:edi_lin][:old_barcode],
+                                            params[:edi_lin][:new_barcode])
+
     flash[@barcode_result[0].to_sym] = @barcode_result[1]
     redirect_to edi_invoices_menu_path
   end
