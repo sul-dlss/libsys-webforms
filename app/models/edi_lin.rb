@@ -2,6 +2,8 @@
 class EdiLin < ApplicationRecord
   self.table_name = 'edi_lin'
 
+  attr_accessor :new_barcode
+
   def self.primary_key
     row_id
   end

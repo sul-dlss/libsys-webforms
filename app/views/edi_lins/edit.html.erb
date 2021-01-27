@@ -10,16 +10,21 @@
     </tr>
     </thead>
     <tbody>
-    <% @edi_lin.each do |edi, index | %>
-      <tr class='<%= cycle("odd", "even") %>'>
-        <td><%= edi.vend_id %></td>
-        <td><%= edi.doc_num %></td>
-        <td><%= edi.edi_lin_num.present? ? edi.edi_lin_num.to_i : '' %></td>
-        <td><%= text_field_tag('new_barcode', '', placeholder: edi.barcode_num.present? ? edi.barcode_num.to_i : '', onblur: "$('#barcode#{index}').data('bc', $(this).val())") %></td>
-        <td>
-          <%= link_to 'Change this barcode', {controller: 'edi_lins', action: 'update_barcode'}, id: "barcode#{index}", onclick: "window.location = '/edi_lins/update_barcode?new_barcode=' + $('#barcode#{index}').data('bc') + '&vend_id=#{edi.vend_id}&doc_num=#{edi.doc_num}&edi_lin_num=#{edi.edi_lin_num}&edi_sublin_count=#{edi.edi_sublin_count}&old_barcode=#{edi.barcode_num}'; return true" , class: 'btn btn-primary' %>
-        </td>
-      </tr>
+    <% @edi_lin.each do |edi, index| %>
+      <%= form_for edi, :url => { :action => 'update_barcode' }, class: 'form-group' do |f| %>
+        <tr class='<%= cycle('odd', 'even') %>'>
+          <td><%= edi.vend_id %></td>
+          <td><%= edi.doc_num %></td>
+          <td><%= edi.edi_lin_num.present? ? edi.edi_lin_num.to_i : '' %></td>
+          <td><%= f.text_field :new_barcode %></td>
+        </tr>
+        <%= f.hidden_field :doc_num, value: edi.doc_num %>
+        <%= f.hidden_field :vend_id, value: edi.vend_id %>
+        <%= f.hidden_field :edi_lin_num, value: edi.edi_lin_num %>
+        <%= f.hidden_field :edi_sublin_count, value: edi.edi_sublin_count %>
+        <%= f.hidden_field :old_barcode, value: edi.barcode_num %>
+        <td><%= f.submit 'Change this barcode', class:'btn btn-primary' %></td>
+      <% end %>
     <% end %>
     </tbody>
   </table>

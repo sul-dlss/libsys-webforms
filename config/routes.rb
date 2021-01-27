@@ -71,8 +71,8 @@ Rails.application.routes.draw do
   get 'edi_lins/fix_duplicate_barcode' => 'edi_lins#fix_duplicate_barcode'
   get 'edi_lins/index' => 'edi_lins#index'
   get 'edi_lins/update_edi_lin' => 'edi_lins#update_edi_lin'
-  get 'edi_lins/update_barcode' => 'edi_lins#update_barcode'
   get 'edi_lins/show/:barcode_num' => 'edi_lins#show'
+  patch 'edi_lins/update_barcode' => 'edi_lins#update_barcode'
 
   resources :lobbytrack_reports, only: [:index]
   post 'lobbytrack_reports/visits' => 'lobbytrack_reports#visits'
