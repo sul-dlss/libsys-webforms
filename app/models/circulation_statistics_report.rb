@@ -69,17 +69,23 @@ class CirculationStatisticsReport
   def lc_call_hi
     if call_lo.length == 1
       callnum_range = call_lo..'Z'
-      message = 'Hi callnum range must be empty or a later letter.'
+      message = 'Hi callnum range must be empty or a higher single letter.'
       errors.add(:base, message) unless call_hi.blank? || callnum_range.include?(call_hi)
-    elsif /^[A-Z]{2}$/.match?(call_lo)
-      first_letter = call_lo[0]
-      message = 'Hi callnum range must be empty or two letters with the same first letter as low range'
-      errors.add(:base, message) unless call_hi.blank? || call_hi =~ /^[#{Regexp.quote(first_letter)}][A-Z]$/
     elsif /^[A-Z]\#$/.match?(call_lo)
       call_hi.present? && errors.add(:base, 'Hi callnum range must be empty.')
+    elsif /^[A-Z]{2}$/.match?(call_lo)
+      validate_double_lc_call
     end
   end
   # rubocop:enable Metrics/AbcSize
+
+  def validate_double_lc_call
+    message = 'Hi callnum must be blank or contain two letters and be higher, and in the same range.'
+    # The first letter of call_lo and call_hi has to be the same
+    # The second letter of call_hi has to be higher than the second letter of call_lo
+    callnum_range = call_lo[1].next..'Z'
+    errors.add(:base, message) unless call_hi.blank? || (call_lo[0] == call_hi[0] && callnum_range.include?(call_hi[1]))
+  end
 
   def classic_call_lo_and_hi
     lo_integer = call_lo.to_i
