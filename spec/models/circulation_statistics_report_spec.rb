@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CirculationStatisticsReport, type: :model do
   describe 'LC callnum range' do
-    context 'when call_lo is one or two LC letters' do
+    context 'when call_lo is one LC letter and call_hi is blank' do
       let(:report) { FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n', call_hi: '') }
 
       it 'call_hi can be blank' do
@@ -13,10 +13,33 @@ RSpec.describe CirculationStatisticsReport, type: :model do
         report.validate
         expect(report.call_lo).to eq 'N'
       end
+
+      it 'call_hi can be one letter' do
+        report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n', call_hi: 'p')
+        expect(report).to be_valid
+      end
+
+      it 'call_hi has to be one letter if higher in range' do
+        report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n', call_hi: 'nd')
+        expect(report).not_to be_valid
+      end
     end
   end
 
-  context 'when call_lo is one or two LC letters' do
+  context 'when call_lo is two LC letters and call_hi is blank' do
+    let(:report) { FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'nd', call_hi: '') }
+
+    it 'call_hi can be blank' do
+      expect(report).to be_valid
+    end
+
+    it 'converts the call_lo to upper case' do
+      report.validate
+      expect(report.call_lo).to eq 'ND'
+    end
+  end
+
+  context 'when call_lo is two LC letters and call_hi is higher in range' do
     let(:report) { FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'nd', call_hi: 'nz') }
 
     it 'call_hi can be a latter letter' do
@@ -34,6 +57,18 @@ RSpec.describe CirculationStatisticsReport, type: :model do
     end
   end
 
+  context 'when call_lo is two LC letters and call_hi is not in range' do
+    it 'call_hi cannot be the same two letters as call_lo' do
+      report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'nd', call_hi: 'nd')
+      expect(report).not_to be_valid
+    end
+
+    it 'call_hi has to be in the same two-letter call range as call_lo' do
+      report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'nd', call_hi: 'pd')
+      expect(report).not_to be_valid
+    end
+  end
+
   context 'when call lo is one or two letters with a wildcard' do
     let(:report) { FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n#') }
 
@@ -44,6 +79,11 @@ RSpec.describe CirculationStatisticsReport, type: :model do
     it 'converts the call_lo to upper case' do
       report.validate
       expect(report.call_lo).to eq 'N#'
+    end
+
+    it 'cannot have a call_hi range' do
+      report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n#', call_hi: 'nz')
+      expect(report).not_to be_valid
     end
   end
 
