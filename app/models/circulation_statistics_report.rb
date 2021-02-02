@@ -65,7 +65,6 @@ class CirculationStatisticsReport
     errors.add(:base, message) unless call_lo&.match?(call_regex)
   end
 
-  # rubocop:disable Metrics/AbcSize
   def lc_call_hi
     if call_lo.length == 1
       callnum_range = call_lo..'Z'
@@ -77,7 +76,6 @@ class CirculationStatisticsReport
       validate_double_lc_call
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   def validate_double_lc_call
     message = 'Hi callnum must be blank or contain two letters and be higher, and in the same range.'

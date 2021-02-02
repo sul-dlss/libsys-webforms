@@ -21,7 +21,7 @@ RSpec.describe CirculationStatisticsReport, type: :model do
 
       it 'call_hi has to be one letter if higher in range' do
         report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n', call_hi: 'nd')
-        expect(report).to_not be_valid
+        expect(report).not_to be_valid
       end
     end
   end
@@ -60,12 +60,12 @@ RSpec.describe CirculationStatisticsReport, type: :model do
   context 'when call_lo is two LC letters and call_hi is not in range' do
     it 'call_hi cannot be the same two letters as call_lo' do
       report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'nd', call_hi: 'nd')
-      expect(report).to_not be_valid
+      expect(report).not_to be_valid
     end
 
     it 'call_hi has to be in the same two-letter call range as call_lo' do
       report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'nd', call_hi: 'pd')
-      expect(report).to_not be_valid
+      expect(report).not_to be_valid
     end
   end
 
@@ -83,7 +83,7 @@ RSpec.describe CirculationStatisticsReport, type: :model do
 
     it 'cannot have a call_hi range' do
       report = FactoryBot.build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n#', call_hi: 'nz')
-      expect(report).to_not be_valid
+      expect(report).not_to be_valid
     end
   end
 
