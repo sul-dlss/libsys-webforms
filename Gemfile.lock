@@ -181,7 +181,7 @@ GEM
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
-    honeybadger (4.7.2)
+    honeybadger (4.7.3)
     i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
