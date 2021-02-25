@@ -13,7 +13,7 @@ class EdiLin < ApplicationRecord
   end
 
   def self.update_edi_lin(vendor, invoice, line)
-    return ['error', 'Line number must be an integer'] unless line.is_a? Integer
+    return ['error', 'Line number must be an integer'] unless line.to_i.positive?
 
     edi_lin = where('vend_id = ? AND doc_num = ? AND edi_lin_num = ? AND edi_sublin_count = 0', vendor, invoice, line)
     if ids_match?(EdiSumrzBib.id(edi_lin.vend_unique_id), edi_lin.vend_unique_id)

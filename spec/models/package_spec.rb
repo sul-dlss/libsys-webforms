@@ -110,11 +110,13 @@ RSpec.describe Package, type: :model do
     end
 
     it 'date entered has a value' do
-      expect(@package.date_entered).to eq Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle))
+      expect(@package.date_entered.strftime('%T'))
+        .to eq Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle)).strftime('%T')
     end
 
     it 'date modified is updated' do
-      expect(@package.date_modified).to eq Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle))
+      expect(@package.date_modified.strftime('%T'))
+        .to eq Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle)).strftime('%T')
     end
   end
 end
