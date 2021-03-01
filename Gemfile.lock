@@ -105,7 +105,7 @@ GEM
     composite_primary_keys (11.3.1)
       activerecord (~> 5.2.4)
     concurrent-ruby (1.1.8)
-    config (2.2.3)
+    config (3.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     coveralls (0.8.23)
