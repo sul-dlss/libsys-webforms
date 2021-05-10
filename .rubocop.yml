@@ -55,6 +55,9 @@ Metrics/AbcSize:
 Metrics/ParameterLists:
   Max: 6
 
+Rails/EnvironmentVariableAccess:
+  Enabled: false
+
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/models/edi_lin.rb'
