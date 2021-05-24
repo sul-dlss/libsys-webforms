@@ -50,7 +50,7 @@ gem 'tsv'
 # Rails javascript runtime environment
 gem 'therubyracer'
 # To query an sqlserver instance (lobbytrack)
-gem 'tiny_tds', '~> 2.1.3'
+gem 'tiny_tds', '~> 2.1.5'
 
 
 group :production do
