@@ -22,7 +22,6 @@ class Ckey2bibframesController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def ckey2bibframe_params
     params.require(:ckey2bibframe).permit(:ckey, :baseuri)
   end

@@ -19,7 +19,6 @@ class SsdsRequestsController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def ssds_request_params
     params.require(:ssds_request).permit(:affiliation, :call_no_in, :dataset_type, :department, :name,
                                          :notes, :phone, :sponsor, :sunet, :title_in, :unicorn_id_in)

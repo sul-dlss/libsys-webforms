@@ -25,7 +25,6 @@ class UserloadRerunsController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def userload_rerun_params
     params.require(:userload_rerun).permit(:rerun_date)
   end

@@ -109,7 +109,6 @@ class PackagesController < ApplicationController
     @package = Package.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def package_params
     params.require(:package).permit!
   end

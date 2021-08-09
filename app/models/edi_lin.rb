@@ -18,7 +18,7 @@ class EdiLin < ApplicationRecord
     edi_lin = where('vend_id = ? AND doc_num = ? AND edi_lin_num = ? AND edi_sublin_count = 0', vendor, invoice, line)
     if ids_match?(EdiSumrzBib.id(edi_lin.vend_unique_id), edi_lin.vend_unique_id)
       ['error', 'Cannot set this invoice line to "noBib." This invoice line has a bib match in Symphony. '\
-      'It should not need to be set to "allow noBib"']
+                'It should not need to be set to "allow noBib"']
     else
       make_nobib(edi_lin.vend_unique_id)
       EdiSumrzBib.insert(edi_lin)
