@@ -79,7 +79,6 @@ class AccessionNumbersController < ApplicationController
     @accession_number = AccessionNumber.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def accession_number_params
     params.require(:accession_number).permit(:item_type, :location, :prefix, :resource_type, :seq_num_incrementer)
   end

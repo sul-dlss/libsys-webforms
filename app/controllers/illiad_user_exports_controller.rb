@@ -22,7 +22,6 @@ class IlliadUserExportsController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def illiad_user_export_params
     params.require(:illiad_user_export).permit(:sunet_ids)
   end

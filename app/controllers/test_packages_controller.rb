@@ -12,7 +12,6 @@ class TestPackagesController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def test_package_params
     params.require(:package_id)
   end

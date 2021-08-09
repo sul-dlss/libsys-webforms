@@ -34,7 +34,6 @@ class PlSqlJobController < ApplicationController
     redirect_to run_tests_packages_path
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def create_params
     params.permit(:command, :confirm)
   end
