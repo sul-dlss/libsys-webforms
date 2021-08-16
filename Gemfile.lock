@@ -313,7 +313,7 @@ GEM
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
     ruby-oci8 (2.2.9)
-    ruby-plsql (0.7.1)
+    ruby-plsql (0.8.0)
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.2)
       ffi (~> 1.12)
