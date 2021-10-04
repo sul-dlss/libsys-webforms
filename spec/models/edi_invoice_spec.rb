@@ -22,7 +22,7 @@ RSpec.describe EdiInvoice, type: :model do
       expect(update[0].to_s).to eq 'error'
     end
 
-    it 'inserts a new exclude row into the  edi_invoice table if an exclude does not exist' do
+    it 'inserts a new exclude row into the edi_invoice table if an exclude does not exist' do
       update = described_class.make_updates('AMALIV', '12345')
       expect(update[0].to_s).to eq 'warning'
       edi_invoice = described_class.find_by(edi_vend_id: 'AMALIV', edi_doc_num: '12345')

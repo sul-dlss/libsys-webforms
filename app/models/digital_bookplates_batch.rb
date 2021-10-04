@@ -15,7 +15,7 @@ class DigitalBookplatesBatch < ApplicationRecord
   private
 
   def parse_ckey_file
-    IO.read(file_obj.path).split("\n").uniq.length
+    File.read(file_obj.path).split("\n").uniq.length
   end
 
   def num_ckeys

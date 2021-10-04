@@ -5,7 +5,7 @@ namespace :webforms do
   # TODO DRY rake tasks up!
   task :transfer_items, %i[path_to_file current_lib new_lib new_homeloc new_curloc
                            new_itype email comments] => :environment do |_t, args|
-    barcodes = IO.read(args[:path_to_file]).split("\n").uniq
+    barcodes = File.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: I18n.l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
@@ -32,7 +32,7 @@ end
 namespace :webforms do
   desc 'Withdraw a batch'
   task :withdraw_items, %i[path_to_file current_lib email comments] => :environment do |_t, args|
-    barcodes = IO.read(args[:path_to_file]).split("\n").uniq
+    barcodes = File.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: I18n.l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
@@ -56,7 +56,7 @@ namespace :webforms do
   desc 'Change home location of a batch'
   task :change_home_location, %i[path_to_file current_lib new_homeloc
                                  new_curloc new_itype email comments] => :environment do |_t, args|
-    barcodes = IO.read(args[:path_to_file]).split("\n").uniq
+    barcodes = File.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: I18n.l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
@@ -83,7 +83,7 @@ namespace :webforms do
   desc 'Change current location of a batch'
   task :change_current_location, %i[path_to_file current_lib
                                     new_curloc email comments] => :environment do |_t, args|
-    barcodes = IO.read(args[:path_to_file]).split("\n").uniq
+    barcodes = File.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: I18n.l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
@@ -108,7 +108,7 @@ namespace :webforms do
   desc 'Change item type of a batch'
   task :change_item_type, %i[path_to_file current_lib new_itype
                              email comments] => :environment do |_t, args|
-    barcodes = IO.read(args[:path_to_file]).split("\n").uniq
+    barcodes = File.read(args[:path_to_file]).split("\n").uniq
     @uni_updates_batch = UniUpdatesBatch.create(batch_date: I18n.l(Time.now.getlocal, format: :oracle),
                                                 user_name: 'batch',
                                                 user_email: args[:email],
