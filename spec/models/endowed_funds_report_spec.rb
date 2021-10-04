@@ -122,7 +122,7 @@ RSpec.describe EndowedFundsReport, type: :model do
       described_class.new(fund_begin: 'All SUL Funds', fy_start: 'FY 2010', fy_end: 'FY 2011')
     end
 
-    it 'returns empty ' do
+    it 'returns empty' do
       expect(report.keys.size).to be 0
     end
   end

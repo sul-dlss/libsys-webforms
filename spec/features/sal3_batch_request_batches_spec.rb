@@ -55,7 +55,7 @@ describe 'Sal3 Batch Requests Batch Page', type: :feature do
       /(ALL|NEW|APPROVED|REJECTED|SUSPENDED|DONE)/
     end
 
-    it 'display the ' do
+    it 'display the' do
       expect(page).to have_css('option', text: selections)
     end
   end

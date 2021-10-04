@@ -98,7 +98,7 @@ class Sal3BatchRequestsBatch < ApplicationRecord
     file_obj = bc_file.current_path
     barcodes = nil
     begin
-      barcodes = IO.read(file_obj).split("\n").uniq.length
+      barcodes = File.read(file_obj).split("\n").uniq.length
     rescue ArgumentError
     end
     update(num_bcs: barcodes)

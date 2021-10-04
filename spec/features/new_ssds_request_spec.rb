@@ -43,7 +43,7 @@ describe 'New SSDS Request', type: :feature do
     expect(page).to have_css('label[for="ssds_request_department"]')
   end
 
-  it 'shows the Department options ' do
+  it 'shows the Department options' do
     expect(page).to have_css('select#ssds_request_department > option[value="Other"]')
   end
 
@@ -51,7 +51,7 @@ describe 'New SSDS Request', type: :feature do
     expect(page).to have_css('label[for="ssds_request_phone"]')
   end
 
-  it 'shows the Phone field ' do
+  it 'shows the Phone field' do
     expect(page).to have_css('input#ssds_request_phone')
   end
 
@@ -59,7 +59,7 @@ describe 'New SSDS Request', type: :feature do
     expect(page).to have_css('label[for="ssds_request_sponsor"]')
   end
 
-  it 'shows the Sponsor field ' do
+  it 'shows the Sponsor field' do
     expect(page).to have_css('input#ssds_request_sponsor')
   end
 
@@ -75,7 +75,7 @@ describe 'New SSDS Request', type: :feature do
     expect(page).to have_css('label[for="ssds_request_call_no_in"]')
   end
 
-  it 'shows the Dataset Number with passed in value ' do
+  it 'shows the Dataset Number with passed in value' do
     expect(page).to have_css('input#ssds_request_call_no_in[value="TAPE NO. AS1999 ETC"]')
   end
 
@@ -83,7 +83,7 @@ describe 'New SSDS Request', type: :feature do
     expect(page).to have_css('label[for="ssds_request_unicorn_id_in"]')
   end
 
-  it 'shows the Catalog Key with passed in value ' do
+  it 'shows the Catalog Key with passed in value' do
     expect(page).to have_css('input#ssds_request_unicorn_id_in[value="510163"]')
   end
 
@@ -91,7 +91,7 @@ describe 'New SSDS Request', type: :feature do
     expect(page).to have_css('label[for="ssds_request_notes"]')
   end
 
-  it 'shows the Notes field ' do
+  it 'shows the Notes field' do
     expect(page).to have_css('textarea#ssds_request_notes')
   end
 
