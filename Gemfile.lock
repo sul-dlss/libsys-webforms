@@ -198,9 +198,8 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
-    mimemagic (0.4.3)
+    mimemagic (0.3.8)
       nokogiri (~> 1)
-      rake
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
@@ -402,6 +401,7 @@ DEPENDENCIES
   honeybadger
   jbuilder
   jquery-rails
+  mimemagic (= 0.3.8)
   nokogiri (>= 1.10.5)
   okcomputer
   rails (~> 5.2.6.3)
