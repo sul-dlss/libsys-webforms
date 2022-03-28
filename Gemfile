@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4.5'
+gem 'rails', '~> 5.2.6.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -51,7 +51,8 @@ gem 'tsv'
 gem 'therubyracer'
 # To query an sqlserver instance (lobbytrack)
 gem 'tiny_tds', '~> 2.1.3'
-
+# PIn mimemagic to fix issue with rails 5.2.6.3
+gem 'mimemagic', '=0.3.8'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.8'
