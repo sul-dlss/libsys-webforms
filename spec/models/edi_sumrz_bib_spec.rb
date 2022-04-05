@@ -12,7 +12,7 @@ RSpec.describe EdiSumrzBib, type: :model do
       expect(edi_sumrz_bib.vend_code).to eq 'AMALIV'
       expect(edi_sumrz_bib.id001).to eq 'aal0762919'
       expect(edi_sumrz_bib.load_date).to eq Time.now.getlocal.strftime('%Y-%m-%d %H:%M:%S %z')
-      expect(edi_sumrz_bib.active_record).to eq nil
+      expect(edi_sumrz_bib.active_record).to be_nil
     end
     # rubocop:enable RSpec/MultipleExpectations, Rails/SkipsModelValidations
   end

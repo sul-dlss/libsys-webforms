@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe EdiInvoicesController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
-    @edi_invoice = FactoryBot.create(:edi_invoice)
+    stub_current_user(create(:authorized_user))
+    @edi_invoice = create(:edi_invoice)
   end
 
   describe 'get#index' do

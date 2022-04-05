@@ -2,18 +2,18 @@ require 'rails_helper'
 
 describe WebformsMailer do
   describe 'batch update and delete mail' do
-    let(:uni_updates_batch) { FactoryBot.create(:uni_updates_batch) }
-    let(:sal3_batch_requests_batch) { FactoryBot.create(:sal3_batch_requests_batch) }
-    let(:uni_updates_batch_w_no_user) { FactoryBot.create(:uni_updates_batch, user_email: '') }
-    let(:sal3_batch_requests_batch_w_no_user) { FactoryBot.create(:sal3_batch_requests_batch, user_email: '') }
+    let(:uni_updates_batch) { create(:uni_updates_batch) }
+    let(:sal3_batch_requests_batch) { create(:sal3_batch_requests_batch) }
+    let(:uni_updates_batch_w_no_user) { create(:uni_updates_batch, user_email: '') }
+    let(:sal3_batch_requests_batch_w_no_user) { create(:sal3_batch_requests_batch, user_email: '') }
     let(:uni_updates_batch_w_emails) do
-      FactoryBot.build(:uni_updates_batch, user_email: 'libraryuser@stanford.edu,
+      build(:uni_updates_batch, user_email: 'libraryuser@stanford.edu,
                                                         otheruser@stanford.edu
                                                         anotheruser@stanford.edu;
                                                         lastuser@stanford.edu')
     end
     let(:sal3_batch_requests_batch_w_emails) do
-      FactoryBot.build(:sal3_batch_requests_batch, user_email: 'libraryuser@stanford.edu,
+      build(:sal3_batch_requests_batch, user_email: 'libraryuser@stanford.edu,
                                                                 sal3contact@stanford.edu,
                                                                 otheruser@stanford.edu
                                                                 anotheruser@stanford.edu;

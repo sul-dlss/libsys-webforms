@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe UniUpdatesErrors do
-  describe 'errors_for_batch' do
-    batch_errors = FactoryBot.create(:errors_for_batch)
+  let(:batch_errors) { create(:errors_for_batch) }
 
+  describe 'errors_for_batch' do
     it 'returns a datetime table row for the given batch id' do
       expect(batch_errors.run).to eq '2013-06-15 12:06:35'
     end

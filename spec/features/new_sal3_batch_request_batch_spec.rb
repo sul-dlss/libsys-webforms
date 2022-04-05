@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Sal3 Batch Requests Batches', type: :feature do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
     visit new_sal3_batch_requests_batch_path
   end
 

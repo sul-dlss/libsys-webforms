@@ -30,7 +30,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
   describe 'get#index', type: :lobbytrack_reports do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
     end
 
     it 'gets the input form page' do
@@ -41,7 +41,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
   describe 'post#visits', type: :lobbytrack_reports do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
     end
 
     context 'when there is a visit id' do
@@ -126,7 +126,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
   describe 'post#visit_dates', type: :lobbytrack_reports do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
     end
 
     context 'when there are results with in the date range' do
@@ -189,7 +189,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
   describe 'get#checkins', type: :lobbytrack_reports do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
     end
 
     context 'when the checkin id is valid' do
@@ -273,7 +273,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
 
   describe 'post#checkin_dates', type: :lobbytrack_reports do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
     end
 
     context 'when there are results with in the date range' do

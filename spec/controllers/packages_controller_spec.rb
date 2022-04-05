@@ -3,8 +3,8 @@ require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 RSpec.describe PackagesController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:admin_user))
-    FactoryBot.create(:package)
+    stub_current_user(create(:admin_user))
+    create(:package)
   end
 
   let(:valid_attributes) do

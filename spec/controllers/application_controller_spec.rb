@@ -24,7 +24,7 @@ describe ApplicationController do
   describe '#current_user' do
     it 'sets the current_user as a webauth_user' do
       user_id = controller.send(:user_id)
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
       current_user = controller.send(:current_user)
       expect(current_user.user_id).to eq(user_id)
     end
@@ -37,7 +37,7 @@ describe ApplicationController do
     end
 
     it 'checks whether the user is both an current_user and has a user_id from webauth' do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
       webauth_user = controller.send(:webauth_user?)
       expect(webauth_user).to be_falsey
     end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Packages Run Tests', type: :feature do
   before do
-    stub_current_user(FactoryBot.create(:admin_user))
+    stub_current_user(create(:admin_user))
     visit run_tests_packages_path
   end
 

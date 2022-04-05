@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Encumbrance Reports Page', type: :feature, js: true do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
     visit new_encumbrance_report_path
   end
 

@@ -59,6 +59,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include Capybara::DSL
+  # Use shortcuts from FactoryBot::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end
 
 def stub_current_user(user)

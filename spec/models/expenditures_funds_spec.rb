@@ -7,7 +7,7 @@ RSpec.describe ExpendituresFunds, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(FactoryBot.create(:expenditures_funds)).to be_valid
+    expect(create(:expenditures_funds)).to be_valid
   end
 
   it 'supplies a table of funds' do

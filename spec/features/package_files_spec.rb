@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'Package Files', type: :feature do
   before do
-    stub_current_user(FactoryBot.create(:admin_user))
-    @package_file = FactoryBot.create(:package_file)
-    @package_file_done = FactoryBot.create(:package_file_done)
-    @package = FactoryBot.create(:package)
+    stub_current_user(create(:admin_user))
+    @package_file = create(:package_file)
+    @package_file_done = create(:package_file_done)
+    @package = create(:package)
   end
 
   context 'with queue page' do
@@ -28,7 +28,7 @@ describe 'Package Files', type: :feature do
 
   context 'when completed page' do
     before do
-      stub_current_user(FactoryBot.create(:staff_user))
+      stub_current_user(create(:staff_user))
       visit package_files_completed_url(package_id: @package_file_done.package_id)
     end
 

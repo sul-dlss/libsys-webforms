@@ -58,6 +58,9 @@ Metrics/ParameterLists:
 Rails/EnvironmentVariableAccess:
   Enabled: false
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/models/edi_lin.rb'

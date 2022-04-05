@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'edi_invoices/index', type: :view do
   before do
-    assign(:edi_invoice, [FactoryBot.create(:edi_invoice)])
+    assign(:edi_invoice, [create(:edi_invoice)])
   end
 
   context 'with any user' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:staff_user) }
+      stub_current_user_for_view { create(:staff_user) }
       render
     end
 

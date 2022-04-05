@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'accession_numbers/show', type: :view do
   before do
-    stub_current_user_for_view { FactoryBot.create(:authorized_user) }
+    stub_current_user_for_view { create(:authorized_user) }
     @accession_number = assign(:accession_number, AccessionNumber.create!(
                                                     resource_type: 'Type of resource',
                                                     item_type: 'Type of material',

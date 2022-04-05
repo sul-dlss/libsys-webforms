@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UniUpdMhldError, type: :model do
-  describe 'errors_for_mhld' do
-    batch_errors = FactoryBot.create(:uni_upd_mhld_error)
+  let(:batch_errors) { create(:uni_upd_mhld_error) }
 
+  describe 'errors_for_mhld' do
     it 'returns a batch_id table row for the given batch id' do
       expect(batch_errors.batch_id).to eq 247_89
     end

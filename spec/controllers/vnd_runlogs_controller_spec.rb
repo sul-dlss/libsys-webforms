@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe VndRunlogsController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:admin_user))
+    stub_current_user(create(:admin_user))
   end
 
   describe 'GET #recent' do

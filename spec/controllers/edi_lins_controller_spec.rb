@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe EdiLinsController, type: :controller do
   Rails.application.load_seed
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
   end
 
   let(:message) do
@@ -21,7 +21,7 @@ RSpec.describe EdiLinsController, type: :controller do
 
   describe 'update with actual table updates' do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
     end
 
     it 'notifies of noBib change when there is no match between edi_lin and edi_sumrz_bib' do

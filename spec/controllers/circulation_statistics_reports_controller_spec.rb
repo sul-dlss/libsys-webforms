@@ -3,7 +3,7 @@ require 'circ_stats_report_examples'
 
 RSpec.describe CirculationStatisticsReportsController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
   end
 
   let(:valid_attributes) do

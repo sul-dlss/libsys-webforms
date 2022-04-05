@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe AuthorizedUsersController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
-    @authorized_user = FactoryBot.create(:admin_user)
-    @blank_user = FactoryBot.create(:blank_user)
+    stub_current_user(create(:authorized_user))
+    @authorized_user = create(:admin_user)
+    @blank_user = create(:blank_user)
   end
 
   describe 'get#index' do

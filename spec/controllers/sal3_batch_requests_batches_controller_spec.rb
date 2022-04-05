@@ -3,7 +3,7 @@ require 'rails_helper'
 # rubocop: disable Metrics/BlockLength
 RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
   end
 
   let(:barcode_file) do
@@ -13,7 +13,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
 
   describe 'get#index' do
     it 'is successful returning the index page' do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
       get 'index'
       expect(response).to render_template('index')
     end
@@ -51,7 +51,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
           bc_file: barcode_file }
       end
 
-      let(:request) { FactoryBot.create(:sal3_batch_requests_batch) }
+      let(:request) { create(:sal3_batch_requests_batch) }
 
       it 'records the number of barcodes in the model' do
         expect(request.num_bcs).to eq 2
@@ -86,10 +86,10 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
           bc_file: xlsx_file }
       end
 
-      let(:request) { FactoryBot.create(:sal3_batch_requests_batch_invalid_file) }
+      let(:request) { create(:sal3_batch_requests_batch_invalid_file) }
 
       it 'records the number of barcodes in the model' do
-        expect(request.num_bcs).to eq nil
+        expect(request.num_bcs).to be_nil
       end
 
       it 'validates the array of item_ids to check that they are UTF-8 encodable (i.e. not an xlsx file)' do
@@ -108,7 +108,7 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
                                                                   pseudo_id: 'MAPSCANLAB',
                                                                   batch_startdate: Time.zone.today,
                                                                   batch_needbydate: Time.zone.today + 30)
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
       get 'edit', params: { id: @sal3_batch_requests_batch }
       expect(response).to be_successful
     end

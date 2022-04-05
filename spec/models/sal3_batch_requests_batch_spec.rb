@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Sal3BatchRequestsBatch, type: :model do
   it 'has a valid factory' do
-    expect(FactoryBot.create(:sal3_batch_requests_batch)).to be_valid
+    expect(create(:sal3_batch_requests_batch)).to be_valid
   end
 
   it 'Defines delivery locations' do

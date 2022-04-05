@@ -52,7 +52,7 @@ gem 'therubyracer'
 # To query an sqlserver instance (lobbytrack)
 gem 'tiny_tds', '~> 2.1.3'
 # PIn mimemagic to fix issue with rails 5.2.6.3
-gem 'mimemagic', '=0.3.8'
+gem 'mimemagic', '0.4.3'
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.8'

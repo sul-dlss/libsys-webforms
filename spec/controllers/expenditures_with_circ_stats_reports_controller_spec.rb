@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
-    FactoryBot.create(:expenditures_fy_date)
+    stub_current_user(create(:authorized_user))
+    create(:expenditures_fy_date)
   end
 
   describe 'get#new' do

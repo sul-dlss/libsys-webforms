@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe DigitalBookplatesBatchesController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:staff_user))
-    @completed_batch = FactoryBot.create(:digital_bookplates_completed_batches)
+    stub_current_user(create(:staff_user))
+    @completed_batch = create(:digital_bookplates_completed_batches)
   end
 
   let(:ckeys_file) do

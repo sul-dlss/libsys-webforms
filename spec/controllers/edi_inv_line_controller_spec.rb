@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe EdiInvLineController, type: :controller do
   describe 'get#edit' do
     it 'is successful returning the edit view' do
-      @edi_inv_line = FactoryBot.create(:edi_inv_line)
-      stub_current_user(FactoryBot.create(:authorized_user))
+      @edi_inv_line = create(:edi_inv_line)
+      stub_current_user(create(:authorized_user))
       get 'edit', params: { id: @edi_inv_line }
       expect(response).to be_successful
     end
@@ -12,8 +12,8 @@ RSpec.describe EdiInvLineController, type: :controller do
 
   describe 'put#update' do
     before do
-      stub_current_user(FactoryBot.create(:authorized_user))
-      @edi_inv_line = FactoryBot.create(:edi_inv_line)
+      stub_current_user(create(:authorized_user))
+      @edi_inv_line = create(:edi_inv_line)
     end
 
     describe 'for existing edi invoice line' do

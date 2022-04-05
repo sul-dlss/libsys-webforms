@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe EdiErrorReportsController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
-    @edi_error_report = FactoryBot.create(:edi_error_report)
+    stub_current_user(create(:authorized_user))
+    @edi_error_report = create(:edi_error_report)
   end
 
   describe 'get#index' do

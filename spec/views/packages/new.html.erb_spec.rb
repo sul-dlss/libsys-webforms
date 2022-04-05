@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'packages/new', type: :view do
   before do
-    @package = FactoryBot.create(:package)
+    @package = create(:package)
   end
 
   it 'renders new package form' do

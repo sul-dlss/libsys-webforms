@@ -5,7 +5,7 @@ RSpec.describe EndowedFundsReport, type: :model do
   describe 'querying specific funds from expenditures' do
     before do
       %w(123 456 789).each do |ckey|
-        FactoryBot.create(:expenditures, ol_cat_key: ckey)
+        create(:expenditures, ol_cat_key: ckey)
       end
     end
 
@@ -22,7 +22,7 @@ RSpec.describe EndowedFundsReport, type: :model do
     before do
       FactoryBot.reload
       %w(123 456 789).each do |ckey|
-        FactoryBot.create(:expenditures, ol_cat_key: ckey)
+        create(:expenditures, ol_cat_key: ckey)
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe EndowedFundsReport, type: :model do
     before do
       FactoryBot.reload
       %w(123 456 789).each do |ckey|
-        FactoryBot.create(:expenditures, ol_cat_key: ckey, ta_fund_code: 'All SUL Funds')
+        create(:expenditures, ol_cat_key: ckey, ta_fund_code: 'All SUL Funds')
       end
     end
 
