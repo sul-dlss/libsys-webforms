@@ -45,18 +45,18 @@ RSpec.describe EdiInvoice, type: :model do
       expect(update[0].to_s).to eq 'warning'
 
       inv_line = EdiInvLine.find_by(edi_doc_num: '150305', edi_vend_id: 'HARRAS')
-      expect(inv_line).to be nil
+      expect(inv_line).to be_nil
 
       piece = EdiInvPiece.find_by(edi_doc_num: '150305', edi_vend_id: 'HARRAS')
-      expect(piece).to be nil
+      expect(piece).to be_nil
 
       edi_invoice = described_class.find_by(edi_vend_id: 'HARRAS', edi_doc_num: '150305')
       expect(edi_invoice.todo).to eq('Excld')
-      expect(edi_invoice.uni_vend_key).to eq(nil)
-      expect(edi_invoice.uni_accrue_or_pay_tax).to eq(nil)
-      expect(edi_invoice.edi_stanfd_account).to eq(nil)
-      expect(edi_invoice.uni_inv_lib).to eq(nil)
-      expect(edi_invoice.uni_inv_key).to eq(nil)
+      expect(edi_invoice.uni_vend_key).to be_nil
+      expect(edi_invoice.uni_accrue_or_pay_tax).to be_nil
+      expect(edi_invoice.edi_stanfd_account).to be_nil
+      expect(edi_invoice.uni_inv_lib).to be_nil
+      expect(edi_invoice.uni_inv_key).to be_nil
       expect(edi_invoice.uni_inv_num).to include('<-Excld')
       expect(edi_invoice.edi_invc_total).to eq(0)
       expect(edi_invoice.uni_invc_total).to eq(0)
@@ -64,10 +64,10 @@ RSpec.describe EdiInvoice, type: :model do
       expect(edi_invoice.edi_total_freight).to eq(0)
       expect(edi_invoice.edi_total_handling).to eq(0)
       expect(edi_invoice.edi_total_insurance).to eq(0)
-      expect(edi_invoice.edi_cur_code).to eq(nil)
+      expect(edi_invoice.edi_cur_code).to be_nil
       expect(edi_invoice.edi_total_tax).to eq(0)
-      expect(edi_invoice.edi_exchg_rate).to eq(nil)
-      expect(edi_invoice.edi_tax_rate).to eq(nil)
+      expect(edi_invoice.edi_exchg_rate).to be_nil
+      expect(edi_invoice.edi_tax_rate).to be_nil
       expect(edi_invoice.edi_total_pieces).to eq(0)
     end
   end

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe AccessionNumbersController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
-    @accession_number = FactoryBot.create(:accession_number)
-    @zvc_number = FactoryBot.create(:zvc_number)
+    stub_current_user(create(:authorized_user))
+    @accession_number = create(:accession_number)
+    @zvc_number = create(:zvc_number)
   end
 
   let(:valid_attributes) do

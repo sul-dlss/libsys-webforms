@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Edi Invoices', type: :feature, js: true do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
     visit edi_invoices_path
   end
 

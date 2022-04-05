@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Sal3BatchRequestsBcsController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
   end
 
   let(:barcode_file) do

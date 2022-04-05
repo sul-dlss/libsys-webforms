@@ -64,13 +64,13 @@ RSpec.describe Ability do
   end
 
   context 'with no abilities in authorized user table' do
-    let(:user) { FactoryBot.create(:blank_user) }
+    let(:user) { create(:blank_user) }
 
     it { is_expected.to be_able_to(:manage, BatchRecordUpdate.new) }
   end
 
   context 'with staff specified permissions' do
-    let(:user) { FactoryBot.create(:staff_user) }
+    let(:user) { create(:staff_user) }
 
     context 'with accession number' do
       it 'can read accession numbers' do
@@ -124,7 +124,7 @@ RSpec.describe Ability do
   end
 
   context 'with staff read permissions' do
-    let(:user) { FactoryBot.create(:staff_user) }
+    let(:user) { create(:staff_user) }
 
     staff_read_permissions.each do |r|
       it { is_expected.to be_able_to(:read, r.new) }
@@ -132,7 +132,7 @@ RSpec.describe Ability do
   end
 
   context 'with staff manage permissions' do
-    let(:user) { FactoryBot.create(:authorized_user) }
+    let(:user) { create(:authorized_user) }
 
     staff_manage_permissions.each do |r|
       it { is_expected.to be_able_to(:manage, r.new) }
@@ -144,7 +144,7 @@ RSpec.describe Ability do
   end
 
   context 'with admin permissions' do
-    let(:user) { FactoryBot.create(:admin_user) }
+    let(:user) { create(:admin_user) }
 
     it 'can create new accession numbers' do
       expect(ability).to be_able_to(:manage, AccessionNumber.new)

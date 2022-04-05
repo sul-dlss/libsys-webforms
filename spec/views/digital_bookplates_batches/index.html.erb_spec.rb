@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'digital_bookplates_batches/index', type: :view do
   context 'with admin user for digital bookplate batches' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:admin_user) }
+      stub_current_user_for_view { create(:admin_user) }
       render
     end
 
@@ -25,7 +25,7 @@ RSpec.describe 'digital_bookplates_batches/index', type: :view do
 
   context 'with staff user for digital bookplate batches' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:staff_user) }
+      stub_current_user_for_view { create(:staff_user) }
       render
     end
 

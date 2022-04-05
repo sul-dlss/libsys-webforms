@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UniUpdates, type: :model do
   it 'has a valid factory' do
-    expect(FactoryBot.create(:uni_updates)).to be_valid
+    expect(create(:uni_updates)).to be_valid
   end
 
   it 'separates unique ids from dups' do

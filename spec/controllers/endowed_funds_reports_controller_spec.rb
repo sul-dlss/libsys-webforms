@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe EndowedFundsReportsController, type: :controller do
   before do
-    stub_current_user(FactoryBot.create(:authorized_user))
+    stub_current_user(create(:authorized_user))
   end
 
   describe 'get#new' do
     it 'renders the correct template' do
-      stub_current_user(FactoryBot.create(:authorized_user))
+      stub_current_user(create(:authorized_user))
       get 'new'
       expect(response).to render_template('new')
     end
@@ -17,7 +17,7 @@ RSpec.describe EndowedFundsReportsController, type: :controller do
     context 'when there are keys returned from the Expenditires table' do
       before do
         %w(123 456 789).each do |ckey|
-          FactoryBot.create(:expenditures, ol_cat_key: ckey)
+          create(:expenditures, ol_cat_key: ckey)
         end
       end
 

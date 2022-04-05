@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'digital_bookplates_batches/completed', type: :view do
   before do
-    stub_current_user_for_view { FactoryBot.create(:staff_user) }
-    @digital_bookplates_batch = FactoryBot.create(:digital_bookplates_completed_batches)
+    stub_current_user_for_view { create(:staff_user) }
+    @digital_bookplates_batch = create(:digital_bookplates_completed_batches)
     assign(:digital_bookplates_batches, [@digital_bookplates_batch])
     render
   end

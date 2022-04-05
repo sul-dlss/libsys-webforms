@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Package, type: :model do
   before do
-    @package = FactoryBot.create(:package)
+    @package = create(:package)
   end
 
   it 'has a valid factory' do

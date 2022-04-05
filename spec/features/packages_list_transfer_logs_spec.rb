@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'Packages List Transfer Logs', type: :feature do
   before do
-    stub_current_user(FactoryBot.create(:admin_user))
-    FactoryBot.create(:vnd_runlog)
-    FactoryBot.create(:vnd_runlog_info)
+    stub_current_user(create(:admin_user))
+    create(:vnd_runlog)
+    create(:vnd_runlog_info)
     visit list_transfer_logs_packages_path
   end
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Expenditures, type: :model do
   describe 'querying from expenditures' do
     before do
-      @expenditures = FactoryBot.create(:expenditures)
+      @expenditures = create(:expenditures)
     end
 
     it 'retrieves a set of fund codes' do

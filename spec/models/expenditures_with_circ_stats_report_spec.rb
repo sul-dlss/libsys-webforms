@@ -3,16 +3,16 @@ require 'rails_helper'
 # rubocop:disable  Metrics/BlockLength
 RSpec.describe ExpendituresWithCircStatsReport, type: :model do
   before do
-    FactoryBot.create(:expenditures_fy_date)
+    create(:expenditures_fy_date)
   end
 
   it 'has a valid factory' do
-    expect(FactoryBot.create(:expenditures_with_circ_stats_report)).to be_valid
+    expect(create(:expenditures_with_circ_stats_report)).to be_valid
   end
 
   describe 'callbacks for fiscal year dates' do
     before do
-      @report = FactoryBot.create(:expenditures_with_circ_stats_report)
+      @report = create(:expenditures_with_circ_stats_report)
     end
 
     it 'has attributes' do
@@ -46,7 +46,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
     context 'when no fy end date present' do
       before do
-        @report = FactoryBot.create(:expenditures_with_circ_stats_report, fy_end: '')
+        @report = create(:expenditures_with_circ_stats_report, fy_end: '')
       end
 
       it 'sets the fy end date the same as the start date' do
@@ -62,7 +62,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
   describe 'callbacks for calendar year dates' do
     before do
-      @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'calendar')
+      @report = create(:expenditures_with_circ_stats_report, date_type: 'calendar')
     end
 
     it 'writes the funds' do
@@ -86,7 +86,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
     context 'when no end date present' do
       before do
-        @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'calendar', cal_end: '')
+        @report = create(:expenditures_with_circ_stats_report, date_type: 'calendar', cal_end: '')
       end
 
       it 'sets the end date the same as the start date' do
@@ -97,7 +97,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
   describe 'callbacks for paid dates' do
     before do
-      @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'paydate')
+      @report = create(:expenditures_with_circ_stats_report, date_type: 'paydate')
     end
 
     it 'writes the funds' do
@@ -121,7 +121,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
     context 'when no end date present' do
       before do
-        @report = FactoryBot.create(:expenditures_with_circ_stats_report, date_type: 'paydate', pd_end: '')
+        @report = create(:expenditures_with_circ_stats_report, date_type: 'paydate', pd_end: '')
       end
 
       it 'sets the end date the same as the start date' do
@@ -132,7 +132,7 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
   describe 'reports with invalid dates' do
     before do
-      @report = FactoryBot.create(:expenditures_with_circ_stats_report)
+      @report = create(:expenditures_with_circ_stats_report)
     end
 
     # The order of the tests matters here
@@ -153,8 +153,8 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = FactoryBot.build(:expenditures_with_circ_stats_report,
-                                 date_type: nil, fund_begin: nil, fund: nil, cal_start: nil)
+      @report = build(:expenditures_with_circ_stats_report,
+                      date_type: nil, fund_begin: nil, fund: nil, cal_start: nil)
 
       @report.validate
     end

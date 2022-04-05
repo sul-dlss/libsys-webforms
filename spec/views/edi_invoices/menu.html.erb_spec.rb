@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'edi_invoices/menu', type: :view do
   context 'when any user' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:blank_user) }
+      stub_current_user_for_view { create(:blank_user) }
       render
     end
 
@@ -15,7 +15,7 @@ RSpec.describe 'edi_invoices/menu', type: :view do
 
   context 'without authorized user' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:blank_user) }
+      stub_current_user_for_view { create(:blank_user) }
       render
     end
 
@@ -31,7 +31,7 @@ RSpec.describe 'edi_invoices/menu', type: :view do
 
   context 'when authorized user' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:authorized_user) }
+      stub_current_user_for_view { create(:authorized_user) }
       render
     end
 
@@ -87,7 +87,7 @@ RSpec.describe 'edi_invoices/menu', type: :view do
 
   context 'when a staff user with read access' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:staff_user) }
+      stub_current_user_for_view { create(:staff_user) }
       render
     end
 

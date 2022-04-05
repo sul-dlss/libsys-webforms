@@ -3,12 +3,12 @@ require 'rails_helper'
 describe 'Authorized Users Edit Page', type: :feature do
   describe 'delete authorized user button' do
     before do
-      stub_current_user(FactoryBot.create(:admin_user))
+      stub_current_user(create(:admin_user))
     end
 
     context 'when user is not an admin user for any app does not have current access to any apps' do
       before do
-        FactoryBot.create(:blank_user)
+        create(:blank_user)
         visit 'authorized_users/edit/blank_user'
       end
 
@@ -23,7 +23,7 @@ describe 'Authorized Users Edit Page', type: :feature do
 
     context 'when user is an admin user for an app' do
       before do
-        FactoryBot.create(:admin_user)
+        create(:admin_user)
         visit 'authorized_users/edit/admin_user'
       end
 
@@ -38,7 +38,7 @@ describe 'Authorized Users Edit Page', type: :feature do
 
     context 'when user is a staff user for an app' do
       before do
-        FactoryBot.create(:staff_user)
+        create(:staff_user)
         visit 'authorized_users/edit/staff_user'
       end
 

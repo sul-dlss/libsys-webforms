@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe EncumbranceReport, type: :model do
   it 'has a valid factory' do
-    expect(FactoryBot.create(:encumbrance_report)).to be_valid
+    expect(create(:encumbrance_report)).to be_valid
   end
 
   it 'Defines a list of fund cycles' do
@@ -11,7 +11,7 @@ RSpec.describe EncumbranceReport, type: :model do
 
   describe 'callbacks' do
     before do
-      @report = FactoryBot.create(:encumbrance_report)
+      @report = create(:encumbrance_report)
     end
 
     it 'sets the attribute for fund_acct with a fund_begin value' do
@@ -22,8 +22,8 @@ RSpec.describe EncumbranceReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = FactoryBot.build(:encumbrance_report,
-                                 email: '', fund_begin: nil, fund: nil)
+      @report = build(:encumbrance_report,
+                      email: '', fund_begin: nil, fund: nil)
       @report.validate
     end
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'New SSDS Request', type: :feature do
   before do
-    stub_current_user(FactoryBot.create(:blank_user))
+    stub_current_user(create(:blank_user))
     ENV['REMOTE_USER'] = 'blank_user'
     visit 'ssds_requests/new?call_no_in=TAPE+NO.+AS1999+ETC&title_in=Shool+for+Gifted+Youngsters&unicorn_id_in=510163'
   end

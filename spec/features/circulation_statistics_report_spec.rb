@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'Circulation Statistics Report Page', type: :feature, js: true do
   before do
-    FactoryBot.create(:uni_libs_locs)
-    stub_current_user(FactoryBot.create(:authorized_user))
+    create(:uni_libs_locs)
+    stub_current_user(create(:authorized_user))
     visit new_circulation_statistics_report_path
     select('SAL3', from: 'circulation_statistics_report_lib_array')
   end

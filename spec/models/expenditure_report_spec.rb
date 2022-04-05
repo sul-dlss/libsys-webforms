@@ -2,19 +2,19 @@ require 'rails_helper'
 
 RSpec.describe ExpenditureReport, type: :model do
   before do
-    FactoryBot.create(:expenditures_fy_date,
-                      fy: 2011,
-                      min_paydate: '0010-09-03 00:00:00',
-                      max_paydate: '0011-08-25 00:00:00')
+    create(:expenditures_fy_date,
+           fy: 2011,
+           min_paydate: '0010-09-03 00:00:00',
+           max_paydate: '0011-08-25 00:00:00')
   end
 
   it 'has a valid factory' do
-    expect(FactoryBot.create(:expenditure_report)).to be_valid
+    expect(create(:expenditure_report)).to be_valid
   end
 
   describe 'callbacks' do
     before do
-      @report = FactoryBot.create(:expenditure_report)
+      @report = create(:expenditure_report)
     end
 
     it 'has attributes' do
@@ -80,8 +80,8 @@ RSpec.describe ExpenditureReport, type: :model do
 
   describe 'validations' do
     before do
-      @report = FactoryBot.build(:expenditure_report,
-                                 email: '', date_type: nil, fund_begin: nil, fund: nil, cal_start: nil)
+      @report = build(:expenditure_report,
+                      email: '', date_type: nil, fund_begin: nil, fund: nil, cal_start: nil)
       @report.validate
     end
 

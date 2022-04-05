@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'packages/show', type: :view do
   before do
-    @package = FactoryBot.create(:package)
+    @package = create(:package)
   end
 
   context 'when eloader package management staff user' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:staff_user) }
+      stub_current_user_for_view { create(:staff_user) }
       render template: 'packages/show.html.erb'
     end
 
@@ -39,7 +39,7 @@ RSpec.describe 'packages/show', type: :view do
 
   context 'when eloader package management admin user' do
     before do
-      stub_current_user_for_view { FactoryBot.create(:admin_user) }
+      stub_current_user_for_view { create(:admin_user) }
       render template: 'packages/show.html.erb'
     end
 
