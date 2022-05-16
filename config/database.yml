@@ -4,13 +4,22 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-default: &default
+
+# alias 'default' breaks Psych gemin ruby < 3.1 with:
+# Psych::BadAlias:
+#   Cannot load database configuration:
+#   Unknown alias: default
+
+# default: &default
+#   adapter: sqlite3
+#   pool: 5
+#   timeout: 5000
+
+development:
+# <<: *default
   adapter: sqlite3
   pool: 5
   timeout: 5000
-
-development:
-  <<: *default
   database: db/development.sqlite3
   nls_date_format: DD-MON-RR
 
@@ -18,10 +27,16 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+# <<: *default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
   database: db/test.sqlite3
 
 production:
-  <<: *default
+  # <<: *default
+  default: &default
+  adapter: sqlite3
+  pool: 5
   database: db/production.sqlite3
   nls_date_format: DD-MON-RR
