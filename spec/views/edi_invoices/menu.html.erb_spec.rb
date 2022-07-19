@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop: disable Metrics/BlockLength
 RSpec.describe 'edi_invoices/menu', type: :view do
   context 'when any user' do
     before do
@@ -137,4 +136,3 @@ RSpec.describe 'edi_invoices/menu', type: :view do
     end
   end
 end
-# rubocop: enable Metrics/BlockLength

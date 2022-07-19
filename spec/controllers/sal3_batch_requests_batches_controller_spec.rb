@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop: disable Metrics/BlockLength
 RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
   before do
     stub_current_user(create(:authorized_user))
@@ -147,4 +146,3 @@ RSpec.describe Sal3BatchRequestsBatchesController, type: :controller do
     end
   end
 end
-# rubocop: enable Metrics/BlockLength

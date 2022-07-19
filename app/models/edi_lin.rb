@@ -17,13 +17,13 @@ class EdiLin < ApplicationRecord
 
     edi_lin = where('vend_id = ? AND doc_num = ? AND edi_lin_num = ? AND edi_sublin_count = 0', vendor, invoice, line)
     if ids_match?(EdiSumrzBib.id(edi_lin.vend_unique_id), edi_lin.vend_unique_id)
-      ['error', 'Cannot set this invoice line to "noBib." This invoice line has a bib match in Symphony. '\
+      ['error', 'Cannot set this invoice line to "noBib." This invoice line has a bib match in Symphony. ' \
                 'It should not need to be set to "allow noBib"']
     else
       make_nobib(edi_lin.vend_unique_id)
       EdiSumrzBib.insert(edi_lin)
-      ['notice', "#{edi_lin.pluck(:vend_id)[0]} invoice #{edi_lin.pluck(:doc_num)[0]}, "\
-                 "line #{edi_lin.pluck(:edi_lin_num)[0]} will be processed as a NOBIB. "\
+      ['notice', "#{edi_lin.pluck(:vend_id)[0]} invoice #{edi_lin.pluck(:doc_num)[0]}, " \
+                 "line #{edi_lin.pluck(:edi_lin_num)[0]} will be processed as a NOBIB. " \
                  "#{edi_lin.vend_unique_id} assigned ckey: #{EdiSumrzBib.ckey(edi_lin.vend_unique_id)}"]
     end
   end

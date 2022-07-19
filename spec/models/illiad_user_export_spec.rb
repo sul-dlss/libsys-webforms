@@ -8,7 +8,7 @@ RSpec.describe IlliadUserExport, type: :model do
   end
 
   after do
-    File.delete(path_to_file) if File.exist?(path_to_file)
+    FileUtils.rm_rf(path_to_file)
   end
 
   it 'validates that sunet ids are submitted' do

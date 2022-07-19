@@ -108,7 +108,7 @@ RSpec.describe DigitalBookplatesBatchesController, type: :controller do
 
     context 'when batch job has already run' do
       it 'does not delete batches that have a completed_date' do
-        expect { delete :destroy, params: { id: @completed_batch } }.to change(DigitalBookplatesBatch, :count).by(0)
+        expect { delete :destroy, params: { id: @completed_batch } }.not_to change(DigitalBookplatesBatch, :count)
       end
 
       it 'flashes an error message' do

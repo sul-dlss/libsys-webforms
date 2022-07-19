@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe PackagesController, type: :controller do
   before do
     stub_current_user(create(:admin_user))
@@ -132,4 +131,3 @@ RSpec.describe PackagesController, type: :controller do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

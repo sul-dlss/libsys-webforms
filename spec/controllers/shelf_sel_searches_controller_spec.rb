@@ -6,7 +6,7 @@ RSpec.describe ShelfSelSearchesController, type: :controller do
       create(:shelf_sel_search)
       get :delete_saved_search, params: { user_name: 'mahmed',
                                           search_name: 'Green Stacks E-F' }, xhr: true
-      expect(response.status).to eq(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 end

@@ -37,7 +37,7 @@ RSpec.describe 'packages/index', type: :view do
     end
 
     it 'does not display copy package settings form in test environment' do
-      expect(rendered).not_to have_css('a', text: 'Copy package settings from test')
+      expect(rendered).not_to have_link('a', text: 'Copy package settings from test')
     end
   end
 
@@ -48,19 +48,19 @@ RSpec.describe 'packages/index', type: :view do
     end
 
     it 'does not display Deactivate link for the admin user' do
-      expect(rendered).not_to have_css('a', text: 'Deactivate')
+      expect(rendered).not_to have_link('a', text: 'Deactivate')
     end
 
     it 'does not display Run test link for the admin user' do
-      expect(rendered).not_to have_css('a', text: 'Run tests')
+      expect(rendered).not_to have_link('a', text: 'Run tests')
     end
 
     it 'does not display Add package link for the admin user' do
-      expect(rendered).not_to have_css('a', text: 'Add package')
+      expect(rendered).not_to have_link('a', text: 'Add package')
     end
 
     it 'does not display Edit link for the admin user' do
-      expect(rendered).not_to have_css('a', text: 'Edit')
+      expect(rendered).not_to have_link('a', text: 'Edit')
     end
 
     it 'displays a link to show package files loaded' do

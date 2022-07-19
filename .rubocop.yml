@@ -69,6 +69,12 @@ Rails/UniqueValidationWithoutIndex:
   Exclude:
     - 'app/models/package.rb'
 
+RSpec/Capybara/SpecificMatcher:
+  Exclude:
+    - 'spec/features/*.rb'
+    - 'spec/helpers/*.rb'
+    - 'spec/views/**/*.rb'
+
 RSpec/AnyInstance:
   Exclude:
     - 'spec/rails_helper.rb'
