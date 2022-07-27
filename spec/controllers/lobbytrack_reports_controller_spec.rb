@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# rubocop:disable Lint/Void, Metrics/BlockLength
+# rubocop:disable Lint/Void
 RSpec.describe LobbytrackReportsController, type: :controller do
   # rubocop:disable RSpec/VerifiedDoubles
   let(:mock_client) { double(TinyTds) }
@@ -334,4 +334,4 @@ RSpec.describe LobbytrackReportsController, type: :controller do
     end
   end
 end
-# rubocop:enable Lint/Void, Metrics/BlockLength
+# rubocop:enable Lint/Void

@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe LobbytrackReport, type: :model do
   let(:default_sets) do
-    'SET ANSI_DEFAULTS ON' \
-      ' SET QUOTED_IDENTIFIER ON' \
-      ' SET CURSOR_CLOSE_ON_COMMIT OFF' \
-      ' SET IMPLICIT_TRANSACTIONS OFF' \
-      ' SET TEXTSIZE 2147483647' \
-      ' SET CONCAT_NULL_YIELDS_NULL ON'
+    'SET ANSI_DEFAULTS ON ' \
+      'SET QUOTED_IDENTIFIER ON ' \
+      'SET CURSOR_CLOSE_ON_COMMIT OFF ' \
+      'SET IMPLICIT_TRANSACTIONS OFF ' \
+      'SET TEXTSIZE 2147483647 ' \
+      'SET CONCAT_NULL_YIELDS_NULL ON'
   end
 
   describe 'sql query for visits' do
@@ -17,48 +17,48 @@ RSpec.describe LobbytrackReport, type: :model do
 
     it 'creates a querystring with the given lobbytrack id' do
       expect(described_class.visits('1234567'))
-        .to eq "#{default_sets} DECLARE @id VARCHAR(7)" \
-               " SET @id = '1234567' SELECT DateIn FROM Jolly.dbo.logAttendance WHERE CardHolderID = @id"
+        .to eq "#{default_sets} DECLARE @id VARCHAR(7) " \
+               "SET @id = '1234567' SELECT DateIn FROM Jolly.dbo.logAttendance WHERE CardHolderID = @id"
     end
   end
 
   describe 'sql query for visits_for_dates' do
     it 'creates a querystring with the given dates' do
       expect(described_class.visits_for_dates('01/01/2019', '01/01/2020'))
-        .to eq "#{default_sets} DECLARE @date1 date" \
-               " DECLARE @date2 date SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59'" \
-               ' SELECT CardHolderID, DateIn, ReportField1, ReportField2, LookupField1' \
-               ' FROM Jolly.dbo.logAttendance WHERE DateIn between @date1 and @date2' \
-               " AND CardHolderID > ''"
+        .to eq "#{default_sets} DECLARE @date1 date " \
+               "DECLARE @date2 date SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59' " \
+               'SELECT CardHolderID, DateIn, ReportField1, ReportField2, LookupField1 ' \
+               'FROM Jolly.dbo.logAttendance WHERE DateIn between @date1 and @date2 ' \
+               "AND CardHolderID > ''"
     end
   end
 
   describe 'sql query for checkins' do
     it 'creates a querystring with the given lobbytrack id' do
       expect(described_class.checkins('1234567'))
-        .to eq "#{default_sets} DECLARE @id VARCHAR(7)" \
-               " SET @id = '1234567' SELECT DateOfEvent, LocationID FROM Jolly.dbo.logPerson WHERE CardHolderID = @id"
+        .to eq "#{default_sets} DECLARE @id VARCHAR(7) " \
+               "SET @id = '1234567' SELECT DateOfEvent, LocationID FROM Jolly.dbo.logPerson WHERE CardHolderID = @id"
     end
   end
 
   describe 'sql query for checkins_for_dates' do
     it 'creates a querystring with the given dates' do
       expect(described_class.checkins_for_dates('01/01/2019', '01/01/2020'))
-        .to eq "#{default_sets}" \
-               ' DECLARE @date1 date' \
-               ' DECLARE @date2 date' \
-               " SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59'" \
-               ' SELECT CardHolderID, DateOfEvent, LocationID, ReportField1, ReportField2, LookupField1' \
-               ' FROM Jolly.dbo.logPerson WHERE DateOfEvent between @date1 and @date2' \
-               " AND CardHolderID > ''"
+        .to eq "#{default_sets} " \
+               'DECLARE @date1 date ' \
+               'DECLARE @date2 date ' \
+               "SET @date1 = '01/01/2019 00:00:00' SET @date2 = '01/01/2020 23:59:59' " \
+               'SELECT CardHolderID, DateOfEvent, LocationID, ReportField1, ReportField2, LookupField1 ' \
+               'FROM Jolly.dbo.logPerson WHERE DateOfEvent between @date1 and @date2 ' \
+               "AND CardHolderID > ''"
     end
   end
 
   describe 'sql query for visitor' do
     it 'creates a querystring for visitor info' do
       expect(described_class.visitor_data('1234567'))
-        .to eq "#{default_sets} DECLARE @id VARCHAR(7)" \
-               " SET @id = '1234567' SELECT IDNumber, FirstName, LastName, PhoneNumber, Email" \
+        .to eq "#{default_sets} DECLARE @id VARCHAR(7) " \
+               "SET @id = '1234567' SELECT IDNumber, FirstName, LastName, PhoneNumber, Email" \
                ', StreetAddress, City, State, PostalCode, Photo FROM GroupTables.dbo.Visitor WHERE IDNumber = @id'
     end
   end

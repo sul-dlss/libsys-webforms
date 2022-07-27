@@ -17,17 +17,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def user_id
-    request.env['REMOTE_USER'].presence || ENV['REMOTE_USER']
+    request.env['REMOTE_USER'].presence || ENV.fetch('REMOTE_USER', nil)
   end
   helper_method :user_id
 
   def display_name
-    request.env['displayName'] || ENV['displayName'] || current_user_name
+    request.env['displayName'] || ENV.fetch('displayName') { current_user_name }
   end
   helper_method :display_name
 
   def client_ip
-    request.env['HTTP_CLIENT_IP'] || ENV['HTTP_CLIENT_IP']
+    request.env['HTTP_CLIENT_IP'] || ENV.fetch('HTTP_CLIENT_IP', nil)
   end
   helper_method :client_ip
 

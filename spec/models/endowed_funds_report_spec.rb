@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe EndowedFundsReport, type: :model do
   describe 'querying specific funds from expenditures' do
     before do
@@ -147,4 +146,3 @@ RSpec.describe EndowedFundsReport, type: :model do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

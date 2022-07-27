@@ -25,7 +25,7 @@ RSpec.describe CirculationStatisticsReportsController, type: :controller do
   describe 'get#home_locations' do
     it 'returns a 200 response code' do
       get :home_locations, xhr: true
-      expect(response.status).to eq(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 

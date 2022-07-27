@@ -32,7 +32,7 @@ RSpec.describe 'digital_bookplates_batches/index', type: :view do
     it 'displays only the add batch link' do
       assert_select 'a', text: 'Add digital bookplate metadata to Symphony records'.to_s,
                          href: '/digital_bookplates_batches/new/add_batch'.to_s
-      expect(rendered).not_to have_css('a', text: 'Delete digital bookplate metadata from Symphony records')
+      expect(rendered).not_to have_link('a', text: 'Delete digital bookplate metadata from Symphony records')
     end
 
     it 'displays a link to batches in the queue' do

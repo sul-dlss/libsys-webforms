@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable  Metrics/BlockLength
 RSpec.describe ExpendituresWithCircStatsReport, type: :model do
   before do
     create(:expenditures_fy_date)
@@ -169,4 +168,3 @@ RSpec.describe ExpendituresWithCircStatsReport, type: :model do
     end
   end
 end
-# rubocop:enable  Metrics/BlockLength

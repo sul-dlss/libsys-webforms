@@ -15,14 +15,14 @@ RSpec.describe ShelfSelectionReportsController, type: :controller do
   describe 'get#home_locations' do
     it 'returns a 200 response code' do
       get :home_locations, xhr: true
-      expect(response.status).to eq(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'get#load_saved_options' do
     it 'returns a 200 response code' do
       get :load_saved_options, params: { search_name: 'Green Stacks A-Z, testuser' }, xhr: true
-      expect(response.status).to eq(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
