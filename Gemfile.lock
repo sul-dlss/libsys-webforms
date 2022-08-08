@@ -57,7 +57,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootstrap_form (5.0.0)
+    bootstrap_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     builder (3.2.4)
