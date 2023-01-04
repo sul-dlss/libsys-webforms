@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Package Files', type: :feature do
+describe 'Package Files' do
   before do
     stub_current_user(create(:admin_user))
     @package_file = create(:package_file)

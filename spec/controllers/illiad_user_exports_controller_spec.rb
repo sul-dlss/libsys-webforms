@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe IlliadUserExportsController, type: :controller do
+RSpec.describe IlliadUserExportsController do
   before do
     stub_current_user(create(:authorized_user))
   end

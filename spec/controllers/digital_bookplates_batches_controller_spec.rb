@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DigitalBookplatesBatchesController, type: :controller do
+RSpec.describe DigitalBookplatesBatchesController do
   before do
     stub_current_user(create(:staff_user))
     @completed_batch = create(:digital_bookplates_completed_batches)

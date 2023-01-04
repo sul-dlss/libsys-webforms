@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DigitalBookplatesBatchesController, type: :routing do
+RSpec.describe DigitalBookplatesBatchesController do
   describe 'routing' do
     it 'routes to #index' do
       expect(get: '/digital_bookplates_batches').to route_to('digital_bookplates_batches#index')

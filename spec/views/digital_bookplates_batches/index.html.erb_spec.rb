@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'digital_bookplates_batches/index', type: :view do
+RSpec.describe 'digital_bookplates_batches/index' do
   context 'with admin user for digital bookplate batches' do
     before do
       stub_current_user_for_view { create(:admin_user) }

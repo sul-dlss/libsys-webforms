@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BatchRecordUpdatesController, type: :controller do
+RSpec.describe BatchRecordUpdatesController do
   describe 'get#index' do
     it 'be succesful returning the index page' do
       stub_current_user(create(:authorized_user))

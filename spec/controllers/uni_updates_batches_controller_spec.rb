@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UniUpdatesBatchesController, type: :controller do
+RSpec.describe UniUpdatesBatchesController do
   describe 'GET#show' do
     before { @uni_updates_batch = create(:uni_updates_batch) }
 

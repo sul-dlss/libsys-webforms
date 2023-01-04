@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EdiInvoice, type: :model do
+RSpec.describe EdiInvoice do
   Rails.application.load_seed
   let(:vendors) { %w(YANKEE COUTTS CASALI AMALIV HARRAS) }
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CirculationStatisticsReport, type: :model do
+RSpec.describe CirculationStatisticsReport do
   describe 'LC callnum range' do
     context 'when call_lo is one LC letter and call_hi is blank' do
       let(:report) { build(:circulation_statistics_report, range_type: 'lc', call_lo: 'n', call_hi: '') }

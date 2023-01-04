@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LobbytrackReport, type: :model do
+RSpec.describe LobbytrackReport do
   let(:default_sets) do
     'SET ANSI_DEFAULTS ON ' \
       'SET QUOTED_IDENTIFIER ON ' \

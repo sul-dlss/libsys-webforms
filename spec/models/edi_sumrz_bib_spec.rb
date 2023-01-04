@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EdiSumrzBib, type: :model do
+RSpec.describe EdiSumrzBib do
   describe 'inserting a new line' do
     # The order of the tests and setting the variables matters here
     # rubocop:disable RSpec/MultipleExpectations, Rails/SkipsModelValidations

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserloadRerun, type: :model do
+RSpec.describe UserloadRerun do
   before do
     FileUtils.mkdir_p('tmp/Dataload/UserloadRerun')
   end

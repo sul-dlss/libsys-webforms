@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'packages/show', type: :view do
+RSpec.describe 'packages/show' do
   before do
     @package = create(:package)
   end

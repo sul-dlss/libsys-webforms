@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UniLibsLocs, type: :model do
+RSpec.describe UniLibsLocs do
   describe 'UniLibsLocs' do
     it 'has a valid factory' do
       expect(create(:uni_libs_locs)).to be_valid

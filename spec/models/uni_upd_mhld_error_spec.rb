@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UniUpdMhldError, type: :model do
+RSpec.describe UniUpdMhldError do
   let(:batch_errors) { create(:uni_upd_mhld_error) }
 
   describe 'errors_for_mhld' do

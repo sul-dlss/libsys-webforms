@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'lobbytrack_reports/index.html.erb', type: :view do
+RSpec.describe 'lobbytrack_reports/index.html.erb' do
   let(:lobbytrack_reports_params) do
     {
       visit_id: '007',

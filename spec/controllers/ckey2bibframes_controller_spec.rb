@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Ckey2bibframesController, type: :controller do
+RSpec.describe Ckey2bibframesController do
   describe 'GET #new' do
     xit 'returns http success' do
       get :new

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # rubocop:disable Lint/Void
-RSpec.describe LobbytrackReportsController, type: :controller do
+RSpec.describe LobbytrackReportsController do
   # rubocop:disable RSpec/VerifiedDoubles
   let(:mock_client) { double(TinyTds) }
   # rubocop:enable RSpec/VerifiedDoubles
@@ -80,7 +80,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'displays a TinyTds Error' do
-        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+        expect(flash[:error]).to be_a(TinyTds::Error)
       end
 
       it 'displays a flash message' do
@@ -115,7 +115,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'displays a TinyTds Error' do
-        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+        expect(flash[:error]).to be_a(TinyTds::Error)
       end
 
       it 'displays a flash message' do
@@ -164,7 +164,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'displays a TinyTds Error' do
-        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+        expect(flash[:error]).to be_a(TinyTds::Error)
       end
 
       it 'displays a flash message' do
@@ -227,7 +227,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'displays a TinyTds Error' do
-        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+        expect(flash[:error]).to be_a(TinyTds::Error)
       end
 
       it 'displays a flash message' do
@@ -262,7 +262,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'displays a TinyTds Error' do
-        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+        expect(flash[:error]).to be_a(TinyTds::Error)
       end
 
       it 'displays a flash message' do
@@ -311,7 +311,7 @@ RSpec.describe LobbytrackReportsController, type: :controller do
       end
 
       it 'displays a TinyTds Error' do
-        expect(flash[:error]).to be_a_kind_of(TinyTds::Error)
+        expect(flash[:error]).to be_a(TinyTds::Error)
       end
 
       it 'displays a flash message' do

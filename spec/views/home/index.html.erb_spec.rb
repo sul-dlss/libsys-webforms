@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'home/index', type: :view do
+describe 'home/index' do
   describe 'authorized user' do
     before do
       stub_current_user_for_view { create(:authorized_user) }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ExpendituresWithCircStatsReportsController, type: :controller do
+RSpec.describe ExpendituresWithCircStatsReportsController do
   before do
     stub_current_user(create(:authorized_user))
     create(:expenditures_fy_date)

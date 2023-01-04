@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe ShelfSelSearchesController, type: :controller do
+RSpec.describe ShelfSelSearchesController do
   describe 'delete_saved_search method' do
     it 'returns a 200 response code' do
       stub_current_user(create(:authorized_user))

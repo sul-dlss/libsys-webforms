@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CirculationStatisticsReportLog, type: :model do
+RSpec.describe CirculationStatisticsReportLog do
   let(:barcode_file) do
     extend ActionDispatch::TestProcess
     fixture_file_upload('files/test_file.txt', 'text/plain')

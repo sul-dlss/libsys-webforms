@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'accession_numbers/new', type: :view do
+RSpec.describe 'accession_numbers/new' do
   before do
     assign(:accession_number, AccessionNumber.new(
                                 item_type: 'MyString',

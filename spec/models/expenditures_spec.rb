@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Expenditures, type: :model do
+RSpec.describe Expenditures do
   describe 'querying from expenditures' do
     before do
       @expenditures = create(:expenditures)

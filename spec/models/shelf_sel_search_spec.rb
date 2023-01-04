@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShelfSelSearch, type: :model do
+RSpec.describe ShelfSelSearch do
   describe 'ShelfSelSearch' do
     it 'has a valid factory' do
       expect(create(:shelf_sel_search)).to be_valid

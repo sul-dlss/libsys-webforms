@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'accession_numbers/index', type: :view do
+RSpec.describe 'accession_numbers/index' do
   before do
     stub_current_user_for_view { create(:authorized_user) }
     assign(:accession_numbers, [AccessionNumber.create!(item_type: 'Type of material',

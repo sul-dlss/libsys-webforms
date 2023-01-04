@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ChangeHomeLocationsController, type: :controller do
+RSpec.describe ChangeHomeLocationsController do
   describe 'get#new' do
     it 'renders the correct template' do
       stub_current_user(create(:authorized_user))

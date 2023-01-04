@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CirculationStatisticsReportFormat, type: :model do
+RSpec.describe CirculationStatisticsReportFormat do
   describe 'CirculationStatisticsReportFormat' do
     it 'has a valid factory' do
       expect(create(:circulation_statistics_report_format)).to be_valid

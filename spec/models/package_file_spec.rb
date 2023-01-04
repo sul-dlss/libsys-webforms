@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PackageFile, type: :model do
+RSpec.describe PackageFile do
   before do
     @package_file = create(:package_file)
   end

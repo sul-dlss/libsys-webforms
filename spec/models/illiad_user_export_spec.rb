@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe IlliadUserExport, type: :model do
+RSpec.describe IlliadUserExport do
   let(:path_to_file) { Settings.symphony_illiad_user_export }
 
   before do

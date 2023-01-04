@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EdiLin, type: :model do
+RSpec.describe EdiLin do
   # The order of the tests matters here
   # rubocop:disable RSpec/MultipleExpectations
   describe 'make_updates' do

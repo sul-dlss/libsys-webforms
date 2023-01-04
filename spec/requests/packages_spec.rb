@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Packages', type: :request do
+RSpec.describe 'Packages' do
   before do
     stub_current_user(create(:staff_user))
   end

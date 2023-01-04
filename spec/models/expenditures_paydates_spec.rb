@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ExpendituresPaydates, type: :model do
+RSpec.describe ExpendituresPaydates do
   describe 'calendar years' do
     it 'Defines a list of calendar years' do
       expect(described_class.calendar_years).to include('1996', '1997', '1998', '1999', '2000')
@@ -21,7 +21,7 @@ RSpec.describe ExpendituresPaydates, type: :model do
 
   describe 'paid dates' do
     it 'Defines a list of paid dates' do
-      expect(described_class.pay_dates).to be_kind_of(ActiveRecord::Relation)
+      expect(described_class.pay_dates).to be_a(ActiveRecord::Relation)
     end
   end
 end

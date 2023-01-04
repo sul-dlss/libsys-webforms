@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Sal3BatchRequestsBcsController, type: :controller do
+RSpec.describe Sal3BatchRequestsBcsController do
   before do
     stub_current_user(create(:authorized_user))
   end
