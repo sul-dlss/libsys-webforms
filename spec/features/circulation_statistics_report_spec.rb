@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Circulation Statistics Report Page', type: :feature, js: true do
+describe 'Circulation Statistics Report Page', js: true do
   before do
     create(:uni_libs_locs)
     stub_current_user(create(:authorized_user))

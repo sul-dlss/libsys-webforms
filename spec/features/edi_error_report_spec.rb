@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Edi Error Reports', type: :feature do
+describe 'Edi Error Reports' do
   before do
     stub_current_user(create(:authorized_user))
     visit edi_error_reports_path

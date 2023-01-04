@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SsdsRequest, type: :model do
+RSpec.describe SsdsRequest do
   let(:ssds) { described_class.new(ssds_request_params) }
 
   let(:ssds_request_params) do

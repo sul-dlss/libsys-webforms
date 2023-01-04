@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'net/ssh'
 
 # rubocop: disable RSpec/VerifiedDoubles
-RSpec.describe Ckey2bibframe, type: :model do
+RSpec.describe Ckey2bibframe do
   describe 'SSH to server and retrieve some data' do
     before do
       session = double(Net::SSH::Connection::Session)

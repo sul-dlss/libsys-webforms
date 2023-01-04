@@ -75,13 +75,13 @@ class PackagesController < ApplicationController
   def activate
     @package.update(package_status: 'Active')
     redirect_to packages_path
-    flash[:success] = 'Package activated.'
+    flash.now[:success] = 'Package activated.'
   end
 
   def deactivate
     @package.update(package_status: 'Inactive')
     redirect_to packages_path
-    flash[:warning] = 'Package deactivated.'
+    flash.now[:warning] = 'Package deactivated.'
   end
 
   # # DELETE /packages/1

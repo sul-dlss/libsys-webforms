@@ -12,7 +12,7 @@ class EndowedFundsReportsController < ApplicationController
   end
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:error] = 'There are no records for the specified date range'
+    flash.now[:error] = 'There are no records for the specified date range'
     render action: 'new'
   end
 

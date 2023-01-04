@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'edi_error_reports/index', type: :view do
+RSpec.describe 'edi_error_reports/index' do
   context 'with any user' do
     before do
       stub_current_user_for_view { create(:staff_user) }

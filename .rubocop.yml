@@ -80,8 +80,7 @@ RSpec/AnyInstance:
     - 'spec/rails_helper.rb'
 
 RSpec/DescribeClass:
-  Exclude:
-    - 'spec/views/shared/_top_navbar.html.erb_spec.rb'
+  Enabled: false
 
 RSpec/ExampleLength:
   Max: 8
@@ -90,6 +89,15 @@ RSpec/InstanceVariable:
   Enabled: false
 
 RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Exclude:
+    - 'spec/controllers/edi_lins_controller_spec.rb'
+    - 'spec/models/shelf_sel_search_spec.rb'
+    - 'spec/views/packages/new.html.erb_spec.rb'
+
+RSpec/PendingWithoutReason:
   Enabled: false
 
 Style/FrozenStringLiteralComment:

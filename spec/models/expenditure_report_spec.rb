@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ExpenditureReport, type: :model do
+RSpec.describe ExpenditureReport do
   before do
     create(:expenditures_fy_date,
            fy: 2011,

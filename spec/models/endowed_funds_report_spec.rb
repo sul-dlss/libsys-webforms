@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EndowedFundsReport, type: :model do
+RSpec.describe EndowedFundsReport do
   describe 'querying specific funds from expenditures' do
     before do
       %w(123 456 789).each do |ckey|

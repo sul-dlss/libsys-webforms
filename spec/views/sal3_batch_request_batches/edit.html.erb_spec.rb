@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'sal3_batch_requests_batches/edit', type: :view do
+RSpec.describe 'sal3_batch_requests_batches/edit' do
   let(:barcode_file) do
     extend ActionDispatch::TestProcess
     fixture_file_upload('files/test_file.txt', 'text/plain')

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShelfSelectionReportsController, type: :controller do
+RSpec.describe ShelfSelectionReportsController do
   before do
     stub_current_user(create(:authorized_user))
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ChangeHomeLocation, type: :model do
+RSpec.describe ChangeHomeLocation do
   describe '#parse_uploaded_file' do
     let(:barcode_file) do
       extend ActionDispatch::TestProcess
@@ -10,7 +10,7 @@ RSpec.describe ChangeHomeLocation, type: :model do
     it 'returns an array from a string of ids' do
       change_home_location = described_class.new
       change_home_location.item_ids = barcode_file
-      expect(change_home_location.parse_uploaded_file).to be_kind_of(Array)
+      expect(change_home_location.parse_uploaded_file).to be_a(Array)
     end
 
     it 'accepts a valid email_pattern' do

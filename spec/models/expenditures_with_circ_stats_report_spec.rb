@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ExpendituresWithCircStatsReport, type: :model do
+RSpec.describe ExpendituresWithCircStatsReport do
   before do
     create(:expenditures_fy_date)
   end

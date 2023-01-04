@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EdiInvoicesController, type: :controller do
+RSpec.describe EdiInvoicesController do
   before do
     stub_current_user(create(:authorized_user))
     @edi_invoice = create(:edi_invoice)

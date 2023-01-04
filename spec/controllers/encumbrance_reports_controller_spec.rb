@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EncumbranceReportsController, type: :controller do
+RSpec.describe EncumbranceReportsController do
   describe 'get#new' do
     it 'be succesful returning the index page' do
       stub_current_user(create(:authorized_user))

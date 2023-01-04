@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'edi_invoices/index', type: :view do
+RSpec.describe 'edi_invoices/index' do
   before do
     assign(:edi_invoice, [create(:edi_invoice)])
   end

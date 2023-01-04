@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EdiLinsController, type: :controller do
+RSpec.describe EdiLinsController do
   Rails.application.load_seed
   before do
     stub_current_user(create(:authorized_user))

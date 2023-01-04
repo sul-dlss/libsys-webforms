@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'circ_stats_report_examples'
 
-RSpec.describe CirculationStatisticsReportsController, type: :controller do
+RSpec.describe CirculationStatisticsReportsController do
   before do
     stub_current_user(create(:authorized_user))
   end

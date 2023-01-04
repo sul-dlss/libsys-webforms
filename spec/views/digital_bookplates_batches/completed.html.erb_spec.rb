@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'digital_bookplates_batches/completed', type: :view do
+RSpec.describe 'digital_bookplates_batches/completed' do
   before do
     stub_current_user_for_view { create(:staff_user) }
     @digital_bookplates_batch = create(:digital_bookplates_completed_batches)

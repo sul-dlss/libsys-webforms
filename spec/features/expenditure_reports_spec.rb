@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe 'Expenditure Reports Page', type: :feature, js: true do
+describe 'Expenditure Reports Page', js: true do
   before do
     stub_current_user(create(:authorized_user))
     visit new_expenditure_report_path
   end
 
   it 'renders the hidden field for date_request' do
-    attribute = page.find('#expenditure_report_date_request', visible: false).value
+    attribute = page.find_by_id('expenditure_report_date_request', visible: false).value
     time = Time.zone.parse(attribute)
     now = Time.zone.parse(I18n.l(Time.now.getlocal, format: :oracle))
     expect(time.strftime('%F %R')).to eq now.strftime('%F %R')

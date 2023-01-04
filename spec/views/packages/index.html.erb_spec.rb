@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'packages/index', type: :view do
+RSpec.describe 'packages/index' do
   before do
     @package = create(:package)
     assign(:packages, [@package])

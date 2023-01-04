@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AccessionNumbersController, type: :controller do
+RSpec.describe AccessionNumbersController do
   before do
     stub_current_user(create(:authorized_user))
     @accession_number = create(:accession_number)

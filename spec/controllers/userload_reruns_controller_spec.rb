@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserloadRerunsController, type: :controller do
+RSpec.describe UserloadRerunsController do
   before do
     stub_current_user(create(:authorized_user))
   end

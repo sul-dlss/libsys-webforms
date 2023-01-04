@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PackageFilesController, type: :controller do
+RSpec.describe PackageFilesController do
   before do
     stub_current_user(create(:admin_user))
   end

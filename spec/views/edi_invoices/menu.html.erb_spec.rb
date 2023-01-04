@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'edi_invoices/menu', type: :view do
+RSpec.describe 'edi_invoices/menu' do
   context 'when any user' do
     before do
       stub_current_user_for_view { create(:blank_user) }

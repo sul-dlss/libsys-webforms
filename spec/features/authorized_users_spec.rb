@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Authorized Users Edit Page', type: :feature do
+describe 'Authorized Users Edit Page' do
   describe 'delete authorized user button' do
     before do
       stub_current_user(create(:admin_user))

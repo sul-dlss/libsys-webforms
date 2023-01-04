@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Package, type: :model do
+RSpec.describe Package do
   before do
     @package = create(:package)
   end

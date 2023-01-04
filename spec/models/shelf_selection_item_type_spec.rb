@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShelfSelectionItemType, type: :model do
+RSpec.describe ShelfSelectionItemType do
   describe 'ShelfSelectionItemType' do
     it 'has a valid factory' do
       expect(create(:shelf_selection_item_type)).to be_valid

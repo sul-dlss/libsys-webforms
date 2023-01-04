@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Sal3 Batch Requests Batches', type: :feature do
+describe 'Sal3 Batch Requests Batches' do
   before do
     stub_current_user(create(:authorized_user))
     visit new_sal3_batch_requests_batch_path

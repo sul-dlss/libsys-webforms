@@ -22,6 +22,10 @@ class Sal3BatchRequestsBatchesController < ApplicationController
     @current_user_name = current_user_name
   end
 
+  def edit
+    @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
+  end
+
   def create
     @sal3_batch_requests_batch = Sal3BatchRequestsBatch.new(sal3_batch_requests_batch_params)
     @sal3_batch_requests_batch.bc_file = sal3_batch_requests_batch_params[:bc_file]
@@ -39,10 +43,6 @@ class Sal3BatchRequestsBatchesController < ApplicationController
       render action: 'new'
       flash[:warning] = 'Check that all form fields are entered!'
     end
-  end
-
-  def edit
-    @sal3_batch_requests_batch = Sal3BatchRequestsBatch.find(params[:id])
   end
 
   def update
@@ -87,7 +87,7 @@ class Sal3BatchRequestsBatchesController < ApplicationController
         return false
       end
     end
-    flash[:success] = 'Batch requested!'
+    flash.now[:success] = 'Batch requested!'
   end
 
   def array_of_item_ids

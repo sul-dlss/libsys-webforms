@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
+RSpec.describe HomeController do
   describe 'get#home' do
     it 'be succesful returning the home page' do
       get :index

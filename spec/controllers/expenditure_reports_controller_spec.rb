@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ExpenditureReportsController, type: :controller do
+RSpec.describe ExpenditureReportsController do
   before do
     stub_current_user(create(:authorized_user))
   end

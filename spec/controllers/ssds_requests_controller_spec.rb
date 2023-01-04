@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SsdsRequestsController, type: :controller do
+RSpec.describe SsdsRequestsController do
   let(:ssds_request_params) do
     {
       unicorn_id_in: '510163',
@@ -47,7 +47,7 @@ RSpec.describe SsdsRequestsController, type: :controller do
     end
 
     it 'sends mail' do
-      expect(mailer).to be_a_kind_of(ActionMailer::MessageDelivery)
+      expect(mailer).to be_a(ActionMailer::MessageDelivery)
     end
   end
 end

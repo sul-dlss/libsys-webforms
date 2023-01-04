@@ -4,7 +4,7 @@ class SymphonyCgiController < ApplicationController
   include SymphonyCgi
 end
 
-RSpec.describe SymphonyCgiController, type: :controller do
+RSpec.describe SymphonyCgiController do
   let(:params) do
     {
       fund: %w(1065089-103-AABNK), fy_start: 'FY 2010', fy_end: 'FY 2011', email: 'some@one.com',
@@ -14,6 +14,6 @@ RSpec.describe SymphonyCgiController, type: :controller do
 
   it 'constructs a connection url' do
     url = controller.send(:request_url, 'endow_rpt.cgi', params)
-    expect(URI(url)).to be_kind_of URI
+    expect(URI(url)).to be_a URI
   end
 end

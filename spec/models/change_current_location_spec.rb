@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ChangeCurrentLocation, type: :model do
+RSpec.describe ChangeCurrentLocation do
   describe '#parse_uploaded_file' do
     let(:barcode_file) do
       extend ActionDispatch::TestProcess
@@ -10,7 +10,7 @@ RSpec.describe ChangeCurrentLocation, type: :model do
     it 'returns an array from a string of ids' do
       change_item_type = described_class.new
       change_item_type.item_ids = barcode_file
-      expect(change_item_type.parse_uploaded_file).to be_kind_of(Array)
+      expect(change_item_type.parse_uploaded_file).to be_a(Array)
     end
   end
 

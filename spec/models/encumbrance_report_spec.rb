@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EncumbranceReport, type: :model do
+RSpec.describe EncumbranceReport do
   it 'has a valid factory' do
     expect(create(:encumbrance_report)).to be_valid
   end

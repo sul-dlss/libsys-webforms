@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShelfSelItemCat1, type: :model do
+RSpec.describe ShelfSelItemCat1 do
   it 'has a valid factory' do
     expect(create(:shelf_sel_item_cat1)).to be_valid
   end

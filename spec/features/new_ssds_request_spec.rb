@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'New SSDS Request', type: :feature do
+describe 'New SSDS Request' do
   before do
     stub_current_user(create(:blank_user))
     ENV['REMOTE_USER'] = 'blank_user'

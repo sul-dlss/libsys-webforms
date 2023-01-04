@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShelfSelectionReport, type: :model do
+RSpec.describe ShelfSelectionReport do
   describe 'ShelfSelectionReport' do
     it 'returns generic options for selects' do
       expect(described_class.generic_options).to eq([["Doesn't matter", 0], ['INCLUDE only', 1], ['EXCLUDE', 2]])

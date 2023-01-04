@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UniUpdates, type: :model do
+RSpec.describe UniUpdates do
   it 'has a valid factory' do
     expect(create(:uni_updates)).to be_valid
   end

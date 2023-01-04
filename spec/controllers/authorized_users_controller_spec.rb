@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AuthorizedUsersController, type: :controller do
+RSpec.describe AuthorizedUsersController do
   before do
     stub_current_user(create(:authorized_user))
     @authorized_user = create(:admin_user)

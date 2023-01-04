@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Sal3BatchRequestsBatch, type: :model do
+RSpec.describe Sal3BatchRequestsBatch do
   it 'has a valid factory' do
     expect(create(:sal3_batch_requests_batch)).to be_valid
   end

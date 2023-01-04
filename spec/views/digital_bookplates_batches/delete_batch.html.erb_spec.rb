@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'digital_bookplates_batches/new/delete_batch', type: :view do
+RSpec.describe 'digital_bookplates_batches/new/delete_batch' do
   before do
     stub_current_user_for_view { create(:staff_user) }
     @digital_bookplates_batch = create(:digital_bookplates_add_batches)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UnicornPolicy, type: :model do
+RSpec.describe UnicornPolicy do
   it 'has a valid factory' do
     expect(create(:unicorn_policy)).to be_valid
   end

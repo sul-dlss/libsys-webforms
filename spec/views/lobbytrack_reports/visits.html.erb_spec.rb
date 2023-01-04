@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'lobbytrack_reports/visits.html.erb', type: :view do
+RSpec.describe 'lobbytrack_reports/visits.html.erb' do
   let(:lobbytrack_report_results) do
     [
       { 'CardHolderID' => '007',

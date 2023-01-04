@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ssds_requests/index.html.erb', type: :view do
+RSpec.describe 'ssds_requests/index.html.erb' do
   let(:ssds_request_params) do
     {
       title_in: 'School for Gifted Youngsters',

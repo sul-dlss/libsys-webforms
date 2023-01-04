@@ -13,7 +13,7 @@ class SsdsRequestsController < ApplicationController
   def create
     @ssds_request = SsdsRequest.new(ssds_request_params)
     WebformsMailer.ssds_request(@ssds_request).deliver_now
-    flash[:notice] = 'SSRC will be notified of your request'
+    flash.now[:notice] = 'SSRC will be notified of your request'
     render 'index', ssds_request_params
   end
 

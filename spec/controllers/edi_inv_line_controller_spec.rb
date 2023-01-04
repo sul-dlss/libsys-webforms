@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EdiInvLineController, type: :controller do
+RSpec.describe EdiInvLineController do
   describe 'get#edit' do
     it 'is successful returning the edit view' do
       @edi_inv_line = create(:edi_inv_line)

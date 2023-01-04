@@ -1,5 +1,10 @@
 # Controller for the Ckey2bibframe form
 class Ckey2bibframesController < ApplicationController
+  def show
+    params[:baseuri] ||= Settings.base_uri
+    @ckey2bibframe = Ckey2bibframe.new(baseuri: params[:baseuri], ckey: params[:ckey])
+  end
+
   def new
     @ckey2bibframe = Ckey2bibframe.new
   end
@@ -13,11 +18,6 @@ class Ckey2bibframesController < ApplicationController
       flash[:warning] = 'Check that all form fields are entered!'
       render action: 'new'
     end
-  end
-
-  def show
-    params[:baseuri] ||= Settings.base_uri
-    @ckey2bibframe = Ckey2bibframe.new(baseuri: params[:baseuri], ckey: params[:ckey])
   end
 
   private
