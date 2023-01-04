@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
@@ -28,6 +28,7 @@ jobs:
     - name: Install dependencies
       run: |
         bundle config set --local without 'production'
+        bundle install --no-deployment
         bundle install
     - name: Setup file directories for tests
       run: |
