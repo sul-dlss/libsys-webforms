@@ -15,6 +15,10 @@ class AuthorizedUsersController < ApplicationController
     end
   end
 
+  def edit
+    @edit ||= AuthorizedUser.find_by(user_id: params[:user_id])
+  end
+
   def create
     @authorized_user = AuthorizedUser.find_or_initialize_by(user_id: authorized_user_params[:user_id])
     if @authorized_user.new_record?
@@ -31,10 +35,6 @@ class AuthorizedUsersController < ApplicationController
       flash[:error] = 'User already exists!'
     end
     redirect_to authorized_users_index_path
-  end
-
-  def edit
-    @edit ||= AuthorizedUser.find_by(user_id: params[:user_id])
   end
 
   def update

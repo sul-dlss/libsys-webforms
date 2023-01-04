@@ -5,7 +5,7 @@ class ExpendituresWithCircStatsReportsController < ApplicationController
   load_and_authorize_resource param_method: :batch_params
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:error] = 'There are no records for the specified date range'
+    flash.now[:error] = 'There are no records for the specified date range'
     render action: 'new'
   end
 
