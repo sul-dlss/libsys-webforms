@@ -49,6 +49,7 @@ gem 'has_scope'
 gem 'tsv'
 # Rails javascript runtime environment
 # gem 'therubyracer'
+gem 'mini_racer'
 # To query an sqlserver instance (lobbytrack)
 gem 'tiny_tds', '~> 2.1.3'
 # Pin mimemagic to fix issue with rails 5.2

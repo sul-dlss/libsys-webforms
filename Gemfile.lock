@@ -189,6 +189,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.6.3)
+    libv8-node (16.10.0.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -206,6 +207,8 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
+    mini_racer (0.6.3)
+      libv8-node (~> 16.10.0.0)
     minitest (5.17.0)
     net-imap (0.3.4)
       date
@@ -422,6 +425,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   mimemagic (= 0.4.3)
+  mini_racer
   nokogiri (>= 1.10.5)
   okcomputer
   rails (~> 5.2.8.1)
