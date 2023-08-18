@@ -64,7 +64,6 @@ class Ability
     can :manage, ExpenditureReport
     can :manage, ExpendituresWithCircStatsReport
     can :manage, ManagementReport
-    can :manage, Sal3BatchRequestsBatch
     can :manage, ShelfSelectionReport
   end
 
