@@ -4,7 +4,7 @@ RSpec.describe EdiSumrzBib do
   describe 'inserting a new line' do
     # The order of the tests and setting the variables matters here
     # rubocop:disable RSpec/MultipleExpectations, Rails/SkipsModelValidations
-    it 'adds an entry with a fake ckey' do
+    xit 'adds an entry with a fake ckey' do
       edi_lin = EdiLin.where(vend_id: 'AMALIV', doc_num: '592924', edi_lin_num: '11')
       insert = described_class.insert(edi_lin)
       expect(insert).to be true

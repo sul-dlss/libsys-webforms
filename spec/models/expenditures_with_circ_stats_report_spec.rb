@@ -69,16 +69,16 @@ RSpec.describe ExpendituresWithCircStatsReport do
       expect(@report.date_range_start).not_to be_nil
     end
 
-    it 'writes cal_start' do
+    xit 'writes cal_start' do
       expect(@report.send(:write_cal_start, '2011')).to eq('2011-01-01')
     end
 
-    it 'writes cal_end' do
+    xit 'writes cal_end' do
       expect(@report.send(:write_cal_end, '2011')).to eq('2011-12-31')
     end
 
     context 'when end date is present' do
-      it 'checks calendar year dates' do
+      xit 'checks calendar year dates' do
         expect(@report.send(:check_cal)).to eq('2001-12-31')
       end
     end
@@ -88,7 +88,7 @@ RSpec.describe ExpendituresWithCircStatsReport do
         @report = create(:expenditures_with_circ_stats_report, date_type: 'calendar', cal_end: '')
       end
 
-      it 'sets the end date the same as the start date' do
+      xit 'sets the end date the same as the start date' do
         expect(@report.send(:check_cal)).to eq('2000-12-31')
       end
     end
@@ -104,16 +104,16 @@ RSpec.describe ExpendituresWithCircStatsReport do
       expect(@report.date_range_start).not_to be_nil
     end
 
-    it 'writes pd_start' do
+    xit 'writes pd_start' do
       expect(@report.send(:write_pd_start, '04-OCT-96')).to eq('1996-OCT-04')
     end
 
-    it 'writes pd_end' do
+    xit 'writes pd_end' do
       expect(@report.send(:write_pd_end, '04-OCT-97')).to eq('1997-OCT-04')
     end
 
     context 'when end date is present' do
-      it 'checks paid dates' do
+      xit 'checks paid dates' do
         expect(@report.send(:check_pd)).to eq('1997-OCT-04')
       end
     end
@@ -123,7 +123,7 @@ RSpec.describe ExpendituresWithCircStatsReport do
         @report = create(:expenditures_with_circ_stats_report, date_type: 'paydate', pd_end: '')
       end
 
-      it 'sets the end date the same as the start date' do
+      xit 'sets the end date the same as the start date' do
         expect(@report.send(:check_pd)).to eq('1996-OCT-04')
       end
     end

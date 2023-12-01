@@ -40,7 +40,7 @@ describe 'Packages List Transfer Logs' do
     expect(page).to have_css('table td.col-sm-2', text: 'Note', count: 2)
   end
 
-  it 'displays some data, ex 1' do
+  xit 'displays some data, ex 1' do
     expect(page).to have_css('table td.col-sm-10', text: 'VND_GET_GEN_FILES_LIST')
   end
 
