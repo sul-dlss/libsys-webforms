@@ -53,6 +53,8 @@ gem 'tsv'
 gem 'tiny_tds', '~> 2.1.3'
 # Pin mimemagic to fix issue with rails 5.2
 gem 'mimemagic', '0.4.3'
+# Fix issue discovered in RDoc 6.3.3 through 6.6.2, as distributed in Ruby 3.x through 3.3.0.
+gem "rdoc", ">= 6.6.3.1"
 
 group :production do
   gem 'activerecord-oracle_enhanced-adapter', '~> 5.2.8'
