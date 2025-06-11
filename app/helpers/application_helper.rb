@@ -2,72 +2,17 @@
 module ApplicationHelper
   def accession_menu_button
     link_to button_tag(
-      'Accession number menu',
+      'Back',
       id: 'accession-num-menu',
       class: 'btn btn-md btn-default btn-full'
     ), '/accession_number_updates'
   end
 
-  def batch_menu_button
-    link_to button_tag(
-      'Batch upload menu',
-      id: 'batch-menu-button',
-      class: 'btn btn-md btn-default  btn-full'
-    ), '/batch_record_updates'
+  def restrict_to_development_or_test?
+    true if Rails.env.local?
   end
 
-  def edi_menu_button
-    link_to button_tag(
-      'EDI menu',
-      id: 'edi-menu-button',
-      class: 'btn btn-md btn-default  btn-full'
-    ), '/edi_invoices/menu'
-  end
-
-  def eloader_package_button
-    link_to button_tag(
-      'Eloader packages',
-      id: 'eloader-package-button',
-      class: 'btn btn-md btn-default  btn-full'
-    ), '/packages'
-  end
-
-  def digital_bookplates_menu_button
-    link_to button_tag(
-      'Digital bookplates menu',
-      id: 'digital-bookplates-menu',
-      class: 'btn btn-md btn-default btn-full'
-    ), '/digital_bookplates_batches'
-  end
-
-  def main_menu_button
-    link_to button_tag(
-      'Main menu',
-      id: 'main-menu-button',
-      class: 'btn btn-md btn-default btn-full'
-    ), root_path
-  end
-
-  def conversion_button
-    link_to button_tag(
-      'Do another conversion',
-      class: 'btn btn-md btn-default btn-full'
-    ), new_ckey2bibframe_path
-  end
-
-  def fiscal_years
-    Date.fy_start_month = 9
-    Date.use_forward_year!
-    financial_year = Time.zone.today.financial_year.to_s
-    cyc = ('2000'..financial_year).to_a.reverse
-    cyc.push('9899', '9798', '9697')
-  end
-
-  def restrict_to_development_or_test
-    return true if Rails.env.development? || Rails.env.test?
-  end
-
-  def restrict_to_production
-    return true if Rails.env.production?
+  def restrict_to_production?
+    true if Rails.env.production?
   end
 end

@@ -5,23 +5,13 @@
     <%= image_tag 'StanfordLibraries-logo-cmyk.png', alt: '', height: 25 %>
     <% end %>
 
-    <div class="header-links" id="login_id" data="<%= user_id %>">
-      <% if webauth_user? %>
-        <% if can? :manage, AuthorizedUser %>
-        <%= link_to 'Administer users', authorized_users_index_path %>
-        <% end %>
-      <% else %>
-        <%= link_to 'Login here', login_path(referrer: request.original_url) %>
-      <% end %>
-    </div>
-
   </header>
 </div>
 
 <div class="topnav-divider">
 </div>
 
-<% if restrict_to_development_or_test %>
+<% if restrict_to_development_or_test? %>
   <div class='topnav-below-divider'>
     <h4>Test system</h4>
   </div>

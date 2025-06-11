@@ -1,1 +1,0 @@
-This is a test file to mock the FileUtils method for changing the permissions of a file. Do not remove or the circulation_statitstics_report_log.spec will fail.

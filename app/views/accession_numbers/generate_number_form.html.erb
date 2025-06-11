@@ -1,5 +1,5 @@
 <h1>Generate Accession Numbers</h1>
-<%= form_for @accession_number, class: 'form-group',
+<%= form_with model: @accession_number, class: 'form-group', local: true,
     :url => {
       :action => :generate_number,
       :controller => :accession_numbers,
@@ -32,6 +32,5 @@
 <div class="btn-group">
   <br />
   <%= link_to 'Cancel', :back, class: 'btn btn-md btn-default btn-full' %>
-  <%= main_menu_button %>
   <%= accession_menu_button %>
 </div>

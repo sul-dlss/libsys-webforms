@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  get 'webauth/login' => 'authentication#login', as: :login
-
   resources :accession_numbers, except: :destroy do
     member do
       get 'generate_number_form'
@@ -11,99 +9,10 @@ Rails.application.routes.draw do
     end
   end
   resources :accession_number_updates, only: [:index]
-  resources :batch_record_updates, only: [:index]
-  resources :edi_invoices, only: [:index]
-  resources :edi_inv_line, only: [:edit, :update]
-  resources :edi_error_reports, only: [:index]
-  resources :change_item_types, only: [:new, :create]
-  resources :change_current_locations, only: [:new, :create]
-  resources :change_home_locations, only: [:new, :create]
-  resources :digital_bookplates_batches, only: [:index, :create, :destroy] do
-    get 'add_batch', 'delete_batch', on: :new
-    get 'queue', 'completed', on: :collection
-  end
-  resources :uni_updates_batches, only: [:show, :destroy]
-  resources :withdraw_items, only: [:new, :create]
-  resources :transfer_items, only: [:new, :create]
-  resources :sal3_batch_requests_batches, only: [:index, :show, :new, :create, :edit, :update]
-  resources :sal3_batch_requests_batches, only: :edit do
-    get 'download', on: :member
-  end
-  resources :sal3_batch_requests_bcs, only: :show
-  resources :encumbrance_reports, only: [:new, :create]
-  resources :expenditure_reports, only: [:new, :create]
-  resources :circulation_statistics_reports, only: [:new, :create]
-  resources :circulation_statistics_report_logs, only: [:new, :create]
-  resources :shelf_selection_reports, only: [:new, :create]
-  resources :expenditures_with_circ_stats_reports, only: [:new, :create]
-  resources :endowed_funds_reports, only: [:new, :create]
-  resources :userload_reruns, only: [:new, :create]
-  resources :illiad_user_exports, only: [:new, :create]
-  # Temporarily disable ckey2bibframe until it is requested as needed
-  # resources :ckey2bibframes, only: [:new, :create, :show], param: :ckey
-  resources :packages do
-    put :activate, on: :member
-    put :deactivate, on: :member
-    get :run_tests, on: :collection
-    get :list_transfer_logs, on: :collection
-  end
-  resources :ssds_requests, only: [:new, :create, :index]
-
-  get 'shelf_selection_reports/home_locations' => 'shelf_selection_reports#home_locations', as: :home_locations_for_library
-  get 'shelf_selection_reports/load_saved_options' => 'shelf_selection_reports#load_saved_options', as: :load_saved_options
-  get 'circulation_statistics_reports/home_locations' => 'circulation_statistics_reports#home_locations', as: :home_locations_for_libraries
-  get 'shelf_sel_searches/delete_saved_search' => 'shelf_sel_searches#delete_saved_search', as: :delete_saved_search
-
-  get 'batch_record_updates/errors_for_batch' => 'batch_record_updates#errors_for_batch'
-  get 'batch_record_updates/errors_for_batch/:batch_number' => 'batch_record_updates#errors_for_batch'
-  get 'batch_record_updates/errors_for_mhld' => 'batch_record_updates#errors_for_mhld'
-  get 'batch_record_updates/errors_for_mhld/:batch_number' => 'batch_record_updates#errors_for_mhld'
-  get 'show_batches_complete' => 'batch_record_updates#show_batches_complete'
-  get 'show_batches_not_complete' => 'batch_record_updates#show_batches_not_complete'
-  get 'review_batches' => 'sal3_batch_requests#review_batches'
-
-  get 'edi_invoices/menu' => 'edi_invoices#menu'
-  get 'edi_invoices/invoice_exclude' => 'edi_invoices#invoice_exclude'
-  get 'edi_invoices/change_invoice_line' => 'edi_invoices#change_invoice_line'
-  get 'edi_invoices/update' => 'edi_invoices#update'
-  get 'edi_lins/allow_nobib' => 'edi_lins#allow_nobib'
-  get 'edi_lins/edit/:vend_id,:doc_num,:edi_lin_num,:edi_sublin_count,:barcode_num' => 'edi_lins#edit'
-  get 'edi_lins/fix_duplicate_barcode' => 'edi_lins#fix_duplicate_barcode'
-  get 'edi_lins/index' => 'edi_lins#index'
-  get 'edi_lins/update_edi_lin' => 'edi_lins#update_edi_lin'
-  get 'edi_lins/show/:barcode_num' => 'edi_lins#show'
-  patch 'edi_lins/update_barcode' => 'edi_lins#update_barcode'
-
-  resources :lobbytrack_reports, only: [:index]
-  post 'lobbytrack_reports/visits' => 'lobbytrack_reports#visits'
-  post 'lobbytrack_reports/visit_dates' => 'lobbytrack_reports#visit_dates'
-  post 'lobbytrack_reports/checkins' => 'lobbytrack_reports#checkins'
-  post 'lobbytrack_reports/checkin_dates' => 'lobbytrack_reports#checkin_dates'
-
-  get 'lobbytrack_reports/visits' => 'lobbytrack_reports#visits'
-
-  get 'management_reports' => 'management_reports#index'
 
   get 'by_location' => 'accession_number_updates#by_location'
   get 'by_resource_type' => 'accession_number_updates#by_resource_type'
-
-  get 'test_packages/show' => 'test_packages#show'
-  get 'test_packages/show/:package_id' => 'test_packages#show'
-  get 'package_files/queue' => 'package_files#queue'
-  get 'package_files/completed' => 'package_files#completed'
-  get 'vnd_runlogs/recent' => 'vnd_runlogs#recent'
-  get 'pl_sql_job/package_test_load' => 'pl_sql_job#package_test_load'
-  get 'pl_sql_job/package_file_transfer' => 'pl_sql_job#package_file_transfer'
-  get 'pl_sql_job/create' => 'pl_sql_job#create'
-  get 'authorized_users/index' => 'authorized_users#index'
-  get 'authorized_users/edit' => 'authorized_users#edit'
-  get 'authorized_users/edit/:user_id' => 'authorized_users#edit'
-  patch 'authorized_users/update' => 'authorized_users#update'
-  get 'authorized_users/new' => 'authorized_users#new'
-  post 'authorized_users/create' => 'authorized_users#create'
-  delete 'authorized_users/delete' => 'authorized_users#delete'
-  delete 'authorized_users/delete/:user_id' => 'authorized_users#delete'
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
