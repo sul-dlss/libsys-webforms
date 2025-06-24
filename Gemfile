@@ -55,7 +55,6 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   gem 'selenium-webdriver'
-  # gem 'webdrivers'
 end
 
 group :development do
@@ -69,5 +68,4 @@ group :deployment do
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem 'dlss-capistrano'
-  # gem 'capistrano-rvm'
 end

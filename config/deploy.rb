@@ -7,19 +7,8 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/opt/app/libsys/libsys-webforms'
 
-# set :rvm_ruby_version, '3.3.5'
-
-# Default value for :scm is :git
-# set :scm, :git
-
-# Default value for :format is :pretty
-# set :format, :pretty
-
 # Default value for :log_level is :debug
 set :log_level, :info
-
-# Default value for :pty is false
-# set :pty, true
 
 # Default restart method: `passenger-config restart-app`
 set :passenger_restart_with_touch, false # Note that `nil` is NOT the same as `false` here
@@ -28,8 +17,6 @@ set :passenger_restart_with_touch, false # Note that `nil` is NOT the same as `f
 set :linked_files, %w(config/secrets.yml config/honeybadger.yml db/production.sqlite3 log/cron.log)
 # Default value for linked_dirs is []
 set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings)
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
