@@ -22,5 +22,5 @@
 set :output, "/opt/app/libsys/libsys-webforms/current/log/cron.log"
 
 every 6.hours do
-    command "cp db/*.sqlite3 /opt/app/libsys/"
+    command "cp db/*.sqlite3* /opt/app/libsys/"
 end
