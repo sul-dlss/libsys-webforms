@@ -1,187 +1,31 @@
 "ID","ITEM_TYPE","LOCATION","PREFIX","SEQ_NUM","RESOURCE_TYPE"
 1,Microfilm,Any (except music),MFILM N.S.,17796,Microforms
-2,Microfiche,Any (except music),MFICHE,3323,Microforms
-3,Microcard,Any (except music),MCARD,1046,Microforms
-4,Microfilm,Music Library,M/F ,2616,Microforms
-5,Microfiche,Music Library,M/F 1:,381,Microforms
+2,Microfiche,Any (except music),MFICHE,3326,Microforms
 6,Videocassette (VHS),Media-Microtext or SAL3,ZVC ,19898,Visual Materials
 7,Laser disc,Media-Microtext or SAL3,ZLSR,901,Visual Materials
 8,Videocassette (U-Matic) ,Media-Microtext or SAL3,ZVU,142,Visual Materials
-9,Videocassette (Serial VHS),Media-Microtext or SAL3,ZVC ,10087,Visual Materials
 10,Archival videocassette (VHS or U-Matic) or Film (16 mm.; any length),Media-Microtext or SAL3,ZVA,1911,
 11,Videocassette (VHS) ,Language Lab,ZVC ,9096,
-12,Videocassette (VHS) ,Science Branches (excluding Branner),ZY2,219,Visual Materials
-13,Videocassette (U-Matic) ,Science Branches (excluding Branner),ZY1,3,Visual Materials
-14,Videocassette (VHS) ,Music Library,MVC,290,Visual Materials
-15,DVD or VCD,Music Library,MVD,51,Visual Materials
 16,Videocassette (VHS),Archive of Recorded Sound,AVC,243,Visual Materials
 17,Film (16 mm.) (400 ft. reel; 7 in. canister),Media-Microtext or SAL3,ZFLa,105,
 18,Film (16 mm.) (1200 ft. reel; 12.25 in. canister),Media-Microtext or SAL3,ZFLc,276,
 19,Film (16 mm.) (600 or 800 ft. reels; 9.25 or 10.5 in. canister) ,Media-Microtext or SAL3,ZFLb,206,
 20,Film (16 mm.) (1600 or 2000 ft. reel; 13.75 or 15 in. canister) ,Media-Microtext or SAL3,ZFLd,126,
-21,Slides,Media-Microtext or SAL3,ZSL,208,Visual Materials
 22,Filmstrip,Media-Microtext or SAL3,ZFS,32,Visual Materials
-23,Slides,Science Branches (excluding Branner),ZUB,4,Visual Materials
-24,Sound recording (compact disc),Media-Microtext or SAL3,ZCD,2966,Sound Recordings
+24,Sound recording (compact disc),Media-Microtext or SAL3,ZCD,2969,Sound Recordings
 25,Sound recording (audiocassette),Media-Microtext or SAL3,ZCS,1295,Sound Recordings
 26,Sound recording (12 in. disc),Media-Microtext or SAL3,ZX,5670,Sound Recordings
 27,Sound recording (compact disc),Music Library,MCD,35184,Sound Recordings
-28,Sound recording (audiocassette),Music Library,Mtc,125,Sound Recordings
-29,Sound recording (12 in. disc),Music Library,MD,12779,Sound Recordings
+29,Sound recording (12 in. disc),Music Library,MD,12782,Sound Recordings
 30,Sound recording (7 in. disc),Music Library,Md7,158,Sound Recordings
-31,Sound recording (audio DAT cassette),Music Library,MDAT,3,Sound Recordings
-32,Sound recording (12 in. disc; multi-disc set),Music Library,Mdsc,132,
 33,Sound recording (audiocassette),Archive of Recorded Sound,C,2457,Sound Recordings
-34,Sound recording (audiocassette),Science Branches (excluding Branner),ZCB,35,Sound Recordings
-35,Non-networked electronic media (except 12-in laser discs),Media-Microtext or SAL3,ZMS,4660,Electronic Resources
-36,CD-ROM or other physical electronic media,Music Library,MCDI,278,Electronic Resources
-37,Data tape (reel),SSDS,SSDS TP,50,
-38,Data tape (cartridge),ADS,ADS TC,1,
-39,"5.25 or 3.5 in. floppy disk",ADS,ADS DK,1,
-40,Dictionary (Chinese),Language Lab,DICT CHI,6,Language Instruction
-41,Dictionary (Dutch),Language Lab,DICT DUT,2,Language Instruction
-42,Dictionary (Esperanto),Language Lab,DICT ESP,2,Language Instruction
-43,Dictionary (French),Language Lab,DICT FRE,9,Language Instruction
-44,Dictionary (German),Language Lab,DICT GER,6,Language Instruction
-45,Dictionary (Greek),Language Lab,DICT GRE,4,Language Instruction
-46,Dictionary (Hebrew),Language Lab,DICT HEB,3,Language Instruction
-47,Dictionary (Indonesian),Language Lab,DICT IND,2,Language Instruction
-48,Dictionary (Irish),Language Lab,DICT IRI,5,Language Instruction
-49,Dictionary (Italian),Language Lab,DICT ITA,5,Language Instruction
-50,Dictionary (Japanese),Language Lab,DICT JAP,6,Language Instruction
-51,Dictionary (Korean),Language Lab,DICT KOR,3,Language Instruction
-52,Dictionary (Laotian),Language Lab,DICT LAO,2,Language Instruction
-53,Dictionary (Maori),Language Lab,DICT MAO,2,Language Instruction
-54,Dictionary (Norwegian),Language Lab,DICT NOR,3,Language Instruction
-55,Dictionary (Panjabi),Language Lab,DICT PAN,2,Language Instruction
-56,Dictionary (Portuguese),Language Lab,DICT POR,4,Language Instruction
-57,Dictionary (Russian),Language Lab,DICT RUS,5,Language Instruction
-58,Dictionary (Spanish),Language Lab,DICT SPA,5,Language Instruction
-59,Dictionary (Swedish),Language Lab,DICT SWE,3,Language Instruction
-60,Sound recording (audio cassette) (Afrikaans),Language Lab,ZCS AFR,2,Language Instruction
-61,Sound recording (audio cassette) (Afro-Asiatic),Language Lab,ZCS AFA,2,Language Instruction
-62,Sound recording (audio cassette) (Amharic),Language Lab,ZCS AMH,3,Language Instruction
-63,Sound recording (audio cassette) (Arabic),Language Lab,ZCS ARA,22,Language Instruction
-64,Sound recording (audio cassette) (Armenian),Language Lab,ZCS ARM,4,Language Instruction
-65,Sound recording (audio cassette) (Araucanian),Language Lab,ZCS ARN,2,Language Instruction
-66,Sound recording (audio cassette) (Austronesian (other)),Language Lab,ZCS MAP,2,Language Instruction
-67,Sound recording (audio cassette) (Basque),Language Lab,ZCS BAQ,2,Language Instruction
-68,Sound recording (audio cassette) (Bengali),Language Lab,ZCS BEN,3,Language Instruction
-69,Sound recording (audio cassette) (Bulgarian),Language Lab,ZCS BUL,3,Language Instruction
-70,Sound recording (audio cassette) (Cambodian),Language Lab,ZCS CAM,3,Language Instruction
-71,Sound recording (audio cassette) (Catalan),Language Lab,ZCS CAT,2,Language Instruction
-72,Sound recording (audio cassette) (Cherokee),Language Lab,ZCS CHR,4,Language Instruction
-73,Sound recording (audio cassette) (Cheyenne),Language Lab,ZCS CHY,3,Language Instruction
-74,Sound recording (audio cassette) (Chinese),Language Lab,ZCS CHI,13,Language Instruction
-75,Sound recording (audio cassette) (Chickasaw),Language Lab,ZCS CHC,2,Language Instruction
-76,Sound recording (audio cassette) (Chinook jargon),Language Lab,ZCS CHN,3,Language Instruction
-77,Sound recording (audio cassette) (Choctaw),Language Lab,ZCS CHO,2,Language Instruction
-78,Sound recording (audio cassette) (Cree),Language Lab,ZCS CRE,2,Language Instruction
-79,Sound recording (audio cassette) (Creoles & pidgins (English)),Language Lab,ZCS CPE,14,Language Instruction
-80,Sound recording (audio cassette) (Creoles & pidgins (French)),Language Lab,ZCS CPF,15,Language Instruction
-81,Sound recording (audio cassette) (Creoles & pidgins (other)),Language Lab,ZCS CRP,2,Language Instruction
-82,Sound recording (audio cassette) (Czech),Language Lab,ZCS CZE,13,Language Instruction
-83,Sound recording (audio cassette) (Danish),Language Lab,ZCS DAN,2,Language Instruction
-84,Sound recording (audio cassette) (Delaware),Language Lab,ZCS DEL,2,Language Instruction
-85,Sound recording (audio cassette) (English),Language Lab,ZCS ENG,73,Language Instruction
-86,Sound recording (audio cassette) (Estonian),Language Lab,ZCS EST,2,Language Instruction
-87,Sound recording (audio cassette) (Finnish),Language Lab,ZCS FIN,2,Language Instruction
-88,Sound recording (audio cassette) (French.),Language Lab,ZCS FRE,23,Language Instruction
-89,Sound recording (audio cassette) (German),Language Lab,ZCS GER,14,Language Instruction
-90,Sound recording (audio cassette) (Greek),Language Lab,ZCS GRE,2,Language Instruction
-91,Sound recording (audio cassette) (Gujarati),Language Lab,ZCS GUJ,4,Language Instruction
-92,Sound recording (audio cassette) (Hausa),Language Lab,ZCS HAU,3,Language Instruction
-93,Sound recording (audio cassette) (Hawaiian),Language Lab,ZCS HAW,3,Language Instruction
-94,Sound recording (audio cassette) (Hebrew),Language Lab,ZCS HEB,7,Language Instruction
-95,Sound recording (audio cassette) (Hindi),Language Lab,ZCS HIN,3,Language Instruction
-96,Sound recording (audio cassette) (Hiri Motu),Language Lab,ZCS HMO,6,Language Instruction
-97,Sound recording (audio cassette) (Hungarian),Language Lab,ZCS HUN,4,Language Instruction
-98,Sound recording (audio cassette) (Indonesian),Language Lab,ZCS IND,6,Language Instruction
-99,Sound recording (audio cassette) (Irish (Gaelic)),Language Lab,ZCS IRI,2,Language Instruction
-100,Sound recording (audio cassette) (Italian),Language Lab,ZCS ITA,14,Language Instruction
-101,Sound recording (audio cassette) (Japanese),Language Lab,ZCS JPN,7,Language Instruction
-102,Sound recording (audio cassette) (Javanese (Indonesian)),Language Lab,ZCS JAV,6,Language Instruction
-103,Sound recording (audio cassette) (Jicarilla),Language Lab,ZCS JIC,2,Language Instruction
-104,Sound recording (audio cassette) (Korean),Language Lab,ZCS KOR,5,Language Instruction
-105,Sound recording (audio cassette) (Lakota),Language Lab,ZCS LAK,5,Language Instruction
-106,Sound recording (audio cassette) (Lithuanian),Language Lab,ZCS LIT,2,Language Instruction
-107,Sound recording (audio cassette) (Manx),Language Lab,ZCS MAX,2,Language Instruction
-108,Sound recording (audio cassette) (Malay),Language Lab,ZCS MAY,3,Language Instruction
-109,Sound recording (audio cassette) (Mayan),Language Lab,ZCS MYN,5,Language Instruction
-110,Sound recording (audio cassette) (Mohawk),Language Lab,ZCS MOH,2,Language Instruction
-111,Sound recording (audio cassette) (Mori),Language Lab,ZCS MOS,2,Language Instruction
-112,Sound recording (audio cassette) (Navajo),Language Lab,ZCS NAV,5,Language Instruction
-113,Sound recording (audio cassette) (Nepali),Language Lab,ZCS NEP,2,Language Instruction
-114,Sound recording (audio cassette) (Niger-Kordofian (other)),Language Lab,ZCS NIC,4,Language Instruction
-115,Sound recording (audio cassette) (Nilo-Saharan (other African)),Language Lab,ZCS SSA,3,Language Instruction
-116,Sound recording (audio cassette) (Norwegian),Language Lab,ZCS NOR,5,Language Instruction
-117,Sound recording (audio cassette) (Ojibwe),Language Lab,ZCS OJI,5,Language Instruction
-118,Sound recording (audio cassette) (Panjabi),Language Lab,ZCS PAN,3,Language Instruction
-119,Sound recording (audio cassette) (Passamaquodoy),Language Lab,ZCS PAS,2,Language Instruction
-120,Sound recording (audio cassette) (Persian (Farsi)),Language Lab,ZCS PER,6,Language Instruction
-121,Sound recording (audio cassette) (Polish),Language Lab,ZCS POL,6,Language Instruction
-122,Sound recording (audio cassette) (Portuguese),Language Lab,ZCS POR,6,Language Instruction
-123,Sound recording (audio cassette) (Quechua),Language Lab,ZCS QUE,8,Language Instruction
-124,Sound recording (audio cassette) (Romance (Other)),Language Lab,ZCS ROA,5,Language Instruction
-125,Sound recording (audio cassette) (Romanian),Language Lab,ZCS RUM,2,Language Instruction
-126,Sound recording (audio cassette) (Russian),Language Lab,ZCS RUS,27,Language Instruction
-127,Sound recording (audio cassette) (South American Indian (other)),Language Lab,ZCS SAI,3,Language Instruction
-128,Sound recording (audio cassette) (Salish),Language Lab,ZCS SAL,3,Language Instruction
-129,Sound recording (audio cassette) (Sanskrit),Language Lab,ZCS SAN,3,Language Instruction
-130,Sound recording (audio cassette) (Samoan),Language Lab,ZCS SAO,3,Language Instruction
-131,Sound recording (audio cassette) (Serbo-Croatian),Language Lab,ZCS SCR,4,Language Instruction
-132,Sound recording (audio cassette) (Shona),Language Lab,ZCS SHO,4,Language Instruction
-133,Sound recording (audio cassette) (Sioux language),Language Lab,ZCS SIO,2,Language Instruction
-134,Sound recording (audio cassette) (Sino-Tibetan (other)),Language Lab,ZCS SIT,4,Language Instruction
-135,Sound recording (audio cassette) (Slovenian),Language Lab,ZCS SLV,3,Language Instruction
-136,Sound recording (audio cassette) (Sinhalese & Sri Lankan),Language Lab,ZCS SNH,3,Language Instruction
-137,Sound recording (audio cassette) (Spanish),Language Lab,ZCS SPA,22,Language Instruction
-138,Sound recording (audio cassette) (Sundanese (Indonesian)),Language Lab,ZCS SUN,2,Language Instruction
-139,Sound recording (audio cassette) (Swahili),Language Lab,ZCS SWA,4,Language Instruction
-140,Sound recording (audio cassette) (Swedish),Language Lab,ZCS SWE,3,Language Instruction
-141,Sound recording (audio cassette) (Tagalog),Language Lab,ZCS TAG,3,Language Instruction
-142,Sound recording (audio cassette) (Tamil),Language Lab,ZCS TAM,2,Language Instruction
-143,Sound recording (audio cassette) (Telugu),Language Lab,ZCS TEL,3,Language Instruction
-144,Sound recording (audio cassette) (Thai),Language Lab,ZCS THA,6,Language Instruction
-145,Sound recording (audio cassette) (Tibetan),Language Lab,ZCS TIB,2,Language Instruction
-146,Sound recording (audio cassette) (Tlingit),Language Lab,ZCS TLI,2,Language Instruction
-147,Sound recording (audio cassette) (Turkish),Language Lab,ZCS TUR,2,Language Instruction
-148,Sound recording (audio cassette) (Twi),Language Lab,ZCS TWI,4,Language Instruction
-149,Sound recording (audio cassette) (Urdu),Language Lab,ZCS URD,4,Language Instruction
-150,Sound recording (audio cassette) (Ukranian),Language Lab,ZCS UKR,2,Language Instruction
-151,Sound recording (audio cassette) (Uzbek),Language Lab,ZCS UZB,2,Language Instruction
-152,Sound recording (audio cassette) (Vietnamese),Language Lab,ZCS VIE,5,Language Instruction
-153,Sound recording (audio cassette) (Welsh),Language Lab,ZCS WEL,3,Language Instruction
-154,Sound recording (audio cassette) (Xhosa),Language Lab,ZCS XHO,2,Language Instruction
-155,Sound recording (audio cassette) (Yiddish),Language Lab,ZCS YID,4,Language Instruction
-156,Sound recording (audio cassette) (Yoruba),Language Lab,ZCS YOR,6,Language Instruction
-157,Sound recording (audio cassette) (Zulu),Language Lab,ZCS ZUL,3,Language Instruction
-158,Microprint,Any (except music),MPRINT,44,Microforms
-159,Dictionary (English),Language Lab,DICT ENG,7,Language Instruction
-160,CD-ROM (4.75 in.),ADS,ADS CD,1,
-161,DVD or Blu-Ray or 4K ultra HD,Media-Microtext or SAL3,ZDVD,49077,Visual Materials
-162,Dictionary (Danish),Language Lab,DICT DAN,2,Language Instruction
-163,Dictionary (Latin),Language Lab,DICT LAT,4,Language Instruction
-164,Dictionary (Swahili),Language Lab,DICT SWA,2,Language Instruction
-165,Sound recording (audio cassette) (Gaelic (Scots)),Language Lab,ZCS GAE,6,Language Instruction
+35,Non-networked electronic media (except 12-in laser discs),Media-Microtext or SAL3,ZMS,4661,Electronic Resources
+161,DVD or Blu-Ray or 4K ultra HD,Media-Microtext or SAL3,ZDVD,49085,Visual Materials
 166,DVD,Music Library,MDVD,2475,Visual Materials
-167,Dictionary (Icelandic),Language Lab,DICT ICE,1,Language Instruction
-168,Sound recording (Icelandic),Language Lab,ZCS ICE,3,Language Instruction
-169,Sound recording (audio cassette) (Bambara),Language Lab,ZCS BAM,5,Language Instruction
 170,DVD,Art Library,ARTDVD,920,Visual Materials
-171,Videocassette (VHS) ,Art Library,ARTVC,38,Visual Materials
-172,Sound recording (compact disc),Art Library,ARTCD,44,Sound Recordings
 173,CD-ROM or other physical electronic media,Art Library,ARTCDR,186,Electronic Resources
-174,DVD,Science Branches (excluding Branner),ZYD,3,
 175,CD or SACD,Archive of Recorded Sound,ACD,2256,Sound Recordings
 176,CD-ROM or other physical electronic media,Archive of Recorded Sound,ACDI,28,Electronic Resources
 177,DVD,Archive of Recorded Sound,ADVD,17,Visual Materials
-178,Sound recording (audio cassette) (Chewa (Nyanga)),Language Lab,ZCS NYA,1,Language Instruction
-179,Sound recording (audio cassette) (Iloko),Language Lab,ZCS ILO,1,Language Instruction
-180,Sound recording (audio cassette) (Kongo),Language Lab,ZCS KON,1,Language Instruction
-181,Sound recording (audio cassette) (Mongolian),Language Lab,ZCS MON,1,Language Instruction
-182,Sound recording (audio cassette) (Pampanga),Language Lab,ZCS PAM,1,Language Instruction
-183,Sound recording (audio cassette) (Romani),Language Lab,ZCS ROM,1,Language Instruction
-184,Sound recording (audio cassette) (Shoshoni),Language Lab,ZCS CAI,1,Language Instruction
 185,GIFT CD,Music Library,MCD,82359,Sound Recordings
 186,Memorial Library of Music,Special Collections,MLM,2184,Other
