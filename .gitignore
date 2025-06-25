@@ -31,3 +31,9 @@ dump.rdb
 
 public/uploads/**/*
 public/tmp/
+
+/config/master.key
+
+/config/credentials/development.key
+
+/config/credentials/production.key

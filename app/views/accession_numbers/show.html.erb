@@ -28,12 +28,8 @@
 
 </p>
 
-<% if /A/ === current_user.accession_number %>
 <%= link_to 'Edit', edit_accession_number_path(@accession_number), class: 'btn btn-md btn-default btn-full' %>
-<% end %>
-<%= link_to 'Back', :back, class: 'btn btn-md btn-default btn-full' %>
 
 <div class="btn-group">
-  <%= main_menu_button %>
   <%= accession_menu_button %>
 </div>

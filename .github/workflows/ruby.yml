@@ -14,32 +14,16 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7.1
-    - name: Install FreeTDS for LobbyTrack Tests
-      run: |
-        sudo tar -xzf lib/assets/freetds_1.1.6.orig.tar.gz
-        cd freetds-1.1.6
-        sudo ./configure --prefix=/usr/local --with-tdsver=7.3
-        sudo make
-        sudo make install
-        cd ..
-    - name: Install activerecord-oracle_enhanced-adapter gem
-      run: gem install activerecord-oracle_enhanced-adapter -v 5.2.8
+        ruby-version: '3.3.5'
     - name: Install dependencies
       run: |
         bundle config set --local without 'production'
         bundle install
-    - name: Setup file directories for tests
-      run: |
-        mkdir -p tmp/Dataload/EndowRpt
-        mkdir -p tmp/Dataload/BookplateMerge/Batches/Queue
-        mkdir -p tmp/Dataload/UserloadRerun
-        mkdir -p tmp/Dataload/ILLiadUserExport
-        mkdir -p tmp/Libsys_webforms/sal3_batch_requests_batch/bc_file
     - name: Set time zone for tests
       run: sudo timedatectl set-timezone America/Los_Angeles
-    - name: Run tests
+    - name: Setup database
       run: |
         RAILS_ENV=test bundle exec rake db:test:prepare
-        RAILS_ENV=test bundle exec rake db:seed
+    - name: Run tests
+      run: |
         bundle exec rake spec

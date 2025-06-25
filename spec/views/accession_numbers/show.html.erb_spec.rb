@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'accession_numbers/show' do
   before do
-    stub_current_user_for_view { create(:authorized_user) }
     @accession_number = assign(:accession_number, AccessionNumber.create!(
                                                     resource_type: 'Type of resource',
                                                     item_type: 'Type of material',
@@ -35,6 +34,6 @@ RSpec.describe 'accession_numbers/show' do
   end
 
   it 'has a link back to the accession number menu' do
-    assert_select 'a', text: 'Accession number menu'.to_s, href: '/accession_number_updates'.to_s
+    assert_select 'a', text: 'Back', href: '/accession_number_updates'
   end
 end

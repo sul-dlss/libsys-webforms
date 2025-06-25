@@ -1,0 +1,1131 @@
+/*
+  Styles for SulStyles Styleguide
+*/
+/*
+  Stanford Web Colors
+  from https://identity.stanford.edu/web-toolkit/color.html
+*/
+/*
+  Stanford Primary Colors
+  from https://identity.stanford.edu/overview/color.html
+*/
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+/* line 1, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#su-content {
+  padding-bottom: 200px !important;
+}
+
+/* line 5, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer-container {
+  background-color: #f2f1eb;
+  border-top: 1px solid #e9e6df;
+  -webkit-box-shadow: 0 4px 8px -8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 4px 8px -8px rgba(0, 0, 0, 0.2) inset;
+  clear: both;
+  margin-top: -200px;
+  min-height: 200px;
+  padding: 0 !important;
+  position: relative;
+}
+
+/* line 17, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer {
+  display: table;
+  font-size: small;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* line 24, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+/* line 29, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer li {
+  display: inline;
+  margin: 0 13px 3px 0;
+  padding: 0;
+}
+
+/* line 34, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer li a {
+  color: #2e2d29;
+  white-space: nowrap;
+}
+
+/* line 39, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer li a,
+#sul-footer li a:hover,
+#sul-footer li a:focus {
+  border-bottom: 1px dotted #8a887d;
+  text-decoration: none;
+}
+
+/* line 48, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 162px;
+}
+
+/* line 54, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+#sul-footer-links {
+  display: table-cell;
+  padding-left: 15px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+@media (min-width: 768px) {
+  /* line 62, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+  #sul-footer {
+    width: 750px;
+  }
+}
+
+@media (min-width: 980px) {
+  /* line 68, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+  #sul-footer {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* line 74, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-styles/sul_footer.scss */
+  #sul-footer {
+    width: 1170px;
+  }
+}
+
+@font-face {
+  font-family: "sul-icons";
+  src: url(/assets/sul-icons-214b4223d7c41cefbee466f3a077b386a0add006fa98198ec3c94fe92b172957.eot);
+  src: url(/assets/sul-icons-214b4223d7c41cefbee466f3a077b386a0add006fa98198ec3c94fe92b172957.eot?#iefix) format("embedded-opentype"), url(/assets/sul-icons-62dafa58d31fdc7320710ce2e45fa64645090d6f57e34cc60dc6d5d6e4d28f73.woff) format("woff"), url(/assets/sul-icons-b7d6824b48b3f0a704669429d31ac74f4064f449b80654acb85bf1039f503d27.ttf) format("truetype"), url(/assets/sul-icons-ca1b67a0ebefc9b05b5de5fa9eb8329089957393092b4dd11876fb9ad57db93d.svg#sul-icons) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "sul-icons";
+    src: url(/assets/sul-icons-ca1b67a0ebefc9b05b5de5fa9eb8329089957393092b4dd11876fb9ad57db93d.svg#sul-icons) format("svg");
+  }
+}
+
+/* line 23, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+[data-icon]:before {
+  content: attr(data-icon);
+}
+
+/* line 25, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+[data-icon]:before,
+.sul-i-arrow-down-8:before,
+.sul-i-arrow-left-3:before,
+.sul-i-arrow-left-8:before,
+.sul-i-arrow-right-3:before,
+.sul-i-arrow-right-8:before,
+.sul-i-arrow-up-8:before,
+.sul-i-book-open-4:before,
+.sul-i-bookmark-all-1:before,
+.sul-i-books-library:before,
+.sul-i-box-1:before,
+.sul-i-bubble-chat-2:before,
+.sul-i-camera-film-1:before,
+.sul-i-check-2:before,
+.sul-i-check-box-1:before,
+.sul-i-close:before,
+.sul-i-cube:before,
+.sul-i-download-3:before,
+.sul-i-download:before,
+.sul-i-email:before,
+.sul-i-expand-1:before,
+.sul-i-fullscreen:before,
+.sul-i-expand:before,
+.sul-i-file-acrobat:before,
+.sul-i-file-code-1:before,
+.sul-i-file-excel:before,
+.sul-i-file-music-1:before,
+.sul-i-file-new-1:before,
+.sul-i-file-picture:before,
+.sul-i-file-powerpoint:before,
+.sul-i-file-text-document:before,
+.sul-i-file-video-3:before,
+.sul-i-file-words:before,
+.sul-i-file-zipped:before,
+.sul-i-graph-bar-2:before,
+.sul-i-infomation-circle:before,
+.sul-i-info:before,
+.sul-i-key-2:before,
+.sul-i-layout-4:before,
+.sul-i-twopage:before,
+.sul-i-layout-none:before,
+.sul-i-singlepage:before,
+.sul-i-link-3:before,
+.sul-i-link:before,
+.sul-i-list-bullets-1:before,
+.sul-i-location-pin-2:before,
+.sul-i-map-pin-1:before,
+.sul-i-microphone-3:before,
+.sul-i-mobile-phone-2:before,
+.sul-i-mouse:before,
+.sul-i-navigation-drawer-1:before,
+.sul-i-navigation-drawer-2:before,
+.sul-i-navigation-left-2:before,
+.sul-i-navigation-next-4:before,
+.sul-i-navigation-show-more-1:before,
+.sul-i-network-web:before,
+.sul-i-news-article:before,
+.sul-i-newspaper:before,
+.sul-i-notebook:before,
+.sul-i-person-1:before,
+.sul-i-person-information-1:before,
+.sul-i-picture-2:before,
+.sul-i-plug-1:before,
+.sul-i-print-text:before,
+.sul-i-quote-1:before,
+.sul-i-remove-2:before,
+.sul-i-search:before,
+.sul-i-share:before,
+.sul-i-transfer-3:before,
+.sul-i-truck-1:before,
+.sul-i-turntable:before,
+.sul-i-view-headline:before,
+.sul-i-view-list:before,
+.sul-i-view-module-1:before,
+.sul-i-gallery:before,
+.sul-i-window-search:before,
+.sul-i-zoom-in:before {
+  display: inline-block;
+  font-family: "sul-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+/* line 108, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-arrow-down-8:before {
+  content: "\f13e";
+}
+
+/* line 109, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-arrow-left-3:before {
+  content: "\f108";
+}
+
+/* line 110, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-arrow-left-8:before {
+  content: "\f109";
+}
+
+/* line 111, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-arrow-right-3:before {
+  content: "\f10a";
+}
+
+/* line 112, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-arrow-right-8:before {
+  content: "\f10b";
+}
+
+/* line 113, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-arrow-up-8:before {
+  content: "\f13f";
+}
+
+/* line 114, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-book-open-4:before {
+  content: "\f10c";
+}
+
+/* line 115, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-bookmark-all-1:before {
+  content: "\f10d";
+}
+
+/* line 116, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-books-library:before {
+  content: "\f10e";
+}
+
+/* line 117, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-box-1:before {
+  content: "\f10f";
+}
+
+/* line 118, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-bubble-chat-2:before {
+  content: "\f110";
+}
+
+/* line 119, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-camera-film-1:before {
+  content: "\f111";
+}
+
+/* line 120, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-check-2:before {
+  content: "\f143";
+}
+
+/* line 121, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-check-box-1:before {
+  content: "\f112";
+}
+
+/* line 122, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-close:before {
+  content: "\f141";
+}
+
+/* line 123, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-cube:before {
+  content: "\f113";
+}
+
+/* line 124, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-download-3:before, .sul-i-download:before {
+  content: "\f106";
+}
+
+/* line 125, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-email:before {
+  content: "\f114";
+}
+
+/* line 126, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-expand-1:before, .sul-i-fullscreen:before, .sul-i-expand:before {
+  content: "\f115";
+}
+
+/* line 127, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-acrobat:before {
+  content: "\f13a";
+}
+
+/* line 128, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-code-1:before {
+  content: "\f137";
+}
+
+/* line 129, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-excel:before {
+  content: "\f13b";
+}
+
+/* line 130, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-music-1:before {
+  content: "\f116";
+}
+
+/* line 131, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-new-1:before {
+  content: "\f140";
+}
+
+/* line 132, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-picture:before {
+  content: "\f136";
+}
+
+/* line 133, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-powerpoint:before {
+  content: "\f13d";
+}
+
+/* line 134, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-text-document:before {
+  content: "\f139";
+}
+
+/* line 135, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-video-3:before {
+  content: "\f138";
+}
+
+/* line 136, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-words:before {
+  content: "\f13c";
+}
+
+/* line 137, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-file-zipped:before {
+  content: "\f134";
+}
+
+/* line 138, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-graph-bar-2:before {
+  content: "\f117";
+}
+
+/* line 139, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-infomation-circle:before, .sul-i-info:before {
+  content: "\f104";
+}
+
+/* line 140, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-key-2:before {
+  content: "\f118";
+}
+
+/* line 141, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-layout-4:before, .sul-i-twopage:before {
+  content: "\f119";
+}
+
+/* line 142, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-layout-none:before, .sul-i-singlepage:before {
+  content: "\f11a";
+}
+
+/* line 143, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-link-3:before, .sul-i-link:before {
+  content: "\f107";
+}
+
+/* line 144, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-list-bullets-1:before {
+  content: "\f11b";
+}
+
+/* line 145, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-location-pin-2:before {
+  content: "\f147";
+}
+
+/* line 146, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-map-pin-1:before {
+  content: "\f11c";
+}
+
+/* line 147, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-microphone-3:before {
+  content: "\f11d";
+}
+
+/* line 148, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-mobile-phone-2:before {
+  content: "\f11e";
+}
+
+/* line 149, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-mouse:before {
+  content: "\f11f";
+}
+
+/* line 150, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-navigation-drawer-1:before {
+  content: "\f120";
+}
+
+/* line 151, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-navigation-drawer-2:before {
+  content: "\f121";
+}
+
+/* line 152, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-navigation-left-2:before {
+  content: "\f122";
+}
+
+/* line 153, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-navigation-next-4:before {
+  content: "\f142";
+}
+
+/* line 154, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-navigation-show-more-1:before {
+  content: "\f146";
+}
+
+/* line 155, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-network-web:before {
+  content: "\f123";
+}
+
+/* line 156, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-news-article:before {
+  content: "\f124";
+}
+
+/* line 157, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-newspaper:before {
+  content: "\f125";
+}
+
+/* line 158, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-notebook:before {
+  content: "\f126";
+}
+
+/* line 159, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-person-1:before {
+  content: "\f127";
+}
+
+/* line 160, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-person-information-1:before {
+  content: "\f128";
+}
+
+/* line 161, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-picture-2:before {
+  content: "\f129";
+}
+
+/* line 162, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-plug-1:before {
+  content: "\f12a";
+}
+
+/* line 163, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-print-text:before {
+  content: "\f12b";
+}
+
+/* line 164, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-quote-1:before {
+  content: "\f12c";
+}
+
+/* line 165, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-remove-2:before {
+  content: "\f144";
+}
+
+/* line 166, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-search:before {
+  content: "\f12d";
+}
+
+/* line 167, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-share:before {
+  content: "\f105";
+}
+
+/* line 168, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-transfer-3:before {
+  content: "\f12e";
+}
+
+/* line 169, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-truck-1:before {
+  content: "\f145";
+}
+
+/* line 170, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-turntable:before {
+  content: "\f12f";
+}
+
+/* line 171, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-view-headline:before {
+  content: "\f130";
+}
+
+/* line 172, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-view-list:before {
+  content: "\f131";
+}
+
+/* line 173, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-view-module-1:before, .sul-i-gallery:before {
+  content: "\f102";
+}
+
+/* line 174, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-window-search:before {
+  content: "\f132";
+}
+
+/* line 175, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons-rails.scss */
+.sul-i-zoom-in:before {
+  content: "\f133";
+}
+
+@font-face {
+  font-family: "sul-icons";
+  src: url(/assets/sul-icons-214b4223d7c41cefbee466f3a077b386a0add006fa98198ec3c94fe92b172957.eot);
+  src: url(/assets/sul-icons-214b4223d7c41cefbee466f3a077b386a0add006fa98198ec3c94fe92b172957.eot?#iefix) format("embedded-opentype"), url(/assets/sul-icons-62dafa58d31fdc7320710ce2e45fa64645090d6f57e34cc60dc6d5d6e4d28f73.woff) format("woff"), url(/assets/sul-icons-b7d6824b48b3f0a704669429d31ac74f4064f449b80654acb85bf1039f503d27.ttf) format("truetype"), url(/assets/sul-icons-ca1b67a0ebefc9b05b5de5fa9eb8329089957393092b4dd11876fb9ad57db93d.svg#sul-icons) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "sul-icons";
+    src: url(/assets/sul-icons-ca1b67a0ebefc9b05b5de5fa9eb8329089957393092b4dd11876fb9ad57db93d.svg#sul-icons) format("svg");
+  }
+}
+
+/* line 23, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+[data-icon]:before {
+  content: attr(data-icon);
+}
+
+/* line 25, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+[data-icon]:before,
+.sul-i-arrow-down-8:before,
+.sul-i-arrow-left-3:before,
+.sul-i-arrow-left-8:before,
+.sul-i-arrow-right-3:before,
+.sul-i-arrow-right-8:before,
+.sul-i-arrow-up-8:before,
+.sul-i-book-open-4:before,
+.sul-i-bookmark-all-1:before,
+.sul-i-books-library:before,
+.sul-i-box-1:before,
+.sul-i-bubble-chat-2:before,
+.sul-i-camera-film-1:before,
+.sul-i-check-2:before,
+.sul-i-check-box-1:before,
+.sul-i-close:before,
+.sul-i-cube:before,
+.sul-i-download-3:before,
+.sul-i-download:before,
+.sul-i-email:before,
+.sul-i-expand-1:before,
+.sul-i-fullscreen:before,
+.sul-i-expand:before,
+.sul-i-file-acrobat:before,
+.sul-i-file-code-1:before,
+.sul-i-file-excel:before,
+.sul-i-file-music-1:before,
+.sul-i-file-new-1:before,
+.sul-i-file-picture:before,
+.sul-i-file-powerpoint:before,
+.sul-i-file-text-document:before,
+.sul-i-file-video-3:before,
+.sul-i-file-words:before,
+.sul-i-file-zipped:before,
+.sul-i-graph-bar-2:before,
+.sul-i-infomation-circle:before,
+.sul-i-info:before,
+.sul-i-key-2:before,
+.sul-i-layout-4:before,
+.sul-i-twopage:before,
+.sul-i-layout-none:before,
+.sul-i-singlepage:before,
+.sul-i-link-3:before,
+.sul-i-link:before,
+.sul-i-list-bullets-1:before,
+.sul-i-location-pin-2:before,
+.sul-i-map-pin-1:before,
+.sul-i-microphone-3:before,
+.sul-i-mobile-phone-2:before,
+.sul-i-mouse:before,
+.sul-i-navigation-drawer-1:before,
+.sul-i-navigation-drawer-2:before,
+.sul-i-navigation-left-2:before,
+.sul-i-navigation-next-4:before,
+.sul-i-navigation-show-more-1:before,
+.sul-i-network-web:before,
+.sul-i-news-article:before,
+.sul-i-newspaper:before,
+.sul-i-notebook:before,
+.sul-i-person-1:before,
+.sul-i-person-information-1:before,
+.sul-i-picture-2:before,
+.sul-i-plug-1:before,
+.sul-i-print-text:before,
+.sul-i-quote-1:before,
+.sul-i-remove-2:before,
+.sul-i-search:before,
+.sul-i-share:before,
+.sul-i-transfer-3:before,
+.sul-i-truck-1:before,
+.sul-i-turntable:before,
+.sul-i-view-headline:before,
+.sul-i-view-list:before,
+.sul-i-view-module-1:before,
+.sul-i-gallery:before,
+.sul-i-window-search:before,
+.sul-i-zoom-in:before {
+  display: inline-block;
+  font-family: "sul-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+/* line 108, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-arrow-down-8:before {
+  content: "\f13e";
+}
+
+/* line 109, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-arrow-left-3:before {
+  content: "\f108";
+}
+
+/* line 110, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-arrow-left-8:before {
+  content: "\f109";
+}
+
+/* line 111, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-arrow-right-3:before {
+  content: "\f10a";
+}
+
+/* line 112, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-arrow-right-8:before {
+  content: "\f10b";
+}
+
+/* line 113, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-arrow-up-8:before {
+  content: "\f13f";
+}
+
+/* line 114, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-book-open-4:before {
+  content: "\f10c";
+}
+
+/* line 115, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-bookmark-all-1:before {
+  content: "\f10d";
+}
+
+/* line 116, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-books-library:before {
+  content: "\f10e";
+}
+
+/* line 117, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-box-1:before {
+  content: "\f10f";
+}
+
+/* line 118, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-bubble-chat-2:before {
+  content: "\f110";
+}
+
+/* line 119, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-camera-film-1:before {
+  content: "\f111";
+}
+
+/* line 120, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-check-2:before {
+  content: "\f143";
+}
+
+/* line 121, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-check-box-1:before {
+  content: "\f112";
+}
+
+/* line 122, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-close:before {
+  content: "\f141";
+}
+
+/* line 123, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-cube:before {
+  content: "\f113";
+}
+
+/* line 124, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-download-3:before, .sul-i-download:before {
+  content: "\f106";
+}
+
+/* line 125, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-email:before {
+  content: "\f114";
+}
+
+/* line 126, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-expand-1:before, .sul-i-fullscreen:before, .sul-i-expand:before {
+  content: "\f115";
+}
+
+/* line 127, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-acrobat:before {
+  content: "\f13a";
+}
+
+/* line 128, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-code-1:before {
+  content: "\f137";
+}
+
+/* line 129, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-excel:before {
+  content: "\f13b";
+}
+
+/* line 130, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-music-1:before {
+  content: "\f116";
+}
+
+/* line 131, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-new-1:before {
+  content: "\f140";
+}
+
+/* line 132, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-picture:before {
+  content: "\f136";
+}
+
+/* line 133, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-powerpoint:before {
+  content: "\f13d";
+}
+
+/* line 134, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-text-document:before {
+  content: "\f139";
+}
+
+/* line 135, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-video-3:before {
+  content: "\f138";
+}
+
+/* line 136, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-words:before {
+  content: "\f13c";
+}
+
+/* line 137, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-file-zipped:before {
+  content: "\f134";
+}
+
+/* line 138, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-graph-bar-2:before {
+  content: "\f117";
+}
+
+/* line 139, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-infomation-circle:before, .sul-i-info:before {
+  content: "\f104";
+}
+
+/* line 140, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-key-2:before {
+  content: "\f118";
+}
+
+/* line 141, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-layout-4:before, .sul-i-twopage:before {
+  content: "\f119";
+}
+
+/* line 142, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-layout-none:before, .sul-i-singlepage:before {
+  content: "\f11a";
+}
+
+/* line 143, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-link-3:before, .sul-i-link:before {
+  content: "\f107";
+}
+
+/* line 144, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-list-bullets-1:before {
+  content: "\f11b";
+}
+
+/* line 145, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-location-pin-2:before {
+  content: "\f147";
+}
+
+/* line 146, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-map-pin-1:before {
+  content: "\f11c";
+}
+
+/* line 147, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-microphone-3:before {
+  content: "\f11d";
+}
+
+/* line 148, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-mobile-phone-2:before {
+  content: "\f11e";
+}
+
+/* line 149, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-mouse:before {
+  content: "\f11f";
+}
+
+/* line 150, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-navigation-drawer-1:before {
+  content: "\f120";
+}
+
+/* line 151, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-navigation-drawer-2:before {
+  content: "\f121";
+}
+
+/* line 152, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-navigation-left-2:before {
+  content: "\f122";
+}
+
+/* line 153, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-navigation-next-4:before {
+  content: "\f142";
+}
+
+/* line 154, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-navigation-show-more-1:before {
+  content: "\f146";
+}
+
+/* line 155, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-network-web:before {
+  content: "\f123";
+}
+
+/* line 156, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-news-article:before {
+  content: "\f124";
+}
+
+/* line 157, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-newspaper:before {
+  content: "\f125";
+}
+
+/* line 158, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-notebook:before {
+  content: "\f126";
+}
+
+/* line 159, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-person-1:before {
+  content: "\f127";
+}
+
+/* line 160, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-person-information-1:before {
+  content: "\f128";
+}
+
+/* line 161, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-picture-2:before {
+  content: "\f129";
+}
+
+/* line 162, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-plug-1:before {
+  content: "\f12a";
+}
+
+/* line 163, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-print-text:before {
+  content: "\f12b";
+}
+
+/* line 164, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-quote-1:before {
+  content: "\f12c";
+}
+
+/* line 165, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-remove-2:before {
+  content: "\f144";
+}
+
+/* line 166, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-search:before {
+  content: "\f12d";
+}
+
+/* line 167, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-share:before {
+  content: "\f105";
+}
+
+/* line 168, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-transfer-3:before {
+  content: "\f12e";
+}
+
+/* line 169, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-truck-1:before {
+  content: "\f145";
+}
+
+/* line 170, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-turntable:before {
+  content: "\f12f";
+}
+
+/* line 171, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-view-headline:before {
+  content: "\f130";
+}
+
+/* line 172, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-view-list:before {
+  content: "\f131";
+}
+
+/* line 173, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-view-module-1:before, .sul-i-gallery:before {
+  content: "\f102";
+}
+
+/* line 174, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-window-search:before {
+  content: "\f132";
+}
+
+/* line 175, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../_sul-icons.scss */
+.sul-i-zoom-in:before {
+  content: "\f133";
+}
+
+/* makes the font 33% larger relative to the icon container */
+/* line 7, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+/* line 12, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-2x {
+  font-size: 2em;
+}
+
+/* line 13, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-3x {
+  font-size: 3em;
+}
+
+/* line 14, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-4x {
+  font-size: 4em;
+}
+
+/* line 15, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-5x {
+  font-size: 5em;
+}
+
+/* line 34, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 35, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 36, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* line 38, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/* line 39, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+.sul-i-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 44, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/../sul-icons/_helpers.scss */
+:root .sul-i-rotate-90,
+:root .sul-i-rotate-180,
+:root .sul-i-rotate-270,
+:root .sul-i-flip-horizontal,
+:root .sul-i-flip-vertical {
+  filter: none;
+}
+
+/* line 17, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 20px;
+}
+
+/* line 22, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+.color-sample-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 12px;
+}
+
+/* line 27, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+.color-sample {
+  flex: 0 1 auto;
+  margin: 10px;
+  text-align: center;
+  width: 180px;
+}
+
+/* line 34, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+.color-swatch {
+  height: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 80px;
+}
+
+/* line 41, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+.icon-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 12px;
+}
+
+/* line 46, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+.icon-example-container {
+  flex: 0 1 auto;
+  padding: 12px;
+  text-align: center;
+  width: 180px;
+}
+
+/* line 53, ../../.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/sul_styles-0.7.0/app/assets/stylesheets/styleguide/styleguide.scss */
+.icon-example {
+  color: #585754;
+}

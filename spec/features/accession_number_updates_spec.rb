@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'Accession Number Updates Pages' do
   before do
-    stub_current_user(create(:authorized_user))
     @accession_number = create(:accession_number)
     @zvc_number = create(:zvc_number)
     visit accession_number_updates_path

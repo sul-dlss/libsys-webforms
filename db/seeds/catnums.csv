@@ -1,0 +1,31 @@
+"ID","ITEM_TYPE","LOCATION","PREFIX","SEQ_NUM","RESOURCE_TYPE"
+1,Microfilm,Any (except music),MFILM N.S.,17796,Microforms
+2,Microfiche,Any (except music),MFICHE,3326,Microforms
+6,Videocassette (VHS),Media-Microtext or SAL3,ZVC ,19898,Visual Materials
+7,Laser disc,Media-Microtext or SAL3,ZLSR,901,Visual Materials
+8,Videocassette (U-Matic) ,Media-Microtext or SAL3,ZVU,142,Visual Materials
+10,Archival videocassette (VHS or U-Matic) or Film (16 mm.; any length),Media-Microtext or SAL3,ZVA,1911,
+11,Videocassette (VHS) ,Language Lab,ZVC ,9096,
+16,Videocassette (VHS),Archive of Recorded Sound,AVC,243,Visual Materials
+17,Film (16 mm.) (400 ft. reel; 7 in. canister),Media-Microtext or SAL3,ZFLa,105,
+18,Film (16 mm.) (1200 ft. reel; 12.25 in. canister),Media-Microtext or SAL3,ZFLc,276,
+19,Film (16 mm.) (600 or 800 ft. reels; 9.25 or 10.5 in. canister) ,Media-Microtext or SAL3,ZFLb,206,
+20,Film (16 mm.) (1600 or 2000 ft. reel; 13.75 or 15 in. canister) ,Media-Microtext or SAL3,ZFLd,126,
+22,Filmstrip,Media-Microtext or SAL3,ZFS,32,Visual Materials
+24,Sound recording (compact disc),Media-Microtext or SAL3,ZCD,2969,Sound Recordings
+25,Sound recording (audiocassette),Media-Microtext or SAL3,ZCS,1295,Sound Recordings
+26,Sound recording (12 in. disc),Media-Microtext or SAL3,ZX,5670,Sound Recordings
+27,Sound recording (compact disc),Music Library,MCD,35184,Sound Recordings
+29,Sound recording (12 in. disc),Music Library,MD,12782,Sound Recordings
+30,Sound recording (7 in. disc),Music Library,Md7,158,Sound Recordings
+33,Sound recording (audiocassette),Archive of Recorded Sound,C,2457,Sound Recordings
+35,Non-networked electronic media (except 12-in laser discs),Media-Microtext or SAL3,ZMS,4661,Electronic Resources
+161,DVD or Blu-Ray or 4K ultra HD,Media-Microtext or SAL3,ZDVD,49085,Visual Materials
+166,DVD,Music Library,MDVD,2475,Visual Materials
+170,DVD,Art Library,ARTDVD,920,Visual Materials
+173,CD-ROM or other physical electronic media,Art Library,ARTCDR,186,Electronic Resources
+175,CD or SACD,Archive of Recorded Sound,ACD,2256,Sound Recordings
+176,CD-ROM or other physical electronic media,Archive of Recorded Sound,ACDI,28,Electronic Resources
+177,DVD,Archive of Recorded Sound,ADVD,17,Visual Materials
+185,GIFT CD,Music Library,MCD,82359,Sound Recordings
+186,Memorial Library of Music,Special Collections,MLM,2184,Other

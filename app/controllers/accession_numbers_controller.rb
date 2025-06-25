@@ -1,10 +1,11 @@
+require "net/http"
+
 # Controller to show, create, and edit accession numbers
 class AccessionNumbersController < ApplicationController
-  load_and_authorize_resource
   before_action :set_accession_number, only: %i[show edit update generate_number]
 
   def index
-    @accession_numbers = AccessionNumber.all.order(:resource_type, :location, :prefix)
+    @accession_numbers = AccessionNumber.order(:resource_type, :location, :prefix)
   end
 
   # GET /accession_numbers/1
@@ -52,12 +53,14 @@ class AccessionNumbersController < ApplicationController
   end
 
   # GET /accession_numbers/1/generate_number_form
-  def generate_number_form() end
+  def generate_number_form
+    @accession_number = AccessionNumber.find(params[:id])
+  end
 
   # rubocop:disable Metrics/AbcSize
   # PATCH /accession_numbers/1/generate_number
   def generate_number
-    if check_for_already_assigned_nums(@accession_number.id, @accession_number.seq_num.to_i)
+    if check_for_already_assigned_nums?(@accession_number.id, @accession_number.seq_num.to_i)
       flash[:error] = 'Cannot generate accession number! The next number is already assigned.'
       redirect_to accession_number_updates_path
     else
@@ -83,9 +86,9 @@ class AccessionNumbersController < ApplicationController
     params.require(:accession_number).permit(:item_type, :location, :prefix, :resource_type, :seq_num_incrementer)
   end
 
-  def check_for_already_assigned_nums(id, seq_num)
+  def check_for_already_assigned_nums?(id, seq_num)
     # For catnums.id = "9" seq_num cannot exceed 10100 (ZVC 10101- is already assigned under catnums.id = "6")
-    return true if id == 9 && seq_num >= 10_091
+    true if id == 9 && seq_num >= 10_091
   end
 
   def set_seq_num_batch(seq_num, seq_num_incrementer)
@@ -94,10 +97,8 @@ class AccessionNumbersController < ApplicationController
   end
 
   def list_accession_numbers(seq_num_batch, prefix)
-    generated_numbers = []
-    seq_num_batch.each do |num|
-      generated_numbers << "Your SUL accession number: #{prefix} #{num}"
+    seq_num_batch.map do |num|
+      "Your SUL accession number: #{prefix} #{num}"
     end
-    generated_numbers
   end
 end

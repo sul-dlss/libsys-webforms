@@ -6,8 +6,10 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+
 require 'selenium-webdriver'
-Capybara.server = :webrick
+require 'factory_bot'
+
 Capybara.javascript_driver = :selenium_chrome_headless
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -32,7 +34,7 @@ Capybara.javascript_driver = :selenium_chrome_headless
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = Rails.root.join('spec/fixtures')
+  config.fixture_paths = Rails.root.join('spec/fixtures')
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -58,38 +60,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  config.include Capybara::DSL
+  # config.include Capybara::DSL
   # Use shortcuts from FactoryBot::Syntax::Methods
   config.include FactoryBot::Syntax::Methods
-end
-
-def stub_current_user(user)
-  allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-end
-
-def stub_current_user_for_view(&block)
-  controller.singleton_class.class_exec(block) do
-    helper_method :current_user
-    define_method :current_user do
-      yield(block)
-    end
-  end
-end
-
-def stub_user_id_for_view(&block)
-  controller.singleton_class.class_exec(block) do
-    helper_method :user_id
-    define_method :user_id do
-      yield(block)
-    end
-  end
-end
-
-def stub_webauth_user_for_view(&block)
-  controller.singleton_class.class_exec(block) do
-    helper_method :webauth_user?
-    define_method :webauth_user? do
-      yield(block)
-    end
-  end
 end
