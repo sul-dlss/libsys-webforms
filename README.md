@@ -1,7 +1,7 @@
 [![Build Status](https://github.com/sul-dlss/libsys-webforms/workflows/CI/badge.svg?branch=main)](https://github.com/sul-dlss/libsys-webforms/actions?query=workflow%3ACI+branch%3Amain)
 # Library Systems Webforms App
 
-This is a Rails application to be a front-end for various Symphony reporting & updating tools. Intended to replace the web forms generated from the 'sulohs' servers.
+Accession Number Generator App, formerly a front-end application for various Symphony reporting & updating tools. 
 
 ## Requirements
 1. Ruby (2.1.1 or greater)
