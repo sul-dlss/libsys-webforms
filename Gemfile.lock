@@ -169,7 +169,7 @@ GEM
     ffi (1.17.2-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    honeybadger (5.28.0)
+    honeybadger (6.0.4)
       logger
       ostruct
     i18n (1.14.7)
@@ -234,7 +234,7 @@ GEM
     nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
     okcomputer (1.19.0)
-    ostruct (0.6.1)
+    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.8.0)
       ast (~> 2.4.1)
