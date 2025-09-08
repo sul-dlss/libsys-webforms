@@ -169,7 +169,7 @@ GEM
     ffi (1.17.2-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    honeybadger (6.0.6)
+    honeybadger (6.1.0)
       logger
       ostruct
     i18n (1.14.7)
