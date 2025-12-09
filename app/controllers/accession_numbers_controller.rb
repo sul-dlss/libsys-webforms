@@ -1,4 +1,4 @@
-require "net/http"
+require 'net/http'
 
 # Controller to show, create, and edit accession numbers
 class AccessionNumbersController < ApplicationController
@@ -93,7 +93,7 @@ class AccessionNumbersController < ApplicationController
 
   def set_seq_num_batch(seq_num, seq_num_incrementer)
     last_num = seq_num + seq_num_incrementer
-    (seq_num + 1..last_num)
+    ((seq_num + 1)..last_num)
   end
 
   def list_accession_numbers(seq_num_batch, prefix)
