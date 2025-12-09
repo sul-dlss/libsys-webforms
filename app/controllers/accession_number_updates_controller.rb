@@ -1,18 +1,18 @@
 # Controller to handle the Accession Number Generator landing page
 class AccessionNumberUpdatesController < ApplicationController
   def index
-    @locations = AccessionNumber.select('location').distinct.where.not(resource_type: [nil]).order('location ASC')
+    @locations = AccessionNumber.select('location').distinct.where.not(resource_type: [nil]).order(:location)
     @resource_types = AccessionNumber.select('resource_type').distinct.where.not(resource_type: [nil])
-                                     .order('resource_type ASC')
+                                     .order(:resource_type)
   end
 
   def by_location
     @location = AccessionNumber.where('location = ? AND resource_type IS NOT ?', location_params[:location], nil)
-                               .order('resource_type')
+                               .order(:resource_type)
   end
 
   def by_resource_type
-    @resource_type = AccessionNumber.where(resource_type: resource_type_params[:resource_type]).order('location')
+    @resource_type = AccessionNumber.where(resource_type: resource_type_params[:resource_type]).order(:location)
   end
 
   private
