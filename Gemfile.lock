@@ -135,7 +135,7 @@ GEM
       thor (>= 0.19.4, < 2.0)
       tins (~> 1.6)
     crass (1.0.6)
-    date (3.4.1)
+    date (3.5.1)
     deep_merge (1.2.2)
     diff-lcs (1.6.2)
     dlss-capistrano (6.1.1)
@@ -147,7 +147,7 @@ GEM
     docile (1.4.1)
     drb (2.2.3)
     ed25519 (1.4.0)
-    erb (5.0.2)
+    erb (6.0.2)
     erubi (1.13.1)
     execjs (2.10.0)
     factory_bot (6.5.5)
@@ -170,15 +170,16 @@ GEM
       ostruct
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
-    io-console (0.8.1)
-    irb (1.15.2)
+    io-console (0.8.2)
+    irb (1.17.0)
       pp (>= 0.6.0)
+      prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
-    jquery-rails (4.6.0)
+    jquery-rails (4.6.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -241,11 +242,11 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
-    pp (0.6.2)
+    pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
     prism (1.9.0)
-    psych (5.2.6)
+    psych (5.3.1)
       date
       stringio
     public_suffix (7.0.5)
@@ -258,7 +259,7 @@ GEM
       rack (>= 3.0.0)
     rack-test (2.2.0)
       rack (>= 1.3)
-    rackup (2.2.1)
+    rackup (2.3.1)
       rack (>= 3)
     rails (7.2.3.1)
       actioncable (= 7.2.3.1)
@@ -300,11 +301,12 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rdoc (6.14.2)
+    rdoc (7.2.0)
       erb
       psych (>= 4.0.0)
+      tsort
     regexp_parser (2.11.3)
-    reline (0.6.2)
+    reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
     rspec-core (3.13.5)
@@ -414,7 +416,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    stringio (3.1.7)
+    stringio (3.2.0)
     sul_styles (0.7.0)
       rails (>= 4.1, < 8)
     sync (0.5.0)
@@ -447,7 +449,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.7.3)
+    zeitwerk (2.7.5)
 
 PLATFORMS
   aarch64-linux-gnu
