@@ -1,12 +1,5 @@
 @import 'bootstrap-sprockets';
-@import 'sul-styles';
 @import 'variables';
 @import 'bootstrap';
 @import 'home';
 @import 'layout';
-
-// Imports sul-icons
-@import 'sul-icons-rails';
-@import 'sul-icons-aliases';
-// Helper classes used in icons
-// @import 'sul-icons/helpers';
