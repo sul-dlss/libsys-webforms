@@ -7,3 +7,4 @@ Rails.application.config.assets.version = '1.0'
 # See: https://github.com/rails/sprockets/blob/master/UPGRADING.md
 
 Rails.application.config.assets.precompile += %w( accession_number_updates.js )
+Rails.application.config.assets.precompile += %w( accession_numbers.js )
