@@ -5,3 +5,5 @@ Rails.application.config.assets.version = '1.0'
 
 # If you are using Sprockets 4, Rails changes it's default logic for determining top-level targets. It will now use only a file at ./app/assets/config/manifest.js
 # See: https://github.com/rails/sprockets/blob/master/UPGRADING.md
+
+Rails.application.config.assets.precompile += %w( accession_number_updates.js )
