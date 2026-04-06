@@ -28,7 +28,7 @@ gem 'puma'
 # Provides a clear syntax for writing and deploying cron jobs.
 gem 'whenever'
 # Pin sprockets to 3.7.5 to avoid issues with the latest version of sprockets
-gem 'sprockets', '3.7.5'
+gem 'sprockets', '4.2.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debug console
