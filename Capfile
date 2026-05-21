@@ -12,8 +12,6 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'dlss/capistrano'
 require 'capistrano/passenger'
-require 'capistrano/shared_configs'
-require 'capistrano/honeybadger'
 require 'capistrano/bundler'
 
 require 'whenever/capistrano'
