@@ -67,5 +67,5 @@ group :deployment do
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
-  gem 'dlss-capistrano'
+  gem 'capistrano-one_time_key'
 end
