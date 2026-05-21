@@ -21,7 +21,6 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # Default value for keep_releases is 5
 set :keep_releases, 3
 
-# before 'deploy:restart', 'shared_configs:update'
 after 'deploy:updated', 'database:write_crontab'
 
 namespace :database do
