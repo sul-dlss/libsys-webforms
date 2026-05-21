@@ -10,10 +10,8 @@ require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 
 require 'capistrano/rails'
-require 'dlss/capistrano'
+require 'capistrano/one_time_key'
 require 'capistrano/passenger'
-require 'capistrano/shared_configs'
-require 'capistrano/honeybadger'
 require 'capistrano/bundler'
 
 require 'whenever/capistrano'

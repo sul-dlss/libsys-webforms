@@ -14,14 +14,13 @@ set :log_level, :info
 set :passenger_restart_with_touch, false # Note that `nil` is NOT the same as `false` here
 
 # Default value for :linked_files is []
-set :linked_files, %w(config/secrets.yml config/honeybadger.yml log/cron.log)
+set :linked_files, %w(log/cron.log)
 # Default value for linked_dirs is []
-set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings db)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads db)
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
 
-before 'deploy:restart', 'shared_configs:update'
 after 'deploy:updated', 'database:write_crontab'
 
 namespace :database do

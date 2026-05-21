@@ -21,8 +21,6 @@ gem 'jquery-rails'
 gem 'config'
 # Use okcomputer to set up checks to monitor
 gem 'okcomputer'
-# For exception reporting
-gem 'honeybadger'
 # HTTP 1.1 server for Ruby/Rack applications.
 gem 'puma'
 # Provides a clear syntax for writing and deploying cron jobs.
@@ -69,5 +67,5 @@ group :deployment do
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
-  gem 'dlss-capistrano'
+  gem 'capistrano-one_time_key'
 end
