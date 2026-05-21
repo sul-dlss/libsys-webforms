@@ -19,9 +19,9 @@ set :linked_files, %w(log/cron.log)
 set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads db)
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
 
-before 'deploy:restart', 'shared_configs:update'
+# before 'deploy:restart', 'shared_configs:update'
 after 'deploy:updated', 'database:write_crontab'
 
 namespace :database do
